@@ -1,2 +1,132 @@
-# jvm-energy-consumption
-Measure the energy consumption
+# JVM Energy Consumption
+
+This repository contains different Java Virtual Machine (JVM) benchmarks to measure the energy consumption under different loads and with different available off-the-shelf applications.
+
+## Content
+
+- [Intro](#intro)
+- [Prerequisites](#prerequisites)
+- [Measurements](#measurements)
+  - [Spring PetClinic](#spring-petclinic)
+  - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
+  - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
+- [License](#license)
+
+## Intro
+
+To measure the energy consumption, Intel’s `Running Average Power Limit` (**RAPL**) interface is used. RAPL provides power limiting features and accurate energy readings for CPUs and DRAM.
+
+In addition, `perf` also supports **RAPL** for power consumption measurements, but is available as a feature of certain Intel CPUs.
+
+The command pattern used to measure the energy is: 
+
+```
+$ sudo perf stat -a \
+    -e "power/energy-cores/" \
+    -e "power/energy-gpu/" \
+    -e "power/energy-pkg/" \
+    -e "power/energy-psys/" \
+    -e "power/energy-ram/" \
+    <application_path>
+```
+
+The table below summarizes the JVM distributions included:
+
+No. | JVM distribution
+-------------- |--------------------
+1 | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+2 | [GraalVM CE](https://www.graalvm.org/downloads)
+3 | [GraalVM EE](https://www.graalvm.org/downloads)
+4 | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
+5 | [Azul Prime (Zing)](https://www.azul.com/products/prime)
+6 | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
+
+## Prerequisites
+
+In order to properly run the scripts you need to:
+- install `perf` on Linux
+- download and install [JMeter](https://jmeter.apache.org/download_jmeter.cgi), including a few plugins. These plugins are needed to generate the plots, after each load test:
+    - [Command-Line Graph Plotting Tool](https://jmeter-plugins.org/wiki/JMeterPluginsCMD)
+    - [Filter Results Tool](https://jmeter-plugins.org/wiki/FilterResultsTool)
+    - [Synthesis Report](https://jmeter-plugins.org/wiki/SynthesisReport)
+    - [Response Times Over Time](https://jmeter-plugins.org/wiki/ResponseTimesOverTime)
+    - [Response Times vs Threads](https://jmeter-plugins.org/wiki/ResponseTimesVsThreads)
+    - [Response Times Distribution](https://jmeter-plugins.org/wiki/RespTimesDistribution)
+- download and install any JDK (you could use sdkman to download your JDK at https://sdkman.io/install)
+
+> **JMeter**: if the number of threads is not properly chosen, the [Coordinated Omission](https://groups.google.com/g/mechanical-sympathy/c/icNZJejUHfE) problem might cause inaccurate results. Please have a look at [JMeter best practices](https://jmeter.apache.org/usermanual/best-practices.html).
+
+## Measurements
+
+### Spring PetClinic
+
+1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic) and build the sources
+2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
+2. Open the [run-jmeter.sh](./spring-petclinic/run-jmeter.sh) script and update the mandatory variable `JMETER_HOME`
+3. Launch the scripts (on Host 1)
+
+```
+$ cd /spring-petclinic
+$ sudo ./run-application.sh
+```
+
+After the application successfully started, launch the JMeter on a different host (e.g., Host 2):
+
+```
+$ cd /spring-petclinic
+$ sudo ./run-jmeter.sh
+```
+> For more accurate results, please launch the application and the JMeter on different machines!
+
+**Notes**:
+- `sudo` mode is important, otherwise the tests will not be executed
+- for more accurate results, please run the JMeter on a different host than the application
+
+### Renaissance Benchmark Suite
+
+1. Download the [Renaissance release](https://github.com/renaissance-benchmarks/renaissance/releases)
+2. Open the [run-benchmarks.sh](./renaissance/run-benchmarks.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
+3. Launch the benchmarks
+
+```
+$ cd /renaissance
+$ sudo ./run-benchmarks.sh
+```
+
+**Notes**:
+- `sudo` mode is important, otherwise the benchmarks will not be executed
+
+### Quarkus Hibernate ORM Panache Quickstart
+
+TODO
+
+# License
+
+Please see the [LICENSE](LICENSE) file for full license.
+
+```
+JVM Energy Consumption
+
+MIT License
+
+Copyright (c) 2023 Ionut Balosin
+Copyright (c) 2023 Ko Turk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
