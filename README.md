@@ -18,6 +18,8 @@ To measure energy consumption, Intel’s Running Average Power Limit (**RAPL**) 
 
 Since the **RAPL** reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
 
+While measuring the JVM energy consumption, it is important to have a realistic load, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option.
+
 The command pattern used to measure the energy relies on `perf`: 
 
 ```
@@ -78,7 +80,7 @@ $ sudo ./run-jmeter.sh
 ```
 
 **Notes**:
-- `sudo` mode is important, otherwise the tests will not be executed
+- `sudo` mode is needed, otherwise the tests will not be executed
 - for more accurate results, please launch the application and the JMeter on different hosts. In addition, both Host 1 and Host 2 must have a good and stable connection in between (wireless might not be recommended).
 
 ### Renaissance Benchmark Suite
@@ -93,7 +95,7 @@ $ sudo ./run-benchmarks.sh
 ```
 
 **Notes**:
-- `sudo` mode is important, otherwise the benchmarks will not be executed
+- `sudo` mode is needed, otherwise the benchmarks will not be executed
 
 ### Quarkus Hibernate ORM Panache Quickstart
 
