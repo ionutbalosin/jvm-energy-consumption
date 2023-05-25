@@ -4,7 +4,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 ## Content
 
-- [Intro](#intro)
+- [Methodology](#methodology)
 - [Prerequisites](#prerequisites)
 - [Measurements](#measurements)
   - [Spring PetClinic](#spring-petclinic)
@@ -12,34 +12,34 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
 - [License](#license)
 
-## Intro
+## Methodology
 
-To measure the energy consumption, Intel’s `Running Average Power Limit` (**RAPL**) interface is used. RAPL provides power limiting features and accurate energy readings for CPUs and DRAM.
+To measure energy consumption, Intel’s Running Average Power Limit (**RAPL**) interface is used. RAPL provides power-limiting features and accurate energy readings for several domains, like Package, Core, Uncore, and DRAM. For each supported power domain, a Machine Specific Register (MSR) filled with a 32-bit integer is exposed and updated at intervals of approximately 1 millisecond.
 
-In addition, `perf` also supports **RAPL** for power consumption measurements, but is available as a feature of certain Intel CPUs.
+Since the **RAPL** reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
 
-The command pattern used to measure the energy is: 
+The command pattern used to measure the energy relies on `perf`: 
 
 ```
-$ sudo perf stat -a \
-    -e "power/energy-cores/" \
-    -e "power/energy-gpu/" \
-    -e "power/energy-pkg/" \
-    -e "power/energy-psys/" \
-    -e "power/energy-ram/" \
-    <application_path>
+$ perf stat -a \
+   -e "power/energy-cores/" \
+   -e "power/energy-gpu/" \
+   -e "power/energy-pkg/" \
+   -e "power/energy-psys/" \
+   -e "power/energy-ram/" \
+   <application_runner>
 ```
 
-The table below summarizes the JVM distributions included:
+The table below summarizes the full list of JVM distributions included in the measurements:
 
 No. | JVM distribution
 -------------- |--------------------
-1 | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+1 | [OpenJDK HotSpot](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
 2 | [GraalVM CE](https://www.graalvm.org/downloads)
 3 | [GraalVM EE](https://www.graalvm.org/downloads)
 4 | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
 5 | [Azul Prime (Zing)](https://www.azul.com/products/prime)
-6 | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
+6 | [Eclipse OpenJ9](https://www.eclipse.org/openj9) 
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ In order to properly run the scripts you need to:
     - [Response Times Over Time](https://jmeter-plugins.org/wiki/ResponseTimesOverTime)
     - [Response Times vs Threads](https://jmeter-plugins.org/wiki/ResponseTimesVsThreads)
     - [Response Times Distribution](https://jmeter-plugins.org/wiki/RespTimesDistribution)
-- download and install any JDK (you could use sdkman to download your JDK at https://sdkman.io/install)
+- download and install any JDK (you could also use [sdkman](https://sdkman.io/install))
 
 > **JMeter**: if the number of threads is not properly chosen, the [Coordinated Omission](https://groups.google.com/g/mechanical-sympathy/c/icNZJejUHfE) problem might cause inaccurate results. Please have a look at [JMeter best practices](https://jmeter.apache.org/usermanual/best-practices.html).
 
@@ -76,11 +76,10 @@ After the application successfully started, launch the JMeter on a different hos
 $ cd /spring-petclinic
 $ sudo ./run-jmeter.sh
 ```
-> For more accurate results, please launch the application and the JMeter on different machines!
 
 **Notes**:
 - `sudo` mode is important, otherwise the tests will not be executed
-- for more accurate results, please run the JMeter on a different host than the application
+- for more accurate results, please launch the application and the JMeter on different hosts. In addition, both Host 1 and Host 2 must have a good and stable connection in between (wireless might not be recommended).
 
 ### Renaissance Benchmark Suite
 
