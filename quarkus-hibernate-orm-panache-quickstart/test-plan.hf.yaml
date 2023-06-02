@@ -1,0 +1,49 @@
+name: test-plan-benchmark
+http:
+  host: http://localhost:8080
+  sharedConnections: 10
+duration: 1800s
+usersPerSec: 5
+scenario:
+  # Note: all the scenario steps are sequentially executed
+  - generateRandomUUID:
+      - randomUUID:
+          toVar: fruitName
+  - getHomePage:
+      - httpRequest:
+          GET: /
+  - postFruit:
+      - httpRequest:
+          POST: /entity/fruits
+          headers:
+            content-type: application/json
+          body: |
+            {
+              "name" : "${fruitName}"
+            }
+  - getAllFruits:
+      - httpRequest:
+          GET: /entity/fruits
+          handler:
+            body:
+              json:
+                query: .[].id
+                toArray: fruitIds[5000]
+  - getFruitById:
+      - randomItem: fruitId <- fruitIds
+      - httpRequest:
+          GET: /entity/fruits/${fruitId}
+  - putFruitById:
+      - randomItem: fruitId <- fruitIds
+      - httpRequest:
+          PUT: /entity/fruits/${fruitId}
+          headers:
+            content-type: application/json
+          body: |
+            {
+              "name" : "${fruitName} upd"
+            }
+  - deleteFruitById:
+      - randomItem: fruitId <- fruitIds
+      - httpRequest:
+          DELETE: /entity/fruits/${fruitId}
