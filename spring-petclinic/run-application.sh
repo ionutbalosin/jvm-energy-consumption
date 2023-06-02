@@ -147,7 +147,7 @@ build_application() {
     export BUILD_CMD="./mvnw -Pnative clean native:compile -Dmaven.test.skip"
   fi
 
-  echo "Building the application using command ${BUILD_CMD}"
+  echo "${BUILD_CMD}"
   cd ${APP_HOME} && ${BUILD_CMD}
   cd -
 }
@@ -159,7 +159,7 @@ start_application() {
     export RUN_CMD="${APP_HOME}/target/spring-petclinic ${JAVA_OPS}"
   fi
 
-  echo "Running the application using command ${RUN_CMD}"
+  echo "${RUN_CMD}"
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \

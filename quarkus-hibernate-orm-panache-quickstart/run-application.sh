@@ -121,7 +121,6 @@ configure_environment() {
   export JAVA_OPS="-Xms128m -Xmx4g"
   export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
   export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
-  export JHICCUP_AGENT="-javaagent:$(pwd)/../scripts/jHiccup-2.0.10/jHiccup.jar='-a -d 0 -i 1000 -l ${OUTPUT_FOLDER}/jhiccup/jhiccup-run${TEST_RUN_NO}'"
 
   echo ""
   echo "Java home: $JAVA_HOME"
@@ -133,7 +132,6 @@ configure_environment() {
   echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
   echo "Test number: $TEST_RUN_NO"
   echo "Test output folder: $OUTPUT_FOLDER"
-  echo "jHiccup agent: $JHICCUP_AGENT"
 
   echo ""
   $JAVA_HOME/bin/java --version
@@ -145,7 +143,6 @@ configure_environment() {
 create_output_folders() {
   mkdir -p ${OUTPUT_FOLDER}/perf
   mkdir -p ${OUTPUT_FOLDER}/logs
-  mkdir -p ${OUTPUT_FOLDER}/jhiccup
 }
 
 build_application() {
@@ -155,19 +152,19 @@ build_application() {
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip -Dnative"
   fi
 
-  echo "Building the application using command ${BUILD_CMD}"
+  echo "${BUILD_CMD}"
   cd ${APP_HOME} && ${BUILD_CMD}
   cd -
 }
 
 start_application() {
   if [ "$JVM_NAME" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${JHICCUP_AGENT} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
+    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
   else
     export RUN_CMD="${APP_HOME}/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner ${JAVA_OPS} ${POSTGRESQL_DATASOURCE}"
   fi
 
-  echo "Running the application using command ${RUN_CMD}"
+  echo "${RUN_CMD}"
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
@@ -232,7 +229,7 @@ echo "Application with pid=$APP_PID successfully started"
 
 echo "Wait 1980 sec (i.e., 33 min) until the application with pid=$APP_PID gets stopped"
 echo "Note: this is considered enough for the JMeter tests to run"
-sleep 10
+sleep 1980
 
 echo ""
 echo "+----------------------+"
