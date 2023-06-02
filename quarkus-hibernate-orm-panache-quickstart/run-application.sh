@@ -121,6 +121,7 @@ configure_environment() {
   export JAVA_OPS="-Xms128m -Xmx4g"
   export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
   export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+  export JHICCUP_AGENT="-javaagent:$(pwd)/../scripts/jHiccup-2.0.10/jHiccup.jar='-a -d 0 -i 1000 -l ${OUTPUT_FOLDER}/jhiccup/jhiccup-run${TEST_RUN_NO}'"
 
   echo ""
   echo "Java home: $JAVA_HOME"
@@ -132,6 +133,7 @@ configure_environment() {
   echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
   echo "Test number: $TEST_RUN_NO"
   echo "Test output folder: $OUTPUT_FOLDER"
+  echo "jHiccup agent: $JHICCUP_AGENT"
 
   echo ""
   $JAVA_HOME/bin/java --version
@@ -143,6 +145,7 @@ configure_environment() {
 create_output_folders() {
   mkdir -p ${OUTPUT_FOLDER}/perf
   mkdir -p ${OUTPUT_FOLDER}/logs
+  mkdir -p ${OUTPUT_FOLDER}/jhiccup
 }
 
 build_application() {
@@ -159,7 +162,7 @@ build_application() {
 
 start_application() {
   if [ "$JVM_NAME" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
+    export RUN_CMD="${JAVA_HOME}/bin/java ${JHICCUP_AGENT} ${JAVA_OPS} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
   else
     export RUN_CMD="${APP_HOME}/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner ${JAVA_OPS} ${POSTGRESQL_DATASOURCE}"
   fi
