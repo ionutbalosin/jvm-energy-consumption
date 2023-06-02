@@ -112,13 +112,13 @@ configure_application() {
 }
 
 configure_postgresql() {
-  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
+  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://192.168.0.2:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
 }
 
 configure_environment() {
   export JDK_VERSION=$($JAVA_HOME/bin/java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
   export PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_OPS="-Xms128m -Xmx4g"
+  export JAVA_OPS="-Xms64m -Xmx4g"
   export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
   export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
 
@@ -143,6 +143,11 @@ configure_environment() {
 create_output_folders() {
   mkdir -p ${OUTPUT_FOLDER}/perf
   mkdir -p ${OUTPUT_FOLDER}/logs
+}
+
+chmod_output_folders() {
+  chmod +rw ${OUTPUT_FOLDER}/perf/*
+  mkdir +rw ${OUTPUT_FOLDER}/logs/*
 }
 
 build_application() {
@@ -240,6 +245,9 @@ sudo kill -INT $APP_PID
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
+
+# assign read/write permissions to the output files
+chmod_output_folders
 
 echo ""
 echo "*** Test $TEST_RUN_NO successfully finished! ***"
