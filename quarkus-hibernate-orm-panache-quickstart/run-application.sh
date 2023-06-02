@@ -162,7 +162,7 @@ build_application() {
 
 start_application() {
   if [ "$JVM_NAME" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JHICCUP_AGENT} ${JAVA_OPS} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
+    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${JHICCUP_AGENT} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
   else
     export RUN_CMD="${APP_HOME}/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner ${JAVA_OPS} ${POSTGRESQL_DATASOURCE}"
   fi
