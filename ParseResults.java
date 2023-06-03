@@ -48,7 +48,7 @@ import static java.util.stream.Collectors.toList;
 public class ParseResults {
 
     // TODO: change this path before running the 'renaissance' or 'spring-petclinic' tests
-    private static final String PATH = "/home/ionutbalosin/Workspace/jvm-energy-consumption/spring-petclinic/results/jdk-17/perf";
+    private static final String PATH = "/home/ionutbalosin/Workspace/jvm-energy-consumption/quarkus-hibernate-orm-panache-quickstart/results/jdk-17/perf";
 
     public static void main(String[] args) throws IOException {
         List<PerfStats> stats = readFiles(PATH);
