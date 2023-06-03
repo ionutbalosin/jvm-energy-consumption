@@ -1,11 +1,12 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.2:8080
-  sharedConnections: 10
-duration: 1800s
-usersPerSec: 5
+  sharedConnections: 48
+duration: 600s
+usersPerSec: 2
+maxSessions: 48
 scenario:
-  # Note: all the scenario steps are sequentially executed
+  # Note: scenario steps are sequentially executed
   - generateRandomUUID:
       - randomUUID:
           toVar: fruitName
