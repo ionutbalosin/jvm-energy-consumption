@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="HOST" elementType="Argument">
             <stringProp name="Argument.name">HOST</stringProp>
-            <stringProp name="Argument.value">192.168.0.1</stringProp>
+            <stringProp name="Argument.value">192.168.0.2</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PORT" elementType="Argument">
@@ -19,7 +19,7 @@
           </elementProp>
           <elementProp name="CONTEXT_WEB" elementType="Argument">
             <stringProp name="Argument.name">CONTEXT_WEB</stringProp>
-            <stringProp name="Argument.value">http://192.168.0.1:8080</stringProp>
+            <stringProp name="Argument.value">http://192.168.0.2:8080</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>

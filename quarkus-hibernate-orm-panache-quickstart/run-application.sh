@@ -112,7 +112,7 @@ configure_application() {
 }
 
 configure_postgresql() {
-  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://192.168.0.2:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
+  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://192.168.0.3:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
 }
 
 configure_environment() {
@@ -146,8 +146,8 @@ create_output_folders() {
 }
 
 chmod_output_folders() {
-  chmod +rw ${OUTPUT_FOLDER}/perf/*
-  mkdir +rw ${OUTPUT_FOLDER}/logs/*
+  sudo chmod +rw ${OUTPUT_FOLDER}/perf/*
+  sudo chmod +rw ${OUTPUT_FOLDER}/logs/*
 }
 
 build_application() {
