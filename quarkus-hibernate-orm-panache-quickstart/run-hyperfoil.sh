@@ -111,7 +111,8 @@ configure_hyperfoil() {
 
 configure_environment() {
   export JDK_VERSION=17
-  export OUTPUT_FOLDER="$(pwd)/results/jdk-$JDK_VERSION"
+  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
+  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
 
   echo ""
   echo "JVM identifier: $JVM_IDENTIFIER"
@@ -149,7 +150,7 @@ echo "+-----------------+"
 echo "| Start Hyperfoil |"
 echo "+-----------------+"
 echo "IMPORTANT: execute the below command in the Hyperfoil CLI:"
-echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=${OUTPUT_FOLDER}/reports/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.html"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/${OUTPUT_FOLDER}/reports/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.html"
 echo ""
 start_hyperfoil
 

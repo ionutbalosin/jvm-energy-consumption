@@ -1,6 +1,6 @@
 name: test-plan-benchmark
 http:
-  host: http://192.168.0.1:8080
+  host: http://192.168.0.2:8080
   sharedConnections: 10
 duration: 1800s
 usersPerSec: 5
@@ -28,7 +28,7 @@ scenario:
             body:
               json:
                 query: .[].id
-                toArray: fruitIds[5000]
+                toArray: fruitIds[100]
   - getFruitById:
       - randomItem: fruitId <- fruitIds
       - httpRequest:
