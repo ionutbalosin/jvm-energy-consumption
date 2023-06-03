@@ -118,7 +118,7 @@ configure_postgresql() {
 configure_environment() {
   export JDK_VERSION=$($JAVA_HOME/bin/java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
   export PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_OPS="-Xms64m -Xmx4g"
+  export JAVA_OPS="-Xms1m -Xmx4g"
   export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
   export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
 
@@ -146,8 +146,8 @@ create_output_folders() {
 }
 
 chmod_output_folders() {
-  sudo chmod +rw ${OUTPUT_FOLDER}/perf/*
-  sudo chmod +rw ${OUTPUT_FOLDER}/logs/*
+  sudo chmod 777 ${OUTPUT_FOLDER}/perf/*
+  sudo chmod 777 ${OUTPUT_FOLDER}/logs/*
 }
 
 build_application() {
@@ -232,9 +232,9 @@ start_application
 time_to_first_response
 echo "Application with pid=$APP_PID successfully started"
 
-echo "Wait 1980 sec (i.e., 33 min) until the application with pid=$APP_PID gets stopped"
+echo "Wait 780 sec (i.e., 13 min) until the application with pid=$APP_PID gets stopped"
 echo "Note: this is considered enough for the JMeter tests to run"
-sleep 1980
+sleep 780
 
 echo ""
 echo "+----------------------+"
