@@ -1,6 +1,6 @@
 # JVM Energy Consumption
 
-This repository contains different Java Virtual Machine (JVM) benchmarks to measure the energy consumption of various off-the-shelf applications.
+This repository contains different Java Virtual Machine (JVM) benchmarks to measure the JVM energy consumption using various off-the-shelf applications implemented with multiple technology stacks.
 
 ## Content
 
