@@ -89,6 +89,12 @@ create_output_folders() {
   mkdir -p ${OUTPUT_FOLDER}/reports
 }
 
+chmod_output_folders() {
+  sudo chmod 777 ${OUTPUT_FOLDER}/perf/*
+  sudo chmod 777 ${OUTPUT_FOLDER}/logs/*
+  sudo chmod 777 ${OUTPUT_FOLDER}/reports/*
+}
+
 run_benchmarks(){
   # declare renaissance benchmark categories
   declare -a benchmark_categories=("concurrency" "functional" "scala" "web" "dummy")
@@ -181,3 +187,6 @@ configure_openj9
 configure_renaissance
 configure_environment
 run_benchmarks
+
+# assign read/write permissions to the output files
+chmod_output_folders

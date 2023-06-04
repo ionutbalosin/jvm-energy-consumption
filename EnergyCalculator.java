@@ -26,7 +26,11 @@
  */
 package scripts;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,16 +49,24 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-public class ParseResults {
+public class EnergyCalculator {
 
-    // TODO: change this path before running the 'renaissance' or 'spring-petclinic' tests
-    private static final String PATH = "/home/ionutbalosin/Workspace/jvm-energy-consumption/quarkus-hibernate-orm-panache-quickstart/results/jdk-17/perf";
+    private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
+    private static final List<String> APPLICATION_LIST = List.of("quarkus-hibernate-orm-panache-quickstart", "spring-petclinic", "renaissance");
+    private static final String JDK_VERSION = "17";
 
     public static void main(String[] args) throws IOException {
-        List<PerfStats> stats = readFiles(PATH);
+        for (String application : APPLICATION_LIST) {
+            System.out.printf("Calculate consumed energy for the '%s' application\n", application);
+            calculate(String.format("%s/%s/results/jdk-%s/perf", BASE_PATH, application, JDK_VERSION));
+        }
+    }
+
+    private static void calculate(String path) throws IOException {
+        List<PerfStats> stats = readFiles(path);
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(PATH + "/../summary/jvm.power")))) {
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 writer.printf("%s: %.2f (Watt)", pair.getKey(), geometricMean(pair.getValue()));
                 writer.println();
@@ -62,7 +74,7 @@ public class ParseResults {
         }
 
         Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(PATH + "/../summary/jvm-benchmark.power")))) {
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm-benchmark.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 writer.printf("%s: %.2f (Watt)", pair.getKey(), geometricMean(pair.getValue()));
                 writer.println();
@@ -71,7 +83,7 @@ public class ParseResults {
     }
 
     private static List<PerfStats> readFiles(String parentFolder) throws IOException {
-        return Files.walk(Paths.get(parentFolder)).filter(Files::isRegularFile).map(ParseResults::parseStats).collect(toList());
+        return Files.walk(Paths.get(parentFolder)).filter(Files::isRegularFile).map(EnergyCalculator::parseStats).collect(toList());
     }
 
     private static PerfStats parseStats(Path filePath) {
@@ -126,12 +138,12 @@ public class ParseResults {
     }
 
     public static double geometricMean(List<PerfStats> perfStats) {
-        double product = 1;
+        double prod = 1;
         for (PerfStats perfStat : perfStats) {
             double watts = (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
-            product *= watts;
+            prod *= watts;
         }
-        return perfStats.size() == 1 ? product : Math.pow(product, 1.0 / perfStats.size());
+        return perfStats.size() == 1 ? prod : Math.pow(prod, 1.0 / perfStats.size());
     }
 
     static class PerfStats {

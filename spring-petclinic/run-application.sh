@@ -140,6 +140,11 @@ create_output_folders() {
   mkdir -p ${OUTPUT_FOLDER}/logs
 }
 
+chmod_output_folders() {
+  sudo chmod 777 ${OUTPUT_FOLDER}/perf/*
+  sudo chmod 777 ${OUTPUT_FOLDER}/logs/*
+}
+
 build_application() {
   if [ "$JVM_NAME" != "native-image" ]; then
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip"
@@ -234,6 +239,9 @@ sudo kill -INT $APP_PID
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
+
+# assign read/write permissions to the output files
+chmod_output_folders
 
 echo ""
 echo "*** Test $TEST_RUN_NO successfully finished! ***"
