@@ -66,9 +66,11 @@ public class EnergyCalculator {
         List<PerfStats> stats = readFiles(path);
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
+        double openJdkGeometricMean = geometricMean(statsByJvmName.get("openjdk")); // reference geometric mean
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
-                writer.printf("%s: %.2f (Watt)", pair.getKey(), geometricMean(pair.getValue()));
+                double jvmGeometricMean = geometricMean(pair.getValue());
+                writer.printf("%s: %.2f (Watt), %.2f (normalized)", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkGeometricMean);
                 writer.println();
             }
         }
@@ -76,7 +78,8 @@ public class EnergyCalculator {
         Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm-benchmark.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
-                writer.printf("%s: %.2f (Watt)", pair.getKey(), geometricMean(pair.getValue()));
+                double jvmGeometricMean = geometricMean(pair.getValue());
+                writer.printf("%s: %.2f (Watt)", pair.getKey(), jvmGeometricMean);
                 writer.println();
             }
         }
