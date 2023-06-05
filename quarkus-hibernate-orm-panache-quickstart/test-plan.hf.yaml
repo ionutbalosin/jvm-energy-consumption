@@ -7,7 +7,7 @@ usersPerSec: 4
 maxSessions: 48
 scenario:
   # Note: scenario steps are sequentially executed
-  - generateRandomUUID:
+  - generateRandom:
       - randomItem:
           list: [ "Apple", "Bananas", "Oranges", "Pineapple", "Grape", "Strawberry", "Watermelon", "Pears", "Cherries", "Peach", "Lemon", "Avocado", "Blueberries", "Raspberry", "Blackberry", "Plums", "Muskmelon", "Papaya", "Mangoes" ]
           toVar: fruitName
