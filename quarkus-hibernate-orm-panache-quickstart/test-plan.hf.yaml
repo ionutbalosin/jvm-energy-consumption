@@ -3,7 +3,7 @@ http:
   host: http://192.168.0.2:8080
   sharedConnections: 48
 duration: 600s
-usersPerSec: 2
+usersPerSec: 4
 maxSessions: 48
 scenario:
   # Note: scenario steps are sequentially executed
@@ -22,22 +22,32 @@ scenario:
             {
               "name" : "${fruitName}"
             }
+          handler:
+            body:
+              json:
+                query: .id
+                toVar: fruitId
   - getAllFruits:
       - httpRequest:
           GET: /entity/fruits
           handler:
             body:
               json:
-                query: .[].id
-                toArray: fruitIds[100]
+                query: '.[].id'
+                toArray: 'fruitIds[3]'
+      - getSize:
+          fromVar: fruitIds
+          toVar: length
+      - fail:
+          intCondition:
+            fromVar: length
+            lessThan: 3
   - getFruitById:
-      - randomItem: fruitId <- fruitIds
       - httpRequest:
-          GET: /entity/fruits/${fruitId}
+          GET: '/entity/fruits/${fruitId}'
   - putFruitById:
-      - randomItem: fruitId <- fruitIds
       - httpRequest:
-          PUT: /entity/fruits/${fruitId}
+          PUT: '/entity/fruits/${fruitId}'
           headers:
             content-type: application/json
           body: |
@@ -45,6 +55,5 @@ scenario:
               "name" : "${fruitName} upd"
             }
   - deleteFruitById:
-      - randomItem: fruitId <- fruitIds
       - httpRequest:
-          DELETE: /entity/fruits/${fruitId}
+          DELETE: '/entity/fruits/${fruitId}'
