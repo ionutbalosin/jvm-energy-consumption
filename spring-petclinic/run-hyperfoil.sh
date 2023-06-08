@@ -66,9 +66,9 @@ echo ""
 echo "+=======================+"
 echo "| [3/3] Start Hyperfoil |"
 echo "+=======================+"
-echo "IMPORTANT: execute the below command in the Hyperfoil CLI:"
-echo ""
+echo "IMPORTANT: execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
 echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/${OUTPUT_FOLDER}/reports/${IDENTIFIER}-run${TEST_RUN_NO}.html"
+echo "$ exit"
 echo ""
 start_hyperfoil
 
