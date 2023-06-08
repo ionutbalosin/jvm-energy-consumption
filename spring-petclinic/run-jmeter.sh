@@ -26,99 +26,12 @@
 # SOFTWARE.
 #
 
-configure_openjdk() {
-  export JVM_NAME="openjdk"
-}
-
-configure_graalvm_ee() {
-  export JVM_NAME="graalvm-ee"
-}
-
-configure_graalvm_ce() {
-  export JVM_NAME="graalvm-ce"
-}
-
-configure_native_image() {
-  export JVM_NAME="native-image"
-}
-
-configure_zing() {
-  export JVM_NAME="zing"
-}
-
-configure_openj9() {
-  export JVM_NAME="openj9"
-}
-
-select_jvm() {
-  echo "Select the JVM:"
-  echo "    1) - OpenJDK"
-  echo "    2) - GraalVM CE"
-  echo "    3) - GraalVM EE"
-  echo "    4) - Native Image"
-  echo "    5) - Azul Zing/Prime"
-  echo "    6) - OpenJ9"
-  echo ""
-
-  while :; do
-    read -r INPUT_KEY
-    case $INPUT_KEY in
-    1)
-      configure_openjdk
-      break
-      ;;
-    2)
-      configure_graalvm_ce
-      break
-      ;;
-    3)
-      configure_graalvm_ee
-      break
-      ;;
-    4)
-      configure_native_image
-      break
-      ;;
-    5)
-      configure_zing
-      break
-      ;;
-    6)
-      configure_openj9
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Try again!"
-      ;;
-    esac
-  done
-}
-
 configure_jmeter() {
   export JMETER_HOME=/Users/wzhioba/Data/Workspaces/jmeter/apache-jmeter-5.5
 
-  #  The JMeter plugins need the 'java' command to be configured
-  if [[ (-n "$JAVA_HOME") && (-x "$JAVA_HOME/bin/java") ]]
-  then
-    export PATH=$JAVA_HOME/bin:$PATH
-  else
-    echo ""
-    echo "ERROR: Cannot properly execute '$JAVA_HOME/bin/java' command, unable to continue!"
-    echo "'java' command is needed for JMeter plugins."
-    exit 1
-  fi
-}
-
-configure_environment() {
-  export JDK_VERSION=17
-  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
-
   echo ""
-  echo "JVM identifier: $JVM_IDENTIFIER"
   echo "JMeter home: $JMETER_HOME"
   echo "Test number: $TEST_RUN_NO"
-  echo "Test output folder: $OUTPUT_FOLDER"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
@@ -169,26 +82,31 @@ generate_jmeter_reports() {
 TEST_RUN_NO="$1"
 
 echo ""
-echo "+=======================+"
-echo "| Environment variables |"
-echo "+=======================+"
-select_jvm
+echo "+=========================+"
+echo "| [1/4] JVM configuration |"
+echo "+=========================+"
+. ../configure-jvm.sh
+
+echo ""
+echo ""
+echo "+============================+"
+echo "| [2/4] JMeter configuration |"
+echo "+============================+"
 configure_jmeter
-configure_environment
 
 # make sure the output folders exist
 create_output_folders
 
 echo ""
-echo "+--------------+"
-echo "| Start JMeter |"
-echo "+--------------+"
+echo "+====================+"
+echo "| [3/4] Start JMeter |"
+echo "+====================+"
 start_jmeter
 
 echo ""
-echo "+-------------------------+"
-echo "| Generate JMeter reports |"
-echo "+-------------------------+"
+echo "+===============================+"
+echo "| [4/4] Generate JMeter reports |"
+echo "+===============================+"
 generate_jmeter_reports
 
 echo ""

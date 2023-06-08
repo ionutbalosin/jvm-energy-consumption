@@ -26,110 +26,18 @@
 # SOFTWARE.
 #
 
-list_available_rapl_events() {
-  echo ""
-  echo "The available power events for the RAPL (Running Average Power Limit) energy consumption counters are:"
-  perf list | grep power | grep "Kernel PMU event"
-}
-
-configure_openjdk() {
-  export JAVA_HOME=/usr/lib/jvm/adoptium-temurin-jdk-17.0.7+7
-  export JVM_NAME="openjdk"
-}
-
-configure_graalvm_ee() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
-  export JVM_NAME="graalvm-ee"
-}
-
-configure_graalvm_ce() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ce-java17-22.3.2
-  export JVM_NAME="graalvm-ce"
-}
-
-configure_native_image() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
-  export JVM_NAME="native-image"
-}
-
-configure_openj9() {
-  export JAVA_HOME=/usr/lib/jvm/ibm-semeru-openj9-jdk-17.0.6+10
-  export JVM_NAME="openj9"
-}
-
-configure_zing() {
-  export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="zing"
-}
-
-select_jvm() {
-  echo "Select the JVM:"
-  echo "    1) - OpenJDK"
-  echo "    2) - GraalVM CE"
-  echo "    3) - GraalVM EE"
-  echo "    4) - Native Image"
-  echo "    5) - Azul Zing/Prime"
-  echo "    6) - OpenJ9"
-  echo ""
-
-  while :; do
-    read -r INPUT_KEY
-    case $INPUT_KEY in
-    1)
-      configure_openjdk
-      break
-      ;;
-    2)
-      configure_graalvm_ce
-      break
-      ;;
-    3)
-      configure_graalvm_ee
-      break
-      ;;
-    4)
-      configure_native_image
-      break
-      ;;
-    5)
-      configure_zing
-      break
-      ;;
-    6)
-      configure_openj9
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Try again!"
-      ;;
-    esac
-  done
-}
-
 configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
-}
-
-configure_environment() {
-  export JDK_VERSION=$($JAVA_HOME/bin/java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
-  export PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_OPS="-Xms128m -Xmx4g"
-  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+  export JAVA_OPS="-Xms1m -Xmx4g"
+  export APP_RUNNING_TIME=30
 
   echo ""
-  echo "Java home: $JAVA_HOME"
-  echo "JDK version: $JDK_VERSION"
-  echo "JVM identifier: $JVM_IDENTIFIER"
-  echo "Java opts: $JAVA_OPS"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
+  echo "Application running time: $APP_RUNNING_TIME sec"
+  echo "Java opts: $JAVA_OPS"
   echo "Test number: $TEST_RUN_NO"
-  echo "Test output folder: $OUTPUT_FOLDER"
-
-  echo ""
-  $JAVA_HOME/bin/java --version
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
@@ -195,45 +103,48 @@ if [[ $EUID != 0 ]]; then
 fi
 
 echo ""
-echo "+========================+"
-echo "| Available power events |"
-echo "+========================+"
-list_available_rapl_events
+echo "+=========================+"
+echo "| [1/6] JVM configuration |"
+echo "+=========================+"
+. ../configure-jvm.sh
 
 echo ""
-echo "+=======================+"
-echo "| Environment variables |"
-echo "+=======================+"
-select_jvm
+echo "+=================================+"
+echo "| [2/6] Application configuration |"
+echo "+=================================+"
 configure_application
-configure_environment
 
 # make sure the output folders exist
 create_output_folders
 
 echo ""
-echo "+=======================+"
-echo "| Build the application |"
-echo "+=======================+"
+echo "+=============================+"
+echo "| [3/6] Build the application |"
+echo "+=============================+"
 build_application
 
 echo ""
-echo "+-----------------------+"
-echo "| Start the application |"
-echo "+-----------------------+"
+echo "+=============================+"
+echo "| [4/6] Start the application |"
+echo "+=============================+"
 start_application
 
 time_to_first_response
+stty sane
 echo "Application with pid=$APP_PID successfully started"
 
-echo "Wait 1980 sec (i.e., 33 min) until the application with pid=$APP_PID gets stopped"
-echo "Note: this is considered enough for the JMeter tests to run"
-sleep 1980
+echo ""
+echo "+==============================+"
+echo "| [5/6] Start the load testing |"
+echo "+==============================+"
+echo "Keep the application with pid=$APP_PID running for about $APP_RUNNING_TIME sec"
+echo "The load test must be triggered during this time interval"
+sleep $APP_RUNNING_TIME
 
 echo ""
-echo "+----------------------+"
-echo "| Stop the application |"
-echo "+----------------------+"
+echo "+============================+"
+echo "| [6/6] Stop the application |"
+echo "+============================+"
 echo "Stop the application with pid=$APP_PID"
 sudo kill -INT $APP_PID
 
