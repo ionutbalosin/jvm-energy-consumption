@@ -112,7 +112,7 @@ configure_application() {
 }
 
 configure_postgresql() {
-  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://192.168.0.3:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
+  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
 }
 
 configure_environment() {
@@ -232,9 +232,10 @@ start_application
 time_to_first_response
 echo "Application with pid=$APP_PID successfully started"
 
-echo "Wait 780 sec (i.e., 13 min) until the application with pid=$APP_PID gets stopped"
+TIME_TO_SLEEP=1980
+echo "Wait $TIME_TO_SLEEP sec until the application with pid=$APP_PID gets stopped"
 echo "Note: this is considered enough for the JMeter tests to run"
-sleep 780
+sleep $TIME_TO_SLEEP
 
 echo ""
 echo "+----------------------+"
