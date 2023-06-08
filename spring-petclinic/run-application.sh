@@ -30,7 +30,7 @@ configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export JAVA_OPS="-Xms1m -Xmx4g"
-  export APP_RUNNING_TIME=30
+  export APP_RUNNING_TIME=3600
 
   echo ""
   echo "Application home: $APP_HOME"
