@@ -130,6 +130,7 @@ echo "+=============================+"
 start_application
 
 time_to_first_response
+# reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
 echo "Application with pid=$APP_PID successfully started"
 
