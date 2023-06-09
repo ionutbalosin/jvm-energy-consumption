@@ -1,10 +1,10 @@
 name: test-plan-benchmark
 http:
-  host: http://127.0.0.1:8080
-  sharedConnections: 128
-duration: 3480s
-usersPerSec: 4
-maxSessions: 128
+  host: http://192.168.0.2:8080
+  sharedConnections: 1024
+duration: 3600s
+usersPerSec: 6
+maxSessions: 1024
 scenario:
   # Note: scenario steps are sequentially executed
   - generateRandomValues:
