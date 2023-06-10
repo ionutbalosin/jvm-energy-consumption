@@ -1,0 +1,169 @@
+name: test-plan-benchmark
+http:
+  host: http://192.168.0.186:8080
+  sharedConnections: 48
+duration: 600s
+usersPerSec: 6
+maxSessions: 96
+scenario:
+  # Note: scenario steps are sequentially executed
+  - generateRandomValues:
+      - randomInt:
+          min: 100000000
+          max: 999999999
+          toVar: randomNumber
+      # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
+      - randomInt:
+          min: 1
+          max: 3
+          toVar: ownerIdSameAsPetId
+      - randomItem:
+          list: [ "bird", "cat", "dog", "hamster", "lizard", "snake" ]
+          toVar: randomPetType
+      - randomItem:
+          list: [ "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10"]
+          toVar: randomDate
+  - getHomePage:
+      - httpRequest:
+          GET: /
+  - getVetsPage:
+      - httpRequest:
+          GET: /vets.html
+  - getPetClinicCss:
+      - httpRequest:
+          GET: /resources/css/petclinic.css
+  - getBootstrapJs:
+      - httpRequest:
+          GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js
+  - postOwner:
+      - unset: newOwnerRedirectUrl
+      - httpRequest:
+          POST: /owners/new
+          headers:
+            content-type: application/x-www-form-urlencoded
+          body:
+            form:
+            - name: firstName
+              value: Owner
+            - name: lastName
+              fromVar: randomNumber
+            - name: address
+              pattern: Address ${randomNumber}
+            - name: telephone
+              fromVar: randomNumber
+            - name: city
+              pattern: City ${randomNumber}
+          handler:
+            followRedirect: NEVER
+            header:
+              filter:
+                header:
+                  value: location
+                processor:
+                  store: newOwnerRedirectUrl
+  - getOwner:
+      - httpRequest:
+          GET:
+            fromVar: newOwnerRedirectUrl
+  - getEditOwner:
+      - httpRequest:
+          GET:
+            pattern: ${newOwnerRedirectUrl}/edit
+  - postEditOwner:
+      - httpRequest:
+          POST:
+            pattern: ${newOwnerRedirectUrl}/edit
+          headers:
+            content-type: application/x-www-form-urlencoded
+          body:
+            form:
+              - name: firstName
+                value: Owner
+              - name: lastName
+                pattern: ${randomNumber} upd
+              - name: address
+                pattern: Address ${randomNumber} upd
+              - name: telephone
+                fromVar: randomNumber
+              - name: city
+                pattern: City ${randomNumber} upd
+          handler:
+            followRedirect: NEVER
+  - findOwners:
+      - httpRequest:
+          GET: /owners/find
+  - findOwnersByLastName_exactMatch:
+      - httpRequest:
+          GET:
+            pattern: /owners?lastName=${randomNumber}
+          handler:
+            followRedirect: NEVER
+  - findOwnersByLastName_partialMatch:
+      # Generate random 3 digits number for a partial last name search
+      - randomInt:
+          min: 1
+          max: 999
+          toVar: partialLastName
+      - httpRequest:
+          GET:
+            pattern: /owners?lastName=${partialLastName}
+          handler:
+            followRedirect: NEVER
+  - postPet:
+      - httpRequest:
+          POST:
+            pattern: ${newOwnerRedirectUrl}/pets/new
+          headers:
+            content-type: application/x-www-form-urlencoded
+          body:
+            form:
+              - name: name
+                pattern: Pet ${randomNumber}
+              - name: birthDate
+                fromVar: randomDate
+              - name: type
+                fromVar: randomPetType
+          handler:
+            followRedirect: NEVER
+  - getPets:
+      - httpRequest:
+          GET:
+            pattern: ${newOwnerRedirectUrl}/pets/new
+  - getEditPet:
+      - httpRequest:
+          GET:
+            pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
+  - postEditPet:
+      - httpRequest:
+          POST:
+            pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
+          headers:
+            content-type: application/x-www-form-urlencoded
+          body:
+            form:
+              - name: id
+                fromVar: ownerIdSameAsPetId
+              - name: name
+                pattern: Pet ${randomNumber}
+              - name: birthDate
+                fromVar: randomDate
+              - name: type
+                fromVar: randomPetType
+  - postVisit:
+      - httpRequest:
+          POST:
+            pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+          headers:
+            content-type: application/x-www-form-urlencoded
+          body:
+            form:
+              - name: date
+                fromVar: randomDate
+              - name: description
+                pattern: Visit ${randomNumber}
+          handler:
+            followRedirect: NEVER
+  - getVisit:
+      - httpRequest:
+          GET:
+            pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
