@@ -30,7 +30,7 @@ configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export JAVA_OPS="-Xms1m -Xmx4g"
-  export APP_RUNNING_TIME=3600
+  export APP_RUNNING_TIME=3780
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -49,8 +49,8 @@ create_output_folders() {
 }
 
 chmod_output_folders() {
-  sudo chmod 777 ${OUTPUT_FOLDER}/perf/*
-  sudo chmod 777 ${OUTPUT_FOLDER}/logs/*
+  sudo chmod -R a+rwx ${OUTPUT_FOLDER}/perf/
+  sudo chmod -R a+rwx ${OUTPUT_FOLDER}/logs/
 }
 
 build_application() {
@@ -130,16 +130,17 @@ echo "+=============================+"
 start_application
 
 time_to_first_response
+
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
-echo "Application with pid=$APP_PID successfully started"
+echo "Application with pid=$APP_PID successfully started at: $(date)"
 
 echo ""
 echo "+==============================+"
 echo "| [5/6] Start the load testing |"
 echo "+==============================+"
 echo "Keep the application with pid=$APP_PID running for about $APP_RUNNING_TIME sec"
-echo "The load test must be triggered during this time interval"
+echo "Note: the load test must be triggered during this time interval!"
 sleep $APP_RUNNING_TIME
 
 echo ""
@@ -148,6 +149,7 @@ echo "| [6/6] Stop the application |"
 echo "+============================+"
 echo "Stop the application with pid=$APP_PID"
 sudo kill -INT $APP_PID
+echo "Application with pid=$APP_PID successfully stopped at: $(date)"
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
