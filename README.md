@@ -4,6 +4,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 ## Content
 
+- [Purpose](#purpose)
 - [Methodology](#methodology)
 - [Prerequisites](#prerequisites)
 - [JVM Coverage](#jvm-coverage)
@@ -12,6 +13,14 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
   - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
 - [License](#license)
+
+## Purpose
+
+The main purpose of this project is to assess the energy consumption across different JVMs distributions. 
+
+It is not intented to compare the energy consumption across different frameworks (since the code is different there won't be an apples-to-apples comparison), but keeping the same application and just changing the runtime (or the JVM) check the new energy consumption.
+
+Different off-the-shelf applications using different technologies are included to cover a spread spectrum of applications.
 
 ## Methodology
 
