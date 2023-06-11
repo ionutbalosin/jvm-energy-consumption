@@ -1,12 +1,12 @@
 name: test-plan-benchmark
 http:
-  host: http://127.0.0.1:8080
+  host: http://192.168.0.3:8080
   sharedConnections: 128
 phases:
 # Workload simulating browsing through the website
 - browsingWebsite:
     constantRate:
-      duration: 600s
+      duration: 3600s
       usersPerSec: 10
       scenario:
       - getHomePage:
@@ -24,7 +24,7 @@ phases:
 # Workload simulating searching for owners
 - findingOwners:
     constantRate:
-      duration: 600s
+      duration: 3600s
       usersPerSec: 8
       scenario:
       - findOwners:
@@ -66,7 +66,7 @@ phases:
 # Workload simulating add/edit owners, pets and visits
 - postAndUpdateOwnersWithPets:
     constantRate:
-      duration: 600s
+      duration: 3600s
       usersPerSec: 6
       maxSessions: 24
       scenario:
