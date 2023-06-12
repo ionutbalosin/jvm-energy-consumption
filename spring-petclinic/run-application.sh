@@ -26,6 +26,33 @@
 # SOFTWARE.
 #
 
+check_command_line_options() {
+  if [[ $EUID != 0 ]]; then
+    echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-application.sh <test-run-number>)"
+    echo ""
+    echo "Example:"
+    echo "   $ sudo ./run-application.sh 1"
+    exit 1
+  fi
+
+  if [ $# -ne 1 ]; then
+    echo "Usage: ./run-application.sh <test-run-number>"
+    echo ""
+    echo "Options:"
+    echo "  test-run-number  is an identifier of the current test to generate the results files."
+    echo ""
+    echo "Examples:"
+    echo "  ./run-application.sh 1"
+    echo "  ./run-application.sh 2"
+    echo ""
+    return 1
+  fi
+
+  if [ "$1" ]; then
+    export TEST_RUN_NO="$1"
+  fi
+}
+
 configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
@@ -92,25 +119,26 @@ time_to_first_response() {
   done
 }
 
-TEST_RUN_NO="$1"
-
-if [[ $EUID != 0 ]]; then
-  echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-application.sh [test_number])"
-  echo ""
-  echo "Example:"
-  echo "   $ sudo ./run-application.sh 1"
+check_command_line_options "$@"
+if [ $? -ne 0 ]; then
   exit 1
 fi
 
 echo ""
+echo "+========================+"
+echo "| [1/7] OS configuration |"
+echo "+========================+"
+. ../configure-os.sh
+
+echo ""
 echo "+=========================+"
-echo "| [1/6] JVM configuration |"
+echo "| [2/7] JVM configuration |"
 echo "+=========================+"
 . ../configure-jvm.sh
 
 echo ""
 echo "+=================================+"
-echo "| [2/6] Application configuration |"
+echo "| [3/7] Application configuration |"
 echo "+=================================+"
 configure_application
 
@@ -119,13 +147,13 @@ create_output_folders
 
 echo ""
 echo "+=============================+"
-echo "| [3/6] Build the application |"
+echo "| [4/7] Build the application |"
 echo "+=============================+"
 build_application
 
 echo ""
 echo "+=============================+"
-echo "| [4/6] Start the application |"
+echo "| [5/7] Start the application |"
 echo "+=============================+"
 start_application
 
@@ -137,7 +165,7 @@ echo "Application with pid=$APP_PID successfully started at: $(date)"
 
 echo ""
 echo "+==============================+"
-echo "| [5/6] Start the load testing |"
+echo "| [6/7] Start the load testing |"
 echo "+==============================+"
 echo "Keep the application with pid=$APP_PID running for about $APP_RUNNING_TIME sec"
 echo "Note: the load test must be triggered during this time interval!"
@@ -145,7 +173,7 @@ sleep $APP_RUNNING_TIME
 
 echo ""
 echo "+============================+"
-echo "| [6/6] Stop the application |"
+echo "| [7/7] Stop the application |"
 echo "+============================+"
 echo "Stop the application with pid=$APP_PID"
 sudo kill -INT $APP_PID

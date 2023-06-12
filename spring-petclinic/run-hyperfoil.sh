@@ -26,6 +26,31 @@
 # SOFTWARE.
 #
 
+check_command_line_options() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: ./run-hyperfoil.sh <arch> <test-run-number>"
+    echo ""
+    echo "Options:"
+    echo "  test-run-number  should match the system under test run number (from the target machine)."
+    echo "  arch             should match the system under test architecture (from the target machine)."
+    echo "Both of these parameters are used to generate the results files and they should match the system under test."
+    echo ""
+    echo "Examples:"
+    echo "  ./run-hyperfoil.sh x86_64 1"
+    echo "  ./run-hyperfoil.sh arm64 1"
+    echo ""
+    return 1
+  fi
+
+  if [ "$1" ]; then
+    export ARCH="$1"
+  fi
+
+  if [ "$1" ]; then
+    export TEST_RUN_NO="$2"
+  fi
+}
+
 configure_hyperfoil() {
   export HYPERFOIL_HOME=/Users/wzhioba/Data/Workspaces/hyperfoil-0.24.2
 
@@ -45,7 +70,10 @@ start_hyperfoil() {
   ${HYPERFOIL_HOME}/bin/cli.sh
 }
 
-TEST_RUN_NO="$1"
+check_command_line_options "$@"
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 echo ""
 echo "+=========================+"

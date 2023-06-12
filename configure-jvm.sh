@@ -112,7 +112,7 @@ fi
 
 export PATH=$JAVA_HOME/bin:$PATH
 export JDK_VERSION=$(java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
-export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+export OUTPUT_FOLDER=results/jdk-$JDK_VERSION/$ARCH
 
 echo ""
 echo "Java home: $JAVA_HOME"
