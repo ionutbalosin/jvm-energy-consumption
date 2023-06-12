@@ -27,23 +27,14 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID != 0 ]]; then
-    echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-application.sh <test-run-number>)"
+  if [ $# -ne 1 ] || [[ $EUID != 0 ]]; then
+    echo "Usage: sudo ./run-application.sh <test-run-number>"
+    echo ""
+    echo "Options:"
+    echo "  test-run-number is an identifier of the current test used to generate the results files."
     echo ""
     echo "Example:"
     echo "   $ sudo ./run-application.sh 1"
-    exit 1
-  fi
-
-  if [ $# -ne 1 ]; then
-    echo "Usage: ./run-application.sh <test-run-number>"
-    echo ""
-    echo "Options:"
-    echo "  test-run-number  is an identifier of the current test to generate the results files."
-    echo ""
-    echo "Examples:"
-    echo "  ./run-application.sh 1"
-    echo "  ./run-application.sh 2"
     echo ""
     return 1
   fi
