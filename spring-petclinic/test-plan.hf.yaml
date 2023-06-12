@@ -1,13 +1,13 @@
 name: test-plan-benchmark
 http:
   host: http://127.0.0.1:8080
-  sharedConnections: 1024
+  sharedConnections: 512
 phases:
 
 # Workload simulating users browsing through the website
 - browseWebsite:
     constantRate:
-      duration: 300s
+      duration: 3600s
       usersPerSec: 16
       maxSessions: 128
       scenario:
@@ -33,7 +33,7 @@ phases:
 # Workload simulating users searching for owners
 - searchForOwners:
     increasingRate:
-      duration: 300s
+      duration: 3600s
       initialUsersPerSec: 4
       targetUsersPerSec: 12
       maxSessions: 128
@@ -76,7 +76,7 @@ phases:
 # This could increase by time since the platform is becoming more popular
 - addOwnersWithPets:
     increasingRate:
-      duration: 300s
+      duration: 3600s
       initialUsersPerSec: 4
       targetUsersPerSec: 16
       maxSessions: 192
@@ -176,7 +176,7 @@ phases:
 # This could be quite frequent and with bursts (i.e., increasing) during pandemic times
 - addPetVisits:
     increasingRate:
-      duration: 300s
+      duration: 3600s
       initialUsersPerSec: 4
       targetUsersPerSec: 24
       maxSessions: 384
@@ -213,7 +213,7 @@ phases:
 # This should not happen very often
 - updatePets:
     constantRate:
-      duration: 300s
+      duration: 3600s
       usersPerSec: 4
       maxSessions: 32
       scenario:
