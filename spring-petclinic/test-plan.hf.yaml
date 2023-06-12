@@ -1,17 +1,22 @@
 name: test-plan-benchmark
 http:
-  host: http://192.168.0.3:8080
-  sharedConnections: 128
+  host: http://127.0.0.1:8080
+  sharedConnections: 1024
 phases:
-# Workload simulating browsing through the website
-- browsingWebsite:
+
+# Workload simulating users browsing through the website
+- browseWebsite:
     constantRate:
-      duration: 3600s
-      usersPerSec: 10
+      duration: 300s
+      usersPerSec: 16
+      maxSessions: 128
       scenario:
       - getHomePage:
         - httpRequest:
             GET: /
+      - getFindOwnersPage:
+          - httpRequest:
+              GET: /owners/find
       - getVetsPage:
         - httpRequest:
             GET: /vets.html
@@ -21,16 +26,19 @@ phases:
       - getBootstrapJs:
         - httpRequest:
             GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js
-# Workload simulating searching for owners
-- findingOwners:
-    constantRate:
-      duration: 3600s
-      usersPerSec: 8
+      - getFontAwesomeCss:
+          - httpRequest:
+              GET: /webjars/font-awesome/4.7.0/css/font-awesome.min.css
+
+# Workload simulating users searching for owners
+- searchForOwners:
+    increasingRate:
+      duration: 300s
+      initialUsersPerSec: 4
+      targetUsersPerSec: 12
+      maxSessions: 128
       scenario:
-      - findOwners:
-        - httpRequest:
-            GET: /owners/find
-        # Generate random 1-digit number for a partial last name search
+      # Generate random 1-digit number for a partial last name search
       - findOwnersByLastName_partialMatch_1digit:
           - randomInt:
               min: 1
@@ -63,12 +71,15 @@ phases:
                 pattern: /owners?lastName=${3digits}
               handler:
                 followRedirect: NEVER
-# Workload simulating add/edit owners, pets and visits
-- postAndUpdateOwnersWithPets:
-    constantRate:
-      duration: 3600s
-      usersPerSec: 6
-      maxSessions: 24
+
+# Workload simulating adding new owners with pets
+# This could increase by time since the platform is becoming more popular
+- addOwnersWithPets:
+    increasingRate:
+      duration: 300s
+      initialUsersPerSec: 4
+      targetUsersPerSec: 16
+      maxSessions: 192
       scenario:
         - generateRandomValues:
           - randomInt:
@@ -160,6 +171,68 @@ phases:
           - httpRequest:
               GET:
                 pattern: ${newOwnerRedirectUrl}/pets/new
+
+# Workload simulating adding pet's visits
+# This could be quite frequent and with bursts (i.e., increasing) during pandemic times
+- addPetVisits:
+    increasingRate:
+      duration: 300s
+      initialUsersPerSec: 4
+      targetUsersPerSec: 24
+      maxSessions: 384
+      scenario:
+        - generateRandomValues:
+            # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
+            - randomInt:
+                min: 1
+                max: 3
+                toVar: ownerIdSameAsPetId
+            - randomItem:
+                list: [ "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10" ]
+                toVar: randomDate
+        - postVisit:
+            - httpRequest:
+                POST:
+                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+                headers:
+                  content-type: application/x-www-form-urlencoded
+                body:
+                  form:
+                    - name: date
+                      fromVar: randomDate
+                    - name: description
+                      pattern: Visit ${ownerIdSameAsPetId}
+                handler:
+                  followRedirect: NEVER
+        - getVisit:
+            - httpRequest:
+                GET:
+                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+
+# Workload simulating updating existing pets (name, birthday, type)
+# This should not happen very often
+- updatePets:
+    constantRate:
+      duration: 300s
+      usersPerSec: 4
+      maxSessions: 32
+      scenario:
+        - generateRandomValues:
+            - randomInt:
+                min: 100000000
+                max: 999999999
+                toVar: randomNumber
+            # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
+            - randomInt:
+                min: 1
+                max: 3
+                toVar: ownerIdSameAsPetId
+            - randomItem:
+                list: [ "bird", "cat", "dog", "hamster", "lizard", "snake" ]
+                toVar: randomPetType
+            - randomItem:
+                list: [ "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10" ]
+                toVar: randomDate
         - getEditPet:
           - httpRequest:
               GET:
@@ -180,21 +253,3 @@ phases:
                     fromVar: randomDate
                   - name: type
                     fromVar: randomPetType
-        - postVisit:
-          - httpRequest:
-              POST:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
-              headers:
-                content-type: application/x-www-form-urlencoded
-              body:
-                form:
-                  - name: date
-                    fromVar: randomDate
-                  - name: description
-                    pattern: Visit ${randomNumber}
-              handler:
-                followRedirect: NEVER
-        - getVisit:
-          - httpRequest:
-              GET:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
