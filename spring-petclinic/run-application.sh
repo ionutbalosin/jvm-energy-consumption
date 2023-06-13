@@ -48,7 +48,7 @@ configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export JAVA_OPS="-Xms1m -Xmx4g"
-  export APP_RUNNING_TIME=3780
+  export APP_RUNNING_TIME=2100
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -72,19 +72,19 @@ chmod_output_folders() {
 }
 
 build_application() {
-  if [ "$JVM_NAME" != "native-image" ]; then
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip"
   else
     export BUILD_CMD="./mvnw -Pnative clean native:compile -Dmaven.test.skip"
   fi
 
-  echo "${BUILD_CMD}"
+  echo "${BUILD _CMD}"
   cd ${APP_HOME} && ${BUILD_CMD}
   cd -
 }
 
 start_application() {
-  if [ "$JVM_NAME" != "native-image" ]; then
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} -jar ${APP_HOME}/target/*.jar"
   else
     export RUN_CMD="${APP_HOME}/target/spring-petclinic ${JAVA_OPS}"
