@@ -1,15 +1,15 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.186:8080
-  sharedConnections: 512
+  sharedConnections: 1024
 phases:
 
 # Workload simulating users browsing through the website
 - browseWebsite:
     constantRate:
-      duration: 3600s
-      usersPerSec: 16
-      maxSessions: 128
+      duration: 1980s
+      usersPerSec: 12
+      maxSessions: 512
       scenario:
       - getHomePage:
         - httpRequest:
@@ -33,10 +33,10 @@ phases:
 # Workload simulating users searching for owners
 - searchForOwners:
     increasingRate:
-      duration: 3600s
-      initialUsersPerSec: 4
-      targetUsersPerSec: 12
-      maxSessions: 128
+      duration: 1980s
+      initialUsersPerSec: 8
+      targetUsersPerSec: 10
+      maxSessions: 512
       scenario:
       # Generate random 1-digit number for a partial last name search
       - findOwnersByLastName_partialMatch_1digit:
@@ -76,10 +76,10 @@ phases:
 # This could increase by time since the platform is becoming more popular
 - addOwnersWithPets:
     increasingRate:
-      duration: 3600s
-      initialUsersPerSec: 4
-      targetUsersPerSec: 16
-      maxSessions: 192
+      duration: 1980s
+      initialUsersPerSec: 6
+      targetUsersPerSec: 8
+      maxSessions: 512
       scenario:
         - generateRandomValues:
           - randomInt:
@@ -176,10 +176,10 @@ phases:
 # This could be quite frequent and with bursts (i.e., increasing) during pandemic times
 - addPetVisits:
     increasingRate:
-      duration: 3600s
+      duration: 1980s
       initialUsersPerSec: 4
-      targetUsersPerSec: 24
-      maxSessions: 384
+      targetUsersPerSec: 6
+      maxSessions: 512
       scenario:
         - generateRandomValues:
             # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
@@ -212,10 +212,11 @@ phases:
 # Workload simulating updating existing pets (name, birthday, type)
 # This should not happen very often
 - updatePets:
-    constantRate:
-      duration: 3600s
-      usersPerSec: 4
-      maxSessions: 32
+    increasingRate:
+      duration: 1980s
+      initialUsersPerSec: 2
+      targetUsersPerSec: 4
+      maxSessions: 512
       scenario:
         - generateRandomValues:
             - randomInt:
