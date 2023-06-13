@@ -113,7 +113,7 @@ confirm_os_settings() {
     yes)
       if [[ $EUID != 0 ]]; then
         echo ""
-        echo "WARNING: OS configuration requires sudo admin rights (e.g., $ sudo ./run-benchmarks.sh), otherwise the configuration fails."
+        echo "WARNING: OS configuration requires sudo admin rights, otherwise the configuration is not possible."
         read -r -p "Press ENTER to continue or CRTL+C to abort ... "
       fi
       return 0

@@ -27,14 +27,14 @@
 #
 
 check_command_line_options() {
-  if [ $# -ne 1 ] || [[ $EUID != 0 ]]; then
-    echo "Usage: sudo ./run-application.sh <test-run-number>"
+  if [ $# -ne 1 ]; then
+    echo "Usage: ./run-application.sh <test-run-number>"
     echo ""
     echo "Options:"
     echo "  test-run-number is an identifier of the current test used to generate the results files."
     echo ""
     echo "Example:"
-    echo "   $ sudo ./run-application.sh 1"
+    echo "   $ ./run-application.sh 1"
     echo ""
     return 1
   fi
@@ -61,14 +61,12 @@ configure_application() {
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
-create_output_folders() {
+create_output_resources() {
   mkdir -p ${OUTPUT_FOLDER}/perf
   mkdir -p ${OUTPUT_FOLDER}/logs
-}
 
-chmod_output_folders() {
-  sudo chmod -R a+rwx ${OUTPUT_FOLDER}/perf/
-  sudo chmod -R a+rwx ${OUTPUT_FOLDER}/logs/
+  touch ${OUTPUT_FOLDER}/perf/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.stats
+  touch ${OUTPUT_FOLDER}/logs/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.log
 }
 
 build_application() {
@@ -133,8 +131,8 @@ echo "| [3/7] Application configuration |"
 echo "+=================================+"
 configure_application
 
-# make sure the output folders exist
-create_output_folders
+# make sure the output resources (e.g., folders and files) exist
+create_output_resources
 
 echo ""
 echo "+=============================+"
@@ -172,9 +170,6 @@ echo "Application with pid=$APP_PID successfully stopped at: $(date)"
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
-
-# assign read/write permissions to the output files
-chmod_output_folders
 
 echo ""
 echo "*** Test $TEST_RUN_NO successfully finished! ***"

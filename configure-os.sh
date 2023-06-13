@@ -28,7 +28,8 @@
 
 configure_os() {
   if [ "$(uname -s)" == "Linux" ]; then
-    . ../configure-linux-os.sh
+    echo "WARNING: OS configuration requires sudo admin rights, otherwise the configuration is not possible."
+    sudo ../configure-linux-os.sh
   elif [ "$(uname -s)" == "Darwin" ]; then
     . ../configure-mac-os.sh
   elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
