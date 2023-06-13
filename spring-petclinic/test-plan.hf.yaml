@@ -8,7 +8,7 @@ phases:
 - browseWebsite:
     constantRate:
       duration: 1980s
-      usersPerSec: 12
+      usersPerSec: 8
       maxSessions: 512
       scenario:
       - getHomePage:
@@ -34,8 +34,8 @@ phases:
 - searchForOwners:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 8
-      targetUsersPerSec: 10
+      initialUsersPerSec: 5
+      targetUsersPerSec: 7
       maxSessions: 512
       scenario:
       # Generate random 1-digit number for a partial last name search
@@ -77,8 +77,8 @@ phases:
 - addOwnersWithPets:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 6
-      targetUsersPerSec: 8
+      initialUsersPerSec: 4
+      targetUsersPerSec: 6
       maxSessions: 512
       scenario:
         - generateRandomValues:
@@ -177,8 +177,8 @@ phases:
 - addPetVisits:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 4
-      targetUsersPerSec: 6
+      initialUsersPerSec: 3
+      targetUsersPerSec: 5
       maxSessions: 512
       scenario:
         - generateRandomValues:
@@ -214,8 +214,8 @@ phases:
 - updatePets:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 3
-      targetUsersPerSec: 5
+      initialUsersPerSec: 2
+      targetUsersPerSec: 4
       maxSessions: 512
       scenario:
         - generateRandomValues:
