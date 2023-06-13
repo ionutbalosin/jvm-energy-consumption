@@ -214,8 +214,8 @@ phases:
 - updatePets:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 2
-      targetUsersPerSec: 4
+      initialUsersPerSec: 3
+      targetUsersPerSec: 5
       maxSessions: 512
       scenario:
         - generateRandomValues:
