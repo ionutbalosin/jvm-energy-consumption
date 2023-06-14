@@ -29,6 +29,7 @@
 set_environment_variables() {
   export ARCH="$(uname -m)"
 
+  echo "Operating system: $(uname -s)"
   echo "Architecture: $ARCH"
   echo ""
 }
