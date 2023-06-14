@@ -47,8 +47,8 @@ check_command_line_options() {
 configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
-  export JAVA_OPS="-Xms1m -Xmx4g"
   export APP_RUNNING_TIME=2100
+  export JAVA_OPS="-Xms1m -Xmx4g"
   export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
 
   echo ""
@@ -56,6 +56,7 @@ configure_application() {
   echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Java opts: $JAVA_OPS"
+  echo "JFR opts: $JFR_OPS"
   echo "Test number: $TEST_RUN_NO"
 
   echo ""
