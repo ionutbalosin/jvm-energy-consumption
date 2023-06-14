@@ -26,18 +26,30 @@
 # SOFTWARE.
 #
 
+set_environment_variables() {
+  export ARCH="$(uname -m)"
+
+  echo "Architecture: $ARCH"
+  echo ""
+}
+
 configure_os() {
   if [ "$(uname -s)" == "Linux" ]; then
-    echo "WARNING: OS configuration requires sudo admin rights, otherwise the configuration is not possible."
     sudo ../configure-linux-os.sh
   elif [ "$(uname -s)" == "Darwin" ]; then
-    . ../configure-mac-os.sh
+    sudo ../configure-mac-os.sh
   elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    . ../configure-win-os.sh
+    sudo ../configure-win-os.sh
   else
-    echo "ERROR: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
+    echo "WARNING: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
     exit 1
   fi
 }
+
+echo ""
+echo "+--------------------------+"
+echo "| OS environment variables |"
+echo "+--------------------------+"
+set_environment_variables
 
 configure_os

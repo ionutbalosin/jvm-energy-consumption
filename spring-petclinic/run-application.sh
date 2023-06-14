@@ -48,7 +48,8 @@ configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export JAVA_OPS="-Xms1m -Xmx4g"
-  export APP_RUNNING_TIME=2100
+  export APP_RUNNING_TIME=30
+  export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -64,6 +65,7 @@ configure_application() {
 create_output_resources() {
   mkdir -p ${OUTPUT_FOLDER}/perf
   mkdir -p ${OUTPUT_FOLDER}/logs
+  mkdir -p ${OUTPUT_FOLDER}/jfr
 
   touch ${OUTPUT_FOLDER}/perf/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.stats
   touch ${OUTPUT_FOLDER}/logs/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.log
@@ -76,14 +78,14 @@ build_application() {
     export BUILD_CMD="./mvnw -Pnative clean native:compile -Dmaven.test.skip"
   fi
 
-  echo "${BUILD _CMD}"
+  echo "${BUILD_CMD}"
   cd ${APP_HOME} && ${BUILD_CMD}
   cd -
 }
 
 start_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} -jar ${APP_HOME}/target/*.jar"
+    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${JFR_OPS} -jar ${APP_HOME}/target/*.jar"
   else
     export RUN_CMD="${APP_HOME}/target/spring-petclinic ${JAVA_OPS}"
   fi

@@ -26,15 +26,6 @@
 # SOFTWARE.
 #
 
-set_environment_variables() {
-  export ARCH="$(uname -m)"
-
-  echo "Operating system: Linux OS"
-  echo "Architecture: $ARCH"
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
-}
-
 disable_turbo_boost() {
   # Intel
   no_turbo="/sys/devices/system/cpu/intel_pstate/no_turbo"
@@ -129,15 +120,9 @@ confirm_os_settings() {
 }
 
 echo ""
-echo "+--------------------------+"
-echo "| OS environment variables |"
-echo "+--------------------------+"
-set_environment_variables
-
-echo ""
-echo "+-----------------------+"
-echo "| OS benchmark settings |"
-echo "+-----------------------+"
+echo "+--------------------+"
+echo "| OS tuning settings |"
+echo "+--------------------+"
 echo "In summary:"
 echo " - for benchmarking to reduce, as much as possible, the noise and to get more consistent measurements a proper OS configuration is very important. Nevertheless, how to do that is very OS dependent and it might not be sufficient since it does not exclude the measurement bias."
 echo " - these settings includes:"
@@ -147,7 +132,7 @@ echo "WARNING: the current configuration relies and it was tested on a Debian-ba
 echo ""
 confirm_os_settings
 if [ $? -ne 0 ]; then
-  return 1
+  exit
 fi
 
 echo ""
