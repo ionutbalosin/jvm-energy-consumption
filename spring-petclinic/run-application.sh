@@ -48,7 +48,7 @@ configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export JAVA_OPS="-Xms1m -Xmx4g"
-  export APP_RUNNING_TIME=30
+  export APP_RUNNING_TIME=2100
   export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
 
   echo ""
