@@ -229,4 +229,6 @@ phases:
         - getVisit:
             - httpRequest:
                 GET:
-                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new                    
+                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+                sla:
+                  - errorRatio: 2.0
