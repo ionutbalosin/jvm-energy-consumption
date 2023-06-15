@@ -1,15 +1,15 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.186:8080
-  sharedConnections: 3072
+  sharedConnections: 6144
 phases:
 
 # Workload simulating users browsing through the website
 - browseWebsite:
     constantRate:
       duration: 1980s
-      usersPerSec: 14
-      maxSessions: 1024
+      usersPerSec: 16
+      maxSessions: 2048
       scenario:
       - getHomePage:
         - httpRequest:
@@ -36,7 +36,7 @@ phases:
       duration: 1980s
       initialUsersPerSec: 10
       targetUsersPerSec: 14
-      maxSessions: 1024
+      maxSessions: 2048
       scenario:
       # Generate random 1-digit number for a partial last name search
       - findOwnersByLastName_partialMatch_1digit:
@@ -79,7 +79,7 @@ phases:
       duration: 1980s
       initialUsersPerSec: 8
       targetUsersPerSec: 12
-      maxSessions: 1024
+      maxSessions: 2048
       scenario:
         - generateRandomValues:
           - randomInt:
@@ -174,7 +174,7 @@ phases:
       duration: 1980s
       initialUsersPerSec: 6
       targetUsersPerSec: 10
-      maxSessions: 1024
+      maxSessions: 2048
       scenario:
         - generateRandomValues:
             - randomInt:
