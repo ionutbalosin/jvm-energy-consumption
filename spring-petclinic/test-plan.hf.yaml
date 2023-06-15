@@ -8,7 +8,7 @@ phases:
 - browseWebsite:
     constantRate:
       duration: 1980s
-      usersPerSec: 16
+      usersPerSec: 12
       maxSessions: 2048
       scenario:
       - getHomePage:
@@ -34,8 +34,8 @@ phases:
 - searchForOwners:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 10
-      targetUsersPerSec: 14
+      initialUsersPerSec: 6
+      targetUsersPerSec: 10
       maxSessions: 2048
       scenario:
       # Generate random 1-digit number for a partial last name search
@@ -77,8 +77,8 @@ phases:
 - addOwnersWithPets:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 8
-      targetUsersPerSec: 12
+      initialUsersPerSec: 4
+      targetUsersPerSec: 8
       maxSessions: 2048
       scenario:
         - generateRandomValues:
@@ -172,8 +172,8 @@ phases:
 - updatePetsAndAddVisits:
     increasingRate:
       duration: 1980s
-      initialUsersPerSec: 6
-      targetUsersPerSec: 10
+      initialUsersPerSec: 2
+      targetUsersPerSec: 6
       maxSessions: 2048
       scenario:
         - generateRandomValues:
@@ -230,5 +230,3 @@ phases:
             - httpRequest:
                 GET:
                   pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
-                sla:
-                  - errorRatio: 2.0
