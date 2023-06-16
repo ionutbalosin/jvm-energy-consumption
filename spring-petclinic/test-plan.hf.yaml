@@ -7,48 +7,62 @@ phases:
 # Workload simulating users browsing through the website
 - browseWebsite:
     constantRate:
-      duration: 780s
-      usersPerSec: 16
+      duration: 300s
+      usersPerSec: 24
       maxSessions: 2048
-      scenario:
+      scenario:  
       - getHomePage:
         - httpRequest:
             GET: /
+            sla:
+            - errorRatio: 2.0            
       - getFindOwnersPage:
-          - httpRequest:
-              GET: /owners/find
+        - httpRequest:
+            GET: /owners/find
+            sla:
+            - errorRatio: 2.0 
       - getVetsPage:
         - httpRequest:
             GET: /vets.html
+            sla:
+            - errorRatio: 2.0             
       - getPetClinicCss:
         - httpRequest:
             GET: /resources/css/petclinic.css
+            sla:
+            - errorRatio: 2.0             
       - getBootstrapJs:
         - httpRequest:
             GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js
+            sla:
+            - errorRatio: 2.0             
       - getFontAwesomeCss:
-          - httpRequest:
-              GET: /webjars/font-awesome/4.7.0/css/font-awesome.min.css
+        - httpRequest:
+            GET: /webjars/font-awesome/4.7.0/css/font-awesome.min.css
+            sla:
+            - errorRatio: 2.0 
 
 # Workload simulating users searching for owners
 - searchForOwners:
     increasingRate:
-      duration: 780s
-      initialUsersPerSec: 10
-      targetUsersPerSec: 14
+      duration: 300s
+      initialUsersPerSec: 8
+      targetUsersPerSec: 32
       maxSessions: 2048
       scenario:
       # Generate random 1-digit number for a partial last name search
       - findOwnersByLastName_partialMatch_1digit:
-          - randomInt:
-              min: 1
-              max: 9
-              toVar: 1digit
-          - httpRequest:
-              GET:
-                pattern: /owners?lastName=${1digit}
-              handler:
-                followRedirect: NEVER
+        - randomInt:
+            min: 1
+            max: 9
+            toVar: 1digit
+        - httpRequest:
+            GET:
+              pattern: /owners?lastName=${1digit}
+            sla:
+            - errorRatio: 2.0 
+            handler:
+              followRedirect: NEVER
       # Generate random 2 digits number for a partial last name search
       - findOwnersByLastName_partialMatch_2digits:
         - randomInt:
@@ -58,27 +72,31 @@ phases:
         - httpRequest:
             GET:
               pattern: /owners?lastName=${2digits}
+            sla:
+            - errorRatio: 2.0 
             handler:
               followRedirect: NEVER
         # Generate random 3 digits number for a partial last name search
       - findOwnersByLastName_partialMatch_3digits:
-          - randomInt:
-              min: 100
-              max: 999
-              toVar: 3digits
-          - httpRequest:
-              GET:
-                pattern: /owners?lastName=${3digits}
-              handler:
-                followRedirect: NEVER
+        - randomInt:
+            min: 100
+            max: 999
+            toVar: 3digits
+        - httpRequest:
+            GET:
+              pattern: /owners?lastName=${3digits}
+            sla:
+            - errorRatio: 2.0               
+            handler:
+              followRedirect: NEVER
 
 # Workload simulating adding new owners with pets
 # This could increase by time since the platform is becoming more popular
 - addOwnersWithPets:
     increasingRate:
-      duration: 780s
+      duration: 300s
       initialUsersPerSec: 8
-      targetUsersPerSec: 12
+      targetUsersPerSec: 24
       maxSessions: 2048
       scenario:
         - generateRandomValues:
@@ -93,43 +111,51 @@ phases:
               list: [ "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10" ]
               toVar: randomDate
         - postOwner:
-            - unset: newOwnerRedirectUrl
-            - httpRequest:
-                POST: /owners/new
-                headers:
-                  content-type: application/x-www-form-urlencoded
-                body:
-                  form:
-                    - name: firstName
-                      value: Owner
-                    - name: lastName
-                      fromVar: randomNumber
-                    - name: address
-                      pattern: Address ${randomNumber}
-                    - name: telephone
-                      fromVar: randomNumber
-                    - name: city
-                      pattern: City ${randomNumber}
-                handler:
-                  followRedirect: NEVER
-                  header:
-                    filter:
-                      header:
-                        value: location
-                      processor:
-                        store: newOwnerRedirectUrl
+          - unset: newOwnerRedirectUrl
+          - httpRequest:
+              POST: /owners/new
+              sla:
+              - errorRatio: 2.0                  
+              headers:
+                content-type: application/x-www-form-urlencoded
+              body:
+                form:
+                - name: firstName
+                  value: Owner
+                - name: lastName
+                  fromVar: randomNumber
+                - name: address
+                  pattern: Address ${randomNumber}
+                - name: telephone
+                  fromVar: randomNumber
+                - name: city
+                  pattern: City ${randomNumber}
+              handler:
+                followRedirect: NEVER
+                header:
+                  filter:
+                    header:
+                      value: location
+                    processor:
+                      store: newOwnerRedirectUrl
         - getOwner:
           - httpRequest:
               GET:
                 fromVar: newOwnerRedirectUrl
+              sla:
+              - errorRatio: 2.0                 
         - getEditOwner:
           - httpRequest:
               GET:
                 pattern: ${newOwnerRedirectUrl}/edit
+              sla:
+              - errorRatio: 2.0                 
         - postEditOwner:
           - httpRequest:
               POST:
                 pattern: ${newOwnerRedirectUrl}/edit
+              sla:
+              - errorRatio: 2.0                 
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -150,6 +176,8 @@ phases:
           - httpRequest:
               POST:
                 pattern: ${newOwnerRedirectUrl}/pets/new
+              sla:
+              - errorRatio: 2.0                 
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -166,14 +194,16 @@ phases:
           - httpRequest:
               GET:
                 pattern: ${newOwnerRedirectUrl}/pets/new
+              sla:
+              - errorRatio: 2.0 
 
 # Workload simulating adding pet's visits
 # This could be quite frequent and with bursts (i.e., increasing) during pandemic times
 - addPetsVisits:
     increasingRate:
-      duration: 780s
-      initialUsersPerSec: 6
-      targetUsersPerSec: 10
+      duration: 300s
+      initialUsersPerSec: 8
+      targetUsersPerSec: 16
       maxSessions: 2048
       scenario:
         - generateRandomValues:
@@ -189,21 +219,27 @@ phases:
           - httpRequest:
               GET:
                 pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
+              sla:
+              - errorRatio: 2.0                 
         - postVisit:
-            - httpRequest:
-                POST:
-                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
-                headers:
-                  content-type: application/x-www-form-urlencoded
-                body:
-                  form:
-                    - name: date
-                      fromVar: randomDate
-                    - name: description
-                      pattern: Visit ${ownerIdSameAsPetId}
-                handler:
-                  followRedirect: NEVER
+          - httpRequest:
+              POST:
+                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+              sla:
+              - errorRatio: 2.0                   
+              headers:
+                content-type: application/x-www-form-urlencoded
+              body:
+                form:
+                  - name: date
+                    fromVar: randomDate
+                  - name: description
+                    pattern: Visit ${ownerIdSameAsPetId}
+              handler:
+                followRedirect: NEVER
         - getVisit:
-            - httpRequest:
-                GET:
-                  pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+          - httpRequest:
+              GET:
+                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
+              sla:
+              - errorRatio: 2.0                    
