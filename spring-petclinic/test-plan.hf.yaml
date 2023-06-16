@@ -7,8 +7,8 @@ phases:
 # Workload simulating users browsing through the website
 - browseWebsite:
     constantRate:
-      duration: 1980s
-      usersPerSec: 12
+      duration: 780s
+      usersPerSec: 16
       maxSessions: 2048
       scenario:
       - getHomePage:
@@ -33,9 +33,9 @@ phases:
 # Workload simulating users searching for owners
 - searchForOwners:
     increasingRate:
-      duration: 1980s
-      initialUsersPerSec: 6
-      targetUsersPerSec: 10
+      duration: 780s
+      initialUsersPerSec: 10
+      targetUsersPerSec: 14
       maxSessions: 2048
       scenario:
       # Generate random 1-digit number for a partial last name search
@@ -76,9 +76,9 @@ phases:
 # This could increase by time since the platform is becoming more popular
 - addOwnersWithPets:
     increasingRate:
-      duration: 1980s
-      initialUsersPerSec: 4
-      targetUsersPerSec: 8
+      duration: 780s
+      initialUsersPerSec: 8
+      targetUsersPerSec: 12
       maxSessions: 2048
       scenario:
         - generateRandomValues:
@@ -169,26 +169,19 @@ phases:
 
 # Workload simulating adding pet's visits
 # This could be quite frequent and with bursts (i.e., increasing) during pandemic times
-- updatePetsAndAddVisits:
+- addPetsVisits:
     increasingRate:
-      duration: 1980s
-      initialUsersPerSec: 2
-      targetUsersPerSec: 6
+      duration: 780s
+      initialUsersPerSec: 6
+      targetUsersPerSec: 10
       maxSessions: 2048
       scenario:
         - generateRandomValues:
-            - randomInt:
-                min: 100000000
-                max: 999999999
-                toVar: randomNumber        
             # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
             - randomInt:
                 min: 1
                 max: 3
                 toVar: ownerIdSameAsPetId
-            - randomItem:
-                list: [ "bird", "cat", "dog", "hamster", "lizard", "snake" ]
-                toVar: randomPetType                
             - randomItem:
                 list: [ "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10" ]
                 toVar: randomDate
@@ -196,22 +189,6 @@ phases:
           - httpRequest:
               GET:
                 pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
-        - postEditPet:
-          - httpRequest:
-              POST:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
-              headers:
-                content-type: application/x-www-form-urlencoded
-              body:
-                form:
-                  - name: id
-                    fromVar: ownerIdSameAsPetId
-                  - name: name
-                    pattern: Pet ${randomNumber}
-                  - name: birthDate
-                    fromVar: randomDate
-                  - name: type
-                    fromVar: randomPetType
         - postVisit:
             - httpRequest:
                 POST:
