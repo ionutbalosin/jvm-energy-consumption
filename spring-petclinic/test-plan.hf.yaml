@@ -1,7 +1,7 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.186:8080
-  sharedConnections: 6144
+  sharedConnections: 1024
 phases:
 
 # Workload simulating users browsing through the website
@@ -9,7 +9,7 @@ phases:
     constantRate:
       duration: 780s
       usersPerSec: 12
-      maxSessions: 2048
+      maxSessions: 256
       scenario:  
       - getHomePage:
         - httpRequest:
@@ -48,7 +48,7 @@ phases:
       duration: 780s
       initialUsersPerSec: 1
       targetUsersPerSec: 14
-      maxSessions: 2048
+      maxSessions: 256
       scenario:
       # Generate random 1-digit number for a partial last name search
       - findOwnersByLastName_partialMatch_1digit:
@@ -97,7 +97,7 @@ phases:
       duration: 780s
       initialUsersPerSec: 1
       targetUsersPerSec: 12
-      maxSessions: 2048
+      maxSessions: 256
       scenario:
         - generateRandomValues:
           - randomInt:
@@ -204,7 +204,7 @@ phases:
       duration: 780s
       initialUsersPerSec: 1
       targetUsersPerSec: 10
-      maxSessions: 2048
+      maxSessions: 256
       scenario:
         - generateRandomValues:
             # Only for the first 3 entities ownerId is the same as petId. This is configured while the DB is prefilled with data
