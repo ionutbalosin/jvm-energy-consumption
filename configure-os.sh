@@ -36,11 +36,11 @@ set_environment_variables() {
 
 configure_os() {
   if [ "$(uname -s)" == "Linux" ]; then
-    sudo ../configure-linux-os.sh
+    . ../configure-linux-os.sh
   elif [ "$(uname -s)" == "Darwin" ]; then
-    sudo ../configure-mac-os.sh
+    . ../configure-mac-os.sh
   elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    sudo ../configure-win-os.sh
+    . ../configure-win-os.sh
   else
     echo "WARNING: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
     exit 1

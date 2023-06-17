@@ -132,7 +132,7 @@ echo "WARNING: the current configuration relies and it was tested on a Debian-ba
 echo ""
 confirm_os_settings
 if [ $? -ne 0 ]; then
-  exit
+  return 1
 fi
 
 echo ""

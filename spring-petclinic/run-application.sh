@@ -27,11 +27,12 @@
 #
 
 check_command_line_options() {
-  if [ $# -ne 1 ]; then
-    echo "Usage: ./run-application.sh <test-run-number>"
+  if [ $# -ne 1 ] && [ $# -ne 2 ]; then
+    echo "Usage: ./run-application.sh <test-run-number> [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  test-run-number is an identifier of the current test used to generate the results files."
+    echo "  test-run-number is a mandatory identifier of the current test used to generate the results files."
+    echo "  --skip-build is an optional parameter used in case the build process is intended to be skipped."
     echo ""
     echo "Example:"
     echo "   $ ./run-application.sh 1"
@@ -47,9 +48,9 @@ check_command_line_options() {
 configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
-  export APP_RUNNING_TIME=2100
-  export JAVA_OPS="-Xms1m -Xmx4g"
-  export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
+  export APP_RUNNING_TIME=900
+  export JAVA_OPS="-Xms1m -Xmx1g"
+  # export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -106,7 +107,7 @@ start_application() {
 
 time_to_first_response() {
   # wait until the application answers to the first request
-  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://${APP_BASE_URL}/owners/find)" != "200" ]]; do
+  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://${APP_BASE_URL}/owners?lastName=)" != "200" ]]; do
     sleep .00001
   done
 }
@@ -118,19 +119,19 @@ fi
 
 echo ""
 echo "+========================+"
-echo "| [1/7] OS configuration |"
+echo "| [1/6] OS configuration |"
 echo "+========================+"
 . ../configure-os.sh
 
 echo ""
 echo "+=========================+"
-echo "| [2/7] JVM configuration |"
+echo "| [2/6] JVM configuration |"
 echo "+=========================+"
 . ../configure-jvm.sh
 
 echo ""
 echo "+=================================+"
-echo "| [3/7] Application configuration |"
+echo "| [3/6] Application configuration |"
 echo "+=================================+"
 configure_application
 
@@ -139,13 +140,17 @@ create_output_resources
 
 echo ""
 echo "+=============================+"
-echo "| [4/7] Build the application |"
+echo "| [4/6] Build the application |"
 echo "+=============================+"
-build_application
+if [ "$2" == "--skip-build" ]; then
+  echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
+else
+  build_application
+fi
 
 echo ""
 echo "+=============================+"
-echo "| [5/7] Start the application |"
+echo "| [5/6] Start the application |"
 echo "+=============================+"
 start_application
 
@@ -154,18 +159,14 @@ time_to_first_response
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
 echo "Application with pid=$APP_PID successfully started at: $(date)"
-
 echo ""
-echo "+==============================+"
-echo "| [6/7] Start the load testing |"
-echo "+==============================+"
 echo "Keep the application with pid=$APP_PID running for about $APP_RUNNING_TIME sec"
-echo "Note: the load test must be triggered during this time interval!"
+echo "Note: If intended, the load test must be triggered during this time interval!"
 sleep $APP_RUNNING_TIME
 
 echo ""
 echo "+============================+"
-echo "| [7/7] Stop the application |"
+echo "| [6/6] Stop the application |"
 echo "+============================+"
 echo "Stop the application with pid=$APP_PID"
 sudo kill -INT $APP_PID

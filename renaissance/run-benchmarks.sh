@@ -52,9 +52,9 @@ configure_openj9() {
   export JVM_NAME="openj9"
 }
 
-configure_zing() {
+configure_azul_prime() {
   export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="zing"
+  export JVM_NAME="azul-prime"
 }
 
 configure_renaissance() {
@@ -171,10 +171,10 @@ configure_environment
 run_benchmarks
 
 echo ""
-echo "+==========================+"
-echo "| Run benchmarks with Zing |"
-echo "+==========================+"
-configure_zing
+echo "+================================+"
+echo "| Run benchmarks with Azul Prime |"
+echo "+================================+"
+configure_azul_prime
 configure_renaissance
 configure_environment
 run_benchmarks

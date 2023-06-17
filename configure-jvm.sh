@@ -33,19 +33,19 @@ configure_openjdk() {
 }
 
 configure_graalvm_ee() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
+  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-jdk-17.0.7+8-LTS-jvmci-23.0-b12
   export JVM_NAME="GraalVM EE"
   export JVM_IDENTIFIER="graalvm-ee"
 }
 
 configure_graalvm_ce() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ce-java17-22.3.2
+  export JAVA_HOME=/usr/lib/jvm/graalvm-ce-jdk-17.0.7+7-jvmci-23.0-b12
   export JVM_NAME="GraalVM CE"
   export JVM_IDENTIFIER="graalvm-ce"
 }
 
 configure_native_image() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
+  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-jdk-17.0.7+8-LTS-jvmci-23.0-b12
   export JVM_NAME="GraalVM Native Image"
   export JVM_IDENTIFIER="native-image"
 }
@@ -56,10 +56,10 @@ configure_openj9() {
   export JVM_IDENTIFIER="openj9"
 }
 
-configure_zing() {
+configure_azul_prime() {
   export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="Azul Zing"
-  export JVM_IDENTIFIER="zing"
+  export JVM_NAME="Azul Prime"
+  export JVM_IDENTIFIER="azul-prime"
 }
 
 echo "Select the JVM:"
@@ -67,7 +67,7 @@ echo "    1) - OpenJDK HotSpot"
 echo "    2) - GraalVM CE"
 echo "    3) - GraalVM EE"
 echo "    4) - Native Image"
-echo "    5) - Azul Zing/Prime"
+echo "    5) - Azul Prime"
 echo "    6) - OpenJ9"
 echo ""
 
@@ -91,7 +91,7 @@ while :; do
     break
     ;;
   5)
-    configure_zing
+    configure_azul_prime
     break
     ;;
   6)
