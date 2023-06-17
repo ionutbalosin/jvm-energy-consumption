@@ -13,34 +13,22 @@ phases:
       scenario:  
       - getHomePage:
         - httpRequest:
-            GET: /
-            sla:
-            - errorRatio: 2.0            
+            GET: /        
       - getFindOwnersPage:
         - httpRequest:
             GET: /owners/find
-            sla:
-            - errorRatio: 2.0 
       - getVetsPage:
         - httpRequest:
-            GET: /vets.html
-            sla:
-            - errorRatio: 2.0             
+            GET: /vets.html           
       - getPetClinicCss:
         - httpRequest:
-            GET: /resources/css/petclinic.css
-            sla:
-            - errorRatio: 2.0             
+            GET: /resources/css/petclinic.css            
       - getBootstrapJs:
         - httpRequest:
-            GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js
-            sla:
-            - errorRatio: 2.0             
+            GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js           
       - getFontAwesomeCss:
         - httpRequest:
             GET: /webjars/font-awesome/4.7.0/css/font-awesome.min.css
-            sla:
-            - errorRatio: 2.0 
 
 # Workload simulating users searching for owners
 - searchForOwners:
@@ -59,8 +47,6 @@ phases:
         - httpRequest:
             GET:
               pattern: /owners?lastName=${1digit}
-            sla:
-            - errorRatio: 2.0 
             handler:
               followRedirect: NEVER
       # Generate random 2 digits number for a partial last name search
@@ -72,8 +58,6 @@ phases:
         - httpRequest:
             GET:
               pattern: /owners?lastName=${2digits}
-            sla:
-            - errorRatio: 2.0 
             handler:
               followRedirect: NEVER
         # Generate random 3 digits number for a partial last name search
@@ -84,9 +68,7 @@ phases:
             toVar: 3digits
         - httpRequest:
             GET:
-              pattern: /owners?lastName=${3digits}
-            sla:
-            - errorRatio: 2.0               
+              pattern: /owners?lastName=${3digits}              
             handler:
               followRedirect: NEVER
 
@@ -113,9 +95,7 @@ phases:
         - postOwner:
           - unset: newOwnerRedirectUrl
           - httpRequest:
-              POST: /owners/new
-              sla:
-              - errorRatio: 2.0                  
+              POST: /owners/new                
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -141,21 +121,15 @@ phases:
         - getOwner:
           - httpRequest:
               GET:
-                fromVar: newOwnerRedirectUrl
-              sla:
-              - errorRatio: 2.0                 
+                fromVar: newOwnerRedirectUrl               
         - getEditOwner:
           - httpRequest:
               GET:
-                pattern: ${newOwnerRedirectUrl}/edit
-              sla:
-              - errorRatio: 2.0                 
+                pattern: ${newOwnerRedirectUrl}/edit               
         - postEditOwner:
           - httpRequest:
               POST:
-                pattern: ${newOwnerRedirectUrl}/edit
-              sla:
-              - errorRatio: 2.0                 
+                pattern: ${newOwnerRedirectUrl}/edit                
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -175,9 +149,7 @@ phases:
         - postPet:
           - httpRequest:
               POST:
-                pattern: ${newOwnerRedirectUrl}/pets/new
-              sla:
-              - errorRatio: 2.0                 
+                pattern: ${newOwnerRedirectUrl}/pets/new                
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -194,8 +166,6 @@ phases:
           - httpRequest:
               GET:
                 pattern: ${newOwnerRedirectUrl}/pets/new
-              sla:
-              - errorRatio: 2.0 
 
 # Workload simulating adding pet's visits
 # This could be quite frequent and with bursts (i.e., increasing) during pandemic times
@@ -218,15 +188,11 @@ phases:
         - getEditPet:
           - httpRequest:
               GET:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit
-              sla:
-              - errorRatio: 2.0                 
+                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/edit                 
         - postVisit:
           - httpRequest:
               POST:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
-              sla:
-              - errorRatio: 2.0                   
+                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new                 
               headers:
                 content-type: application/x-www-form-urlencoded
               body:
@@ -240,6 +206,4 @@ phases:
         - getVisit:
           - httpRequest:
               GET:
-                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new
-              sla:
-              - errorRatio: 2.0                    
+                pattern: /owners/${ownerIdSameAsPetId}/pets/${ownerIdSameAsPetId}/visits/new                   
