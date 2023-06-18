@@ -69,9 +69,6 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
   mkdir -p $OUTPUT_FOLDER/logs
   mkdir -p $OUTPUT_FOLDER/jfr
-
-  touch $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.stats
-  touch $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.log
 }
 
 build_application() {
@@ -165,8 +162,10 @@ time_to_first_response
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
-echo "Application with pid=$APP_PID successfully started at: $(date) and it will run for about $APP_RUNNING_TIME sec"
-echo "Note: (If the case) any load test must be triggered during this time!"
+
+echo "Application with pid=$APP_PID successfully started at: $(date) and it will be running for about $APP_RUNNING_TIME sec"
+echo ""
+
 sleep $APP_RUNNING_TIME
 
 echo ""

@@ -26,128 +26,45 @@
 # SOFTWARE.
 #
 
-list_available_rapl_events() {
-  echo ""
-  echo "The available power events for the RAPL (Running Average Power Limit) energy consumption counters are:"
-  perf list | grep power | grep "Kernel PMU event"
-}
+check_command_line_options() {
+  if [ $# -ne 1 ] && [ $# -ne 2 ]; then
+    echo "Usage: ./run-application.sh <test-run-identifier> [--skip-build]"
+    echo ""
+    echo "Options:"
+    echo "  test-run-identifier  is a mandatory parameter to identify the current execution test."
+    echo "  --skip-build         is an optional parameter to skip the build process."
+    echo ""
+    echo "Examples:"
+    echo "   $ ./run-application.sh run1"
+    echo "   $ ./run-application.sh run1 --skip-build"
+    echo ""
+    return 1
+  fi
 
-configure_openjdk() {
-  export JAVA_HOME=/usr/lib/jvm/adoptium-temurin-jdk-17.0.7+7
-  export JVM_NAME="openjdk"
-}
-
-configure_graalvm_ee() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
-  export JVM_NAME="graalvm-ee"
-}
-
-configure_graalvm_ce() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ce-java17-22.3.2
-  export JVM_NAME="graalvm-ce"
-}
-
-configure_native_image() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
-  export JVM_NAME="native-image"
-}
-
-configure_openj9() {
-  export JAVA_HOME=/usr/lib/jvm/ibm-semeru-openj9-jdk-17.0.6+10
-  export JVM_NAME="openj9"
-}
-
-configure_zing() {
-  export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="zing"
-}
-
-select_jvm() {
-  echo "Select the JVM:"
-  echo "    1) - OpenJDK"
-  echo "    2) - GraalVM CE"
-  echo "    3) - GraalVM EE"
-  echo "    4) - Native Image"
-  echo "    5) - Azul Zing/Prime"
-  echo "    6) - OpenJ9"
-  echo ""
-
-  while :; do
-    read -r INPUT_KEY
-    case $INPUT_KEY in
-    1)
-      configure_openjdk
-      break
-      ;;
-    2)
-      configure_graalvm_ce
-      break
-      ;;
-    3)
-      configure_graalvm_ee
-      break
-      ;;
-    4)
-      configure_native_image
-      break
-      ;;
-    5)
-      configure_zing
-      break
-      ;;
-    6)
-      configure_openj9
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Try again!"
-      ;;
-    esac
-  done
+  if [ "$1" ]; then
+    export TEST_RUN_IDENTIFIER="$1"
+  fi
 }
 
 configure_application() {
   export APP_HOME=/home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart
   export APP_BASE_URL=localhost:8080
-}
-
-configure_postgresql() {
+  export APP_RUNNING_TIME=900
   export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
-}
-
-configure_environment() {
-  export JDK_VERSION=$($JAVA_HOME/bin/java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
-  export PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_OPS="-Xms1m -Xmx4g"
-  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+  export JAVA_OPS="-Xms1m -Xmx512m"
 
   echo ""
-  echo "Java home: $JAVA_HOME"
-  echo "JDK version: $JDK_VERSION"
-  echo "JVM identifier: $JVM_IDENTIFIER"
-  echo "Java opts: $JAVA_OPS"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
+  echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
-  echo "Test number: $TEST_RUN_NO"
-  echo "Test output folder: $OUTPUT_FOLDER"
-
-  echo ""
-  $JAVA_HOME/bin/java --version
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
+  echo "Java opts: $JAVA_OPS"
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 }
 
-create_output_folders() {
-  mkdir -p ${OUTPUT_FOLDER}/perf
-  mkdir -p ${OUTPUT_FOLDER}/logs
-}
-
-chmod_output_folders() {
-  sudo chmod 777 ${OUTPUT_FOLDER}/perf/*
-  sudo chmod 777 ${OUTPUT_FOLDER}/logs/*
+create_output_resources() {
+  mkdir -p $OUTPUT_FOLDER/perf
+  mkdir -p $OUTPUT_FOLDER/logs
 }
 
 build_application() {
@@ -157,98 +74,106 @@ build_application() {
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip -Dnative"
   fi
 
-  echo "${BUILD_CMD}"
-  cd ${APP_HOME} && ${BUILD_CMD}
+  echo "$BUILD_CMD"
+  cd $APP_HOME && $BUILD_CMD
   cd -
 }
 
 start_application() {
   if [ "$JVM_NAME" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${POSTGRESQL_DATASOURCE} -jar ${APP_HOME}/target/quarkus-app/*.jar"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
   else
-    export RUN_CMD="${APP_HOME}/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner ${JAVA_OPS} ${POSTGRESQL_DATASOURCE}"
+    export RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
   fi
 
-  echo "${RUN_CMD}"
+  echo ""
+  echo "Command line: $RUN_CMD"
+
+  echo ""
+  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
+
+  echo "Starting the application ... "
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o ${OUTPUT_FOLDER}/perf/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.stats \
-    ${RUN_CMD} > ${OUTPUT_FOLDER}/logs/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.log 2>&1 &
+    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.stats \
+    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.log 2>&1 &
 
   export APP_PID=$!
 }
 
 time_to_first_response() {
   # wait until the application answers to the first request
-  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://${APP_BASE_URL}/index.html)" != "200" ]]; do
+  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://$APP_BASE_URL/entity/fruits)" != "200" ]]; do
     sleep .00001
   done
 }
 
-TEST_RUN_NO="$1"
-
-if [[ $EUID != 0 ]]; then
-  echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-application.sh [test_number])"
-  echo ""
-  echo "Example:"
-  echo "   $ sudo ./run-application.sh 1"
+check_command_line_options "$@"
+if [ $? -ne 0 ]; then
   exit 1
 fi
 
 echo ""
 echo "+========================+"
-echo "| Available power events |"
+echo "| [1/6] OS configuration |"
 echo "+========================+"
-list_available_rapl_events
+. ../configure-os.sh
 
 echo ""
-echo "+=======================+"
-echo "| Environment variables |"
-echo "+=======================+"
-select_jvm
+echo "+=========================+"
+echo "| [2/6] JVM configuration |"
+echo "+=========================+"
+. ../configure-jvm.sh
+
+echo ""
+echo "+=================================+"
+echo "| [3/6] Application configuration |"
+echo "+=================================+"
 configure_application
-configure_postgresql
-configure_environment
 
-# make sure the output folders exist
-create_output_folders
+# make sure the output resources (e.g., folders and files) exist
+create_output_resources
 
 echo ""
-echo "+=======================+"
-echo "| Build the application |"
-echo "+=======================+"
-build_application
+echo "+=============================+"
+echo "| [4/6] Build the application |"
+echo "+=============================+"
+if [ "$2" == "--skip-build" ]; then
+  echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
+else
+  build_application
+fi
 
 echo ""
-echo "+-----------------------+"
-echo "| Start the application |"
-echo "+-----------------------+"
+echo "+=============================+"
+echo "| [5/6] Start the application |"
+echo "+=============================+"
 start_application
 
 time_to_first_response
-echo "Application with pid=$APP_PID successfully started"
 
-TIME_TO_SLEEP=1980
-echo "Wait $TIME_TO_SLEEP sec until the application with pid=$APP_PID gets stopped"
-echo "Note: this is considered enough for the JMeter tests to run"
-sleep $TIME_TO_SLEEP
+# reset the terminal line settings, otherwise it gets a wired indentation
+stty sane
+
+echo "Application with pid=$APP_PID successfully started at: $(date) and it will be running for about $APP_RUNNING_TIME sec"
+echo ""
+
+sleep $APP_RUNNING_TIME
 
 echo ""
-echo "+----------------------+"
-echo "| Stop the application |"
-echo "+----------------------+"
+echo "+============================+"
+echo "| [6/6] Stop the application |"
+echo "+============================+"
 echo "Stop the application with pid=$APP_PID"
 sudo kill -INT $APP_PID
+echo "Application with pid=$APP_PID successfully stopped at: $(date)"
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
 
-# assign read/write permissions to the output files
-chmod_output_folders
-
 echo ""
-echo "*** Test $TEST_RUN_NO successfully finished! ***"
+echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

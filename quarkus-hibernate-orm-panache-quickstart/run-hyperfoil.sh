@@ -26,133 +26,79 @@
 # SOFTWARE.
 #
 
-configure_openjdk() {
-  export JVM_NAME="openjdk"
-}
-
-configure_graalvm_ee() {
-  export JVM_NAME="graalvm-ee"
-}
-
-configure_graalvm_ce() {
-  export JVM_NAME="graalvm-ce"
-}
-
-configure_native_image() {
-  export JVM_NAME="native-image"
-}
-
-configure_zing() {
-  export JVM_NAME="zing"
-}
-
-configure_openj9() {
-  export JVM_NAME="openj9"
-}
-
-select_jvm() {
-  echo "Select the JVM:"
-  echo "    1) - OpenJDK"
-  echo "    2) - GraalVM CE"
-  echo "    3) - GraalVM EE"
-  echo "    4) - Native Image"
-  echo "    5) - Azul Zing/Prime"
-  echo "    6) - OpenJ9"
-  echo ""
-
-  while :; do
-    read -r INPUT_KEY
-    case $INPUT_KEY in
-    1)
-      configure_openjdk
-      break
-      ;;
-    2)
-      configure_graalvm_ce
-      break
-      ;;
-    3)
-      configure_graalvm_ee
-      break
-      ;;
-    4)
-      configure_native_image
-      break
-      ;;
-    5)
-      configure_zing
-      break
-      ;;
-    6)
-      configure_openj9
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Try again!"
-      ;;
-    esac
-  done
-}
-
-configure_hyperfoil() {
-  export HYPERFOIL_HOME=/home/ionutbalosin/Kit/hyperfoil-0.24.2
-
-  #  The Hyperfoil needs the 'java' command to be configured
-  if [[ (-n "$JAVA_HOME") && (-x "$JAVA_HOME/bin/java") ]]
-  then
-    export PATH=$JAVA_HOME/bin:$PATH
-  else
+check_command_line_options() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: ./run-hyperfoil.sh <arch> <test-run-identifier>"
     echo ""
-    echo "ERROR: Cannot properly execute '$JAVA_HOME/bin/java' command, unable to continue!"
-    echo "'java' command is needed for Hyperfoil."
-    exit 1
+    echo "Options:"
+    echo "  arch                 should match the system under test architecture (from the target machine)."
+    echo "  test-run-identifier  should match the system under test run identifier (from the target machine)."
+    echo "Both of these parameters are used to generate the results files."
+    echo ""
+    echo "Examples:"
+    echo "  ./run-hyperfoil.sh x86_64 run1"
+    echo "  ./run-hyperfoil.sh arm64 run1"
+    echo ""
+    return 1
+  fi
+
+  if [ "$1" ]; then
+    export ARCH="$1"
+  fi
+
+  if [ "$1" ]; then
+    export TEST_RUN_IDENTIFIER="$2"
   fi
 }
 
-configure_environment() {
-  export JDK_VERSION=17
-  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+configure_hyperfoil() {
+  export HYPERFOIL_HOME=/Users/wzhioba/Data/Workspaces/hyperfoil-0.24.2
 
   echo ""
-  echo "JVM identifier: $JVM_IDENTIFIER"
   echo "Hyperfoil home: $HYPERFOIL_HOME"
-  echo "Test number: $TEST_RUN_NO"
-  echo "Test output folder: $OUTPUT_FOLDER"
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_folders() {
-  mkdir -p ${OUTPUT_FOLDER}/reports
+  mkdir -p $OUTPUT_FOLDER/hreports
 }
 
 start_hyperfoil() {
-  ${HYPERFOIL_HOME}/bin/cli.sh
+  $HYPERFOIL_HOME/bin/cli.sh
 }
 
-TEST_RUN_NO="$1"
+check_command_line_options "$@"
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 
 echo ""
-echo "+=======================+"
-echo "| Environment variables |"
-echo "+=======================+"
-select_jvm
+echo "+=========================+"
+echo "| [1/3] JVM configuration |"
+echo "+=========================+"
+. ../configure-jvm.sh
+
+echo ""
+echo "+===============================+"
+echo "| [2/3] Hyperfoil configuration |"
+echo "+===============================+"
 configure_hyperfoil
-configure_environment
 
 # make sure the output folders exist
 create_output_folders
 
 echo ""
-echo "+-----------------+"
-echo "| Start Hyperfoil |"
-echo "+-----------------+"
-echo "IMPORTANT: execute the below command in the Hyperfoil CLI:"
-echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/${OUTPUT_FOLDER}/reports/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.html"
+echo "+=======================+"
+echo "| [3/3] Start Hyperfoil |"
+echo "+=======================+"
+echo "IMPORTANT: execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.html"
+echo "$ exit"
 echo ""
 start_hyperfoil
 
 echo ""
-echo "*** Test $TEST_RUN_NO successfully finished! ***"
+echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
