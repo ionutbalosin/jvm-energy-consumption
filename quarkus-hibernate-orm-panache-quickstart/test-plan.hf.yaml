@@ -1,9 +1,10 @@
 name: test-plan-benchmark
 http:
-  host: http://192.168.0.2:8080
+  host: http://192.168.0.186:8080
   sharedConnections: 48
-duration: 1800s
-usersPerSec: 4
+duration: 780s
+initialUsersPerSec: 1
+targetUsersPerSec: 64
 maxSessions: 48
 scenario:
   # Note: scenario steps are sequentially executed
