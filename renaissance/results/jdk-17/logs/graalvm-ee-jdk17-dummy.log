@@ -1,0 +1,1567 @@
+Benchmark 'dummy-setup-failing' failed with exception:
+java.lang.AssertionError: Intentionally failing
+	at org.renaissance.dummy.DummySetupFailing.setUpBeforeAll(DummySetupFailing.java:18)
+	at org.renaissance.harness.ExecutionDriver.executeBenchmark(ExecutionDriver.java:82)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1(RenaissanceSuite.scala:163)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1$adapted(RenaissanceSuite.scala:159)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.renaissance.harness.RenaissanceSuite$.runBenchmarks(RenaissanceSuite.scala:159)
+	at org.renaissance.harness.RenaissanceSuite$.main(RenaissanceSuite.scala:132)
+	at org.renaissance.harness.RenaissanceSuite.main(RenaissanceSuite.scala)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.renaissance.core.Launcher.loadAndInvokeHarnessClass(Launcher.java:129)
+	at org.renaissance.core.Launcher.launchHarnessClass(Launcher.java:78)
+	at org.renaissance.core.Launcher.main(Launcher.java:43)
+====== dummy-teardown-failing (dummy) [default], iteration 0 started ======
+GC before operation: completed in 72.799 ms, heap usage 24.843 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 0 completed (8.417 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 1 started ======
+GC before operation: completed in 62.188 ms, heap usage 6.125 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 1 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 2 started ======
+GC before operation: completed in 31.569 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 2 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 3 started ======
+GC before operation: completed in 32.613 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 3 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 4 started ======
+GC before operation: completed in 31.601 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 4 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 5 started ======
+GC before operation: completed in 32.067 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 5 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 6 started ======
+GC before operation: completed in 31.765 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 6 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 7 started ======
+GC before operation: completed in 33.684 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 7 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 8 started ======
+GC before operation: completed in 32.458 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 8 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 9 started ======
+GC before operation: completed in 32.487 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 9 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 10 started ======
+GC before operation: completed in 30.591 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 10 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 11 started ======
+GC before operation: completed in 32.745 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 11 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 12 started ======
+GC before operation: completed in 32.364 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 12 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 13 started ======
+GC before operation: completed in 32.211 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 13 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 14 started ======
+GC before operation: completed in 33.209 ms, heap usage 6.118 MB -> 5.119 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 14 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 15 started ======
+GC before operation: completed in 32.945 ms, heap usage 6.119 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 15 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 16 started ======
+GC before operation: completed in 32.439 ms, heap usage 6.118 MB -> 5.118 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 16 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 17 started ======
+GC before operation: completed in 35.265 ms, heap usage 6.118 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 17 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 18 started ======
+GC before operation: completed in 32.423 ms, heap usage 6.120 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 18 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 19 started ======
+GC before operation: completed in 33.179 ms, heap usage 6.120 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 19 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 20 started ======
+GC before operation: completed in 33.036 ms, heap usage 6.120 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 20 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 21 started ======
+GC before operation: completed in 35.548 ms, heap usage 6.120 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 21 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 22 started ======
+GC before operation: completed in 33.441 ms, heap usage 6.120 MB -> 5.120 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 22 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 23 started ======
+GC before operation: completed in 32.779 ms, heap usage 6.120 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 23 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 24 started ======
+GC before operation: completed in 33.024 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 24 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 25 started ======
+GC before operation: completed in 33.098 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 25 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 26 started ======
+GC before operation: completed in 33.218 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 26 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 27 started ======
+GC before operation: completed in 33.706 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 27 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 28 started ======
+GC before operation: completed in 31.642 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 28 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 29 started ======
+GC before operation: completed in 33.144 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 29 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 30 started ======
+GC before operation: completed in 33.735 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 30 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 31 started ======
+GC before operation: completed in 34.208 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 31 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 32 started ======
+GC before operation: completed in 31.836 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 32 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 33 started ======
+GC before operation: completed in 34.469 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 33 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 34 started ======
+GC before operation: completed in 32.763 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 34 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 35 started ======
+GC before operation: completed in 33.431 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 35 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 36 started ======
+GC before operation: completed in 33.543 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 36 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 37 started ======
+GC before operation: completed in 33.488 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 37 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 38 started ======
+GC before operation: completed in 33.987 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 38 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 39 started ======
+GC before operation: completed in 33.814 ms, heap usage 6.121 MB -> 5.121 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 39 completed (0.014 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 40 started ======
+GC before operation: completed in 33.867 ms, heap usage 6.121 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 40 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 41 started ======
+GC before operation: completed in 34.491 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 41 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 42 started ======
+GC before operation: completed in 32.496 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 42 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 43 started ======
+GC before operation: completed in 32.952 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 43 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 44 started ======
+GC before operation: completed in 33.754 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 44 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 45 started ======
+GC before operation: completed in 33.799 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 45 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 46 started ======
+GC before operation: completed in 33.605 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 46 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 47 started ======
+GC before operation: completed in 34.444 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 47 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 48 started ======
+GC before operation: completed in 32.432 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 48 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 49 started ======
+GC before operation: completed in 38.215 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 49 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 50 started ======
+GC before operation: completed in 33.010 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 50 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 51 started ======
+GC before operation: completed in 32.297 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 51 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 52 started ======
+GC before operation: completed in 33.080 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 52 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 53 started ======
+GC before operation: completed in 33.752 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 53 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 54 started ======
+GC before operation: completed in 33.578 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 54 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 55 started ======
+GC before operation: completed in 33.766 ms, heap usage 6.122 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 55 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 56 started ======
+GC before operation: completed in 35.381 ms, heap usage 6.123 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 56 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 57 started ======
+GC before operation: completed in 34.052 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 57 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 58 started ======
+GC before operation: completed in 32.631 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 58 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 59 started ======
+GC before operation: completed in 33.656 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 59 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 60 started ======
+GC before operation: completed in 33.101 ms, heap usage 6.122 MB -> 5.122 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 60 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 61 started ======
+GC before operation: completed in 31.898 ms, heap usage 6.122 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 61 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 62 started ======
+GC before operation: completed in 33.239 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 62 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 63 started ======
+GC before operation: completed in 33.851 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 63 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 64 started ======
+GC before operation: completed in 33.757 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 64 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 65 started ======
+GC before operation: completed in 33.961 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 65 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 66 started ======
+GC before operation: completed in 32.901 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 66 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 67 started ======
+GC before operation: completed in 34.203 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 67 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 68 started ======
+GC before operation: completed in 33.486 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 68 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 69 started ======
+GC before operation: completed in 33.610 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 69 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 70 started ======
+GC before operation: completed in 33.121 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 70 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 71 started ======
+GC before operation: completed in 33.591 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 71 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 72 started ======
+GC before operation: completed in 32.647 ms, heap usage 6.123 MB -> 5.123 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 72 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 73 started ======
+GC before operation: completed in 32.905 ms, heap usage 6.123 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 73 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 74 started ======
+GC before operation: completed in 34.364 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 74 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 75 started ======
+GC before operation: completed in 33.922 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 75 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 76 started ======
+GC before operation: completed in 34.700 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 76 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 77 started ======
+GC before operation: completed in 34.546 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 77 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 78 started ======
+GC before operation: completed in 32.872 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 78 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 79 started ======
+GC before operation: completed in 32.906 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 79 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 80 started ======
+GC before operation: completed in 33.519 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 80 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 81 started ======
+GC before operation: completed in 33.351 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 81 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 82 started ======
+GC before operation: completed in 33.202 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 82 completed (0.018 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 83 started ======
+GC before operation: completed in 32.019 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 83 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 84 started ======
+GC before operation: completed in 33.388 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 84 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 85 started ======
+GC before operation: completed in 32.119 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 85 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 86 started ======
+GC before operation: completed in 34.274 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 86 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 87 started ======
+GC before operation: completed in 34.193 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 87 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 88 started ======
+GC before operation: completed in 32.105 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 88 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 89 started ======
+GC before operation: completed in 33.436 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 89 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 90 started ======
+GC before operation: completed in 33.921 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 90 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 91 started ======
+GC before operation: completed in 32.654 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 91 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 92 started ======
+GC before operation: completed in 33.728 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 92 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 93 started ======
+GC before operation: completed in 33.828 ms, heap usage 6.124 MB -> 5.124 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 93 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 94 started ======
+GC before operation: completed in 33.704 ms, heap usage 6.124 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 94 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 95 started ======
+GC before operation: completed in 34.070 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 95 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 96 started ======
+GC before operation: completed in 33.054 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 96 completed (0.016 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 97 started ======
+GC before operation: completed in 33.757 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 97 completed (0.017 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 98 started ======
+GC before operation: completed in 35.023 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 98 completed (0.015 ms) ======
+====== dummy-teardown-failing (dummy) [default], iteration 99 started ======
+GC before operation: completed in 33.765 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-teardown-failing (dummy) [default], iteration 99 completed (0.015 ms) ======
+Benchmark 'dummy-teardown-failing' failed with exception:
+java.lang.AssertionError: Intentionally failing
+	at org.renaissance.dummy.DummyTeardownFailing.tearDownAfterAll(DummyTeardownFailing.java:18)
+	at org.renaissance.harness.ExecutionDriver.executeBenchmark(ExecutionDriver.java:111)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1(RenaissanceSuite.scala:163)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1$adapted(RenaissanceSuite.scala:159)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.renaissance.harness.RenaissanceSuite$.runBenchmarks(RenaissanceSuite.scala:159)
+	at org.renaissance.harness.RenaissanceSuite$.main(RenaissanceSuite.scala:132)
+	at org.renaissance.harness.RenaissanceSuite.main(RenaissanceSuite.scala)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.renaissance.core.Launcher.loadAndInvokeHarnessClass(Launcher.java:129)
+	at org.renaissance.core.Launcher.launchHarnessClass(Launcher.java:78)
+	at org.renaissance.core.Launcher.main(Launcher.java:43)
+====== dummy-empty (dummy) [default], iteration 0 started ======
+GC before operation: completed in 37.970 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 0 completed (0.365 ms) ======
+====== dummy-empty (dummy) [default], iteration 1 started ======
+GC before operation: completed in 36.670 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 1 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 2 started ======
+GC before operation: completed in 33.466 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 2 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 3 started ======
+GC before operation: completed in 33.402 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 3 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 4 started ======
+GC before operation: completed in 32.977 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 4 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 5 started ======
+GC before operation: completed in 33.487 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 5 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 6 started ======
+GC before operation: completed in 36.199 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 6 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 7 started ======
+GC before operation: completed in 34.225 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 7 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 8 started ======
+GC before operation: completed in 32.239 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 8 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 9 started ======
+GC before operation: completed in 33.552 ms, heap usage 6.125 MB -> 5.125 MB.
+====== dummy-empty (dummy) [default], iteration 9 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 10 started ======
+GC before operation: completed in 34.270 ms, heap usage 6.125 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 10 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 11 started ======
+GC before operation: completed in 33.629 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 11 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 12 started ======
+GC before operation: completed in 33.513 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 12 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 13 started ======
+GC before operation: completed in 33.127 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 13 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 14 started ======
+GC before operation: completed in 32.533 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 14 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 15 started ======
+GC before operation: completed in 33.725 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 15 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 16 started ======
+GC before operation: completed in 32.505 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 16 completed (0.015 ms) ======
+====== dummy-empty (dummy) [default], iteration 17 started ======
+GC before operation: completed in 34.276 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 17 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 18 started ======
+GC before operation: completed in 34.107 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 18 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 19 started ======
+GC before operation: completed in 33.783 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 19 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 20 started ======
+GC before operation: completed in 32.671 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 20 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 21 started ======
+GC before operation: completed in 34.004 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 21 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 22 started ======
+GC before operation: completed in 34.058 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 22 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 23 started ======
+GC before operation: completed in 32.916 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 23 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 24 started ======
+GC before operation: completed in 34.339 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 24 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 25 started ======
+GC before operation: completed in 34.304 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 25 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 26 started ======
+GC before operation: completed in 34.514 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 26 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 27 started ======
+GC before operation: completed in 32.472 ms, heap usage 6.126 MB -> 5.126 MB.
+====== dummy-empty (dummy) [default], iteration 27 completed (0.028 ms) ======
+====== dummy-empty (dummy) [default], iteration 28 started ======
+GC before operation: completed in 33.668 ms, heap usage 6.126 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 28 completed (0.016 ms) ======
+====== dummy-empty (dummy) [default], iteration 29 started ======
+GC before operation: completed in 33.820 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 29 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 30 started ======
+GC before operation: completed in 32.905 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 30 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 31 started ======
+GC before operation: completed in 34.392 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 31 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 32 started ======
+GC before operation: completed in 33.031 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 32 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 33 started ======
+GC before operation: completed in 33.266 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 33 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 34 started ======
+GC before operation: completed in 34.302 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 34 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 35 started ======
+GC before operation: completed in 37.065 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 35 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 36 started ======
+GC before operation: completed in 33.158 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 36 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 37 started ======
+GC before operation: completed in 33.629 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 37 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 38 started ======
+GC before operation: completed in 32.951 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 38 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 39 started ======
+GC before operation: completed in 34.101 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 39 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 40 started ======
+GC before operation: completed in 34.422 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 40 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 41 started ======
+GC before operation: completed in 33.292 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 41 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 42 started ======
+GC before operation: completed in 34.486 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 42 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 43 started ======
+GC before operation: completed in 34.197 ms, heap usage 6.127 MB -> 5.127 MB.
+====== dummy-empty (dummy) [default], iteration 43 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 44 started ======
+GC before operation: completed in 33.257 ms, heap usage 6.127 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 44 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 45 started ======
+GC before operation: completed in 33.415 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 45 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 46 started ======
+GC before operation: completed in 32.330 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 46 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 47 started ======
+GC before operation: completed in 34.266 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 47 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 48 started ======
+GC before operation: completed in 34.412 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 48 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 49 started ======
+GC before operation: completed in 34.303 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 49 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 50 started ======
+GC before operation: completed in 32.994 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 50 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 51 started ======
+GC before operation: completed in 33.996 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 51 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 52 started ======
+GC before operation: completed in 34.112 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 52 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 53 started ======
+GC before operation: completed in 33.329 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 53 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 54 started ======
+GC before operation: completed in 34.736 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 54 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 55 started ======
+GC before operation: completed in 32.622 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 55 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 56 started ======
+GC before operation: completed in 34.149 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 56 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 57 started ======
+GC before operation: completed in 34.072 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 57 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 58 started ======
+GC before operation: completed in 34.381 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 58 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 59 started ======
+GC before operation: completed in 33.357 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 59 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 60 started ======
+GC before operation: completed in 32.677 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 60 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 61 started ======
+GC before operation: completed in 33.653 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 61 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 62 started ======
+GC before operation: completed in 33.459 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 62 completed (0.017 ms) ======
+====== dummy-empty (dummy) [default], iteration 63 started ======
+GC before operation: completed in 32.455 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 63 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 64 started ======
+GC before operation: completed in 35.032 ms, heap usage 6.128 MB -> 5.128 MB.
+====== dummy-empty (dummy) [default], iteration 64 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 65 started ======
+GC before operation: completed in 34.090 ms, heap usage 6.128 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 65 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 66 started ======
+GC before operation: completed in 32.684 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 66 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 67 started ======
+GC before operation: completed in 33.983 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 67 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 68 started ======
+GC before operation: completed in 32.120 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 68 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 69 started ======
+GC before operation: completed in 33.399 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 69 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 70 started ======
+GC before operation: completed in 33.372 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 70 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 71 started ======
+GC before operation: completed in 33.763 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 71 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 72 started ======
+GC before operation: completed in 34.888 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 72 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 73 started ======
+GC before operation: completed in 34.702 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 73 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 74 started ======
+GC before operation: completed in 34.931 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 74 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 75 started ======
+GC before operation: completed in 35.314 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 75 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 76 started ======
+GC before operation: completed in 32.765 ms, heap usage 6.129 MB -> 5.129 MB.
+====== dummy-empty (dummy) [default], iteration 76 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 77 started ======
+GC before operation: completed in 34.091 ms, heap usage 6.129 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 77 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 78 started ======
+GC before operation: completed in 33.452 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 78 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 79 started ======
+GC before operation: completed in 34.219 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 79 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 80 started ======
+GC before operation: completed in 33.715 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 80 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 81 started ======
+GC before operation: completed in 33.013 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 81 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 82 started ======
+GC before operation: completed in 33.961 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 82 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 83 started ======
+GC before operation: completed in 34.135 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 83 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 84 started ======
+GC before operation: completed in 33.005 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 84 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 85 started ======
+GC before operation: completed in 33.243 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 85 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 86 started ======
+GC before operation: completed in 32.996 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 86 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 87 started ======
+GC before operation: completed in 33.969 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 87 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 88 started ======
+GC before operation: completed in 34.887 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 88 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 89 started ======
+GC before operation: completed in 33.323 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 89 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 90 started ======
+GC before operation: completed in 33.407 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 90 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 91 started ======
+GC before operation: completed in 34.852 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 91 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 92 started ======
+GC before operation: completed in 33.817 ms, heap usage 7.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 92 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 93 started ======
+GC before operation: completed in 36.451 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 93 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 94 started ======
+GC before operation: completed in 35.039 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 94 completed (0.018 ms) ======
+====== dummy-empty (dummy) [default], iteration 95 started ======
+GC before operation: completed in 33.087 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 95 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 96 started ======
+GC before operation: completed in 33.675 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 96 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 97 started ======
+GC before operation: completed in 34.444 ms, heap usage 6.130 MB -> 5.130 MB.
+====== dummy-empty (dummy) [default], iteration 97 completed (0.020 ms) ======
+====== dummy-empty (dummy) [default], iteration 98 started ======
+GC before operation: completed in 32.845 ms, heap usage 6.130 MB -> 5.131 MB.
+====== dummy-empty (dummy) [default], iteration 98 completed (0.019 ms) ======
+====== dummy-empty (dummy) [default], iteration 99 started ======
+GC before operation: completed in 33.115 ms, heap usage 6.131 MB -> 5.131 MB.
+====== dummy-empty (dummy) [default], iteration 99 completed (0.020 ms) ======
+====== dummy-validation-failing (dummy) [default], iteration 0 started ======
+GC before operation: completed in 36.534 ms, heap usage 6.131 MB -> 5.131 MB.
+====== dummy-validation-failing (dummy) [default], iteration 0 completed (0.267 ms) ======
+====== dummy-validation-failing (dummy) [default], iteration 1 started ======
+GC before operation: completed in 33.759 ms, heap usage 6.131 MB -> 5.131 MB.
+====== dummy-validation-failing (dummy) [default], iteration 1 failed (ValidationException) ======
+Benchmark 'dummy-validation-failing' failed result validation:
+intentional failure: expected 1 but got -1
+====== dummy-failing (dummy) [default], iteration 0 started ======
+GC before operation: completed in 38.101 ms, heap usage 6.131 MB -> 5.132 MB.
+====== dummy-failing (dummy) [default], iteration 0 completed (0.257 ms) ======
+====== dummy-failing (dummy) [default], iteration 1 started ======
+GC before operation: completed in 34.873 ms, heap usage 6.132 MB -> 5.132 MB.
+====== dummy-failing (dummy) [default], iteration 1 failed (AssertionError) ======
+Benchmark 'dummy-failing' failed with exception:
+java.lang.AssertionError: Intentionally failing
+	at org.renaissance.dummy.DummyFailing.run(DummyFailing.java:22)
+	at org.renaissance.harness.ExecutionDriver.executeOperation(ExecutionDriver.java:137)
+	at org.renaissance.harness.ExecutionDriver.executeBenchmark(ExecutionDriver.java:93)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1(RenaissanceSuite.scala:163)
+	at org.renaissance.harness.RenaissanceSuite$.$anonfun$runBenchmarks$1$adapted(RenaissanceSuite.scala:159)
+	at scala.collection.immutable.List.foreach(List.scala:333)
+	at org.renaissance.harness.RenaissanceSuite$.runBenchmarks(RenaissanceSuite.scala:159)
+	at org.renaissance.harness.RenaissanceSuite$.main(RenaissanceSuite.scala:132)
+	at org.renaissance.harness.RenaissanceSuite.main(RenaissanceSuite.scala)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.renaissance.core.Launcher.loadAndInvokeHarnessClass(Launcher.java:129)
+	at org.renaissance.core.Launcher.launchHarnessClass(Launcher.java:78)
+	at org.renaissance.core.Launcher.main(Launcher.java:43)
+====== dummy-param (dummy) [default], iteration 0 started ======
+GC before operation: completed in 35.501 ms, heap usage 6.132 MB -> 5.133 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 0 completed (19.739 ms) ======
+====== dummy-param (dummy) [default], iteration 1 started ======
+GC before operation: completed in 36.248 ms, heap usage 7.133 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 1 completed (1.204 ms) ======
+====== dummy-param (dummy) [default], iteration 2 started ======
+GC before operation: completed in 34.527 ms, heap usage 6.152 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 2 completed (1.153 ms) ======
+====== dummy-param (dummy) [default], iteration 3 started ======
+GC before operation: completed in 34.589 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 3 completed (1.187 ms) ======
+====== dummy-param (dummy) [default], iteration 4 started ======
+GC before operation: completed in 34.536 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 4 completed (1.186 ms) ======
+====== dummy-param (dummy) [default], iteration 5 started ======
+GC before operation: completed in 34.039 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 5 completed (1.271 ms) ======
+====== dummy-param (dummy) [default], iteration 6 started ======
+GC before operation: completed in 34.263 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 6 completed (1.239 ms) ======
+====== dummy-param (dummy) [default], iteration 7 started ======
+GC before operation: completed in 34.362 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 7 completed (1.262 ms) ======
+====== dummy-param (dummy) [default], iteration 8 started ======
+GC before operation: completed in 33.927 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 8 completed (1.210 ms) ======
+====== dummy-param (dummy) [default], iteration 9 started ======
+GC before operation: completed in 34.147 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 9 completed (1.233 ms) ======
+====== dummy-param (dummy) [default], iteration 10 started ======
+GC before operation: completed in 33.846 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 10 completed (1.202 ms) ======
+====== dummy-param (dummy) [default], iteration 11 started ======
+GC before operation: completed in 33.994 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 11 completed (1.140 ms) ======
+====== dummy-param (dummy) [default], iteration 12 started ======
+GC before operation: completed in 32.785 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 12 completed (1.127 ms) ======
+====== dummy-param (dummy) [default], iteration 13 started ======
+GC before operation: completed in 36.118 ms, heap usage 6.151 MB -> 5.151 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 13 completed (1.090 ms) ======
+====== dummy-param (dummy) [default], iteration 14 started ======
+GC before operation: completed in 33.709 ms, heap usage 6.151 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 14 completed (1.145 ms) ======
+====== dummy-param (dummy) [default], iteration 15 started ======
+GC before operation: completed in 33.937 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 15 completed (1.119 ms) ======
+====== dummy-param (dummy) [default], iteration 16 started ======
+GC before operation: completed in 38.347 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 16 completed (1.128 ms) ======
+====== dummy-param (dummy) [default], iteration 17 started ======
+GC before operation: completed in 33.809 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 17 completed (1.121 ms) ======
+====== dummy-param (dummy) [default], iteration 18 started ======
+GC before operation: completed in 34.174 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 18 completed (1.154 ms) ======
+====== dummy-param (dummy) [default], iteration 19 started ======
+GC before operation: completed in 34.606 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 19 completed (1.177 ms) ======
+====== dummy-param (dummy) [default], iteration 20 started ======
+GC before operation: completed in 34.469 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 20 completed (1.099 ms) ======
+====== dummy-param (dummy) [default], iteration 21 started ======
+GC before operation: completed in 33.847 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 21 completed (1.176 ms) ======
+====== dummy-param (dummy) [default], iteration 22 started ======
+GC before operation: completed in 33.883 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 22 completed (1.192 ms) ======
+====== dummy-param (dummy) [default], iteration 23 started ======
+GC before operation: completed in 34.350 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 23 completed (1.089 ms) ======
+====== dummy-param (dummy) [default], iteration 24 started ======
+GC before operation: completed in 34.128 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 24 completed (1.049 ms) ======
+====== dummy-param (dummy) [default], iteration 25 started ======
+GC before operation: completed in 33.784 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 25 completed (1.110 ms) ======
+====== dummy-param (dummy) [default], iteration 26 started ======
+GC before operation: completed in 33.348 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 26 completed (1.141 ms) ======
+====== dummy-param (dummy) [default], iteration 27 started ======
+GC before operation: completed in 33.750 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 27 completed (1.094 ms) ======
+====== dummy-param (dummy) [default], iteration 28 started ======
+GC before operation: completed in 34.001 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 28 completed (1.067 ms) ======
+====== dummy-param (dummy) [default], iteration 29 started ======
+GC before operation: completed in 34.845 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 29 completed (1.077 ms) ======
+====== dummy-param (dummy) [default], iteration 30 started ======
+GC before operation: completed in 33.814 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 30 completed (1.081 ms) ======
+====== dummy-param (dummy) [default], iteration 31 started ======
+GC before operation: completed in 33.718 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 31 completed (1.076 ms) ======
+====== dummy-param (dummy) [default], iteration 32 started ======
+GC before operation: completed in 34.528 ms, heap usage 6.152 MB -> 5.152 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 32 completed (1.123 ms) ======
+====== dummy-param (dummy) [default], iteration 33 started ======
+GC before operation: completed in 34.352 ms, heap usage 6.152 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 33 completed (1.126 ms) ======
+====== dummy-param (dummy) [default], iteration 34 started ======
+GC before operation: completed in 34.259 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 34 completed (1.120 ms) ======
+====== dummy-param (dummy) [default], iteration 35 started ======
+GC before operation: completed in 34.888 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 35 completed (1.102 ms) ======
+====== dummy-param (dummy) [default], iteration 36 started ======
+GC before operation: completed in 33.884 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 36 completed (1.114 ms) ======
+====== dummy-param (dummy) [default], iteration 37 started ======
+GC before operation: completed in 32.302 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 37 completed (1.065 ms) ======
+====== dummy-param (dummy) [default], iteration 38 started ======
+GC before operation: completed in 34.071 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 38 completed (1.128 ms) ======
+====== dummy-param (dummy) [default], iteration 39 started ======
+GC before operation: completed in 34.925 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 39 completed (1.032 ms) ======
+====== dummy-param (dummy) [default], iteration 40 started ======
+GC before operation: completed in 34.690 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 40 completed (1.086 ms) ======
+====== dummy-param (dummy) [default], iteration 41 started ======
+GC before operation: completed in 34.159 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 41 completed (1.104 ms) ======
+====== dummy-param (dummy) [default], iteration 42 started ======
+GC before operation: completed in 33.912 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 42 completed (1.209 ms) ======
+====== dummy-param (dummy) [default], iteration 43 started ======
+GC before operation: completed in 34.339 ms, heap usage 6.153 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 43 completed (1.139 ms) ======
+====== dummy-param (dummy) [default], iteration 44 started ======
+GC before operation: completed in 36.998 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 44 completed (1.143 ms) ======
+====== dummy-param (dummy) [default], iteration 45 started ======
+GC before operation: completed in 34.446 ms, heap usage 6.154 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 45 completed (1.034 ms) ======
+====== dummy-param (dummy) [default], iteration 46 started ======
+GC before operation: completed in 34.196 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 46 completed (1.031 ms) ======
+====== dummy-param (dummy) [default], iteration 47 started ======
+GC before operation: completed in 33.977 ms, heap usage 6.153 MB -> 5.153 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 47 completed (1.026 ms) ======
+====== dummy-param (dummy) [default], iteration 48 started ======
+GC before operation: completed in 34.333 ms, heap usage 6.153 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 48 completed (1.089 ms) ======
+====== dummy-param (dummy) [default], iteration 49 started ======
+GC before operation: completed in 34.123 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 49 completed (1.076 ms) ======
+====== dummy-param (dummy) [default], iteration 50 started ======
+GC before operation: completed in 34.488 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 50 completed (1.008 ms) ======
+====== dummy-param (dummy) [default], iteration 51 started ======
+GC before operation: completed in 34.927 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 51 completed (1.081 ms) ======
+====== dummy-param (dummy) [default], iteration 52 started ======
+GC before operation: completed in 33.478 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 52 completed (1.043 ms) ======
+====== dummy-param (dummy) [default], iteration 53 started ======
+GC before operation: completed in 34.337 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 53 completed (1.145 ms) ======
+====== dummy-param (dummy) [default], iteration 54 started ======
+GC before operation: completed in 34.420 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 54 completed (1.085 ms) ======
+====== dummy-param (dummy) [default], iteration 55 started ======
+GC before operation: completed in 34.024 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 55 completed (1.073 ms) ======
+====== dummy-param (dummy) [default], iteration 56 started ======
+GC before operation: completed in 34.416 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 56 completed (1.083 ms) ======
+====== dummy-param (dummy) [default], iteration 57 started ======
+GC before operation: completed in 31.918 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 57 completed (1.112 ms) ======
+====== dummy-param (dummy) [default], iteration 58 started ======
+GC before operation: completed in 33.076 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 58 completed (1.113 ms) ======
+====== dummy-param (dummy) [default], iteration 59 started ======
+GC before operation: completed in 33.652 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 59 completed (1.079 ms) ======
+====== dummy-param (dummy) [default], iteration 60 started ======
+GC before operation: completed in 34.110 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 60 completed (1.066 ms) ======
+====== dummy-param (dummy) [default], iteration 61 started ======
+GC before operation: completed in 33.654 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 61 completed (1.021 ms) ======
+====== dummy-param (dummy) [default], iteration 62 started ======
+GC before operation: completed in 33.288 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 62 completed (1.078 ms) ======
+====== dummy-param (dummy) [default], iteration 63 started ======
+GC before operation: completed in 34.121 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 63 completed (1.209 ms) ======
+====== dummy-param (dummy) [default], iteration 64 started ======
+GC before operation: completed in 32.412 ms, heap usage 6.154 MB -> 5.154 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 64 completed (1.028 ms) ======
+====== dummy-param (dummy) [default], iteration 65 started ======
+GC before operation: completed in 32.121 ms, heap usage 6.154 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 65 completed (1.206 ms) ======
+====== dummy-param (dummy) [default], iteration 66 started ======
+GC before operation: completed in 32.498 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 66 completed (1.037 ms) ======
+====== dummy-param (dummy) [default], iteration 67 started ======
+GC before operation: completed in 33.857 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 67 completed (1.074 ms) ======
+====== dummy-param (dummy) [default], iteration 68 started ======
+GC before operation: completed in 33.292 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 68 completed (1.149 ms) ======
+====== dummy-param (dummy) [default], iteration 69 started ======
+GC before operation: completed in 33.495 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 69 completed (1.093 ms) ======
+====== dummy-param (dummy) [default], iteration 70 started ======
+GC before operation: completed in 34.220 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 70 completed (1.038 ms) ======
+====== dummy-param (dummy) [default], iteration 71 started ======
+GC before operation: completed in 34.342 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 71 completed (0.954 ms) ======
+====== dummy-param (dummy) [default], iteration 72 started ======
+GC before operation: completed in 38.250 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 72 completed (0.984 ms) ======
+====== dummy-param (dummy) [default], iteration 73 started ======
+GC before operation: completed in 34.496 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 73 completed (1.037 ms) ======
+====== dummy-param (dummy) [default], iteration 74 started ======
+GC before operation: completed in 35.856 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 74 completed (0.955 ms) ======
+====== dummy-param (dummy) [default], iteration 75 started ======
+GC before operation: completed in 45.722 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 75 completed (0.982 ms) ======
+====== dummy-param (dummy) [default], iteration 76 started ======
+GC before operation: completed in 34.468 ms, heap usage 6.155 MB -> 5.155 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 76 completed (0.952 ms) ======
+====== dummy-param (dummy) [default], iteration 77 started ======
+GC before operation: completed in 32.002 ms, heap usage 6.155 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 77 completed (0.938 ms) ======
+====== dummy-param (dummy) [default], iteration 78 started ======
+GC before operation: completed in 31.984 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 78 completed (0.985 ms) ======
+====== dummy-param (dummy) [default], iteration 79 started ======
+GC before operation: completed in 32.671 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 79 completed (0.959 ms) ======
+====== dummy-param (dummy) [default], iteration 80 started ======
+GC before operation: completed in 32.319 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 80 completed (0.970 ms) ======
+====== dummy-param (dummy) [default], iteration 81 started ======
+GC before operation: completed in 31.280 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 81 completed (0.964 ms) ======
+====== dummy-param (dummy) [default], iteration 82 started ======
+GC before operation: completed in 31.163 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 82 completed (0.965 ms) ======
+====== dummy-param (dummy) [default], iteration 83 started ======
+GC before operation: completed in 31.802 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 83 completed (1.012 ms) ======
+====== dummy-param (dummy) [default], iteration 84 started ======
+GC before operation: completed in 32.160 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 84 completed (0.958 ms) ======
+====== dummy-param (dummy) [default], iteration 85 started ======
+GC before operation: completed in 33.830 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 85 completed (0.940 ms) ======
+====== dummy-param (dummy) [default], iteration 86 started ======
+GC before operation: completed in 32.092 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 86 completed (0.955 ms) ======
+====== dummy-param (dummy) [default], iteration 87 started ======
+GC before operation: completed in 32.693 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 87 completed (0.945 ms) ======
+====== dummy-param (dummy) [default], iteration 88 started ======
+GC before operation: completed in 31.511 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 88 completed (0.963 ms) ======
+====== dummy-param (dummy) [default], iteration 89 started ======
+GC before operation: completed in 32.412 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 89 completed (0.994 ms) ======
+====== dummy-param (dummy) [default], iteration 90 started ======
+GC before operation: completed in 31.833 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 90 completed (0.972 ms) ======
+====== dummy-param (dummy) [default], iteration 91 started ======
+GC before operation: completed in 32.560 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 91 completed (0.968 ms) ======
+====== dummy-param (dummy) [default], iteration 92 started ======
+GC before operation: completed in 31.547 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 92 completed (0.996 ms) ======
+====== dummy-param (dummy) [default], iteration 93 started ======
+GC before operation: completed in 33.106 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 93 completed (1.034 ms) ======
+====== dummy-param (dummy) [default], iteration 94 started ======
+GC before operation: completed in 32.208 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 94 completed (0.946 ms) ======
+====== dummy-param (dummy) [default], iteration 95 started ======
+GC before operation: completed in 32.585 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 95 completed (0.959 ms) ======
+====== dummy-param (dummy) [default], iteration 96 started ======
+GC before operation: completed in 31.786 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 96 completed (1.012 ms) ======
+====== dummy-param (dummy) [default], iteration 97 started ======
+GC before operation: completed in 32.611 ms, heap usage 6.156 MB -> 5.156 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 97 completed (0.960 ms) ======
+====== dummy-param (dummy) [default], iteration 98 started ======
+GC before operation: completed in 31.315 ms, heap usage 6.156 MB -> 5.157 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 98 completed (0.969 ms) ======
+====== dummy-param (dummy) [default], iteration 99 started ======
+GC before operation: completed in 33.147 ms, heap usage 6.157 MB -> 5.157 MB.
+thread_count: 4
+meaning_of_life: 42
+beyond_reason: PI
+reality_check: 3.141593
+the_sky_is_blue: true
+tough_choice: to be,not to be
+====== dummy-param (dummy) [default], iteration 99 completed (1.025 ms) ======
+The following benchmarks failed: dummy-setup-failing, dummy-teardown-failing, dummy-validation-failing, dummy-failing

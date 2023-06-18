@@ -1,0 +1,903 @@
+finagle-http on :39811 spawning 4 client and default number of server workers.
+====== finagle-http (web) [default], iteration 0 started ======
+GC before operation: completed in 86.691 ms, heap usage 43.936 MB -> 10.983 MB.
+====== finagle-http (web) [default], iteration 0 completed (53787.277 ms) ======
+====== finagle-http (web) [default], iteration 1 started ======
+GC before operation: completed in 127.837 ms, heap usage 1.367 GB -> 14.720 MB.
+====== finagle-http (web) [default], iteration 1 completed (29751.397 ms) ======
+====== finagle-http (web) [default], iteration 2 started ======
+GC before operation: completed in 103.781 ms, heap usage 1.921 GB -> 14.985 MB.
+====== finagle-http (web) [default], iteration 2 completed (17424.436 ms) ======
+====== finagle-http (web) [default], iteration 3 started ======
+GC before operation: completed in 101.847 ms, heap usage 1.874 GB -> 15.009 MB.
+====== finagle-http (web) [default], iteration 3 completed (12086.834 ms) ======
+====== finagle-http (web) [default], iteration 4 started ======
+GC before operation: completed in 113.390 ms, heap usage 1.870 GB -> 15.032 MB.
+====== finagle-http (web) [default], iteration 4 completed (10866.430 ms) ======
+====== finagle-http (web) [default], iteration 5 started ======
+GC before operation: completed in 97.412 ms, heap usage 1.869 GB -> 15.014 MB.
+====== finagle-http (web) [default], iteration 5 completed (11932.923 ms) ======
+====== finagle-http (web) [default], iteration 6 started ======
+GC before operation: completed in 99.815 ms, heap usage 1.867 GB -> 15.024 MB.
+====== finagle-http (web) [default], iteration 6 completed (11840.032 ms) ======
+====== finagle-http (web) [default], iteration 7 started ======
+GC before operation: completed in 98.387 ms, heap usage 1.864 GB -> 15.515 MB.
+====== finagle-http (web) [default], iteration 7 completed (11188.701 ms) ======
+====== finagle-http (web) [default], iteration 8 started ======
+GC before operation: completed in 104.897 ms, heap usage 1.861 GB -> 14.997 MB.
+====== finagle-http (web) [default], iteration 8 completed (11718.420 ms) ======
+====== finagle-http (web) [default], iteration 9 started ======
+GC before operation: completed in 103.489 ms, heap usage 1.865 GB -> 15.001 MB.
+====== finagle-http (web) [default], iteration 9 completed (11588.799 ms) ======
+====== finagle-http (web) [default], iteration 10 started ======
+GC before operation: completed in 98.424 ms, heap usage 1.862 GB -> 15.056 MB.
+====== finagle-http (web) [default], iteration 10 completed (11139.748 ms) ======
+====== finagle-http (web) [default], iteration 11 started ======
+GC before operation: completed in 101.771 ms, heap usage 1.861 GB -> 15.019 MB.
+====== finagle-http (web) [default], iteration 11 completed (10721.944 ms) ======
+====== finagle-http (web) [default], iteration 12 started ======
+GC before operation: completed in 100.017 ms, heap usage 1.860 GB -> 15.004 MB.
+====== finagle-http (web) [default], iteration 12 completed (11781.092 ms) ======
+====== finagle-http (web) [default], iteration 13 started ======
+GC before operation: completed in 106.755 ms, heap usage 1.863 GB -> 15.007 MB.
+====== finagle-http (web) [default], iteration 13 completed (11893.797 ms) ======
+====== finagle-http (web) [default], iteration 14 started ======
+GC before operation: completed in 111.888 ms, heap usage 1.860 GB -> 15.043 MB.
+====== finagle-http (web) [default], iteration 14 completed (12891.449 ms) ======
+====== finagle-http (web) [default], iteration 15 started ======
+GC before operation: completed in 101.702 ms, heap usage 1.861 GB -> 15.014 MB.
+====== finagle-http (web) [default], iteration 15 completed (13180.199 ms) ======
+====== finagle-http (web) [default], iteration 16 started ======
+GC before operation: completed in 108.410 ms, heap usage 1.862 GB -> 15.018 MB.
+====== finagle-http (web) [default], iteration 16 completed (12916.305 ms) ======
+====== finagle-http (web) [default], iteration 17 started ======
+GC before operation: completed in 110.187 ms, heap usage 1.864 GB -> 15.048 MB.
+====== finagle-http (web) [default], iteration 17 completed (12607.322 ms) ======
+====== finagle-http (web) [default], iteration 18 started ======
+GC before operation: completed in 122.501 ms, heap usage 1.862 GB -> 15.048 MB.
+====== finagle-http (web) [default], iteration 18 completed (13471.625 ms) ======
+====== finagle-http (web) [default], iteration 19 started ======
+GC before operation: completed in 110.156 ms, heap usage 1.864 GB -> 15.053 MB.
+====== finagle-http (web) [default], iteration 19 completed (13617.923 ms) ======
+====== finagle-http (web) [default], iteration 20 started ======
+GC before operation: completed in 115.382 ms, heap usage 1.862 GB -> 15.008 MB.
+====== finagle-http (web) [default], iteration 20 completed (13701.414 ms) ======
+====== finagle-http (web) [default], iteration 21 started ======
+GC before operation: completed in 118.047 ms, heap usage 1.866 GB -> 15.056 MB.
+====== finagle-http (web) [default], iteration 21 completed (13469.286 ms) ======
+====== finagle-http (web) [default], iteration 22 started ======
+GC before operation: completed in 108.931 ms, heap usage 1.865 GB -> 15.055 MB.
+====== finagle-http (web) [default], iteration 22 completed (13664.982 ms) ======
+====== finagle-http (web) [default], iteration 23 started ======
+GC before operation: completed in 113.795 ms, heap usage 1.862 GB -> 15.759 MB.
+====== finagle-http (web) [default], iteration 23 completed (13612.959 ms) ======
+====== finagle-http (web) [default], iteration 24 started ======
+GC before operation: completed in 111.685 ms, heap usage 1.864 GB -> 15.056 MB.
+====== finagle-http (web) [default], iteration 24 completed (13594.522 ms) ======
+====== finagle-http (web) [default], iteration 25 started ======
+GC before operation: completed in 111.483 ms, heap usage 1.863 GB -> 15.057 MB.
+====== finagle-http (web) [default], iteration 25 completed (13638.903 ms) ======
+====== finagle-http (web) [default], iteration 26 started ======
+GC before operation: completed in 109.423 ms, heap usage 1.862 GB -> 15.547 MB.
+====== finagle-http (web) [default], iteration 26 completed (13508.464 ms) ======
+====== finagle-http (web) [default], iteration 27 started ======
+GC before operation: completed in 113.218 ms, heap usage 1.862 GB -> 15.052 MB.
+====== finagle-http (web) [default], iteration 27 completed (13548.197 ms) ======
+====== finagle-http (web) [default], iteration 28 started ======
+GC before operation: completed in 113.059 ms, heap usage 1.863 GB -> 15.052 MB.
+====== finagle-http (web) [default], iteration 28 completed (13586.717 ms) ======
+====== finagle-http (web) [default], iteration 29 started ======
+GC before operation: completed in 113.286 ms, heap usage 1.862 GB -> 15.035 MB.
+====== finagle-http (web) [default], iteration 29 completed (13601.950 ms) ======
+====== finagle-http (web) [default], iteration 30 started ======
+GC before operation: completed in 115.128 ms, heap usage 1.861 GB -> 15.042 MB.
+====== finagle-http (web) [default], iteration 30 completed (13442.025 ms) ======
+====== finagle-http (web) [default], iteration 31 started ======
+GC before operation: completed in 114.139 ms, heap usage 1.864 GB -> 15.043 MB.
+====== finagle-http (web) [default], iteration 31 completed (13522.976 ms) ======
+====== finagle-http (web) [default], iteration 32 started ======
+GC before operation: completed in 123.392 ms, heap usage 1.861 GB -> 15.047 MB.
+====== finagle-http (web) [default], iteration 32 completed (13339.021 ms) ======
+====== finagle-http (web) [default], iteration 33 started ======
+GC before operation: completed in 117.639 ms, heap usage 1.862 GB -> 15.052 MB.
+====== finagle-http (web) [default], iteration 33 completed (13223.022 ms) ======
+====== finagle-http (web) [default], iteration 34 started ======
+GC before operation: completed in 112.663 ms, heap usage 1.862 GB -> 15.047 MB.
+====== finagle-http (web) [default], iteration 34 completed (13215.879 ms) ======
+====== finagle-http (web) [default], iteration 35 started ======
+GC before operation: completed in 124.449 ms, heap usage 1.862 GB -> 15.060 MB.
+====== finagle-http (web) [default], iteration 35 completed (12845.677 ms) ======
+====== finagle-http (web) [default], iteration 36 started ======
+GC before operation: completed in 110.802 ms, heap usage 1.861 GB -> 15.062 MB.
+====== finagle-http (web) [default], iteration 36 completed (13778.339 ms) ======
+====== finagle-http (web) [default], iteration 37 started ======
+GC before operation: completed in 113.064 ms, heap usage 1.861 GB -> 15.048 MB.
+====== finagle-http (web) [default], iteration 37 completed (13169.472 ms) ======
+====== finagle-http (web) [default], iteration 38 started ======
+GC before operation: completed in 109.269 ms, heap usage 1.861 GB -> 15.045 MB.
+====== finagle-http (web) [default], iteration 38 completed (10278.234 ms) ======
+====== finagle-http (web) [default], iteration 39 started ======
+GC before operation: completed in 117.792 ms, heap usage 1.857 GB -> 15.037 MB.
+====== finagle-http (web) [default], iteration 39 completed (11642.548 ms) ======
+====== finagle-http (web) [default], iteration 40 started ======
+GC before operation: completed in 111.038 ms, heap usage 1.861 GB -> 15.559 MB.
+====== finagle-http (web) [default], iteration 40 completed (13020.254 ms) ======
+====== finagle-http (web) [default], iteration 41 started ======
+GC before operation: completed in 110.625 ms, heap usage 1.863 GB -> 15.046 MB.
+====== finagle-http (web) [default], iteration 41 completed (13103.372 ms) ======
+====== finagle-http (web) [default], iteration 42 started ======
+GC before operation: completed in 120.859 ms, heap usage 1.864 GB -> 15.064 MB.
+====== finagle-http (web) [default], iteration 42 completed (13108.844 ms) ======
+====== finagle-http (web) [default], iteration 43 started ======
+GC before operation: completed in 117.346 ms, heap usage 1.863 GB -> 15.561 MB.
+====== finagle-http (web) [default], iteration 43 completed (13097.149 ms) ======
+====== finagle-http (web) [default], iteration 44 started ======
+GC before operation: completed in 113.504 ms, heap usage 1.860 GB -> 15.052 MB.
+====== finagle-http (web) [default], iteration 44 completed (13124.149 ms) ======
+====== finagle-http (web) [default], iteration 45 started ======
+GC before operation: completed in 119.384 ms, heap usage 1.865 GB -> 15.051 MB.
+====== finagle-http (web) [default], iteration 45 completed (13010.434 ms) ======
+====== finagle-http (web) [default], iteration 46 started ======
+GC before operation: completed in 116.697 ms, heap usage 1.863 GB -> 15.021 MB.
+====== finagle-http (web) [default], iteration 46 completed (13171.612 ms) ======
+====== finagle-http (web) [default], iteration 47 started ======
+GC before operation: completed in 112.007 ms, heap usage 1.864 GB -> 15.068 MB.
+====== finagle-http (web) [default], iteration 47 completed (12866.481 ms) ======
+====== finagle-http (web) [default], iteration 48 started ======
+GC before operation: completed in 112.834 ms, heap usage 1.861 GB -> 15.055 MB.
+====== finagle-http (web) [default], iteration 48 completed (13380.787 ms) ======
+====== finagle-http (web) [default], iteration 49 started ======
+GC before operation: completed in 125.388 ms, heap usage 1.865 GB -> 15.063 MB.
+====== finagle-http (web) [default], iteration 49 completed (12910.583 ms) ======
+====== finagle-http (web) [default], iteration 50 started ======
+GC before operation: completed in 125.243 ms, heap usage 1.861 GB -> 15.071 MB.
+====== finagle-http (web) [default], iteration 50 completed (13250.874 ms) ======
+====== finagle-http (web) [default], iteration 51 started ======
+GC before operation: completed in 115.011 ms, heap usage 1.862 GB -> 15.066 MB.
+====== finagle-http (web) [default], iteration 51 completed (13961.685 ms) ======
+====== finagle-http (web) [default], iteration 52 started ======
+GC before operation: completed in 113.536 ms, heap usage 1.861 GB -> 15.063 MB.
+====== finagle-http (web) [default], iteration 52 completed (13215.986 ms) ======
+====== finagle-http (web) [default], iteration 53 started ======
+GC before operation: completed in 124.510 ms, heap usage 1.864 GB -> 15.576 MB.
+====== finagle-http (web) [default], iteration 53 completed (13168.211 ms) ======
+====== finagle-http (web) [default], iteration 54 started ======
+GC before operation: completed in 119.014 ms, heap usage 1.864 GB -> 15.071 MB.
+====== finagle-http (web) [default], iteration 54 completed (13153.576 ms) ======
+====== finagle-http (web) [default], iteration 55 started ======
+GC before operation: completed in 115.495 ms, heap usage 1.865 GB -> 15.066 MB.
+====== finagle-http (web) [default], iteration 55 completed (13044.863 ms) ======
+====== finagle-http (web) [default], iteration 56 started ======
+GC before operation: completed in 122.928 ms, heap usage 1.863 GB -> 15.574 MB.
+====== finagle-http (web) [default], iteration 56 completed (12832.066 ms) ======
+====== finagle-http (web) [default], iteration 57 started ======
+GC before operation: completed in 119.493 ms, heap usage 1.861 GB -> 15.057 MB.
+====== finagle-http (web) [default], iteration 57 completed (13058.334 ms) ======
+====== finagle-http (web) [default], iteration 58 started ======
+GC before operation: completed in 114.121 ms, heap usage 1.862 GB -> 15.053 MB.
+====== finagle-http (web) [default], iteration 58 completed (13399.163 ms) ======
+====== finagle-http (web) [default], iteration 59 started ======
+GC before operation: completed in 133.446 ms, heap usage 1.862 GB -> 15.076 MB.
+====== finagle-http (web) [default], iteration 59 completed (12942.842 ms) ======
+====== finagle-http (web) [default], iteration 60 started ======
+GC before operation: completed in 124.899 ms, heap usage 1.863 GB -> 15.073 MB.
+====== finagle-http (web) [default], iteration 60 completed (13274.393 ms) ======
+====== finagle-http (web) [default], iteration 61 started ======
+GC before operation: completed in 114.995 ms, heap usage 1.862 GB -> 15.055 MB.
+====== finagle-http (web) [default], iteration 61 completed (12734.984 ms) ======
+====== finagle-http (web) [default], iteration 62 started ======
+GC before operation: completed in 115.251 ms, heap usage 1.861 GB -> 15.064 MB.
+====== finagle-http (web) [default], iteration 62 completed (13250.002 ms) ======
+====== finagle-http (web) [default], iteration 63 started ======
+GC before operation: completed in 126.009 ms, heap usage 1.861 GB -> 15.561 MB.
+====== finagle-http (web) [default], iteration 63 completed (13380.024 ms) ======
+====== finagle-http (web) [default], iteration 64 started ======
+GC before operation: completed in 118.507 ms, heap usage 1.863 GB -> 15.060 MB.
+====== finagle-http (web) [default], iteration 64 completed (13909.207 ms) ======
+====== finagle-http (web) [default], iteration 65 started ======
+GC before operation: completed in 122.127 ms, heap usage 1.864 GB -> 15.064 MB.
+====== finagle-http (web) [default], iteration 65 completed (13321.152 ms) ======
+====== finagle-http (web) [default], iteration 66 started ======
+GC before operation: completed in 124.582 ms, heap usage 1.865 GB -> 15.061 MB.
+====== finagle-http (web) [default], iteration 66 completed (12797.259 ms) ======
+====== finagle-http (web) [default], iteration 67 started ======
+GC before operation: completed in 124.229 ms, heap usage 1.863 GB -> 15.060 MB.
+====== finagle-http (web) [default], iteration 67 completed (14225.915 ms) ======
+====== finagle-http (web) [default], iteration 68 started ======
+GC before operation: completed in 125.689 ms, heap usage 1.863 GB -> 15.079 MB.
+====== finagle-http (web) [default], iteration 68 completed (12144.910 ms) ======
+====== finagle-http (web) [default], iteration 69 started ======
+GC before operation: completed in 129.387 ms, heap usage 1.862 GB -> 15.076 MB.
+====== finagle-http (web) [default], iteration 69 completed (13358.736 ms) ======
+====== finagle-http (web) [default], iteration 70 started ======
+GC before operation: completed in 130.752 ms, heap usage 1.863 GB -> 16.078 MB.
+====== finagle-http (web) [default], iteration 70 completed (13333.254 ms) ======
+====== finagle-http (web) [default], iteration 71 started ======
+GC before operation: completed in 123.322 ms, heap usage 1.863 GB -> 15.072 MB.
+====== finagle-http (web) [default], iteration 71 completed (13313.613 ms) ======
+====== finagle-http (web) [default], iteration 72 started ======
+GC before operation: completed in 122.343 ms, heap usage 1.863 GB -> 15.070 MB.
+====== finagle-http (web) [default], iteration 72 completed (13572.544 ms) ======
+====== finagle-http (web) [default], iteration 73 started ======
+GC before operation: completed in 118.357 ms, heap usage 1.862 GB -> 15.071 MB.
+====== finagle-http (web) [default], iteration 73 completed (13556.666 ms) ======
+====== finagle-http (web) [default], iteration 74 started ======
+GC before operation: completed in 118.439 ms, heap usage 1.863 GB -> 15.078 MB.
+====== finagle-http (web) [default], iteration 74 completed (13480.336 ms) ======
+====== finagle-http (web) [default], iteration 75 started ======
+GC before operation: completed in 131.425 ms, heap usage 1.863 GB -> 15.075 MB.
+====== finagle-http (web) [default], iteration 75 completed (13701.391 ms) ======
+====== finagle-http (web) [default], iteration 76 started ======
+GC before operation: completed in 125.584 ms, heap usage 1.861 GB -> 15.043 MB.
+====== finagle-http (web) [default], iteration 76 completed (13486.160 ms) ======
+====== finagle-http (web) [default], iteration 77 started ======
+GC before operation: completed in 122.848 ms, heap usage 1.863 GB -> 15.072 MB.
+====== finagle-http (web) [default], iteration 77 completed (13396.093 ms) ======
+====== finagle-http (web) [default], iteration 78 started ======
+GC before operation: completed in 126.521 ms, heap usage 1.863 GB -> 15.074 MB.
+====== finagle-http (web) [default], iteration 78 completed (13796.804 ms) ======
+====== finagle-http (web) [default], iteration 79 started ======
+GC before operation: completed in 127.483 ms, heap usage 1.861 GB -> 15.071 MB.
+====== finagle-http (web) [default], iteration 79 completed (13520.211 ms) ======
+====== finagle-http (web) [default], iteration 80 started ======
+GC before operation: completed in 116.437 ms, heap usage 1.866 GB -> 15.070 MB.
+====== finagle-http (web) [default], iteration 80 completed (13518.809 ms) ======
+====== finagle-http (web) [default], iteration 81 started ======
+GC before operation: completed in 132.460 ms, heap usage 1.864 GB -> 15.074 MB.
+====== finagle-http (web) [default], iteration 81 completed (13340.853 ms) ======
+====== finagle-http (web) [default], iteration 82 started ======
+GC before operation: completed in 122.815 ms, heap usage 1.864 GB -> 15.073 MB.
+====== finagle-http (web) [default], iteration 82 completed (13178.323 ms) ======
+====== finagle-http (web) [default], iteration 83 started ======
+GC before operation: completed in 119.183 ms, heap usage 1.861 GB -> 15.082 MB.
+====== finagle-http (web) [default], iteration 83 completed (13318.786 ms) ======
+====== finagle-http (web) [default], iteration 84 started ======
+GC before operation: completed in 135.621 ms, heap usage 1.864 GB -> 15.079 MB.
+====== finagle-http (web) [default], iteration 84 completed (13282.934 ms) ======
+====== finagle-http (web) [default], iteration 85 started ======
+GC before operation: completed in 126.956 ms, heap usage 1.863 GB -> 15.078 MB.
+====== finagle-http (web) [default], iteration 85 completed (14133.809 ms) ======
+====== finagle-http (web) [default], iteration 86 started ======
+GC before operation: completed in 120.810 ms, heap usage 1.861 GB -> 15.079 MB.
+====== finagle-http (web) [default], iteration 86 completed (12231.952 ms) ======
+====== finagle-http (web) [default], iteration 87 started ======
+GC before operation: completed in 137.587 ms, heap usage 1.861 GB -> 16.577 MB.
+====== finagle-http (web) [default], iteration 87 completed (12197.275 ms) ======
+====== finagle-http (web) [default], iteration 88 started ======
+GC before operation: completed in 127.048 ms, heap usage 1.859 GB -> 15.083 MB.
+====== finagle-http (web) [default], iteration 88 completed (12880.308 ms) ======
+====== finagle-http (web) [default], iteration 89 started ======
+GC before operation: completed in 118.443 ms, heap usage 1.862 GB -> 15.067 MB.
+====== finagle-http (web) [default], iteration 89 completed (13123.342 ms) ======
+====== finagle-http (web) [default], iteration 90 started ======
+GC before operation: completed in 124.988 ms, heap usage 1.862 GB -> 15.072 MB.
+====== finagle-http (web) [default], iteration 90 completed (13396.743 ms) ======
+====== finagle-http (web) [default], iteration 91 started ======
+GC before operation: completed in 118.394 ms, heap usage 1.861 GB -> 16.065 MB.
+====== finagle-http (web) [default], iteration 91 completed (13278.638 ms) ======
+====== finagle-http (web) [default], iteration 92 started ======
+GC before operation: completed in 129.781 ms, heap usage 1.862 GB -> 15.079 MB.
+====== finagle-http (web) [default], iteration 92 completed (13128.352 ms) ======
+====== finagle-http (web) [default], iteration 93 started ======
+GC before operation: completed in 121.810 ms, heap usage 1.861 GB -> 15.087 MB.
+====== finagle-http (web) [default], iteration 93 completed (12941.798 ms) ======
+====== finagle-http (web) [default], iteration 94 started ======
+GC before operation: completed in 129.618 ms, heap usage 1.862 GB -> 15.085 MB.
+====== finagle-http (web) [default], iteration 94 completed (13205.914 ms) ======
+====== finagle-http (web) [default], iteration 95 started ======
+GC before operation: completed in 127.663 ms, heap usage 1.862 GB -> 15.075 MB.
+====== finagle-http (web) [default], iteration 95 completed (13586.400 ms) ======
+====== finagle-http (web) [default], iteration 96 started ======
+GC before operation: completed in 136.317 ms, heap usage 1.864 GB -> 15.084 MB.
+====== finagle-http (web) [default], iteration 96 completed (13095.240 ms) ======
+====== finagle-http (web) [default], iteration 97 started ======
+GC before operation: completed in 118.460 ms, heap usage 1.865 GB -> 15.079 MB.
+====== finagle-http (web) [default], iteration 97 completed (13082.435 ms) ======
+====== finagle-http (web) [default], iteration 98 started ======
+GC before operation: completed in 120.334 ms, heap usage 1.862 GB -> 15.066 MB.
+====== finagle-http (web) [default], iteration 98 completed (13242.106 ms) ======
+====== finagle-http (web) [default], iteration 99 started ======
+GC before operation: completed in 129.836 ms, heap usage 1.863 GB -> 15.084 MB.
+====== finagle-http (web) [default], iteration 99 completed (13175.128 ms) ======
+Master port: 32805
+Cache ports: 33545, 42715, 46045, 41037
+====== finagle-chirper (web) [default], iteration 0 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 164.017 ms, heap usage 1.977 GB -> 22.642 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 0 completed (52409.045 ms) ======
+====== finagle-chirper (web) [default], iteration 1 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 202.580 ms, heap usage 1.960 GB -> 25.337 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 1 completed (33573.086 ms) ======
+====== finagle-chirper (web) [default], iteration 2 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 197.422 ms, heap usage 1.864 GB -> 25.402 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 2 completed (26704.542 ms) ======
+====== finagle-chirper (web) [default], iteration 3 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 190.031 ms, heap usage 1.805 GB -> 25.422 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 3 completed (21207.594 ms) ======
+====== finagle-chirper (web) [default], iteration 4 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 192.604 ms, heap usage 1.752 GB -> 25.402 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 4 completed (16892.788 ms) ======
+====== finagle-chirper (web) [default], iteration 5 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 188.412 ms, heap usage 1.693 GB -> 25.442 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 5 completed (12663.105 ms) ======
+====== finagle-chirper (web) [default], iteration 6 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.531 ms, heap usage 1.687 GB -> 25.447 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 6 completed (12233.105 ms) ======
+====== finagle-chirper (web) [default], iteration 7 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 192.169 ms, heap usage 1.684 GB -> 25.452 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 7 completed (11771.598 ms) ======
+====== finagle-chirper (web) [default], iteration 8 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 183.755 ms, heap usage 1.648 GB -> 25.455 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 8 completed (12464.310 ms) ======
+====== finagle-chirper (web) [default], iteration 9 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 186.741 ms, heap usage 1.641 GB -> 25.458 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 9 completed (12363.620 ms) ======
+====== finagle-chirper (web) [default], iteration 10 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 187.791 ms, heap usage 1.615 GB -> 25.461 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 10 completed (11978.577 ms) ======
+====== finagle-chirper (web) [default], iteration 11 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 187.515 ms, heap usage 1.611 GB -> 25.467 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 11 completed (11809.625 ms) ======
+====== finagle-chirper (web) [default], iteration 12 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 186.900 ms, heap usage 1.618 GB -> 25.473 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 12 completed (12500.733 ms) ======
+====== finagle-chirper (web) [default], iteration 13 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 186.694 ms, heap usage 1.609 GB -> 25.519 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 13 completed (11682.744 ms) ======
+====== finagle-chirper (web) [default], iteration 14 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 195.099 ms, heap usage 1.609 GB -> 25.501 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 14 completed (11398.714 ms) ======
+====== finagle-chirper (web) [default], iteration 15 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 195.646 ms, heap usage 1.567 GB -> 25.479 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 15 completed (12529.303 ms) ======
+====== finagle-chirper (web) [default], iteration 16 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.940 ms, heap usage 1.544 GB -> 25.506 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 16 completed (11224.556 ms) ======
+====== finagle-chirper (web) [default], iteration 17 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 196.831 ms, heap usage 1.558 GB -> 25.493 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 17 completed (11192.091 ms) ======
+====== finagle-chirper (web) [default], iteration 18 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 203.796 ms, heap usage 1.556 GB -> 25.496 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 18 completed (11138.548 ms) ======
+====== finagle-chirper (web) [default], iteration 19 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 197.506 ms, heap usage 1.527 GB -> 25.492 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 19 completed (11128.393 ms) ======
+====== finagle-chirper (web) [default], iteration 20 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 209.751 ms, heap usage 1.525 GB -> 25.493 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 20 completed (11644.127 ms) ======
+====== finagle-chirper (web) [default], iteration 21 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.055 ms, heap usage 1.534 GB -> 25.494 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 21 completed (12184.605 ms) ======
+====== finagle-chirper (web) [default], iteration 22 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.893 ms, heap usage 1.528 GB -> 25.501 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 22 completed (11029.162 ms) ======
+====== finagle-chirper (web) [default], iteration 23 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.521 ms, heap usage 1.527 GB -> 25.505 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 23 completed (10973.234 ms) ======
+====== finagle-chirper (web) [default], iteration 24 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 202.129 ms, heap usage 1.532 GB -> 25.501 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 24 completed (10993.414 ms) ======
+====== finagle-chirper (web) [default], iteration 25 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 210.418 ms, heap usage 1.526 GB -> 25.504 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 25 completed (11275.993 ms) ======
+====== finagle-chirper (web) [default], iteration 26 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 197.712 ms, heap usage 1.527 GB -> 25.504 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 26 completed (11045.658 ms) ======
+====== finagle-chirper (web) [default], iteration 27 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 198.107 ms, heap usage 1.534 GB -> 25.511 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 27 completed (13321.633 ms) ======
+====== finagle-chirper (web) [default], iteration 28 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 203.941 ms, heap usage 1.510 GB -> 25.507 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 28 completed (12091.589 ms) ======
+====== finagle-chirper (web) [default], iteration 29 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.269 ms, heap usage 1.468 GB -> 25.508 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 29 completed (10755.620 ms) ======
+====== finagle-chirper (web) [default], iteration 30 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 194.806 ms, heap usage 1.458 GB -> 25.378 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 30 completed (10518.263 ms) ======
+====== finagle-chirper (web) [default], iteration 31 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 194.571 ms, heap usage 1.460 GB -> 25.273 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 31 completed (11837.501 ms) ======
+====== finagle-chirper (web) [default], iteration 32 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.628 ms, heap usage 1.460 GB -> 25.507 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 32 completed (10450.596 ms) ======
+====== finagle-chirper (web) [default], iteration 33 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.050 ms, heap usage 1.462 GB -> 25.452 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 33 completed (10633.934 ms) ======
+====== finagle-chirper (web) [default], iteration 34 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.254 ms, heap usage 1.463 GB -> 25.450 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 34 completed (10605.028 ms) ======
+====== finagle-chirper (web) [default], iteration 35 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.443 ms, heap usage 1.462 GB -> 25.513 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 35 completed (10866.681 ms) ======
+====== finagle-chirper (web) [default], iteration 36 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 203.221 ms, heap usage 1.463 GB -> 25.519 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 36 completed (11236.292 ms) ======
+====== finagle-chirper (web) [default], iteration 37 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 196.077 ms, heap usage 1.449 GB -> 25.519 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 37 completed (10436.620 ms) ======
+====== finagle-chirper (web) [default], iteration 38 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.473 ms, heap usage 1.448 GB -> 25.287 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 38 completed (10516.282 ms) ======
+====== finagle-chirper (web) [default], iteration 39 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 198.985 ms, heap usage 1.444 GB -> 25.378 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 39 completed (10245.152 ms) ======
+====== finagle-chirper (web) [default], iteration 40 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.925 ms, heap usage 1.450 GB -> 25.262 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 40 completed (10626.327 ms) ======
+====== finagle-chirper (web) [default], iteration 41 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 208.221 ms, heap usage 1.441 GB -> 25.385 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 41 completed (10181.210 ms) ======
+====== finagle-chirper (web) [default], iteration 42 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.301 ms, heap usage 1.449 GB -> 25.096 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 42 completed (10291.651 ms) ======
+====== finagle-chirper (web) [default], iteration 43 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.532 ms, heap usage 1.443 GB -> 25.099 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 43 completed (10188.334 ms) ======
+====== finagle-chirper (web) [default], iteration 44 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 198.506 ms, heap usage 1.446 GB -> 25.052 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 44 completed (10243.384 ms) ======
+====== finagle-chirper (web) [default], iteration 45 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 207.518 ms, heap usage 1.442 GB -> 25.058 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 45 completed (10228.054 ms) ======
+====== finagle-chirper (web) [default], iteration 46 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 202.152 ms, heap usage 1.443 GB -> 25.122 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 46 completed (10303.895 ms) ======
+====== finagle-chirper (web) [default], iteration 47 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 213.826 ms, heap usage 1.443 GB -> 25.264 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 47 completed (10133.170 ms) ======
+====== finagle-chirper (web) [default], iteration 48 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.213 ms, heap usage 1.442 GB -> 24.966 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 48 completed (10050.477 ms) ======
+====== finagle-chirper (web) [default], iteration 49 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.613 ms, heap usage 1.451 GB -> 25.193 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 49 completed (10271.313 ms) ======
+====== finagle-chirper (web) [default], iteration 50 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.391 ms, heap usage 1.445 GB -> 25.279 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 50 completed (10338.780 ms) ======
+====== finagle-chirper (web) [default], iteration 51 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 207.708 ms, heap usage 1.440 GB -> 25.184 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 51 completed (10329.068 ms) ======
+====== finagle-chirper (web) [default], iteration 52 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 204.558 ms, heap usage 1.442 GB -> 25.124 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 52 completed (10349.326 ms) ======
+====== finagle-chirper (web) [default], iteration 53 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 215.880 ms, heap usage 1.443 GB -> 25.099 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 53 completed (10231.419 ms) ======
+====== finagle-chirper (web) [default], iteration 54 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 209.775 ms, heap usage 1.443 GB -> 25.148 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 54 completed (10312.780 ms) ======
+====== finagle-chirper (web) [default], iteration 55 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 209.064 ms, heap usage 1.444 GB -> 25.327 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 55 completed (10520.023 ms) ======
+====== finagle-chirper (web) [default], iteration 56 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.630 ms, heap usage 1.418 GB -> 25.109 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 56 completed (10117.119 ms) ======
+====== finagle-chirper (web) [default], iteration 57 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 205.930 ms, heap usage 1.412 GB -> 25.003 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 57 completed (10526.717 ms) ======
+====== finagle-chirper (web) [default], iteration 58 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 222.737 ms, heap usage 1.386 GB -> 25.390 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 58 completed (10639.184 ms) ======
+====== finagle-chirper (web) [default], iteration 59 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 213.439 ms, heap usage 1.388 GB -> 25.541 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 59 completed (9642.210 ms) ======
+====== finagle-chirper (web) [default], iteration 60 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 213.662 ms, heap usage 1.388 GB -> 25.543 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 60 completed (9783.719 ms) ======
+====== finagle-chirper (web) [default], iteration 61 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 212.728 ms, heap usage 1.387 GB -> 25.543 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 61 completed (9452.637 ms) ======
+====== finagle-chirper (web) [default], iteration 62 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 208.080 ms, heap usage 1.385 GB -> 25.541 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 62 completed (9889.080 ms) ======
+====== finagle-chirper (web) [default], iteration 63 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 211.181 ms, heap usage 1.389 GB -> 25.545 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 63 completed (9773.258 ms) ======
+====== finagle-chirper (web) [default], iteration 64 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 209.495 ms, heap usage 1.387 GB -> 25.544 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 64 completed (9763.728 ms) ======
+====== finagle-chirper (web) [default], iteration 65 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 211.804 ms, heap usage 1.388 GB -> 25.553 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 65 completed (9998.249 ms) ======
+====== finagle-chirper (web) [default], iteration 66 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 211.101 ms, heap usage 1.387 GB -> 25.271 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 66 completed (9865.775 ms) ======
+====== finagle-chirper (web) [default], iteration 67 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 207.972 ms, heap usage 1.387 GB -> 25.547 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 67 completed (9830.003 ms) ======
+====== finagle-chirper (web) [default], iteration 68 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 211.325 ms, heap usage 1.388 GB -> 25.547 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 68 completed (9577.648 ms) ======
+====== finagle-chirper (web) [default], iteration 69 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 216.119 ms, heap usage 1.386 GB -> 25.550 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 69 completed (10452.272 ms) ======
+====== finagle-chirper (web) [default], iteration 70 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 208.387 ms, heap usage 1.387 GB -> 25.282 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 70 completed (10092.572 ms) ======
+====== finagle-chirper (web) [default], iteration 71 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 205.115 ms, heap usage 1.388 GB -> 25.209 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 71 completed (9703.962 ms) ======
+====== finagle-chirper (web) [default], iteration 72 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 209.814 ms, heap usage 1.389 GB -> 25.549 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 72 completed (10160.946 ms) ======
+====== finagle-chirper (web) [default], iteration 73 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 227.392 ms, heap usage 1.387 GB -> 25.234 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 73 completed (9599.848 ms) ======
+====== finagle-chirper (web) [default], iteration 74 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 207.026 ms, heap usage 1.381 GB -> 25.550 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 74 completed (9597.274 ms) ======
+====== finagle-chirper (web) [default], iteration 75 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 207.717 ms, heap usage 1.377 GB -> 25.552 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 75 completed (9632.902 ms) ======
+====== finagle-chirper (web) [default], iteration 76 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 210.036 ms, heap usage 1.377 GB -> 25.561 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 76 completed (9937.956 ms) ======
+====== finagle-chirper (web) [default], iteration 77 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 208.187 ms, heap usage 1.381 GB -> 25.553 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 77 completed (9673.162 ms) ======
+====== finagle-chirper (web) [default], iteration 78 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 210.106 ms, heap usage 1.377 GB -> 25.553 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 78 completed (9832.317 ms) ======
+====== finagle-chirper (web) [default], iteration 79 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 211.386 ms, heap usage 1.377 GB -> 25.562 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 79 completed (9837.799 ms) ======
+====== finagle-chirper (web) [default], iteration 80 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.846 ms, heap usage 1.378 GB -> 31.555 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 80 completed (10735.363 ms) ======
+====== finagle-chirper (web) [default], iteration 81 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 204.367 ms, heap usage 1.377 GB -> 25.524 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 81 completed (10049.128 ms) ======
+====== finagle-chirper (web) [default], iteration 82 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.022 ms, heap usage 1.378 GB -> 25.154 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 82 completed (9993.341 ms) ======
+====== finagle-chirper (web) [default], iteration 83 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 205.136 ms, heap usage 1.376 GB -> 25.256 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 83 completed (10275.059 ms) ======
+====== finagle-chirper (web) [default], iteration 84 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 198.925 ms, heap usage 1.378 GB -> 25.132 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 84 completed (10157.788 ms) ======
+====== finagle-chirper (web) [default], iteration 85 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.546 ms, heap usage 1.380 GB -> 24.995 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 85 completed (10451.725 ms) ======
+====== finagle-chirper (web) [default], iteration 86 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.233 ms, heap usage 1.378 GB -> 25.350 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 86 completed (10226.571 ms) ======
+====== finagle-chirper (web) [default], iteration 87 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 200.637 ms, heap usage 1.378 GB -> 25.129 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 87 completed (10025.698 ms) ======
+====== finagle-chirper (web) [default], iteration 88 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 198.626 ms, heap usage 1.380 GB -> 25.204 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 88 completed (10005.753 ms) ======
+====== finagle-chirper (web) [default], iteration 89 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 201.287 ms, heap usage 1.376 GB -> 25.260 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 89 completed (9746.116 ms) ======
+====== finagle-chirper (web) [default], iteration 90 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 202.887 ms, heap usage 1.378 GB -> 25.558 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 90 completed (9770.309 ms) ======
+====== finagle-chirper (web) [default], iteration 91 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.887 ms, heap usage 1.378 GB -> 25.569 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 91 completed (9864.190 ms) ======
+====== finagle-chirper (web) [default], iteration 92 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 199.134 ms, heap usage 1.379 GB -> 25.565 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 92 completed (9734.822 ms) ======
+====== finagle-chirper (web) [default], iteration 93 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 204.477 ms, heap usage 1.378 GB -> 25.563 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 93 completed (10048.391 ms) ======
+====== finagle-chirper (web) [default], iteration 94 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 206.238 ms, heap usage 1.378 GB -> 29.135 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 94 completed (9650.068 ms) ======
+====== finagle-chirper (web) [default], iteration 95 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 204.910 ms, heap usage 1.378 GB -> 25.562 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 95 completed (9558.619 ms) ======
+====== finagle-chirper (web) [default], iteration 96 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 205.348 ms, heap usage 1.378 GB -> 25.562 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 96 completed (9516.334 ms) ======
+====== finagle-chirper (web) [default], iteration 97 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 204.592 ms, heap usage 1.378 GB -> 25.562 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 97 completed (9644.911 ms) ======
+====== finagle-chirper (web) [default], iteration 98 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 203.822 ms, heap usage 1.378 GB -> 25.565 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 98 completed (10185.735 ms) ======
+====== finagle-chirper (web) [default], iteration 99 started ======
+Resetting master, feed map size: 5000
+GC before operation: completed in 203.881 ms, heap usage 1.376 GB -> 25.102 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== finagle-chirper (web) [default], iteration 99 completed (9502.663 ms) ======

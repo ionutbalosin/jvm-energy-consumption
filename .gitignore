@@ -1,7 +1,6 @@
 **/HELP.md
 **/.RData
 .DS_Store
-**/*.log
 **/*.jtl
 **/jtl
 target/
@@ -20,7 +19,6 @@ generated-products.sql
 .settings
 .springBeans
 .sts4-cache
-**/*.log
 
 ### IntelliJ IDEA ###
 .idea
