@@ -28,16 +28,16 @@
 
 check_command_line_options() {
   if [ $# -ne 2 ]; then
-    echo "Usage: ./run-hyperfoil.sh <arch> <test-run-number>"
+    echo "Usage: ./run-hyperfoil.sh <arch> <test-run-identifier>"
     echo ""
     echo "Options:"
-    echo "  test-run-number  should match the system under test run number (from the target machine)."
-    echo "  arch             should match the system under test architecture (from the target machine)."
-    echo "Both of these parameters are used to generate the results files and they should match the system under test."
+    echo "  test-run-identifier  should match the system under test run identifier (from the target machine)."
+    echo "  arch                 should match the system under test architecture (from the target machine)."
+    echo "Both of these parameters are used to generate the results files."
     echo ""
     echo "Examples:"
-    echo "  ./run-hyperfoil.sh x86_64 1"
-    echo "  ./run-hyperfoil.sh arm64 1"
+    echo "  ./run-hyperfoil.sh x86_64 run1"
+    echo "  ./run-hyperfoil.sh arm64 run1"
     echo ""
     return 1
   fi
@@ -47,7 +47,7 @@ check_command_line_options() {
   fi
 
   if [ "$1" ]; then
-    export TEST_RUN_NO="$2"
+    export TEST_RUN_IDENTIFIER="$2"
   fi
 }
 
@@ -56,18 +56,18 @@ configure_hyperfoil() {
 
   echo ""
   echo "Hyperfoil home: $HYPERFOIL_HOME"
-  echo "Test number: $TEST_RUN_NO"
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_folders() {
-  mkdir -p ${OUTPUT_FOLDER}/reports
+  mkdir -p $OUTPUT_FOLDER/reports
 }
 
 start_hyperfoil() {
-  ${HYPERFOIL_HOME}/bin/cli.sh
+  $HYPERFOIL_HOME/bin/cli.sh
 }
 
 check_command_line_options "$@"
@@ -95,10 +95,10 @@ echo "+=======================+"
 echo "| [3/3] Start Hyperfoil |"
 echo "+=======================+"
 echo "IMPORTANT: execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
-echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/${OUTPUT_FOLDER}/reports/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.html"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.html"
 echo "$ exit"
 echo ""
 start_hyperfoil
 
 echo ""
-echo "*** Test $TEST_RUN_NO successfully finished! ***"
+echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

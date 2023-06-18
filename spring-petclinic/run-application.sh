@@ -28,20 +28,21 @@
 
 check_command_line_options() {
   if [ $# -ne 1 ] && [ $# -ne 2 ]; then
-    echo "Usage: ./run-application.sh <test-run-number> [--skip-build]"
+    echo "Usage: ./run-application.sh <test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  test-run-number is a mandatory identifier of the current test used to generate the results files."
-    echo "  --skip-build is an optional parameter used in case the build process is intended to be skipped."
+    echo "  test-run-identifier  is a mandatory parameter to identify the current execution test."
+    echo "  --skip-build         is an optional parameter to skip the build process."
     echo ""
-    echo "Example:"
-    echo "   $ ./run-application.sh 1"
+    echo "Examples:"
+    echo "   $ ./run-application.sh run1"
+    echo "   $ ./run-application.sh run1 --skip-build"
     echo ""
     return 1
   fi
 
   if [ "$1" ]; then
-    export TEST_RUN_NO="$1"
+    export TEST_RUN_IDENTIFIER="$1"
   fi
 }
 
@@ -50,27 +51,27 @@ configure_application() {
   export APP_BASE_URL=localhost:8080
   export APP_RUNNING_TIME=900
   export JAVA_OPS="-Xms1m -Xmx1g"
-  # export JFR_OPS="-XX:StartFlightRecording=duration=${APP_RUNNING_TIME}s,filename=${OUTPUT_FOLDER}/jfr/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.jfr"
+  # export JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.jfr"
 
   echo ""
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Java opts: $JAVA_OPS"
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "JFR opts: $JFR_OPS"
-  echo "Test number: $TEST_RUN_NO"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
-  mkdir -p ${OUTPUT_FOLDER}/perf
-  mkdir -p ${OUTPUT_FOLDER}/logs
-  mkdir -p ${OUTPUT_FOLDER}/jfr
+  mkdir -p $OUTPUT_FOLDER/perf
+  mkdir -p $OUTPUT_FOLDER/logs
+  mkdir -p $OUTPUT_FOLDER/jfr
 
-  touch ${OUTPUT_FOLDER}/perf/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.stats
-  touch ${OUTPUT_FOLDER}/logs/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.log
+  touch $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.stats
+  touch $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.log
 }
 
 build_application() {
@@ -80,34 +81,34 @@ build_application() {
     export BUILD_CMD="./mvnw -Pnative clean native:compile -Dmaven.test.skip"
   fi
 
-  echo "${BUILD_CMD}"
-  cd ${APP_HOME} && ${BUILD_CMD}
+  echo "$BUILD_CMD"
+  cd $APP_HOME && $BUILD_CMD
   cd -
 }
 
 start_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="${JAVA_HOME}/bin/java ${JAVA_OPS} ${JFR_OPS} -jar ${APP_HOME}/target/*.jar"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $JFR_OPS -jar $APP_HOME/target/*.jar"
   else
-    export RUN_CMD="${APP_HOME}/target/spring-petclinic ${JAVA_OPS}"
+    export RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS"
   fi
 
-  echo "${RUN_CMD}"
+  echo "$RUN_CMD"
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o ${OUTPUT_FOLDER}/perf/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.stats \
-    ${RUN_CMD} > ${OUTPUT_FOLDER}/logs/${JVM_IDENTIFIER}-run${TEST_RUN_NO}.log 2>&1 &
+    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.stats \
+    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.log 2>&1 &
 
   export APP_PID=$!
 }
 
 time_to_first_response() {
   # wait until the application answers to the first request
-  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://${APP_BASE_URL}/owners?lastName=)" != "200" ]]; do
+  while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://$APP_BASE_URL/owners?lastName=)" != "200" ]]; do
     sleep .00001
   done
 }
@@ -176,4 +177,4 @@ echo "Application with pid=$APP_PID successfully stopped at: $(date)"
 sleep 10
 
 echo ""
-echo "*** Test $TEST_RUN_NO successfully finished! ***"
+echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
