@@ -93,7 +93,13 @@ start_application() {
     export RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS"
   fi
 
-  echo "$RUN_CMD"
+  echo ""
+  echo "Command line: $RUN_CMD"
+  
+  echo ""
+  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
+
+  echo "Starting the application ... "
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
@@ -159,10 +165,8 @@ time_to_first_response
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
-echo "Application with pid=$APP_PID successfully started at: $(date)"
-echo ""
-echo "Keep the application with pid=$APP_PID running for about $APP_RUNNING_TIME sec"
-echo "Note: If intended, the load test must be triggered during this time interval!"
+echo "Application with pid=$APP_PID successfully started at: $(date) and it will run for about $APP_RUNNING_TIME sec"
+echo "Note: (If the case) any load test must be triggered during this time!"
 sleep $APP_RUNNING_TIME
 
 echo ""
