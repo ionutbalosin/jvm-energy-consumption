@@ -63,7 +63,7 @@ configure_hyperfoil() {
 }
 
 create_output_folders() {
-  mkdir -p $OUTPUT_FOLDER/reports
+  mkdir -p $OUTPUT_FOLDER/hreports
 }
 
 start_hyperfoil() {
@@ -95,7 +95,7 @@ echo "+=======================+"
 echo "| [3/3] Start Hyperfoil |"
 echo "+=======================+"
 echo "IMPORTANT: execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
-echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.html"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.html"
 echo "$ exit"
 echo ""
 start_hyperfoil
