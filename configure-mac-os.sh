@@ -26,8 +26,16 @@
 # SOFTWARE.
 #
 
-echo ""
+set_environment_variables() {
+  export ARCH="$(uname -m)"
+
+  echo "Operating system: Mac OS X"
+  echo "Architecture: $ARCH"
+  echo ""
+  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
+}
+
 echo "+--------------------+"
 echo "| OS tuning settings |"
 echo "+--------------------+"
-echo "WARNING: no configuration is available for macOS."
+set_environment_variables

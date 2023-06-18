@@ -26,6 +26,15 @@
 # SOFTWARE.
 #
 
+set_environment_variables() {
+  export ARCH="$(uname -m)"
+
+  echo "Operating system: Linux OS"
+  echo "Architecture: $ARCH"
+  echo ""
+  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
+}
+
 disable_turbo_boost() {
   # Intel
   no_turbo="/sys/devices/system/cpu/intel_pstate/no_turbo"
@@ -118,6 +127,12 @@ confirm_os_settings() {
     esac
   done
 }
+
+echo ""
+echo "+--------------------------+"
+echo "| OS environment variables |"
+echo "+--------------------------+"
+set_environment_variables
 
 echo ""
 echo "+--------------------+"

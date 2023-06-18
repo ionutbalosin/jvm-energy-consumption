@@ -26,14 +26,6 @@
 # SOFTWARE.
 #
 
-set_environment_variables() {
-  export ARCH="$(uname -m)"
-
-  echo "Operating system: $(uname -s)"
-  echo "Architecture: $ARCH"
-  echo ""
-}
-
 configure_os() {
   if [ "$(uname -s)" == "Linux" ]; then
     . ../configure-linux-os.sh
@@ -42,15 +34,9 @@ configure_os() {
   elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
     . ../configure-win-os.sh
   else
-    echo "WARNING: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
+    echo "ERROR: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
     exit 1
   fi
 }
-
-echo ""
-echo "+--------------------------+"
-echo "| OS environment variables |"
-echo "+--------------------------+"
-set_environment_variables
 
 configure_os
