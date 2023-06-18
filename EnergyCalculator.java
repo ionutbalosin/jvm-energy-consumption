@@ -52,34 +52,37 @@ import static java.util.stream.Collectors.toList;
 public class EnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-    private static final List<String> APPLICATION_LIST = List.of("quarkus-hibernate-orm-panache-quickstart", "spring-petclinic", "renaissance");
+    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic");
     private static final String JDK_VERSION = "17";
+    private static final String ARCH = "x86_64";
 
     public static void main(String[] args) throws IOException {
         for (String application : APPLICATION_LIST) {
             System.out.printf("Calculate consumed energy for the '%s' application\n", application);
-            calculate(String.format("%s/%s/results/jdk-%s/perf", BASE_PATH, application, JDK_VERSION));
+            calculateSummaryReport(String.format("%s/%s/results/jdk-%s/%s/perf", BASE_PATH, application, JDK_VERSION, ARCH));
         }
     }
 
-    private static void calculate(String path) throws IOException {
+    private static void calculateSummaryReport(String path) throws IOException {
+        String parentSummaryPath = path + "/../summary";
         List<PerfStats> stats = readFiles(path);
+        Files.createDirectories(Paths.get(parentSummaryPath));
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
-        double openJdkGeometricMean = geometricMean(statsByJvmName.get("openjdk")); // reference geometric mean
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm.power")))) {
+        double openJdkHotSpotGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot")); // reference geometric mean
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%s: %.2f (Watt), %.2f (normalized)", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkGeometricMean);
+                writer.printf("%s: %.3f (Watt), %.3f (normalized)", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
                 writer.println();
             }
         }
 
-        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(path + "/../summary/jvm-benchmark.power")))) {
+        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-" + perfStat.testRunIdentifier, TreeMap::new, mapping(identity(), toList())));
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm-benchmark.power")))) {
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%s: %.2f (Watt)", pair.getKey(), jvmGeometricMean);
+                writer.printf("%s: %.3f (Watt)", pair.getKey(), jvmGeometricMean);
                 writer.println();
             }
         }
@@ -118,8 +121,8 @@ public class EnergyCalculator {
 
             // extract the jvm name and test type from the file name
             String fileName = filePath.getFileName().toString();
-            perfStats.jvmName = fileName.substring(0, fileName.indexOf("-jdk"));
-            perfStats.testType = fileName.substring(fileName.lastIndexOf("-") + 1, fileName.indexOf(".stats"));
+            perfStats.jvmName = fileName.substring(0, fileName.indexOf("-test-"));
+            perfStats.testRunIdentifier = fileName.substring(fileName.lastIndexOf("-") + 1, fileName.indexOf(".stats"));
 
             return perfStats;
 
@@ -157,6 +160,6 @@ public class EnergyCalculator {
         double ram;
         double elapsed;
         String jvmName;
-        String testType;
+        String testRunIdentifier;
     }
 }
