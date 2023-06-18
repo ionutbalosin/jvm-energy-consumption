@@ -58,17 +58,6 @@ In order to properly run the scripts you need to:
 - install `perf` on Linux
 - download and install any JDK (you could also use [sdkman](https://sdkman.io/install))
 - download and install [Hyperfoil](https://hyperfoil.io)
-- download and install [JMeter](https://jmeter.apache.org/download_jmeter.cgi), including a few plugins. These plugins are needed to generate the plots, after each load test:
-    - [Command-Line Graph Plotting Tool](https://jmeter-plugins.org/wiki/JMeterPluginsCMD)
-    - [Filter Results Tool](https://jmeter-plugins.org/wiki/FilterResultsTool)
-    - [Synthesis Report](https://jmeter-plugins.org/wiki/SynthesisReport)
-    - [Response Times Over Time](https://jmeter-plugins.org/wiki/ResponseTimesOverTime)
-    - [Response Times vs Threads](https://jmeter-plugins.org/wiki/ResponseTimesVsThreads)
-    - [Response Times Distribution](https://jmeter-plugins.org/wiki/RespTimesDistribution)
-
-Some tests use **Hyperfoil** and others use **JMeter** (due to historical reasons) but this is not so important regarding our goal (i.e., measuring the JVM energy consumption).
-
-> **JMeter**: if the number of threads is not properly chosen, the [Coordinated Omission](https://groups.google.com/g/mechanical-sympathy/c/icNZJejUHfE) problem might cause inaccurate results. Please have a look at [JMeter best practices](https://jmeter.apache.org/usermanual/best-practices.html).
 
 ## JVM Coverage
 
@@ -89,7 +78,7 @@ No. | JVM distribution
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic) and build the sources
 2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
-2. Open the [run-jmeter.sh](./spring-petclinic/run-jmeter.sh) script and update the mandatory variable `JMETER_HOME`
+2. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the mandatory variable `HYPERFOIL_HOMEj`
 3. Launch the JVM application on the **system under test**:
 
 ```
@@ -97,15 +86,15 @@ $ cd /spring-petclinic
 $ sudo ./run-application.sh
 ```
 
-4. After the application has successfully started, launch the JMeter on the **system client test**:
+4. After the application has successfully started, launch the Hyperfoil on the **system client test**:
 
 ```
 $ cd /spring-petclinic
-$ sudo ./run-jmeter.sh
+$ ./run-hyperfoil.sh
 ```
 
 **Notes**:
-- `sudo` mode is needed, otherwise the tests will not be executed
+- `sudo` mode is neededto start the application
 
 ### Renaissance Benchmark Suite
 
