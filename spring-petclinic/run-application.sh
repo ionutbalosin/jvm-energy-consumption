@@ -51,7 +51,7 @@ configure_application() {
   export APP_BASE_URL=localhost:8080
   export APP_RUNNING_TIME=900
   export JAVA_OPS="-Xms1m -Xmx1g"
-  # export JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.jfr"
+  # export JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.jfr"
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -70,8 +70,8 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/logs
   mkdir -p $OUTPUT_FOLDER/jfr
 
-  touch $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.stats
-  touch $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.log
+  touch $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.stats
+  touch $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.log
 }
 
 build_application() {
@@ -106,8 +106,8 @@ start_application() {
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-$TEST_RUN_IDENTIFIER.log 2>&1 &
+    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.stats \
+    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.log 2>&1 &
 
   export APP_PID=$!
 }
