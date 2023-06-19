@@ -1,7 +1,7 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.186:8080
-  sharedConnections: 1536
+  sharedConnections: 2048
 phases:
 
 # Workload simulating users browsing through the website
@@ -9,7 +9,7 @@ phases:
     constantRate:
       duration: 780s
       usersPerSec: 64
-      maxSessions: 128
+      maxSessions: 256
       scenario:
         - getHomePage:
             - httpRequest:
@@ -21,7 +21,7 @@ phases:
       duration: 780s
       initialUsersPerSec: 1
       targetUsersPerSec: 312
-      maxSessions: 1024
+      maxSessions: 1536
       scenario:
       # Note: scenario steps are sequentially executed
       - generateRandomValues:
