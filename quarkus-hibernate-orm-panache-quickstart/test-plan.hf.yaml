@@ -50,7 +50,7 @@ phases:
               body:
                 json:
                   query: '.[].id'
-                  toArray: 'fruitIds[768]'
+                  toArray: 'fruitIds[1024]'
         - getSize:
             fromVar: fruitIds
             toVar: length
