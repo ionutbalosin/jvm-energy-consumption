@@ -1,7 +1,7 @@
 name: test-plan-benchmark
 http:
   host: http://192.168.0.186:8080
-  sharedConnections: 2048
+  sharedConnections: 2304
 phases:
 
 # Workload simulating users browsing through the website
@@ -21,7 +21,7 @@ phases:
       duration: 780s
       initialUsersPerSec: 1
       targetUsersPerSec: 312
-      maxSessions: 1536
+      maxSessions: 2048
       scenario:
       # Note: scenario steps are sequentially executed
       - generateRandomValues:
@@ -50,7 +50,7 @@ phases:
               body:
                 json:
                   query: '.[].id'
-                  toArray: 'fruitIds[1024]'
+                  toArray: 'fruitIds[2048]'
         - getSize:
             fromVar: fruitIds
             toVar: length
