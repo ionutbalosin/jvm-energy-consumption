@@ -1,0 +1,10 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2023-06-19 12:26:19,795 INFO  [io.agr.pool] (main) Datasource '<default>': Initial size smaller than min. Connections will be created when necessary
+2023-06-19 12:26:22,183 INFO  [org.hib.too.sch.int.exe.GenerationTargetToDatabase] (JPA Startup Thread) HHH000476: Executing script 'jar:file:/home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/quarkus-app/app/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT.jar!/import.sql'
+2023-06-19 12:26:22,611 INFO  [io.quarkus] (main) hibernate-orm-panache-quickstart 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.0.3.Final) started in 7.960s. Listening on: http://0.0.0.0:8080
+2023-06-19 12:26:22,613 INFO  [io.quarkus] (main) Profile prod activated. 
+2023-06-19 12:26:22,614 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, narayana-jta, resteasy-reactive, resteasy-reactive-jackson, smallrye-context-propagation, vertx]
+2023-06-19 12:41:24,379 INFO  [io.quarkus] (Shutdown thread) hibernate-orm-panache-quickstart stopped in 0.122s
