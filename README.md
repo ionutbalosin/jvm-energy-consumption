@@ -48,7 +48,7 @@ $ perf stat -a \
    <application_runner_path>
 ```
 
-On **system client test** runs the load testing tool (e.g., JMeter or Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
+On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
 
 The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
 
@@ -69,7 +69,7 @@ No. | JVM distribution
 2 | [GraalVM CE](https://www.graalvm.org/downloads)
 3 | [GraalVM EE](https://www.graalvm.org/downloads)
 4 | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
-5 | [Azul Prime (Zing)](https://www.azul.com/products/prime)
+5 | [Azul Prime](https://www.azul.com/products/prime)
 6 | [Eclipse OpenJ9](https://www.eclipse.org/openj9) 
 
 ## Measurements
@@ -78,7 +78,7 @@ No. | JVM distribution
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic) and build the sources
 2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
-2. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the mandatory variable `HYPERFOIL_HOMEj`
+2. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the mandatory variable `HYPERFOIL_HOME`
 3. Launch the JVM application on the **system under test**:
 
 ```
