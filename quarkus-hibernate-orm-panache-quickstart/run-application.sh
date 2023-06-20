@@ -35,8 +35,8 @@ check_command_line_options() {
     echo "  --skip-build         is an optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-application.sh run1"
-    echo "   $ ./run-application.sh run1 --skip-build"
+    echo "   $ ./run-application.sh 1"
+    echo "   $ ./run-application.sh 1 --skip-build"
     echo ""
     return 1
   fi
@@ -68,7 +68,7 @@ create_output_resources() {
 }
 
 build_application() {
-  if [ "$JVM_NAME" != "native-image" ]; then
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip"
   else
     export BUILD_CMD="./mvnw clean package -Dmaven.test.skip -Dnative"
@@ -80,7 +80,7 @@ build_application() {
 }
 
 start_application() {
-  if [ "$JVM_NAME" != "native-image" ]; then
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
   else
     export RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
@@ -99,8 +99,8 @@ start_application() {
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.log 2>&1 &
+    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats \
+    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1 &
 
   export APP_PID=$!
 }
