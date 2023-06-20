@@ -1,6 +1,7 @@
-azul-prime: 3.421 (Watt), 1.559 (normalized)
-graalvm-ce: 2.159 (Watt), 0.984 (normalized)
-graalvm-ee: 2.102 (Watt), 0.958 (normalized)
-native-image: 2.111 (Watt), 0.962 (normalized)
-openj9: 2.356 (Watt), 1.074 (normalized)
-openjdk-hotspot: 2.195 (Watt), 1.000 (normalized)
+JVM distribution; Power consumption (Watt per second); Power consumption (normalized)
+      azul-prime;                               3.421;                          1.559
+      graalvm-ce;                               2.159;                          0.984
+      graalvm-ee;                               2.102;                          0.958
+    native-image;                               2.111;                          0.962
+          openj9;                               2.356;                          1.074
+ openjdk-hotspot;                               2.195;                          1.000

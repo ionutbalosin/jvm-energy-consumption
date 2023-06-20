@@ -71,19 +71,19 @@ public class EnergyCalculator {
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
         double openJdkHotSpotGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot")); // reference geometric mean
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm.power")))) {
+            writer.printf("JVM distribution; Power consumption (Watt per second); Power consumption (normalized)\n");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%s: %.3f (Watt), %.3f (normalized)", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
-                writer.println();
+                writer.printf("%16s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
             }
         }
 
-        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-" + perfStat.testRunIdentifier, TreeMap::new, mapping(identity(), toList())));
+        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-run-" + perfStat.testRunIdentifier, TreeMap::new, mapping(identity(), toList())));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm-benchmark.power")))) {
+            writer.printf("JVM distribution (run identifier); Power consumption (Watt per second)\n");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%s: %.3f (Watt)", pair.getKey(), jvmGeometricMean);
-                writer.println();
+                writer.printf("%33s;%36.3f\n", pair.getKey(), jvmGeometricMean);
             }
         }
     }
