@@ -36,8 +36,8 @@ check_command_line_options() {
     echo "Both of these parameters are used to generate the results files."
     echo ""
     echo "Examples:"
-    echo "  ./run-hyperfoil.sh x86_64 run1"
-    echo "  ./run-hyperfoil.sh arm64 run1"
+    echo "  ./run-hyperfoil.sh x86_64 1"
+    echo "  ./run-hyperfoil.sh arm64 1"
     echo ""
     return 1
   fi
@@ -95,7 +95,7 @@ echo "+=======================+"
 echo "| [3/3] Start Hyperfoil |"
 echo "+=======================+"
 echo "IMPORTANT: execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
-echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-test-$TEST_RUN_IDENTIFIER.html"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.html"
 echo "$ exit"
 echo ""
 start_hyperfoil
