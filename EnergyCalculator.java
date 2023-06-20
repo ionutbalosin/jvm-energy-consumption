@@ -52,7 +52,7 @@ import static java.util.stream.Collectors.toList;
 public class EnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic");
+    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart");
     private static final String JDK_VERSION = "17";
     private static final String ARCH = "x86_64";
 
@@ -121,7 +121,7 @@ public class EnergyCalculator {
 
             // extract the jvm name and test type from the file name
             String fileName = filePath.getFileName().toString();
-            perfStats.jvmName = fileName.substring(0, fileName.indexOf("-test-"));
+            perfStats.jvmName = fileName.substring(0, fileName.indexOf("-run-"));
             perfStats.testRunIdentifier = fileName.substring(fileName.lastIndexOf("-") + 1, fileName.indexOf(".stats"));
 
             return perfStats;
