@@ -51,7 +51,7 @@ run_benchmarks(){
   declare -a benchmark_categories=("concurrency" "functional" "scala" "web" "dummy")
 
   for benchmark_category in "${benchmark_categories[@]}"; do
-    echo "Start benchmark category $benchmark_category"
+    echo "Run benchmark category $benchmark_category"
 
     sudo perf stat -a \
       -e "power/energy-cores/" \
