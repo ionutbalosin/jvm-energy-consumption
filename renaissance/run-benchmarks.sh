@@ -28,7 +28,7 @@
 
 configure_benchmark() {
   export BENCHMARK_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
-  export BENCHMARK_REPETITIONS=100
+  export BENCHMARK_REPETITIONS=2
   export JAVA_OPS="-Xms1m -Xmx1g"
 
   echo ""
@@ -40,7 +40,7 @@ configure_benchmark() {
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
-create_output_folders() {
+create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
   mkdir -p $OUTPUT_FOLDER/logs
   mkdir -p $OUTPUT_FOLDER/reports
@@ -101,7 +101,7 @@ echo ""
 echo "+===============================+"
 echo "| [3/4] Benchmark configuration |"
 echo "+===============================+"
-configure_application
+configure_benchmark
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
