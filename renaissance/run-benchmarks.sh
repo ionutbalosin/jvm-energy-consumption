@@ -28,7 +28,7 @@
 
 configure_benchmark() {
   export BENCHMARK_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
-  export BENCHMARK_REPETITIONS=2
+  export BENCHMARK_REPETITIONS=100
   export JAVA_OPS="-Xms1m -Xmx1g"
 
   echo ""
