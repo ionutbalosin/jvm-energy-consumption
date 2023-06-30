@@ -26,73 +26,24 @@
 # SOFTWARE.
 #
 
-list_available_rapl_events() {
-  echo ""
-  echo "The available power events for the RAPL (Running Average Power Limit) energy consumption counters are:"
-  perf list | grep power | grep "Kernel PMU event"
-}
-
-configure_openjdk() {
-  export JAVA_HOME=/usr/lib/jvm/adoptium-temurin-jdk-17.0.7+7
-  export JVM_NAME="openjdk"
-}
-
-configure_graalvm_ee() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ee-java17-22.3.2
-  export JVM_NAME="graalvm-ee"
-}
-
-configure_graalvm_ce() {
-  export JAVA_HOME=/usr/lib/jvm/graalvm-ce-java17-22.3.2
-  export JVM_NAME="graalvm-ce"
-}
-
-configure_openj9() {
-  export JAVA_HOME=/usr/lib/jvm/ibm-semeru-openj9-jdk-17.0.6+10
-  export JVM_NAME="openj9"
-}
-
-configure_azul_prime() {
-  export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="azul-prime"
-}
-
-configure_renaissance() {
-  export APP_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
-}
-
-configure_environment() {
-  # JDK related properties automatically generated
-  export JDK_VERSION=$($JAVA_HOME/bin/java -XshowSettings:properties 2>&1 >/dev/null | grep 'java.specification.version' | awk '{split($0, array, "="); print array[2]}' | xargs echo -n)
-  export PATH=$JAVA_HOME/bin:$PATH
-  export JAVA_OPS="-Xms4g -Xmx4g"
-  export JVM_IDENTIFIER=$JVM_NAME-jdk$JDK_VERSION
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION
+configure_benchmark() {
+  export BENCHMARK_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
   export BENCHMARK_REPETITIONS=100
+  export JAVA_OPS="-Xms1m -Xmx1g"
 
   echo ""
-  echo "Java home: $JAVA_HOME"
-  echo "JVM identifier: $JVM_IDENTIFIER"
-  echo "JDK version: $JDK_VERSION"
-  echo "Java opts: $JAVA_OPS"
-  echo "Application home: $APP_HOME"
+  echo "Benchmark home: $BENCHMARK_HOME"
   echo "Benchmark repetitions: $BENCHMARK_REPETITIONS"
-  echo "Benchmark output folder: $OUTPUT_FOLDER"
+  echo "Java opts: $JAVA_OPS"
 
   echo ""
-  $JAVA_HOME/bin/java --version
+  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_folders() {
   mkdir -p $OUTPUT_FOLDER/perf
   mkdir -p $OUTPUT_FOLDER/logs
   mkdir -p $OUTPUT_FOLDER/reports
-}
-
-chmod_output_folders() {
-  sudo chmod 777 $OUTPUT_FOLDER/perf/*
-  sudo chmod 777 $OUTPUT_FOLDER/logs/*
-  sudo chmod 777 $OUTPUT_FOLDER/reports/*
 }
 
 run_benchmarks(){
@@ -109,7 +60,7 @@ run_benchmarks(){
       -e "power/energy-psys/" \
       -e "power/energy-ram/" \
       -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$benchmark_category.stats \
-      $JAVA_HOME/bin/java $JAVA_OPS -jar $APP_HOME \
+      $JAVA_HOME/bin/java $JAVA_OPS -jar $BENCHMARK_HOME \
       -r $BENCHMARK_REPETITIONS \
       --csv $OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-$benchmark_category.csv \
       $benchmark_category \
@@ -136,57 +87,27 @@ fi
 
 echo ""
 echo "+========================+"
-echo "| Available power events |"
+echo "| [1/4] OS configuration |"
 echo "+========================+"
-list_available_rapl_events
-
-# make sure the output folders exist
-create_output_folders
+. ../configure-os.sh
 
 echo ""
-echo "+=============================+"
-echo "| Run benchmarks with OpenJDK |"
-echo "+=============================+"
-configure_openjdk
-configure_renaissance
-configure_environment
-run_benchmarks
+echo "+=========================+"
+echo "| [2/4] JVM configuration |"
+echo "+=========================+"
+. ../configure-jvm.sh
 
 echo ""
-echo "+================================+"
-echo "| Run benchmarks with GraalVM EE |"
-echo "+================================+"
-configure_graalvm_ee
-configure_renaissance
-configure_environment
-run_benchmarks
+echo "+===============================+"
+echo "| [3/4] Benchmark configuration |"
+echo "+===============================+"
+configure_application
+
+# make sure the output resources (e.g., folders and files) exist
+create_output_resources
 
 echo ""
-echo "+================================+"
-echo "| Run benchmarks with GraalVM CE |"
-echo "+================================+"
-configure_graalvm_ce
-configure_renaissance
-configure_environment
+echo "+======================+"
+echo "| [4/4] Run benchmarks |"
+echo "+======================+"
 run_benchmarks
-
-echo ""
-echo "+================================+"
-echo "| Run benchmarks with Azul Prime |"
-echo "+================================+"
-configure_azul_prime
-configure_renaissance
-configure_environment
-run_benchmarks
-
-echo ""
-echo "+============================+"
-echo "| Run benchmarks with OpenJ9 |"
-echo "+============================+"
-configure_openj9
-configure_renaissance
-configure_environment
-run_benchmarks
-
-# assign read/write permissions to the output files
-chmod_output_folders

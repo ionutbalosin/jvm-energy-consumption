@@ -1,7 +1,10 @@
 JVM distribution (run identifier); Power consumption (Watt per second)
-                 azul-prime-run-1;                               2.601
-                 azul-prime-run-2;                               2.610
-                 azul-prime-run-3;                               2.608
+              azul-prime-vm-run-1;                               2.601
+              azul-prime-vm-run-2;                               2.610
+              azul-prime-vm-run-3;                               2.608
+          eclipse-openj9-vm-run-1;                               2.101
+          eclipse-openj9-vm-run-2;                               2.159
+          eclipse-openj9-vm-run-3;                               2.111
                  graalvm-ce-run-1;                               1.996
                  graalvm-ce-run-2;                               1.982
                  graalvm-ce-run-3;                               1.978
@@ -11,9 +14,6 @@ JVM distribution (run identifier); Power consumption (Watt per second)
                native-image-run-1;                               1.934
                native-image-run-2;                               1.938
                native-image-run-3;                               1.908
-                     openj9-run-1;                               2.101
-                     openj9-run-2;                               2.159
-                     openj9-run-3;                               2.111
-            openjdk-hotspot-run-1;                               1.983
-            openjdk-hotspot-run-2;                               1.973
-            openjdk-hotspot-run-3;                               1.968
+         openjdk-hotspot-vm-run-1;                               1.983
+         openjdk-hotspot-vm-run-2;                               1.973
+         openjdk-hotspot-vm-run-3;                               1.968

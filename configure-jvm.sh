@@ -29,7 +29,7 @@
 configure_openjdk() {
   export JAVA_HOME=/usr/lib/jvm/adoptium-temurin-jdk-17.0.7+7
   export JVM_NAME="OpenJDK HotSpot VM"
-  export JVM_IDENTIFIER="openjdk-hotspot"
+  export JVM_IDENTIFIER="openjdk-hotspot-vm"
 }
 
 configure_graalvm_ee() {
@@ -52,23 +52,23 @@ configure_native_image() {
 
 configure_openj9() {
   export JAVA_HOME=/usr/lib/jvm/ibm-semeru-openj9-jdk-17.0.6+10
-  export JVM_NAME="Eclipse OpenJ9"
-  export JVM_IDENTIFIER="openj9"
+  export JVM_NAME="Eclipse OpenJ9 VM"
+  export JVM_IDENTIFIER="eclipse-openj9-vm"
 }
 
 configure_azul_prime() {
   export JAVA_HOME=/usr/lib/jvm/zing23.04.0.0-2-jdk17.0.7-linux_x64
-  export JVM_NAME="Azul Prime"
-  export JVM_IDENTIFIER="azul-prime"
+  export JVM_NAME="Azul Prime VM"
+  export JVM_IDENTIFIER="azul-prime-vm"
 }
 
 echo "Select the JVM:"
-echo "    1) - OpenJDK HotSpot"
+echo "    1) - OpenJDK HotSpot VM"
 echo "    2) - GraalVM CE"
 echo "    3) - GraalVM EE"
 echo "    4) - Native Image"
-echo "    5) - Azul Prime"
-echo "    6) - OpenJ9"
+echo "    5) - Azul Prime VM"
+echo "    6) - Eclipse OpenJ9 VM"
 echo ""
 
 while :; do

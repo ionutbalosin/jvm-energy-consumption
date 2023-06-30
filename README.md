@@ -65,12 +65,12 @@ The table below summarizes the full list of JVM distributions included in the me
 
 No. | JVM distribution
 -------------- |--------------------
-1 | [OpenJDK HotSpot](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+1 | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
 2 | [GraalVM CE](https://www.graalvm.org/downloads)
 3 | [GraalVM EE](https://www.graalvm.org/downloads)
 4 | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
-5 | [Azul Prime](https://www.azul.com/products/prime)
-6 | [Eclipse OpenJ9](https://www.eclipse.org/openj9) 
+5 | [Azul Prime VM](https://www.azul.com/products/prime)
+6 | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
 
 ## Measurements
 

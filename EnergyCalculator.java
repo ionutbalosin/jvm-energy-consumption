@@ -69,12 +69,12 @@ public class EnergyCalculator {
         Files.createDirectories(Paths.get(parentSummaryPath));
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
-        double openJdkHotSpotGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot")); // reference geometric mean
+        double openJdkHotSpotGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm")); // reference geometric mean
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm.power")))) {
-            writer.printf("JVM distribution; Power consumption (Watt per second); Power consumption (normalized)\n");
+            writer.printf("  JVM distribution; Power consumption (Watt per second); Power consumption (normalized)\n");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%16s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
+                writer.printf("%18s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
             }
         }
 
