@@ -27,7 +27,7 @@
 #
 
 check_command_line_options() {
-  if [ $# -ne 2 ]; then
+  if [[ $# -ne 2 ]]; then
     echo "Usage: ./run-hyperfoil.sh <arch> <test-run-identifier>"
     echo ""
     echo "Options:"

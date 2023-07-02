@@ -27,7 +27,7 @@
 #
 
 check_command_line_options() {
-  if [ $# -ne 1 ] || [[ $EUID != 0 ]]; then
+  if [[ $EUID != 0 || $# -ne 1 ]]; then
     echo "Usage: sudo ./run-baseline.sh <test-run-identifier>"
     echo ""
     echo "Options:"
@@ -45,12 +45,12 @@ check_command_line_options() {
 }
 
 configure_baseline() {
-  export RUNNING_TIME=900
+  export APP_RUNNING_TIME=900
   export OUTPUT_FOLDER=results/$ARCH
 
   echo ""
   echo "Output folder: $OUTPUT_FOLDER"
-  echo "Idle OS baseline running time: $RUNNING_TIME sec"
+  echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
   echo ""
@@ -70,7 +70,7 @@ chmod_output_resources() {
 }
 
 start_baseline() {
-  export RUN_CMD="sleep $RUNNING_TIME"
+  export RUN_CMD="sleep $APP_RUNNING_TIME"
 
   echo ""
   echo "Command line: $RUN_CMD"

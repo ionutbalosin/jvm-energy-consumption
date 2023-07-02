@@ -28,7 +28,7 @@
 
 check_command_line_options() {
   if [[ $EUID != 0 ]]; then
-    echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-benchmarks.sh)"
+    echo "Usage: sudo ./run-benchmarks.sh"
     return 1
   fi
 }

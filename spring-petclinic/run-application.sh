@@ -27,16 +27,16 @@
 #
 
 check_command_line_options() {
-  if [ $# -ne 1 ] && [ $# -ne 2 ]; then
-    echo "Usage: ./run-application.sh <test-run-identifier> [--skip-build]"
+  if [[ ( $EUID != 0 ) || ( $# -ne 1 && $# -ne 2 ) ]]; then
+    echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
     echo "  test-run-identifier  is a mandatory parameter to identify the current execution test."
     echo "  --skip-build         is an optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-application.sh 1"
-    echo "   $ ./run-application.sh 1 --skip-build"
+    echo "   $ sudo ./run-application.sh 1"
+    echo "   $ sudo ./run-application.sh 1 --skip-build"
     echo ""
     return 1
   fi
