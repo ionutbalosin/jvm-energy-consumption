@@ -85,7 +85,7 @@ start_baseline() {
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/perf/idle-os-baseline-run-$TEST_RUN_IDENTIFIER.stats \
+    -o $OUTPUT_FOLDER/perf/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats \
     $RUN_CMD
 }
 

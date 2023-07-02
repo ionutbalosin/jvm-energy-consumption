@@ -49,32 +49,38 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-public class EnergyCalculator {
+public class PerfOutputEnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
     private static final String JDK_VERSION = "17";
     private static final String ARCH = "x86_64";
+    private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
+    private static final List<String> NON_JVM_BASED_APPLICATION_LIST = List.of("baseline-idle-os");
 
     public static void main(String[] args) throws IOException {
-        for (String application : APPLICATION_LIST) {
-            System.out.printf("Calculate consumed energy for the '%s' application\n", application);
-            calculateSummaryReport(String.format("%s/%s/results/jdk-%s/%s/perf", BASE_PATH, application, JDK_VERSION, ARCH));
+        for (String application : JVM_BASED_APPLICATION_LIST) {
+            System.out.printf("Calculate consumed energy for '%s'\n", application);
+            calculateJvmBasedSummaryReport(String.format("%s/%s/results/jdk-%s/%s/perf", BASE_PATH, application, JDK_VERSION, ARCH));
+        }
+
+        for (String application : NON_JVM_BASED_APPLICATION_LIST) {
+            System.out.printf("Calculate consumed energy for '%s'\n", application);
+            calculateNonJvmBasedSummaryReport(application, String.format("%s/%s/results/%s/perf", BASE_PATH, application, ARCH));
         }
     }
 
-    private static void calculateSummaryReport(String path) throws IOException {
+    private static void calculateJvmBasedSummaryReport(String path) throws IOException {
         String parentSummaryPath = path + "/../summary";
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
-        double openJdkHotSpotGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm")); // reference geometric mean
+        double referenceJvmGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm"));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm.power")))) {
             writer.printf("  JVM distribution; Power consumption (Watt per second); Power consumption (normalized)\n");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%18s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / openJdkHotSpotGeometricMean);
+                writer.printf("%18s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / referenceJvmGeometricMean);
             }
         }
 
@@ -88,8 +94,20 @@ public class EnergyCalculator {
         }
     }
 
+    private static void calculateNonJvmBasedSummaryReport(String testType, String path) throws IOException {
+        String parentSummaryPath = path + "/../summary";
+        List<PerfStats> stats = readFiles(path);
+        Files.createDirectories(Paths.get(parentSummaryPath));
+
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + testType + ".power")))) {
+            writer.printf("              Type; Power consumption (Watt per second)\n");
+            double geometricMean = geometricMean(stats);
+            writer.printf("%18s;%36.3f\n", testType, geometricMean);
+        }
+    }
+
     private static List<PerfStats> readFiles(String parentFolder) throws IOException {
-        return Files.walk(Paths.get(parentFolder)).filter(Files::isRegularFile).map(EnergyCalculator::parseStats).collect(toList());
+        return Files.walk(Paths.get(parentFolder)).filter(Files::isRegularFile).map(PerfOutputEnergyCalculator::parseStats).collect(toList());
     }
 
     private static PerfStats parseStats(Path filePath) {
@@ -149,7 +167,7 @@ public class EnergyCalculator {
             double watts = (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
             prod *= watts;
         }
-        return perfStats.size() == 1 ? prod : Math.pow(prod, 1.0 / perfStats.size());
+        return Math.pow(prod, 1.0 / perfStats.size());
     }
 
     static class PerfStats {
