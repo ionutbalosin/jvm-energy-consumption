@@ -52,6 +52,7 @@ import static java.util.stream.Collectors.toList;
 public class PerfOutputEnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
+    private static final String OUTPUT_FOLDER = "summary";
     private static final String JDK_VERSION = "17";
     private static final String ARCH = "x86_64";
     private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
@@ -70,7 +71,7 @@ public class PerfOutputEnergyCalculator {
     }
 
     private static void calculateJvmBasedSummaryReport(String path) throws IOException {
-        String parentSummaryPath = path + "/../summary";
+        String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
@@ -95,7 +96,7 @@ public class PerfOutputEnergyCalculator {
     }
 
     private static void calculateNonJvmBasedSummaryReport(String testType, String path) throws IOException {
-        String parentSummaryPath = path + "/../summary";
+        String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
