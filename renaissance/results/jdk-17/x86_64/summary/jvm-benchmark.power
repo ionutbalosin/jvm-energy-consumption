@@ -1,0 +1,21 @@
+ JVM distribution (run identifier); Power consumption (Watt per second)
+     azul-prime-vm-run-concurrency;                               3.663
+      azul-prime-vm-run-functional;                               2.888
+           azul-prime-vm-run-scala;                               3.108
+             azul-prime-vm-run-web;                               3.549
+ eclipse-openj9-vm-run-concurrency;                               3.504
+  eclipse-openj9-vm-run-functional;                               2.575
+       eclipse-openj9-vm-run-scala;                               2.587
+         eclipse-openj9-vm-run-web;                               3.201
+        graalvm-ce-run-concurrency;                               3.523
+         graalvm-ce-run-functional;                               2.598
+              graalvm-ce-run-scala;                               2.864
+                graalvm-ce-run-web;                               3.290
+        graalvm-ee-run-concurrency;                               3.621
+         graalvm-ee-run-functional;                               2.711
+              graalvm-ee-run-scala;                               2.786
+                graalvm-ee-run-web;                               3.242
+openjdk-hotspot-vm-run-concurrency;                               3.623
+ openjdk-hotspot-vm-run-functional;                               2.558
+      openjdk-hotspot-vm-run-scala;                               2.692
+        openjdk-hotspot-vm-run-web;                               3.229

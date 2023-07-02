@@ -52,7 +52,7 @@ import static java.util.stream.Collectors.toList;
 public class EnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart");
+    private static final List<String> APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
     private static final String JDK_VERSION = "17";
     private static final String ARCH = "x86_64";
 
@@ -80,10 +80,10 @@ public class EnergyCalculator {
 
         Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-run-" + perfStat.testRunIdentifier, TreeMap::new, mapping(identity(), toList())));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm-benchmark.power")))) {
-            writer.printf("JVM distribution (run identifier); Power consumption (Watt per second)\n");
+            writer.printf(" JVM distribution (run identifier); Power consumption (Watt per second)\n");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%33s;%36.3f\n", pair.getKey(), jvmGeometricMean);
+                writer.printf("%34s;%36.3f\n", pair.getKey(), jvmGeometricMean);
             }
         }
     }

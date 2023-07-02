@@ -26,10 +26,17 @@
 # SOFTWARE.
 #
 
+check_command_line_options() {
+  if [[ $EUID != 0 ]]; then
+    echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-benchmarks.sh)"
+    return 1
+  fi
+}
+
 configure_benchmark() {
   export BENCHMARK_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
   export BENCHMARK_REPETITIONS=100
-  export JAVA_OPS="-Xms1m -Xmx1g"
+  export JAVA_OPS="-Xms1m -Xmx2g"
 
   echo ""
   echo "Benchmark home: $BENCHMARK_HOME"
@@ -46,12 +53,23 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/reports
 }
 
+chmod_output_folders() {
+  sudo chmod 777 $OUTPUT_FOLDER/perf/*
+  sudo chmod -R a+rwx $OUTPUT_FOLDER/perf
+
+  sudo chmod 777 $OUTPUT_FOLDER/logs/*
+  sudo chmod -R a+rwx $OUTPUT_FOLDER/logs
+
+  sudo chmod 777 $OUTPUT_FOLDER/reports/*
+  sudo chmod -R a+rwx $OUTPUT_FOLDER/reports
+}
+
 run_benchmarks(){
   # declare renaissance benchmark categories
-  declare -a benchmark_categories=("concurrency" "functional" "scala" "web" "dummy")
+  declare -a benchmark_categories=("concurrency" "functional" "scala" "web")
 
   for benchmark_category in "${benchmark_categories[@]}"; do
-    echo "Run benchmark category $benchmark_category"
+    echo "Starting benchmark category $benchmark_category at: $(date) "
 
     sudo perf stat -a \
       -e "power/energy-cores/" \
@@ -59,12 +77,12 @@ run_benchmarks(){
       -e "power/energy-pkg/" \
       -e "power/energy-psys/" \
       -e "power/energy-ram/" \
-      -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-$benchmark_category.stats \
+      -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$benchmark_category.stats \
       $JAVA_HOME/bin/java $JAVA_OPS -jar $BENCHMARK_HOME \
       -r $BENCHMARK_REPETITIONS \
-      --csv $OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-$benchmark_category.csv \
+      --csv $OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-run-$benchmark_category.csv \
       $benchmark_category \
-      > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-$benchmark_category.log 2>&1
+      > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$benchmark_category.log 2>&1
 
     # give a bit of time to the process to gracefully shut down
     sleep 10
@@ -74,14 +92,14 @@ run_benchmarks(){
       echo "ERROR: Error encountered while running benchmark category $benchmark_category, unable to continue!"
       exit 1
     else
-      echo "Benchmark category $benchmark_category successfully finished!"
+      echo "Benchmark category $benchmark_category successfully finished at: $(date)"
     fi
 
   done
 }
 
-if [[ $EUID != 0 ]]; then
-  echo "ERROR: sudo admin rights are needed (e.g., $ sudo ./run-benchmarks.sh)"
+check_command_line_options "$@"
+if [ $? -ne 0 ]; then
   exit 1
 fi
 

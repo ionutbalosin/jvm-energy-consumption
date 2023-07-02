@@ -1,0 +1,1800 @@
+====== scrabble (functional) [default], iteration 0 started ======
+GC before operation: completed in 314.503 ms, heap usage 172.437 MB -> 76.110 MB.
+====== scrabble (functional) [default], iteration 0 completed (6080.183 ms) ======
+====== scrabble (functional) [default], iteration 1 started ======
+GC before operation: completed in 258.603 ms, heap usage 408.588 MB -> 76.194 MB.
+====== scrabble (functional) [default], iteration 1 completed (2535.587 ms) ======
+====== scrabble (functional) [default], iteration 2 started ======
+GC before operation: completed in 311.721 ms, heap usage 245.453 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 2 completed (1428.515 ms) ======
+====== scrabble (functional) [default], iteration 3 started ======
+GC before operation: completed in 305.873 ms, heap usage 457.440 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 3 completed (1278.273 ms) ======
+====== scrabble (functional) [default], iteration 4 started ======
+GC before operation: completed in 317.101 ms, heap usage 225.670 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 4 completed (1327.730 ms) ======
+====== scrabble (functional) [default], iteration 5 started ======
+GC before operation: completed in 244.539 ms, heap usage 170.490 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 5 completed (1296.790 ms) ======
+====== scrabble (functional) [default], iteration 6 started ======
+GC before operation: completed in 247.100 ms, heap usage 210.677 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 6 completed (1313.185 ms) ======
+====== scrabble (functional) [default], iteration 7 started ======
+GC before operation: completed in 246.662 ms, heap usage 258.105 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 7 completed (1262.868 ms) ======
+====== scrabble (functional) [default], iteration 8 started ======
+GC before operation: completed in 248.429 ms, heap usage 266.872 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 8 completed (1319.659 ms) ======
+====== scrabble (functional) [default], iteration 9 started ======
+GC before operation: completed in 245.942 ms, heap usage 272.170 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 9 completed (1265.128 ms) ======
+====== scrabble (functional) [default], iteration 10 started ======
+GC before operation: completed in 253.232 ms, heap usage 265.216 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 10 completed (1277.573 ms) ======
+====== scrabble (functional) [default], iteration 11 started ======
+GC before operation: completed in 246.157 ms, heap usage 256.828 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 11 completed (1291.512 ms) ======
+====== scrabble (functional) [default], iteration 12 started ======
+GC before operation: completed in 251.880 ms, heap usage 242.718 MB -> 76.193 MB.
+====== scrabble (functional) [default], iteration 12 completed (1250.022 ms) ======
+====== scrabble (functional) [default], iteration 13 started ======
+GC before operation: completed in 256.226 ms, heap usage 272.828 MB -> 76.194 MB.
+====== scrabble (functional) [default], iteration 13 completed (1267.853 ms) ======
+====== scrabble (functional) [default], iteration 14 started ======
+GC before operation: completed in 245.521 ms, heap usage 265.034 MB -> 76.194 MB.
+====== scrabble (functional) [default], iteration 14 completed (1266.789 ms) ======
+====== scrabble (functional) [default], iteration 15 started ======
+GC before operation: completed in 284.816 ms, heap usage 266.171 MB -> 76.194 MB.
+====== scrabble (functional) [default], iteration 15 completed (1295.917 ms) ======
+====== scrabble (functional) [default], iteration 16 started ======
+GC before operation: completed in 249.520 ms, heap usage 227.171 MB -> 76.194 MB.
+====== scrabble (functional) [default], iteration 16 completed (1322.936 ms) ======
+====== scrabble (functional) [default], iteration 17 started ======
+GC before operation: completed in 254.353 ms, heap usage 268.194 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 17 completed (1250.208 ms) ======
+====== scrabble (functional) [default], iteration 18 started ======
+GC before operation: completed in 246.422 ms, heap usage 291.375 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 18 completed (1284.348 ms) ======
+====== scrabble (functional) [default], iteration 19 started ======
+GC before operation: completed in 249.119 ms, heap usage 272.673 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 19 completed (1268.364 ms) ======
+====== scrabble (functional) [default], iteration 20 started ======
+GC before operation: completed in 246.297 ms, heap usage 292.180 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 20 completed (1252.160 ms) ======
+====== scrabble (functional) [default], iteration 21 started ======
+GC before operation: completed in 248.856 ms, heap usage 291.747 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 21 completed (1296.731 ms) ======
+====== scrabble (functional) [default], iteration 22 started ======
+GC before operation: completed in 283.984 ms, heap usage 268.680 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 22 completed (1278.137 ms) ======
+====== scrabble (functional) [default], iteration 23 started ======
+GC before operation: completed in 282.684 ms, heap usage 261.673 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 23 completed (1279.487 ms) ======
+====== scrabble (functional) [default], iteration 24 started ======
+GC before operation: completed in 282.366 ms, heap usage 264.673 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 24 completed (1281.829 ms) ======
+====== scrabble (functional) [default], iteration 25 started ======
+GC before operation: completed in 247.795 ms, heap usage 254.608 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 25 completed (1250.231 ms) ======
+====== scrabble (functional) [default], iteration 26 started ======
+GC before operation: completed in 253.597 ms, heap usage 259.249 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 26 completed (1284.052 ms) ======
+====== scrabble (functional) [default], iteration 27 started ======
+GC before operation: completed in 249.823 ms, heap usage 262.375 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 27 completed (1303.030 ms) ======
+====== scrabble (functional) [default], iteration 28 started ======
+GC before operation: completed in 247.535 ms, heap usage 256.651 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 28 completed (1236.616 ms) ======
+====== scrabble (functional) [default], iteration 29 started ======
+GC before operation: completed in 265.154 ms, heap usage 281.221 MB -> 76.196 MB.
+====== scrabble (functional) [default], iteration 29 completed (1270.550 ms) ======
+====== scrabble (functional) [default], iteration 30 started ======
+GC before operation: completed in 253.779 ms, heap usage 252.957 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 30 completed (1311.256 ms) ======
+====== scrabble (functional) [default], iteration 31 started ======
+GC before operation: completed in 246.000 ms, heap usage 223.437 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 31 completed (1285.533 ms) ======
+====== scrabble (functional) [default], iteration 32 started ======
+GC before operation: completed in 248.061 ms, heap usage 253.433 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 32 completed (1250.556 ms) ======
+====== scrabble (functional) [default], iteration 33 started ======
+GC before operation: completed in 246.797 ms, heap usage 285.875 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 33 completed (1265.601 ms) ======
+====== scrabble (functional) [default], iteration 34 started ======
+GC before operation: completed in 249.292 ms, heap usage 284.652 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 34 completed (1276.477 ms) ======
+====== scrabble (functional) [default], iteration 35 started ======
+GC before operation: completed in 245.485 ms, heap usage 284.674 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 35 completed (1268.098 ms) ======
+====== scrabble (functional) [default], iteration 36 started ======
+GC before operation: completed in 249.552 ms, heap usage 283.219 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 36 completed (1256.246 ms) ======
+====== scrabble (functional) [default], iteration 37 started ======
+GC before operation: completed in 258.959 ms, heap usage 255.938 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 37 completed (1293.440 ms) ======
+====== scrabble (functional) [default], iteration 38 started ======
+GC before operation: completed in 247.059 ms, heap usage 258.900 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 38 completed (1279.134 ms) ======
+====== scrabble (functional) [default], iteration 39 started ======
+GC before operation: completed in 244.435 ms, heap usage 271.435 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 39 completed (1272.622 ms) ======
+====== scrabble (functional) [default], iteration 40 started ======
+GC before operation: completed in 253.751 ms, heap usage 261.681 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 40 completed (1269.653 ms) ======
+====== scrabble (functional) [default], iteration 41 started ======
+GC before operation: completed in 249.564 ms, heap usage 244.633 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 41 completed (1271.830 ms) ======
+====== scrabble (functional) [default], iteration 42 started ======
+GC before operation: completed in 247.687 ms, heap usage 264.652 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 42 completed (1259.613 ms) ======
+====== scrabble (functional) [default], iteration 43 started ======
+GC before operation: completed in 247.350 ms, heap usage 265.876 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 43 completed (1283.951 ms) ======
+====== scrabble (functional) [default], iteration 44 started ======
+GC before operation: completed in 248.222 ms, heap usage 265.829 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 44 completed (1274.531 ms) ======
+====== scrabble (functional) [default], iteration 45 started ======
+GC before operation: completed in 246.013 ms, heap usage 292.329 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 45 completed (1286.853 ms) ======
+====== scrabble (functional) [default], iteration 46 started ======
+GC before operation: completed in 246.112 ms, heap usage 293.181 MB -> 76.197 MB.
+====== scrabble (functional) [default], iteration 46 completed (1241.018 ms) ======
+====== scrabble (functional) [default], iteration 47 started ======
+GC before operation: completed in 246.145 ms, heap usage 299.494 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 47 completed (1270.676 ms) ======
+====== scrabble (functional) [default], iteration 48 started ======
+GC before operation: completed in 249.762 ms, heap usage 279.175 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 48 completed (1316.778 ms) ======
+====== scrabble (functional) [default], iteration 49 started ======
+GC before operation: completed in 248.847 ms, heap usage 282.249 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 49 completed (1230.055 ms) ======
+====== scrabble (functional) [default], iteration 50 started ======
+GC before operation: completed in 254.262 ms, heap usage 295.796 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 50 completed (1275.472 ms) ======
+====== scrabble (functional) [default], iteration 51 started ======
+GC before operation: completed in 247.085 ms, heap usage 268.900 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 51 completed (1270.405 ms) ======
+====== scrabble (functional) [default], iteration 52 started ======
+GC before operation: completed in 249.129 ms, heap usage 278.492 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 52 completed (1264.797 ms) ======
+====== scrabble (functional) [default], iteration 53 started ======
+GC before operation: completed in 246.088 ms, heap usage 289.720 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 53 completed (1265.186 ms) ======
+====== scrabble (functional) [default], iteration 54 started ======
+GC before operation: completed in 252.137 ms, heap usage 276.756 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 54 completed (1272.455 ms) ======
+====== scrabble (functional) [default], iteration 55 started ======
+GC before operation: completed in 249.393 ms, heap usage 279.465 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 55 completed (1278.286 ms) ======
+====== scrabble (functional) [default], iteration 56 started ======
+GC before operation: completed in 251.483 ms, heap usage 245.995 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 56 completed (1293.578 ms) ======
+====== scrabble (functional) [default], iteration 57 started ======
+GC before operation: completed in 249.933 ms, heap usage 251.220 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 57 completed (1296.601 ms) ======
+====== scrabble (functional) [default], iteration 58 started ======
+GC before operation: completed in 248.023 ms, heap usage 275.153 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 58 completed (1272.524 ms) ======
+====== scrabble (functional) [default], iteration 59 started ======
+GC before operation: completed in 249.168 ms, heap usage 287.297 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 59 completed (1260.815 ms) ======
+====== scrabble (functional) [default], iteration 60 started ======
+GC before operation: completed in 248.829 ms, heap usage 271.662 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 60 completed (1266.953 ms) ======
+====== scrabble (functional) [default], iteration 61 started ======
+GC before operation: completed in 249.649 ms, heap usage 259.546 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 61 completed (1302.330 ms) ======
+====== scrabble (functional) [default], iteration 62 started ======
+GC before operation: completed in 249.251 ms, heap usage 255.539 MB -> 76.198 MB.
+====== scrabble (functional) [default], iteration 62 completed (1272.473 ms) ======
+====== scrabble (functional) [default], iteration 63 started ======
+GC before operation: completed in 253.711 ms, heap usage 261.330 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 63 completed (1291.529 ms) ======
+====== scrabble (functional) [default], iteration 64 started ======
+GC before operation: completed in 249.072 ms, heap usage 283.465 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 64 completed (1247.938 ms) ======
+====== scrabble (functional) [default], iteration 65 started ======
+GC before operation: completed in 244.676 ms, heap usage 311.945 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 65 completed (1264.983 ms) ======
+====== scrabble (functional) [default], iteration 66 started ======
+GC before operation: completed in 246.508 ms, heap usage 307.937 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 66 completed (1250.152 ms) ======
+====== scrabble (functional) [default], iteration 67 started ======
+GC before operation: completed in 249.440 ms, heap usage 283.445 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 67 completed (1229.268 ms) ======
+====== scrabble (functional) [default], iteration 68 started ======
+GC before operation: completed in 249.393 ms, heap usage 273.154 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 68 completed (1265.869 ms) ======
+====== scrabble (functional) [default], iteration 69 started ======
+GC before operation: completed in 250.856 ms, heap usage 255.111 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 69 completed (1285.680 ms) ======
+====== scrabble (functional) [default], iteration 70 started ======
+GC before operation: completed in 246.593 ms, heap usage 245.878 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 70 completed (1278.903 ms) ======
+====== scrabble (functional) [default], iteration 71 started ======
+GC before operation: completed in 250.426 ms, heap usage 274.334 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 71 completed (1256.715 ms) ======
+====== scrabble (functional) [default], iteration 72 started ======
+GC before operation: completed in 246.296 ms, heap usage 273.402 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 72 completed (1251.766 ms) ======
+====== scrabble (functional) [default], iteration 73 started ======
+GC before operation: completed in 250.131 ms, heap usage 278.460 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 73 completed (1271.534 ms) ======
+====== scrabble (functional) [default], iteration 74 started ======
+GC before operation: completed in 249.406 ms, heap usage 280.635 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 74 completed (1297.669 ms) ======
+====== scrabble (functional) [default], iteration 75 started ======
+GC before operation: completed in 247.545 ms, heap usage 259.511 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 75 completed (1266.968 ms) ======
+====== scrabble (functional) [default], iteration 76 started ======
+GC before operation: completed in 247.015 ms, heap usage 258.683 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 76 completed (1282.511 ms) ======
+====== scrabble (functional) [default], iteration 77 started ======
+GC before operation: completed in 247.347 ms, heap usage 276.935 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 77 completed (1255.920 ms) ======
+====== scrabble (functional) [default], iteration 78 started ======
+GC before operation: completed in 247.628 ms, heap usage 276.331 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 78 completed (1265.155 ms) ======
+====== scrabble (functional) [default], iteration 79 started ======
+GC before operation: completed in 247.730 ms, heap usage 287.946 MB -> 76.199 MB.
+====== scrabble (functional) [default], iteration 79 completed (1239.246 ms) ======
+====== scrabble (functional) [default], iteration 80 started ======
+GC before operation: completed in 249.434 ms, heap usage 296.540 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 80 completed (1253.384 ms) ======
+====== scrabble (functional) [default], iteration 81 started ======
+GC before operation: completed in 248.754 ms, heap usage 278.251 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 81 completed (1263.759 ms) ======
+====== scrabble (functional) [default], iteration 82 started ======
+GC before operation: completed in 246.878 ms, heap usage 278.929 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 82 completed (1261.470 ms) ======
+====== scrabble (functional) [default], iteration 83 started ======
+GC before operation: completed in 248.368 ms, heap usage 272.949 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 83 completed (1259.788 ms) ======
+====== scrabble (functional) [default], iteration 84 started ======
+GC before operation: completed in 247.565 ms, heap usage 269.526 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 84 completed (1253.806 ms) ======
+====== scrabble (functional) [default], iteration 85 started ======
+GC before operation: completed in 246.012 ms, heap usage 265.164 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 85 completed (1275.229 ms) ======
+====== scrabble (functional) [default], iteration 86 started ======
+GC before operation: completed in 251.331 ms, heap usage 268.332 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 86 completed (1259.500 ms) ======
+====== scrabble (functional) [default], iteration 87 started ======
+GC before operation: completed in 247.943 ms, heap usage 275.085 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 87 completed (1263.925 ms) ======
+====== scrabble (functional) [default], iteration 88 started ======
+GC before operation: completed in 245.274 ms, heap usage 283.684 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 88 completed (1235.890 ms) ======
+====== scrabble (functional) [default], iteration 89 started ======
+GC before operation: completed in 251.000 ms, heap usage 282.497 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 89 completed (1278.688 ms) ======
+====== scrabble (functional) [default], iteration 90 started ======
+GC before operation: completed in 248.120 ms, heap usage 260.684 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 90 completed (1286.323 ms) ======
+====== scrabble (functional) [default], iteration 91 started ======
+GC before operation: completed in 248.799 ms, heap usage 282.929 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 91 completed (1262.957 ms) ======
+====== scrabble (functional) [default], iteration 92 started ======
+GC before operation: completed in 247.355 ms, heap usage 287.447 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 92 completed (1267.713 ms) ======
+====== scrabble (functional) [default], iteration 93 started ======
+GC before operation: completed in 245.343 ms, heap usage 286.947 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 93 completed (1307.141 ms) ======
+====== scrabble (functional) [default], iteration 94 started ======
+GC before operation: completed in 246.559 ms, heap usage 281.677 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 94 completed (1251.310 ms) ======
+====== scrabble (functional) [default], iteration 95 started ======
+GC before operation: completed in 246.585 ms, heap usage 303.461 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 95 completed (1254.705 ms) ======
+====== scrabble (functional) [default], iteration 96 started ======
+GC before operation: completed in 247.987 ms, heap usage 278.060 MB -> 76.201 MB.
+====== scrabble (functional) [default], iteration 96 completed (1234.580 ms) ======
+====== scrabble (functional) [default], iteration 97 started ======
+GC before operation: completed in 250.748 ms, heap usage 282.447 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 97 completed (1287.876 ms) ======
+====== scrabble (functional) [default], iteration 98 started ======
+GC before operation: completed in 248.003 ms, heap usage 248.817 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 98 completed (1288.584 ms) ======
+====== scrabble (functional) [default], iteration 99 started ======
+GC before operation: completed in 246.154 ms, heap usage 264.184 MB -> 76.200 MB.
+====== scrabble (functional) [default], iteration 99 completed (1285.493 ms) ======
+====== future-genetic (functional) [default], iteration 0 started ======
+GC before operation: completed in 45.869 ms, heap usage 279.208 MB -> 4.791 MB.
+[8.56957140543102], [7.312157892502569]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 0 completed (11879.636 ms) ======
+====== future-genetic (functional) [default], iteration 1 started ======
+GC before operation: completed in 40.596 ms, heap usage 19.495 MB -> 4.710 MB.
+[20.48118000752686], [8.729836860488035]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 1 completed (8945.933 ms) ======
+====== future-genetic (functional) [default], iteration 2 started ======
+GC before operation: completed in 39.390 ms, heap usage 59.370 MB -> 4.711 MB.
+[13.012594702543879], [11.360099876710024]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 2 completed (8898.006 ms) ======
+====== future-genetic (functional) [default], iteration 3 started ======
+GC before operation: completed in 34.893 ms, heap usage 59.541 MB -> 4.714 MB.
+[-0.9305578473953346], [9.832715947847532]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 3 completed (9054.367 ms) ======
+====== future-genetic (functional) [default], iteration 4 started ======
+GC before operation: completed in 36.672 ms, heap usage 16.517 MB -> 4.714 MB.
+[9.945146728587588], [12.510538592970647]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 4 completed (9123.995 ms) ======
+====== future-genetic (functional) [default], iteration 5 started ======
+GC before operation: completed in 37.251 ms, heap usage 71.366 MB -> 4.715 MB.
+[6.816187510172426], [1.6870942233687174]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 5 completed (9053.320 ms) ======
+====== future-genetic (functional) [default], iteration 6 started ======
+GC before operation: completed in 33.850 ms, heap usage 22.615 MB -> 4.715 MB.
+[0.3904810698654728], [39.64414519013212]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 6 completed (9170.019 ms) ======
+====== future-genetic (functional) [default], iteration 7 started ======
+GC before operation: completed in 37.575 ms, heap usage 51.378 MB -> 4.715 MB.
+[14.437060763631052], [23.899642236792033]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 7 completed (9142.677 ms) ======
+====== future-genetic (functional) [default], iteration 8 started ======
+GC before operation: completed in 35.920 ms, heap usage 79.278 MB -> 4.715 MB.
+[18.105284566620526], [16.75295686037407]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 8 completed (9212.086 ms) ======
+====== future-genetic (functional) [default], iteration 9 started ======
+GC before operation: completed in 33.679 ms, heap usage 39.505 MB -> 4.715 MB.
+[4.628029024884313], [26.363398086667985]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 9 completed (9155.600 ms) ======
+====== future-genetic (functional) [default], iteration 10 started ======
+GC before operation: completed in 35.709 ms, heap usage 26.475 MB -> 4.717 MB.
+[9.758712069736248], [20.456383740312162]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 10 completed (9169.963 ms) ======
+====== future-genetic (functional) [default], iteration 11 started ======
+GC before operation: completed in 34.875 ms, heap usage 44.461 MB -> 4.717 MB.
+[6.919465165208976], [13.267227107360668]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 11 completed (9181.836 ms) ======
+====== future-genetic (functional) [default], iteration 12 started ======
+GC before operation: completed in 33.900 ms, heap usage 53.890 MB -> 4.717 MB.
+[6.822628753975209], [25.709706937852957]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 12 completed (9134.669 ms) ======
+====== future-genetic (functional) [default], iteration 13 started ======
+GC before operation: completed in 34.930 ms, heap usage 32.776 MB -> 4.717 MB.
+[11.975473044147748], [24.58194997232806]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 13 completed (9163.414 ms) ======
+====== future-genetic (functional) [default], iteration 14 started ======
+GC before operation: completed in 38.567 ms, heap usage 20.263 MB -> 4.717 MB.
+[11.97718118420903], [16.0368031127731]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 14 completed (9137.869 ms) ======
+====== future-genetic (functional) [default], iteration 15 started ======
+GC before operation: completed in 33.852 ms, heap usage 76.798 MB -> 4.717 MB.
+[6.495196676448131], [16.475116711680585]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 15 completed (9161.056 ms) ======
+====== future-genetic (functional) [default], iteration 16 started ======
+GC before operation: completed in 33.887 ms, heap usage 68.634 MB -> 4.717 MB.
+[11.815972014857607], [21.8549496650204]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 16 completed (9214.015 ms) ======
+====== future-genetic (functional) [default], iteration 17 started ======
+GC before operation: completed in 36.201 ms, heap usage 6.956 MB -> 4.717 MB.
+[19.696675339031685], [19.891765895012213]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 17 completed (9076.433 ms) ======
+====== future-genetic (functional) [default], iteration 18 started ======
+GC before operation: completed in 35.793 ms, heap usage 81.977 MB -> 4.717 MB.
+[13.962974520018406], [5.730304346583125]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 18 completed (9176.202 ms) ======
+====== future-genetic (functional) [default], iteration 19 started ======
+GC before operation: completed in 34.795 ms, heap usage 67.669 MB -> 4.717 MB.
+[19.900832079517954], [17.343875328631043]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 19 completed (9219.281 ms) ======
+====== future-genetic (functional) [default], iteration 20 started ======
+GC before operation: completed in 34.953 ms, heap usage 49.455 MB -> 4.717 MB.
+[6.867705095954875], [21.815829445850568]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 20 completed (9168.733 ms) ======
+====== future-genetic (functional) [default], iteration 21 started ======
+GC before operation: completed in 35.474 ms, heap usage 59.137 MB -> 4.718 MB.
+[19.7648393220677], [19.10019320285187]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 21 completed (9131.094 ms) ======
+====== future-genetic (functional) [default], iteration 22 started ======
+GC before operation: completed in 36.006 ms, heap usage 65.593 MB -> 4.718 MB.
+[1.302154671299263], [9.25714059879374]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 22 completed (9158.516 ms) ======
+====== future-genetic (functional) [default], iteration 23 started ======
+GC before operation: completed in 34.793 ms, heap usage 27.949 MB -> 4.718 MB.
+[6.101902649097838], [10.127113055666882]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 23 completed (9137.704 ms) ======
+====== future-genetic (functional) [default], iteration 24 started ======
+GC before operation: completed in 34.179 ms, heap usage 15.462 MB -> 4.718 MB.
+[8.961456818056263], [9.900599344389207]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 24 completed (9145.279 ms) ======
+====== future-genetic (functional) [default], iteration 25 started ======
+GC before operation: completed in 35.957 ms, heap usage 79.989 MB -> 4.718 MB.
+[-1.2783791428321365], [9.684912265104913]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 25 completed (9118.077 ms) ======
+====== future-genetic (functional) [default], iteration 26 started ======
+GC before operation: completed in 39.306 ms, heap usage 65.881 MB -> 4.718 MB.
+[11.591092261423], [10.400687252697367]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 26 completed (9182.618 ms) ======
+====== future-genetic (functional) [default], iteration 27 started ======
+GC before operation: completed in 34.886 ms, heap usage 72.750 MB -> 4.718 MB.
+[15.45001152894622], [16.034719347829878]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 27 completed (9155.612 ms) ======
+====== future-genetic (functional) [default], iteration 28 started ======
+GC before operation: completed in 36.670 ms, heap usage 25.431 MB -> 4.718 MB.
+[2.857574831133661], [14.57931229598546]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 28 completed (9145.680 ms) ======
+====== future-genetic (functional) [default], iteration 29 started ======
+GC before operation: completed in 37.533 ms, heap usage 65.632 MB -> 4.718 MB.
+[9.425885361774817], [13.724300511382694]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 29 completed (9171.291 ms) ======
+====== future-genetic (functional) [default], iteration 30 started ======
+GC before operation: completed in 35.002 ms, heap usage 15.691 MB -> 4.718 MB.
+[9.105935915852228], [24.41203119737702]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 30 completed (9116.971 ms) ======
+====== future-genetic (functional) [default], iteration 31 started ======
+GC before operation: completed in 34.354 ms, heap usage 22.510 MB -> 4.718 MB.
+[17.26072848495312], [20.884639056151514]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 31 completed (9161.048 ms) ======
+====== future-genetic (functional) [default], iteration 32 started ======
+GC before operation: completed in 33.462 ms, heap usage 35.901 MB -> 4.718 MB.
+[13.364587247063355], [18.002804957345575]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 32 completed (9194.876 ms) ======
+====== future-genetic (functional) [default], iteration 33 started ======
+GC before operation: completed in 37.012 ms, heap usage 88.264 MB -> 4.718 MB.
+[10.103606070594537], [19.013424038479798]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 33 completed (9159.335 ms) ======
+====== future-genetic (functional) [default], iteration 34 started ======
+GC before operation: completed in 35.736 ms, heap usage 30.650 MB -> 4.718 MB.
+[-0.10194467642077143], [24.30844842439842]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 34 completed (9192.859 ms) ======
+====== future-genetic (functional) [default], iteration 35 started ======
+GC before operation: completed in 36.371 ms, heap usage 71.278 MB -> 4.718 MB.
+[6.290983814167475], [17.96608581570888]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 35 completed (9165.681 ms) ======
+====== future-genetic (functional) [default], iteration 36 started ======
+GC before operation: completed in 34.796 ms, heap usage 11.760 MB -> 4.719 MB.
+[14.548878205673645], [15.249349953722117]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 36 completed (9191.326 ms) ======
+====== future-genetic (functional) [default], iteration 37 started ======
+GC before operation: completed in 37.122 ms, heap usage 44.354 MB -> 4.719 MB.
+[10.0307517909647], [21.11043904790995]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 37 completed (9089.856 ms) ======
+====== future-genetic (functional) [default], iteration 38 started ======
+GC before operation: completed in 35.609 ms, heap usage 81.582 MB -> 4.719 MB.
+[5.007344943538328], [8.815617976972021]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 38 completed (9195.462 ms) ======
+====== future-genetic (functional) [default], iteration 39 started ======
+GC before operation: completed in 34.571 ms, heap usage 22.548 MB -> 4.719 MB.
+[4.260615738855449], [18.68683313310953]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 39 completed (9182.523 ms) ======
+====== future-genetic (functional) [default], iteration 40 started ======
+GC before operation: completed in 34.303 ms, heap usage 69.757 MB -> 4.719 MB.
+[9.179231581020645], [13.854221574080611]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 40 completed (9192.882 ms) ======
+====== future-genetic (functional) [default], iteration 41 started ======
+GC before operation: completed in 34.355 ms, heap usage 45.068 MB -> 4.719 MB.
+[10.597339731408738], [10.973528922908486]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 41 completed (9143.570 ms) ======
+====== future-genetic (functional) [default], iteration 42 started ======
+GC before operation: completed in 38.970 ms, heap usage 76.647 MB -> 4.719 MB.
+[15.607428706130804], [13.424519258687042]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 42 completed (9127.502 ms) ======
+====== future-genetic (functional) [default], iteration 43 started ======
+GC before operation: completed in 34.077 ms, heap usage 9.374 MB -> 4.719 MB.
+[10.451530862394065], [7.337762112951964]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 43 completed (9131.775 ms) ======
+====== future-genetic (functional) [default], iteration 44 started ======
+GC before operation: completed in 36.078 ms, heap usage 85.586 MB -> 4.719 MB.
+[15.818638979425032], [13.946438168462237]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 44 completed (9150.931 ms) ======
+====== future-genetic (functional) [default], iteration 45 started ======
+GC before operation: completed in 33.546 ms, heap usage 72.565 MB -> 4.719 MB.
+[14.533146556904967], [11.530158506216367]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 45 completed (9188.165 ms) ======
+====== future-genetic (functional) [default], iteration 46 started ======
+GC before operation: completed in 36.404 ms, heap usage 76.508 MB -> 4.719 MB.
+[12.033183909345212], [11.961854258177937]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 46 completed (9088.132 ms) ======
+====== future-genetic (functional) [default], iteration 47 started ======
+GC before operation: completed in 40.296 ms, heap usage 14.578 MB -> 4.719 MB.
+[-4.0377769529192165], [19.499894222238026]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 47 completed (9148.950 ms) ======
+====== future-genetic (functional) [default], iteration 48 started ======
+GC before operation: completed in 38.608 ms, heap usage 33.474 MB -> 4.719 MB.
+[0.9277441751702327], [10.545264363564115]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 48 completed (9157.326 ms) ======
+====== future-genetic (functional) [default], iteration 49 started ======
+GC before operation: completed in 33.446 ms, heap usage 7.472 MB -> 4.719 MB.
+[17.163580973895705], [11.408692290697672]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 49 completed (9133.746 ms) ======
+====== future-genetic (functional) [default], iteration 50 started ======
+GC before operation: completed in 34.473 ms, heap usage 64.389 MB -> 4.719 MB.
+[0.8555281008679003], [15.610474076397281]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 50 completed (9151.691 ms) ======
+====== future-genetic (functional) [default], iteration 51 started ======
+GC before operation: completed in 35.232 ms, heap usage 24.280 MB -> 4.719 MB.
+[11.701463396799909], [17.77904656528051]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 51 completed (9153.118 ms) ======
+====== future-genetic (functional) [default], iteration 52 started ======
+GC before operation: completed in 34.113 ms, heap usage 78.725 MB -> 4.719 MB.
+[10.331208887237722], [15.932234563668317]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 52 completed (9116.019 ms) ======
+====== future-genetic (functional) [default], iteration 53 started ======
+GC before operation: completed in 34.158 ms, heap usage 16.777 MB -> 4.719 MB.
+[-8.091993798240196], [22.094077447912355]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 53 completed (9105.645 ms) ======
+====== future-genetic (functional) [default], iteration 54 started ======
+GC before operation: completed in 36.709 ms, heap usage 38.036 MB -> 4.719 MB.
+[3.7324261564489234], [16.24320942735642]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 54 completed (9127.226 ms) ======
+====== future-genetic (functional) [default], iteration 55 started ======
+GC before operation: completed in 33.852 ms, heap usage 63.513 MB -> 4.719 MB.
+[12.45377437071204], [19.90448564285157]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 55 completed (9164.496 ms) ======
+====== future-genetic (functional) [default], iteration 56 started ======
+GC before operation: completed in 34.927 ms, heap usage 89.453 MB -> 4.720 MB.
+[2.421186279982976], [21.21111328203756]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 56 completed (9176.200 ms) ======
+====== future-genetic (functional) [default], iteration 57 started ======
+GC before operation: completed in 34.515 ms, heap usage 16.582 MB -> 4.720 MB.
+[14.783168984387657], [19.983395869985088]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 57 completed (9131.605 ms) ======
+====== future-genetic (functional) [default], iteration 58 started ======
+GC before operation: completed in 34.815 ms, heap usage 62.756 MB -> 4.720 MB.
+[12.902918264139089], [18.154380255159367]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 58 completed (9162.619 ms) ======
+====== future-genetic (functional) [default], iteration 59 started ======
+GC before operation: completed in 36.054 ms, heap usage 30.840 MB -> 4.720 MB.
+[9.911441961635319], [19.90411737163231]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 59 completed (9143.863 ms) ======
+====== future-genetic (functional) [default], iteration 60 started ======
+GC before operation: completed in 37.992 ms, heap usage 78.922 MB -> 4.720 MB.
+[15.276211443642865], [19.683136747149888]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 60 completed (9062.624 ms) ======
+====== future-genetic (functional) [default], iteration 61 started ======
+GC before operation: completed in 35.214 ms, heap usage 84.654 MB -> 4.720 MB.
+[-1.7328020407720715], [8.828106566553174]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 61 completed (9136.670 ms) ======
+====== future-genetic (functional) [default], iteration 62 started ======
+GC before operation: completed in 35.463 ms, heap usage 78.304 MB -> 4.720 MB.
+[2.771323696865011], [16.010642520113606]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 62 completed (9136.074 ms) ======
+====== future-genetic (functional) [default], iteration 63 started ======
+GC before operation: completed in 35.982 ms, heap usage 54.600 MB -> 4.720 MB.
+[5.484406191650351], [14.884444789550798]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 63 completed (9086.996 ms) ======
+====== future-genetic (functional) [default], iteration 64 started ======
+GC before operation: completed in 35.554 ms, heap usage 51.305 MB -> 4.720 MB.
+[13.73664825894366], [13.386778677636471]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 64 completed (9077.173 ms) ======
+====== future-genetic (functional) [default], iteration 65 started ======
+GC before operation: completed in 35.900 ms, heap usage 15.730 MB -> 4.721 MB.
+[18.064941370533802], [11.388220318250433]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 65 completed (9110.409 ms) ======
+====== future-genetic (functional) [default], iteration 66 started ======
+GC before operation: completed in 37.804 ms, heap usage 63.643 MB -> 4.721 MB.
+[5.101138200135551], [11.360713619232342]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 66 completed (9155.879 ms) ======
+====== future-genetic (functional) [default], iteration 67 started ======
+GC before operation: completed in 38.542 ms, heap usage 21.992 MB -> 4.721 MB.
+[8.719488638833582], [19.365753209160857]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 67 completed (9079.522 ms) ======
+====== future-genetic (functional) [default], iteration 68 started ======
+GC before operation: completed in 36.696 ms, heap usage 27.570 MB -> 4.721 MB.
+[19.760815832030175], [19.555530351831976]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 68 completed (9154.621 ms) ======
+====== future-genetic (functional) [default], iteration 69 started ======
+GC before operation: completed in 36.508 ms, heap usage 43.884 MB -> 4.721 MB.
+[6.088106664816451], [10.851381074906953]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 69 completed (9072.699 ms) ======
+====== future-genetic (functional) [default], iteration 70 started ======
+GC before operation: completed in 41.452 ms, heap usage 72.635 MB -> 4.721 MB.
+[19.005190793423594], [8.583090235941086]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 70 completed (9093.364 ms) ======
+====== future-genetic (functional) [default], iteration 71 started ======
+GC before operation: completed in 35.764 ms, heap usage 32.486 MB -> 4.721 MB.
+[11.91300687665273], [18.62275606254957]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 71 completed (9123.725 ms) ======
+====== future-genetic (functional) [default], iteration 72 started ======
+GC before operation: completed in 35.071 ms, heap usage 34.910 MB -> 4.721 MB.
+[11.969500420062218], [20.346019214136845]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 72 completed (9161.034 ms) ======
+====== future-genetic (functional) [default], iteration 73 started ======
+GC before operation: completed in 40.374 ms, heap usage 67.106 MB -> 4.721 MB.
+[16.002333226168048], [17.713136346447527]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 73 completed (9125.603 ms) ======
+====== future-genetic (functional) [default], iteration 74 started ======
+GC before operation: completed in 35.411 ms, heap usage 29.545 MB -> 4.721 MB.
+[16.579069938826365], [18.717646553045938]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 74 completed (9088.340 ms) ======
+====== future-genetic (functional) [default], iteration 75 started ======
+GC before operation: completed in 36.989 ms, heap usage 82.661 MB -> 4.721 MB.
+[12.346953818752127], [6.742597665783933]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 75 completed (9148.346 ms) ======
+====== future-genetic (functional) [default], iteration 76 started ======
+GC before operation: completed in 35.113 ms, heap usage 34.281 MB -> 4.721 MB.
+[17.288801151763778], [26.16834082568778]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 76 completed (9159.799 ms) ======
+====== future-genetic (functional) [default], iteration 77 started ======
+GC before operation: completed in 35.066 ms, heap usage 86.646 MB -> 4.721 MB.
+[12.402117385884594], [20.339936484373766]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 77 completed (9106.419 ms) ======
+====== future-genetic (functional) [default], iteration 78 started ======
+GC before operation: completed in 36.718 ms, heap usage 20.578 MB -> 4.721 MB.
+[9.807190353519104], [15.150542620635974]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 78 completed (9106.819 ms) ======
+====== future-genetic (functional) [default], iteration 79 started ======
+GC before operation: completed in 35.224 ms, heap usage 25.840 MB -> 4.721 MB.
+[6.550585484457429], [16.200355452488566]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 79 completed (9153.601 ms) ======
+====== future-genetic (functional) [default], iteration 80 started ======
+GC before operation: completed in 35.548 ms, heap usage 20.030 MB -> 4.721 MB.
+[19.323806117094136], [23.226842371676184]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 80 completed (9153.568 ms) ======
+====== future-genetic (functional) [default], iteration 81 started ======
+GC before operation: completed in 35.225 ms, heap usage 15.657 MB -> 4.721 MB.
+[7.275907805381507], [14.379678068626731]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 81 completed (9112.987 ms) ======
+====== future-genetic (functional) [default], iteration 82 started ======
+GC before operation: completed in 35.872 ms, heap usage 61.433 MB -> 4.722 MB.
+[8.27526056200395], [9.30906424843215]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 82 completed (9162.662 ms) ======
+====== future-genetic (functional) [default], iteration 83 started ======
+GC before operation: completed in 37.482 ms, heap usage 69.220 MB -> 4.722 MB.
+[10.013593652714803], [22.41475348759559]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 83 completed (9071.747 ms) ======
+====== future-genetic (functional) [default], iteration 84 started ======
+GC before operation: completed in 36.194 ms, heap usage 31.576 MB -> 4.722 MB.
+[23.058440739251978], [11.859069270268492]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 84 completed (9131.861 ms) ======
+====== future-genetic (functional) [default], iteration 85 started ======
+GC before operation: completed in 35.571 ms, heap usage 9.370 MB -> 4.722 MB.
+[6.71847340081456], [24.430533223875273]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 85 completed (9065.186 ms) ======
+====== future-genetic (functional) [default], iteration 86 started ======
+GC before operation: completed in 40.398 ms, heap usage 38.958 MB -> 4.722 MB.
+[10.128909405230388], [10.593091761150504]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 86 completed (9107.080 ms) ======
+====== future-genetic (functional) [default], iteration 87 started ======
+GC before operation: completed in 37.280 ms, heap usage 65.047 MB -> 4.722 MB.
+[3.6245642063113337], [16.35090341632565]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 87 completed (9083.089 ms) ======
+====== future-genetic (functional) [default], iteration 88 started ======
+GC before operation: completed in 37.638 ms, heap usage 89.363 MB -> 4.722 MB.
+[6.207221155158209], [8.161303389650811]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 88 completed (9099.817 ms) ======
+====== future-genetic (functional) [default], iteration 89 started ======
+GC before operation: completed in 36.498 ms, heap usage 66.358 MB -> 4.722 MB.
+[11.572284964614255], [22.78160437947554]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 89 completed (9127.714 ms) ======
+====== future-genetic (functional) [default], iteration 90 started ======
+GC before operation: completed in 39.588 ms, heap usage 51.979 MB -> 4.722 MB.
+[14.770267238906058], [6.989495003936668]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 90 completed (9136.356 ms) ======
+====== future-genetic (functional) [default], iteration 91 started ======
+GC before operation: completed in 35.732 ms, heap usage 38.307 MB -> 4.722 MB.
+[31.383820719299592], [15.3662911718842]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 91 completed (9102.474 ms) ======
+====== future-genetic (functional) [default], iteration 92 started ======
+GC before operation: completed in 37.115 ms, heap usage 6.464 MB -> 4.722 MB.
+[1.8514915431493364], [9.836694891139928]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 92 completed (9125.234 ms) ======
+====== future-genetic (functional) [default], iteration 93 started ======
+GC before operation: completed in 35.728 ms, heap usage 79.043 MB -> 4.722 MB.
+[12.010204457462578], [22.814041582534287]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 93 completed (9124.683 ms) ======
+====== future-genetic (functional) [default], iteration 94 started ======
+GC before operation: completed in 36.176 ms, heap usage 77.177 MB -> 4.722 MB.
+[-0.1922232650672413], [14.17350039351686]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 94 completed (9135.185 ms) ======
+====== future-genetic (functional) [default], iteration 95 started ======
+GC before operation: completed in 34.979 ms, heap usage 12.178 MB -> 4.722 MB.
+[11.992211625969276], [12.348055834587171]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 95 completed (9102.621 ms) ======
+====== future-genetic (functional) [default], iteration 96 started ======
+GC before operation: completed in 36.310 ms, heap usage 74.552 MB -> 4.722 MB.
+[13.155535421734498], [23.017641693098085]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 96 completed (9141.577 ms) ======
+====== future-genetic (functional) [default], iteration 97 started ======
+GC before operation: completed in 36.604 ms, heap usage 22.789 MB -> 4.722 MB.
+[0.8111432988828255], [7.137358863163627]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 97 completed (9163.443 ms) ======
+====== future-genetic (functional) [default], iteration 98 started ======
+GC before operation: completed in 35.683 ms, heap usage 71.992 MB -> 4.722 MB.
+[11.420985055983692], [11.23673585642564]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 98 completed (9123.108 ms) ======
+====== future-genetic (functional) [default], iteration 99 started ======
+GC before operation: completed in 36.576 ms, heap usage 14.297 MB -> 4.722 MB.
+[4.723641868804748], [12.725930713381786]
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== future-genetic (functional) [default], iteration 99 completed (9113.882 ms) ======
+====== rx-scrabble (functional) [default], iteration 0 started ======
+GC before operation: completed in 144.380 ms, heap usage 133.397 MB -> 35.836 MB.
+====== rx-scrabble (functional) [default], iteration 0 completed (3941.705 ms) ======
+====== rx-scrabble (functional) [default], iteration 1 started ======
+GC before operation: completed in 163.356 ms, heap usage 61.094 MB -> 36.424 MB.
+====== rx-scrabble (functional) [default], iteration 1 completed (2178.834 ms) ======
+====== rx-scrabble (functional) [default], iteration 2 started ======
+GC before operation: completed in 163.878 ms, heap usage 108.092 MB -> 36.424 MB.
+====== rx-scrabble (functional) [default], iteration 2 completed (2173.654 ms) ======
+====== rx-scrabble (functional) [default], iteration 3 started ======
+GC before operation: completed in 128.574 ms, heap usage 248.800 MB -> 36.424 MB.
+====== rx-scrabble (functional) [default], iteration 3 completed (1576.206 ms) ======
+====== rx-scrabble (functional) [default], iteration 4 started ======
+GC before operation: completed in 158.363 ms, heap usage 100.588 MB -> 36.424 MB.
+====== rx-scrabble (functional) [default], iteration 4 completed (1404.804 ms) ======
+====== rx-scrabble (functional) [default], iteration 5 started ======
+GC before operation: completed in 161.881 ms, heap usage 95.983 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 5 completed (1472.247 ms) ======
+====== rx-scrabble (functional) [default], iteration 6 started ======
+GC before operation: completed in 148.592 ms, heap usage 170.734 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 6 completed (1075.208 ms) ======
+====== rx-scrabble (functional) [default], iteration 7 started ======
+GC before operation: completed in 155.939 ms, heap usage 90.505 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 7 completed (1001.114 ms) ======
+====== rx-scrabble (functional) [default], iteration 8 started ======
+GC before operation: completed in 126.193 ms, heap usage 163.702 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 8 completed (786.022 ms) ======
+====== rx-scrabble (functional) [default], iteration 9 started ======
+GC before operation: completed in 160.073 ms, heap usage 87.491 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 9 completed (931.122 ms) ======
+====== rx-scrabble (functional) [default], iteration 10 started ======
+GC before operation: completed in 130.338 ms, heap usage 59.986 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 10 completed (760.324 ms) ======
+====== rx-scrabble (functional) [default], iteration 11 started ======
+GC before operation: completed in 146.300 ms, heap usage 85.491 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 11 completed (692.739 ms) ======
+====== rx-scrabble (functional) [default], iteration 12 started ======
+GC before operation: completed in 176.418 ms, heap usage 86.016 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 12 completed (920.419 ms) ======
+====== rx-scrabble (functional) [default], iteration 13 started ======
+GC before operation: completed in 141.129 ms, heap usage 236.738 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 13 completed (687.644 ms) ======
+====== rx-scrabble (functional) [default], iteration 14 started ======
+GC before operation: completed in 185.772 ms, heap usage 85.485 MB -> 36.425 MB.
+====== rx-scrabble (functional) [default], iteration 14 completed (924.968 ms) ======
+====== rx-scrabble (functional) [default], iteration 15 started ======
+GC before operation: completed in 140.939 ms, heap usage 52.915 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 15 completed (771.720 ms) ======
+====== rx-scrabble (functional) [default], iteration 16 started ======
+GC before operation: completed in 131.684 ms, heap usage 85.970 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 16 completed (678.514 ms) ======
+====== rx-scrabble (functional) [default], iteration 17 started ======
+GC before operation: completed in 164.503 ms, heap usage 78.987 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 17 completed (928.259 ms) ======
+====== rx-scrabble (functional) [default], iteration 18 started ======
+GC before operation: completed in 142.506 ms, heap usage 237.695 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 18 completed (678.136 ms) ======
+====== rx-scrabble (functional) [default], iteration 19 started ======
+GC before operation: completed in 165.682 ms, heap usage 86.023 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 19 completed (905.986 ms) ======
+====== rx-scrabble (functional) [default], iteration 20 started ======
+GC before operation: completed in 140.187 ms, heap usage 54.421 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 20 completed (749.156 ms) ======
+====== rx-scrabble (functional) [default], iteration 21 started ======
+GC before operation: completed in 132.531 ms, heap usage 79.514 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 21 completed (676.785 ms) ======
+====== rx-scrabble (functional) [default], iteration 22 started ======
+GC before operation: completed in 152.201 ms, heap usage 86.014 MB -> 36.426 MB.
+====== rx-scrabble (functional) [default], iteration 22 completed (939.925 ms) ======
+====== rx-scrabble (functional) [default], iteration 23 started ======
+GC before operation: completed in 126.767 ms, heap usage 237.698 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 23 completed (689.940 ms) ======
+====== rx-scrabble (functional) [default], iteration 24 started ======
+GC before operation: completed in 150.575 ms, heap usage 84.507 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 24 completed (905.000 ms) ======
+====== rx-scrabble (functional) [default], iteration 25 started ======
+GC before operation: completed in 122.985 ms, heap usage 59.971 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 25 completed (751.463 ms) ======
+====== rx-scrabble (functional) [default], iteration 26 started ======
+GC before operation: completed in 122.670 ms, heap usage 85.962 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 26 completed (685.394 ms) ======
+====== rx-scrabble (functional) [default], iteration 27 started ======
+GC before operation: completed in 152.617 ms, heap usage 85.980 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 27 completed (917.304 ms) ======
+====== rx-scrabble (functional) [default], iteration 28 started ======
+GC before operation: completed in 125.919 ms, heap usage 237.197 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 28 completed (684.670 ms) ======
+====== rx-scrabble (functional) [default], iteration 29 started ======
+GC before operation: completed in 154.873 ms, heap usage 79.024 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 29 completed (914.128 ms) ======
+====== rx-scrabble (functional) [default], iteration 30 started ======
+GC before operation: completed in 125.014 ms, heap usage 54.937 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 30 completed (743.552 ms) ======
+====== rx-scrabble (functional) [default], iteration 31 started ======
+GC before operation: completed in 131.392 ms, heap usage 85.485 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 31 completed (693.843 ms) ======
+====== rx-scrabble (functional) [default], iteration 32 started ======
+GC before operation: completed in 153.039 ms, heap usage 85.531 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 32 completed (951.130 ms) ======
+====== rx-scrabble (functional) [default], iteration 33 started ======
+GC before operation: completed in 130.832 ms, heap usage 237.696 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 33 completed (672.902 ms) ======
+====== rx-scrabble (functional) [default], iteration 34 started ======
+GC before operation: completed in 156.581 ms, heap usage 78.477 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 34 completed (949.807 ms) ======
+====== rx-scrabble (functional) [default], iteration 35 started ======
+GC before operation: completed in 127.037 ms, heap usage 52.941 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 35 completed (749.728 ms) ======
+====== rx-scrabble (functional) [default], iteration 36 started ======
+GC before operation: completed in 129.892 ms, heap usage 86.015 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 36 completed (667.025 ms) ======
+====== rx-scrabble (functional) [default], iteration 37 started ======
+GC before operation: completed in 152.123 ms, heap usage 85.003 MB -> 36.427 MB.
+====== rx-scrabble (functional) [default], iteration 37 completed (943.418 ms) ======
+====== rx-scrabble (functional) [default], iteration 38 started ======
+GC before operation: completed in 134.084 ms, heap usage 237.709 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 38 completed (676.573 ms) ======
+====== rx-scrabble (functional) [default], iteration 39 started ======
+GC before operation: completed in 152.477 ms, heap usage 85.485 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 39 completed (890.305 ms) ======
+====== rx-scrabble (functional) [default], iteration 40 started ======
+GC before operation: completed in 122.953 ms, heap usage 56.438 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 40 completed (743.282 ms) ======
+====== rx-scrabble (functional) [default], iteration 41 started ======
+GC before operation: completed in 125.327 ms, heap usage 85.478 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 41 completed (685.984 ms) ======
+====== rx-scrabble (functional) [default], iteration 42 started ======
+GC before operation: completed in 153.005 ms, heap usage 79.490 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 42 completed (911.214 ms) ======
+====== rx-scrabble (functional) [default], iteration 43 started ======
+GC before operation: completed in 125.846 ms, heap usage 236.707 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 43 completed (670.552 ms) ======
+====== rx-scrabble (functional) [default], iteration 44 started ======
+GC before operation: completed in 153.070 ms, heap usage 84.980 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 44 completed (906.047 ms) ======
+====== rx-scrabble (functional) [default], iteration 45 started ======
+GC before operation: completed in 129.787 ms, heap usage 58.423 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 45 completed (761.381 ms) ======
+====== rx-scrabble (functional) [default], iteration 46 started ======
+GC before operation: completed in 130.235 ms, heap usage 85.975 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 46 completed (672.289 ms) ======
+====== rx-scrabble (functional) [default], iteration 47 started ======
+GC before operation: completed in 154.361 ms, heap usage 85.005 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 47 completed (930.734 ms) ======
+====== rx-scrabble (functional) [default], iteration 48 started ======
+GC before operation: completed in 126.111 ms, heap usage 237.204 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 48 completed (726.449 ms) ======
+====== rx-scrabble (functional) [default], iteration 49 started ======
+GC before operation: completed in 154.177 ms, heap usage 79.992 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 49 completed (949.933 ms) ======
+====== rx-scrabble (functional) [default], iteration 50 started ======
+GC before operation: completed in 126.109 ms, heap usage 53.938 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 50 completed (789.170 ms) ======
+====== rx-scrabble (functional) [default], iteration 51 started ======
+GC before operation: completed in 125.532 ms, heap usage 78.990 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 51 completed (733.217 ms) ======
+====== rx-scrabble (functional) [default], iteration 52 started ======
+GC before operation: completed in 151.918 ms, heap usage 85.489 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 52 completed (931.506 ms) ======
+====== rx-scrabble (functional) [default], iteration 53 started ======
+GC before operation: completed in 125.330 ms, heap usage 237.244 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 53 completed (680.363 ms) ======
+====== rx-scrabble (functional) [default], iteration 54 started ======
+GC before operation: completed in 153.996 ms, heap usage 85.513 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 54 completed (896.413 ms) ======
+====== rx-scrabble (functional) [default], iteration 55 started ======
+GC before operation: completed in 122.687 ms, heap usage 60.935 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 55 completed (735.736 ms) ======
+====== rx-scrabble (functional) [default], iteration 56 started ======
+GC before operation: completed in 131.907 ms, heap usage 86.000 MB -> 36.428 MB.
+====== rx-scrabble (functional) [default], iteration 56 completed (671.440 ms) ======
+====== rx-scrabble (functional) [default], iteration 57 started ======
+GC before operation: completed in 152.491 ms, heap usage 85.492 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 57 completed (983.529 ms) ======
+====== rx-scrabble (functional) [default], iteration 58 started ======
+GC before operation: completed in 125.350 ms, heap usage 237.700 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 58 completed (701.879 ms) ======
+====== rx-scrabble (functional) [default], iteration 59 started ======
+GC before operation: completed in 152.779 ms, heap usage 85.023 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 59 completed (904.740 ms) ======
+====== rx-scrabble (functional) [default], iteration 60 started ======
+GC before operation: completed in 129.736 ms, heap usage 59.961 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 60 completed (762.128 ms) ======
+====== rx-scrabble (functional) [default], iteration 61 started ======
+GC before operation: completed in 154.987 ms, heap usage 79.482 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 61 completed (940.128 ms) ======
+====== rx-scrabble (functional) [default], iteration 62 started ======
+GC before operation: completed in 126.044 ms, heap usage 237.711 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 62 completed (676.631 ms) ======
+====== rx-scrabble (functional) [default], iteration 63 started ======
+GC before operation: completed in 152.053 ms, heap usage 85.484 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 63 completed (888.121 ms) ======
+====== rx-scrabble (functional) [default], iteration 64 started ======
+GC before operation: completed in 122.360 ms, heap usage 58.457 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 64 completed (760.020 ms) ======
+====== rx-scrabble (functional) [default], iteration 65 started ======
+GC before operation: completed in 131.001 ms, heap usage 85.485 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 65 completed (696.239 ms) ======
+====== rx-scrabble (functional) [default], iteration 66 started ======
+GC before operation: completed in 152.389 ms, heap usage 84.509 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 66 completed (918.368 ms) ======
+====== rx-scrabble (functional) [default], iteration 67 started ======
+GC before operation: completed in 124.958 ms, heap usage 237.204 MB -> 36.429 MB.
+====== rx-scrabble (functional) [default], iteration 67 completed (669.934 ms) ======
+====== rx-scrabble (functional) [default], iteration 68 started ======
+GC before operation: completed in 154.699 ms, heap usage 85.490 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 68 completed (848.276 ms) ======
+====== rx-scrabble (functional) [default], iteration 69 started ======
+GC before operation: completed in 131.737 ms, heap usage 161.727 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 69 completed (683.818 ms) ======
+====== rx-scrabble (functional) [default], iteration 70 started ======
+GC before operation: completed in 153.503 ms, heap usage 79.492 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 70 completed (916.636 ms) ======
+====== rx-scrabble (functional) [default], iteration 71 started ======
+GC before operation: completed in 126.387 ms, heap usage 45.426 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 71 completed (728.400 ms) ======
+====== rx-scrabble (functional) [default], iteration 72 started ======
+GC before operation: completed in 131.450 ms, heap usage 85.475 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 72 completed (680.425 ms) ======
+====== rx-scrabble (functional) [default], iteration 73 started ======
+GC before operation: completed in 153.044 ms, heap usage 85.499 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 73 completed (923.206 ms) ======
+====== rx-scrabble (functional) [default], iteration 74 started ======
+GC before operation: completed in 128.694 ms, heap usage 237.694 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 74 completed (699.282 ms) ======
+====== rx-scrabble (functional) [default], iteration 75 started ======
+GC before operation: completed in 151.979 ms, heap usage 79.002 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 75 completed (910.273 ms) ======
+====== rx-scrabble (functional) [default], iteration 76 started ======
+GC before operation: completed in 123.150 ms, heap usage 56.453 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 76 completed (756.551 ms) ======
+====== rx-scrabble (functional) [default], iteration 77 started ======
+GC before operation: completed in 135.423 ms, heap usage 85.484 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 77 completed (682.256 ms) ======
+====== rx-scrabble (functional) [default], iteration 78 started ======
+GC before operation: completed in 152.627 ms, heap usage 85.035 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 78 completed (937.716 ms) ======
+====== rx-scrabble (functional) [default], iteration 79 started ======
+GC before operation: completed in 126.218 ms, heap usage 237.737 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 79 completed (672.992 ms) ======
+====== rx-scrabble (functional) [default], iteration 80 started ======
+GC before operation: completed in 151.854 ms, heap usage 85.039 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 80 completed (889.683 ms) ======
+====== rx-scrabble (functional) [default], iteration 81 started ======
+GC before operation: completed in 123.957 ms, heap usage 57.948 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 81 completed (759.177 ms) ======
+====== rx-scrabble (functional) [default], iteration 82 started ======
+GC before operation: completed in 125.952 ms, heap usage 85.488 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 82 completed (677.509 ms) ======
+====== rx-scrabble (functional) [default], iteration 83 started ======
+GC before operation: completed in 151.709 ms, heap usage 85.019 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 83 completed (934.524 ms) ======
+====== rx-scrabble (functional) [default], iteration 84 started ======
+GC before operation: completed in 134.090 ms, heap usage 237.707 MB -> 36.430 MB.
+====== rx-scrabble (functional) [default], iteration 84 completed (670.392 ms) ======
+====== rx-scrabble (functional) [default], iteration 85 started ======
+GC before operation: completed in 153.297 ms, heap usage 80.031 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 85 completed (906.114 ms) ======
+====== rx-scrabble (functional) [default], iteration 86 started ======
+GC before operation: completed in 130.818 ms, heap usage 54.444 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 86 completed (742.640 ms) ======
+====== rx-scrabble (functional) [default], iteration 87 started ======
+GC before operation: completed in 134.845 ms, heap usage 86.498 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 87 completed (705.861 ms) ======
+====== rx-scrabble (functional) [default], iteration 88 started ======
+GC before operation: completed in 153.895 ms, heap usage 85.003 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 88 completed (945.135 ms) ======
+====== rx-scrabble (functional) [default], iteration 89 started ======
+GC before operation: completed in 124.452 ms, heap usage 239.714 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 89 completed (692.616 ms) ======
+====== rx-scrabble (functional) [default], iteration 90 started ======
+GC before operation: completed in 152.408 ms, heap usage 86.013 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 90 completed (884.841 ms) ======
+====== rx-scrabble (functional) [default], iteration 91 started ======
+GC before operation: completed in 122.357 ms, heap usage 61.453 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 91 completed (746.995 ms) ======
+====== rx-scrabble (functional) [default], iteration 92 started ======
+GC before operation: completed in 122.365 ms, heap usage 86.008 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 92 completed (689.392 ms) ======
+====== rx-scrabble (functional) [default], iteration 93 started ======
+GC before operation: completed in 153.658 ms, heap usage 85.508 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 93 completed (1010.007 ms) ======
+====== rx-scrabble (functional) [default], iteration 94 started ======
+GC before operation: completed in 127.669 ms, heap usage 238.208 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 94 completed (682.997 ms) ======
+====== rx-scrabble (functional) [default], iteration 95 started ======
+GC before operation: completed in 153.683 ms, heap usage 85.004 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 95 completed (887.354 ms) ======
+====== rx-scrabble (functional) [default], iteration 96 started ======
+GC before operation: completed in 123.044 ms, heap usage 60.471 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 96 completed (771.210 ms) ======
+====== rx-scrabble (functional) [default], iteration 97 started ======
+GC before operation: completed in 123.477 ms, heap usage 84.970 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 97 completed (674.397 ms) ======
+====== rx-scrabble (functional) [default], iteration 98 started ======
+GC before operation: completed in 152.359 ms, heap usage 84.988 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 98 completed (955.100 ms) ======
+====== rx-scrabble (functional) [default], iteration 99 started ======
+GC before operation: completed in 125.217 ms, heap usage 237.726 MB -> 36.431 MB.
+====== rx-scrabble (functional) [default], iteration 99 completed (679.226 ms) ======
+====== par-mnemonics (functional) [default], iteration 0 started ======
+GC before operation: completed in 39.056 ms, heap usage 85.681 MB -> 5.345 MB.
+====== par-mnemonics (functional) [default], iteration 0 completed (14512.247 ms) ======
+====== par-mnemonics (functional) [default], iteration 1 started ======
+GC before operation: completed in 48.475 ms, heap usage 165.180 MB -> 5.370 MB.
+====== par-mnemonics (functional) [default], iteration 1 completed (14359.090 ms) ======
+====== par-mnemonics (functional) [default], iteration 2 started ======
+GC before operation: completed in 48.553 ms, heap usage 237.491 MB -> 5.370 MB.
+====== par-mnemonics (functional) [default], iteration 2 completed (14569.880 ms) ======
+====== par-mnemonics (functional) [default], iteration 3 started ======
+GC before operation: completed in 49.064 ms, heap usage 358.944 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 3 completed (14347.022 ms) ======
+====== par-mnemonics (functional) [default], iteration 4 started ======
+GC before operation: completed in 81.138 ms, heap usage 120.391 MB -> 5.370 MB.
+====== par-mnemonics (functional) [default], iteration 4 completed (14499.424 ms) ======
+====== par-mnemonics (functional) [default], iteration 5 started ======
+GC before operation: completed in 47.874 ms, heap usage 319.955 MB -> 5.370 MB.
+====== par-mnemonics (functional) [default], iteration 5 completed (14598.009 ms) ======
+====== par-mnemonics (functional) [default], iteration 6 started ======
+GC before operation: completed in 51.110 ms, heap usage 278.437 MB -> 5.370 MB.
+====== par-mnemonics (functional) [default], iteration 6 completed (14404.241 ms) ======
+====== par-mnemonics (functional) [default], iteration 7 started ======
+GC before operation: completed in 51.797 ms, heap usage 154.282 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 7 completed (14302.098 ms) ======
+====== par-mnemonics (functional) [default], iteration 8 started ======
+GC before operation: completed in 46.953 ms, heap usage 230.225 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 8 completed (14266.947 ms) ======
+====== par-mnemonics (functional) [default], iteration 9 started ======
+GC before operation: completed in 50.578 ms, heap usage 240.648 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 9 completed (14532.624 ms) ======
+====== par-mnemonics (functional) [default], iteration 10 started ======
+GC before operation: completed in 49.814 ms, heap usage 350.815 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 10 completed (14517.550 ms) ======
+====== par-mnemonics (functional) [default], iteration 11 started ======
+GC before operation: completed in 49.571 ms, heap usage 153.582 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 11 completed (14398.607 ms) ======
+====== par-mnemonics (functional) [default], iteration 12 started ======
+GC before operation: completed in 52.532 ms, heap usage 339.759 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 12 completed (14646.532 ms) ======
+====== par-mnemonics (functional) [default], iteration 13 started ======
+GC before operation: completed in 49.847 ms, heap usage 317.546 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 13 completed (14649.156 ms) ======
+====== par-mnemonics (functional) [default], iteration 14 started ======
+GC before operation: completed in 52.334 ms, heap usage 362.314 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 14 completed (14670.963 ms) ======
+====== par-mnemonics (functional) [default], iteration 15 started ======
+GC before operation: completed in 52.194 ms, heap usage 323.765 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 15 completed (14493.275 ms) ======
+====== par-mnemonics (functional) [default], iteration 16 started ======
+GC before operation: completed in 49.384 ms, heap usage 147.572 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 16 completed (14384.157 ms) ======
+====== par-mnemonics (functional) [default], iteration 17 started ======
+GC before operation: completed in 53.683 ms, heap usage 341.196 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 17 completed (14551.988 ms) ======
+====== par-mnemonics (functional) [default], iteration 18 started ======
+GC before operation: completed in 53.039 ms, heap usage 208.976 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 18 completed (14764.270 ms) ======
+====== par-mnemonics (functional) [default], iteration 19 started ======
+GC before operation: completed in 49.595 ms, heap usage 290.289 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 19 completed (14503.705 ms) ======
+====== par-mnemonics (functional) [default], iteration 20 started ======
+GC before operation: completed in 48.930 ms, heap usage 134.480 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 20 completed (14389.020 ms) ======
+====== par-mnemonics (functional) [default], iteration 21 started ======
+GC before operation: completed in 47.453 ms, heap usage 154.435 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 21 completed (14501.548 ms) ======
+====== par-mnemonics (functional) [default], iteration 22 started ======
+GC before operation: completed in 48.218 ms, heap usage 268.289 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 22 completed (14584.778 ms) ======
+====== par-mnemonics (functional) [default], iteration 23 started ======
+GC before operation: completed in 50.131 ms, heap usage 290.306 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 23 completed (14342.256 ms) ======
+====== par-mnemonics (functional) [default], iteration 24 started ======
+GC before operation: completed in 50.052 ms, heap usage 346.867 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 24 completed (14455.467 ms) ======
+====== par-mnemonics (functional) [default], iteration 25 started ======
+GC before operation: completed in 49.269 ms, heap usage 335.251 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 25 completed (14473.890 ms) ======
+====== par-mnemonics (functional) [default], iteration 26 started ======
+GC before operation: completed in 48.947 ms, heap usage 269.325 MB -> 5.371 MB.
+====== par-mnemonics (functional) [default], iteration 26 completed (14454.444 ms) ======
+====== par-mnemonics (functional) [default], iteration 27 started ======
+GC before operation: completed in 50.862 ms, heap usage 267.720 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 27 completed (14519.044 ms) ======
+====== par-mnemonics (functional) [default], iteration 28 started ======
+GC before operation: completed in 49.464 ms, heap usage 152.340 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 28 completed (14419.047 ms) ======
+====== par-mnemonics (functional) [default], iteration 29 started ======
+GC before operation: completed in 50.861 ms, heap usage 361.870 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 29 completed (14539.859 ms) ======
+====== par-mnemonics (functional) [default], iteration 30 started ======
+GC before operation: completed in 45.247 ms, heap usage 151.809 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 30 completed (14429.623 ms) ======
+====== par-mnemonics (functional) [default], iteration 31 started ======
+GC before operation: completed in 51.209 ms, heap usage 376.531 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 31 completed (14483.427 ms) ======
+====== par-mnemonics (functional) [default], iteration 32 started ======
+GC before operation: completed in 48.379 ms, heap usage 154.193 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 32 completed (14346.919 ms) ======
+====== par-mnemonics (functional) [default], iteration 33 started ======
+GC before operation: completed in 50.664 ms, heap usage 276.543 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 33 completed (14301.824 ms) ======
+====== par-mnemonics (functional) [default], iteration 34 started ======
+GC before operation: completed in 49.892 ms, heap usage 127.448 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 34 completed (14490.687 ms) ======
+====== par-mnemonics (functional) [default], iteration 35 started ======
+GC before operation: completed in 48.848 ms, heap usage 153.988 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 35 completed (14439.126 ms) ======
+====== par-mnemonics (functional) [default], iteration 36 started ======
+GC before operation: completed in 50.264 ms, heap usage 343.923 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 36 completed (14573.418 ms) ======
+====== par-mnemonics (functional) [default], iteration 37 started ======
+GC before operation: completed in 50.710 ms, heap usage 184.774 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 37 completed (14382.281 ms) ======
+====== par-mnemonics (functional) [default], iteration 38 started ======
+GC before operation: completed in 52.634 ms, heap usage 345.937 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 38 completed (14392.522 ms) ======
+====== par-mnemonics (functional) [default], iteration 39 started ======
+GC before operation: completed in 49.656 ms, heap usage 335.994 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 39 completed (14326.482 ms) ======
+====== par-mnemonics (functional) [default], iteration 40 started ======
+GC before operation: completed in 58.093 ms, heap usage 119.679 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 40 completed (14300.525 ms) ======
+====== par-mnemonics (functional) [default], iteration 41 started ======
+GC before operation: completed in 50.894 ms, heap usage 123.393 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 41 completed (14405.913 ms) ======
+====== par-mnemonics (functional) [default], iteration 42 started ======
+GC before operation: completed in 47.187 ms, heap usage 280.213 MB -> 5.372 MB.
+====== par-mnemonics (functional) [default], iteration 42 completed (14335.114 ms) ======
+====== par-mnemonics (functional) [default], iteration 43 started ======
+GC before operation: completed in 49.363 ms, heap usage 143.898 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 43 completed (14364.280 ms) ======
+====== par-mnemonics (functional) [default], iteration 44 started ======
+GC before operation: completed in 47.844 ms, heap usage 214.865 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 44 completed (14229.561 ms) ======
+====== par-mnemonics (functional) [default], iteration 45 started ======
+GC before operation: completed in 55.319 ms, heap usage 335.463 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 45 completed (14518.300 ms) ======
+====== par-mnemonics (functional) [default], iteration 46 started ======
+GC before operation: completed in 47.894 ms, heap usage 152.182 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 46 completed (14340.075 ms) ======
+====== par-mnemonics (functional) [default], iteration 47 started ======
+GC before operation: completed in 48.462 ms, heap usage 242.300 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 47 completed (14421.586 ms) ======
+====== par-mnemonics (functional) [default], iteration 48 started ======
+GC before operation: completed in 47.689 ms, heap usage 152.134 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 48 completed (14597.628 ms) ======
+====== par-mnemonics (functional) [default], iteration 49 started ======
+GC before operation: completed in 48.747 ms, heap usage 153.452 MB -> 5.373 MB.
+====== par-mnemonics (functional) [default], iteration 49 completed (14510.844 ms) ======
+====== par-mnemonics (functional) [default], iteration 50 started ======
+GC before operation: completed in 52.534 ms, heap usage 145.393 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 50 completed (14247.097 ms) ======
+====== par-mnemonics (functional) [default], iteration 51 started ======
+GC before operation: completed in 52.348 ms, heap usage 302.314 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 51 completed (14566.298 ms) ======
+====== par-mnemonics (functional) [default], iteration 52 started ======
+GC before operation: completed in 48.733 ms, heap usage 256.321 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 52 completed (14406.506 ms) ======
+====== par-mnemonics (functional) [default], iteration 53 started ======
+GC before operation: completed in 52.182 ms, heap usage 198.845 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 53 completed (14289.829 ms) ======
+====== par-mnemonics (functional) [default], iteration 54 started ======
+GC before operation: completed in 50.633 ms, heap usage 244.070 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 54 completed (14360.764 ms) ======
+====== par-mnemonics (functional) [default], iteration 55 started ======
+GC before operation: completed in 49.851 ms, heap usage 314.326 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 55 completed (14473.830 ms) ======
+====== par-mnemonics (functional) [default], iteration 56 started ======
+GC before operation: completed in 50.636 ms, heap usage 229.822 MB -> 5.255 MB.
+====== par-mnemonics (functional) [default], iteration 56 completed (14419.636 ms) ======
+====== par-mnemonics (functional) [default], iteration 57 started ======
+GC before operation: completed in 48.836 ms, heap usage 141.255 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 57 completed (14307.997 ms) ======
+====== par-mnemonics (functional) [default], iteration 58 started ======
+GC before operation: completed in 50.054 ms, heap usage 163.518 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 58 completed (14510.555 ms) ======
+====== par-mnemonics (functional) [default], iteration 59 started ======
+GC before operation: completed in 51.940 ms, heap usage 370.050 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 59 completed (14445.492 ms) ======
+====== par-mnemonics (functional) [default], iteration 60 started ======
+GC before operation: completed in 48.126 ms, heap usage 189.949 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 60 completed (14228.089 ms) ======
+====== par-mnemonics (functional) [default], iteration 61 started ======
+GC before operation: completed in 51.621 ms, heap usage 316.277 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 61 completed (14451.933 ms) ======
+====== par-mnemonics (functional) [default], iteration 62 started ======
+GC before operation: completed in 48.160 ms, heap usage 284.885 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 62 completed (14498.094 ms) ======
+====== par-mnemonics (functional) [default], iteration 63 started ======
+GC before operation: completed in 49.440 ms, heap usage 170.233 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 63 completed (14323.691 ms) ======
+====== par-mnemonics (functional) [default], iteration 64 started ======
+GC before operation: completed in 50.659 ms, heap usage 334.014 MB -> 4.705 MB.
+====== par-mnemonics (functional) [default], iteration 64 completed (14567.443 ms) ======
+====== par-mnemonics (functional) [default], iteration 65 started ======
+GC before operation: completed in 49.921 ms, heap usage 151.310 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 65 completed (14394.720 ms) ======
+====== par-mnemonics (functional) [default], iteration 66 started ======
+GC before operation: completed in 46.276 ms, heap usage 152.694 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 66 completed (14453.012 ms) ======
+====== par-mnemonics (functional) [default], iteration 67 started ======
+GC before operation: completed in 47.746 ms, heap usage 152.696 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 67 completed (14343.695 ms) ======
+====== par-mnemonics (functional) [default], iteration 68 started ======
+GC before operation: completed in 48.060 ms, heap usage 162.048 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 68 completed (14392.018 ms) ======
+====== par-mnemonics (functional) [default], iteration 69 started ======
+GC before operation: completed in 50.436 ms, heap usage 256.304 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 69 completed (14386.037 ms) ======
+====== par-mnemonics (functional) [default], iteration 70 started ======
+GC before operation: completed in 49.644 ms, heap usage 283.373 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 70 completed (14511.088 ms) ======
+====== par-mnemonics (functional) [default], iteration 71 started ======
+GC before operation: completed in 49.387 ms, heap usage 262.767 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 71 completed (14418.608 ms) ======
+====== par-mnemonics (functional) [default], iteration 72 started ======
+GC before operation: completed in 49.707 ms, heap usage 234.184 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 72 completed (14593.029 ms) ======
+====== par-mnemonics (functional) [default], iteration 73 started ======
+GC before operation: completed in 49.103 ms, heap usage 153.143 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 73 completed (14402.572 ms) ======
+====== par-mnemonics (functional) [default], iteration 74 started ======
+GC before operation: completed in 49.027 ms, heap usage 154.159 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 74 completed (14392.980 ms) ======
+====== par-mnemonics (functional) [default], iteration 75 started ======
+GC before operation: completed in 47.008 ms, heap usage 213.999 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 75 completed (14374.279 ms) ======
+====== par-mnemonics (functional) [default], iteration 76 started ======
+GC before operation: completed in 48.999 ms, heap usage 152.696 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 76 completed (14438.014 ms) ======
+====== par-mnemonics (functional) [default], iteration 77 started ======
+GC before operation: completed in 52.071 ms, heap usage 308.627 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 77 completed (14433.901 ms) ======
+====== par-mnemonics (functional) [default], iteration 78 started ======
+GC before operation: completed in 50.992 ms, heap usage 160.574 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 78 completed (14593.171 ms) ======
+====== par-mnemonics (functional) [default], iteration 79 started ======
+GC before operation: completed in 50.208 ms, heap usage 199.553 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 79 completed (14418.405 ms) ======
+====== par-mnemonics (functional) [default], iteration 80 started ======
+GC before operation: completed in 48.521 ms, heap usage 283.559 MB -> 4.694 MB.
+====== par-mnemonics (functional) [default], iteration 80 completed (14491.115 ms) ======
+====== par-mnemonics (functional) [default], iteration 81 started ======
+GC before operation: completed in 49.216 ms, heap usage 178.744 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 81 completed (14446.268 ms) ======
+====== par-mnemonics (functional) [default], iteration 82 started ======
+GC before operation: completed in 48.346 ms, heap usage 150.496 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 82 completed (14284.948 ms) ======
+====== par-mnemonics (functional) [default], iteration 83 started ======
+GC before operation: completed in 48.204 ms, heap usage 198.429 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 83 completed (14467.610 ms) ======
+====== par-mnemonics (functional) [default], iteration 84 started ======
+GC before operation: completed in 48.753 ms, heap usage 192.452 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 84 completed (14492.042 ms) ======
+====== par-mnemonics (functional) [default], iteration 85 started ======
+GC before operation: completed in 48.329 ms, heap usage 349.372 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 85 completed (14418.167 ms) ======
+====== par-mnemonics (functional) [default], iteration 86 started ======
+GC before operation: completed in 47.542 ms, heap usage 120.730 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 86 completed (14248.118 ms) ======
+====== par-mnemonics (functional) [default], iteration 87 started ======
+GC before operation: completed in 47.944 ms, heap usage 223.260 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 87 completed (14371.733 ms) ======
+====== par-mnemonics (functional) [default], iteration 88 started ======
+GC before operation: completed in 47.570 ms, heap usage 315.534 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 88 completed (14352.964 ms) ======
+====== par-mnemonics (functional) [default], iteration 89 started ======
+GC before operation: completed in 48.890 ms, heap usage 373.512 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 89 completed (14440.792 ms) ======
+====== par-mnemonics (functional) [default], iteration 90 started ======
+GC before operation: completed in 49.077 ms, heap usage 138.766 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 90 completed (14417.585 ms) ======
+====== par-mnemonics (functional) [default], iteration 91 started ======
+GC before operation: completed in 48.388 ms, heap usage 164.760 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 91 completed (14415.446 ms) ======
+====== par-mnemonics (functional) [default], iteration 92 started ======
+GC before operation: completed in 50.389 ms, heap usage 290.372 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 92 completed (14339.629 ms) ======
+====== par-mnemonics (functional) [default], iteration 93 started ======
+GC before operation: completed in 50.471 ms, heap usage 237.764 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 93 completed (14426.710 ms) ======
+====== par-mnemonics (functional) [default], iteration 94 started ======
+GC before operation: completed in 50.456 ms, heap usage 257.197 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 94 completed (14402.219 ms) ======
+====== par-mnemonics (functional) [default], iteration 95 started ======
+GC before operation: completed in 47.685 ms, heap usage 137.386 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 95 completed (14369.050 ms) ======
+====== par-mnemonics (functional) [default], iteration 96 started ======
+GC before operation: completed in 49.894 ms, heap usage 177.266 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 96 completed (14493.137 ms) ======
+====== par-mnemonics (functional) [default], iteration 97 started ======
+GC before operation: completed in 50.692 ms, heap usage 387.374 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 97 completed (14375.422 ms) ======
+====== par-mnemonics (functional) [default], iteration 98 started ======
+GC before operation: completed in 48.903 ms, heap usage 151.716 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 98 completed (14424.700 ms) ======
+====== par-mnemonics (functional) [default], iteration 99 started ======
+GC before operation: completed in 49.999 ms, heap usage 396.628 MB -> 4.695 MB.
+====== par-mnemonics (functional) [default], iteration 99 completed (14498.605 ms) ======
+====== mnemonics (functional) [default], iteration 0 started ======
+GC before operation: completed in 55.803 ms, heap usage 336.375 MB -> 4.684 MB.
+====== mnemonics (functional) [default], iteration 0 completed (10059.980 ms) ======
+====== mnemonics (functional) [default], iteration 1 started ======
+GC before operation: completed in 51.812 ms, heap usage 182.215 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 1 completed (8878.347 ms) ======
+====== mnemonics (functional) [default], iteration 2 started ======
+GC before operation: completed in 49.209 ms, heap usage 271.131 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 2 completed (9000.091 ms) ======
+====== mnemonics (functional) [default], iteration 3 started ======
+GC before operation: completed in 49.381 ms, heap usage 437.390 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 3 completed (8593.227 ms) ======
+====== mnemonics (functional) [default], iteration 4 started ======
+GC before operation: completed in 49.946 ms, heap usage 289.173 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 4 completed (8570.997 ms) ======
+====== mnemonics (functional) [default], iteration 5 started ======
+GC before operation: completed in 48.045 ms, heap usage 111.980 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 5 completed (8599.643 ms) ======
+====== mnemonics (functional) [default], iteration 6 started ======
+GC before operation: completed in 50.076 ms, heap usage 369.464 MB -> 4.690 MB.
+====== mnemonics (functional) [default], iteration 6 completed (8676.883 ms) ======
+====== mnemonics (functional) [default], iteration 7 started ======
+GC before operation: completed in 50.238 ms, heap usage 253.156 MB -> 4.688 MB.
+====== mnemonics (functional) [default], iteration 7 completed (8564.565 ms) ======
+====== mnemonics (functional) [default], iteration 8 started ======
+GC before operation: completed in 50.172 ms, heap usage 326.673 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 8 completed (8533.749 ms) ======
+====== mnemonics (functional) [default], iteration 9 started ======
+GC before operation: completed in 51.420 ms, heap usage 312.795 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 9 completed (8486.068 ms) ======
+====== mnemonics (functional) [default], iteration 10 started ======
+GC before operation: completed in 49.156 ms, heap usage 115.022 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 10 completed (8560.427 ms) ======
+====== mnemonics (functional) [default], iteration 11 started ======
+GC before operation: completed in 50.721 ms, heap usage 475.514 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 11 completed (8636.948 ms) ======
+====== mnemonics (functional) [default], iteration 12 started ======
+GC before operation: completed in 48.978 ms, heap usage 145.648 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 12 completed (8508.574 ms) ======
+====== mnemonics (functional) [default], iteration 13 started ======
+GC before operation: completed in 49.983 ms, heap usage 388.426 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 13 completed (8410.964 ms) ======
+====== mnemonics (functional) [default], iteration 14 started ======
+GC before operation: completed in 47.849 ms, heap usage 206.792 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 14 completed (8595.047 ms) ======
+====== mnemonics (functional) [default], iteration 15 started ======
+GC before operation: completed in 51.012 ms, heap usage 386.075 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 15 completed (8557.276 ms) ======
+====== mnemonics (functional) [default], iteration 16 started ======
+GC before operation: completed in 48.032 ms, heap usage 272.220 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 16 completed (8663.355 ms) ======
+====== mnemonics (functional) [default], iteration 17 started ======
+GC before operation: completed in 49.454 ms, heap usage 127.719 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 17 completed (8638.135 ms) ======
+====== mnemonics (functional) [default], iteration 18 started ======
+GC before operation: completed in 49.237 ms, heap usage 216.221 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 18 completed (8477.686 ms) ======
+====== mnemonics (functional) [default], iteration 19 started ======
+GC before operation: completed in 49.475 ms, heap usage 115.116 MB -> 4.689 MB.
+====== mnemonics (functional) [default], iteration 19 completed (8554.173 ms) ======
+====== mnemonics (functional) [default], iteration 20 started ======
+GC before operation: completed in 57.834 ms, heap usage 205.216 MB -> 4.570 MB.
+====== mnemonics (functional) [default], iteration 20 completed (9524.304 ms) ======
+====== mnemonics (functional) [default], iteration 21 started ======
+GC before operation: completed in 46.424 ms, heap usage 360.731 MB -> 4.238 MB.
+====== mnemonics (functional) [default], iteration 21 completed (8780.671 ms) ======
+====== mnemonics (functional) [default], iteration 22 started ======
+GC before operation: completed in 44.289 ms, heap usage 164.759 MB -> 4.238 MB.
+====== mnemonics (functional) [default], iteration 22 completed (8626.397 ms) ======
+====== mnemonics (functional) [default], iteration 23 started ======
+GC before operation: completed in 42.774 ms, heap usage 415.770 MB -> 4.238 MB.
+====== mnemonics (functional) [default], iteration 23 completed (8550.258 ms) ======
+====== mnemonics (functional) [default], iteration 24 started ======
+GC before operation: completed in 43.532 ms, heap usage 257.338 MB -> 4.238 MB.
+====== mnemonics (functional) [default], iteration 24 completed (8759.387 ms) ======
+====== mnemonics (functional) [default], iteration 25 started ======
+GC before operation: completed in 44.038 ms, heap usage 245.658 MB -> 4.239 MB.
+====== mnemonics (functional) [default], iteration 25 completed (8776.837 ms) ======
+====== mnemonics (functional) [default], iteration 26 started ======
+GC before operation: completed in 45.158 ms, heap usage 189.207 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 26 completed (8631.380 ms) ======
+====== mnemonics (functional) [default], iteration 27 started ======
+GC before operation: completed in 47.326 ms, heap usage 226.654 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 27 completed (8584.191 ms) ======
+====== mnemonics (functional) [default], iteration 28 started ======
+GC before operation: completed in 43.617 ms, heap usage 420.265 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 28 completed (8544.052 ms) ======
+====== mnemonics (functional) [default], iteration 29 started ======
+GC before operation: completed in 44.506 ms, heap usage 403.205 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 29 completed (8609.984 ms) ======
+====== mnemonics (functional) [default], iteration 30 started ======
+GC before operation: completed in 43.278 ms, heap usage 207.738 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 30 completed (8650.304 ms) ======
+====== mnemonics (functional) [default], iteration 31 started ======
+GC before operation: completed in 43.732 ms, heap usage 504.233 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 31 completed (8689.418 ms) ======
+====== mnemonics (functional) [default], iteration 32 started ======
+GC before operation: completed in 45.332 ms, heap usage 211.732 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 32 completed (8676.836 ms) ======
+====== mnemonics (functional) [default], iteration 33 started ======
+GC before operation: completed in 42.549 ms, heap usage 244.776 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 33 completed (8575.434 ms) ======
+====== mnemonics (functional) [default], iteration 34 started ======
+GC before operation: completed in 43.219 ms, heap usage 236.277 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 34 completed (8684.206 ms) ======
+====== mnemonics (functional) [default], iteration 35 started ======
+GC before operation: completed in 43.103 ms, heap usage 201.263 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 35 completed (8703.047 ms) ======
+====== mnemonics (functional) [default], iteration 36 started ======
+GC before operation: completed in 44.399 ms, heap usage 239.657 MB -> 4.237 MB.
+====== mnemonics (functional) [default], iteration 36 completed (8672.981 ms) ======
+====== mnemonics (functional) [default], iteration 37 started ======
+GC before operation: completed in 46.528 ms, heap usage 131.375 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 37 completed (8512.416 ms) ======
+====== mnemonics (functional) [default], iteration 38 started ======
+GC before operation: completed in 43.087 ms, heap usage 370.786 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 38 completed (8675.622 ms) ======
+====== mnemonics (functional) [default], iteration 39 started ======
+GC before operation: completed in 43.559 ms, heap usage 187.667 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 39 completed (8608.149 ms) ======
+====== mnemonics (functional) [default], iteration 40 started ======
+GC before operation: completed in 42.338 ms, heap usage 372.299 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 40 completed (8593.522 ms) ======
+====== mnemonics (functional) [default], iteration 41 started ======
+GC before operation: completed in 42.278 ms, heap usage 368.165 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 41 completed (8687.183 ms) ======
+====== mnemonics (functional) [default], iteration 42 started ======
+GC before operation: completed in 41.548 ms, heap usage 144.973 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 42 completed (8639.538 ms) ======
+====== mnemonics (functional) [default], iteration 43 started ======
+GC before operation: completed in 44.509 ms, heap usage 145.603 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 43 completed (8725.764 ms) ======
+====== mnemonics (functional) [default], iteration 44 started ======
+GC before operation: completed in 42.444 ms, heap usage 256.589 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 44 completed (8597.236 ms) ======
+====== mnemonics (functional) [default], iteration 45 started ======
+GC before operation: completed in 42.222 ms, heap usage 221.166 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 45 completed (8613.953 ms) ======
+====== mnemonics (functional) [default], iteration 46 started ======
+GC before operation: completed in 42.657 ms, heap usage 259.727 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 46 completed (8644.009 ms) ======
+====== mnemonics (functional) [default], iteration 47 started ======
+GC before operation: completed in 43.002 ms, heap usage 237.239 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 47 completed (8675.705 ms) ======
+====== mnemonics (functional) [default], iteration 48 started ======
+GC before operation: completed in 41.733 ms, heap usage 247.407 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 48 completed (8550.969 ms) ======
+====== mnemonics (functional) [default], iteration 49 started ======
+GC before operation: completed in 40.304 ms, heap usage 146.803 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 49 completed (8580.251 ms) ======
+====== mnemonics (functional) [default], iteration 50 started ======
+GC before operation: completed in 43.251 ms, heap usage 426.039 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 50 completed (8625.969 ms) ======
+====== mnemonics (functional) [default], iteration 51 started ======
+GC before operation: completed in 43.101 ms, heap usage 350.303 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 51 completed (8753.505 ms) ======
+====== mnemonics (functional) [default], iteration 52 started ======
+GC before operation: completed in 42.087 ms, heap usage 153.178 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 52 completed (8716.207 ms) ======
+====== mnemonics (functional) [default], iteration 53 started ======
+GC before operation: completed in 46.132 ms, heap usage 333.971 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 53 completed (8716.506 ms) ======
+====== mnemonics (functional) [default], iteration 54 started ======
+GC before operation: completed in 41.953 ms, heap usage 216.710 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 54 completed (8654.774 ms) ======
+====== mnemonics (functional) [default], iteration 55 started ======
+GC before operation: completed in 42.629 ms, heap usage 208.111 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 55 completed (8610.390 ms) ======
+====== mnemonics (functional) [default], iteration 56 started ======
+GC before operation: completed in 43.788 ms, heap usage 290.727 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 56 completed (8645.530 ms) ======
+====== mnemonics (functional) [default], iteration 57 started ======
+GC before operation: completed in 44.030 ms, heap usage 184.668 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 57 completed (8548.957 ms) ======
+====== mnemonics (functional) [default], iteration 58 started ======
+GC before operation: completed in 42.111 ms, heap usage 215.115 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 58 completed (8584.353 ms) ======
+====== mnemonics (functional) [default], iteration 59 started ======
+GC before operation: completed in 43.046 ms, heap usage 145.441 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 59 completed (8766.056 ms) ======
+====== mnemonics (functional) [default], iteration 60 started ======
+GC before operation: completed in 43.834 ms, heap usage 208.551 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 60 completed (8530.487 ms) ======
+====== mnemonics (functional) [default], iteration 61 started ======
+GC before operation: completed in 43.349 ms, heap usage 243.803 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 61 completed (8634.864 ms) ======
+====== mnemonics (functional) [default], iteration 62 started ======
+GC before operation: completed in 41.470 ms, heap usage 196.301 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 62 completed (8599.017 ms) ======
+====== mnemonics (functional) [default], iteration 63 started ======
+GC before operation: completed in 40.692 ms, heap usage 145.038 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 63 completed (8730.082 ms) ======
+====== mnemonics (functional) [default], iteration 64 started ======
+GC before operation: completed in 47.151 ms, heap usage 166.435 MB -> 4.197 MB.
+====== mnemonics (functional) [default], iteration 64 completed (8635.514 ms) ======
+====== mnemonics (functional) [default], iteration 65 started ======
+GC before operation: completed in 43.060 ms, heap usage 260.166 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 65 completed (8738.480 ms) ======
+====== mnemonics (functional) [default], iteration 66 started ======
+GC before operation: completed in 44.193 ms, heap usage 146.802 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 66 completed (8689.410 ms) ======
+====== mnemonics (functional) [default], iteration 67 started ======
+GC before operation: completed in 43.042 ms, heap usage 145.251 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 67 completed (8660.146 ms) ======
+====== mnemonics (functional) [default], iteration 68 started ======
+GC before operation: completed in 45.511 ms, heap usage 342.408 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 68 completed (8523.695 ms) ======
+====== mnemonics (functional) [default], iteration 69 started ======
+GC before operation: completed in 43.313 ms, heap usage 142.370 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 69 completed (8502.500 ms) ======
+====== mnemonics (functional) [default], iteration 70 started ======
+GC before operation: completed in 42.368 ms, heap usage 115.303 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 70 completed (8631.427 ms) ======
+====== mnemonics (functional) [default], iteration 71 started ======
+GC before operation: completed in 40.437 ms, heap usage 146.802 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 71 completed (8718.014 ms) ======
+====== mnemonics (functional) [default], iteration 72 started ======
+GC before operation: completed in 43.547 ms, heap usage 167.105 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 72 completed (8675.678 ms) ======
+====== mnemonics (functional) [default], iteration 73 started ======
+GC before operation: completed in 42.774 ms, heap usage 370.274 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 73 completed (8651.301 ms) ======
+====== mnemonics (functional) [default], iteration 74 started ======
+GC before operation: completed in 43.922 ms, heap usage 335.542 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 74 completed (8731.475 ms) ======
+====== mnemonics (functional) [default], iteration 75 started ======
+GC before operation: completed in 42.332 ms, heap usage 144.837 MB -> 4.198 MB.
+====== mnemonics (functional) [default], iteration 75 completed (8592.615 ms) ======
+====== mnemonics (functional) [default], iteration 76 started ======
+GC before operation: completed in 43.919 ms, heap usage 147.473 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 76 completed (8784.040 ms) ======
+====== mnemonics (functional) [default], iteration 77 started ======
+GC before operation: completed in 42.603 ms, heap usage 145.305 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 77 completed (8648.362 ms) ======
+====== mnemonics (functional) [default], iteration 78 started ======
+GC before operation: completed in 44.255 ms, heap usage 256.007 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 78 completed (8607.440 ms) ======
+====== mnemonics (functional) [default], iteration 79 started ======
+GC before operation: completed in 45.228 ms, heap usage 146.116 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 79 completed (8610.095 ms) ======
+====== mnemonics (functional) [default], iteration 80 started ======
+GC before operation: completed in 42.258 ms, heap usage 186.078 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 80 completed (8653.272 ms) ======
+====== mnemonics (functional) [default], iteration 81 started ======
+GC before operation: completed in 41.188 ms, heap usage 167.614 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 81 completed (8607.164 ms) ======
+====== mnemonics (functional) [default], iteration 82 started ======
+GC before operation: completed in 42.186 ms, heap usage 165.670 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 82 completed (8710.225 ms) ======
+====== mnemonics (functional) [default], iteration 83 started ======
+GC before operation: completed in 41.795 ms, heap usage 323.673 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 83 completed (8652.093 ms) ======
+====== mnemonics (functional) [default], iteration 84 started ======
+GC before operation: completed in 47.245 ms, heap usage 267.170 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 84 completed (8528.608 ms) ======
+====== mnemonics (functional) [default], iteration 85 started ======
+GC before operation: completed in 42.980 ms, heap usage 144.723 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 85 completed (8638.979 ms) ======
+====== mnemonics (functional) [default], iteration 86 started ======
+GC before operation: completed in 44.087 ms, heap usage 148.434 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 86 completed (8621.634 ms) ======
+====== mnemonics (functional) [default], iteration 87 started ======
+GC before operation: completed in 44.147 ms, heap usage 328.559 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 87 completed (8583.249 ms) ======
+====== mnemonics (functional) [default], iteration 88 started ======
+GC before operation: completed in 44.793 ms, heap usage 402.843 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 88 completed (8615.914 ms) ======
+====== mnemonics (functional) [default], iteration 89 started ======
+GC before operation: completed in 43.879 ms, heap usage 184.741 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 89 completed (8552.520 ms) ======
+====== mnemonics (functional) [default], iteration 90 started ======
+GC before operation: completed in 42.882 ms, heap usage 191.910 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 90 completed (8624.005 ms) ======
+====== mnemonics (functional) [default], iteration 91 started ======
+GC before operation: completed in 41.291 ms, heap usage 159.792 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 91 completed (8543.058 ms) ======
+====== mnemonics (functional) [default], iteration 92 started ======
+GC before operation: completed in 45.236 ms, heap usage 453.803 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 92 completed (8567.478 ms) ======
+====== mnemonics (functional) [default], iteration 93 started ======
+GC before operation: completed in 44.150 ms, heap usage 390.752 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 93 completed (8636.517 ms) ======
+====== mnemonics (functional) [default], iteration 94 started ======
+GC before operation: completed in 43.979 ms, heap usage 355.173 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 94 completed (8603.827 ms) ======
+====== mnemonics (functional) [default], iteration 95 started ======
+GC before operation: completed in 45.053 ms, heap usage 273.117 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 95 completed (8524.608 ms) ======
+====== mnemonics (functional) [default], iteration 96 started ======
+GC before operation: completed in 42.827 ms, heap usage 145.158 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 96 completed (8702.416 ms) ======
+====== mnemonics (functional) [default], iteration 97 started ======
+GC before operation: completed in 44.732 ms, heap usage 196.976 MB -> 4.199 MB.
+====== mnemonics (functional) [default], iteration 97 completed (8614.355 ms) ======
+====== mnemonics (functional) [default], iteration 98 started ======
+GC before operation: completed in 42.869 ms, heap usage 147.681 MB -> 4.200 MB.
+====== mnemonics (functional) [default], iteration 98 completed (8666.565 ms) ======
+====== mnemonics (functional) [default], iteration 99 started ======
+GC before operation: completed in 42.249 ms, heap usage 254.479 MB -> 4.200 MB.
+====== mnemonics (functional) [default], iteration 99 completed (8678.796 ms) ======
