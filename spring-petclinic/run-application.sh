@@ -35,8 +35,8 @@ check_command_line_options() {
     echo "  --skip-build         is an optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-application.sh run1"
-    echo "   $ ./run-application.sh run1 --skip-build"
+    echo "   $ ./run-application.sh 1"
+    echo "   $ ./run-application.sh 1 --skip-build"
     echo ""
     return 1
   fi
