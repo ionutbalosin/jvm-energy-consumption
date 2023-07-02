@@ -53,7 +53,10 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/reports
 }
 
-chmod_output_folders() {
+chmod_output_resources() {
+  sudo chmod 777 $OUTPUT_FOLDER/*
+  sudo chmod -R a+rwx $OUTPUT_FOLDER
+
   sudo chmod 777 $OUTPUT_FOLDER/perf/*
   sudo chmod -R a+rwx $OUTPUT_FOLDER/perf
 
@@ -129,3 +132,6 @@ echo "+======================+"
 echo "| [4/4] Run benchmarks |"
 echo "+======================+"
 run_benchmarks
+
+# assign read/write permissions to the output files
+chmod_output_resources
