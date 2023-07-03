@@ -77,20 +77,11 @@ public class PerfOutputEnergyCalculator {
 
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
         double referenceJvmGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm"));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm.power")))) {
-            writer.printf("  JVM distribution; Power consumption (Watt per second); Power consumption (normalized)\n");
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/power-consumption.csv")))) {
+            writer.printf("%18s;%33s;%26s\n", "JVM", "Geometric Mean (Watt per second)", "Normalized Geometric Mean");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%18s;%36.3f;%31.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / referenceJvmGeometricMean);
-            }
-        }
-
-        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName + "-run-" + perfStat.testRunIdentifier, TreeMap::new, mapping(identity(), toList())));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/jvm-benchmark.power")))) {
-            writer.printf(" JVM distribution (run identifier); Power consumption (Watt per second)\n");
-            for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
-                double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%34s;%36.3f\n", pair.getKey(), jvmGeometricMean);
+                writer.printf("%18s;%33.3f;%26.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / referenceJvmGeometricMean);
             }
         }
     }
@@ -100,10 +91,10 @@ public class PerfOutputEnergyCalculator {
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + testType + ".power")))) {
-            writer.printf("              Type; Power consumption (Watt per second)\n");
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/power-consumption.csv")))) {
+            writer.printf("%18s;%33s\n", "Test", "Geometric Mean (Watt per second)");
             double geometricMean = geometricMean(stats);
-            writer.printf("%18s;%36.3f\n", testType, geometricMean);
+            writer.printf("%18s;%33.3f\n", testType, geometricMean);
         }
     }
 
