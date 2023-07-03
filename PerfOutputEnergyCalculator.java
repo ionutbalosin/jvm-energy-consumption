@@ -53,6 +53,7 @@ public class PerfOutputEnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
     private static final String OUTPUT_FOLDER = "summary";
+    private static final String OUTPUT_FILE = "power-consumption.csv";
     private static final String JDK_VERSION = "17";
     private static final String ARCH = "x86_64";
     private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
@@ -75,9 +76,9 @@ public class PerfOutputEnergyCalculator {
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
-        Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmName, TreeMap::new, mapping(identity(), toList())));
+        Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.testType, TreeMap::new, mapping(identity(), toList())));
         double referenceJvmGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm"));
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/power-consumption.csv")))) {
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
             writer.printf("%18s;%33s;%26s\n", "JVM", "Geometric Mean (Watt per second)", "Normalized Geometric Mean");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
@@ -91,7 +92,7 @@ public class PerfOutputEnergyCalculator {
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
-        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/power-consumption.csv")))) {
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
             writer.printf("%18s;%33s\n", "Test", "Geometric Mean (Watt per second)");
             double geometricMean = geometricMean(stats);
             writer.printf("%18s;%33.3f\n", testType, geometricMean);
@@ -129,9 +130,9 @@ public class PerfOutputEnergyCalculator {
                 }
             });
 
-            // extract the jvm name and test type from the file name
+            // extract the test type (i.e., jvm name) and test run identifier from the file name
             String fileName = filePath.getFileName().toString();
-            perfStats.jvmName = fileName.substring(0, fileName.indexOf("-run-"));
+            perfStats.testType = fileName.substring(0, fileName.indexOf("-run-"));
             perfStats.testRunIdentifier = fileName.substring(fileName.lastIndexOf("-") + 1, fileName.indexOf(".stats"));
 
             return perfStats;
@@ -169,7 +170,7 @@ public class PerfOutputEnergyCalculator {
         double psys;
         double ram;
         double elapsed;
-        String jvmName;
+        String testType;
         String testRunIdentifier;
     }
 }
