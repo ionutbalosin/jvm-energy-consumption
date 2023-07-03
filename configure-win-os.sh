@@ -28,8 +28,9 @@
 
 set_environment_variables() {
   export ARCH="$(uname -m)"
+  export OS="windows"
 
-  echo "Operating system: Windows OS"
+  echo "Operating system: $OS"
   echo "Architecture: $ARCH"
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "

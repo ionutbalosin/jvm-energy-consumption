@@ -46,7 +46,7 @@ check_command_line_options() {
 
 configure_baseline() {
   export APP_RUNNING_TIME=900
-  export OUTPUT_FOLDER=results/$ARCH
+  export OUTPUT_FOLDER=results/$OS/$ARCH
 
   echo ""
   echo "Output folder: $OUTPUT_FOLDER"

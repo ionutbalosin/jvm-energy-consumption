@@ -54,20 +54,21 @@ public class PerfOutputEnergyCalculator {
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
     private static final String OUTPUT_FOLDER = "summary";
     private static final String OUTPUT_FILE = "power-consumption.csv";
-    private static final String JDK_VERSION = "17";
+    private static final String OS = "linux";
     private static final String ARCH = "x86_64";
+    private static final String JDK_VERSION = "17";
     private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
     private static final List<String> NON_JVM_BASED_APPLICATION_LIST = List.of("baseline-idle-os");
 
     public static void main(String[] args) throws IOException {
         for (String application : JVM_BASED_APPLICATION_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            calculateJvmBasedSummaryReport(String.format("%s/%s/results/jdk-%s/%s/perf", BASE_PATH, application, JDK_VERSION, ARCH));
+            calculateJvmBasedSummaryReport(String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application, OS, ARCH, JDK_VERSION));
         }
 
         for (String application : NON_JVM_BASED_APPLICATION_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            calculateNonJvmBasedSummaryReport(application, String.format("%s/%s/results/%s/perf", BASE_PATH, application, ARCH));
+            calculateNonJvmBasedSummaryReport(application, String.format("%s/%s/results/%s/%s/perf", BASE_PATH, application, OS, ARCH));
         }
     }
 

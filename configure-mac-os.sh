@@ -28,8 +28,9 @@
 
 set_environment_variables() {
   export ARCH="$(uname -m)"
+  export OS="mac"
 
-  echo "Operating system: Mac OS X"
+  echo "Operating system: $OS"
   echo "Architecture: $ARCH"
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
