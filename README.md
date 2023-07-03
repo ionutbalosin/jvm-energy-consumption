@@ -7,8 +7,10 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 - [Purpose](#purpose)
 - [Methodology](#methodology)
 - [Prerequisites](#prerequisites)
+- [OS Coverage](#os-coverage)
 - [JVM Coverage](#jvm-coverage)
 - [Measurements](#measurements)
+  - [Baseline Idle OS](#baseline-idle-os)
   - [Spring PetClinic Application](#spring-petclinic-application)
   - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
@@ -59,20 +61,39 @@ In order to properly run the scripts you need to:
 - download and install any JDK (you could also use [sdkman](https://sdkman.io/install))
 - download and install [Hyperfoil](https://hyperfoil.io)
 
+## OS Coverage
+
+The table below summarizes the list of Operating Systems included in the measurements:
+
+No. | OS      | Covered
+----|---------|--------
+1   | linux   | yes
+2   | mac     | no
+3   | windows | no
+
 ## JVM Coverage
 
-The table below summarizes the full list of JVM distributions included in the measurements:
+The table below summarizes the list of JVM distributions included in the measurements:
 
 No. | JVM distribution
--------------- |--------------------
-1 | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
-2 | [GraalVM CE](https://www.graalvm.org/downloads)
-3 | [GraalVM EE](https://www.graalvm.org/downloads)
-4 | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
-5 | [Azul Prime VM](https://www.azul.com/products/prime)
-6 | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
+----|--------------------
+1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+2   | [GraalVM CE](https://www.graalvm.org/downloads)
+3   | [GraalVM EE](https://www.graalvm.org/downloads)
+4   | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
+5   | [Azul Prime VM](https://www.azul.com/products/prime)
+6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
 
 ## Measurements
+
+### Baseline Idle OS
+
+This set of measurements captures the idle power consumption, and it is used to remove the overhead of the hardware system:
+
+```
+$ cd /baseline-idle-os
+$ sudo ./run-baseline.sh
+```
 
 ### Spring PetClinic Application
 
