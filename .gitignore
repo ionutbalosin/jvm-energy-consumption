@@ -6,8 +6,8 @@
 target/
 out/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!scripts/java/src/main/**/target/
+!scripts/java/src/test/**/target/
 *-schema-library/src/main/java/**
 generated-products.sql
 
@@ -33,8 +33,8 @@ generated-products.sql
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+!scripts/java/src/main/**/build/
+!scripts/java/src/test/**/build/
 
 ### VS Code ###
 .vscode/

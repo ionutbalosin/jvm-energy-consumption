@@ -24,8 +24,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package scripts;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -57,7 +55,7 @@ public class PerfOutputEnergyCalculator {
     private static final String OS = "linux";
     private static final String ARCH = "x86_64";
     private static final String JDK_VERSION = "17";
-    private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
+    private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance", "java-samples");
     private static final List<String> NON_JVM_BASED_APPLICATION_LIST = List.of("baseline-idle-os");
 
     public static void main(String[] args) throws IOException {
