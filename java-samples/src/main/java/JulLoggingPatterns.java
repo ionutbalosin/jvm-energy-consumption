@@ -69,11 +69,15 @@ public class JulLoggingPatterns {
         instance.initialize(args[0]);
 
         // start the tests
-        int counter = 0;
-        for (; counter < instance.ITERATIONS; counter++) {
+        for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             instance.julLogger.log();
+            // validate the test results
+            if (instance.anInt != counter + 1) {
+                throw new AssertionError();
+            }
         }
-        System.out.printf("Log level = %s, log type = %s, number of logged lines = %d\n", instance.LOG_LEVEL.getName(), instance.julLogger.getClass().getName(), counter);
+
+        System.out.printf("Log level = %s, log type = %s, number of logged lines = %d\n", instance.LOG_LEVEL.getName(), instance.julLogger.getClass().getName(), instance.ITERATIONS);
     }
 
     public void initialize(String type) {
@@ -125,7 +129,7 @@ public class JulLoggingPatterns {
 
         Random random = new Random(16384);
         aString = System.getProperty("java.home");
-        anInt = random.nextInt(2);
+        anInt = 0;
         aFloat = random.nextFloat(4);
         aBoolean = random.nextBoolean();
         aChar = (char) (random.nextInt(26) + 'a');

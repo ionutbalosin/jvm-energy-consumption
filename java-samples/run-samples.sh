@@ -101,7 +101,7 @@ start_sample() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD >$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.log 2>&1
+    $RUN_CMD > $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
 check_command_line_options "$@"
@@ -144,10 +144,10 @@ echo ""
 echo "+==============================+"
 echo "| [5/5] Start the Java samples |"
 echo "+==============================+"
-start_sample "ThrowExceptionPatterns" "const 1024" "const_1024"
-start_sample "ThrowExceptionPatterns" "lambda 1024" "lambda_1024"
-start_sample "ThrowExceptionPatterns" "new 1024" "new_1024"
-start_sample "ThrowExceptionPatterns" "override_fist 1024" "override_fist_1024"
+start_sample "ThrowExceptionPatterns" "const" "const"
+start_sample "ThrowExceptionPatterns" "lambda" "lambda"
+start_sample "ThrowExceptionPatterns" "new" "new"
+start_sample "ThrowExceptionPatterns" "override_fist" "override_fist"
 
 start_sample "MemoryAccessPatterns" "linear" "linear"
 start_sample "MemoryAccessPatterns" "random_page" "random_page"

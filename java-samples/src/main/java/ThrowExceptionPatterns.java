@@ -29,41 +29,55 @@ import java.util.function.Supplier;
 
 public class ThrowExceptionPatterns {
 
-    int ITERATIONS = 50_000;
+    int ITERATIONS = 100_000;
+    int STACK_DEPTH = 1024;
     Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
     RuntimeException CONSTANT_EXCEPTION = new RuntimeException("Something wrong happened.");
-    int stackDepth;
+
     ExceptionThrower exceptionThrower;
 
     public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage: ThrowExceptionPatterns <exception_type> <stack_depth>");
+        if (args.length != 1) {
+            System.out.println("Usage: ThrowExceptionPatterns <exception_type>");
             System.out.println("Options:");
             System.out.println("  exception_type  must be {const, lambda, new, override_fist}");
-            System.out.println("  stack_depth     defines the recursive method depth");
             System.out.println("Examples:");
-            System.out.println("  ThrowExceptionPatterns const 1024");
-            System.out.println("  ThrowExceptionPatterns lambda 1024");
-            System.out.println("  ThrowExceptionPatterns new 1024");
-            System.out.println("  ThrowExceptionPatterns override_fist 1024");
+            System.out.println("  ThrowExceptionPatterns const");
+            System.out.println("  ThrowExceptionPatterns lambda");
+            System.out.println("  ThrowExceptionPatterns new");
+            System.out.println("  ThrowExceptionPatterns override_fist");
             return;
         }
 
         ThrowExceptionPatterns instance = new ThrowExceptionPatterns();
-        instance.initialize(args[0], args[1]);
+        instance.initialize(args[0]);
 
         // start the tests
+        long result = 0;
         for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             try {
-                instance.exceptionThrower.throw_exception(instance.stackDepth);
+                // "STACK_DEPTH - 2" because there are already 2 frames on the stack while calling the method
+                instance.exceptionThrower.throw_exception(instance.STACK_DEPTH - 2);
             } catch (Exception exc) {
-                System.out.printf("[%d] Exception type = %s, stack depth = %d, stack trace elements length = %d\n", counter, instance.exceptionThrower.getClass().getName(), instance.stackDepth, exc.getStackTrace().length);
+                // validate the test results
+                if ("const".equals(args[0]) && exc.getStackTrace().length != 2) {
+                    throw new AssertionError();
+                }
+                if (("lambda".equals(args[0]) || "new".equals(args[0])) && exc.getStackTrace().length != instance.STACK_DEPTH) {
+                    throw new AssertionError();
+                }
+                if ("override_fist".equals(args[0]) && exc.getStackTrace().length != 0) {
+                    throw new AssertionError();
+                }
+                // increment the overall number of generated stack trace elements
+                result += exc.getStackTrace().length;
             }
         }
+
+        System.out.printf("Exception type = %s, stack depth = %d, number of generated stack trace elements = %d\n", instance.exceptionThrower.getClass().getName(), instance.STACK_DEPTH, result);
     }
 
-    public void initialize(String type, String depth) {
-        stackDepth = Integer.parseInt(depth);
+    public void initialize(String type) {
         switch (type) {
             case "const":
                 exceptionThrower = new ThrowConstantException();

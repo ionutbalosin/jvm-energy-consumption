@@ -33,8 +33,7 @@ import java.util.Random;
  */
 public class MemoryAccessPatterns {
 
-    int ITERATIONS = 5;
-
+    int ITERATIONS = 10;
     int LONG_SIZE = 8; // 8 bytes
     int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB (each Page)
     int ONE_GIG = 1024 * 1024 * 1024; // 1 GB
@@ -44,6 +43,7 @@ public class MemoryAccessPatterns {
     int WORDS_PER_PAGE = PAGE_SIZE / LONG_SIZE;
     int PAGE_MASK = WORDS_PER_PAGE - 1;
     int PRIME_INC = 514_229;
+
     WalkerStep walkerStep;
     long[] array;
 
@@ -65,8 +65,13 @@ public class MemoryAccessPatterns {
         // start the tests
         for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             long result = instance.memory_access();
-            System.out.printf("[%d] Memory access type = %s, sum of all the accessed elements = %d\n", counter, instance.walkerStep.getClass().getName(), result);
+            // validate the test results
+            if (result != 268435456L) {
+                throw new AssertionError();
+            }
         }
+
+        System.out.printf("Memory access type = %s, number of iterations = %d\n", instance.walkerStep.getClass().getName(), instance.ITERATIONS);
     }
 
     public void initialize(String type) {
