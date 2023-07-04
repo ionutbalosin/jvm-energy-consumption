@@ -33,6 +33,7 @@ public class ThrowExceptionPatterns {
     int STACK_DEPTH = 1024;
     Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
     RuntimeException CONSTANT_EXCEPTION = new RuntimeException("Something wrong happened.");
+    int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
     ExceptionThrower exceptionThrower;
 
@@ -60,7 +61,7 @@ public class ThrowExceptionPatterns {
                 instance.exceptionThrower.throw_exception(instance.STACK_DEPTH - 2);
             } catch (Exception exc) {
                 // validate the test results
-                if ("const".equals(args[0]) && exc.getStackTrace().length != 2) {
+                if ("const".equals(args[0]) && exc.getStackTrace().length != instance.CONSTANT_STACK_TRACES) {
                     throw new AssertionError();
                 }
                 if (("lambda".equals(args[0]) || "new".equals(args[0])) && exc.getStackTrace().length != instance.STACK_DEPTH) {

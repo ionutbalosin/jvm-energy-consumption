@@ -1,6 +1,6 @@
-               JVM; Geometric Mean (Watt per second); Normalized Geometric Mean
-     azul-prime-vm;                            3.287;                     1.097
- eclipse-openj9-vm;                            2.940;                     0.981
-        graalvm-ce;                            3.048;                     1.017
-        graalvm-ee;                            3.069;                     1.024
-openjdk-hotspot-vm;                            2.996;                     1.000
+               JVM;     Geometric Mean (Watt second); Normalized Geometric Mean
+     azul-prime-vm;                        14406.612;                     0.878
+ eclipse-openj9-vm;                        18956.378;                     1.156
+        graalvm-ce;                        14581.726;                     0.889
+        graalvm-ee;                        11479.355;                     0.700
+openjdk-hotspot-vm;                        16400.378;                     1.000

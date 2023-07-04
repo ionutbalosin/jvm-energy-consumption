@@ -83,7 +83,7 @@ public class PerfOutputEnergyCalculator {
         Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier, TreeMap::new, mapping(identity(), toList())));
         double referenceJvmGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm"));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
-            writer.printf("%18s;%33s;%26s\n", "JVM", "Geometric Mean (Watt per second)", "Normalized Geometric Mean");
+            writer.printf("%18s;%33s;%26s\n", "JVM", "Geometric Mean (Watt second)", "Normalized Geometric Mean");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
                 writer.printf("%18s;%33.3f;%26.3f\n", pair.getKey(), jvmGeometricMean, jvmGeometricMean / referenceJvmGeometricMean);
@@ -98,7 +98,7 @@ public class PerfOutputEnergyCalculator {
 
         Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testRunOptions, TreeMap::new, mapping(identity(), toList())));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
-            writer.printf("%45s;%33s\n", "Test", "Geometric Mean (Watt per second)");
+            writer.printf("%45s;%33s\n", "Test", "Geometric Mean (Watt second)");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
                 writer.printf("%45s;%33.3f\n", pair.getKey(), jvmGeometricMean);
@@ -112,7 +112,7 @@ public class PerfOutputEnergyCalculator {
         Files.createDirectories(Paths.get(parentSummaryPath));
 
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
-            writer.printf("%18s;%33s\n", "Test", "Geometric Mean (Watt per second)");
+            writer.printf("%18s;%33s\n", "Test", "Geometric Mean (Watt second)");
             double geometricMean = geometricMean(stats);
             writer.printf("%18s;%33.3f\n", testType, geometricMean);
         }
@@ -189,8 +189,8 @@ public class PerfOutputEnergyCalculator {
     public static double geometricMean(List<PerfStats> perfStats) {
         double prod = 1;
         for (PerfStats perfStat : perfStats) {
-            double watts = (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
-            prod *= watts;
+            double energy = perfStat.pkg + perfStat.ram;
+            prod *= energy;
         }
         return Math.pow(prod, 1.0 / perfStats.size());
     }
