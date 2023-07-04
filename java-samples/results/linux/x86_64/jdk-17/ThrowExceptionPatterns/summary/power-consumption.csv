@@ -1,5 +1,5 @@
-                                         Test;     Geometric Mean (Watt second)
-                     openjdk-hotspot-vm-const;                          115.693
-                    openjdk-hotspot-vm-lambda;                          502.611
-                       openjdk-hotspot-vm-new;                          499.593
-             openjdk-hotspot-vm-override_fist;                          115.659
+               JVM;                      Test;     Geometric Mean (Watt second)
+openjdk-hotspot-vm;                     const;                          115.693
+openjdk-hotspot-vm;                    lambda;                          502.611
+openjdk-hotspot-vm;                       new;                          499.593
+openjdk-hotspot-vm;             override_fist;                          115.659

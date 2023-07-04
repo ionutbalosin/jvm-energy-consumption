@@ -98,10 +98,10 @@ public class PerfOutputEnergyCalculator {
 
         Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testRunOptions, TreeMap::new, mapping(identity(), toList())));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
-            writer.printf("%45s;%33s\n", "Test", "Geometric Mean (Watt second)");
+            writer.printf("%18s;%26s;%33s\n", "JVM", "Test", "Geometric Mean (Watt second)");
             for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                 double jvmGeometricMean = geometricMean(pair.getValue());
-                writer.printf("%45s;%33.3f\n", pair.getKey(), jvmGeometricMean);
+                writer.printf("%18s;%26s;%33.3f\n", pair.getValue().get(0).jvmIdentifier, pair.getValue().get(0).testRunOptions, jvmGeometricMean);
             }
         }
     }
