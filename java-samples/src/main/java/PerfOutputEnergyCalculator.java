@@ -24,6 +24,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -55,27 +56,31 @@ public class PerfOutputEnergyCalculator {
     private static final String OS = "linux";
     private static final String ARCH = "x86_64";
     private static final String JDK_VERSION = "17";
-    private static final List<String> JVM_BASED_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance", "java-samples");
-    private static final List<String> NON_JVM_BASED_APPLICATION_LIST = List.of("baseline-idle-os");
+    private static final String OS_BASELINE_APPLICATION = "baseline-idle-os";
+    private static final List<String> JVM_APPLICATION_LIST = List.of("spring-petclinic", "quarkus-hibernate-orm-panache-quickstart", "renaissance");
+    private static final List<String> JAVA_SAMPLES_LIST = List.of("ThrowExceptionPatterns", "MemoryAccessPatterns", "JulLoggingPatterns");
 
     public static void main(String[] args) throws IOException {
-        for (String application : JVM_BASED_APPLICATION_LIST) {
+        System.out.printf("Calculate consumed energy for '%s'\n", OS_BASELINE_APPLICATION);
+        osBaselineSummaryReport(OS_BASELINE_APPLICATION, String.format("%s/%s/results/%s/%s/perf", BASE_PATH, OS_BASELINE_APPLICATION, OS, ARCH));
+
+        for (String application : JVM_APPLICATION_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            calculateJvmBasedSummaryReport(String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application, OS, ARCH, JDK_VERSION));
+            jvmSummaryReport(String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application, OS, ARCH, JDK_VERSION));
         }
 
-        for (String application : NON_JVM_BASED_APPLICATION_LIST) {
+        for (String application : JAVA_SAMPLES_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            calculateNonJvmBasedSummaryReport(application, String.format("%s/%s/results/%s/%s/perf", BASE_PATH, application, OS, ARCH));
+            jvmAndTestRunSummaryReport(String.format("%s/java-samples/results/%s/%s/jdk-%s/%s/perf", BASE_PATH, OS, ARCH, JDK_VERSION, application));
         }
     }
 
-    private static void calculateJvmBasedSummaryReport(String path) throws IOException {
+    private static void jvmSummaryReport(String path) throws IOException {
         String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
 
-        Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.testType, TreeMap::new, mapping(identity(), toList())));
+        Map<String, List<PerfStats>> statsByJvmName = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier, TreeMap::new, mapping(identity(), toList())));
         double referenceJvmGeometricMean = geometricMean(statsByJvmName.get("openjdk-hotspot-vm"));
         try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
             writer.printf("%18s;%33s;%26s\n", "JVM", "Geometric Mean (Watt per second)", "Normalized Geometric Mean");
@@ -86,7 +91,22 @@ public class PerfOutputEnergyCalculator {
         }
     }
 
-    private static void calculateNonJvmBasedSummaryReport(String testType, String path) throws IOException {
+    private static void jvmAndTestRunSummaryReport(String path) throws IOException {
+        String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
+        List<PerfStats> stats = readFiles(path);
+        Files.createDirectories(Paths.get(parentSummaryPath));
+
+        Map<String, List<PerfStats>> statsByJvmNameAndType = stats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testRunOptions, TreeMap::new, mapping(identity(), toList())));
+        try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(parentSummaryPath + "/" + OUTPUT_FILE)))) {
+            writer.printf("%45s;%33s\n", "Test", "Geometric Mean (Watt per second)");
+            for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
+                double jvmGeometricMean = geometricMean(pair.getValue());
+                writer.printf("%45s;%33.3f\n", pair.getKey(), jvmGeometricMean);
+            }
+        }
+    }
+
+    private static void osBaselineSummaryReport(String testType, String path) throws IOException {
         String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
@@ -129,10 +149,23 @@ public class PerfOutputEnergyCalculator {
                 }
             });
 
-            // extract the test type (i.e., jvm name) and test run identifier from the file name
+            // extract the jvm identifier, run options and run identifier from the output file name
+            // Note: this entire logic relies on a very specific file name convention: "<jvm_identifier>-run-<test_run_options>-<test_run_identifier>.stats"
+            // Example:
+            //  -filename: openjdk-hotspot-vm-run-guarded_parametrized-1.log
+            //  - jvm identifier: openjdk-hotspot-vm
+            //  - test run options: guarded_parametrized
+            //  - test run identifier: 1
             String fileName = filePath.getFileName().toString();
-            perfStats.testType = fileName.substring(0, fileName.indexOf("-run-"));
-            perfStats.testRunIdentifier = fileName.substring(fileName.lastIndexOf("-") + 1, fileName.indexOf(".stats"));
+            int runIndex = fileName.indexOf("-run-");
+            int statsIndex = fileName.indexOf(".stats");
+            int lastDashIndex = fileName.lastIndexOf("-");
+            int beforeLastDashIndex = fileName.lastIndexOf("-", lastDashIndex - 1);
+            perfStats.jvmIdentifier = fileName.substring(0, runIndex);
+            if (runIndex != beforeLastDashIndex) {
+                perfStats.testRunOptions = fileName.substring(beforeLastDashIndex + 1, lastDashIndex);
+            }
+            perfStats.testRunIdentifier = fileName.substring(lastDashIndex + 1, statsIndex);
 
             return perfStats;
 
@@ -169,7 +202,8 @@ public class PerfOutputEnergyCalculator {
         double psys;
         double ram;
         double elapsed;
-        String testType;
+        String jvmIdentifier;
+        String testRunOptions;
         String testRunIdentifier;
     }
 }
