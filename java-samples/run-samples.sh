@@ -49,7 +49,7 @@ check_command_line_options() {
 configure_application() {
   export APP_HOME=$(pwd)/src/main/java
   export JAVA_OPS="-Xms1m -Xmx6g"
-  export declare -a SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "JulLoggingPatterns")
+  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "JulLoggingPatterns")
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -122,18 +122,18 @@ echo "+=========================+"
 . ../configure-jvm.sh
 
 echo ""
-echo "+=================================+"
+echo "+==================================+"
 echo "| [3/5] Java samples configuration |"
-echo "+=================================+"
+echo "+==================================+"
 configure_application
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
 echo ""
-echo "+=============================+"
+echo "+==============================+"
 echo "| [4/5] Build the Java samples |"
-echo "+=============================+"
+echo "+==============================+"
 if [ "$2" == "--skip-build" ]; then
   echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
 else
@@ -141,9 +141,9 @@ else
 fi
 
 echo ""
-echo "+=============================+"
+echo "+==============================+"
 echo "| [5/5] Start the Java samples |"
-echo "+=============================+"
+echo "+==============================+"
 start_sample "ThrowExceptionPatterns" "const 1024" "const_1024"
 start_sample "ThrowExceptionPatterns" "lambda 1024" "lambda_1024"
 start_sample "ThrowExceptionPatterns" "new 1024" "new_1024"
