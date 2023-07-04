@@ -66,16 +66,16 @@ public class PerfOutputEnergyCalculator {
 
         for (String application : JVM_APPLICATION_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            jvmSummaryReport(String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application, OS, ARCH, JDK_VERSION));
+            jvmLevelSummaryReport(String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application, OS, ARCH, JDK_VERSION));
         }
 
         for (String application : JAVA_SAMPLES_LIST) {
             System.out.printf("Calculate consumed energy for '%s'\n", application);
-            jvmAndTestRunSummaryReport(String.format("%s/java-samples/results/%s/%s/jdk-%s/%s/perf", BASE_PATH, OS, ARCH, JDK_VERSION, application));
+            jvmAndTestRunLevelSummaryReport(String.format("%s/java-samples/results/%s/%s/jdk-%s/%s/perf", BASE_PATH, OS, ARCH, JDK_VERSION, application));
         }
     }
 
-    private static void jvmSummaryReport(String path) throws IOException {
+    private static void jvmLevelSummaryReport(String path) throws IOException {
         String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
@@ -91,7 +91,7 @@ public class PerfOutputEnergyCalculator {
         }
     }
 
-    private static void jvmAndTestRunSummaryReport(String path) throws IOException {
+    private static void jvmAndTestRunLevelSummaryReport(String path) throws IOException {
         String parentSummaryPath = path + "/../" + OUTPUT_FOLDER;
         List<PerfStats> stats = readFiles(path);
         Files.createDirectories(Paths.get(parentSummaryPath));
