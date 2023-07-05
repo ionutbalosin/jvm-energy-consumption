@@ -13,8 +13,8 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
   - [Baseline Idle OS](#baseline-idle-os)
   - [Java Samples](#java-samples)
   - [Spring PetClinic Application](#spring-petclinic-application)
-  - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
+  - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
 - [License](#license)
 
 ## Purpose
@@ -125,8 +125,8 @@ $ sudo ./run-samples.sh
 This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic) and build the sources
-2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
-2. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the mandatory variable `HYPERFOIL_HOME`
+2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
+2. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
 3. Launch the JVM application on the **system under test**:
 
 ```
@@ -141,26 +141,13 @@ $ cd /spring-petclinic
 $ ./run-hyperfoil.sh
 ```
 
-### Renaissance Benchmark Suite
-
-This set of measurements uses the off-the-shelf Renaissance benchmark suite.
-
-1. Download the [Renaissance release](https://github.com/renaissance-benchmarks/renaissance/releases)
-2. Open the [run-benchmarks.sh](./renaissance/run-benchmarks.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
-3. Launch the benchmarks:
-
-```
-$ cd /renaissance
-$ sudo ./run-benchmarks.sh
-```
-
 ### Quarkus Hibernate ORM Panache Quickstart
 
 This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache quickstart.
 
 1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts) and build the **hibernate-orm-panache-quickstart** sources
-2. Open the [run-application.sh](./quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
-3. Open the [run-hyperfoil.sh](./quarkus-hibernate-orm-panache-quickstart/run-hyperfoil.sh) script and update the mandatory variable `HYPERFOIL_HOME`
+2. Open the [run-application.sh](./quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
+3. Open the [run-hyperfoil.sh](./quarkus-hibernate-orm-panache-quickstart/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
 4. Launch the PostgreSQL database on the **system client test**:
 
 ```
@@ -180,6 +167,19 @@ $ sudo ./run-application.sh
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
 $ sudo ./run-hyperfoil.sh
+```
+
+### Renaissance Benchmark Suite
+
+This set of measurements uses the off-the-shelf Renaissance benchmark suite.
+
+1. Download the [Renaissance release](https://github.com/renaissance-benchmarks/renaissance/releases)
+2. Open the [run-benchmarks.sh](./renaissance/run-benchmarks.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
+3. Launch the benchmarks:
+
+```
+$ cd /renaissance
+$ sudo ./run-benchmarks.sh
 ```
 
 # License
