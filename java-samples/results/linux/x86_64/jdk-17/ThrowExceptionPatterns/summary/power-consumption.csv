@@ -1,9 +1,12 @@
-               JVM;                      Test;     Geometric Mean (Watt second)
-      native-image;                     const;                           22.981
-      native-image;                    lambda;                           86.778
-      native-image;                       new;                          106.089
-      native-image;             override_fist;                            6.575
-openjdk-hotspot-vm;                     const;                          115.693
-openjdk-hotspot-vm;                    lambda;                          502.611
-openjdk-hotspot-vm;                       new;                          499.593
-openjdk-hotspot-vm;             override_fist;                          115.659
+               JVM;                      Test;     Geometric Mean (Watt second); Normalized Geometric Mean
+      native-image;                     const;                           22.981;                     0.199
+      native-image;                    lambda;                           86.778;                     0.750
+      native-image;                       new;                          106.089;                     0.917
+      native-image;             override_fist;                            6.575;                     0.057
+openjdk-hotspot-vm;                     const;                          115.693;                     1.000
+openjdk-hotspot-vm;                    lambda;                          502.611;                     4.346
+openjdk-hotspot-vm;                       new;                          499.593;                     4.320
+openjdk-hotspot-vm;             override_fist;                          115.659;                     1.000
+
+
+Note: The reference value 'openjdk-hotspot-vm-override_fist' was considered for the normalized geometric mean

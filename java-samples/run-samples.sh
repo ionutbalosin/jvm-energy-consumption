@@ -70,7 +70,7 @@ create_output_resources() {
   done
 }
 
-build_application() {
+build_samples() {
   cd $APP_HOME
   for sample_name in "${SAMPLE_APPS[@]}"; do
     echo "Compiling Java sample: $sample_name"
@@ -90,16 +90,16 @@ build_application() {
 
 start_sample() {
   sample_name="$1"
-  sample_opts="$2"
+  sample_run_args="$2"
   sample_run_identifier="$3"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_opts"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_run_args"
   else
-    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_opts"
+    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_run_args"
   fi
 
-  echo "Starting $sample_name ($sample_opts) at: $(date) ... "
+  echo "Starting $sample_name ($sample_run_args) at: $(date) ... "
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
@@ -143,7 +143,7 @@ echo "+==============================+"
 if [ "$2" == "--skip-build" ]; then
   echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
 else
-  build_application
+  build_samples
 fi
 
 echo ""
@@ -166,9 +166,6 @@ start_sample "JulLoggingPatterns" "guarded_parametrized" "guarded_parametrized"
 start_sample "JulLoggingPatterns" "guarded_unparametrized" "guarded_unparametrized"
 start_sample "JulLoggingPatterns" "unguarded_parametrized" "unguarded_parametrized"
 start_sample "JulLoggingPatterns" "unguarded_unparametrized" "unguarded_unparametrized"
-
-# give a bit of time to the process to gracefully shut down
-sleep 10
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

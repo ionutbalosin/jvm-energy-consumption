@@ -1,7 +1,10 @@
-               JVM;                      Test;     Geometric Mean (Watt second)
-      native-image;                    linear;                           71.399
-      native-image;               random_heap;                         1111.704
-      native-image;               random_page;                          133.146
-openjdk-hotspot-vm;                    linear;                          113.585
-openjdk-hotspot-vm;               random_heap;                         1246.873
-openjdk-hotspot-vm;               random_page;                          172.188
+               JVM;                      Test;     Geometric Mean (Watt second); Normalized Geometric Mean
+      native-image;                    linear;                           71.399;                     0.629
+      native-image;               random_heap;                         1111.704;                     9.787
+      native-image;               random_page;                          133.146;                     1.172
+openjdk-hotspot-vm;                    linear;                          113.585;                     1.000
+openjdk-hotspot-vm;               random_heap;                         1246.873;                    10.977
+openjdk-hotspot-vm;               random_page;                          172.188;                     1.516
+
+
+Note: The reference value 'openjdk-hotspot-vm-linear' was considered for the normalized geometric mean

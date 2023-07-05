@@ -5,3 +5,6 @@
         graalvm-ee;                         1807.438;                     1.006
       native-image;                         1734.735;                     0.965
 openjdk-hotspot-vm;                         1797.200;                     1.000
+
+
+Note: The reference value 'openjdk-hotspot-vm' was considered for the normalized geometric mean
