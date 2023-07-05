@@ -1,4 +1,7 @@
                JVM;                      Test;     Geometric Mean (Watt second)
+      native-image;                    linear;                           71.399
+      native-image;               random_heap;                         1111.704
+      native-image;               random_page;                          133.146
 openjdk-hotspot-vm;                    linear;                          113.585
 openjdk-hotspot-vm;               random_heap;                         1246.873
 openjdk-hotspot-vm;               random_page;                          172.188

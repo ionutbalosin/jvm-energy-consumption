@@ -1,4 +1,11 @@
                JVM;                      Test;     Geometric Mean (Watt second)
+      native-image;      guarded_parametrized;                          165.649
+      native-image;    guarded_unparametrized;                          113.289
+      native-image;               lambda_heap;                          111.857
+      native-image;              lambda_local;                          112.719
+      native-image;             string_format;                          115.038
+      native-image;    unguarded_parametrized;                          165.176
+      native-image;  unguarded_unparametrized;                          112.682
 openjdk-hotspot-vm;      guarded_parametrized;                          193.321
 openjdk-hotspot-vm;    guarded_unparametrized;                          149.807
 openjdk-hotspot-vm;               lambda_heap;                          149.231

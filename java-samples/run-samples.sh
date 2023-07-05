@@ -71,11 +71,17 @@ create_output_resources() {
 }
 
 build_application() {
+  cd $APP_HOME
+  for sample_name in "${SAMPLE_APPS[@]}"; do
+    echo "Compiling Java sample: $sample_name"
+    javac $sample_name.java -d $APP_HOME/target
+  done
+  cd -
+
   if [ "$JVM_IDENTIFIER" == "native-image" ]; then
-    cd $APP_HOME
+    cd $APP_HOME/target
     for sample_name in "${SAMPLE_APPS[@]}"; do
       echo "Building Java sample: $sample_name"
-      javac $sample_name.java
       native-image $sample_name -o $sample_name
     done
     cd -
@@ -90,7 +96,7 @@ start_sample() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_opts"
   else
-    export RUN_CMD="$APP_HOME/$sample_name $JAVA_OPS $sample_opts"
+    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_opts"
   fi
 
   echo "Starting $sample_name ($sample_opts) at: $(date) ... "
@@ -101,7 +107,7 @@ start_sample() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD > $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.log 2>&1
+    $RUN_CMD >  $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
 check_command_line_options "$@"
