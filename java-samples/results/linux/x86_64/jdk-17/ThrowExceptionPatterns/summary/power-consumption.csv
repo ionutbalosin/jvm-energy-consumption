@@ -8,5 +8,4 @@ openjdk-hotspot-vm;                    lambda;                          502.611;
 openjdk-hotspot-vm;                       new;                          499.593;                     4.320
 openjdk-hotspot-vm;             override_fist;                          115.659;                     1.000
 
-
-Note: The reference value 'openjdk-hotspot-vm-override_fist' was considered for the normalized geometric mean
+# Note: The reference value 'openjdk-hotspot-vm-override_fist' was considered for the normalized geometric mean

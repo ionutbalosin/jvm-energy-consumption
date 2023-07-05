@@ -247,7 +247,7 @@ public class PerfEnergyCalculator {
                     double geometricMean = geometricMean(pair.getValue());
                     writer.printf("%18s;%33.3f;%26.3f\n", pair.getKey(), geometricMean, geometricMean / refGeometricMean);
                 }
-                writer.printf("\n\nNote: The reference value '%s' was considered for the normalized geometric mean", application.reference);
+                writer.printf("\n# Note: The reference value '%s' was considered for the normalized geometric mean", application.reference);
             }
         }
     }
@@ -272,7 +272,7 @@ public class PerfEnergyCalculator {
                     double geometricMean = geometricMean(pair.getValue());
                     writer.printf("%18s;%26s;%33.3f;%26.3f\n", pair.getValue().get(0).jvmIdentifier, pair.getValue().get(0).testRunArgs, geometricMean, geometricMean / refGeometricMean);
                 }
-                writer.printf("\n\nNote: The reference value '%s' was considered for the normalized geometric mean", application.reference);
+                writer.printf("\n# Note: The reference value '%s' was considered for the normalized geometric mean", application.reference);
             }
         }
     }

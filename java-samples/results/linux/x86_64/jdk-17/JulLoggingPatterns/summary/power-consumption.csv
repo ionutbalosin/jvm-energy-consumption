@@ -14,5 +14,4 @@ openjdk-hotspot-vm;             string_format;                          157.316;
 openjdk-hotspot-vm;    unguarded_parametrized;                          192.601;                     1.291
 openjdk-hotspot-vm;  unguarded_unparametrized;                          149.011;                     0.999
 
-
-Note: The reference value 'openjdk-hotspot-vm-lambda_heap' was considered for the normalized geometric mean
+# Note: The reference value 'openjdk-hotspot-vm-lambda_heap' was considered for the normalized geometric mean
