@@ -11,6 +11,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 - [JVM Coverage](#jvm-coverage)
 - [Measurements](#measurements)
   - [Baseline Idle OS](#baseline-idle-os)
+  - [Java Samples](#java-samples)
   - [Spring PetClinic Application](#spring-petclinic-application)
   - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
@@ -18,11 +19,9 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 ## Purpose
 
-The main purpose of this project is to assess the energy consumption across different JVMs distributions. 
+The purpose of this project is to assess the energy consumption across multiple JVMs distributions while running different custom-made Java programs and off-the-shelf applications (e.g., including [Spring Boot](https://spring.io/projects/spring-boot) and [Quarkus](https://quarkus.io/) web-based).
 
-It is not intented to compare the energy consumption across different frameworks (since the code is different there won't be an apples-to-apples comparison), but keeping the same application and just changing the runtime (or the JVM) check the new energy consumption.
-
-Different off-the-shelf applications using different technologies are included to cover a spread spectrum of applications.
+It is not a goal to compare the energy consumption across different frameworks (since the code is different there won't be an apples-to-apples comparison), but keeping the same application and just changing the runtime (or the JVM) check the new energy consumption.
 
 ## Methodology
 
@@ -30,15 +29,9 @@ To measure energy consumption, Intel’s Running Average Power Limit (**RAPL**) 
 
 Since the **RAPL** reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
 
-While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option.
+While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option. 
 
-#### Load Test System Architecture
-
-The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
-
-[![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
-
-On **system under test** runs only the target JVM application. The command pattern used to start it that also reports at the end the energy stats rely on `perf`:
+The command pattern used to start the JVM application that also reports at the end the energy stats rely on `perf` (available only on Linux):
 
 ```
 $ perf stat -a \
@@ -50,6 +43,16 @@ $ perf stat -a \
    <application_runner_path>
 ```
 
+#### Load Test System Architecture
+
+For some applications (e.g., Spring Boot and Quarkus web-based) load test scenarios must be conducted to collect the energy consumption.
+
+The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
+
+[![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
+
+On **system under test** runs only the target JVM application. 
+
 On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
 
 The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
@@ -58,8 +61,8 @@ The network latency between the system under test and the system client test (i.
 
 In order to properly run the scripts you need to:
 - install `perf` on Linux
-- download and install any JDK (you could also use [sdkman](https://sdkman.io/install))
-- download and install [Hyperfoil](https://hyperfoil.io)
+- download and install any JDK distribution (please see below the list of the recommended ones)
+- download and install [Hyperfoil](https://hyperfoil.io) (i.e., a microservice-oriented distributed benchmark framework)
 
 ## OS Coverage
 
@@ -88,14 +91,29 @@ No. | JVM distribution
 
 ### Baseline Idle OS
 
-This set of measurements captures the idle power consumption, and it is used to remove the overhead of the hardware system:
+This set of measurements captures the idle power consumption, and it is used to understand (and remove) the overhead of the hardware system:
 
 ```
 $ cd /baseline-idle-os
 $ sudo ./run-baseline.sh
 ```
 
+### Java Samples
+
+This set of measurements relies on specific code patterns to identify what is the most friendly energy coding paradigm. It includes the most common patterns as:
+
+- logging patterns
+- memory access patterns
+- throwing exception patterns
+
+```
+$ cd /java-samples
+$ sudo ./run-samples.sh
+```
+
 ### Spring PetClinic Application
+
+This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic) and build the sources
 2. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
@@ -114,10 +132,9 @@ $ cd /spring-petclinic
 $ ./run-hyperfoil.sh
 ```
 
-**Notes**:
-- `sudo` mode is neededto start the application
-
 ### Renaissance Benchmark Suite
+
+This set of measurements uses the off-the-shelf Renaissance benchmark suite.
 
 1. Download the [Renaissance release](https://github.com/renaissance-benchmarks/renaissance/releases)
 2. Open the [run-benchmarks.sh](./renaissance/run-benchmarks.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`
@@ -128,11 +145,9 @@ $ cd /renaissance
 $ sudo ./run-benchmarks.sh
 ```
 
-**Notes**:
-- `sudo` mode is needed, otherwise the benchmarks will not be executed
-
 ### Quarkus Hibernate ORM Panache Quickstart
 
+This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache quickstart.
 
 1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts) and build the **hibernate-orm-panache-quickstart** sources
 2. Open the [run-application.sh](./quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the mandatory variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
@@ -157,10 +172,6 @@ $ sudo ./run-application.sh
 $ cd /quarkus-hibernate-orm-panache-quickstart
 $ sudo ./run-hyperfoil.sh
 ```
-
-**Notes**:
-- `sudo` mode is needed, otherwise the tests will not be executed
-
 
 # License
 
