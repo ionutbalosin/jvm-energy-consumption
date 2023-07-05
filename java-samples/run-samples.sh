@@ -46,7 +46,7 @@ check_command_line_options() {
   fi
 }
 
-configure_application() {
+configure_samples() {
   export APP_HOME=$(pwd)/src/main/java
   export JAVA_OPS="-Xms1m -Xmx6g"
   export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "JulLoggingPatterns")
@@ -131,7 +131,7 @@ echo ""
 echo "+==================================+"
 echo "| [3/5] Java samples configuration |"
 echo "+==================================+"
-configure_application
+configure_samples
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
