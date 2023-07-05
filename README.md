@@ -25,9 +25,18 @@ It is not a goal to compare the energy consumption across different frameworks (
 
 ## Methodology
 
-To measure energy consumption, Intel’s Running Average Power Limit (**RAPL**) interface is used. RAPL provides power-limiting features and accurate energy readings for several domains, like Package, Core, Uncore, and DRAM. For each supported power domain, a Machine Specific Register (MSR) filled with a 32-bit integer is exposed and updated at intervals of approximately 1 millisecond.
+To measure energy consumption, Intel’s Running Average Power Limit (**RAPL**) interface is used. 
+RAPL provides power-limiting features and accurate energy readings for several power domains. For each supported power domain, a Machine Specific Register (MSR) filled with a 32-bit integer is exposed and updated at intervals of approximately 1 millisecond.
+The RAPL power domains:
+- Package (PKG) domain measures the energy consumption of the entire socket. It includes the consumption of all the cores, integrated graphics and also the uncore components (last level caches, memory controller).
+- Power Plane 0 (PP0) domain measures the energy consumption of all processor cores on the socket.
+- Power Plane 1 (PP1) domain measures the energy consumption of processor graphics (GPU) on the socket (desktop models only).
+- DRAM domain measures the energy consumption of random access memory (RAM) attached to the integrated memory controller.
+- PSys domain introduced with Intel Skylake. It monitors and controls the thermal and power specifications of the entire SoC and it is useful especially when the source of the power consumption is neither the CPU nor the GPU. PSys includes the power consumption of the package domain, System Agent, PCH, eDRAM,and a few more domains on a single-socket SoC.
 
-Since the **RAPL** reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
+For multi-socket server systems, each socket reports its own RAPL values (for example, a two socket computing system has two separate PKG readings for both the packages, two separate PP0 readings, etc.).
+
+Since the RAPL reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
 
 While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option. 
 
