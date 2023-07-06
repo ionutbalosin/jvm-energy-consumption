@@ -36,10 +36,6 @@ The RAPL power domains:
 
 For multi-socket server systems, each socket reports its own RAPL values (for example, a two socket computing system has two separate PKG readings for both the packages, two separate PP0 readings, etc.).
 
-Since the RAPL reports the entire energy of a host machine, it is important to minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (without any explicit load) should be measured.
-
-While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option. 
-
 The command pattern used to start the JVM application that also reports at the end the energy stats rely on `perf` (available only on Linux):
 
 ```
@@ -52,9 +48,16 @@ $ perf stat -a \
    <application_runner_path>
 ```
 
+The unit of energy reported by RAPL is **Joule** (symbol: J).
+A **watt-second** (symbol W s or W⋅s) is a derived unit of energy equivalent to the Joule. The watt-second is the energy equivalent to the power of one watt sustained for one second. 
+While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the power consumption.
+
+The RAPL reports the total energy of a host machine (including any other running applications). Therefore, minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (i.e., in idle state) must be measured.
+
 #### Load Test System Architecture
 
-For some applications (e.g., Spring Boot and Quarkus web-based) load test scenarios must be conducted to collect the energy consumption.
+While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option.
+In this regard, load test scenarios must be conducted for some applications (e.g., Spring Boot and Quarkus web-based).
 
 The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
 
