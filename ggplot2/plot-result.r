@@ -46,7 +46,7 @@ plotBenchmarks <- function(output_folder, plot_title) {
   # delete all spaces from all column values
   data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
 
-  # rename Geometric Mean column
+  # rename "Geometric Mean (Watt second)" column
   colnames(data)[colnames(data) == "Geometric.Mean..Watt.second."] <- "Score"
 
   # add a new Unit column
@@ -58,8 +58,9 @@ plotBenchmarks <- function(output_folder, plot_title) {
     data$Test <- data$JVM
   }
 
-  # replace commas with dots for Score and Error columns
-  # Note: this is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
+  # convert to numeric the Score column
+  # in addition, convert commas with dots
+  # Note: this conversion is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
   # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
   data$Score <- as.numeric(gsub(",", ".", data$Score))
 
