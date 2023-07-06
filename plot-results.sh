@@ -63,7 +63,7 @@ set_environment_variables() {
   export SPRING_PETCLINIC_RESULTS="$(pwd)/spring-petclinic/results/$OS/$ARCH/jdk-$JDK_VERSION"
   export QUARKUS_HIBERNATE_ORM_PANACHE_RESULTS="$(pwd)/quarkus-hibernate-orm-panache-quickstart/results/$OS/$ARCH/jdk-$JDK_VERSION"
   export RENAISSANCE_RESULTS="$(pwd)/renaissance/results/$OS/$ARCH/jdk-$JDK_VERSION"
-  export LOGGING_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/JulLoggingPatterns"
+  export LOGGING_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/LoggingPatterns"
   export MEMORY_ACCESS_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/MemoryAccessPatterns"
   export THROW_EXCEPTION_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/ThrowExceptionPatterns"
 

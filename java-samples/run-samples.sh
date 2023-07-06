@@ -49,7 +49,7 @@ check_command_line_options() {
 configure_samples() {
   export APP_HOME=$(pwd)/src/main/java
   export JAVA_OPS="-Xms1m -Xmx6g"
-  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "JulLoggingPatterns")
+  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns")
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -159,13 +159,13 @@ start_sample "MemoryAccessPatterns" "linear" "linear"
 start_sample "MemoryAccessPatterns" "random_page" "random_page"
 start_sample "MemoryAccessPatterns" "random_heap" "random_heap"
 
-start_sample "JulLoggingPatterns" "string_format" "string_format"
-start_sample "JulLoggingPatterns" "lambda_heap" "lambda_heap"
-start_sample "JulLoggingPatterns" "lambda_local" "lambda_local"
-start_sample "JulLoggingPatterns" "guarded_parametrized" "guarded_parametrized"
-start_sample "JulLoggingPatterns" "guarded_unparametrized" "guarded_unparametrized"
-start_sample "JulLoggingPatterns" "unguarded_parametrized" "unguarded_parametrized"
-start_sample "JulLoggingPatterns" "unguarded_unparametrized" "unguarded_unparametrized"
+start_sample "LoggingPatterns" "string_format" "string_format"
+start_sample "LoggingPatterns" "lambda_heap" "lambda_heap"
+start_sample "LoggingPatterns" "lambda_local" "lambda_local"
+start_sample "LoggingPatterns" "guarded_parametrized" "guarded_parametrized"
+start_sample "LoggingPatterns" "guarded_unparametrized" "guarded_unparametrized"
+start_sample "LoggingPatterns" "unguarded_parametrized" "unguarded_parametrized"
+start_sample "LoggingPatterns" "unguarded_unparametrized" "unguarded_unparametrized"
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

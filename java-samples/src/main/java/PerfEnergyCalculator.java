@@ -60,7 +60,7 @@ public class PerfEnergyCalculator {
 
     private static final Application OS_BASELINE = new Application("baseline-idle-os");
     private static final List<Application> OFF_THE_SHELF_APPLICATIONS = List.of(new Application("spring-petclinic", "openjdk-hotspot-vm"), new Application("quarkus-hibernate-orm-panache-quickstart", "openjdk-hotspot-vm"), new Application("renaissance", "openjdk-hotspot-vm"));
-    private static final List<Application> JAVA_SAMPLES = List.of(new Application("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"), new Application("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"), new Application("JulLoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
+    private static final List<Application> JAVA_SAMPLES = List.of(new Application("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"), new Application("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"), new Application("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
 
     public static void main(String[] args) throws IOException {
         calculateEnergy(new OsBaselineEnergyReport(OS_BASELINE));
