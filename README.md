@@ -186,6 +186,14 @@ $ sudo ./run-benchmarks.sh
 
 # License
 
+### Generate the plots
+
+```
+./plot-results.sh
+```
+
+The plots are saved under `results/$OS/$ARCH/jdk-$JDK_VERSION/plot` directory.
+
 Please see the [LICENSE](LICENSE) file for full license.
 
 ```
