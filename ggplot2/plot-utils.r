@@ -28,8 +28,8 @@
 source("./ggplot2/utils.r")
 
 # Generate the plot (i.e., bar chart plot)
-generateJmhBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
-  plot <- ggplot(data, aes(x = Test, y = Score, fill = data[, fill]))
+generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
+  plot <- ggplot(data, aes(x = Type, y = Score, fill = data[, fill]))
   plot <- plot + geom_bar(stat = "identity", color = NA, position = "dodge", width = .7)
   plot <- plot + geom_text(aes(label = Score), color = "black", hjust = -0.05, position = position_dodge(.7), size = 4)
   plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title)
@@ -55,7 +55,7 @@ generateJmhBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, col
 }
 
 # Generate and save the plot to a SVG output file
-saveJmhBarPlot <- function(data, plot, path, file_basename) {
+saveBarPlot <- function(data, plot, path, file_basename) {
   if (!empty(data)) {
     # set the height proportional to the number of rows plus 4 cm (as a minimum)
     # TODO: may be this could be replaced by another formula
