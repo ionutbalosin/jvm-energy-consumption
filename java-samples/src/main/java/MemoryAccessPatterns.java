@@ -66,8 +66,8 @@ public class MemoryAccessPatterns {
         for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             long result = instance.memory_access();
             // validate the test results
-            if (result != 268435456L) {
-                throw new AssertionError();
+            if (268435456L != result) {
+                throw new AssertionError(String.format("Expected = 268435456L, found = %s", result));
             }
         }
 

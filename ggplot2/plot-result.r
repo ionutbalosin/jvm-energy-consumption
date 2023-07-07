@@ -30,66 +30,7 @@ source("./ggplot2/plot-utils.r")
 # retrieve command line arguments in a very specific order
 args <- commandArgs(TRUE)
 spring_petclinic_output_folder <- args[1]
-quarkus_hibernate_orm_panache_outp
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ut_folder <- args[2]
+quarkus_hibernate_orm_panache_output_folder <- args[2]
 renaissance_output_folder <- args[3]
 logging_patterns_output_folder <- args[4]
 memory_access_patterns_output_folder <- args[5]
@@ -144,5 +85,5 @@ plotBenchmarks(spring_petclinic_output_folder, "Spring PetClinic")
 plotBenchmarks(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
 plotBenchmarks(renaissance_output_folder, "Renaissance")
 plotBenchmarks(logging_patterns_output_folder, "Logging Patterns")
-plotBenchmarks(memory_access_patterns_output_folder, "Memory_Access Patterns")
+plotBenchmarks(memory_access_patterns_output_folder, "Memory Access Patterns")
 plotBenchmarks(throw_exception_patterns_output_folder, "Throw Exception Patterns")

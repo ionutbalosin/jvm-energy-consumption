@@ -72,8 +72,8 @@ public class LoggingPatterns {
         for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             instance.julLogger.log();
             // validate the test results
-            if (instance.anInt != counter + 1) {
-                throw new AssertionError();
+            if (counter + 1 != instance.anInt) {
+                throw new AssertionError(String.format("Expected = %s, found = %s", counter + 1, instance.anInt));
             }
         }
 

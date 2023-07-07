@@ -57,18 +57,18 @@ public class ThrowExceptionPatterns {
         long result = 0;
         for (int counter = 0; counter < instance.ITERATIONS; counter++) {
             try {
-                // "STACK_DEPTH - 2" because there are already 2 frames on the stack while calling the method
-                instance.exceptionThrower.throw_exception(instance.STACK_DEPTH - 2);
+                instance.exceptionThrower.throw_exception(instance.STACK_DEPTH);
             } catch (Exception exc) {
                 // validate the test results
-                if ("const".equals(args[0]) && exc.getStackTrace().length != instance.CONSTANT_STACK_TRACES) {
-                    throw new AssertionError();
+                if ("const".equals(args[0]) && instance.CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
+                    throw new AssertionError(String.format("Expected = %s, found = %s", instance.CONSTANT_STACK_TRACES, exc.getStackTrace().length));
                 }
-                if (("lambda".equals(args[0]) || "new".equals(args[0])) && exc.getStackTrace().length != instance.STACK_DEPTH) {
-                    throw new AssertionError();
+                if (("lambda".equals(args[0]) || "new".equals(args[0])) && instance.STACK_DEPTH > exc.getStackTrace().length) {
+                    // Note: it depends on the JVM, but the number of generated frames should be (always) greater than STACK_DEPTH (+ eventually 1/2 frames more)
+                    throw new AssertionError(String.format("Expected at least = %s, found = %s", instance.STACK_DEPTH, exc.getStackTrace().length));
                 }
-                if ("override_fist".equals(args[0]) && exc.getStackTrace().length != 0) {
-                    throw new AssertionError();
+                if ("override_fist".equals(args[0]) && 0 != exc.getStackTrace().length) {
+                    throw new AssertionError(String.format("Expected = 0, found = %s", exc.getStackTrace().length));
                 }
                 // increment the overall number of generated stack trace elements
                 result += exc.getStackTrace().length;

@@ -1,0 +1,46 @@
+2023-07-07T08:10:05.385+0200: 16,249: Detected TTSP issue, wait: 31743,772 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 3727 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000f
+lock_release: 47,993 last_cpu: 3 cpu_time: 46109
+  0 0x00007f032fe282f0 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007f032fb0f198 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x000000003000baf2 StubRoutines::safepoint_interpreter_handler
+  3 0x0000000033e02325 interpreter
+  4 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 47,254 signal_responded: 47,254 state: R wchan: 0 last_cpu: 3 cpu_time: 45371
+  0 0x0000000030043589 MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 42,253 signal_responded: 42,253 state: R wchan: 0 last_cpu: 3 cpu_time: 40370
+  0 0x0000000030043595 MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 37,253 signal_responded: 37,253 state: R wchan: 0 last_cpu: 3 cpu_time: 35369
+  0 0x0000000030043595 MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 32,252 signal_responded: 32,252 state: R wchan: 0 last_cpu: 3 cpu_time: 30368
+  0 0x00000000300435ad MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 27,252 signal_responded: 27,252 state: R wchan: 0 last_cpu: 3 cpu_time: 25368
+  0 0x0000000030043595 MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 22,251 signal_responded: 22,251 state: R wchan: 0 last_cpu: 3 cpu_time: 20367
+  0 0x00000000300435c4 MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+signal_sent: 17,250 signal_responded: 17,250 state: R wchan: 0 last_cpu: 3 cpu_time: 15367
+  0 0x00000000300435de MemoryAccessPatterns.initialize(Ljava/lang/String;)V
+  1 0x0000000033e0e7fe interpreter
+  2 0x000000003000d4cb StubRoutines::call_stub
+
+Memory access type = MemoryAccessPatterns$LinearWalk, number of iterations = 10
