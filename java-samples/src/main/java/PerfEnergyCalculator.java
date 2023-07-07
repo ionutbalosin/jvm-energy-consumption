@@ -223,9 +223,9 @@ public class PerfEnergyCalculator {
         @Override
         void createReport(List<PerfStats> stats, String outputFilePath) throws IOException {
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-                writer.printf("%18s;%33s;%13s\n", "Test", "Geometric Mean (Watt second)", "Samples");
+                writer.printf("%18s;%30s;%9s\n", "Test", "Geometric Mean (Watt second)", "Samples");
                 double geometricMean = geometricMean(stats);
-                writer.printf("%18s;%33.3f;%13d\n", stats.get(0).jvmIdentifier, geometricMean, stats.size());
+                writer.printf("%18s;%30.3f;%9d\n", stats.get(0).jvmIdentifier, geometricMean, stats.size());
             }
 
             System.out.printf("Energy report %s was successfully created\n", outputFilePath);
@@ -249,10 +249,10 @@ public class PerfEnergyCalculator {
             double refGeometricMean = geometricMean(statsByJvmName.get(application.refGeometricMean));
 
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-                writer.printf("%18s;%33s;%26s;%13s\n", "JVM", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
+                writer.printf("%18s;%30s;%27s;%9s\n", "JVM", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
                 for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
                     double geometricMean = geometricMean(pair.getValue());
-                    writer.printf("%18s;%33.3f;%26.3f;%13d\n", pair.getKey(), geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
+                    writer.printf("%18s;%30.3f;%27.3f;%9d\n", pair.getKey(), geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
                 }
                 writer.printf("\n# Note: The reference value '%s' was considered for the normalized geometric mean", application.refGeometricMean);
             }
@@ -278,10 +278,10 @@ public class PerfEnergyCalculator {
             double refGeometricMean = geometricMean(statsByJvmNameAndType.get(application.refGeometricMean));
 
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-                writer.printf("%18s;%26s;%33s;%26s;%13s\n", "JVM", "Test", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
+                writer.printf("%18s;%26s;%30s;%27s;%9s\n", "JVM", "Test", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
                 for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
                     double geometricMean = geometricMean(pair.getValue());
-                    writer.printf("%18s;%26s;%33.3f;%26.3f;%13d\n", pair.getValue().get(0).jvmIdentifier, pair.getValue().get(0).testRunArgs, geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
+                    writer.printf("%18s;%26s;%30.3f;%27.3f;%9d\n", pair.getValue().get(0).jvmIdentifier, pair.getValue().get(0).testRunArgs, geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
                 }
                 writer.printf("\n# Note: The reference value '%s' was considered for the normalized geometric mean", application.refGeometricMean);
             }

@@ -1,27 +1,27 @@
-               JVM;                      Test;     Geometric Mean (Watt second); Normalized Geometric Mean
-     azul-prime-vm;                     const;                           72.730;                     0.610
-     azul-prime-vm;                    lambda;                          566.994;                     4.757
-     azul-prime-vm;                       new;                          562.506;                     4.720
-     azul-prime-vm;             override_fist;                           72.723;                     0.610
- eclipse-openj9-vm;                     const;                           63.211;                     0.530
- eclipse-openj9-vm;                    lambda;                          664.192;                     5.573
- eclipse-openj9-vm;                       new;                          661.228;                     5.548
- eclipse-openj9-vm;             override_fist;                           60.077;                     0.504
-        graalvm-ce;                     const;                           48.907;                     0.410
-        graalvm-ce;                    lambda;                          438.184;                     3.677
-        graalvm-ce;                       new;                          443.464;                     3.721
-        graalvm-ce;             override_fist;                           48.515;                     0.407
-        graalvm-ee;                     const;                          249.781;                     2.096
-        graalvm-ee;                    lambda;                          433.264;                     3.635
-        graalvm-ee;                       new;                          433.576;                     3.638
-        graalvm-ee;             override_fist;                           43.122;                     0.362
-      native-image;                     const;                           23.660;                     0.199
-      native-image;                    lambda;                           91.049;                     0.764
-      native-image;                       new;                          111.452;                     0.935
-      native-image;             override_fist;                            7.049;                     0.059
-openjdk-hotspot-vm;                     const;                          126.969;                     1.065
-openjdk-hotspot-vm;                    lambda;                          517.223;                     4.340
-openjdk-hotspot-vm;                       new;                          514.754;                     4.319
-openjdk-hotspot-vm;             override_fist;                          119.180;                     1.000
+               JVM;                      Test;  Geometric Mean (Watt second);  Normalized Geometric Mean;  Samples
+     azul-prime-vm;                     const;                        72.730;                      0.610;        5
+     azul-prime-vm;                    lambda;                       566.994;                      4.757;        5
+     azul-prime-vm;                       new;                       562.506;                      4.720;        5
+     azul-prime-vm;             override_fist;                        72.723;                      0.610;        5
+ eclipse-openj9-vm;                     const;                        63.211;                      0.530;        5
+ eclipse-openj9-vm;                    lambda;                       664.192;                      5.573;        5
+ eclipse-openj9-vm;                       new;                       661.228;                      5.548;        5
+ eclipse-openj9-vm;             override_fist;                        60.077;                      0.504;        5
+        graalvm-ce;                     const;                        48.907;                      0.410;        5
+        graalvm-ce;                    lambda;                       438.184;                      3.677;        5
+        graalvm-ce;                       new;                       443.464;                      3.721;        5
+        graalvm-ce;             override_fist;                        48.515;                      0.407;        5
+        graalvm-ee;                     const;                       249.781;                      2.096;        5
+        graalvm-ee;                    lambda;                       433.264;                      3.635;        5
+        graalvm-ee;                       new;                       433.576;                      3.638;        5
+        graalvm-ee;             override_fist;                        43.122;                      0.362;        5
+      native-image;                     const;                        23.660;                      0.199;        5
+      native-image;                    lambda;                        91.049;                      0.764;        5
+      native-image;                       new;                       111.452;                      0.935;        5
+      native-image;             override_fist;                         7.049;                      0.059;        5
+openjdk-hotspot-vm;                     const;                       126.969;                      1.065;        5
+openjdk-hotspot-vm;                    lambda;                       517.223;                      4.340;        5
+openjdk-hotspot-vm;                       new;                       514.754;                      4.319;        5
+openjdk-hotspot-vm;             override_fist;                       119.180;                      1.000;        5
 
 # Note: The reference value 'openjdk-hotspot-vm-override_fist' was considered for the normalized geometric mean
