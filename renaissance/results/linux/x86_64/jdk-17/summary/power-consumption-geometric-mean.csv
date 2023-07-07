@@ -1,0 +1,8 @@
+               JVM;  Geometric Mean (Watt second);  Normalized Geometric Mean;  Samples
+     azul-prime-vm;                     14406.612;                      0.878;        4
+ eclipse-openj9-vm;                     18956.378;                      1.156;        4
+        graalvm-ce;                     14581.726;                      0.889;        4
+        graalvm-ee;                     11479.355;                      0.700;        4
+openjdk-hotspot-vm;                     16400.378;                      1.000;        4
+
+# Note: The reference value 'openjdk-hotspot-vm' was considered for the normalized geometric mean

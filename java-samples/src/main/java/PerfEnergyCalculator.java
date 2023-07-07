@@ -52,14 +52,14 @@ import static java.util.stream.Collectors.toList;
 public class PerfEnergyCalculator {
 
     private static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-    private static final String OUTPUT_FOLDER = "summary";
-    private static final String GEOMETRIC_MEAN_OUTPUT_FILE = "power-consumption.csv";
-    private static final String PERF_STATS_OUTPUT_FILE = "power-consumption-perf-stats.csv";
+    private static final String OUTPUT_FOLDER = "power-consumption";
+    private static final String GEOMETRIC_MEAN_OUTPUT_FILE = "geometric-mean.csv";
+    private static final String PERF_STATS_OUTPUT_FILE = "perf-stats.csv";
     private static final String OS = "linux";
     private static final String ARCH = "x86_64";
     private static final String JDK_VERSION = "17";
 
-    private static final Application OS_BASELINE = new Application("baseline-idle-os");
+    private static final Application OS_BASELINE = new Application("baseline-idle-os", "baseline-idle-os");
     private static final List<Application> OFF_THE_SHELF_APPLICATIONS = List.of(new Application("spring-petclinic", "openjdk-hotspot-vm"), new Application("quarkus-hibernate-orm-panache-quickstart", "openjdk-hotspot-vm"), new Application("renaissance", "openjdk-hotspot-vm"));
     private static final List<Application> JAVA_SAMPLES = List.of(new Application("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"), new Application("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"), new Application("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
 
@@ -80,15 +80,16 @@ public class PerfEnergyCalculator {
 
         String perfStatsPath = energyReport.getPerfStatsPath();
         List<PerfStats> perfStats = readFiles(perfStatsPath);
+        energyReport.setPerfStats(perfStats);
 
         String outputPath = new File(perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
         Files.createDirectories(Paths.get(outputPath));
 
         String perfStatsOutputFile = outputPath + "/" + PERF_STATS_OUTPUT_FILE;
-        energyReport.createPerfStatsReport(perfStats, perfStatsOutputFile);
+        energyReport.createPerfStatsReport(perfStatsOutputFile);
 
         String geometricMeanOutputFile = outputPath + "/" + GEOMETRIC_MEAN_OUTPUT_FILE;
-        energyReport.createGeometricMeanReport(perfStats, geometricMeanOutputFile);
+        energyReport.createGeometricMeanReport(geometricMeanOutputFile);
 
         System.out.println();
     }
@@ -203,51 +204,19 @@ public class PerfEnergyCalculator {
 
     static abstract class EnergyReportCreator {
         Application application;
+        Map<String, List<PerfStats>> perfStats;
 
         public EnergyReportCreator(Application application) {
             this.application = application;
         }
 
+        abstract void  setPerfStats(List<PerfStats> perfStats);
+
         abstract String getPerfStatsPath();
 
-        abstract void createPerfStatsReport(List<PerfStats> perfStats, String outputFilePath) throws IOException;
+        abstract void createPerfStatsReport(String outputFilePath) throws IOException;
 
-        abstract void createGeometricMeanReport(List<PerfStats> perfStats, String outputFilePath) throws IOException;
-    }
-
-    static class OsBaselineEnergyReport extends EnergyReportCreator {
-        public OsBaselineEnergyReport(Application application) {
-            super(application);
-        }
-
-        @Override
-        String getPerfStatsPath() {
-            // Note: this is a specific path format for this application type.
-            return String.format("%s/%s/results/%s/%s/perf", BASE_PATH, application.name, OS, ARCH);
-        }
-
-        @Override
-        void createGeometricMeanReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
-            try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-                writer.printf("%18s;%30s;%9s\n", "Test Type", "Geometric Mean (Watt second)", "Samples");
-                double geometricMean = geometricMean(perfStats);
-                writer.printf("%18s;%30.3f;%9d\n", perfStats.get(0).jvmIdentifier, geometricMean, perfStats.size());
-            }
-
-            System.out.printf("Geometric mean report %s was successfully created\n", outputFilePath);
-        }
-
-        @Override
-        void createPerfStatsReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
-            try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-                writer.printf("%18s;%16s;%30s;%26s;%19s\n", "Test", "Run Identifier", "Energy package (Watt second)", "Energy RAM (Watt second)", "Elapsed (seconds)");
-                for (PerfStats perfStat : perfStats) {
-                    writer.printf("%18s;%16s;%30.3f;%26.3f;%19.3f\n", perfStat.jvmIdentifier, perfStat.testRunIdentifier, perfStat.pkg, perfStat.ram, perfStat.elapsed);
-                }
-            }
-
-            System.out.printf("Perf stats report %s was successfully created\n", outputFilePath);
-        }
+        abstract void createGeometricMeanReport(String outputFilePath) throws IOException;
     }
 
     static class OffTheShelfApplicationEnergyReport extends EnergyReportCreator {
@@ -262,13 +231,17 @@ public class PerfEnergyCalculator {
         }
 
         @Override
-        void createGeometricMeanReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
-            Map<String, List<PerfStats>> statsByJvmName = perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier, TreeMap::new, mapping(identity(), toList())));
-            double refGeometricMean = geometricMean(statsByJvmName.get(application.refGeometricMean));
+        void setPerfStats(List<PerfStats> perfStats) {
+            this.perfStats = perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier, TreeMap::new, mapping(identity(), toList())));
+        }
+
+        @Override
+        void createGeometricMeanReport(String outputFilePath) throws IOException {
+            double refGeometricMean = geometricMean(perfStats.get(application.refGeometricMean));
 
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
                 writer.printf("%18s;%30s;%27s;%9s\n", "JVM", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
-                for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
+                for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
                     double geometricMean = geometricMean(pair.getValue());
                     writer.printf("%18s;%30.3f;%27.3f;%9d\n", pair.getKey(), geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
                 }
@@ -279,12 +252,11 @@ public class PerfEnergyCalculator {
         }
 
         @Override
-        void createPerfStatsReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
+        void createPerfStatsReport(String outputFilePath) throws IOException {
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
                 writer.printf("%18s;%16s;%30s;%26s;%19s\n", "JVM", "Run Identifier", "Energy package (Watt second)", "Energy RAM (Watt second)", "Elapsed (seconds)");
 
-                Map<String, List<PerfStats>> statsByJvmName = perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier, TreeMap::new, mapping(identity(), toList())));
-                for (Map.Entry<String, List<PerfStats>> pair : statsByJvmName.entrySet()) {
+                for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
                     for (PerfStats perfStat : pair.getValue()) {
                         writer.printf("%18s;%16s;%30.3f;%26.3f;%19.3f\n", perfStat.jvmIdentifier, perfStat.testRunIdentifier, perfStat.pkg, perfStat.ram, perfStat.elapsed);
                     }
@@ -292,6 +264,18 @@ public class PerfEnergyCalculator {
             }
 
             System.out.printf("Perf stats report %s was successfully created\n", outputFilePath);
+        }
+    }
+
+    static class OsBaselineEnergyReport extends OffTheShelfApplicationEnergyReport {
+        public OsBaselineEnergyReport(Application application) {
+            super(application);
+        }
+
+        @Override
+        String getPerfStatsPath() {
+            // Note: this is a specific path format for this application type.
+            return String.format("%s/%s/results/%s/%s/perf", BASE_PATH, application.name, OS, ARCH);
         }
     }
 
@@ -307,13 +291,17 @@ public class PerfEnergyCalculator {
         }
 
         @Override
-        void createGeometricMeanReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
-            Map<String, List<PerfStats>> statsByJvmNameAndType = perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
-            double refGeometricMean = geometricMean(statsByJvmNameAndType.get(application.refGeometricMean));
+        void setPerfStats(List<PerfStats> perfStats) {
+            this.perfStats =  perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
+        }
+
+        @Override
+        void createGeometricMeanReport(String outputFilePath) throws IOException {
+            double refGeometricMean = geometricMean(perfStats.get(application.refGeometricMean));
 
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
                 writer.printf("%18s;%26s;%30s;%27s;%9s\n", "JVM", "Test Type", "Geometric Mean (Watt second)", "Normalized Geometric Mean", "Samples");
-                for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
+                for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
                     double geometricMean = geometricMean(pair.getValue());
                     writer.printf("%18s;%26s;%30.3f;%27.3f;%9d\n", pair.getValue().get(0).jvmIdentifier, pair.getValue().get(0).testType, geometricMean, geometricMean / refGeometricMean, pair.getValue().size());
                 }
@@ -324,12 +312,11 @@ public class PerfEnergyCalculator {
         }
 
         @Override
-        void createPerfStatsReport(List<PerfStats> perfStats, String outputFilePath) throws IOException {
+        void createPerfStatsReport(String outputFilePath) throws IOException {
             try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
                 writer.printf("%18s;%26s;%16s;%30s;%26s;%19s\n", "JVM", "Test Type", "Run Identifier", "Energy package (Watt second)", "Energy RAM (Watt second)", "Elapsed (seconds)");
 
-                Map<String, List<PerfStats>> statsByJvmNameAndType = perfStats.stream().collect(groupingBy(perfStat -> perfStat.jvmIdentifier + "-" + perfStat.testType, TreeMap::new, mapping(identity(), toList())));
-                for (Map.Entry<String, List<PerfStats>> pair : statsByJvmNameAndType.entrySet()) {
+                for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
                     for (PerfStats perfStat : pair.getValue()) {
                         writer.printf("%18s;%26s;%16s;%30.3f;%26.3f;%19.3f\n", perfStat.jvmIdentifier, perfStat.testType, perfStat.testRunIdentifier, perfStat.pkg, perfStat.ram, perfStat.elapsed);
                     }
