@@ -1,4 +1,4 @@
-               JVM;                      Test;  Geometric Mean (Watt second);  Normalized Geometric Mean;  Samples
+               JVM;                 Test Type;  Geometric Mean (Watt second);  Normalized Geometric Mean;  Samples
      azul-prime-vm;      guarded_parametrized;                       338.114;                      2.198;        5
      azul-prime-vm;    guarded_unparametrized;                       204.765;                      1.331;        5
      azul-prime-vm;               lambda_heap;                       250.304;                      1.627;        5

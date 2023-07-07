@@ -90,24 +90,23 @@ build_samples() {
 
 start_sample() {
   sample_name="$1"
-  sample_run_args="$2"
-  sample_run_identifier="$3"
+  sample_test_type="$2"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_run_args"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_test_type"
   else
-    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_run_args"
+    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_test_type"
   fi
 
-  echo "Starting $sample_name ($sample_run_args) at: $(date) ... "
+  echo "Starting $sample_name ($sample_test_type) at: $(date) ... "
   sudo perf stat -a \
     -e "power/energy-cores/" \
     -e "power/energy-gpu/" \
     -e "power/energy-pkg/" \
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD >  $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_run_identifier-$TEST_RUN_IDENTIFIER.log 2>&1
+    -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.stats \
+    $RUN_CMD >  $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
 check_command_line_options "$@"
@@ -150,22 +149,22 @@ echo ""
 echo "+==============================+"
 echo "| [5/5] Start the Java samples |"
 echo "+==============================+"
-start_sample "ThrowExceptionPatterns" "const" "const"
-start_sample "ThrowExceptionPatterns" "lambda" "lambda"
-start_sample "ThrowExceptionPatterns" "new" "new"
-start_sample "ThrowExceptionPatterns" "override_fist" "override_fist"
+start_sample "ThrowExceptionPatterns" "const"
+start_sample "ThrowExceptionPatterns" "lambda"
+start_sample "ThrowExceptionPatterns" "new"
+start_sample "ThrowExceptionPatterns" "override_fist"
 
-start_sample "MemoryAccessPatterns" "linear" "linear"
-start_sample "MemoryAccessPatterns" "random_page" "random_page"
-start_sample "MemoryAccessPatterns" "random_heap" "random_heap"
+start_sample "MemoryAccessPatterns" "linear"
+start_sample "MemoryAccessPatterns" "random_page"
+start_sample "MemoryAccessPatterns" "random_heap"
 
-start_sample "LoggingPatterns" "string_format" "string_format"
-start_sample "LoggingPatterns" "lambda_heap" "lambda_heap"
-start_sample "LoggingPatterns" "lambda_local" "lambda_local"
-start_sample "LoggingPatterns" "guarded_parametrized" "guarded_parametrized"
-start_sample "LoggingPatterns" "guarded_unparametrized" "guarded_unparametrized"
-start_sample "LoggingPatterns" "unguarded_parametrized" "unguarded_parametrized"
-start_sample "LoggingPatterns" "unguarded_unparametrized" "unguarded_unparametrized"
+start_sample "LoggingPatterns" "string_format"
+start_sample "LoggingPatterns" "lambda_heap"
+start_sample "LoggingPatterns" "lambda_local"
+start_sample "LoggingPatterns" "guarded_parametrized"
+start_sample "LoggingPatterns" "guarded_unparametrized"
+start_sample "LoggingPatterns" "unguarded_parametrized"
+start_sample "LoggingPatterns" "unguarded_unparametrized"
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
