@@ -31,17 +31,15 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 
-import com.ionutbalosin.jvm.energy.consumption.Application;
-
 public class OffTheShelfApplicationsReport extends BaselineReport {
-  public OffTheShelfApplicationsReport(Application application) {
-    super(application);
+  public OffTheShelfApplicationsReport(String category, String refGeometricMean) {
+    super(category, refGeometricMean);
   }
 
   @Override
   public String getPerfStatsPath() {
     // Note: this is a specific path format for this application type.
     return String.format(
-        "%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, application.name, OS, ARCH, JDK_VERSION);
+        "%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, category, OS, ARCH, JDK_VERSION);
   }
 }

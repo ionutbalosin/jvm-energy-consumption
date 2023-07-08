@@ -28,7 +28,6 @@ package com.ionutbalosin.jvm.energy.consumption.rapl.report;
 
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.Application;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Parser;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
@@ -46,38 +45,30 @@ public class EnergyReportCalculator {
   public static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
   public static final String OUTPUT_FOLDER = "power-consumption";
   public static final String MEAN_OUTPUT_FILE = "power-reports.csv";
-  public static final String PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
+  public static final String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
   public static final String OS = "linux";
   public static final String ARCH = "x86_64";
   public static final String JDK_VERSION = "17";
 
-  private static final Application BASELINE_IDLE_OS =
-      new Application("baseline-idle-os", "baseline-idle-os");
-  private static final List<Application> OFF_THE_SHELF_APPLICATIONS =
+  private static final List<AbstractReport> REPORTS =
       List.of(
-          new Application("spring-petclinic", "openjdk-hotspot-vm"),
-          new Application("quarkus-hibernate-orm-panache-quickstart", "openjdk-hotspot-vm"),
-          new Application("renaissance", "openjdk-hotspot-vm"));
-  private static final List<Application> JAVA_SAMPLES =
-      List.of(
-          new Application("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"),
-          new Application("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"),
-          new Application("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
+          new BaselineReport("baseline-idle-os", "baseline-idle-os"),
+          new OffTheShelfApplicationsReport("spring-petclinic", "openjdk-hotspot-vm"),
+          new OffTheShelfApplicationsReport(
+              "quarkus-hibernate-orm-panache-quickstart", "openjdk-hotspot-vm"),
+          new OffTheShelfApplicationsReport("renaissance", "openjdk-hotspot-vm"),
+          new JavaSamplesReport("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"),
+          new JavaSamplesReport("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"),
+          new JavaSamplesReport("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
 
   public static void main(String[] args) throws IOException {
-    calculateEnergy(new BaselineReport(BASELINE_IDLE_OS));
-
-    for (Application application : OFF_THE_SHELF_APPLICATIONS) {
-      calculateEnergy(new OffTheShelfApplicationsReport(application));
-    }
-
-    for (Application application : JAVA_SAMPLES) {
-      calculateEnergy(new JavaSamplesReport(application));
+    for (AbstractReport report : REPORTS) {
+      calculateEnergy(report);
     }
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
-    System.out.printf("Calculate energy for '%s'\n", energyReport.application.name);
+    System.out.printf("Calculate energy for '%s'\n", energyReport.category);
 
     String perfStatsPath = energyReport.getPerfStatsPath();
     List<Stats> perfStats = readFiles(perfStatsPath);
@@ -86,7 +77,7 @@ public class EnergyReportCalculator {
     String outputPath = new File(perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
-    String perfStatsOutputFile = outputPath + "/" + PERF_STATS_OUTPUT_FILE;
+    String perfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
     energyReport.createRawPerfStatsReport(perfStatsOutputFile);
 
     String geometricMeanOutputFile = outputPath + "/" + MEAN_OUTPUT_FILE;

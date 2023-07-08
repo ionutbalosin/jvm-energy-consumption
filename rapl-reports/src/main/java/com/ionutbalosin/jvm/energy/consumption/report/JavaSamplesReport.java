@@ -40,7 +40,6 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.Application;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,16 +49,16 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
-  public JavaSamplesReport(Application application) {
-    super(application);
+
+  public JavaSamplesReport(String category, String refGeometricMean) {
+    super(category, refGeometricMean);
   }
 
   @Override
   public String getPerfStatsPath() {
     // Note: this is a specific path format for this application type.
     return String.format(
-        "%s/java-samples/results/%s/%s/jdk-%s/%s/perf",
-        BASE_PATH, OS, ARCH, JDK_VERSION, application.name);
+        "%s/java-samples/results/%s/%s/jdk-%s/%s/perf", BASE_PATH, OS, ARCH, JDK_VERSION, category);
   }
 
   @Override
@@ -75,7 +74,7 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void createMeanReport(String outputFilePath) throws IOException {
-    double refGeometricMean = getGeometricMean(perfStats.get(application.refGeometricMean));
+    double refGeometricMean = getGeometricMean(perfStats.get(this.refGeometricMean));
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
@@ -103,7 +102,7 @@ public class JavaSamplesReport extends AbstractReport {
       }
       writer.printf(
           "\n# Note: The reference value '%s' was considered for the normalized geometric mean",
-          application.refGeometricMean);
+          this.refGeometricMean);
     }
 
     System.out.printf("Geometric mean report %s was successfully created\n", outputFilePath);

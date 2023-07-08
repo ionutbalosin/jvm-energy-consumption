@@ -26,18 +26,20 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import com.ionutbalosin.jvm.energy.consumption.Application;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractReport {
-  public Application application;
+
+  public String category;
+  public String refGeometricMean;
   public Map<String, List<Stats>> perfStats;
 
-  public AbstractReport(Application application) {
-    this.application = application;
+  public AbstractReport(String category, String refGeometricMean) {
+    this.category = category;
+    this.refGeometricMean = refGeometricMean;
   }
 
   public abstract void setPerfStats(List<Stats> perfStats);
