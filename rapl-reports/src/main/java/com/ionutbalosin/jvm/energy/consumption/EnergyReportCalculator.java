@@ -28,8 +28,6 @@ package com.ionutbalosin.jvm.energy.consumption.rapl.report;
 
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.WattEnergyFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formula.WattSecEnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Parser;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
@@ -54,23 +52,13 @@ public class EnergyReportCalculator {
 
   private static final List<AbstractReport> REPORTS =
       List.of(
-          new BaselineReport("baseline-idle-os", new WattEnergyFormulas()),
-          new OffTheShelfApplicationsReport(
-              "spring-petclinic", "openjdk-hotspot-vm", new WattSecEnergyFormulas()),
-          new OffTheShelfApplicationsReport(
-              "quarkus-hibernate-orm-panache-quickstart",
-              "openjdk-hotspot-vm",
-              new WattSecEnergyFormulas()),
-          new OffTheShelfApplicationsReport(
-              "renaissance", "openjdk-hotspot-vm", new WattSecEnergyFormulas()),
-          new JavaSamplesReport(
-              "ThrowExceptionPatterns",
-              "openjdk-hotspot-vm-override_fist",
-              new WattSecEnergyFormulas()),
-          new JavaSamplesReport(
-              "MemoryAccessPatterns", "openjdk-hotspot-vm-linear", new WattSecEnergyFormulas()),
-          new JavaSamplesReport(
-              "LoggingPatterns", "openjdk-hotspot-vm-lambda_heap", new WattSecEnergyFormulas()));
+          new BaselineReport("baseline-idle-os"),
+          new OffTheShelfApplicationsReport("spring-petclinic"),
+          new OffTheShelfApplicationsReport("quarkus-hibernate-orm-panache-quickstart"),
+          new OffTheShelfApplicationsReport("renaissance"),
+          new JavaSamplesReport("ThrowExceptionPatterns"),
+          new JavaSamplesReport("MemoryAccessPatterns"),
+          new JavaSamplesReport("LoggingPatterns"));
 
   public static void main(String[] args) throws IOException {
     for (AbstractReport report : REPORTS) {

@@ -36,7 +36,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formula.WattSecEnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,9 +47,8 @@ import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
 
-  public JavaSamplesReport(
-      String category, String refGeometricMean, StatisticsFormulas statisticsFormulas) {
-    super(category, refGeometricMean, statisticsFormulas);
+  public JavaSamplesReport(String category) {
+    super(category, new WattSecEnergyFormulas());
   }
 
   @Override
@@ -72,39 +71,31 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void createMeanReport(String outputFilePath) throws IOException {
-    double refGeometricMean =
-        statisticsFormulas.getGeometricMean(perfStats.get(this.refGeometricMean));
-
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%9s;%17s;%21s;%27s;%27s\n",
+          "%18s;%26s;%9s;%17s;%21s;%27s\n",
           "Test Category",
           "Test Type",
           "Samples",
           "Mean (Watt⋅sec)",
           "Score Error (90.0%)",
-          "Geometric Mean (Watt⋅sec)",
-          "Normalized Geometric Mean");
+          "Geometric Mean (Watt⋅sec)");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double mean = statisticsFormulas.getMean(pair.getValue());
         double meanError = statisticsFormulas.getMeanError(pair.getValue());
         double geometricMean = statisticsFormulas.getGeometricMean(pair.getValue());
         writer.printf(
-            "%18s;%26s;%9d;%17.3f;%21s;%27.3f;%27.3f\n",
+            "%18s;%26s;%9d;%17.3f;%21.3f;%27.3f\n",
             pair.getValue().get(0).testCategory,
             pair.getValue().get(0).testType,
             pair.getValue().size(),
             mean,
-            String.format("± %.3f", meanError),
-            geometricMean,
-            geometricMean / refGeometricMean);
+            meanError,
+            geometricMean);
       }
-      writer.printf(
-          "\n# Note: The reference value '%s' was considered for the normalized geometric mean",
-          this.refGeometricMean);
     }
 
-    System.out.printf("Geometric mean report %s was successfully created\n", outputFilePath);
+    System.out.printf("Mean report %s was successfully created\n", outputFilePath);
   }
 
   @Override

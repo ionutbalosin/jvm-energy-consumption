@@ -35,19 +35,11 @@ import java.util.Map;
 public abstract class AbstractReport {
 
   public String category;
-  public String refGeometricMean;
   public StatisticsFormulas statisticsFormulas;
   public Map<String, List<Stats>> perfStats;
 
   public AbstractReport(String category, StatisticsFormulas statisticsFormulas) {
     this.category = category;
-    this.statisticsFormulas = statisticsFormulas;
-  }
-
-  public AbstractReport(
-      String category, String refGeometricMean, StatisticsFormulas statisticsFormulas) {
-    this.category = category;
-    this.refGeometricMean = refGeometricMean;
     this.statisticsFormulas = statisticsFormulas;
   }
 

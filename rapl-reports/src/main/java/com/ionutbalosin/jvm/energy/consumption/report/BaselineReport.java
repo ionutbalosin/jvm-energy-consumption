@@ -35,7 +35,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formula.WattEnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,8 +46,8 @@ import java.util.TreeMap;
 
 public class BaselineReport extends AbstractReport {
 
-  public BaselineReport(String category, StatisticsFormulas statisticsFormulas) {
-    super(category, statisticsFormulas);
+  public BaselineReport(String category) {
+    super(category, new WattEnergyFormulas());
   }
 
   @Override
