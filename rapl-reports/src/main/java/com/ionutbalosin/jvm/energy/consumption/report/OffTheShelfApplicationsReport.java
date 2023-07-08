@@ -33,7 +33,7 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 
 import com.ionutbalosin.jvm.energy.consumption.Application;
 
-public class OffTheShelfApplicationsReport extends OsBaselineReport {
+public class OffTheShelfApplicationsReport extends BaselineReport {
   public OffTheShelfApplicationsReport(Application application) {
     super(application);
   }

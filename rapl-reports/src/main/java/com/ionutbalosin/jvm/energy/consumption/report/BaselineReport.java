@@ -48,8 +48,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class OsBaselineReport extends AbstractReport {
-  public OsBaselineReport(Application application) {
+public class BaselineReport extends AbstractReport {
+  public BaselineReport(Application application) {
     super(application);
   }
 

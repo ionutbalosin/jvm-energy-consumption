@@ -32,9 +32,9 @@ import com.ionutbalosin.jvm.energy.consumption.Application;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Parser;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
+import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
 import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
-import com.ionutbalosin.jvm.energy.consumption.report.OsBaselineReport;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -51,7 +51,7 @@ public class EnergyReportCalculator {
   public static final String ARCH = "x86_64";
   public static final String JDK_VERSION = "17";
 
-  private static final Application OS_BASELINE =
+  private static final Application BASELINE_IDLE_OS =
       new Application("baseline-idle-os", "baseline-idle-os");
   private static final List<Application> OFF_THE_SHELF_APPLICATIONS =
       List.of(
@@ -65,7 +65,7 @@ public class EnergyReportCalculator {
           new Application("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
 
   public static void main(String[] args) throws IOException {
-    calculateEnergy(new OsBaselineReport(OS_BASELINE));
+    calculateEnergy(new BaselineReport(BASELINE_IDLE_OS));
 
     for (Application application : OFF_THE_SHELF_APPLICATIONS) {
       calculateEnergy(new OffTheShelfApplicationsReport(application));
