@@ -24,13 +24,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formula;
+package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 
 public class WattEnergyFormulas extends StatisticsFormulas {
 
-  public double getEnergy(Stats perfStat) {
+  // returns the power (Watt)
+  public double getFormula(Stats perfStat) {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats
     return (perfStat.pkg + perfStat.ram) / perfStat.elapsed;

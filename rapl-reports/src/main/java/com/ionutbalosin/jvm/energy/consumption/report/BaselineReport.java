@@ -35,7 +35,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.WattEnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.WattEnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,8 +46,12 @@ import java.util.TreeMap;
 
 public class BaselineReport extends AbstractReport {
 
+  // the baseline mean power to be subtracted from any other measurements
+  public double mean;
+
   public BaselineReport(String category) {
-    super(category, new WattEnergyFormulas());
+    this.category = category;
+    this.formulas = new WattEnergyFormulas();
   }
 
   @Override
@@ -73,8 +77,8 @@ public class BaselineReport extends AbstractReport {
       writer.printf(
           "%18s;%9s;%17s;%21s\n", "Test Category", "Samples", "Mean (Watt)", "Score Error (90.0%)");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        double mean = statisticsFormulas.getMean(pair.getValue());
-        double meanError = statisticsFormulas.getMeanError(pair.getValue());
+        mean = formulas.getMean(pair.getValue());
+        double meanError = formulas.getMeanError(pair.getValue());
         writer.printf(
             "%18s;%9d;%17.3f;%21.3f\n", pair.getKey(), pair.getValue().size(), mean, meanError);
       }

@@ -36,7 +36,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.WattSecEnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.WattSecEnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,7 +48,8 @@ import java.util.TreeMap;
 public class OffTheShelfApplicationsReport extends AbstractReport {
 
   public OffTheShelfApplicationsReport(String category) {
-    super(category, new WattSecEnergyFormulas());
+    this.category = category;
+    this.formulas = new WattSecEnergyFormulas();
   }
 
   @Override
@@ -80,9 +81,9 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
           "Score Error (90.0%)",
           "Geometric Mean (Watt⋅sec)");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        double mean = statisticsFormulas.getMean(pair.getValue());
-        double meanError = statisticsFormulas.getMeanError(pair.getValue());
-        double geometricMean = statisticsFormulas.getGeometricMean(pair.getValue());
+        double mean = formulas.getMean(pair.getValue());
+        double meanError = formulas.getMeanError(pair.getValue());
+        double geometricMean = formulas.getGeometricMean(pair.getValue());
         writer.printf(
             "%18s;%9d;%17.3f;%21.3f;%27.3f\n",
             pair.getKey(), pair.getValue().size(), mean, meanError, geometricMean);
@@ -112,7 +113,7 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
-              statisticsFormulas.getEnergy(perfStat),
+              formulas.getFormula(perfStat),
               perfStat.elapsed);
         }
       }

@@ -24,7 +24,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formula;
+package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.util.List;
@@ -34,12 +34,16 @@ public abstract class StatisticsFormulas {
 
   private static double CONFIDENCE = 0.90;
 
-  public abstract double getEnergy(Stats perfStat);
+  // this returns either power of energy formula (depending on the usage)
+  // Note:
+  //  - power formula is used for the baseline measurements
+  //  - energy formula is used for any other measurements
+  public abstract double getFormula(Stats perfStat);
 
   public double getGeometricMean(List<Stats> perfStats) {
     double prod = 1;
     for (Stats perfStat : perfStats) {
-      double energy = getEnergy(perfStat);
+      double energy = getFormula(perfStat);
       prod *= energy;
     }
     return Math.pow(prod, 1.0 / perfStats.size());
@@ -59,7 +63,7 @@ public abstract class StatisticsFormulas {
     if (size > 0) {
       double sum = 0;
       for (Stats perfStat : perfStats) {
-        sum += getEnergy(perfStat);
+        sum += getFormula(perfStat);
       }
       return sum;
     } else {
@@ -87,7 +91,7 @@ public abstract class StatisticsFormulas {
       double variance = 0;
       double mean = getMean(perfStats);
       for (Stats perfStat : perfStats) {
-        variance += Math.pow(getEnergy(perfStat) - mean, 2);
+        variance += Math.pow(getFormula(perfStat) - mean, 2);
       }
       return variance / (size - 1);
     } else {

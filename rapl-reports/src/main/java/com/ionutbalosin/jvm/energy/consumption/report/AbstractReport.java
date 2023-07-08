@@ -26,7 +26,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.StatisticsFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.util.List;
@@ -35,13 +35,8 @@ import java.util.Map;
 public abstract class AbstractReport {
 
   public String category;
-  public StatisticsFormulas statisticsFormulas;
+  public StatisticsFormulas formulas;
   public Map<String, List<Stats>> perfStats;
-
-  public AbstractReport(String category, StatisticsFormulas statisticsFormulas) {
-    this.category = category;
-    this.statisticsFormulas = statisticsFormulas;
-  }
 
   public abstract void setPerfStats(List<Stats> perfStats);
 
