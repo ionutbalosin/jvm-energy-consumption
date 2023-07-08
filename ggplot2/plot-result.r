@@ -41,7 +41,7 @@ throw_exception_patterns_output_folder <- args[6]
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
 plotGeometricMean <- function(output_folder, plot_title) {
-  data <- readCsvResults(paste(output_folder, paste("power-consumption", "geometric-mean.csv", sep = "/"), sep = "/"))
+  data <- readCsvResults(paste(output_folder, paste("power-consumption", "power-reports.csv", sep = "/"), sep = "/"))
 
   # delete all spaces from all column values
   data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
@@ -49,7 +49,8 @@ plotGeometricMean <- function(output_folder, plot_title) {
   # rename columns
   colnames(data)[colnames(data) == "Test.Category"] <- "Category"
   colnames(data)[colnames(data) == "Test.Type"] <- "Type"
-  colnames(data)[colnames(data) == "Geometric.Mean..Watt.sec."] <- "Score"
+  colnames(data)[colnames(data) == "Mean..Watt.sec."] <- "Score"
+  colnames(data)[colnames(data) == "Score.Error..90.0.."] <- "Error"
 
   # add a new Unit column
   data$Unit <- "Watt⋅sec"
@@ -60,14 +61,15 @@ plotGeometricMean <- function(output_folder, plot_title) {
     data$Type <- data$Category
   }
 
-  # convert to numeric the Score column
+  # convert to numeric the Score and Error columns
   # in addition, convert commas with dots
   # Note: this conversion is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
   # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
   data$Score <- as.numeric(gsub(",", ".", data$Score))
+  data$Error <- as.numeric(gsub(",", ".", data$Error))
 
   # keep only the necessary columns for plotting
-  data <- data[, grep("^(Category|Type|Score|Unit)$", colnames(data))]
+  data <- data[, grep("^(Category|Type|Score|Error|Unit)$", colnames(data))]
 
   # rename Category column values
   data$Category[data$Category == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"

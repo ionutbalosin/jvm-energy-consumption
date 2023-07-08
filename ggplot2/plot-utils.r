@@ -29,9 +29,10 @@ source("./ggplot2/utils.r")
 
 # Generate the plot (i.e., bar chart plot)
 generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
-  plot <- ggplot(data, aes(x = Type, y = Score, fill = data[, fill]))
+  plot <- ggplot(data, aes(x = Type, y = Score, fill = data[, fill], ymin = Score - Error, ymax = Score + Error))
   plot <- plot + geom_bar(stat = "identity", color = NA, position = "dodge", width = .7)
-  plot <- plot + geom_text(aes(label = Score), color = "black", hjust = -0.05, position = position_dodge(.7), size = 4)
+  plot <- plot + geom_text(aes(label = paste(Score, Unit, sep = " ")), color = "black", hjust = -0.05, vjust = -.75, position = position_dodge(.7), size = 4)
+  plot <- plot + geom_errorbar(width = .175, linewidth = .6, alpha = .7, position = position_dodge(.7))
   plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title)
   plot <- plot + geom_hline(yintercept = 0)
   plot <- plot + coord_flip(clip = "off")
