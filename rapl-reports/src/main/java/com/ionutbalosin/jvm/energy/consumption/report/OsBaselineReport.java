@@ -26,13 +26,13 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
+import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getEnergy;
+import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getGeometricMean;
+import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMean;
+import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMeanError;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
-import static com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsStatistics.getEnergy;
-import static com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsStatistics.getGeometricMean;
-import static com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsStatistics.getMean;
-import static com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsStatistics.getMeanError;
 import static java.nio.file.Files.newBufferedWriter;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.groupingBy;
@@ -40,7 +40,7 @@ import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.Application;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -60,7 +60,7 @@ public class OsBaselineReport extends AbstractReport {
   }
 
   @Override
-  public void setPerfStats(List<PerfStats> perfStats) {
+  public void setPerfStats(List<Stats> perfStats) {
     this.perfStats =
         perfStats.stream()
             .collect(
@@ -83,7 +83,7 @@ public class OsBaselineReport extends AbstractReport {
           "Score Error (90.0%)",
           "Geometric Mean (Watt⋅sec)",
           "Normalized Geometric Mean");
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+      for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double mean = getMean(pair.getValue());
         double meanError = getMeanError(pair.getValue());
         double geometricMean = getGeometricMean(pair.getValue());
@@ -105,7 +105,7 @@ public class OsBaselineReport extends AbstractReport {
   }
 
   @Override
-  public void createPerfStatsReport(String outputFilePath) throws IOException {
+  public void createRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%16s;%27s;%23s;%18s;%15s\n",
@@ -116,8 +116,8 @@ public class OsBaselineReport extends AbstractReport {
           "Total (Watt⋅sec)",
           "Elapsed (sec)");
 
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
-        for (PerfStats perfStat : pair.getValue()) {
+      for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
+        for (Stats perfStat : pair.getValue()) {
           writer.printf(
               "%18s;%16s;%27.3f;%23.3f;%18.3f;%15.3f\n",
               perfStat.testCategory,

@@ -27,24 +27,24 @@
 package com.ionutbalosin.jvm.energy.consumption.report;
 
 import com.ionutbalosin.jvm.energy.consumption.Application;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractReport {
   public Application application;
-  public Map<String, List<PerfStats>> perfStats;
+  public Map<String, List<Stats>> perfStats;
 
   public AbstractReport(Application application) {
     this.application = application;
   }
 
-  public abstract void setPerfStats(List<PerfStats> perfStats);
+  public abstract void setPerfStats(List<Stats> perfStats);
 
   public abstract String getPerfStatsPath();
 
-  public abstract void createPerfStatsReport(String outputFilePath) throws IOException;
+  public abstract void createRawPerfStatsReport(String outputFilePath) throws IOException;
 
   public abstract void createMeanReport(String outputFilePath) throws IOException;
 }
