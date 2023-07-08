@@ -1,19 +1,21 @@
      Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;                    linear;        5;          179.844;                4.901;                    179.786
-     azul-prime-vm;               random_heap;        5;         1368.330;               18.133;                   1368.224
-     azul-prime-vm;               random_page;        5;          243.448;                4.723;                    243.408
- eclipse-openj9-vm;                    linear;        5;          200.220;                6.005;                    200.143
- eclipse-openj9-vm;               random_heap;        5;          609.768;                3.861;                    609.757
- eclipse-openj9-vm;               random_page;        5;          267.258;                4.340;                    267.227
-        graalvm-ce;                    linear;        5;          131.716;                1.430;                    131.709
-        graalvm-ce;               random_heap;        5;         1262.674;               20.426;                   1262.529
-        graalvm-ce;               random_page;        5;          193.462;                3.253;                    193.438
-        graalvm-ee;                    linear;        5;          122.216;                1.313;                    122.210
-        graalvm-ee;               random_heap;        5;         1268.192;               22.279;                   1268.018
-        graalvm-ee;               random_page;        5;          192.344;                3.712;                    192.312
-      native-image;                    linear;        5;           78.062;                8.764;                     77.640
-      native-image;               random_heap;        5;         1124.888;               18.318;                   1124.757
-      native-image;               random_page;        5;          139.012;                8.103;                    138.807
-openjdk-hotspot-vm;                    linear;        5;          116.970;                4.576;                    116.892
-openjdk-hotspot-vm;               random_heap;        5;         1257.366;               16.491;                   1257.271
-openjdk-hotspot-vm;               random_page;        5;          177.536;                7.127;                    177.411
+     azul-prime-vm;                    linear;        5;          109.437;                4.559;                    109.356
+     azul-prime-vm;               random_heap;        5;          647.033;               13.500;                    646.909
+     azul-prime-vm;               random_page;        5;          142.556;                4.079;                    142.505
+ eclipse-openj9-vm;                    linear;        5;          125.754;                4.772;                    125.676
+ eclipse-openj9-vm;               random_heap;        5;          389.697;                4.358;                    389.676
+ eclipse-openj9-vm;               random_page;        5;          156.845;                3.283;                    156.815
+        graalvm-ce;                    linear;        5;           76.241;                1.026;                     76.235
+        graalvm-ce;               random_heap;        5;          573.976;               19.627;                    573.682
+        graalvm-ce;               random_page;        5;          106.291;                2.415;                    106.267
+        graalvm-ee;                    linear;        5;           68.926;                0.991;                     68.920
+        graalvm-ee;               random_heap;        5;          574.031;               14.433;                    573.868
+        graalvm-ee;               random_page;        5;          105.309;                2.096;                    105.290
+      native-image;                    linear;        5;           44.858;                7.165;                     44.372
+      native-image;               random_heap;        5;          496.759;               18.663;                    496.453
+      native-image;               random_page;        5;           74.450;                8.311;                     74.054
+openjdk-hotspot-vm;                    linear;        5;           63.064;                4.718;                     62.911
+openjdk-hotspot-vm;               random_heap;        5;          554.262;               16.988;                    554.033
+openjdk-hotspot-vm;               random_page;        5;           91.824;                7.326;                     91.570
+
+# Note: The reference baseline is already excluded from this report

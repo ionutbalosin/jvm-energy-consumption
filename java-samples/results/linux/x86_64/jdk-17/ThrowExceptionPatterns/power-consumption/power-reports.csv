@@ -1,25 +1,27 @@
      Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;                     const;        5;           72.734;                0.852;                     72.730
-     azul-prime-vm;                    lambda;        5;          567.022;                5.972;                    566.994
-     azul-prime-vm;                       new;        5;          562.538;                6.386;                    562.506
-     azul-prime-vm;             override_fist;        5;           72.728;                0.938;                     72.723
- eclipse-openj9-vm;                     const;        5;           65.390;               19.962;                     63.211
- eclipse-openj9-vm;                    lambda;        5;          664.294;               12.400;                    664.192
- eclipse-openj9-vm;                       new;        5;          661.284;                9.171;                    661.228
- eclipse-openj9-vm;             override_fist;        5;           60.214;                4.367;                     60.077
-        graalvm-ce;                     const;        5;           48.920;                1.181;                     48.907
-        graalvm-ce;                    lambda;        5;          438.202;                4.197;                    438.184
-        graalvm-ce;                       new;        5;          443.486;                4.674;                    443.464
-        graalvm-ce;             override_fist;        5;           48.516;                0.302;                     48.515
-        graalvm-ee;                     const;        5;          249.798;                3.043;                    249.781
-        graalvm-ee;                    lambda;        5;          433.278;                3.718;                    433.264
-        graalvm-ee;                       new;        5;          433.584;                2.735;                    433.576
-        graalvm-ee;             override_fist;        5;           43.126;                0.599;                     43.122
-      native-image;                     const;        5;           23.798;                2.736;                     23.660
-      native-image;                    lambda;        5;           91.220;                6.011;                     91.049
-      native-image;                       new;        5;          111.666;                7.426;                    111.452
-      native-image;             override_fist;        5;            7.076;                0.667;                      7.049
-openjdk-hotspot-vm;                     const;        5;          128.474;               22.382;                    126.969
-openjdk-hotspot-vm;                    lambda;        5;          517.550;               19.695;                    517.223
-openjdk-hotspot-vm;                       new;        5;          515.118;               20.703;                    514.754
-openjdk-hotspot-vm;             override_fist;        5;          119.264;                4.777;                    119.180
+     azul-prime-vm;                     const;        5;           44.522;                0.952;                     44.513
+     azul-prime-vm;                    lambda;        5;          328.801;                6.763;                    328.739
+     azul-prime-vm;                       new;        5;          326.975;                6.044;                    326.925
+     azul-prime-vm;             override_fist;        5;           44.692;                0.889;                     44.685
+ eclipse-openj9-vm;                     const;        5;           44.409;               15.618;                     42.497
+ eclipse-openj9-vm;                    lambda;        5;          376.538;               10.732;                    376.403
+ eclipse-openj9-vm;                       new;        5;          372.950;                7.673;                    372.881
+ eclipse-openj9-vm;             override_fist;        5;           39.423;                3.134;                     39.315
+        graalvm-ce;                     const;        5;           27.608;                1.047;                     27.590
+        graalvm-ce;                    lambda;        5;          243.808;                4.747;                    243.768
+        graalvm-ce;                       new;        5;          249.730;                2.926;                    249.715
+        graalvm-ce;             override_fist;        5;           27.627;                0.252;                     27.626
+        graalvm-ee;                     const;        5;          138.923;                2.306;                    138.906
+        graalvm-ee;                    lambda;        5;          245.849;                2.974;                    245.834
+        graalvm-ee;                       new;        5;          246.481;                2.253;                    246.472
+        graalvm-ee;             override_fist;        5;           24.612;                0.401;                     24.609
+      native-image;                     const;        5;           13.108;                2.124;                     12.953
+      native-image;                    lambda;        5;           51.716;                5.836;                     51.434
+      native-image;                       new;        5;           62.206;                7.298;                     61.836
+      native-image;             override_fist;        5;            3.868;                0.592;                      3.829
+openjdk-hotspot-vm;                     const;        5;           70.909;               18.515;                     69.128
+openjdk-hotspot-vm;                    lambda;        5;          280.022;               19.946;                    279.405
+openjdk-hotspot-vm;                       new;        5;          278.388;               20.547;                    277.728
+openjdk-hotspot-vm;             override_fist;        5;           63.463;                4.904;                     63.298
+
+# Note: The reference baseline is already excluded from this report

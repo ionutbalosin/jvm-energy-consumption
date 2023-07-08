@@ -50,17 +50,22 @@ public class EnergyReportCalculator {
   public static final String ARCH = "x86_64";
   public static final String JDK_VERSION = "17";
 
-  private static final List<AbstractReport> REPORTS =
-      List.of(
-          new BaselineReport("baseline-idle-os"),
-          new OffTheShelfApplicationsReport("spring-petclinic"),
-          new OffTheShelfApplicationsReport("quarkus-hibernate-orm-panache-quickstart"),
-          new OffTheShelfApplicationsReport("renaissance"),
-          new JavaSamplesReport("ThrowExceptionPatterns"),
-          new JavaSamplesReport("MemoryAccessPatterns"),
-          new JavaSamplesReport("LoggingPatterns"));
-
   public static void main(String[] args) throws IOException {
+    // First, calculate the baseline report and save it
+    BaselineReport baseline = new BaselineReport("baseline-idle-os");
+    calculateEnergy(baseline);
+
+    // For any other report subtract the baseline from each measurement
+    final List<AbstractReport> REPORTS =
+        List.of(
+            new OffTheShelfApplicationsReport("spring-petclinic", baseline.mean),
+            new OffTheShelfApplicationsReport(
+                "quarkus-hibernate-orm-panache-quickstart", baseline.mean),
+            new OffTheShelfApplicationsReport("renaissance", baseline.mean),
+            new JavaSamplesReport("ThrowExceptionPatterns", baseline.mean),
+            new JavaSamplesReport("MemoryAccessPatterns", baseline.mean),
+            new JavaSamplesReport("LoggingPatterns", baseline.mean));
+
     for (AbstractReport report : REPORTS) {
       calculateEnergy(report);
     }

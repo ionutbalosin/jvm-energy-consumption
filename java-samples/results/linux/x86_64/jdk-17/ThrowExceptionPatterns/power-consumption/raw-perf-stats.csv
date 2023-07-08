@@ -1,121 +1,121 @@
-     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Total (Watt⋅sec);  Elapsed (sec)
-     azul-prime-vm;                     const;               3;                     56.530;                 16.830;            73.360;         27.452
-     azul-prime-vm;                     const;               4;                     54.870;                 16.940;            71.810;         27.578
-     azul-prime-vm;                     const;               2;                     55.980;                 16.820;            72.800;         27.466
-     azul-prime-vm;                     const;               5;                     56.910;                 16.920;            73.830;         27.594
-     azul-prime-vm;                     const;               1;                     54.780;                 17.090;            71.870;         27.879
-     azul-prime-vm;                    lambda;               1;                    423.930;                134.130;           558.060;        233.815
-     azul-prime-vm;                    lambda;               3;                    433.350;                133.670;           567.020;        233.008
-     azul-prime-vm;                    lambda;               5;                    439.550;                132.690;           572.240;        230.428
-     azul-prime-vm;                    lambda;               4;                    430.030;                134.260;           564.290;        233.860
-     azul-prime-vm;                    lambda;               2;                    439.320;                134.180;           573.500;        233.916
-     azul-prime-vm;                       new;               4;                    432.090;                132.930;           565.020;        231.156
-     azul-prime-vm;                       new;               3;                    421.120;                132.140;           553.260;        229.867
-     azul-prime-vm;                       new;               2;                    433.290;                132.550;           565.840;        230.609
-     azul-prime-vm;                       new;               5;                    437.150;                133.060;           570.210;        230.444
-     azul-prime-vm;                       new;               1;                    426.160;                132.200;           558.360;        229.953
-     azul-prime-vm;             override_fist;               4;                     55.480;                 16.910;            72.390;         27.455
-     azul-prime-vm;             override_fist;               1;                     54.860;                 16.780;            71.640;         27.328
-     azul-prime-vm;             override_fist;               2;                     56.570;                 16.880;            73.450;         27.476
-     azul-prime-vm;             override_fist;               3;                     55.310;                 16.820;            72.130;         27.388
-     azul-prime-vm;             override_fist;               5;                     57.100;                 16.930;            74.030;         27.461
- eclipse-openj9-vm;                     const;               4;                     39.750;                 10.870;            50.620;         17.201
- eclipse-openj9-vm;                     const;               1;                     82.090;                 20.160;           102.250;         28.315
- eclipse-openj9-vm;                     const;               2;                     47.970;                 12.760;            60.730;         19.792
- eclipse-openj9-vm;                     const;               5;                     45.810;                 12.130;            57.940;         19.031
- eclipse-openj9-vm;                     const;               3;                     43.820;                 11.590;            55.410;         18.267
- eclipse-openj9-vm;                    lambda;               5;                    491.250;                156.890;           648.140;        279.960
- eclipse-openj9-vm;                    lambda;               4;                    499.770;                156.780;           656.550;        279.966
- eclipse-openj9-vm;                    lambda;               2;                    512.440;                157.430;           669.870;        281.078
- eclipse-openj9-vm;                    lambda;               3;                    506.650;                157.950;           664.600;        281.664
- eclipse-openj9-vm;                    lambda;               1;                    522.470;                159.840;           682.310;        284.612
- eclipse-openj9-vm;                       new;               3;                    502.180;                158.270;           660.450;        281.624
- eclipse-openj9-vm;                       new;               1;                    504.270;                158.090;           662.360;        282.111
- eclipse-openj9-vm;                       new;               4;                    496.540;                159.040;           655.580;        283.147
- eclipse-openj9-vm;                       new;               5;                    494.700;                156.650;           651.350;        278.786
- eclipse-openj9-vm;                       new;               2;                    517.130;                159.550;           676.680;        284.438
- eclipse-openj9-vm;             override_fist;               1;                     50.100;                 13.550;            63.650;         21.318
- eclipse-openj9-vm;             override_fist;               5;                     43.790;                 11.900;            55.690;         19.179
- eclipse-openj9-vm;             override_fist;               2;                     44.890;                 12.170;            57.060;         19.338
- eclipse-openj9-vm;             override_fist;               4;                     45.880;                 12.410;            58.290;         19.814
- eclipse-openj9-vm;             override_fist;               3;                     52.360;                 14.020;            66.380;         22.031
-        graalvm-ce;                     const;               2;                     35.850;                 11.980;            47.830;         20.795
-        graalvm-ce;                     const;               3;                     35.600;                 11.890;            47.490;         20.646
-        graalvm-ce;                     const;               5;                     37.110;                 12.000;            49.110;         20.821
-        graalvm-ce;                     const;               1;                     38.210;                 12.150;            50.360;         21.033
-        graalvm-ce;                     const;               4;                     37.730;                 12.080;            49.810;         20.934
-        graalvm-ce;                    lambda;               5;                    337.030;                106.780;           443.810;        187.620
-        graalvm-ce;                    lambda;               3;                    327.920;                107.990;           435.910;        189.937
-        graalvm-ce;                    lambda;               2;                    329.410;                108.940;           438.350;        191.621
-        graalvm-ce;                    lambda;               1;                    324.730;                107.570;           432.300;        189.341
-        graalvm-ce;                    lambda;               4;                    331.290;                109.350;           440.640;        192.170
-        graalvm-ce;                       new;               1;                    333.830;                107.110;           440.940;        188.157
-        graalvm-ce;                       new;               3;                    330.310;                106.770;           437.080;        187.484
-        graalvm-ce;                       new;               5;                    336.310;                107.850;           444.160;        189.306
-        graalvm-ce;                       new;               4;                    336.500;                108.490;           444.990;        190.452
-        graalvm-ce;                       new;               2;                    340.860;                109.400;           450.260;        192.168
-        graalvm-ce;             override_fist;               4;                     36.840;                 11.830;            48.670;         20.540
-        graalvm-ce;             override_fist;               3;                     36.260;                 11.730;            47.990;         20.341
-        graalvm-ce;             override_fist;               2;                     36.860;                 11.970;            48.830;         20.744
-        graalvm-ce;             override_fist;               1;                     36.910;                 11.630;            48.540;         20.186
-        graalvm-ce;             override_fist;               5;                     36.790;                 11.760;            48.550;         20.349
-        graalvm-ee;                     const;               1;                    189.960;                 61.280;           251.240;        109.464
-        graalvm-ee;                     const;               4;                    189.650;                 61.170;           250.820;        109.225
-        graalvm-ee;                     const;               3;                    184.400;                 59.710;           244.110;        106.633
-        graalvm-ee;                     const;               5;                    189.830;                 61.370;           251.200;        109.521
-        graalvm-ee;                     const;               2;                    191.510;                 60.110;           251.620;        107.396
-        graalvm-ee;                    lambda;               1;                    327.120;                104.630;           431.750;        183.604
-        graalvm-ee;                    lambda;               4;                    332.650;                105.500;           438.150;        185.205
-        graalvm-ee;                    lambda;               2;                    331.910;                103.990;           435.900;        182.474
-        graalvm-ee;                    lambda;               5;                    327.890;                104.650;           432.540;        183.477
-        graalvm-ee;                    lambda;               3;                    324.400;                103.650;           428.050;        181.865
-        graalvm-ee;                       new;               4;                    333.140;                104.430;           437.570;        183.148
-        graalvm-ee;                       new;               2;                    329.680;                105.620;           435.300;        185.314
-        graalvm-ee;                       new;               1;                    326.580;                103.640;           430.220;        181.817
-        graalvm-ee;                       new;               3;                    329.030;                103.510;           432.540;        181.522
-        graalvm-ee;                       new;               5;                    327.720;                104.570;           432.290;        183.232
-        graalvm-ee;             override_fist;               1;                     32.660;                 10.440;            43.100;         17.983
-        graalvm-ee;             override_fist;               4;                     32.700;                 10.460;            43.160;         18.001
-        graalvm-ee;             override_fist;               5;                     31.960;                 10.320;            42.280;         17.774
-        graalvm-ee;             override_fist;               2;                     33.340;                 10.710;            44.050;         18.456
-        graalvm-ee;             override_fist;               3;                     32.390;                 10.650;            43.040;         18.330
-      native-image;                     const;               1;                     20.460;                  7.170;            27.630;         11.746
-      native-image;                     const;               5;                     18.380;                  5.940;            24.320;         10.609
-      native-image;                     const;               4;                     19.420;                  5.700;            25.120;         10.115
-      native-image;                     const;               2;                     15.070;                  5.640;            20.710;         10.025
-      native-image;                     const;               3;                     15.710;                  5.500;            21.210;          9.783
-      native-image;                    lambda;               2;                     61.470;                 24.260;            85.730;         38.327
-      native-image;                    lambda;               4;                     74.930;                 24.810;            99.740;         38.897
-      native-image;                    lambda;               5;                     71.460;                 24.540;            96.000;         38.804
-      native-image;                    lambda;               3;                     64.240;                 24.280;            88.520;         38.364
-      native-image;                    lambda;               1;                     61.500;                 24.610;            86.110;         38.802
-      native-image;                       new;               1;                     75.390;                 30.400;           105.790;         49.117
-      native-image;                       new;               4;                     91.230;                 30.110;           121.340;         48.921
-      native-image;                       new;               3;                     79.100;                 28.980;           108.080;         47.672
-      native-image;                       new;               2;                     75.360;                 29.070;           104.430;         47.996
-      native-image;                       new;               5;                     88.960;                 29.730;           118.690;         48.182
-      native-image;             override_fist;               5;                      5.940;                  1.800;             7.740;          3.194
-      native-image;             override_fist;               3;                      5.050;                  1.730;             6.780;          3.066
-      native-image;             override_fist;               4;                      6.070;                  1.840;             7.910;          3.254
-      native-image;             override_fist;               2;                      4.800;                  1.750;             6.550;          3.102
-      native-image;             override_fist;               1;                      4.670;                  1.730;             6.400;          3.074
-openjdk-hotspot-vm;                     const;               5;                     94.590;                 30.930;           125.520;         54.621
-openjdk-hotspot-vm;                     const;               1;                     84.470;                 30.920;           115.390;         54.621
-openjdk-hotspot-vm;                     const;               3;                     85.400;                 30.750;           116.150;         54.454
-openjdk-hotspot-vm;                     const;               4;                    130.480;                 39.290;           169.770;         63.520
-openjdk-hotspot-vm;                     const;               2;                     84.850;                 30.690;           115.540;         54.309
-openjdk-hotspot-vm;                    lambda;               1;                    365.990;                131.990;           497.980;        232.853
-openjdk-hotspot-vm;                    lambda;               2;                    374.800;                131.480;           506.280;        231.978
-openjdk-hotspot-vm;                    lambda;               5;                    408.250;                131.720;           539.970;        232.433
-openjdk-hotspot-vm;                    lambda;               4;                    409.010;                130.900;           539.910;        231.750
-openjdk-hotspot-vm;                    lambda;               3;                    371.700;                131.910;           503.610;        232.623
-openjdk-hotspot-vm;                       new;               5;                    408.150;                131.470;           539.620;        231.769
-openjdk-hotspot-vm;                       new;               4;                    406.180;                130.930;           537.110;        231.773
-openjdk-hotspot-vm;                       new;               1;                    361.330;                131.500;           492.830;        231.784
-openjdk-hotspot-vm;                       new;               2;                    369.590;                130.920;           500.510;        231.064
-openjdk-hotspot-vm;                       new;               3;                    374.330;                131.190;           505.520;        231.344
-openjdk-hotspot-vm;             override_fist;               2;                     85.500;                 30.920;           116.420;         54.632
-openjdk-hotspot-vm;             override_fist;               5;                     94.310;                 30.760;           125.070;         54.518
-openjdk-hotspot-vm;             override_fist;               3;                     85.270;                 31.010;           116.280;         54.791
-openjdk-hotspot-vm;             override_fist;               4;                     93.770;                 30.490;           124.260;         54.332
-openjdk-hotspot-vm;             override_fist;               1;                     83.360;                 30.930;           114.290;         54.624
+     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;                     const;               3;                     56.530;                 16.830;         27.452
+     azul-prime-vm;                     const;               4;                     54.870;                 16.940;         27.578
+     azul-prime-vm;                     const;               2;                     55.980;                 16.820;         27.466
+     azul-prime-vm;                     const;               5;                     56.910;                 16.920;         27.594
+     azul-prime-vm;                     const;               1;                     54.780;                 17.090;         27.879
+     azul-prime-vm;                    lambda;               1;                    423.930;                134.130;        233.815
+     azul-prime-vm;                    lambda;               3;                    433.350;                133.670;        233.008
+     azul-prime-vm;                    lambda;               5;                    439.550;                132.690;        230.428
+     azul-prime-vm;                    lambda;               4;                    430.030;                134.260;        233.860
+     azul-prime-vm;                    lambda;               2;                    439.320;                134.180;        233.916
+     azul-prime-vm;                       new;               4;                    432.090;                132.930;        231.156
+     azul-prime-vm;                       new;               3;                    421.120;                132.140;        229.867
+     azul-prime-vm;                       new;               2;                    433.290;                132.550;        230.609
+     azul-prime-vm;                       new;               5;                    437.150;                133.060;        230.444
+     azul-prime-vm;                       new;               1;                    426.160;                132.200;        229.953
+     azul-prime-vm;             override_fist;               4;                     55.480;                 16.910;         27.455
+     azul-prime-vm;             override_fist;               1;                     54.860;                 16.780;         27.328
+     azul-prime-vm;             override_fist;               2;                     56.570;                 16.880;         27.476
+     azul-prime-vm;             override_fist;               3;                     55.310;                 16.820;         27.388
+     azul-prime-vm;             override_fist;               5;                     57.100;                 16.930;         27.461
+ eclipse-openj9-vm;                     const;               4;                     39.750;                 10.870;         17.201
+ eclipse-openj9-vm;                     const;               1;                     82.090;                 20.160;         28.315
+ eclipse-openj9-vm;                     const;               2;                     47.970;                 12.760;         19.792
+ eclipse-openj9-vm;                     const;               5;                     45.810;                 12.130;         19.031
+ eclipse-openj9-vm;                     const;               3;                     43.820;                 11.590;         18.267
+ eclipse-openj9-vm;                    lambda;               5;                    491.250;                156.890;        279.960
+ eclipse-openj9-vm;                    lambda;               4;                    499.770;                156.780;        279.966
+ eclipse-openj9-vm;                    lambda;               2;                    512.440;                157.430;        281.078
+ eclipse-openj9-vm;                    lambda;               3;                    506.650;                157.950;        281.664
+ eclipse-openj9-vm;                    lambda;               1;                    522.470;                159.840;        284.612
+ eclipse-openj9-vm;                       new;               3;                    502.180;                158.270;        281.624
+ eclipse-openj9-vm;                       new;               1;                    504.270;                158.090;        282.111
+ eclipse-openj9-vm;                       new;               4;                    496.540;                159.040;        283.147
+ eclipse-openj9-vm;                       new;               5;                    494.700;                156.650;        278.786
+ eclipse-openj9-vm;                       new;               2;                    517.130;                159.550;        284.438
+ eclipse-openj9-vm;             override_fist;               1;                     50.100;                 13.550;         21.318
+ eclipse-openj9-vm;             override_fist;               5;                     43.790;                 11.900;         19.179
+ eclipse-openj9-vm;             override_fist;               2;                     44.890;                 12.170;         19.338
+ eclipse-openj9-vm;             override_fist;               4;                     45.880;                 12.410;         19.814
+ eclipse-openj9-vm;             override_fist;               3;                     52.360;                 14.020;         22.031
+        graalvm-ce;                     const;               2;                     35.850;                 11.980;         20.795
+        graalvm-ce;                     const;               3;                     35.600;                 11.890;         20.646
+        graalvm-ce;                     const;               5;                     37.110;                 12.000;         20.821
+        graalvm-ce;                     const;               1;                     38.210;                 12.150;         21.033
+        graalvm-ce;                     const;               4;                     37.730;                 12.080;         20.934
+        graalvm-ce;                    lambda;               5;                    337.030;                106.780;        187.620
+        graalvm-ce;                    lambda;               3;                    327.920;                107.990;        189.937
+        graalvm-ce;                    lambda;               2;                    329.410;                108.940;        191.621
+        graalvm-ce;                    lambda;               1;                    324.730;                107.570;        189.341
+        graalvm-ce;                    lambda;               4;                    331.290;                109.350;        192.170
+        graalvm-ce;                       new;               1;                    333.830;                107.110;        188.157
+        graalvm-ce;                       new;               3;                    330.310;                106.770;        187.484
+        graalvm-ce;                       new;               5;                    336.310;                107.850;        189.306
+        graalvm-ce;                       new;               4;                    336.500;                108.490;        190.452
+        graalvm-ce;                       new;               2;                    340.860;                109.400;        192.168
+        graalvm-ce;             override_fist;               4;                     36.840;                 11.830;         20.540
+        graalvm-ce;             override_fist;               3;                     36.260;                 11.730;         20.341
+        graalvm-ce;             override_fist;               2;                     36.860;                 11.970;         20.744
+        graalvm-ce;             override_fist;               1;                     36.910;                 11.630;         20.186
+        graalvm-ce;             override_fist;               5;                     36.790;                 11.760;         20.349
+        graalvm-ee;                     const;               1;                    189.960;                 61.280;        109.464
+        graalvm-ee;                     const;               4;                    189.650;                 61.170;        109.225
+        graalvm-ee;                     const;               3;                    184.400;                 59.710;        106.633
+        graalvm-ee;                     const;               5;                    189.830;                 61.370;        109.521
+        graalvm-ee;                     const;               2;                    191.510;                 60.110;        107.396
+        graalvm-ee;                    lambda;               1;                    327.120;                104.630;        183.604
+        graalvm-ee;                    lambda;               4;                    332.650;                105.500;        185.205
+        graalvm-ee;                    lambda;               2;                    331.910;                103.990;        182.474
+        graalvm-ee;                    lambda;               5;                    327.890;                104.650;        183.477
+        graalvm-ee;                    lambda;               3;                    324.400;                103.650;        181.865
+        graalvm-ee;                       new;               4;                    333.140;                104.430;        183.148
+        graalvm-ee;                       new;               2;                    329.680;                105.620;        185.314
+        graalvm-ee;                       new;               1;                    326.580;                103.640;        181.817
+        graalvm-ee;                       new;               3;                    329.030;                103.510;        181.522
+        graalvm-ee;                       new;               5;                    327.720;                104.570;        183.232
+        graalvm-ee;             override_fist;               1;                     32.660;                 10.440;         17.983
+        graalvm-ee;             override_fist;               4;                     32.700;                 10.460;         18.001
+        graalvm-ee;             override_fist;               5;                     31.960;                 10.320;         17.774
+        graalvm-ee;             override_fist;               2;                     33.340;                 10.710;         18.456
+        graalvm-ee;             override_fist;               3;                     32.390;                 10.650;         18.330
+      native-image;                     const;               1;                     20.460;                  7.170;         11.746
+      native-image;                     const;               5;                     18.380;                  5.940;         10.609
+      native-image;                     const;               4;                     19.420;                  5.700;         10.115
+      native-image;                     const;               2;                     15.070;                  5.640;         10.025
+      native-image;                     const;               3;                     15.710;                  5.500;          9.783
+      native-image;                    lambda;               2;                     61.470;                 24.260;         38.327
+      native-image;                    lambda;               4;                     74.930;                 24.810;         38.897
+      native-image;                    lambda;               5;                     71.460;                 24.540;         38.804
+      native-image;                    lambda;               3;                     64.240;                 24.280;         38.364
+      native-image;                    lambda;               1;                     61.500;                 24.610;         38.802
+      native-image;                       new;               1;                     75.390;                 30.400;         49.117
+      native-image;                       new;               4;                     91.230;                 30.110;         48.921
+      native-image;                       new;               3;                     79.100;                 28.980;         47.672
+      native-image;                       new;               2;                     75.360;                 29.070;         47.996
+      native-image;                       new;               5;                     88.960;                 29.730;         48.182
+      native-image;             override_fist;               5;                      5.940;                  1.800;          3.194
+      native-image;             override_fist;               3;                      5.050;                  1.730;          3.066
+      native-image;             override_fist;               4;                      6.070;                  1.840;          3.254
+      native-image;             override_fist;               2;                      4.800;                  1.750;          3.102
+      native-image;             override_fist;               1;                      4.670;                  1.730;          3.074
+openjdk-hotspot-vm;                     const;               5;                     94.590;                 30.930;         54.621
+openjdk-hotspot-vm;                     const;               1;                     84.470;                 30.920;         54.621
+openjdk-hotspot-vm;                     const;               3;                     85.400;                 30.750;         54.454
+openjdk-hotspot-vm;                     const;               4;                    130.480;                 39.290;         63.520
+openjdk-hotspot-vm;                     const;               2;                     84.850;                 30.690;         54.309
+openjdk-hotspot-vm;                    lambda;               1;                    365.990;                131.990;        232.853
+openjdk-hotspot-vm;                    lambda;               2;                    374.800;                131.480;        231.978
+openjdk-hotspot-vm;                    lambda;               5;                    408.250;                131.720;        232.433
+openjdk-hotspot-vm;                    lambda;               4;                    409.010;                130.900;        231.750
+openjdk-hotspot-vm;                    lambda;               3;                    371.700;                131.910;        232.623
+openjdk-hotspot-vm;                       new;               5;                    408.150;                131.470;        231.769
+openjdk-hotspot-vm;                       new;               4;                    406.180;                130.930;        231.773
+openjdk-hotspot-vm;                       new;               1;                    361.330;                131.500;        231.784
+openjdk-hotspot-vm;                       new;               2;                    369.590;                130.920;        231.064
+openjdk-hotspot-vm;                       new;               3;                    374.330;                131.190;        231.344
+openjdk-hotspot-vm;             override_fist;               2;                     85.500;                 30.920;         54.632
+openjdk-hotspot-vm;             override_fist;               5;                     94.310;                 30.760;         54.518
+openjdk-hotspot-vm;             override_fist;               3;                     85.270;                 31.010;         54.791
+openjdk-hotspot-vm;             override_fist;               4;                     93.770;                 30.490;         54.332
+openjdk-hotspot-vm;             override_fist;               1;                     83.360;                 30.930;         54.624

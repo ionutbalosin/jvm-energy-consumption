@@ -111,6 +111,6 @@ public class BaselineReport extends AbstractReport {
       }
     }
 
-    System.out.printf("Perf stats report %s was successfully created\n", outputFilePath);
+    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
   }
 }

@@ -1,43 +1,45 @@
      Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;      guarded_parametrized;        5;          338.156;                5.684;                    338.114
-     azul-prime-vm;    guarded_unparametrized;        5;          204.776;                2.286;                    204.765
-     azul-prime-vm;               lambda_heap;        5;          250.418;                7.955;                    250.304
-     azul-prime-vm;              lambda_local;        5;          210.182;                8.722;                    210.025
-     azul-prime-vm;             string_format;        5;          236.582;               13.030;                    236.267
-     azul-prime-vm;    unguarded_parametrized;        5;          342.388;                3.428;                    342.373
-     azul-prime-vm;  unguarded_unparametrized;        5;          226.306;               10.692;                    226.074
- eclipse-openj9-vm;      guarded_parametrized;        5;          276.610;                8.813;                    276.486
- eclipse-openj9-vm;    guarded_unparametrized;        5;          243.844;                5.906;                    243.781
- eclipse-openj9-vm;               lambda_heap;        5;          240.962;                5.249;                    240.912
- eclipse-openj9-vm;              lambda_local;        5;          238.676;                6.677;                    238.592
- eclipse-openj9-vm;             string_format;        5;          245.770;                8.524;                    245.637
- eclipse-openj9-vm;    unguarded_parametrized;        5;          281.484;                7.839;                    281.388
- eclipse-openj9-vm;  unguarded_unparametrized;        5;          257.676;               50.413;                    253.914
-        graalvm-ce;      guarded_parametrized;        5;          244.010;                7.639;                    243.903
-        graalvm-ce;    guarded_unparametrized;        5;          187.386;               18.951;                    186.469
-        graalvm-ce;               lambda_heap;        5;          169.170;               26.660;                    167.401
-        graalvm-ce;              lambda_local;        5;          181.614;               26.946;                    179.803
-        graalvm-ce;             string_format;        5;          188.888;               27.656;                    187.037
-        graalvm-ce;    unguarded_parametrized;        5;          231.570;               26.598;                    230.154
-        graalvm-ce;  unguarded_unparametrized;        5;          166.342;               21.557;                    165.220
-        graalvm-ee;      guarded_parametrized;        5;          176.912;                2.624;                    176.895
-        graalvm-ee;    guarded_unparametrized;        5;          144.372;                2.939;                    144.346
-        graalvm-ee;               lambda_heap;        5;          143.440;                2.635;                    143.419
-        graalvm-ee;              lambda_local;        5;          145.574;                3.007;                    145.546
-        graalvm-ee;             string_format;        5;          153.126;                4.253;                    153.074
-        graalvm-ee;    unguarded_parametrized;        5;          178.652;                2.227;                    178.640
-        graalvm-ee;  unguarded_unparametrized;        5;          145.282;                1.667;                    145.274
-      native-image;      guarded_parametrized;        5;          173.254;                9.965;                    173.005
-      native-image;    guarded_unparametrized;        5;          118.044;                6.275;                    117.899
-      native-image;               lambda_heap;        5;          116.712;                6.378;                    116.560
-      native-image;              lambda_local;        5;          117.502;                6.333;                    117.353
-      native-image;             string_format;        5;          120.022;                6.525;                    119.868
-      native-image;    unguarded_parametrized;        5;          171.920;                9.002;                    171.715
-      native-image;  unguarded_unparametrized;        5;          117.968;                7.124;                    117.782
-openjdk-hotspot-vm;      guarded_parametrized;        5;          197.580;                7.675;                    197.447
-openjdk-hotspot-vm;    guarded_unparametrized;        5;          152.728;                4.642;                    152.665
-openjdk-hotspot-vm;               lambda_heap;        5;          153.966;                7.165;                    153.820
-openjdk-hotspot-vm;              lambda_local;        5;          150.816;                8.000;                    150.626
-openjdk-hotspot-vm;             string_format;        5;          161.386;                6.735;                    161.261
-openjdk-hotspot-vm;    unguarded_parametrized;        5;          197.516;                7.483;                    197.390
-openjdk-hotspot-vm;  unguarded_unparametrized;        5;          152.724;                5.998;                    152.619
+     azul-prime-vm;      guarded_parametrized;        5;          228.786;                3.996;                    228.755
+     azul-prime-vm;    guarded_unparametrized;        5;          134.539;                1.855;                    134.528
+     azul-prime-vm;               lambda_heap;        5;          169.558;                8.126;                    169.380
+     azul-prime-vm;              lambda_local;        5;          138.314;                6.557;                    138.180
+     azul-prime-vm;             string_format;        5;          155.998;               10.056;                    155.714
+     azul-prime-vm;    unguarded_parametrized;        5;          233.748;                3.130;                    233.730
+     azul-prime-vm;  unguarded_unparametrized;        5;          151.423;                8.272;                    151.215
+ eclipse-openj9-vm;      guarded_parametrized;        5;          167.423;                7.619;                    167.269
+ eclipse-openj9-vm;    guarded_unparametrized;        5;          149.736;                4.480;                    149.677
+ eclipse-openj9-vm;               lambda_heap;        5;          147.494;                4.673;                    147.429
+ eclipse-openj9-vm;              lambda_local;        5;          146.233;                6.030;                    146.120
+ eclipse-openj9-vm;             string_format;        5;          150.061;                6.574;                    149.930
+ eclipse-openj9-vm;    unguarded_parametrized;        5;          170.666;                6.702;                    170.550
+ eclipse-openj9-vm;  unguarded_unparametrized;        5;          162.721;               42.864;                    158.585
+        graalvm-ce;      guarded_parametrized;        5;          145.828;                5.383;                    145.739
+        graalvm-ce;    guarded_unparametrized;        5;          111.467;               11.233;                    110.928
+        graalvm-ce;               lambda_heap;        5;          100.094;               16.912;                     98.898
+        graalvm-ce;              lambda_local;        5;          108.001;               17.466;                    106.723
+        graalvm-ce;             string_format;        5;          112.585;               17.873;                    111.283
+        graalvm-ce;    unguarded_parametrized;        5;          138.243;               17.449;                    137.220
+        graalvm-ce;  unguarded_unparametrized;        5;           98.502;               14.072;                     97.704
+        graalvm-ee;      guarded_parametrized;        5;          107.349;                2.353;                    107.326
+        graalvm-ee;    guarded_unparametrized;        5;           87.070;                2.567;                     87.037
+        graalvm-ee;               lambda_heap;        5;           85.773;                2.292;                     85.747
+        graalvm-ee;              lambda_local;        5;           87.237;                2.994;                     87.191
+        graalvm-ee;             string_format;        5;           92.242;                3.117;                     92.195
+        graalvm-ee;    unguarded_parametrized;        5;          108.578;                1.712;                    108.566
+        graalvm-ee;  unguarded_unparametrized;        5;           87.816;                1.682;                     87.802
+      native-image;      guarded_parametrized;        5;           94.030;               10.003;                     93.573
+      native-image;    guarded_unparametrized;        5;           63.677;                6.343;                     63.404
+      native-image;               lambda_heap;        5;           62.505;                6.051;                     62.253
+      native-image;              lambda_local;        5;           63.287;                6.243;                     63.021
+      native-image;             string_format;        5;           64.295;                6.502;                     64.012
+      native-image;    unguarded_parametrized;        5;           93.269;                9.462;                     92.857
+      native-image;  unguarded_unparametrized;        5;           63.692;                6.705;                     63.392
+openjdk-hotspot-vm;      guarded_parametrized;        5;          114.329;                7.872;                    114.085
+openjdk-hotspot-vm;    guarded_unparametrized;        5;           87.846;                4.706;                     87.733
+openjdk-hotspot-vm;               lambda_heap;        5;           88.847;                6.720;                     88.624
+openjdk-hotspot-vm;              lambda_local;        5;           87.068;                7.165;                     86.803
+openjdk-hotspot-vm;             string_format;        5;           93.298;                6.419;                     93.100
+openjdk-hotspot-vm;    unguarded_parametrized;        5;          114.486;                7.760;                    114.251
+openjdk-hotspot-vm;  unguarded_unparametrized;        5;           88.046;                6.023;                     87.860
+
+# Note: The reference baseline is already excluded from this report

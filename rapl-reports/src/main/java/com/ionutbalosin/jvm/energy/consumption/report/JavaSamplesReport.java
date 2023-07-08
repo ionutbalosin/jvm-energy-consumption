@@ -47,9 +47,9 @@ import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
 
-  public JavaSamplesReport(String category) {
+  public JavaSamplesReport(String category, double baselineInWatt) {
     this.category = category;
-    this.formulas = new WattSecEnergyFormulas();
+    this.formulas = new WattSecEnergyFormulas(baselineInWatt);
   }
 
   @Override
@@ -94,6 +94,7 @@ public class JavaSamplesReport extends AbstractReport {
             meanError,
             geometricMean);
       }
+      writer.printf("\n# Note: The reference baseline is already excluded from this report");
     }
 
     System.out.printf("Mean report %s was successfully created\n", outputFilePath);
@@ -104,30 +105,28 @@ public class JavaSamplesReport extends AbstractReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%16s;%27s;%23s;%18s;%15s\n",
+          "%18s;%26s;%16s;%27s;%23s;%15s\n",
           "Test Category",
           "Test Type",
           "Run Identifier",
           "Energy Package (Watt⋅sec)",
           "Energy RAM (Watt⋅sec)",
-          "Total (Watt⋅sec)",
           "Elapsed (sec)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         for (Stats perfStat : pair.getValue()) {
           writer.printf(
-              "%18s;%26s;%16s;%27.3f;%23.3f;%18.3f;%15.3f\n",
+              "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
               perfStat.testCategory,
               perfStat.testType,
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
-              formulas.getFormula(perfStat),
               perfStat.elapsed);
         }
       }
     }
 
-    System.out.printf("Perf stats report %s was successfully created\n", outputFilePath);
+    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
   }
 }

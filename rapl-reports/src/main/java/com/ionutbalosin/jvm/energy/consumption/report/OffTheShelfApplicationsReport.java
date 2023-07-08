@@ -47,9 +47,9 @@ import java.util.TreeMap;
 
 public class OffTheShelfApplicationsReport extends AbstractReport {
 
-  public OffTheShelfApplicationsReport(String category) {
+  public OffTheShelfApplicationsReport(String category, double baselineInWatt) {
     this.category = category;
-    this.formulas = new WattSecEnergyFormulas();
+    this.formulas = new WattSecEnergyFormulas(baselineInWatt);
   }
 
   @Override
@@ -88,6 +88,7 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
             "%18s;%9d;%17.3f;%21.3f;%27.3f\n",
             pair.getKey(), pair.getValue().size(), mean, meanError, geometricMean);
       }
+      writer.printf("\n# Note: The reference baseline is already excluded from this report");
     }
 
     System.out.printf("Mean report %s was successfully created\n", outputFilePath);
@@ -97,28 +98,26 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   public void createRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%27s;%23s;%18s;%15s\n",
+          "%18s;%16s;%27s;%23s;%15s\n",
           "Test Category",
           "Run Identifier",
           "Energy Package (Watt⋅sec)",
           "Energy RAM (Watt⋅sec)",
-          "Total (Watt⋅sec)",
           "Elapsed (sec)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         for (Stats perfStat : pair.getValue()) {
           writer.printf(
-              "%18s;%16s;%27.3f;%23.3f;%18.3f;%15.3f\n",
+              "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
               perfStat.testCategory,
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
-              formulas.getFormula(perfStat),
               perfStat.elapsed);
         }
       }
     }
 
-    System.out.printf("Perf stats report %s was successfully created\n", outputFilePath);
+    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
   }
 }
