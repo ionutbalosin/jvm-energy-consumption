@@ -24,38 +24,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report;
+package com.ionutbalosin.jvm.energy.consumption.formula;
 
-import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
-public abstract class AbstractReport {
+public class WattSecEnergyFormulas extends StatisticsFormulas {
 
-  public String category;
-  public String refGeometricMean;
-  public StatisticsFormulas statisticsFormulas;
-  public Map<String, List<Stats>> perfStats;
-
-  public AbstractReport(String category, StatisticsFormulas statisticsFormulas) {
-    this.category = category;
-    this.statisticsFormulas = statisticsFormulas;
+  public double getEnergy(Stats perfStat) {
+    // pkg includes the cores and gpu
+    // Note: on laptop battery the psys counters does not display proper stats
+    return perfStat.pkg + perfStat.ram;
   }
-
-  public AbstractReport(
-      String category, String refGeometricMean, StatisticsFormulas statisticsFormulas) {
-    this.category = category;
-    this.refGeometricMean = refGeometricMean;
-    this.statisticsFormulas = statisticsFormulas;
-  }
-
-  public abstract void setPerfStats(List<Stats> perfStats);
-
-  public abstract String getPerfStatsPath();
-
-  public abstract void createRawPerfStatsReport(String outputFilePath) throws IOException;
-
-  public abstract void createMeanReport(String outputFilePath) throws IOException;
 }

@@ -26,10 +26,6 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getEnergy;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getGeometricMean;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMean;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMeanError;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.JDK_VERSION;
@@ -40,6 +36,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,8 +47,9 @@ import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
 
-  public JavaSamplesReport(String category, String refGeometricMean) {
-    super(category, refGeometricMean);
+  public JavaSamplesReport(
+      String category, String refGeometricMean, StatisticsFormulas statisticsFormulas) {
+    super(category, refGeometricMean, statisticsFormulas);
   }
 
   @Override
@@ -74,7 +72,8 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void createMeanReport(String outputFilePath) throws IOException {
-    double refGeometricMean = getGeometricMean(perfStats.get(this.refGeometricMean));
+    double refGeometricMean =
+        statisticsFormulas.getGeometricMean(perfStats.get(this.refGeometricMean));
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
@@ -87,9 +86,9 @@ public class JavaSamplesReport extends AbstractReport {
           "Geometric Mean (Watt⋅sec)",
           "Normalized Geometric Mean");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        double mean = getMean(pair.getValue());
-        double meanError = getMeanError(pair.getValue());
-        double geometricMean = getGeometricMean(pair.getValue());
+        double mean = statisticsFormulas.getMean(pair.getValue());
+        double meanError = statisticsFormulas.getMeanError(pair.getValue());
+        double geometricMean = statisticsFormulas.getGeometricMean(pair.getValue());
         writer.printf(
             "%18s;%26s;%9d;%17.3f;%21s;%27.3f;%27.3f\n",
             pair.getValue().get(0).testCategory,
@@ -131,7 +130,7 @@ public class JavaSamplesReport extends AbstractReport {
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
-              getEnergy(perfStat),
+              statisticsFormulas.getEnergy(perfStat),
               perfStat.elapsed);
         }
       }

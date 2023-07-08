@@ -26,10 +26,6 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getEnergy;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getGeometricMean;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMean;
-import static com.ionutbalosin.jvm.energy.consumption.perfstats.Statistics.getMeanError;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
@@ -39,6 +35,7 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.formula.StatisticsFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,8 +46,8 @@ import java.util.TreeMap;
 
 public class BaselineReport extends AbstractReport {
 
-  public BaselineReport(String category, String refGeometricMean) {
-    super(category, refGeometricMean);
+  public BaselineReport(String category, StatisticsFormulas statisticsFormulas) {
+    super(category, statisticsFormulas);
   }
 
   @Override
@@ -72,59 +69,39 @@ public class BaselineReport extends AbstractReport {
 
   @Override
   public void createMeanReport(String outputFilePath) throws IOException {
-    double refGeometricMean = getGeometricMean(perfStats.get(this.refGeometricMean));
-
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%9s;%17s;%21s;%27s;%27s\n",
-          "Test Category",
-          "Samples",
-          "Mean (Watt⋅sec)",
-          "Score Error (90.0%)",
-          "Geometric Mean (Watt⋅sec)",
-          "Normalized Geometric Mean");
+          "%18s;%9s;%17s;%21s\n", "Test Category", "Samples", "Mean (Watt)", "Score Error (90.0%)");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        double mean = getMean(pair.getValue());
-        double meanError = getMeanError(pair.getValue());
-        double geometricMean = getGeometricMean(pair.getValue());
+        double mean = statisticsFormulas.getMean(pair.getValue());
+        double meanError = statisticsFormulas.getMeanError(pair.getValue());
         writer.printf(
-            "%18s;%9d;%17.3f;%21s;%27.3f;%27.3f\n",
-            pair.getKey(),
-            pair.getValue().size(),
-            mean,
-            String.format("± %.3f", meanError),
-            geometricMean,
-            geometricMean / refGeometricMean);
+            "%18s;%9d;%17.3f;%21.3f\n", pair.getKey(), pair.getValue().size(), mean, meanError);
       }
-      writer.printf(
-          "\n# Note: The reference value '%s' was considered for the normalized geometric mean",
-          this.refGeometricMean);
     }
 
-    System.out.printf("Geometric mean report %s was successfully created\n", outputFilePath);
+    System.out.printf(" Mean report %s was successfully created\n", outputFilePath);
   }
 
   @Override
   public void createRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%27s;%23s;%18s;%15s\n",
+          "%18s;%16s;%27s;%23s;%15s\n",
           "Test Category",
           "Run Identifier",
           "Energy Package (Watt⋅sec)",
           "Energy RAM (Watt⋅sec)",
-          "Total (Watt⋅sec)",
           "Elapsed (sec)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         for (Stats perfStat : pair.getValue()) {
           writer.printf(
-              "%18s;%16s;%27.3f;%23.3f;%18.3f;%15.3f\n",
+              "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
               perfStat.testCategory,
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
-              getEnergy(perfStat),
               perfStat.elapsed);
         }
       }

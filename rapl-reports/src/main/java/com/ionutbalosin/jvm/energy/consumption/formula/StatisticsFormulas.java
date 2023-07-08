@@ -24,22 +24,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.perfstats;
+package com.ionutbalosin.jvm.energy.consumption.formula;
 
+import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.util.List;
 import org.apache.commons.math3.distribution.TDistribution;
 
-public class Statistics {
+public abstract class StatisticsFormulas {
 
   private static double CONFIDENCE = 0.90;
 
-  public static double getEnergy(Stats perfStat) {
-    // pkg includes the cores and gpu
-    // Note: on laptop battery the psys counters does not display proper stats
-    return perfStat.pkg + perfStat.ram;
-  }
+  public abstract double getEnergy(Stats perfStat);
 
-  public static double getGeometricMean(List<Stats> perfStats) {
+  public double getGeometricMean(List<Stats> perfStats) {
     double prod = 1;
     for (Stats perfStat : perfStats) {
       double energy = getEnergy(perfStat);
@@ -48,7 +45,7 @@ public class Statistics {
     return Math.pow(prod, 1.0 / perfStats.size());
   }
 
-  public static double getMean(List<Stats> perfStats) {
+  public double getMean(List<Stats> perfStats) {
     int count = perfStats.size();
     if (count > 0) {
       return getSum(perfStats) / count;
@@ -57,7 +54,7 @@ public class Statistics {
     }
   }
 
-  public static double getSum(List<Stats> perfStats) {
+  public double getSum(List<Stats> perfStats) {
     int size = perfStats.size();
     if (size > 0) {
       double sum = 0;
@@ -70,7 +67,7 @@ public class Statistics {
     }
   }
 
-  public static double getMeanError(List<Stats> perfStats) {
+  public double getMeanError(List<Stats> perfStats) {
     int size = perfStats.size();
     if (size <= 2) {
       return Double.NaN;
@@ -80,11 +77,11 @@ public class Statistics {
     return probability * getStandardDeviation(perfStats) / Math.sqrt(size);
   }
 
-  public static double getStandardDeviation(List<Stats> perfStats) {
+  public double getStandardDeviation(List<Stats> perfStats) {
     return Math.sqrt(getVariance(perfStats));
   }
 
-  public static double getVariance(List<Stats> perfStats) {
+  public double getVariance(List<Stats> perfStats) {
     int size = perfStats.size();
     if (size > 1) {
       double variance = 0;

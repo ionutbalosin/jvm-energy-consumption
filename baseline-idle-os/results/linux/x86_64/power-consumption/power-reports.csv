@@ -1,4 +1,2 @@
-     Test Category;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec);  Normalized Geometric Mean
-  baseline-idle-os;        3;          920.150;              ± 0.556;                    920.150;                      1.000
-
-# Note: The reference value 'baseline-idle-os' was considered for the normalized geometric mean
+     Test Category;  Samples;      Mean (Watt);  Score Error (90.0%)
+  baseline-idle-os;        3;            1.022;                0.001
