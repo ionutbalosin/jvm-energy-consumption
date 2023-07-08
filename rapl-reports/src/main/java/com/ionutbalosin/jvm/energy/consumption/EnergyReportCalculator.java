@@ -1,0 +1,104 @@
+/*
+ * JVM Energy Consumption
+ *
+ * MIT License
+ *
+ * Copyright (c) 2023 Ionut Balosin
+ * Copyright (c) 2023 Ko Turk
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+package com.ionutbalosin.jvm.energy.consumption.rapl.report;
+
+import static java.util.stream.Collectors.toList;
+
+import com.ionutbalosin.jvm.energy.consumption.Application;
+import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
+import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
+import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
+import com.ionutbalosin.jvm.energy.consumption.report.OsBaselineReport;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class EnergyReportCalculator {
+
+  public static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
+  public static final String OUTPUT_FOLDER = "power-consumption";
+  public static final String MEAN_OUTPUT_FILE = "power-reports.csv";
+  public static final String PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
+  public static final String OS = "linux";
+  public static final String ARCH = "x86_64";
+  public static final String JDK_VERSION = "17";
+
+  private static final Application OS_BASELINE =
+      new Application("baseline-idle-os", "baseline-idle-os");
+  private static final List<Application> OFF_THE_SHELF_APPLICATIONS =
+      List.of(
+          new Application("spring-petclinic", "openjdk-hotspot-vm"),
+          new Application("quarkus-hibernate-orm-panache-quickstart", "openjdk-hotspot-vm"),
+          new Application("renaissance", "openjdk-hotspot-vm"));
+  private static final List<Application> JAVA_SAMPLES =
+      List.of(
+          new Application("ThrowExceptionPatterns", "openjdk-hotspot-vm-override_fist"),
+          new Application("MemoryAccessPatterns", "openjdk-hotspot-vm-linear"),
+          new Application("LoggingPatterns", "openjdk-hotspot-vm-lambda_heap"));
+
+  public static void main(String[] args) throws IOException {
+    calculateEnergy(new OsBaselineReport(OS_BASELINE));
+
+    for (Application application : OFF_THE_SHELF_APPLICATIONS) {
+      calculateEnergy(new OffTheShelfApplicationsReport(application));
+    }
+
+    for (Application application : JAVA_SAMPLES) {
+      calculateEnergy(new JavaSamplesReport(application));
+    }
+  }
+
+  private static void calculateEnergy(AbstractReport energyReport) throws IOException {
+    System.out.printf("Calculate energy for '%s'\n", energyReport.application.name);
+
+    String perfStatsPath = energyReport.getPerfStatsPath();
+    List<PerfStats> perfStats = readFiles(perfStatsPath);
+    energyReport.setPerfStats(perfStats);
+
+    String outputPath = new File(perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
+    Files.createDirectories(Paths.get(outputPath));
+
+    String perfStatsOutputFile = outputPath + "/" + PERF_STATS_OUTPUT_FILE;
+    energyReport.createPerfStatsReport(perfStatsOutputFile);
+
+    String geometricMeanOutputFile = outputPath + "/" + MEAN_OUTPUT_FILE;
+    energyReport.createMeanReport(geometricMeanOutputFile);
+
+    System.out.println();
+  }
+
+  private static List<PerfStats> readFiles(String parentFolder) throws IOException {
+    return Files.walk(Paths.get(parentFolder))
+        .filter(Files::isRegularFile)
+        .map(PerfStatsParser::parseStats)
+        .collect(toList());
+  }
+}

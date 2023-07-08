@@ -1,0 +1,27 @@
+     Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec);  Normalized Geometric Mean
+     azul-prime-vm;                     const;        5;           72.734;              ± 0.852;                     72.730;                      0.610
+     azul-prime-vm;                    lambda;        5;          567.022;              ± 5.972;                    566.994;                      4.757
+     azul-prime-vm;                       new;        5;          562.538;              ± 6.386;                    562.506;                      4.720
+     azul-prime-vm;             override_fist;        5;           72.728;              ± 0.938;                     72.723;                      0.610
+ eclipse-openj9-vm;                     const;        5;           65.390;             ± 19.962;                     63.211;                      0.530
+ eclipse-openj9-vm;                    lambda;        5;          664.294;             ± 12.400;                    664.192;                      5.573
+ eclipse-openj9-vm;                       new;        5;          661.284;              ± 9.171;                    661.228;                      5.548
+ eclipse-openj9-vm;             override_fist;        5;           60.214;              ± 4.367;                     60.077;                      0.504
+        graalvm-ce;                     const;        5;           48.920;              ± 1.181;                     48.907;                      0.410
+        graalvm-ce;                    lambda;        5;          438.202;              ± 4.197;                    438.184;                      3.677
+        graalvm-ce;                       new;        5;          443.486;              ± 4.674;                    443.464;                      3.721
+        graalvm-ce;             override_fist;        5;           48.516;              ± 0.302;                     48.515;                      0.407
+        graalvm-ee;                     const;        5;          249.798;              ± 3.043;                    249.781;                      2.096
+        graalvm-ee;                    lambda;        5;          433.278;              ± 3.718;                    433.264;                      3.635
+        graalvm-ee;                       new;        5;          433.584;              ± 2.735;                    433.576;                      3.638
+        graalvm-ee;             override_fist;        5;           43.126;              ± 0.599;                     43.122;                      0.362
+      native-image;                     const;        5;           23.798;              ± 2.736;                     23.660;                      0.199
+      native-image;                    lambda;        5;           91.220;              ± 6.011;                     91.049;                      0.764
+      native-image;                       new;        5;          111.666;              ± 7.426;                    111.452;                      0.935
+      native-image;             override_fist;        5;            7.076;              ± 0.667;                      7.049;                      0.059
+openjdk-hotspot-vm;                     const;        5;          128.474;             ± 22.382;                    126.969;                      1.065
+openjdk-hotspot-vm;                    lambda;        5;          517.550;             ± 19.695;                    517.223;                      4.340
+openjdk-hotspot-vm;                       new;        5;          515.118;             ± 20.703;                    514.754;                      4.319
+openjdk-hotspot-vm;             override_fist;        5;          119.264;              ± 4.777;                    119.180;                      1.000
+
+# Note: The reference value 'openjdk-hotspot-vm-override_fist' was considered for the normalized geometric mean

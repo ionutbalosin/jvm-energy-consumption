@@ -10,7 +10,14 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <name>JVM Energy Consumption Java Samples</name>
-    <artifactId>java-samples</artifactId>
+    <name>JVM Energy Consumption RAPL Reports</name>
+    <artifactId>rapl-reports</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

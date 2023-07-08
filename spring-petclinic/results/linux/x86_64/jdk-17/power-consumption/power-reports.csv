@@ -1,0 +1,9 @@
+     Test Category;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec);  Normalized Geometric Mean
+     azul-prime-vm;        3;         3238.420;             ± 50.943;                   3238.326;                      1.581
+ eclipse-openj9-vm;        3;         2245.760;             ± 48.920;                   2245.635;                      1.096
+        graalvm-ce;        3;         2006.413;             ± 14.606;                   2006.401;                      0.980
+        graalvm-ee;        3;         1953.743;             ± 24.184;                   1953.708;                      0.954
+      native-image;        3;         1902.613;              ± 4.519;                   1902.612;                      0.929
+openjdk-hotspot-vm;        3;         2048.147;             ± 11.907;                   2048.139;                      1.000
+
+# Note: The reference value 'openjdk-hotspot-vm' was considered for the normalized geometric mean

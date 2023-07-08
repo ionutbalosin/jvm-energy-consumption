@@ -1,9 +1,0 @@
-     Test Category;  Geometric Mean (Watt⋅sec);  Normalized Geometric Mean;  Samples
-     azul-prime-vm;                   2390.161;                      1.330;        3
- eclipse-openj9-vm;                   1948.290;                      1.084;        3
-        graalvm-ce;                   1806.722;                      1.005;        3
-        graalvm-ee;                   1807.438;                      1.006;        3
-      native-image;                   1734.735;                      0.965;        3
-openjdk-hotspot-vm;                   1797.200;                      1.000;        3
-
-# Note: The reference value 'openjdk-hotspot-vm' was considered for the normalized geometric mean
