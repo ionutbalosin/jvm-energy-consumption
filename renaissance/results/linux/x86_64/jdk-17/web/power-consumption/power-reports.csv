@@ -1,0 +1,8 @@
+     Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
+     azul-prime-vm;                       web;        2;         7842.520;                  NaN;                   7841.898
+ eclipse-openj9-vm;                       web;        2;         7810.401;                  NaN;                   7810.360
+        graalvm-ce;                       web;        2;         5963.186;                  NaN;                   5962.675
+        graalvm-ee;                       web;        2;         4874.551;                  NaN;                   4874.551
+openjdk-hotspot-vm;                       web;        2;         5899.635;                  NaN;                   5898.462
+
+# Note: The reference baseline is already excluded from this report

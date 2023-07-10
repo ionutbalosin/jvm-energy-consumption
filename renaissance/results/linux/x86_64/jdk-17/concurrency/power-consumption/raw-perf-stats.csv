@@ -1,0 +1,11 @@
+     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;               concurrency;               2;                  30195.830;              11430.440;      11442.333
+     azul-prime-vm;               concurrency;               1;                  30723.050;              11496.630;      11525.135
+ eclipse-openj9-vm;               concurrency;               2;                  34500.210;              10578.690;      12908.710
+ eclipse-openj9-vm;               concurrency;               1;                  35228.180;              10651.950;      13093.132
+        graalvm-ce;               concurrency;               1;                  26843.330;               9330.670;      10267.162
+        graalvm-ce;               concurrency;               2;                  28128.510;               9573.230;      10582.719
+        graalvm-ee;               concurrency;               2;                  24746.610;               9053.840;       9235.889
+        graalvm-ee;               concurrency;               1;                  24614.870;               9081.920;       9305.810
+openjdk-hotspot-vm;               concurrency;               2;                  27405.260;               9634.100;      10428.805
+openjdk-hotspot-vm;               concurrency;               1;                  27953.380;               9648.240;      10379.101

@@ -61,10 +61,13 @@ public class EnergyReportCalculator {
             new OffTheShelfApplicationsReport("spring-petclinic", baseline.mean),
             new OffTheShelfApplicationsReport(
                 "quarkus-hibernate-orm-panache-quickstart", baseline.mean),
-            new OffTheShelfApplicationsReport("renaissance", baseline.mean),
-            new JavaSamplesReport("ThrowExceptionPatterns", baseline.mean),
-            new JavaSamplesReport("MemoryAccessPatterns", baseline.mean),
-            new JavaSamplesReport("LoggingPatterns", baseline.mean));
+            new JavaSamplesReport("renaissance", "concurrency", baseline.mean),
+            new JavaSamplesReport("renaissance", "functional", baseline.mean),
+            new JavaSamplesReport("renaissance", "scala", baseline.mean),
+            new JavaSamplesReport("renaissance", "web", baseline.mean),
+            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.mean),
+            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.mean),
+            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.mean));
 
     for (AbstractReport report : REPORTS) {
       calculateEnergy(report);

@@ -27,51 +27,52 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID != 0 ]]; then
-    echo "Usage: sudo ./run-benchmarks.sh"
+  if [[ $EUID != 0 || $# -ne 1 ]]; then
+    echo "Usage: sudo ./run-benchmarks.sh <test-run-identifier>"
+    echo ""
+    echo "Options:"
+    echo "  test-run-identifier  is a mandatory parameter to identify the current execution test."
+    echo ""
+    echo "Examples:"
+    echo "   $ sudo ./run-benchmarks.sh 1"
+    echo ""
     return 1
+  fi
+
+  if [ "$1" ]; then
+    export TEST_RUN_IDENTIFIER="$1"
   fi
 }
 
 configure_benchmark() {
   export BENCHMARK_HOME=/home/ionutbalosin/Workspace/renaissance/renaissance-gpl-0.14.2.jar
+  export BENCHMARK_CATEGORIES=("concurrency" "functional" "scala" "web")
   export BENCHMARK_REPETITIONS=100
   export JAVA_OPS="-Xms1m -Xmx2g"
 
   echo ""
   echo "Benchmark home: $BENCHMARK_HOME"
+  for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
+    echo "Benchmark category: $benchmark_category"
+  done
   echo "Benchmark repetitions: $BENCHMARK_REPETITIONS"
   echo "Java opts: $JAVA_OPS"
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
-  mkdir -p $OUTPUT_FOLDER/perf
-  mkdir -p $OUTPUT_FOLDER/logs
-  mkdir -p $OUTPUT_FOLDER/reports
-}
-
-chmod_output_resources() {
-  sudo chmod 777 $OUTPUT_FOLDER/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER
-
-  sudo chmod 777 $OUTPUT_FOLDER/perf/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER/perf
-
-  sudo chmod 777 $OUTPUT_FOLDER/logs/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER/logs
-
-  sudo chmod 777 $OUTPUT_FOLDER/reports/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER/reports
+  for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
+    mkdir -p $OUTPUT_FOLDER/$benchmark_category/perf
+    mkdir -p $OUTPUT_FOLDER/$benchmark_category/logs
+    mkdir -p $OUTPUT_FOLDER/$benchmark_category/reports
+  done
 }
 
 run_benchmarks(){
-  # declare renaissance benchmark categories
-  declare -a benchmark_categories=("concurrency" "functional" "scala" "web")
-
-  for benchmark_category in "${benchmark_categories[@]}"; do
+  for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
     echo "Starting benchmark category $benchmark_category at: $(date) "
 
     sudo perf stat -a \
@@ -80,12 +81,12 @@ run_benchmarks(){
       -e "power/energy-pkg/" \
       -e "power/energy-psys/" \
       -e "power/energy-ram/" \
-      -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$benchmark_category.stats \
+      -o $OUTPUT_FOLDER/$benchmark_category/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats \
       $JAVA_HOME/bin/java $JAVA_OPS -jar $BENCHMARK_HOME \
       -r $BENCHMARK_REPETITIONS \
-      --csv $OUTPUT_FOLDER/reports/$JVM_IDENTIFIER-run-$benchmark_category.csv \
+      --csv $OUTPUT_FOLDER/$benchmark_category/reports/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.csv \
       $benchmark_category \
-      > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$benchmark_category.log 2>&1
+      > $OUTPUT_FOLDER/$benchmark_category/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1
 
     # give a bit of time to the process to gracefully shut down
     sleep 10
@@ -135,3 +136,9 @@ run_benchmarks
 
 # assign read/write permissions to the output files
 chmod_output_resources
+
+# give a bit of time to the process to gracefully shut down
+sleep 10
+
+echo ""
+echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

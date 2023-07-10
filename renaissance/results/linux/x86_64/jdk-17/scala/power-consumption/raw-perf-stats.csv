@@ -1,0 +1,11 @@
+     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;                     scala;               1;                   7303.760;               2464.320;       3142.581
+     azul-prime-vm;                     scala;               2;                   7343.700;               2541.350;       3233.089
+ eclipse-openj9-vm;                     scala;               1;                  12507.430;               4005.850;       6382.233
+ eclipse-openj9-vm;                     scala;               2;                  13303.530;               4167.030;       6643.615
+        graalvm-ce;                     scala;               2;                   6293.740;               1975.560;       2898.715
+        graalvm-ce;                     scala;               1;                   6261.190;               1949.160;       2866.601
+        graalvm-ee;                     scala;               2;                   5658.820;               1834.610;       2694.399
+        graalvm-ee;                     scala;               1;                   5587.430;               1797.020;       2650.356
+openjdk-hotspot-vm;                     scala;               2;                   7715.050;               2487.740;       3718.472
+openjdk-hotspot-vm;                     scala;               1;                   8216.940;               2650.510;       4036.825
