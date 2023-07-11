@@ -53,8 +53,9 @@ configure_samples() {
 
   echo ""
   echo "Application home: $APP_HOME"
+  echo "Java samples:"
   for sample_name in "${SAMPLE_APPS[@]}"; do
-    echo "Java sample: $sample_name"
+    echo "  - $sample_name"
   done
   echo "Java opts: $JAVA_OPS"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
@@ -106,7 +107,7 @@ start_sample() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD >  $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
+    $RUN_CMD > $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
 check_command_line_options "$@"

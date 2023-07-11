@@ -61,14 +61,6 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
 }
 
-chmod_output_resources() {
-  sudo chmod 777 $OUTPUT_FOLDER/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER
-
-  sudo chmod 777 $OUTPUT_FOLDER/perf/*
-  sudo chmod -R a+rwx $OUTPUT_FOLDER/perf
-}
-
 start_baseline() {
   export RUN_CMD="sleep $APP_RUNNING_TIME"
 
@@ -116,9 +108,6 @@ echo "+==================================+"
 start_baseline
 
 echo "Idle OS baseline successfully stopped at: $(date)"
-
-# assign read/write permissions to the output files
-chmod_output_resources
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

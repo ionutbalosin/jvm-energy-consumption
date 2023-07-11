@@ -54,7 +54,7 @@ configure_benchmark() {
   echo "Benchmark home: $BENCHMARK_HOME"
   echo "Benchmark categories:"
   for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
-    echo " - $benchmark_category"
+    echo "  - $benchmark_category"
   done
   echo "Benchmark repetitions: $BENCHMARK_REPETITIONS"
   echo "Java opts: $JAVA_OPS"
