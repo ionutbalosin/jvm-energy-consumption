@@ -60,28 +60,7 @@ public class ThrowExceptionPatterns {
       try {
         instance.exceptionThrower.throw_exception(instance.STACK_DEPTH);
       } catch (Exception exc) {
-        // validate the test results
-        if ("const".equals(args[0])
-            && instance.CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
-          throw new AssertionError(
-              String.format(
-                  "Expected = %s, found = %s",
-                  instance.CONSTANT_STACK_TRACES, exc.getStackTrace().length));
-        }
-        if (("lambda".equals(args[0]) || "new".equals(args[0]))
-            && instance.STACK_DEPTH > exc.getStackTrace().length) {
-          // Note: it depends on the JVM, but the number of generated frames should be (always)
-          // greater than STACK_DEPTH (+ eventually 1/2 frames more)
-          throw new AssertionError(
-              String.format(
-                  "Expected at least = %s, found = %s",
-                  instance.STACK_DEPTH, exc.getStackTrace().length));
-        }
-        if ("override_fist".equals(args[0]) && 0 != exc.getStackTrace().length) {
-          throw new AssertionError(
-              String.format("Expected = 0, found = %s", exc.getStackTrace().length));
-        }
-        // increment the overall number of generated stack trace elements
+        instance.validate_results(args, exc);
         result += exc.getStackTrace().length;
       }
     }
@@ -107,6 +86,27 @@ public class ThrowExceptionPatterns {
         break;
       default:
         throw new UnsupportedOperationException("Unsupported exception type: " + type);
+    }
+  }
+
+  public void validate_results(String[] args, Exception exc) {
+    // validate the results (note: the assertion error branch(es) should never be taken)
+    if ("const".equals(args[0]) && CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
+      throw new AssertionError(
+          String.format(
+              "Expected = %s, found = %s", CONSTANT_STACK_TRACES, exc.getStackTrace().length));
+    }
+    if (("lambda".equals(args[0]) || "new".equals(args[0]))
+        && STACK_DEPTH > exc.getStackTrace().length) {
+      // Note: it depends on the JVM, but the number of generated frames should be (always)
+      // greater than STACK_DEPTH (+ eventually 1/2 frames more)
+      throw new AssertionError(
+          String.format(
+              "Expected at least = %s, found = %s", STACK_DEPTH, exc.getStackTrace().length));
+    }
+    if ("override_fist".equals(args[0]) && 0 != exc.getStackTrace().length) {
+      throw new AssertionError(
+          String.format("Expected = 0, found = %s", exc.getStackTrace().length));
     }
   }
 

@@ -66,10 +66,7 @@ public class MemoryAccessPatterns {
     // start the tests
     for (int counter = 0; counter < instance.ITERATIONS; counter++) {
       long result = instance.memory_access();
-      // validate the test results
-      if (268435456L != result) {
-        throw new AssertionError(String.format("Expected = 268435456L, found = %s", result));
-      }
+      instance.validate_results(result);
     }
 
     System.out.printf(
@@ -113,6 +110,13 @@ public class MemoryAccessPatterns {
       }
     }
     return result;
+  }
+
+  public void validate_results(long result) {
+    // validate the results (note: the assertion error branch(es) should never be taken)
+    if (268435456L != result) {
+      throw new AssertionError(String.format("Expected = 268435456L, found = %s", result));
+    }
   }
 
   public abstract class WalkerStep {

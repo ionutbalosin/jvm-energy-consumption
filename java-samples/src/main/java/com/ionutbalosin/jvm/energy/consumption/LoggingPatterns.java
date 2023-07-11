@@ -39,9 +39,9 @@ import java.util.logging.StreamHandler;
 
 public class LoggingPatterns {
 
-  int ITERATIONS = 1_000_000;
   Logger LOGGER = Logger.getLogger(LoggingPatterns.class.getName());
   Level LOG_LEVEL = Level.INFO;
+  int ITERATIONS = 1_000_000;
 
   String aString;
   int anInt;
@@ -74,11 +74,7 @@ public class LoggingPatterns {
     // start the tests
     for (int counter = 0; counter < instance.ITERATIONS; counter++) {
       instance.julLogger.log();
-      // validate the test results
-      if (counter + 1 != instance.anInt) {
-        throw new AssertionError(
-            String.format("Expected = %s, found = %s", counter + 1, instance.anInt));
-      }
+      instance.validate_results(counter);
     }
 
     System.out.printf(
@@ -143,6 +139,13 @@ public class LoggingPatterns {
     aFloat = random.nextFloat(4);
     aBoolean = random.nextBoolean();
     aChar = (char) (random.nextInt(26) + 'a');
+  }
+
+  public void validate_results(int counter) {
+    // validate the results (note: the assertion error branch(es) should never be taken)
+    if (counter + 1 != anInt) {
+      throw new AssertionError(String.format("Expected = %s, found = %s", counter + 1, anInt));
+    }
   }
 
   public abstract class JulLogger {

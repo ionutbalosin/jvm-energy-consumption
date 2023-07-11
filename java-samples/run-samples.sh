@@ -49,7 +49,7 @@ check_command_line_options() {
 configure_samples() {
   export APP_HOME=$(pwd)/src/main/java
   export JAVA_OPS="-Xms1m -Xmx6g"
-  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns")
+  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns" "SortingAlgorithms" "VirtualCalls")
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -165,6 +165,14 @@ start_sample "LoggingPatterns" "guarded_parametrized"
 start_sample "LoggingPatterns" "guarded_unparametrized"
 start_sample "LoggingPatterns" "unguarded_parametrized"
 start_sample "LoggingPatterns" "unguarded_unparametrized"
+
+start_sample "SortingAlgorithms" "bubble_sort"
+start_sample "SortingAlgorithms" "merge_sort"
+start_sample "SortingAlgorithms" "quick_sort"
+start_sample "SortingAlgorithms" "radix_sort"
+
+start_sample "VirtualCalls" "bimorphic"
+start_sample "VirtualCalls" "megamorphic_24"
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
