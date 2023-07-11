@@ -1,0 +1,4300 @@
+====== akka-uct (concurrency) [default], iteration 0 started ======
+GC before operation: completed in 45.660 ms, heap usage 12.879 MB -> 5.642 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 0 completed (65398.142 ms) ======
+====== akka-uct (concurrency) [default], iteration 1 started ======
+GC before operation: completed in 1456.018 ms, heap usage 801.289 MB -> 92.454 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 1 completed (40813.637 ms) ======
+====== akka-uct (concurrency) [default], iteration 2 started ======
+GC before operation: completed in 1456.219 ms, heap usage 882.344 MB -> 95.751 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 2 completed (40377.584 ms) ======
+====== akka-uct (concurrency) [default], iteration 3 started ======
+GC before operation: completed in 1458.409 ms, heap usage 974.280 MB -> 97.236 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 3 completed (41004.072 ms) ======
+====== akka-uct (concurrency) [default], iteration 4 started ======
+GC before operation: completed in 1520.346 ms, heap usage 1.148 GB -> 105.578 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 4 completed (39419.919 ms) ======
+====== akka-uct (concurrency) [default], iteration 5 started ======
+GC before operation: completed in 1503.596 ms, heap usage 918.866 MB -> 114.650 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 5 completed (40334.092 ms) ======
+====== akka-uct (concurrency) [default], iteration 6 started ======
+GC before operation: completed in 1487.844 ms, heap usage 1.118 GB -> 94.242 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 6 completed (40071.241 ms) ======
+====== akka-uct (concurrency) [default], iteration 7 started ======
+GC before operation: completed in 1522.403 ms, heap usage 1.031 GB -> 96.723 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 7 completed (39205.677 ms) ======
+====== akka-uct (concurrency) [default], iteration 8 started ======
+GC before operation: completed in 1471.309 ms, heap usage 1.042 GB -> 94.360 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 8 completed (38805.191 ms) ======
+====== akka-uct (concurrency) [default], iteration 9 started ======
+GC before operation: completed in 1394.655 ms, heap usage 1.007 GB -> 93.051 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 9 completed (39905.889 ms) ======
+====== akka-uct (concurrency) [default], iteration 10 started ======
+GC before operation: completed in 1510.196 ms, heap usage 1.077 GB -> 115.308 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 10 completed (39573.540 ms) ======
+====== akka-uct (concurrency) [default], iteration 11 started ======
+GC before operation: completed in 1432.881 ms, heap usage 1.112 GB -> 93.048 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 11 completed (39328.677 ms) ======
+====== akka-uct (concurrency) [default], iteration 12 started ======
+GC before operation: completed in 1499.671 ms, heap usage 1.178 GB -> 109.291 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 12 completed (40256.404 ms) ======
+====== akka-uct (concurrency) [default], iteration 13 started ======
+GC before operation: completed in 1487.473 ms, heap usage 1.131 GB -> 96.120 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 13 completed (39619.604 ms) ======
+====== akka-uct (concurrency) [default], iteration 14 started ======
+GC before operation: completed in 1489.995 ms, heap usage 1.071 GB -> 108.554 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 14 completed (39219.257 ms) ======
+====== akka-uct (concurrency) [default], iteration 15 started ======
+GC before operation: completed in 1355.275 ms, heap usage 1.068 GB -> 92.923 MB.
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 15 completed (39164.668 ms) ======
+====== akka-uct (concurrency) [default], iteration 16 started ======
+GC before operation: completed in 1407.273 ms, heap usage 1.123 GB -> 90.978 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 16 completed (39166.728 ms) ======
+====== akka-uct (concurrency) [default], iteration 17 started ======
+GC before operation: completed in 1733.650 ms, heap usage 1.049 GB -> 113.428 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 17 completed (39973.010 ms) ======
+====== akka-uct (concurrency) [default], iteration 18 started ======
+GC before operation: completed in 1425.730 ms, heap usage 1.119 GB -> 92.180 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 18 completed (40058.655 ms) ======
+====== akka-uct (concurrency) [default], iteration 19 started ======
+GC before operation: completed in 1645.086 ms, heap usage 1.161 GB -> 107.080 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 10
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 19 completed (38769.450 ms) ======
+====== akka-uct (concurrency) [default], iteration 20 started ======
+GC before operation: completed in 1420.616 ms, heap usage 1.147 GB -> 91.879 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 20 completed (40230.282 ms) ======
+====== akka-uct (concurrency) [default], iteration 21 started ======
+GC before operation: completed in 1531.024 ms, heap usage 1.145 GB -> 118.191 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 21 completed (39733.171 ms) ======
+====== akka-uct (concurrency) [default], iteration 22 started ======
+GC before operation: completed in 1348.631 ms, heap usage 1.127 GB -> 86.510 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 22 completed (39661.395 ms) ======
+====== akka-uct (concurrency) [default], iteration 23 started ======
+GC before operation: completed in 1347.846 ms, heap usage 1.144 GB -> 96.131 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 23 completed (39380.570 ms) ======
+====== akka-uct (concurrency) [default], iteration 24 started ======
+GC before operation: completed in 1512.570 ms, heap usage 1.094 GB -> 99.995 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 24 completed (39745.419 ms) ======
+====== akka-uct (concurrency) [default], iteration 25 started ======
+GC before operation: completed in 1728.463 ms, heap usage 1.273 GB -> 110.289 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 25 completed (39667.446 ms) ======
+====== akka-uct (concurrency) [default], iteration 26 started ======
+GC before operation: completed in 1492.836 ms, heap usage 1.082 GB -> 106.124 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 26 completed (40088.328 ms) ======
+====== akka-uct (concurrency) [default], iteration 27 started ======
+GC before operation: completed in 1422.319 ms, heap usage 1.121 GB -> 108.300 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 27 completed (40269.924 ms) ======
+====== akka-uct (concurrency) [default], iteration 28 started ======
+GC before operation: completed in 1365.005 ms, heap usage 1.175 GB -> 90.195 MB.
+final size= 199991
+final height= 11
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 28 completed (41432.459 ms) ======
+====== akka-uct (concurrency) [default], iteration 29 started ======
+GC before operation: completed in 1484.971 ms, heap usage 1.135 GB -> 92.305 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 29 completed (39762.825 ms) ======
+====== akka-uct (concurrency) [default], iteration 30 started ======
+GC before operation: completed in 1436.704 ms, heap usage 1.119 GB -> 120.680 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 30 completed (39879.611 ms) ======
+====== akka-uct (concurrency) [default], iteration 31 started ======
+GC before operation: completed in 1505.974 ms, heap usage 1.144 GB -> 95.807 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 31 completed (39797.989 ms) ======
+====== akka-uct (concurrency) [default], iteration 32 started ======
+GC before operation: completed in 1483.052 ms, heap usage 1.153 GB -> 110.801 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 32 completed (40410.932 ms) ======
+====== akka-uct (concurrency) [default], iteration 33 started ======
+GC before operation: completed in 1483.804 ms, heap usage 1.273 GB -> 94.304 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 33 completed (40524.551 ms) ======
+====== akka-uct (concurrency) [default], iteration 34 started ======
+GC before operation: completed in 1382.275 ms, heap usage 1.205 GB -> 87.902 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 34 completed (40940.611 ms) ======
+====== akka-uct (concurrency) [default], iteration 35 started ======
+GC before operation: completed in 1138.491 ms, heap usage 443.862 MB -> 92.636 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 13
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 35 completed (40081.901 ms) ======
+====== akka-uct (concurrency) [default], iteration 36 started ======
+GC before operation: completed in 1951.177 ms, heap usage 1.153 GB -> 124.355 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 36 completed (40120.341 ms) ======
+====== akka-uct (concurrency) [default], iteration 37 started ======
+GC before operation: completed in 1482.185 ms, heap usage 1.220 GB -> 97.650 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 37 completed (39822.083 ms) ======
+====== akka-uct (concurrency) [default], iteration 38 started ======
+GC before operation: completed in 1394.036 ms, heap usage 1.133 GB -> 87.779 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 38 completed (40285.584 ms) ======
+====== akka-uct (concurrency) [default], iteration 39 started ======
+GC before operation: completed in 1457.038 ms, heap usage 1.192 GB -> 94.027 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 39 completed (39213.274 ms) ======
+====== akka-uct (concurrency) [default], iteration 40 started ======
+GC before operation: completed in 1292.960 ms, heap usage 1.132 GB -> 88.896 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 40 completed (39648.322 ms) ======
+====== akka-uct (concurrency) [default], iteration 41 started ======
+GC before operation: completed in 1590.702 ms, heap usage 1.139 GB -> 100.690 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 41 completed (40833.825 ms) ======
+====== akka-uct (concurrency) [default], iteration 42 started ======
+GC before operation: completed in 1450.312 ms, heap usage 1.181 GB -> 96.570 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 42 completed (39869.780 ms) ======
+====== akka-uct (concurrency) [default], iteration 43 started ======
+GC before operation: completed in 1466.084 ms, heap usage 1.160 GB -> 93.832 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 43 completed (39759.009 ms) ======
+====== akka-uct (concurrency) [default], iteration 44 started ======
+GC before operation: completed in 1299.908 ms, heap usage 1.115 GB -> 81.854 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 44 completed (40564.500 ms) ======
+====== akka-uct (concurrency) [default], iteration 45 started ======
+GC before operation: completed in 1509.989 ms, heap usage 1.074 GB -> 105.957 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 45 completed (39478.383 ms) ======
+====== akka-uct (concurrency) [default], iteration 46 started ======
+GC before operation: completed in 1372.379 ms, heap usage 1.139 GB -> 88.984 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 46 completed (40390.513 ms) ======
+====== akka-uct (concurrency) [default], iteration 47 started ======
+GC before operation: completed in 1405.249 ms, heap usage 1.239 GB -> 91.617 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 47 completed (39352.069 ms) ======
+====== akka-uct (concurrency) [default], iteration 48 started ======
+GC before operation: completed in 1329.276 ms, heap usage 1.096 GB -> 85.286 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 48 completed (39361.297 ms) ======
+====== akka-uct (concurrency) [default], iteration 49 started ======
+GC before operation: completed in 1499.692 ms, heap usage 1.181 GB -> 95.709 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 49 completed (38904.250 ms) ======
+====== akka-uct (concurrency) [default], iteration 50 started ======
+GC before operation: completed in 1655.684 ms, heap usage 1.054 GB -> 107.630 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 50 completed (40254.385 ms) ======
+====== akka-uct (concurrency) [default], iteration 51 started ======
+GC before operation: completed in 1610.692 ms, heap usage 1.167 GB -> 129.021 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 51 completed (39907.236 ms) ======
+====== akka-uct (concurrency) [default], iteration 52 started ======
+GC before operation: completed in 1368.769 ms, heap usage 1.313 GB -> 87.058 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 52 completed (40026.766 ms) ======
+====== akka-uct (concurrency) [default], iteration 53 started ======
+GC before operation: completed in 1472.605 ms, heap usage 1.197 GB -> 114.457 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 53 completed (40362.666 ms) ======
+====== akka-uct (concurrency) [default], iteration 54 started ======
+GC before operation: completed in 1714.418 ms, heap usage 1.219 GB -> 111.050 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 54 completed (39053.678 ms) ======
+====== akka-uct (concurrency) [default], iteration 55 started ======
+GC before operation: completed in 1339.075 ms, heap usage 1.105 GB -> 88.612 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 55 completed (39456.321 ms) ======
+====== akka-uct (concurrency) [default], iteration 56 started ======
+GC before operation: completed in 1494.359 ms, heap usage 1.082 GB -> 111.079 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 56 completed (39719.935 ms) ======
+====== akka-uct (concurrency) [default], iteration 57 started ======
+GC before operation: completed in 1380.032 ms, heap usage 1.139 GB -> 87.956 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 57 completed (39413.227 ms) ======
+====== akka-uct (concurrency) [default], iteration 58 started ======
+GC before operation: completed in 1392.816 ms, heap usage 1.104 GB -> 93.107 MB.
+final size= 199991
+final height= 8
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 58 completed (39737.375 ms) ======
+====== akka-uct (concurrency) [default], iteration 59 started ======
+GC before operation: completed in 1351.340 ms, heap usage 1.167 GB -> 86.298 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 59 completed (39334.992 ms) ======
+====== akka-uct (concurrency) [default], iteration 60 started ======
+GC before operation: completed in 1687.367 ms, heap usage 1.172 GB -> 106.886 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 60 completed (39549.088 ms) ======
+====== akka-uct (concurrency) [default], iteration 61 started ======
+GC before operation: completed in 1949.193 ms, heap usage 1.098 GB -> 126.071 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 61 completed (39596.308 ms) ======
+====== akka-uct (concurrency) [default], iteration 62 started ======
+GC before operation: completed in 1612.610 ms, heap usage 1.238 GB -> 90.926 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 62 completed (38997.262 ms) ======
+====== akka-uct (concurrency) [default], iteration 63 started ======
+GC before operation: completed in 1409.266 ms, heap usage 1.041 GB -> 90.047 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 63 completed (39318.252 ms) ======
+====== akka-uct (concurrency) [default], iteration 64 started ======
+GC before operation: completed in 1414.313 ms, heap usage 1.115 GB -> 91.982 MB.
+final size= 199991
+final height= 8
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 64 completed (39222.812 ms) ======
+====== akka-uct (concurrency) [default], iteration 65 started ======
+GC before operation: completed in 1642.779 ms, heap usage 1.228 GB -> 103.504 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 65 completed (39626.498 ms) ======
+====== akka-uct (concurrency) [default], iteration 66 started ======
+GC before operation: completed in 1440.029 ms, heap usage 1.064 GB -> 89.931 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 8
+final size= 199991
+final height= 10
+final size= 199991
+final height= 13
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 66 completed (39859.130 ms) ======
+====== akka-uct (concurrency) [default], iteration 67 started ======
+GC before operation: completed in 1829.661 ms, heap usage 1.164 GB -> 117.925 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 67 completed (38625.447 ms) ======
+====== akka-uct (concurrency) [default], iteration 68 started ======
+GC before operation: completed in 1764.280 ms, heap usage 1.060 GB -> 132.049 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 68 completed (39641.086 ms) ======
+====== akka-uct (concurrency) [default], iteration 69 started ======
+GC before operation: completed in 1479.677 ms, heap usage 1.156 GB -> 111.078 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 69 completed (39163.836 ms) ======
+====== akka-uct (concurrency) [default], iteration 70 started ======
+GC before operation: completed in 1385.337 ms, heap usage 1.180 GB -> 89.846 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 70 completed (40122.717 ms) ======
+====== akka-uct (concurrency) [default], iteration 71 started ======
+GC before operation: completed in 1317.980 ms, heap usage 1.147 GB -> 84.513 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 71 completed (39539.378 ms) ======
+====== akka-uct (concurrency) [default], iteration 72 started ======
+GC before operation: completed in 1588.010 ms, heap usage 1.178 GB -> 125.408 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 72 completed (39447.833 ms) ======
+====== akka-uct (concurrency) [default], iteration 73 started ======
+GC before operation: completed in 1642.247 ms, heap usage 1.215 GB -> 103.068 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 73 completed (39226.394 ms) ======
+====== akka-uct (concurrency) [default], iteration 74 started ======
+GC before operation: completed in 1471.428 ms, heap usage 1.274 GB -> 101.408 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 74 completed (40488.296 ms) ======
+====== akka-uct (concurrency) [default], iteration 75 started ======
+GC before operation: completed in 1466.900 ms, heap usage 1.153 GB -> 92.955 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 75 completed (38702.664 ms) ======
+====== akka-uct (concurrency) [default], iteration 76 started ======
+GC before operation: completed in 1461.442 ms, heap usage 1.083 GB -> 91.585 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 76 completed (39480.991 ms) ======
+====== akka-uct (concurrency) [default], iteration 77 started ======
+GC before operation: completed in 1495.150 ms, heap usage 1.157 GB -> 95.749 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 77 completed (39706.985 ms) ======
+====== akka-uct (concurrency) [default], iteration 78 started ======
+GC before operation: completed in 1488.230 ms, heap usage 1.194 GB -> 108.531 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 78 completed (39861.116 ms) ======
+====== akka-uct (concurrency) [default], iteration 79 started ======
+GC before operation: completed in 1469.258 ms, heap usage 1.157 GB -> 92.360 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 79 completed (39868.884 ms) ======
+====== akka-uct (concurrency) [default], iteration 80 started ======
+GC before operation: completed in 1425.577 ms, heap usage 1.167 GB -> 92.741 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 80 completed (39064.440 ms) ======
+====== akka-uct (concurrency) [default], iteration 81 started ======
+GC before operation: completed in 1368.113 ms, heap usage 1.114 GB -> 87.648 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 12
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 81 completed (40491.008 ms) ======
+====== akka-uct (concurrency) [default], iteration 82 started ======
+GC before operation: completed in 1392.143 ms, heap usage 1.126 GB -> 91.055 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 82 completed (39280.938 ms) ======
+====== akka-uct (concurrency) [default], iteration 83 started ======
+GC before operation: completed in 1430.848 ms, heap usage 1.156 GB -> 92.182 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 83 completed (39588.964 ms) ======
+====== akka-uct (concurrency) [default], iteration 84 started ======
+GC before operation: completed in 1447.295 ms, heap usage 1.219 GB -> 93.486 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 84 completed (39764.586 ms) ======
+====== akka-uct (concurrency) [default], iteration 85 started ======
+GC before operation: completed in 1478.479 ms, heap usage 1.150 GB -> 105.778 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 85 completed (39808.365 ms) ======
+====== akka-uct (concurrency) [default], iteration 86 started ======
+GC before operation: completed in 1400.177 ms, heap usage 1.123 GB -> 88.476 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 86 completed (39667.945 ms) ======
+====== akka-uct (concurrency) [default], iteration 87 started ======
+GC before operation: completed in 1501.741 ms, heap usage 1.143 GB -> 101.183 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 87 completed (39771.597 ms) ======
+====== akka-uct (concurrency) [default], iteration 88 started ======
+GC before operation: completed in 1450.556 ms, heap usage 1.157 GB -> 91.001 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 88 completed (39610.487 ms) ======
+====== akka-uct (concurrency) [default], iteration 89 started ======
+GC before operation: completed in 1462.678 ms, heap usage 1.136 GB -> 97.962 MB.
+final size= 199991
+final height= 11
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 89 completed (40786.513 ms) ======
+====== akka-uct (concurrency) [default], iteration 90 started ======
+GC before operation: completed in 1373.508 ms, heap usage 1.166 GB -> 88.274 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 90 completed (40027.629 ms) ======
+====== akka-uct (concurrency) [default], iteration 91 started ======
+GC before operation: completed in 1375.367 ms, heap usage 1.110 GB -> 86.793 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 13
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 91 completed (40220.289 ms) ======
+====== akka-uct (concurrency) [default], iteration 92 started ======
+GC before operation: completed in 1372.850 ms, heap usage 1.106 GB -> 90.207 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 92 completed (40095.494 ms) ======
+====== akka-uct (concurrency) [default], iteration 93 started ======
+GC before operation: completed in 1653.619 ms, heap usage 1.127 GB -> 134.434 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 93 completed (39742.056 ms) ======
+====== akka-uct (concurrency) [default], iteration 94 started ======
+GC before operation: completed in 1366.278 ms, heap usage 1.169 GB -> 87.002 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 94 completed (40473.629 ms) ======
+====== akka-uct (concurrency) [default], iteration 95 started ======
+GC before operation: completed in 1937.913 ms, heap usage 1.141 GB -> 126.830 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 95 completed (40417.313 ms) ======
+====== akka-uct (concurrency) [default], iteration 96 started ======
+GC before operation: completed in 1408.577 ms, heap usage 1.276 GB -> 87.115 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 96 completed (39561.438 ms) ======
+====== akka-uct (concurrency) [default], iteration 97 started ======
+GC before operation: completed in 1948.028 ms, heap usage 1.131 GB -> 124.321 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 97 completed (40293.595 ms) ======
+====== akka-uct (concurrency) [default], iteration 98 started ======
+GC before operation: completed in 1480.524 ms, heap usage 1.298 GB -> 116.449 MB.
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 98 completed (39500.848 ms) ======
+====== akka-uct (concurrency) [default], iteration 99 started ======
+GC before operation: completed in 1358.666 ms, heap usage 1.138 GB -> 88.686 MB.
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 9
+final size= 199991
+final height= 10
+final size= 199991
+final height= 10
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+final size= 199991
+final height= 9
+final size= 199991
+final height= 11
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== akka-uct (concurrency) [default], iteration 99 completed (39058.784 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 0 started ======
+GC before operation: completed in 378.114 ms, heap usage 1.180 GB -> 84.939 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 0 completed (18225.682 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 1 started ======
+GC before operation: completed in 292.707 ms, heap usage 274.270 MB -> 85.893 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 1 completed (13976.168 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 2 started ======
+GC before operation: completed in 294.465 ms, heap usage 508.264 MB -> 85.895 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 2 completed (13402.897 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 3 started ======
+GC before operation: completed in 293.441 ms, heap usage 269.435 MB -> 85.895 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 3 completed (13669.697 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 4 started ======
+GC before operation: completed in 289.138 ms, heap usage 212.163 MB -> 85.897 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 4 completed (13824.519 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 5 started ======
+GC before operation: completed in 285.575 ms, heap usage 150.217 MB -> 85.897 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 5 completed (13223.351 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 6 started ======
+GC before operation: completed in 289.928 ms, heap usage 345.172 MB -> 85.897 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 6 completed (13193.197 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 7 started ======
+GC before operation: completed in 292.026 ms, heap usage 444.148 MB -> 85.899 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 7 completed (12469.339 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 8 started ======
+GC before operation: completed in 287.988 ms, heap usage 307.078 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 8 completed (12312.387 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 9 started ======
+GC before operation: completed in 285.302 ms, heap usage 168.736 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 9 completed (12931.143 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 10 started ======
+GC before operation: completed in 288.874 ms, heap usage 466.201 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 10 completed (13023.905 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 11 started ======
+GC before operation: completed in 290.856 ms, heap usage 576.160 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 11 completed (12962.217 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 12 started ======
+GC before operation: completed in 295.618 ms, heap usage 367.862 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 12 completed (13000.691 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 13 started ======
+GC before operation: completed in 314.188 ms, heap usage 772.756 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 13 completed (13141.495 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 14 started ======
+GC before operation: completed in 292.803 ms, heap usage 195.532 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 14 completed (13125.490 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 15 started ======
+GC before operation: completed in 294.770 ms, heap usage 464.043 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 15 completed (12371.021 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 16 started ======
+GC before operation: completed in 292.262 ms, heap usage 484.979 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 16 completed (12862.236 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 17 started ======
+GC before operation: completed in 293.484 ms, heap usage 399.607 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 17 completed (12660.066 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 18 started ======
+GC before operation: completed in 291.208 ms, heap usage 255.220 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 18 completed (12279.504 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 19 started ======
+GC before operation: completed in 291.670 ms, heap usage 310.014 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 19 completed (13130.943 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 20 started ======
+GC before operation: completed in 292.482 ms, heap usage 234.703 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 20 completed (12223.610 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 21 started ======
+GC before operation: completed in 297.022 ms, heap usage 191.775 MB -> 85.901 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 21 completed (13105.528 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 22 started ======
+GC before operation: completed in 296.985 ms, heap usage 520.545 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 22 completed (13343.091 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 23 started ======
+GC before operation: completed in 295.078 ms, heap usage 408.876 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 23 completed (13024.692 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 24 started ======
+GC before operation: completed in 293.404 ms, heap usage 458.867 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 24 completed (12993.332 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 25 started ======
+GC before operation: completed in 292.707 ms, heap usage 441.103 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 25 completed (13037.257 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 26 started ======
+GC before operation: completed in 292.559 ms, heap usage 237.493 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 26 completed (12264.779 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 27 started ======
+GC before operation: completed in 296.382 ms, heap usage 338.201 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 27 completed (13140.070 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 28 started ======
+GC before operation: completed in 300.717 ms, heap usage 303.483 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 28 completed (13202.534 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 29 started ======
+GC before operation: completed in 300.295 ms, heap usage 350.198 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 29 completed (13157.842 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 30 started ======
+GC before operation: completed in 294.564 ms, heap usage 172.494 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 30 completed (12677.187 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 31 started ======
+GC before operation: completed in 293.496 ms, heap usage 226.403 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 31 completed (13392.779 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 32 started ======
+GC before operation: completed in 298.507 ms, heap usage 490.330 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 32 completed (12896.790 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 33 started ======
+GC before operation: completed in 301.303 ms, heap usage 621.087 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 33 completed (13162.643 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 34 started ======
+GC before operation: completed in 287.286 ms, heap usage 183.074 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 34 completed (12739.177 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 35 started ======
+GC before operation: completed in 290.798 ms, heap usage 609.448 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 35 completed (13375.149 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 36 started ======
+GC before operation: completed in 289.576 ms, heap usage 279.000 MB -> 85.902 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 36 completed (12899.289 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 37 started ======
+GC before operation: completed in 308.581 ms, heap usage 219.010 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 37 completed (13085.441 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 38 started ======
+GC before operation: completed in 303.486 ms, heap usage 386.191 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 38 completed (13025.824 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 39 started ======
+GC before operation: completed in 301.666 ms, heap usage 377.959 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 39 completed (13083.966 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 40 started ======
+GC before operation: completed in 308.493 ms, heap usage 485.488 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 40 completed (12997.968 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 41 started ======
+GC before operation: completed in 302.285 ms, heap usage 238.909 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 41 completed (12778.437 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 42 started ======
+GC before operation: completed in 302.096 ms, heap usage 192.091 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 42 completed (13007.434 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 43 started ======
+GC before operation: completed in 301.168 ms, heap usage 409.962 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 43 completed (12508.324 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 44 started ======
+GC before operation: completed in 305.381 ms, heap usage 487.179 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 44 completed (12317.992 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 45 started ======
+GC before operation: completed in 304.110 ms, heap usage 485.892 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 45 completed (12791.008 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 46 started ======
+GC before operation: completed in 302.944 ms, heap usage 275.836 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 46 completed (13444.046 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 47 started ======
+GC before operation: completed in 305.103 ms, heap usage 453.962 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 47 completed (12859.558 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 48 started ======
+GC before operation: completed in 301.765 ms, heap usage 483.582 MB -> 85.903 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 48 completed (13136.621 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 49 started ======
+GC before operation: completed in 303.276 ms, heap usage 136.346 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 49 completed (13325.572 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 50 started ======
+GC before operation: completed in 310.253 ms, heap usage 633.636 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 50 completed (13151.051 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 51 started ======
+GC before operation: completed in 310.101 ms, heap usage 619.245 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 51 completed (13007.595 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 52 started ======
+GC before operation: completed in 302.520 ms, heap usage 495.429 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 52 completed (13006.386 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 53 started ======
+GC before operation: completed in 303.680 ms, heap usage 491.621 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 53 completed (12995.805 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 54 started ======
+GC before operation: completed in 302.447 ms, heap usage 435.825 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 54 completed (13039.238 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 55 started ======
+GC before operation: completed in 328.013 ms, heap usage 780.892 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 55 completed (13343.794 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 56 started ======
+GC before operation: completed in 305.849 ms, heap usage 265.879 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 56 completed (13427.219 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 57 started ======
+GC before operation: completed in 301.545 ms, heap usage 244.560 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 57 completed (12886.217 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 58 started ======
+GC before operation: completed in 306.154 ms, heap usage 582.364 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 58 completed (12969.062 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 59 started ======
+GC before operation: completed in 293.150 ms, heap usage 313.165 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 59 completed (13076.871 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 60 started ======
+GC before operation: completed in 296.556 ms, heap usage 768.944 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 60 completed (13180.957 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 61 started ======
+GC before operation: completed in 291.358 ms, heap usage 386.454 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 61 completed (13080.562 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 62 started ======
+GC before operation: completed in 288.611 ms, heap usage 446.893 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 62 completed (13020.860 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 63 started ======
+GC before operation: completed in 295.741 ms, heap usage 613.487 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 63 completed (13262.621 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 64 started ======
+GC before operation: completed in 296.350 ms, heap usage 848.952 MB -> 85.905 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 64 completed (12985.795 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 65 started ======
+GC before operation: completed in 290.298 ms, heap usage 198.455 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 65 completed (12950.878 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 66 started ======
+GC before operation: completed in 287.638 ms, heap usage 299.678 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 66 completed (12811.407 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 67 started ======
+GC before operation: completed in 291.412 ms, heap usage 190.301 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 67 completed (13118.658 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 68 started ======
+GC before operation: completed in 308.856 ms, heap usage 234.032 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 68 completed (12256.836 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 69 started ======
+GC before operation: completed in 289.353 ms, heap usage 309.291 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 69 completed (13377.076 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 70 started ======
+GC before operation: completed in 290.778 ms, heap usage 317.942 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 70 completed (13190.171 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 71 started ======
+GC before operation: completed in 296.997 ms, heap usage 765.809 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 71 completed (13481.154 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 72 started ======
+GC before operation: completed in 287.752 ms, heap usage 182.250 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 72 completed (12283.956 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 73 started ======
+GC before operation: completed in 289.435 ms, heap usage 359.147 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 73 completed (12955.422 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 74 started ======
+GC before operation: completed in 306.878 ms, heap usage 630.591 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 74 completed (12902.695 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 75 started ======
+GC before operation: completed in 299.479 ms, heap usage 215.681 MB -> 85.906 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 75 completed (13054.537 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 76 started ======
+GC before operation: completed in 290.546 ms, heap usage 465.500 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 76 completed (12400.582 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 77 started ======
+GC before operation: completed in 294.078 ms, heap usage 534.376 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 77 completed (13176.752 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 78 started ======
+GC before operation: completed in 292.879 ms, heap usage 508.345 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 78 completed (13129.166 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 79 started ======
+GC before operation: completed in 295.266 ms, heap usage 369.263 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 79 completed (12515.939 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 80 started ======
+GC before operation: completed in 289.745 ms, heap usage 515.715 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 80 completed (13291.228 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 81 started ======
+GC before operation: completed in 294.092 ms, heap usage 381.849 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 81 completed (13151.050 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 82 started ======
+GC before operation: completed in 292.527 ms, heap usage 506.217 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 82 completed (13111.709 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 83 started ======
+GC before operation: completed in 291.114 ms, heap usage 292.605 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 83 completed (13264.256 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 84 started ======
+GC before operation: completed in 295.951 ms, heap usage 544.442 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 84 completed (13372.493 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 85 started ======
+GC before operation: completed in 291.857 ms, heap usage 424.998 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 85 completed (12778.684 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 86 started ======
+GC before operation: completed in 288.174 ms, heap usage 397.352 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 86 completed (13187.504 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 87 started ======
+GC before operation: completed in 291.154 ms, heap usage 312.422 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 87 completed (12793.783 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 88 started ======
+GC before operation: completed in 287.567 ms, heap usage 405.613 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 88 completed (13129.968 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 89 started ======
+GC before operation: completed in 288.720 ms, heap usage 121.299 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 89 completed (12568.228 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 90 started ======
+GC before operation: completed in 288.517 ms, heap usage 200.724 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 90 completed (12269.431 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 91 started ======
+GC before operation: completed in 291.707 ms, heap usage 198.963 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 91 completed (12948.522 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 92 started ======
+GC before operation: completed in 289.561 ms, heap usage 260.799 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 92 completed (12748.874 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 93 started ======
+GC before operation: completed in 292.319 ms, heap usage 609.945 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 93 completed (13171.295 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 94 started ======
+GC before operation: completed in 291.804 ms, heap usage 480.391 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 94 completed (13046.587 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 95 started ======
+GC before operation: completed in 291.559 ms, heap usage 446.799 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 95 completed (13098.192 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 96 started ======
+GC before operation: completed in 292.818 ms, heap usage 398.490 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 96 completed (12714.280 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 97 started ======
+GC before operation: completed in 293.317 ms, heap usage 273.488 MB -> 85.907 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 97 completed (13223.990 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 98 started ======
+GC before operation: completed in 294.976 ms, heap usage 301.010 MB -> 85.908 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 98 completed (12913.693 ms) ======
+====== fj-kmeans (concurrency) [default], iteration 99 started ======
+GC before operation: completed in 298.698 ms, heap usage 848.536 MB -> 85.908 MB.
+WARNING: This benchmark provides no result that can be validated.
+There is no way to check that no silent failure occurred.
+====== fj-kmeans (concurrency) [default], iteration 99 completed (13098.862 ms) ======
+====== reactors (concurrency) [default], iteration 0 started ======
+GC before operation: completed in 87.620 ms, heap usage 460.910 MB -> 6.890 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 0 completed (55934.097 ms) ======
+====== reactors (concurrency) [default], iteration 1 started ======
+GC before operation: completed in 111.621 ms, heap usage 1.097 GB -> 15.998 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 1 completed (41386.381 ms) ======
+====== reactors (concurrency) [default], iteration 2 started ======
+GC before operation: completed in 95.246 ms, heap usage 729.188 MB -> 17.181 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 2 completed (48217.568 ms) ======
+====== reactors (concurrency) [default], iteration 3 started ======
+GC before operation: completed in 123.575 ms, heap usage 570.755 MB -> 19.753 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 3 completed (42369.280 ms) ======
+====== reactors (concurrency) [default], iteration 4 started ======
+GC before operation: completed in 105.589 ms, heap usage 512.407 MB -> 21.203 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 4 completed (37741.076 ms) ======
+====== reactors (concurrency) [default], iteration 5 started ======
+GC before operation: completed in 107.531 ms, heap usage 540.055 MB -> 23.524 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 5 completed (37972.951 ms) ======
+====== reactors (concurrency) [default], iteration 6 started ======
+GC before operation: completed in 113.722 ms, heap usage 585.913 MB -> 25.923 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 6 completed (39052.239 ms) ======
+====== reactors (concurrency) [default], iteration 7 started ======
+GC before operation: completed in 106.536 ms, heap usage 572.694 MB -> 27.555 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 7 completed (37183.239 ms) ======
+====== reactors (concurrency) [default], iteration 8 started ======
+GC before operation: completed in 124.526 ms, heap usage 616.548 MB -> 29.110 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 8 completed (35958.570 ms) ======
+====== reactors (concurrency) [default], iteration 9 started ======
+GC before operation: completed in 113.904 ms, heap usage 738.395 MB -> 30.642 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 9 completed (38047.740 ms) ======
+====== reactors (concurrency) [default], iteration 10 started ======
+GC before operation: completed in 127.437 ms, heap usage 602.562 MB -> 31.903 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 10 completed (37762.794 ms) ======
+====== reactors (concurrency) [default], iteration 11 started ======
+GC before operation: completed in 130.787 ms, heap usage 545.160 MB -> 33.325 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 11 completed (36292.691 ms) ======
+====== reactors (concurrency) [default], iteration 12 started ======
+GC before operation: completed in 112.961 ms, heap usage 699.282 MB -> 34.603 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 12 completed (35935.733 ms) ======
+====== reactors (concurrency) [default], iteration 13 started ======
+GC before operation: completed in 119.927 ms, heap usage 820.263 MB -> 36.107 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 13 completed (36368.294 ms) ======
+====== reactors (concurrency) [default], iteration 14 started ======
+GC before operation: completed in 135.025 ms, heap usage 845.437 MB -> 37.136 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 14 completed (38123.500 ms) ======
+====== reactors (concurrency) [default], iteration 15 started ======
+GC before operation: completed in 123.393 ms, heap usage 723.938 MB -> 38.636 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 15 completed (36824.277 ms) ======
+====== reactors (concurrency) [default], iteration 16 started ======
+GC before operation: completed in 132.412 ms, heap usage 556.412 MB -> 39.880 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 16 completed (38813.626 ms) ======
+====== reactors (concurrency) [default], iteration 17 started ======
+GC before operation: completed in 140.622 ms, heap usage 573.622 MB -> 41.124 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 17 completed (36497.719 ms) ======
+====== reactors (concurrency) [default], iteration 18 started ======
+GC before operation: completed in 133.658 ms, heap usage 775.793 MB -> 42.779 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 18 completed (36171.387 ms) ======
+====== reactors (concurrency) [default], iteration 19 started ======
+GC before operation: completed in 137.000 ms, heap usage 761.292 MB -> 44.265 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 19 completed (35234.248 ms) ======
+====== reactors (concurrency) [default], iteration 20 started ======
+GC before operation: completed in 129.324 ms, heap usage 818.161 MB -> 45.711 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 20 completed (38044.643 ms) ======
+====== reactors (concurrency) [default], iteration 21 started ======
+GC before operation: completed in 134.351 ms, heap usage 604.117 MB -> 46.847 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 21 completed (35930.472 ms) ======
+====== reactors (concurrency) [default], iteration 22 started ======
+GC before operation: completed in 141.338 ms, heap usage 752.410 MB -> 48.432 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 22 completed (35500.448 ms) ======
+====== reactors (concurrency) [default], iteration 23 started ======
+GC before operation: completed in 139.126 ms, heap usage 806.828 MB -> 49.843 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 23 completed (35926.525 ms) ======
+====== reactors (concurrency) [default], iteration 24 started ======
+GC before operation: completed in 136.606 ms, heap usage 623.618 MB -> 51.596 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 24 completed (37819.460 ms) ======
+====== reactors (concurrency) [default], iteration 25 started ======
+GC before operation: completed in 141.076 ms, heap usage 573.807 MB -> 52.884 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 25 completed (38085.667 ms) ======
+====== reactors (concurrency) [default], iteration 26 started ======
+GC before operation: completed in 137.275 ms, heap usage 644.356 MB -> 54.565 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 26 completed (37165.635 ms) ======
+====== reactors (concurrency) [default], iteration 27 started ======
+GC before operation: completed in 150.261 ms, heap usage 630.945 MB -> 56.174 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 27 completed (36737.999 ms) ======
+====== reactors (concurrency) [default], iteration 28 started ======
+GC before operation: completed in 151.500 ms, heap usage 580.135 MB -> 57.677 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 28 completed (36125.583 ms) ======
+====== reactors (concurrency) [default], iteration 29 started ======
+GC before operation: completed in 156.424 ms, heap usage 702.718 MB -> 59.367 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 29 completed (37572.673 ms) ======
+====== reactors (concurrency) [default], iteration 30 started ======
+GC before operation: completed in 149.845 ms, heap usage 634.869 MB -> 61.118 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 30 completed (35554.868 ms) ======
+====== reactors (concurrency) [default], iteration 31 started ======
+GC before operation: completed in 166.487 ms, heap usage 805.766 MB -> 62.471 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 31 completed (36611.136 ms) ======
+====== reactors (concurrency) [default], iteration 32 started ======
+GC before operation: completed in 161.985 ms, heap usage 795.215 MB -> 63.796 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 32 completed (37196.845 ms) ======
+====== reactors (concurrency) [default], iteration 33 started ======
+GC before operation: completed in 157.098 ms, heap usage 612.176 MB -> 65.558 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 33 completed (36008.600 ms) ======
+====== reactors (concurrency) [default], iteration 34 started ======
+GC before operation: completed in 163.971 ms, heap usage 794.077 MB -> 66.994 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 34 completed (37211.814 ms) ======
+====== reactors (concurrency) [default], iteration 35 started ======
+GC before operation: completed in 165.599 ms, heap usage 654.891 MB -> 69.973 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 35 completed (38651.941 ms) ======
+====== reactors (concurrency) [default], iteration 36 started ======
+GC before operation: completed in 170.885 ms, heap usage 682.893 MB -> 70.743 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 36 completed (37297.351 ms) ======
+====== reactors (concurrency) [default], iteration 37 started ======
+GC before operation: completed in 177.051 ms, heap usage 716.702 MB -> 72.281 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 37 completed (35535.626 ms) ======
+====== reactors (concurrency) [default], iteration 38 started ======
+GC before operation: completed in 177.642 ms, heap usage 780.920 MB -> 73.719 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 38 completed (37763.477 ms) ======
+====== reactors (concurrency) [default], iteration 39 started ======
+GC before operation: completed in 181.730 ms, heap usage 596.104 MB -> 75.438 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 39 completed (38682.281 ms) ======
+====== reactors (concurrency) [default], iteration 40 started ======
+GC before operation: completed in 177.487 ms, heap usage 686.993 MB -> 77.245 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 40 completed (38277.002 ms) ======
+====== reactors (concurrency) [default], iteration 41 started ======
+GC before operation: completed in 178.367 ms, heap usage 689.132 MB -> 78.705 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 41 completed (39975.466 ms) ======
+====== reactors (concurrency) [default], iteration 42 started ======
+GC before operation: completed in 213.070 ms, heap usage 740.254 MB -> 80.144 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 42 completed (37549.100 ms) ======
+====== reactors (concurrency) [default], iteration 43 started ======
+GC before operation: completed in 186.497 ms, heap usage 831.991 MB -> 81.531 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 43 completed (38226.165 ms) ======
+====== reactors (concurrency) [default], iteration 44 started ======
+GC before operation: completed in 190.638 ms, heap usage 604.160 MB -> 83.332 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 44 completed (37006.102 ms) ======
+====== reactors (concurrency) [default], iteration 45 started ======
+GC before operation: completed in 218.373 ms, heap usage 837.224 MB -> 84.599 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 45 completed (37264.365 ms) ======
+====== reactors (concurrency) [default], iteration 46 started ======
+GC before operation: completed in 188.887 ms, heap usage 652.469 MB -> 86.326 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 46 completed (38950.965 ms) ======
+====== reactors (concurrency) [default], iteration 47 started ======
+GC before operation: completed in 195.257 ms, heap usage 918.454 MB -> 87.640 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 47 completed (40027.261 ms) ======
+====== reactors (concurrency) [default], iteration 48 started ======
+GC before operation: completed in 221.107 ms, heap usage 713.488 MB -> 88.986 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 48 completed (36636.630 ms) ======
+====== reactors (concurrency) [default], iteration 49 started ======
+GC before operation: completed in 208.813 ms, heap usage 154.016 MB -> 90.434 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 49 completed (37516.482 ms) ======
+====== reactors (concurrency) [default], iteration 50 started ======
+GC before operation: completed in 219.792 ms, heap usage 904.826 MB -> 91.633 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 50 completed (39615.844 ms) ======
+====== reactors (concurrency) [default], iteration 51 started ======
+GC before operation: completed in 219.451 ms, heap usage 743.790 MB -> 94.787 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 51 completed (36457.261 ms) ======
+====== reactors (concurrency) [default], iteration 52 started ======
+GC before operation: completed in 205.763 ms, heap usage 814.742 MB -> 96.190 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 52 completed (38792.062 ms) ======
+====== reactors (concurrency) [default], iteration 53 started ======
+GC before operation: completed in 209.805 ms, heap usage 638.007 MB -> 97.729 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 53 completed (37965.166 ms) ======
+====== reactors (concurrency) [default], iteration 54 started ======
+GC before operation: completed in 217.598 ms, heap usage 813.623 MB -> 99.036 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 54 completed (39352.806 ms) ======
+====== reactors (concurrency) [default], iteration 55 started ======
+GC before operation: completed in 225.062 ms, heap usage 654.340 MB -> 100.343 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 55 completed (37976.149 ms) ======
+====== reactors (concurrency) [default], iteration 56 started ======
+GC before operation: completed in 227.392 ms, heap usage 928.299 MB -> 101.815 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 56 completed (39008.245 ms) ======
+====== reactors (concurrency) [default], iteration 57 started ======
+GC before operation: completed in 225.815 ms, heap usage 679.179 MB -> 103.124 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 57 completed (36925.336 ms) ======
+====== reactors (concurrency) [default], iteration 58 started ======
+GC before operation: completed in 242.607 ms, heap usage 707.122 MB -> 104.454 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 58 completed (38245.046 ms) ======
+====== reactors (concurrency) [default], iteration 59 started ======
+GC before operation: completed in 218.259 ms, heap usage 688.332 MB -> 105.753 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 59 completed (37924.124 ms) ======
+====== reactors (concurrency) [default], iteration 60 started ======
+GC before operation: completed in 227.949 ms, heap usage 623.919 MB -> 107.246 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 60 completed (37190.408 ms) ======
+====== reactors (concurrency) [default], iteration 61 started ======
+GC before operation: completed in 230.311 ms, heap usage 787.359 MB -> 108.591 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 61 completed (37782.078 ms) ======
+====== reactors (concurrency) [default], iteration 62 started ======
+GC before operation: completed in 261.208 ms, heap usage 655.878 MB -> 110.260 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 62 completed (35324.761 ms) ======
+====== reactors (concurrency) [default], iteration 63 started ======
+GC before operation: completed in 257.225 ms, heap usage 743.793 MB -> 111.437 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 63 completed (37820.901 ms) ======
+====== reactors (concurrency) [default], iteration 64 started ======
+GC before operation: completed in 239.487 ms, heap usage 681.697 MB -> 112.799 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 64 completed (37401.502 ms) ======
+====== reactors (concurrency) [default], iteration 65 started ======
+GC before operation: completed in 250.033 ms, heap usage 605.588 MB -> 114.100 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 65 completed (37707.213 ms) ======
+====== reactors (concurrency) [default], iteration 66 started ======
+GC before operation: completed in 252.883 ms, heap usage 683.811 MB -> 115.233 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 66 completed (37478.152 ms) ======
+====== reactors (concurrency) [default], iteration 67 started ======
+GC before operation: completed in 261.460 ms, heap usage 990.367 MB -> 116.640 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 67 completed (38381.577 ms) ======
+====== reactors (concurrency) [default], iteration 68 started ======
+GC before operation: completed in 251.533 ms, heap usage 640.272 MB -> 118.034 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 68 completed (37033.655 ms) ======
+====== reactors (concurrency) [default], iteration 69 started ======
+GC before operation: completed in 244.536 ms, heap usage 842.847 MB -> 119.539 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 69 completed (39293.843 ms) ======
+====== reactors (concurrency) [default], iteration 70 started ======
+GC before operation: completed in 273.750 ms, heap usage 702.689 MB -> 120.901 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 70 completed (37112.061 ms) ======
+====== reactors (concurrency) [default], iteration 71 started ======
+GC before operation: completed in 252.779 ms, heap usage 894.816 MB -> 122.294 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 71 completed (39294.020 ms) ======
+====== reactors (concurrency) [default], iteration 72 started ======
+GC before operation: completed in 262.336 ms, heap usage 786.092 MB -> 123.646 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 72 completed (36732.112 ms) ======
+====== reactors (concurrency) [default], iteration 73 started ======
+GC before operation: completed in 266.271 ms, heap usage 722.286 MB -> 124.995 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 73 completed (37780.852 ms) ======
+====== reactors (concurrency) [default], iteration 74 started ======
+GC before operation: completed in 259.253 ms, heap usage 752.473 MB -> 126.842 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 74 completed (38931.639 ms) ======
+====== reactors (concurrency) [default], iteration 75 started ======
+GC before operation: completed in 279.547 ms, heap usage 700.670 MB -> 128.105 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 75 completed (38488.024 ms) ======
+====== reactors (concurrency) [default], iteration 76 started ======
+GC before operation: completed in 295.245 ms, heap usage 777.565 MB -> 129.962 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 76 completed (37452.138 ms) ======
+====== reactors (concurrency) [default], iteration 77 started ======
+GC before operation: completed in 265.034 ms, heap usage 827.780 MB -> 131.208 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 77 completed (37899.238 ms) ======
+====== reactors (concurrency) [default], iteration 78 started ======
+GC before operation: completed in 294.936 ms, heap usage 641.110 MB -> 132.854 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 78 completed (38715.015 ms) ======
+====== reactors (concurrency) [default], iteration 79 started ======
+GC before operation: completed in 281.652 ms, heap usage 687.641 MB -> 134.085 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 79 completed (39420.656 ms) ======
+====== reactors (concurrency) [default], iteration 80 started ======
+GC before operation: completed in 304.335 ms, heap usage 754.021 MB -> 135.456 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 80 completed (36533.440 ms) ======
+====== reactors (concurrency) [default], iteration 81 started ======
+GC before operation: completed in 273.021 ms, heap usage 863.882 MB -> 136.992 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 81 completed (38571.908 ms) ======
+====== reactors (concurrency) [default], iteration 82 started ======
+GC before operation: completed in 276.153 ms, heap usage 644.836 MB -> 138.468 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 82 completed (38119.559 ms) ======
+====== reactors (concurrency) [default], iteration 83 started ======
+GC before operation: completed in 309.277 ms, heap usage 680.363 MB -> 139.734 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 83 completed (38584.260 ms) ======
+====== reactors (concurrency) [default], iteration 84 started ======
+GC before operation: completed in 310.073 ms, heap usage 1.015 GB -> 141.272 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 84 completed (38854.618 ms) ======
+====== reactors (concurrency) [default], iteration 85 started ======
+GC before operation: completed in 295.845 ms, heap usage 653.678 MB -> 142.808 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 85 completed (38018.946 ms) ======
+====== reactors (concurrency) [default], iteration 86 started ======
+GC before operation: completed in 284.680 ms, heap usage 723.680 MB -> 144.276 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 86 completed (38388.266 ms) ======
+====== reactors (concurrency) [default], iteration 87 started ======
+GC before operation: completed in 289.358 ms, heap usage 739.854 MB -> 145.618 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 87 completed (35619.540 ms) ======
+====== reactors (concurrency) [default], iteration 88 started ======
+GC before operation: completed in 289.604 ms, heap usage 879.447 MB -> 147.270 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 88 completed (36947.328 ms) ======
+====== reactors (concurrency) [default], iteration 89 started ======
+GC before operation: completed in 292.823 ms, heap usage 837.203 MB -> 148.706 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 89 completed (38172.536 ms) ======
+====== reactors (concurrency) [default], iteration 90 started ======
+GC before operation: completed in 298.852 ms, heap usage 708.993 MB -> 150.305 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 90 completed (37491.230 ms) ======
+====== reactors (concurrency) [default], iteration 91 started ======
+GC before operation: completed in 297.182 ms, heap usage 863.429 MB -> 151.563 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 91 completed (37026.102 ms) ======
+====== reactors (concurrency) [default], iteration 92 started ======
+GC before operation: completed in 303.721 ms, heap usage 868.732 MB -> 152.923 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 92 completed (37758.842 ms) ======
+====== reactors (concurrency) [default], iteration 93 started ======
+GC before operation: completed in 315.656 ms, heap usage 697.781 MB -> 154.389 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 93 completed (38182.147 ms) ======
+====== reactors (concurrency) [default], iteration 94 started ======
+GC before operation: completed in 301.817 ms, heap usage 219.417 MB -> 155.586 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 94 completed (37695.665 ms) ======
+====== reactors (concurrency) [default], iteration 95 started ======
+GC before operation: completed in 321.540 ms, heap usage 665.312 MB -> 158.491 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 95 completed (38183.316 ms) ======
+====== reactors (concurrency) [default], iteration 96 started ======
+GC before operation: completed in 347.039 ms, heap usage 735.581 MB -> 160.023 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 96 completed (37993.802 ms) ======
+====== reactors (concurrency) [default], iteration 97 started ======
+GC before operation: completed in 327.891 ms, heap usage 665.102 MB -> 161.739 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 97 completed (36219.349 ms) ======
+====== reactors (concurrency) [default], iteration 98 started ======
+GC before operation: completed in 325.336 ms, heap usage 853.350 MB -> 163.379 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 98 completed (38893.807 ms) ======
+====== reactors (concurrency) [default], iteration 99 started ======
+GC before operation: completed in 338.003 ms, heap usage 730.763 MB -> 164.859 MB.
+Baseline workload: Reactor scheduling events
+BigBench workload: Many-to-many message ping pong
+CountingActor workload: Single reactor event processing
+Fibonacci workload: Dynamic reactor mix with varying lifetimes
+ForkJoinCreation workload: Reactor creation performance
+ForkJoinThroughput workload: Reactor processing performance
+PingPong workload: Reactor pair sequential ping pong performance
+StreamingPingPong workload: Reactor pair overlapping ping pong performance
+Roundabout workload: Many channels reactor performance
+ThreadRing workload: Reactor ring forwarding performance
+====== reactors (concurrency) [default], iteration 99 completed (35675.600 ms) ======

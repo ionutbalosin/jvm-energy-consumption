@@ -52,8 +52,9 @@ configure_benchmark() {
 
   echo ""
   echo "Benchmark home: $BENCHMARK_HOME"
+  echo "Benchmark categories:"
   for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
-    echo "Benchmark category: $benchmark_category"
+    echo " - $benchmark_category"
   done
   echo "Benchmark repetitions: $BENCHMARK_REPETITIONS"
   echo "Java opts: $JAVA_OPS"
@@ -133,9 +134,6 @@ echo "+======================+"
 echo "| [4/4] Run benchmarks |"
 echo "+======================+"
 run_benchmarks
-
-# assign read/write permissions to the output files
-chmod_output_resources
 
 # give a bit of time to the process to gracefully shut down
 sleep 10
