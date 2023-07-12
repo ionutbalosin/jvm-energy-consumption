@@ -30,7 +30,7 @@ import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 
 public class WattEnergyFormulas extends StatisticsFormulas {
 
-  // returns the power (Watt)
+  // returns the power (in Watt)
   public double getFormula(Stats perfStat) {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats

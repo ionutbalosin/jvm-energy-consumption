@@ -51,23 +51,23 @@ public class EnergyReportCalculator {
   public static final String JDK_VERSION = "17";
 
   public static void main(String[] args) throws IOException {
-    // First, calculate the baseline report and get the mean power
+    // First, calculate the baseline report to get the mean power
     BaselineReport baseline = new BaselineReport("baseline-idle-os");
     calculateEnergy(baseline);
 
-    // For any other report subtract the baseline mean power from each measurement
+    // For any other report pass the baseline mean power to be subtracted from real measurements
     final List<AbstractReport> REPORTS =
         List.of(
-            new OffTheShelfApplicationsReport("spring-petclinic", baseline.mean),
+            new OffTheShelfApplicationsReport("spring-petclinic", baseline.meanInWatt),
             new OffTheShelfApplicationsReport(
-                "quarkus-hibernate-orm-panache-quickstart", baseline.mean),
-            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.mean),
-            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.mean),
-            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.mean),
-            new OffTheShelfApplicationsReport("renaissance", "web", baseline.mean),
-            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.mean),
-            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.mean),
-            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.mean));
+                "quarkus-hibernate-orm-panache-quickstart", baseline.meanInWatt),
+            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.meanInWatt),
+            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.meanInWatt),
+            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.meanInWatt),
+            new OffTheShelfApplicationsReport("renaissance", "web", baseline.meanInWatt),
+            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.meanInWatt),
+            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.meanInWatt),
+            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanInWatt));
 
     for (AbstractReport report : REPORTS) {
       calculateEnergy(report);
@@ -75,8 +75,6 @@ public class EnergyReportCalculator {
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
-    System.out.printf("Calculate energy for '%s'\n", energyReport.category);
-
     List<Stats> perfStats = readFiles(energyReport.perfStatsPath);
     energyReport.setPerfStats(perfStats);
 
@@ -89,8 +87,6 @@ public class EnergyReportCalculator {
 
     String geometricMeanOutputFile = outputPath + "/" + MEAN_OUTPUT_FILE;
     energyReport.createMeanReport(geometricMeanOutputFile);
-
-    System.out.println();
   }
 
   private static List<Stats> readFiles(String parentFolder) throws IOException {

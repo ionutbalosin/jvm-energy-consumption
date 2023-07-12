@@ -34,7 +34,6 @@ import java.util.Map;
 
 public abstract class AbstractReport {
 
-  public String category;
   public StatisticsFormulas formulas;
   public String perfStatsPath;
   public Map<String, List<Stats>> perfStats;

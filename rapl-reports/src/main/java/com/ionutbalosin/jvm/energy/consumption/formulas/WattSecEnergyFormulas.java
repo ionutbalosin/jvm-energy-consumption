@@ -39,7 +39,7 @@ public class WattSecEnergyFormulas extends StatisticsFormulas {
     this.baselineInWatt = baselineInWatt;
   }
 
-  // returns the energy (Watt⋅sec) after subtracting the baseline
+  // returns the energy (in Watt⋅sec) after subtracting the baseline
   public double getFormula(Stats perfStat) {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats

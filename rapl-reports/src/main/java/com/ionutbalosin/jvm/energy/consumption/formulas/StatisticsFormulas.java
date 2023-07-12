@@ -34,10 +34,10 @@ public abstract class StatisticsFormulas {
 
   private static double CONFIDENCE = 0.90;
 
-  // this returns either power of energy formula (depending on the usage)
+  // this returns either the power or the energy formula (depending on the usage)
   // Note:
-  //  - power formula is used for the baseline measurements
-  //  - energy formula is used for any other measurements
+  //  - the power formula (in Watt) is used for the baseline measurements
+  //  - the energy formula (in Watt⋅sec) is used for any other measurements
   public abstract double getFormula(Stats perfStat);
 
   public double getGeometricMean(List<Stats> perfStats) {

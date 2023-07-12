@@ -47,16 +47,13 @@ import java.util.TreeMap;
 
 public class OffTheShelfApplicationsReport extends AbstractReport {
 
-  public OffTheShelfApplicationsReport(String category, double baselineInWatt) {
-    this.category = category;
+  public OffTheShelfApplicationsReport(String module, double baselineInWatt) {
     this.formulas = new WattSecEnergyFormulas(baselineInWatt);
     this.perfStatsPath =
-        String.format(
-            "%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, category, OS, ARCH, JDK_VERSION);
+        String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, module, OS, ARCH, JDK_VERSION);
   }
 
   public OffTheShelfApplicationsReport(String module, String category, double baselineInWatt) {
-    this.category = category;
     this.formulas = new WattSecEnergyFormulas(baselineInWatt);
     this.perfStatsPath =
         String.format(

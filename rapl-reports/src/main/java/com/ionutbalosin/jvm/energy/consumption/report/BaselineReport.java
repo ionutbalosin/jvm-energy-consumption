@@ -47,12 +47,11 @@ import java.util.TreeMap;
 public class BaselineReport extends AbstractReport {
 
   // the baseline mean power to be subtracted from any other measurements
-  public double mean;
+  public double meanInWatt;
 
-  public BaselineReport(String category) {
-    this.category = category;
+  public BaselineReport(String module) {
     this.formulas = new WattEnergyFormulas();
-    this.perfStatsPath = String.format("%s/%s/results/%s/%s/perf", BASE_PATH, category, OS, ARCH);
+    this.perfStatsPath = String.format("%s/%s/results/%s/%s/perf", BASE_PATH, module, OS, ARCH);
   }
 
   @Override
@@ -72,10 +71,11 @@ public class BaselineReport extends AbstractReport {
       writer.printf(
           "%18s;%9s;%17s;%21s\n", "Test Category", "Samples", "Mean (Watt)", "Score Error (90.0%)");
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        mean = formulas.getMean(pair.getValue());
+        meanInWatt = formulas.getMean(pair.getValue());
         double meanError = formulas.getMeanError(pair.getValue());
         writer.printf(
-            "%18s;%9d;%17.3f;%21.3f\n", pair.getKey(), pair.getValue().size(), mean, meanError);
+            "%18s;%9d;%17.3f;%21.3f\n",
+            pair.getKey(), pair.getValue().size(), meanInWatt, meanError);
       }
     }
 

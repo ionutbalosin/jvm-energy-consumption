@@ -48,7 +48,6 @@ import java.util.TreeMap;
 public class JavaSamplesReport extends AbstractReport {
 
   public JavaSamplesReport(String module, String category, double baselineInWatt) {
-    this.category = category;
     this.formulas = new WattSecEnergyFormulas(baselineInWatt);
     this.perfStatsPath =
         String.format(
