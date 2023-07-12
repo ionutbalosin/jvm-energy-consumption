@@ -32,8 +32,8 @@ package com.ionutbalosin.jvm.energy.consumption;
  */
 public class VirtualCalls {
 
-  int ITERATIONS = 250_000;
-  int ARRAY_SIZE = 96_000;
+  int ITERATIONS = 300_000;
+  int ARRAY_SIZE = 9_600;
   CMath[] array;
 
   public static void main(String[] args) {

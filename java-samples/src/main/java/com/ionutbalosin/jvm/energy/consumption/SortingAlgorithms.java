@@ -52,7 +52,7 @@ import java.util.Arrays;
  */
 public class SortingAlgorithms {
 
-  int ARRAY_SIZE = 1_000_000_000;
+  int ARRAY_SIZE = 1_000_000;
 
   Sorter sorter;
   int[] array;
