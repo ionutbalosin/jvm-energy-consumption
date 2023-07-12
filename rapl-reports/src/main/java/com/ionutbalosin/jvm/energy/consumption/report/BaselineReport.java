@@ -52,12 +52,7 @@ public class BaselineReport extends AbstractReport {
   public BaselineReport(String category) {
     this.category = category;
     this.formulas = new WattEnergyFormulas();
-  }
-
-  @Override
-  public String getPerfStatsPath() {
-    // Note: this is a specific path format for this application type.
-    return String.format("%s/%s/results/%s/%s/perf", BASE_PATH, category, OS, ARCH);
+    this.perfStatsPath = String.format("%s/%s/results/%s/%s/perf", BASE_PATH, category, OS, ARCH);
   }
 
   @Override

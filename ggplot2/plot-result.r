@@ -29,12 +29,8 @@ source("./ggplot2/plot-utils.r")
 
 # retrieve command line arguments in a very specific order
 args <- commandArgs(TRUE)
-spring_petclinic_output_folder <- args[1]
-quarkus_hibernate_orm_panache_output_folder <- args[2]
-renaissance_output_folder <- args[3]
-logging_patterns_output_folder <- args[4]
-memory_access_patterns_output_folder <- args[5]
-throw_exception_patterns_output_folder <- args[6]
+base_path <- args[1]
+output_folder <- args[2]
 
 # Define the color palette (corresponding to each JVM) to be used in the final generated plot
 # Note: use a color blindness palette (e.g., https://davidmathlogic.com/colorblind/)
@@ -85,9 +81,22 @@ plotGeometricMean <- function(output_folder, plot_title) {
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "power-consumption")
 }
 
+spring_petclinic_output_folder <- paste(base_path, paste("spring-petclinic", output_folder, sep = "/"), sep = "/")
+quarkus_hibernate_orm_panache_output_folder <- paste(base_path, paste("quarkus-hibernate-orm-panache-quickstart", output_folder, sep = "/"), sep = "/")
+renaissance_concurrency_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "concurrency", sep = "/"), sep = "/")
+renaissance_functional_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "functional", sep = "/"), sep = "/")
+renaissance_scala_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "scala", sep = "/"), sep = "/")
+renaissance_web_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "web", sep = "/"), sep = "/")
+logging_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "LoggingPatterns", sep = "/"), sep = "/")
+memory_access_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "MemoryAccessPatterns", sep = "/"), sep = "/")
+throw_exception_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "ThrowExceptionPatterns", sep = "/"), sep = "/")
+
 plotGeometricMean(spring_petclinic_output_folder, "Spring PetClinic")
 plotGeometricMean(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
-plotGeometricMean(renaissance_output_folder, "Renaissance")
+plotGeometricMean(renaissance_concurrency_output_folder, "Renaissance Concurrency")
+plotGeometricMean(renaissance_functional_output_folder, "Renaissance Functional")
+plotGeometricMean(renaissance_scala_output_folder, "Renaissance Scala")
+plotGeometricMean(renaissance_web_output_folder, "Renaissance Web")
 plotGeometricMean(logging_patterns_output_folder, "Logging Patterns")
 plotGeometricMean(memory_access_patterns_output_folder, "Memory Access Patterns")
 plotGeometricMean(throw_exception_patterns_output_folder, "Throw Exception Patterns")

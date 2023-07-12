@@ -47,19 +47,13 @@ import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
 
-  String module;
-
   public JavaSamplesReport(String module, String category, double baselineInWatt) {
-    this.module = module;
     this.category = category;
     this.formulas = new WattSecEnergyFormulas(baselineInWatt);
-  }
-
-  @Override
-  public String getPerfStatsPath() {
-    // Note: this is a specific path format for this application type.
-    return String.format(
-        "%s/%s/results/%s/%s/jdk-%s/%s/perf", BASE_PATH, module, OS, ARCH, JDK_VERSION, category);
+    this.perfStatsPath =
+        String.format(
+            "%s/%s/results/%s/%s/jdk-%s/%s/perf",
+            BASE_PATH, module, OS, ARCH, JDK_VERSION, category);
   }
 
   @Override

@@ -51,20 +51,20 @@ public class EnergyReportCalculator {
   public static final String JDK_VERSION = "17";
 
   public static void main(String[] args) throws IOException {
-    // First, calculate the baseline report and save it
+    // First, calculate the baseline report and get the mean power
     BaselineReport baseline = new BaselineReport("baseline-idle-os");
     calculateEnergy(baseline);
 
-    // For any other report subtract the baseline from each measurement
+    // For any other report subtract the baseline mean power from each measurement
     final List<AbstractReport> REPORTS =
         List.of(
             new OffTheShelfApplicationsReport("spring-petclinic", baseline.mean),
             new OffTheShelfApplicationsReport(
                 "quarkus-hibernate-orm-panache-quickstart", baseline.mean),
-            new JavaSamplesReport("renaissance", "concurrency", baseline.mean),
-            new JavaSamplesReport("renaissance", "functional", baseline.mean),
-            new JavaSamplesReport("renaissance", "scala", baseline.mean),
-            new JavaSamplesReport("renaissance", "web", baseline.mean),
+            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.mean),
+            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.mean),
+            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.mean),
+            new OffTheShelfApplicationsReport("renaissance", "web", baseline.mean),
             new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.mean),
             new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.mean),
             new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.mean));
@@ -77,11 +77,11 @@ public class EnergyReportCalculator {
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
     System.out.printf("Calculate energy for '%s'\n", energyReport.category);
 
-    String perfStatsPath = energyReport.getPerfStatsPath();
-    List<Stats> perfStats = readFiles(perfStatsPath);
+    List<Stats> perfStats = readFiles(energyReport.perfStatsPath);
     energyReport.setPerfStats(perfStats);
 
-    String outputPath = new File(perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
+    String outputPath =
+        new File(energyReport.perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
     String perfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;

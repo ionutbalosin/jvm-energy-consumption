@@ -36,11 +36,10 @@ public abstract class AbstractReport {
 
   public String category;
   public StatisticsFormulas formulas;
+  public String perfStatsPath;
   public Map<String, List<Stats>> perfStats;
 
   public abstract void setPerfStats(List<Stats> perfStats);
-
-  public abstract String getPerfStatsPath();
 
   public abstract void createRawPerfStatsReport(String outputFilePath) throws IOException;
 

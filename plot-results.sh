@@ -60,19 +60,9 @@ check_command_line_options() {
 }
 
 set_environment_variables() {
-  export SPRING_PETCLINIC_RESULTS="$(pwd)/spring-petclinic/results/$OS/$ARCH/jdk-$JDK_VERSION"
-  export QUARKUS_HIBERNATE_ORM_PANACHE_RESULTS="$(pwd)/quarkus-hibernate-orm-panache-quickstart/results/$OS/$ARCH/jdk-$JDK_VERSION"
-  export RENAISSANCE_RESULTS="$(pwd)/renaissance/results/$OS/$ARCH/jdk-$JDK_VERSION"
-  export LOGGING_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/LoggingPatterns"
-  export MEMORY_ACCESS_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/MemoryAccessPatterns"
-  export THROW_EXCEPTION_PATTERNS_RESULTS="$(pwd)/java-samples/results/$OS/$ARCH/jdk-$JDK_VERSION/ThrowExceptionPatterns"
+  export OUTPUT_FOLDER=results/$OS/$ARCH/jdk-$JDK_VERSION
 
-  echo "Spring PetClinic folder: $SPRING_PETCLINIC_RESULTS"
-  echo "Hibernate ORM Panache Quickstart folder: $QUARKUS_HIBERNATE_ORM_PANACHE_RESULTS"
-  echo "Renaissance folder: $RENAISSANCE_RESULTS"
-  echo "Logging patterns folder: $LOGGING_PATTERNS_RESULTS"
-  echo "Memory access patterns folder: $MEMORY_ACCESS_PATTERNS_RESULTS"
-  echo "Throw exception patterns folder: $THROW_EXCEPTION_PATTERNS_RESULTS"
+  echo "Output folder: $OUTPUT_FOLDER"
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
@@ -87,8 +77,7 @@ check_folder_exists() {
 }
 
 plot_results() {
-  R <./ggplot2/plot-result.r --no-save \
-  --args $SPRING_PETCLINIC_RESULTS $QUARKUS_HIBERNATE_ORM_PANACHE_RESULTS $RENAISSANCE_RESULTS $LOGGING_PATTERNS_RESULTS $MEMORY_ACCESS_PATTERNS_RESULTS $THROW_EXCEPTION_PATTERNS_RESULTS
+  R <./ggplot2/plot-result.r --no-save --args "$(pwd)" "$OUTPUT_FOLDER"
   if [ $? -ne 0 ]; then
     echo ""
     echo "ERROR: Error encountered while plotting results, unable to continue!"
