@@ -72,20 +72,18 @@ create_output_resources() {
 }
 
 build_samples() {
-  cd $APP_HOME
-  for sample_name in "${SAMPLE_APPS[@]}"; do
-    echo "Compiling Java sample: $sample_name"
-    javac $sample_name.java -d $APP_HOME/target
-  done
-  cd -
-
-  if [ "$JVM_IDENTIFIER" == "native-image" ]; then
-    cd $APP_HOME/target
-    for sample_name in "${SAMPLE_APPS[@]}"; do
-      echo "Building Java sample: $sample_name"
-      native-image $sample_name -o $sample_name
-    done
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
+    export BUILD_CMD="./mvnw clean package"
+    echo "$BUILD_CMD"
+    cd .. && $BUILD_CMD
     cd -
+  else
+    for sample_name in "${SAMPLE_APPS[@]}"; do
+      export BUILD_CMD="./mvnw -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" -DimageName="$sample_name" -Pnative package"
+      echo "$BUILD_CMD"
+      cd .. && $BUILD_CMD
+      cd -
+    done
   fi
 }
 
@@ -94,7 +92,7 @@ start_sample() {
   sample_test_type="$2"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/$sample_name.java $sample_test_type"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
   else
     export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_test_type"
   fi
@@ -150,22 +148,22 @@ echo ""
 echo "+==============================+"
 echo "| [5/5] Start the Java samples |"
 echo "+==============================+"
-start_sample "ThrowExceptionPatterns" "const"
-start_sample "ThrowExceptionPatterns" "lambda"
-start_sample "ThrowExceptionPatterns" "new"
-start_sample "ThrowExceptionPatterns" "override_fist"
+#start_sample "ThrowExceptionPatterns" "const"
+#start_sample "ThrowExceptionPatterns" "lambda"
+#start_sample "ThrowExceptionPatterns" "new"
+#start_sample "ThrowExceptionPatterns" "override_fist"
 
-start_sample "MemoryAccessPatterns" "linear"
-start_sample "MemoryAccessPatterns" "random_page"
-start_sample "MemoryAccessPatterns" "random_heap"
+#start_sample "MemoryAccessPatterns" "linear"
+#start_sample "MemoryAccessPatterns" "random_page"
+#start_sample "MemoryAccessPatterns" "random_heap"
 
-start_sample "LoggingPatterns" "string_format"
-start_sample "LoggingPatterns" "lambda_heap"
-start_sample "LoggingPatterns" "lambda_local"
-start_sample "LoggingPatterns" "guarded_parametrized"
-start_sample "LoggingPatterns" "guarded_unparametrized"
-start_sample "LoggingPatterns" "unguarded_parametrized"
-start_sample "LoggingPatterns" "unguarded_unparametrized"
+#start_sample "LoggingPatterns" "string_format"
+#start_sample "LoggingPatterns" "lambda_heap"
+#start_sample "LoggingPatterns" "lambda_local"
+#start_sample "LoggingPatterns" "guarded_parametrized"
+#start_sample "LoggingPatterns" "guarded_unparametrized"
+#start_sample "LoggingPatterns" "unguarded_parametrized"
+#start_sample "LoggingPatterns" "unguarded_unparametrized"
 
 start_sample "SortingAlgorithms" "bubble_sort"
 start_sample "SortingAlgorithms" "merge_sort"
