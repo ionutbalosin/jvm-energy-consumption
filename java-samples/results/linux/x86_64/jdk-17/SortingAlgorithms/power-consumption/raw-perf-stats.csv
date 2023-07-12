@@ -1,0 +1,61 @@
+     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+        graalvm-ce;               bubble_sort;               2;                   3454.720;                964.450;       1736.806
+        graalvm-ce;               bubble_sort;               3;                   3420.780;                976.720;       1759.251
+        graalvm-ce;               bubble_sort;               1;                   3573.150;               1004.130;       1784.279
+        graalvm-ce;               bubble_sort;               4;                   3358.580;                969.550;       1746.327
+        graalvm-ce;               bubble_sort;               5;                   3452.940;                976.400;       1758.759
+        graalvm-ce;                merge_sort;               3;                      6.810;                  2.120;          3.058
+        graalvm-ce;                merge_sort;               5;                      7.130;                  2.170;          3.127
+        graalvm-ce;                merge_sort;               1;                      7.390;                  2.200;          3.212
+        graalvm-ce;                merge_sort;               2;                      6.850;                  2.130;          3.101
+        graalvm-ce;                merge_sort;               4;                      6.970;                  2.130;          3.084
+        graalvm-ce;                quick_sort;               4;                      6.300;                  1.900;          2.759
+        graalvm-ce;                quick_sort;               5;                      6.360;                  1.900;          2.785
+        graalvm-ce;                quick_sort;               1;                      6.570;                  1.940;          2.817
+        graalvm-ce;                quick_sort;               2;                      6.320;                  1.910;          2.774
+        graalvm-ce;                quick_sort;               3;                      6.390;                  1.930;          2.805
+        graalvm-ce;                radix_sort;               5;                      6.770;                  2.020;          2.969
+        graalvm-ce;                radix_sort;               4;                      6.580;                  2.000;          2.919
+        graalvm-ce;                radix_sort;               2;                      6.560;                  2.020;          2.960
+        graalvm-ce;                radix_sort;               3;                      6.500;                  2.010;          2.942
+        graalvm-ce;                radix_sort;               1;                      6.820;                  2.060;          2.984
+        graalvm-ee;               bubble_sort;               1;                   3285.760;                951.140;       1707.530
+        graalvm-ee;               bubble_sort;               2;                   3347.510;                950.710;       1706.539
+        graalvm-ee;               bubble_sort;               5;                   3454.110;                948.060;       1703.276
+        graalvm-ee;               bubble_sort;               3;                   3397.760;                951.390;       1707.404
+        graalvm-ee;               bubble_sort;               4;                   3426.130;                953.730;       1714.121
+        graalvm-ee;                merge_sort;               4;                      6.910;                  2.130;          3.005
+        graalvm-ee;                merge_sort;               1;                      6.780;                  2.130;          2.990
+        graalvm-ee;                merge_sort;               5;                      6.620;                  2.080;          2.940
+        graalvm-ee;                merge_sort;               2;                      6.500;                  2.100;          2.962
+        graalvm-ee;                merge_sort;               3;                      7.040;                  2.210;          3.134
+        graalvm-ee;                quick_sort;               3;                      6.350;                  1.940;          2.781
+        graalvm-ee;                quick_sort;               2;                      6.220;                  1.950;          2.767
+        graalvm-ee;                quick_sort;               1;                      6.450;                  1.960;          2.791
+        graalvm-ee;                quick_sort;               5;                      6.410;                  1.960;          2.795
+        graalvm-ee;                quick_sort;               4;                      6.400;                  1.960;          2.774
+        graalvm-ee;                radix_sort;               5;                      6.580;                  2.070;          2.959
+        graalvm-ee;                radix_sort;               4;                      6.810;                  2.070;          2.968
+        graalvm-ee;                radix_sort;               3;                      6.740;                  2.090;          2.987
+        graalvm-ee;                radix_sort;               2;                      6.410;                  2.070;          2.954
+        graalvm-ee;                radix_sort;               1;                      6.510;                  2.050;          2.935
+openjdk-hotspot-vm;               bubble_sort;               5;                   1823.880;                497.890;        897.507
+openjdk-hotspot-vm;               bubble_sort;               2;                   1781.090;                501.890;        897.947
+openjdk-hotspot-vm;               bubble_sort;               1;                   1823.100;                503.310;        902.430
+openjdk-hotspot-vm;               bubble_sort;               3;                   1788.940;                502.100;        904.282
+openjdk-hotspot-vm;               bubble_sort;               4;                   1801.650;                504.770;        910.059
+openjdk-hotspot-vm;                merge_sort;               4;                      8.250;                  2.370;          3.541
+openjdk-hotspot-vm;                merge_sort;               3;                      7.280;                  2.050;          3.140
+openjdk-hotspot-vm;                merge_sort;               5;                      7.540;                  2.150;          3.231
+openjdk-hotspot-vm;                merge_sort;               1;                      8.170;                  2.370;          3.533
+openjdk-hotspot-vm;                merge_sort;               2;                      7.560;                  2.190;          3.282
+openjdk-hotspot-vm;                quick_sort;               2;                      6.640;                  1.820;          2.826
+openjdk-hotspot-vm;                quick_sort;               4;                      6.660;                  1.870;          2.878
+openjdk-hotspot-vm;                quick_sort;               1;                      6.840;                  1.890;          2.894
+openjdk-hotspot-vm;                quick_sort;               3;                      6.660;                  1.820;          2.822
+openjdk-hotspot-vm;                quick_sort;               5;                      6.640;                  1.860;          2.873
+openjdk-hotspot-vm;                radix_sort;               5;                      6.920;                  1.960;          3.047
+openjdk-hotspot-vm;                radix_sort;               4;                      7.040;                  2.010;          3.081
+openjdk-hotspot-vm;                radix_sort;               2;                      7.040;                  2.000;          3.049
+openjdk-hotspot-vm;                radix_sort;               3;                      7.270;                  2.010;          3.058
+openjdk-hotspot-vm;                radix_sort;               1;                      6.950;                  1.980;          3.048

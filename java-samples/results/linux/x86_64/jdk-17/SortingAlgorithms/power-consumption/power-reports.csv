@@ -1,0 +1,15 @@
+     Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
+        graalvm-ce;               bubble_sort;        5;         2633.868;               73.604;                   2632.971
+        graalvm-ce;                merge_sort;        5;            5.994;                0.203;                      5.991
+        graalvm-ce;                quick_sort;        5;            5.454;                0.097;                      5.453
+        graalvm-ce;                radix_sort;        5;            5.647;                0.132;                      5.646
+        graalvm-ee;               bubble_sort;        5;         2587.258;               63.340;                   2586.571
+        graalvm-ee;                merge_sort;        5;            5.827;                0.185;                      5.824
+        graalvm-ee;                quick_sort;        5;            5.476;                0.081;                      5.476
+        graalvm-ee;                radix_sort;        5;            5.653;                0.150;                      5.651
+openjdk-hotspot-vm;               bubble_sort;        5;         1383.078;               18.630;                   1382.968
+openjdk-hotspot-vm;                merge_sort;        5;            6.566;                0.363;                      6.557
+openjdk-hotspot-vm;                quick_sort;        5;            5.618;                0.083;                      5.617
+openjdk-hotspot-vm;                radix_sort;        5;            5.911;                0.143;                      5.909
+
+# Note: The reference baseline is already excluded from this report

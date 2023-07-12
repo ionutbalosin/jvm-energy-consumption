@@ -1,0 +1,9 @@
+     Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
+        graalvm-ce;                 bimorphic;        5;           28.885;                0.612;                     28.879
+        graalvm-ce;            megamorphic_24;        5;          202.568;                4.781;                    202.518
+        graalvm-ee;                 bimorphic;        5;           24.338;                1.127;                     24.315
+        graalvm-ee;            megamorphic_24;        5;          195.758;                3.965;                    195.722
+openjdk-hotspot-vm;                 bimorphic;        5;           22.030;                0.527;                     22.024
+openjdk-hotspot-vm;            megamorphic_24;        5;          221.913;                3.160;                    221.893
+
+# Note: The reference baseline is already excluded from this report

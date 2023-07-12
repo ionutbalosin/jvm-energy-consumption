@@ -1,0 +1,3 @@
+Exception in thread "main" java.lang.AssertionError: Elements at index 2 and 3 are not sorted
+	at com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms.validate_results(SortingAlgorithms.java:117)
+	at com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms.main(SortingAlgorithms.java:79)

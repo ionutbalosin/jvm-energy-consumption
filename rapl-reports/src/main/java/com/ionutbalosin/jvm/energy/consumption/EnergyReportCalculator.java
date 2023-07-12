@@ -67,7 +67,9 @@ public class EnergyReportCalculator {
             new OffTheShelfApplicationsReport("renaissance", "web", baseline.meanInWatt),
             new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.meanInWatt),
             new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanInWatt));
+            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanInWatt),
+            new JavaSamplesReport("java-samples", "SortingAlgorithms", baseline.meanInWatt),
+            new JavaSamplesReport("java-samples", "VirtualCalls", baseline.meanInWatt));
 
     for (AbstractReport report : REPORTS) {
       calculateEnergy(report);
