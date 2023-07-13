@@ -1,4 +1,24 @@
      Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;                 bimorphic;               4;                     48.010;                 12.660;         19.840
+     azul-prime-vm;                 bimorphic;               2;                     50.340;                 13.140;         20.710
+     azul-prime-vm;                 bimorphic;               3;                     49.070;                 12.650;         19.825
+     azul-prime-vm;                 bimorphic;               1;                     50.030;                 13.160;         20.762
+     azul-prime-vm;                 bimorphic;               5;                     49.880;                 13.090;         20.542
+     azul-prime-vm;            megamorphic_24;               3;                    300.200;                 85.450;        150.847
+     azul-prime-vm;            megamorphic_24;               1;                    303.630;                 88.360;        156.439
+     azul-prime-vm;            megamorphic_24;               2;                    304.530;                 87.830;        155.195
+     azul-prime-vm;            megamorphic_24;               5;                    296.450;                 86.530;        152.879
+     azul-prime-vm;            megamorphic_24;               4;                    299.760;                 87.680;        154.941
+ eclipse-openj9-vm;                 bimorphic;               2;                    186.780;                 54.380;         94.352
+ eclipse-openj9-vm;                 bimorphic;               4;                    181.200;                 52.010;         90.940
+ eclipse-openj9-vm;                 bimorphic;               5;                    198.220;                 54.920;         94.728
+ eclipse-openj9-vm;                 bimorphic;               3;                    187.580;                 53.460;         92.267
+ eclipse-openj9-vm;                 bimorphic;               1;                    181.680;                 52.050;         90.888
+ eclipse-openj9-vm;            megamorphic_24;               5;                    278.260;                 82.590;        139.114
+ eclipse-openj9-vm;            megamorphic_24;               4;                    247.690;                 75.160;        131.463
+ eclipse-openj9-vm;            megamorphic_24;               2;                    253.000;                 76.250;        133.231
+ eclipse-openj9-vm;            megamorphic_24;               1;                    250.240;                 74.500;        130.253
+ eclipse-openj9-vm;            megamorphic_24;               3;                    247.470;                 75.970;        133.141
         graalvm-ce;                 bimorphic;               4;                     36.210;                  9.930;         17.029
         graalvm-ce;                 bimorphic;               5;                     36.450;                  9.800;         16.849
         graalvm-ce;                 bimorphic;               1;                     37.130;                  9.520;         16.363
@@ -19,6 +39,16 @@
         graalvm-ee;            megamorphic_24;               5;                    262.590;                 78.990;        141.243
         graalvm-ee;            megamorphic_24;               2;                    254.550;                 79.340;        141.749
         graalvm-ee;            megamorphic_24;               1;                    263.220;                 80.120;        143.173
+      native-image;                 bimorphic;               2;                    232.890;                 72.820;        130.931
+      native-image;                 bimorphic;               4;                    235.340;                 73.740;        132.575
+      native-image;                 bimorphic;               3;                    233.360;                 73.440;        132.032
+      native-image;                 bimorphic;               1;                    239.840;                 74.360;        133.711
+      native-image;                 bimorphic;               5;                    231.640;                 73.450;        132.051
+      native-image;            megamorphic_24;               5;                    233.100;                 73.830;        132.707
+      native-image;            megamorphic_24;               1;                    236.980;                 73.230;        131.618
+      native-image;            megamorphic_24;               4;                    233.590;                 74.400;        133.749
+      native-image;            megamorphic_24;               3;                    228.480;                 71.800;        129.059
+      native-image;            megamorphic_24;               2;                    229.020;                 76.080;        136.765
 openjdk-hotspot-vm;                 bimorphic;               3;                     27.540;                  7.150;         12.402
 openjdk-hotspot-vm;                 bimorphic;               1;                     26.830;                  7.180;         12.444
 openjdk-hotspot-vm;                 bimorphic;               4;                     28.490;                  7.370;         12.788

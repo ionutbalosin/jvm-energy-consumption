@@ -47,7 +47,7 @@ check_command_line_options() {
 }
 
 configure_samples() {
-  export APP_HOME=$(pwd)/src/main/java
+  export APP_HOME=$(pwd)
   export JAVA_OPS="-Xms1m -Xmx6g"
   export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns" "SortingAlgorithms" "VirtualCalls")
 
@@ -75,14 +75,13 @@ build_samples() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export BUILD_CMD="./mvnw clean package"
     echo "$BUILD_CMD"
-    cd .. && $BUILD_CMD
-    cd -
+    cd .. && $BUILD_CMD && cd -
   else
+    cd .. && ./mvnw clean && cd -
     for sample_name in "${SAMPLE_APPS[@]}"; do
-      export BUILD_CMD="./mvnw -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" -DimageName="$sample_name" -Pnative package"
+      export BUILD_CMD="./mvnw -D.maven.clean.skip=true -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" -DimageName="$sample_name" -Pnative package"
       echo "$BUILD_CMD"
-      cd .. && $BUILD_CMD
-      cd -
+      cd .. && $BUILD_CMD && cd -
     done
   fi
 }
@@ -92,7 +91,7 @@ start_sample() {
   sample_test_type="$2"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
   else
     export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_test_type"
   fi
