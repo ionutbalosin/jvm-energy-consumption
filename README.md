@@ -19,9 +19,9 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 ## Purpose
 
-The purpose of this project is to assess the energy consumption across multiple JVMs distributions while running different custom-made Java programs (using different coding paradigms) and off-the-shelf applications (e.g., including [Spring Boot](https://spring.io/projects/spring-boot) and [Quarkus](https://quarkus.io/) web-based).
+The objective of this project is to evaluate energy consumption among various JVM distributions by executing custom-made Java programs employing different coding paradigms, as well as off-the-shelf applications such as [Spring Boot](https://spring.io/projects/spring-boot) and [Quarkus](https://quarkus.io/) web-based applications.
 
-It is not a goal to compare the energy consumption across different frameworks (since the code is different there won't be an apples-to-apples comparison), but keeping the same application and just changing the runtime (or the JVM) check the new energy consumption.
+While comparing energy consumption across different frameworks is not the primary focus (due to variations in code, making direct comparisons challenging), the goal is to maintain the same application (or code samples) and assess the energy consumption when changing only the runtime or the JVM.
 
 ## Methodology
 
@@ -104,10 +104,9 @@ While the watt-second is equivalent to the Joule in both units and meaning (e.g.
 
 **Note:** In general, the overhead introduced by `perf` is relatively low, especially when using hardware performance counters. The impact on system performance is typically considered acceptable for most profiling and performance analysis tasks.
 
-#### Load Test System Architecture
+### Load Test System Architecture
 
-While measuring the JVM energy consumption, it is important to have a realistic load (i.e., usage of the application) and to trigger as many endpoints as possible for a reasonable time interval, otherwise, the Gargabe Collector footprint or further Just-In-Time compiler optimizations are simply skipped and makes the measurements less relevant. Just starting and stopping the application is not an option.
-In this regard, load test scenarios must be conducted for some applications (e.g., Spring Boot and Quarkus web-based).
+When measuring JVM energy consumption, it is crucial to simulate a realistic application workload, ensuring the usage of the application and triggering as many endpoints as possible within a reasonable time interval. Merely starting and stopping the application is insufficient, as it may skip critical factors such as the Garbage Collector footprint and Just-In-Time compiler optimizations, thereby rendering the measurements less relevant. In this context, load test scenarios should be conducted for certain applications, such as Spring Boot and Quarkus web-based applications.
 
 The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
 
