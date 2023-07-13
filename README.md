@@ -19,7 +19,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 ## Purpose
 
-The purpose of this project is to assess the energy consumption across multiple JVMs distributions while running different custom-made Java programs and off-the-shelf applications (e.g., including [Spring Boot](https://spring.io/projects/spring-boot) and [Quarkus](https://quarkus.io/) web-based).
+The purpose of this project is to assess the energy consumption across multiple JVMs distributions while running different custom-made Java programs (using different coding paradigms) and off-the-shelf applications (e.g., including [Spring Boot](https://spring.io/projects/spring-boot) and [Quarkus](https://quarkus.io/) web-based).
 
 It is not a goal to compare the energy consumption across different frameworks (since the code is different there won't be an apples-to-apples comparison), but keeping the same application and just changing the runtime (or the JVM) check the new energy consumption.
 
@@ -36,6 +36,55 @@ The RAPL power domains:
 
 For multi-socket server systems, each socket reports its own RAPL values (for example, a two socket computing system has two separate PKG readings for both the packages, two separate PP0 readings, etc.).
 
+### RAPL Coverage
+
+It is worth mentioning that since RAPL reports only the energy consumption of a few domains (e.g., CPU/GPU/DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
+- any networking interface as Ethernet, Wi-Fi (Wireless Fidelity), Bluetooth, etc.
+- any attached storage device (as hard disk drives, solid-state drives, and optical drives) relying on SATA (Serial AT Attachment), NVMe (Non-Volatile Memory Express), USB (Universal Serial Bus), Thunderbolt, SCSI (Small Computer System Interface), FireWire (IEEE 1394), Fibre Channel, etc.
+- any display interface using HDMI (High-Definition Multimedia Interface), VGA (Video Graphics Array), DVI (Digital Visual Interface), Thunderbolt, DisplayPort, etc.
+- the motherboard
+
+In other words, for a typical JVM application, this means that any I/O operation that involves reading data from or writing data to any storage device but also any networking operation that uses I/O to send or receive data over a network are not captured.
+
+To compensate this gap, in addition to the RAPL, a wall power meter must be used and check the differences.
+
+### RAPL Validity, and Accuracy
+
+Proof of the measurement methods' validity, which depend on RAPL, is necessary. Therefore, below are some noteworthy RAPL-based studies.
+
+Desrochers et al. [2] measured DRAM energy consumption while minimizing interference, comparing it with RAPL measurements. These findings validate the DRAM domain, utilizing diverse systems and benchmarks. Variances between physical and RAPL measurements are below 20% [2]. Recent processors, like Intel Haswell microarchitecture, exhibit improved precision compared to earlier generations.
+
+Zhang et al. [3] set a power consumption limit using RAPL and evaluated its adherence. Out of 16 benchmarks, 14 had a 2% mean absolute percentage error (MAPE), while 2 had an error rate exceeding 5% [3]. The study also highlighted RAPL's improved accuracy in high energy consumption scenarios.
+
+Khan et al. [4] compared RAPL to wall power measurements in Taito supercomputer, finding a strong 99% correlation. The estimation error (MAPE) was only 1.7%. Performance overhead of reading RAPL was <1% [4].
+
+Based to these extensive studies, RAPL is considered to be a reliable and widely used tool for power consumption analysis on Intel-based systems.
+
+In addition to that, it is worth noting that on the newer CPUs, including the Intel Haswell microarchitecture, the RAPL precision is better than in previous generations.
+
+### Measurements Considerations
+
+Reduced RAPL accuracy may be expected when the processor is not running heavy workloads and is in an idle state
+
+RAPL measures the total power consumption of the entire system or package, encompassing all components and applications running on the same machine. It does not provide a breakdown of power consumption per individual application or component. Therefore, it is crucial to establish a **baseline measurement** of the system's power consumption during idle or minimal background processes
+
+Excessive heat can impact both the overall power consumption and performance of a system, indirectly affecting RAPL measurements. For that reason, disabling both:
+- **turbo-boost** mode and
+- **hyper-threading**
+
+can effectively reduce CPU heat and enhance the consistency of RAPL measurements.
+It is also important to account for any external factors that may influence power consumption, such as variations in ambient temperature or fluctuations in power supply. These factors can introduce additional variability to RAPL measurements and should be taken into consideration during data analysis and interpretation
+
+Measuring power consumption for smaller tasks (such as **micro-benchmarking**) that complete quickly can be challenging, as the overall results are often dominated by the JVM footprint rather than the specific code being tested. This challenge can be partially addressed by employing iteration loops around the code snapshots being measured.
+
+In addition to RAPL, a **wall power meter** is necessary to assess cumulative power consumption. However, there are significant differences between these two methods that make them complementary rather than interchangeable:
+
+- the sampling periods may differ between RAPL and the wall power meter.
+- the measurement scales are also different, with RAPL reporting in Joules and the wall power meter typically using kilowatt-hours (kWh).
+- the wall power meter provides measurements for the overall system power consumption, encompassing all components, whereas RAPL focuses specifically on individual domains (e.g., CPU, GPU, DRAM) within the system.
+
+### Measurements Unit
+
 The command pattern used to start the JVM application that also reports at the end the energy stats rely on `perf` (available only on Linux):
 
 ```
@@ -48,11 +97,12 @@ $ perf stat -a \
    <application_runner_path>
 ```
 
-The unit of energy reported by RAPL is **Joule** (symbol: J).
-A **watt-second** (symbol W s or W⋅s) is a derived unit of energy equivalent to the Joule. The watt-second is the energy equivalent to the power of one watt sustained for one second. 
-While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the power consumption.
+The unit of energy reported by this command is **Joule** (symbol J).
 
-The RAPL reports the total energy of a host machine (including any other running applications). Therefore, minimize the load on the target machine and run only the application in charge. In addition, a baseline of the entire system (i.e., in idle state) must be measured.
+Analogous, a **watt-second** (symbol W s or W⋅s) is a derived unit of energy equivalent to the Joule. The watt-second is the energy equivalent to the power of one watt sustained for one second.
+While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor using the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the power consumption.
+
+**Note:** In general, the overhead introduced by `perf` is relatively low, especially when using hardware performance counters. The impact on system performance is typically considered acceptable for most profiling and performance analysis tasks.
 
 #### Load Test System Architecture
 
@@ -117,6 +167,8 @@ This set of measurements relies on specific code patterns to identify what is th
 - logging patterns
 - memory access patterns
 - throwing exception patterns
+- (sorting) algorithms complexities
+- virtual calls
 
 ```
 $ cd /java-samples
@@ -186,6 +238,16 @@ This set of measurements uses the off-the-shelf Renaissance benchmark suite.
 $ cd /renaissance
 $ sudo ./run-benchmarks.sh
 ```
+
+# References
+
+1. Tom Strempel. Master’s Thesis [Measuring the Energy Consumption of Software written in C on x86-64 Processors](https://ul.qucosa.de/api/qucosa%3A77194/attachment/ATT-0)
+
+2. Spencer Desrochers, Chad Paradis, and Vincent M. Weaver. “A validation of DRAM RAPL power measurements”. In: ACM International Conference Proceed- ing Series 03-06-October-2016 (2016). DOI: [10.1145/2989081.2989088.](https://doi.org/10.1145/2989081.2989088)
+
+3. Zhang Huazhe and Hoffman H. _“A quantitative evaluation of the RAPL power control system”_. In: _Feedback Computing_ (2015).
+
+4. Kashif Nizam Khan et al. “RAPL in action: Experiences in using RAPL for power measurements”. In: ACM Transactions on Modeling and Performance Evaluation of Computing Systems 3 (2 2018). ISSN: 23763647. DOI: [10.1145/3177754](https://doi.org/10.1145/3177754).
 
 # License
 
