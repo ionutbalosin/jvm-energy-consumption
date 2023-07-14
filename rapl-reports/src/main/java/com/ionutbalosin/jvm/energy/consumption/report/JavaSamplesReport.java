@@ -77,6 +77,7 @@ public class JavaSamplesReport extends AbstractReport {
           "Mean (Watt⋅sec)",
           "Score Error (90.0%)",
           "Geometric Mean (Watt⋅sec)");
+
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double mean = formulas.getMean(pair.getValue());
         double meanError = formulas.getMeanError(pair.getValue());

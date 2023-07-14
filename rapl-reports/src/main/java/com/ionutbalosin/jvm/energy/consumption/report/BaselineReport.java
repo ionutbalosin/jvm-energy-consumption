@@ -70,6 +70,7 @@ public class BaselineReport extends AbstractReport {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%9s;%17s;%21s\n", "Test Category", "Samples", "Mean (Watt)", "Score Error (90.0%)");
+
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         meanInWatt = formulas.getMean(pair.getValue());
         double meanError = formulas.getMeanError(pair.getValue());
