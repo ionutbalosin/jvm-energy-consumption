@@ -1,27 +1,27 @@
-     Test Category;                 Test Type;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Energy Geometric Mean (Watt⋅sec)
-     azul-prime-vm;                     const;        5;                  34.503;                       0.992;                            34.491
-     azul-prime-vm;                    lambda;        5;                 244.200;                       7.094;                           244.109
-     azul-prime-vm;                       new;        5;                 243.317;                       5.928;                           243.254
-     azul-prime-vm;             override_fist;        5;                  34.736;                       0.872;                            34.726
- eclipse-openj9-vm;                     const;        5;                  36.959;                      14.076;                            35.122
- eclipse-openj9-vm;                    lambda;        5;                 274.345;                      10.156;                           274.179
- eclipse-openj9-vm;                       new;        5;                 270.552;                       7.207;                           270.468
- eclipse-openj9-vm;             override_fist;        5;                  32.039;                       2.697;                            31.941
-        graalvm-ce;                     const;        5;                  20.039;                       1.000;                            20.017
-        graalvm-ce;                    lambda;        5;                 174.772;                       5.081;                           174.708
-        graalvm-ce;                       new;        5;                 180.921;                       2.331;                           180.907
-        graalvm-ce;             override_fist;        5;                  20.208;                       0.274;                            20.207
-        graalvm-ee;                     const;        5;                  99.547;                       2.176;                            99.526
-        graalvm-ee;                    lambda;        5;                 179.287;                       2.797;                           179.267
-        graalvm-ee;                       new;        5;                 180.034;                       2.291;                           180.021
-        graalvm-ee;             override_fist;        5;                  18.037;                       0.354;                            18.033
-      native-image;                     const;        5;                   9.312;                       1.933;                             9.128
-      native-image;                    lambda;        5;                  37.687;                       5.775;                            37.310
-      native-image;                       new;        5;                  44.640;                       7.264;                            44.131
-      native-image;             override_fist;        5;                   2.728;                       0.566;                             2.678
-openjdk-hotspot-vm;                     const;        5;                  50.465;                      17.149;                            48.396
-openjdk-hotspot-vm;                    lambda;        5;                 195.667;                      20.037;                           194.780
-openjdk-hotspot-vm;                       new;        5;                 194.316;                      20.492;                           193.378
-openjdk-hotspot-vm;             override_fist;        5;                  43.645;                       4.950;                            43.403
+     Test Category;                 Test Type;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Elapsed Mean (sec);  Elapsed Score Error (90.0%)
+     azul-prime-vm;                     const;        5;                  34.503;                       0.992;              27.594;                        0.164
+     azul-prime-vm;                    lambda;        5;                 244.200;                       7.094;             233.006;                        1.419
+     azul-prime-vm;                       new;        5;                 243.317;                       5.928;             230.406;                        0.500
+     azul-prime-vm;             override_fist;        5;                  34.736;                       0.872;              27.422;                        0.059
+ eclipse-openj9-vm;                     const;        5;                  36.959;                      14.076;              20.521;                        4.253
+ eclipse-openj9-vm;                    lambda;        5;                 274.345;                      10.156;             281.456;                        1.822
+ eclipse-openj9-vm;                       new;        5;                 270.552;                       7.207;             282.021;                        2.008
+ eclipse-openj9-vm;             override_fist;        5;                  32.039;                       2.697;              20.336;                        1.210
+        graalvm-ce;                     const;        5;                  20.039;                       1.000;              20.846;                        0.140
+        graalvm-ce;                    lambda;        5;                 174.772;                       5.081;             190.138;                        1.741
+        graalvm-ce;                       new;        5;                 180.921;                       2.331;             189.513;                        1.779
+        graalvm-ce;             override_fist;        5;                  20.208;                       0.274;              20.432;                        0.205
+        graalvm-ee;                     const;        5;                  99.547;                       2.176;             108.448;                        1.278
+        graalvm-ee;                    lambda;        5;                 179.287;                       2.797;             183.325;                        1.215
+        graalvm-ee;                       new;        5;                 180.034;                       2.291;             183.007;                        1.431
+        graalvm-ee;             override_fist;        5;                  18.037;                       0.354;              18.109;                        0.265
+      native-image;                     const;        5;                   9.312;                       1.933;              10.456;                        0.745
+      native-image;                    lambda;        5;                  37.687;                       5.775;              38.639;                        0.258
+      native-image;                       new;        5;                  44.640;                       7.264;              48.378;                        0.589
+      native-image;             override_fist;        5;                   2.728;                       0.566;               3.138;                        0.078
+openjdk-hotspot-vm;                     const;        5;                  50.465;                      17.149;              56.305;                        3.848
+openjdk-hotspot-vm;                    lambda;        5;                 195.667;                      20.037;             232.327;                        0.434
+openjdk-hotspot-vm;                       new;        5;                 194.316;                      20.492;             231.547;                        0.313
+openjdk-hotspot-vm;             override_fist;        5;                  43.645;                       4.950;              54.580;                        0.161
 
 # Note: The reference baseline is already excluded from this report

@@ -1,8 +1,8 @@
-     Test Category;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Energy Geometric Mean (Watt⋅sec)
-     azul-prime-vm;        3;                5420.201;                      30.870;                          5420.181
- eclipse-openj9-vm;        3;                8084.151;                     604.811;                          8078.751
-        graalvm-ce;        3;                4208.777;                     109.332;                          4208.442
-        graalvm-ee;        3;                3527.306;                     612.002;                          3514.321
-openjdk-hotspot-vm;        3;                5086.510;                     291.689;                          5084.561
+     Test Category;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Elapsed Mean (sec);  Elapsed Score Error (90.0%)
+     azul-prime-vm;        3;                5420.201;                      30.870;            3173.421;                       87.131
+ eclipse-openj9-vm;        3;                8084.151;                     604.811;            6567.512;                      271.938
+        graalvm-ce;        3;                4208.777;                     109.332;            2881.401;                       27.318
+        graalvm-ee;        3;                3527.306;                     612.002;            2494.556;                      520.563
+openjdk-hotspot-vm;        3;                5086.510;                     291.689;            3760.890;                      433.873
 
-# Note: The reference baseline is already excluded from this report
+# Note: The reference baseline is already excluded from the energy scores

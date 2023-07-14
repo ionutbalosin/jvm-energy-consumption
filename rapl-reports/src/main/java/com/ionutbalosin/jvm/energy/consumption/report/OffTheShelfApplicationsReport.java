@@ -38,6 +38,7 @@ import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.StatisticsFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,15 +50,18 @@ import java.util.TreeMap;
 public class OffTheShelfApplicationsReport extends AbstractReport {
 
   StatisticsFormulas energyFormulas;
+  StatisticsFormulas timeElapsedFormulas;
 
   public OffTheShelfApplicationsReport(String module, double meanPowerBaseline) {
     this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
+    this.timeElapsedFormulas = new TimeElapsedFormulas();
     this.perfStatsPath =
         String.format("%s/%s/results/%s/%s/jdk-%s/perf", BASE_PATH, module, OS, ARCH, JDK_VERSION);
   }
 
   public OffTheShelfApplicationsReport(String module, String category, double meanPowerBaseline) {
     this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
+    this.timeElapsedFormulas = new TimeElapsedFormulas();
     this.perfStatsPath =
         String.format(
             "%s/%s/results/%s/%s/jdk-%s/%s/perf",
@@ -79,26 +83,29 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   public void createMeanReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%9s;%24s;%28s;%34s\n",
+          "%18s;%9s;%24s;%28s;%20s;%29s\n",
           "Test Category",
           "Samples",
           "Energy Mean (Watt⋅sec)",
           "Energy Score Error (90.0%)",
-          "Energy Geometric Mean (Watt⋅sec)");
+          "Elapsed Mean (sec)",
+          "Elapsed Score Error (90.0%)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double meanEnergy = energyFormulas.getMean(pair.getValue());
+        double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
         double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
-        double geometricMeanEnergy = energyFormulas.getGeometricMean(pair.getValue());
+        double meanErrorTimeElapsed = timeElapsedFormulas.getMeanError(pair.getValue());
         writer.printf(
-            "%18s;%9d;%24.3f;%28.3f;%34.3f\n",
+            "%18s;%9d;%24.3f;%28.3f;%20.3f;%29.3f\n",
             pair.getKey(),
             pair.getValue().size(),
             meanEnergy,
             meanErrorEnergy,
-            geometricMeanEnergy);
+            meanTimeElapsed,
+            meanErrorTimeElapsed);
       }
-      writer.printf("\n# Note: The reference baseline is already excluded from this report");
+      writer.printf("\n# Note: The reference baseline is already excluded from the energy scores");
     }
 
     System.out.printf("Mean report %s was successfully created\n", outputFilePath);

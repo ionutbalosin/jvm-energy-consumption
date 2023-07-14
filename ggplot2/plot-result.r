@@ -45,8 +45,8 @@ plotGeometricMean <- function(output_folder, plot_title) {
   # rename columns
   colnames(data)[colnames(data) == "Test.Category"] <- "Category"
   colnames(data)[colnames(data) == "Test.Type"] <- "Type"
-  colnames(data)[colnames(data) == "Mean..Watt.sec."] <- "Score"
-  colnames(data)[colnames(data) == "Score.Error..90.0.."] <- "Error"
+  colnames(data)[colnames(data) == "Energy.Mean..Watt.sec."] <- "Score"
+  colnames(data)[colnames(data) == "Energy.Score.Error..90.0.."] <- "Error"
 
   # add a new Unit column
   data$Unit <- "Watt⋅sec"
