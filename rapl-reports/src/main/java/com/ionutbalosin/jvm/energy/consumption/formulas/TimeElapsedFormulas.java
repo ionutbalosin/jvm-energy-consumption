@@ -28,21 +28,10 @@ package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 
-public class WattSecEnergyFormulas extends StatisticsFormulas {
+public class TimeElapsedFormulas extends StatisticsFormulas {
 
-  // the baseline represents the measurement of the machine power consumption while it is idle or
-  // running minimal background processes.
-  // Since it is "Watt", it must be converted to "Watt⋅sec" and subtracted from every measurement
-  double baselineInWatt;
-
-  public WattSecEnergyFormulas(double baselineInWatt) {
-    this.baselineInWatt = baselineInWatt;
-  }
-
-  // returns the energy (in Watt⋅sec) after subtracting the baseline
+  // returns the time elapsed
   public double getFormula(Stats perfStat) {
-    // pkg includes the cores and gpu
-    // Note: on laptop battery the psys counters does not display proper stats
-    return (perfStat.pkg + perfStat.ram) - (baselineInWatt * perfStat.elapsed);
+    return perfStat.elapsed;
   }
 }

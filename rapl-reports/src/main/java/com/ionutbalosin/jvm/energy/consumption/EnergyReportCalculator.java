@@ -58,18 +58,18 @@ public class EnergyReportCalculator {
     // For any other report pass the baseline mean power to be subtracted from real measurements
     final List<AbstractReport> REPORTS =
         List.of(
-            new OffTheShelfApplicationsReport("spring-petclinic", baseline.meanInWatt),
+            new OffTheShelfApplicationsReport("spring-petclinic", baseline.meanPower),
             new OffTheShelfApplicationsReport(
-                "quarkus-hibernate-orm-panache-quickstart", baseline.meanInWatt),
-            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.meanInWatt),
-            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.meanInWatt),
-            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.meanInWatt),
-            new OffTheShelfApplicationsReport("renaissance", "web", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "SortingAlgorithms", baseline.meanInWatt),
-            new JavaSamplesReport("java-samples", "VirtualCalls", baseline.meanInWatt));
+                "quarkus-hibernate-orm-panache-quickstart", baseline.meanPower),
+            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.meanPower),
+            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.meanPower),
+            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.meanPower),
+            new OffTheShelfApplicationsReport("renaissance", "web", baseline.meanPower),
+            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.meanPower),
+            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.meanPower),
+            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanPower),
+            new JavaSamplesReport("java-samples", "SortingAlgorithms", baseline.meanPower),
+            new JavaSamplesReport("java-samples", "VirtualCalls", baseline.meanPower));
 
     for (AbstractReport report : REPORTS) {
       calculateEnergy(report);

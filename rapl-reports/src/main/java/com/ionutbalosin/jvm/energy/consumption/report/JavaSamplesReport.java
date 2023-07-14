@@ -36,7 +36,8 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.WattSecEnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.StatisticsFormulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,8 +48,10 @@ import java.util.TreeMap;
 
 public class JavaSamplesReport extends AbstractReport {
 
-  public JavaSamplesReport(String module, String category, double baselineInWatt) {
-    this.formulas = new WattSecEnergyFormulas(baselineInWatt);
+  StatisticsFormulas energyFormulas;
+
+  public JavaSamplesReport(String module, String category, double meanPowerBaseline) {
+    this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
     this.perfStatsPath =
         String.format(
             "%s/%s/results/%s/%s/jdk-%s/%s/perf",
@@ -79,17 +82,17 @@ public class JavaSamplesReport extends AbstractReport {
           "Geometric Mean (Watt⋅sec)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        double mean = formulas.getMean(pair.getValue());
-        double meanError = formulas.getMeanError(pair.getValue());
-        double geometricMean = formulas.getGeometricMean(pair.getValue());
+        double meanEnergy = energyFormulas.getMean(pair.getValue());
+        double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
+        double geometricMeanEnergy = energyFormulas.getGeometricMean(pair.getValue());
         writer.printf(
             "%18s;%26s;%9d;%17.3f;%21.3f;%27.3f\n",
             pair.getValue().get(0).testCategory,
             pair.getValue().get(0).testType,
             pair.getValue().size(),
-            mean,
-            meanError,
-            geometricMean);
+            meanEnergy,
+            meanErrorEnergy,
+            geometricMeanEnergy);
       }
       writer.printf("\n# Note: The reference baseline is already excluded from this report");
     }
