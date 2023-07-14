@@ -34,10 +34,12 @@ public abstract class StatisticsFormulas {
 
   private static double CONFIDENCE = 0.90;
 
-  // this returns either the power or the energy formula (depending on the usage)
-  // Note:
-  //  - the power formula (in Watt) is used for the baseline measurements
-  //  - the energy formula (in Watt⋅sec) is used for any other measurements
+  // this could return one of below formulae:
+  //  - the power formula (in Watt) typically used for the baseline measurements
+  //  - the energy formula (in Watt⋅sec) typically used for any java-samples and off-the-shelf
+  // applications
+  //  - the time elapsed formula (in sec) typically used for any java-samples and off-the-shelf
+  // applications
   public abstract double getFormula(Stats perfStat);
 
   public double getGeometricMean(List<Stats> perfStats) {

@@ -79,19 +79,19 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   public void createMeanReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%9s;%17s;%21s;%27s\n",
+          "%18s;%9s;%24s;%28s;%34s\n",
           "Test Category",
           "Samples",
-          "Mean (Watt⋅sec)",
-          "Score Error (90.0%)",
-          "Geometric Mean (Watt⋅sec)");
+          "Energy Mean (Watt⋅sec)",
+          "Energy Score Error (90.0%)",
+          "Energy Geometric Mean (Watt⋅sec)");
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double meanEnergy = energyFormulas.getMean(pair.getValue());
         double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
         double geometricMeanEnergy = energyFormulas.getGeometricMean(pair.getValue());
         writer.printf(
-            "%18s;%9d;%17.3f;%21.3f;%27.3f\n",
+            "%18s;%9d;%24.3f;%28.3f;%34.3f\n",
             pair.getKey(),
             pair.getValue().size(),
             meanEnergy,

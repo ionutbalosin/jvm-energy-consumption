@@ -1,27 +1,27 @@
-     Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;               bubble_sort;        5;         1222.581;               54.737;                   1221.487
-     azul-prime-vm;                merge_sort;        5;           12.004;                0.082;                     12.004
-     azul-prime-vm;                quick_sort;        5;           10.744;                0.115;                     10.743
-     azul-prime-vm;                radix_sort;        5;           11.150;                0.170;                     11.149
- eclipse-openj9-vm;               bubble_sort;        5;         4934.289;              143.866;                   4932.463
- eclipse-openj9-vm;                merge_sort;        5;           20.212;                0.965;                     20.192
- eclipse-openj9-vm;                quick_sort;        5;           14.093;                0.569;                     14.082
- eclipse-openj9-vm;                radix_sort;        5;           14.267;                0.663;                     14.253
-        graalvm-ce;               bubble_sort;        5;         1995.895;               69.314;                   1994.845
-        graalvm-ce;                merge_sort;        5;            4.862;                0.184;                      4.859
-        graalvm-ce;                quick_sort;        5;            4.442;                0.091;                      4.441
-        graalvm-ce;                radix_sort;        5;            4.574;                0.126;                      4.573
-        graalvm-ee;               bubble_sort;        5;         1967.189;               63.377;                   1966.282
-        graalvm-ee;                merge_sort;        5;            4.735;                0.165;                      4.733
-        graalvm-ee;                quick_sort;        5;            4.466;                0.078;                      4.466
-        graalvm-ee;                radix_sort;        5;            4.578;                0.146;                      4.576
-      native-image;               bubble_sort;        5;         1898.806;               65.044;                   1897.852
-      native-image;                merge_sort;        5;            0.343;                0.060;                      0.339
-      native-image;                quick_sort;        5;            0.020;                0.003;                      0.020
-      native-image;                radix_sort;        5;            0.079;                0.003;                      0.079
-openjdk-hotspot-vm;               bubble_sort;        5;         1055.413;               19.182;                   1055.260
-openjdk-hotspot-vm;                merge_sort;        5;            5.351;                0.300;                      5.344
-openjdk-hotspot-vm;                quick_sort;        5;            4.580;                0.077;                      4.579
-openjdk-hotspot-vm;                radix_sort;        5;            4.801;                0.142;                      4.799
+     Test Category;                 Test Type;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Energy Geometric Mean (Watt⋅sec)
+     azul-prime-vm;               bubble_sort;        5;                1222.581;                      54.737;                          1221.487
+     azul-prime-vm;                merge_sort;        5;                  12.004;                       0.082;                            12.004
+     azul-prime-vm;                quick_sort;        5;                  10.744;                       0.115;                            10.743
+     azul-prime-vm;                radix_sort;        5;                  11.150;                       0.170;                            11.149
+ eclipse-openj9-vm;               bubble_sort;        5;                4934.289;                     143.866;                          4932.463
+ eclipse-openj9-vm;                merge_sort;        5;                  20.212;                       0.965;                            20.192
+ eclipse-openj9-vm;                quick_sort;        5;                  14.093;                       0.569;                            14.082
+ eclipse-openj9-vm;                radix_sort;        5;                  14.267;                       0.663;                            14.253
+        graalvm-ce;               bubble_sort;        5;                1995.895;                      69.314;                          1994.845
+        graalvm-ce;                merge_sort;        5;                   4.862;                       0.184;                             4.859
+        graalvm-ce;                quick_sort;        5;                   4.442;                       0.091;                             4.441
+        graalvm-ce;                radix_sort;        5;                   4.574;                       0.126;                             4.573
+        graalvm-ee;               bubble_sort;        5;                1967.189;                      63.377;                          1966.282
+        graalvm-ee;                merge_sort;        5;                   4.735;                       0.165;                             4.733
+        graalvm-ee;                quick_sort;        5;                   4.466;                       0.078;                             4.466
+        graalvm-ee;                radix_sort;        5;                   4.578;                       0.146;                             4.576
+      native-image;               bubble_sort;        5;                1898.806;                      65.044;                          1897.852
+      native-image;                merge_sort;        5;                   0.343;                       0.060;                             0.339
+      native-image;                quick_sort;        5;                   0.020;                       0.003;                             0.020
+      native-image;                radix_sort;        5;                   0.079;                       0.003;                             0.079
+openjdk-hotspot-vm;               bubble_sort;        5;                1055.413;                      19.182;                          1055.260
+openjdk-hotspot-vm;                merge_sort;        5;                   5.351;                       0.300;                             5.344
+openjdk-hotspot-vm;                quick_sort;        5;                   4.580;                       0.077;                             4.579
+openjdk-hotspot-vm;                radix_sort;        5;                   4.801;                       0.142;                             4.799
 
 # Note: The reference baseline is already excluded from this report
