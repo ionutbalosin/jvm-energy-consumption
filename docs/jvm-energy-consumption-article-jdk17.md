@@ -201,6 +201,8 @@ No. | JVM distribution                                                          
 5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
 6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
 
+For each JVM, the only specific tuning parameter was the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
+
 # Results
 
 - Present your measured power consumption data in the form of tables or figures.
