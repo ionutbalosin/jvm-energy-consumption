@@ -149,6 +149,8 @@ All the tests were launched on a machine having below configuration:
 - Memory: 32GB DDR4 2400 MHz
 - OS: Ubuntu 22.04.2 LTS / 5.19.0-46-generic
 
+The load testing tool used is [Hyperfoil](https://hyperfoil.io), a distributed benchmark framework oriented towards microservices.
+
 The specific model of the wall power meter used is the [Ketotek KTEM02-1](https://www.amazon.de/-/en/dp/B0B2953JM5).
 
 ### Application Categories
@@ -158,7 +160,7 @@ Multiple application categories were included in these measurements:
 - off-the-shelf applications, such as:
   - [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) Application
   - [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
-  - [Renaissance](https://github.com/renaissance-benchmarks/renaissance/releases) Benchmark Suite
+  - [Renaissance](https://github.com/renaissance-benchmarks/renaissance) Benchmark Suite
 - custom-made Java applications relying on specific code patterns, such as:
   - logging patterns
   - memory access patterns
@@ -176,20 +178,83 @@ To enable a high-level comparison of overall power consumption scores across dif
 
 The list of included JMVs on arch x86_64 is:
 
-No. | JVM distribution
-----|--------------------
-1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
-2   | [GraalVM CE](https://www.graalvm.org/downloads)
-3   | [GraalVM EE](https://www.graalvm.org/downloads)
-4   | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
-5   | [Azul Prime VM](https://www.azul.com/products/prime)
-6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
+No. | JVM distribution                                                                       | JDK version |Architecture
+----|----------------------------------------------------------------------------------------|-------------|---------------
+1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads) | 17.0.7      |x86_64
+2   | [GraalVM CE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
+3   | [GraalVM EE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
+4   | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)            | 17.0.7      |x86_64
+5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
+6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
 
 # Results
 
 - Present your measured power consumption data in the form of tables or figures.
 - Include plots that clearly visualize the power consumption trends across different programs and usage scenarios.
 - Discuss any noteworthy observations or patterns you observed during the experiments.
+
+## Spring PetClinic Application
+
+This experiment assesses the power consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
+
+It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate ORM core version 6.1.7 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising four independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
+1. The endpoints returning static data (e.g., get home page, find owners page, vets page, petclinic.css, bootstrap.bundle.min.js, font-awesome.min.css) were hit at a constant rate of 12 reqs/sec for 780 seconds.
+2. The endpoint for searching owners by their last name using a wildcard of 1, 2, or 3 characters experienced an increased load ranging from 1 to 14 reqs/sec over 780 seconds.
+3. The endpoints for creating/reading/editing owners and creating/reading pets encountered an increased load ranging from 1 to 12 reqs/sec over 780 seconds.
+4. The endpoints for creating/reading pet visits experienced an increased load ranging from 1 to 10 reqs/sec over 780 seconds.
+
+[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Additional resources:
+- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/test-plan.hf.yaml) plan
+- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports)
+
+## Quarkus Hibernate ORM Panache
+
+This experiment assesses the power consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation). This is a simple create, read, update and delete (CRUD) web-based application.
+
+It involves running the Quarkus Hibernate ORM Panache sample application with Quarkus 3.0.3 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising two independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
+1. The endpoint returning static data (e.g., get home page) was hit at a constant rate of 64 reqs/sec for 780 seconds.
+3. The endpoints for creating/reading/updating/deleting fruits encountered an increased load ranging from 1 to 312 reqs/sec over 780 seconds.
+
+[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Additional resources:
+- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
+- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports)
+
+## Renaissance Benchmark Suite
+
+This experiment assesses the power consumption while running the [Renaissance](https://github.com/renaissance-benchmarks/renaissance) benchmark suite with different JVMs (using Just-in-Time compilation). 
+The Renaissance suite comprises various JVM workloads grouped into categories such as Big Data, machine learning, and functional programming. 
+
+The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories included in these measurements are 
+- concurrency
+- functional
+- Scala
+- web
+ 
+Each category ran with 100 repetitions. 
+
+[![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+[![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+[![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+[![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 # Analysis and Discussion
 
