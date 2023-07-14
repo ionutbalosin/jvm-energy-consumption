@@ -16,6 +16,20 @@
   - [Hardware and Software Components](#hardware-and-software-components)
     - [Application Categories](#application-categories)
     - [JVM Coverage](#jvm-coverage)
+- [Results](#results)
+  - [Off-the-Shelf Applications](#off-the-shelf-applications)
+    - [Spring PetClinic Application](#spring-petclinic-application)
+    - [Quarkus Hibernate ORM Panache](#quarkus-hibernate-orm-panache)
+    - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
+  - [Custom-Made Java Applications](#custom-made-java-applications)
+    - [Memory Access patterns](#memory-access-patterns)
+    - [Logging Patterns](#logging-patterns)
+    - [Throwing Exception Patterns](#throwing-exception-patterns)
+    - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
+    - [Virtual Calls](#virtual-calls)
+- [Limitations and Future Work](#limitations-and-future-work)
+- [Conclusions](#conclusions)
+- [References](#references)
 
 # Introduction
 
@@ -161,7 +175,7 @@ Multiple application categories were included in these measurements:
   - [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) Application
   - [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
   - [Renaissance](https://github.com/renaissance-benchmarks/renaissance) Benchmark Suite
-- custom-made Java applications relying on specific code patterns, such as:
+- custom-made Java applications relying on specific (but extremly common) code patterns, such as:
   - logging patterns
   - memory access patterns
   - throwing exception patterns
@@ -193,7 +207,13 @@ No. | JVM distribution                                                          
 - Include plots that clearly visualize the power consumption trends across different programs and usage scenarios.
 - Discuss any noteworthy observations or patterns you observed during the experiments.
 
-## Spring PetClinic Application
+## Off-the-Shelf Applications
+
+This section contains measurements for a set of off-the-shelf applications (i.e., software applications that are readily available). 
+
+Minimum configurations were performed for each application, primarily to enhance the database connection pools.
+
+### Spring PetClinic Application
 
 This experiment assesses the power consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
 
@@ -211,7 +231,7 @@ Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/test-plan.hf.yaml) plan
 - Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports)
 
-## Quarkus Hibernate ORM Panache
+### Quarkus Hibernate ORM Panache
 
 This experiment assesses the power consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation). This is a simple create, read, update and delete (CRUD) web-based application.
 
@@ -227,7 +247,7 @@ Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
 - Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports)
 
-## Renaissance Benchmark Suite
+### Renaissance Benchmark Suite
 
 This experiment assesses the power consumption while running the [Renaissance](https://github.com/renaissance-benchmarks/renaissance) benchmark suite with different JVMs (using Just-in-Time compilation). 
 The Renaissance suite comprises various JVM workloads grouped into categories such as Big Data, machine learning, and functional programming. 
@@ -256,12 +276,87 @@ Each category ran with 100 repetitions.
 
 *This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
-# Analysis and Discussion
+## Custom-Made Java Applications
 
-- Interpret the results obtained and explain their significance.
-- Compare the power consumption of different programs and identify any variations or outliers.
-- Analyze the factors that contribute to higher or lower power consumption in specific scenarios.
-- Discuss the implications of your findings on energy efficiency and potential optimizations.
+In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms were developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
+
+### Memory Access Patterns
+
+This program aims to analyze the relationship between memory access patterns and power consumption under different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
+
+There are three primary memory access patterns:
+- **temporal**: memory that has been recently accessed is likely to be accessed again in the near future.
+- **spatial**: adjacent memory locations are likely to be accessed in close succession.
+- **striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
+
+This program creates a large array of longs, occupying approximately 4 GB of RAM memory. Then, during 10 consecutive iterations, the array elements are accesses based on one of the described patterns. After each iteration, the validity of the tests is checked.
+
+Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
+
+[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+As a well-known fact, accessing co-located memory in a predictable pattern reduces latency. However, interestingly, it also has an impact on power consumption. Despite using the same hardware machine for each test (i.e., identical memory bandwidth, CPU caches, and memory latency), it is intriguing to observe that each JVM consumes slightly different energy while executing the same code.
+
+### Logging Patterns
+
+When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher power consumption, which is reflected in our monthly bills.
+We can potentially mitigate these costs by employing strategies such as binary logging, asynchronous appenders, writing to RAMFS or TEMPFS, reducing log verbosity, or by selectively retaining only essential logs, particularly those related to unrecoverable or unexpected scenarios.
+
+This program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
+
+Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
+
+[![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/power-consumption.svg?raw=true)
+
+*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+While certain logging patterns are more efficient than others (e.g., based on these tests, examples include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc.), it is noteworthy that the energy consumption of each JVM to execute the same code varies significantly.
+
+### Throwing Exception Patterns
+
+Similar to logging, the creation, throwing, and handling of exceptions introduce additional runtime overhead, impacting both the performance and power consumption of software applications.
+
+This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, as the time spent on filling in the stack trace (abbreviated *fist*) dominates the associated costs.
+
+Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
+
+[![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/power-consumption.svg?raw=true)
+
+### Sorting Algorithms Complexities
+
+This program utilizes various sorting algorithms with different complexities, ranging from quadratic to linear, to sort an array of 1,000,000 integers. The initial array is deliberately sorted in reverse order, creating a worst-case scenario for the sorting algorithms.
+
+Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
+
+[![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/power-consumption.svg?raw=true)
+
+The `bubble_sort` algorithm, with its time complexity of O(n^2), typically consumes a significant amount of energy compared to other sorting algorithms when achieving the same result of providing a sorted array.
+
+Even though `quick_sort` and `radix_sort` have different complexities, with quick sort having O(n log n) and radix sort having O(nk), they tend to consume similar amounts of energy when executed on the same JVM platform.
+
+While the algorithm complexities can impact power consumption, the relationship is not always (direct or) straightforward.
+There are a few factors to take into account like:
+- the computational effort (i.e., algorithms with higher time or space complexities generally require more computational effort to execute, resulting in increased CPU utilization)
+- memory accesses patterns (i.e., algorithms with poor memory access patterns, such as excessive random or cache-unfriendly accesses, can increase the power consumption)
+- the underlying hardware
+
+### Virtual Calls
+
+Virtual calls are generally considered to be a form of micro-optimization. In the context of modern hardware, for most business applications (excluding some categories like library/framework authors), unless there is a specific need, excessive concern about call performance is often unnecessary.
+
+This program evaluates the power consumption of virtual calls using two different scenarios:
+- one with 2 target implementations (also known as bimorphic) 
+- and another with 24 different target implementations. 
+
+**Note:** Bimorphic call sites are more commonly encountered, while having 24 target implementations for the same call site is quite unusual.
+
+An array of 9600 elements of a base abstract class is initialized. Within 300,000 iterations, the program traverses the array and invokes the method on the base abstract object class for each array element.
+
+Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VirtualCalls.java)
+
+[![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/power-consumption.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/power-consumption.svg?raw=true)
 
 # Limitations and Future Work
 
@@ -273,3 +368,19 @@ Each category ran with 100 repetitions.
 - Summarize the key findings of your study.
 - Emphasize the practical implications and potential applications of your research.
 - Encourage further investigation or exploration based on your findings.
+
+
+# References
+
+1. Tom Strempel. Master’s Thesis [Measuring the Energy Consumption of Software written in C on x86-64 Processors](https://ul.qucosa.de/api/qucosa%3A77194/attachment/ATT-0)
+
+2. Spencer Desrochers, Chad Paradis, and Vincent M. Weaver. “A validation of DRAM RAPL power measurements”. In: ACM International Conference Proceed- ing Series 03-06-October-2016 (2016). DOI: [10.1145/2989081.2989088.](https://doi.org/10.1145/2989081.2989088)
+
+3. Zhang Huazhe and Hoffman H. _“A quantitative evaluation of the RAPL power control system”_. In: _Feedback Computing_ (2015).
+
+4. Kashif Nizam Khan et al. “RAPL in action: Experiences in using RAPL for power measurements”. In: ACM Transactions on Modeling and Performance Evaluation of Computing Systems 3 (2 2018). ISSN: 23763647. DOI: [10.1145/3177754](https://doi.org/10.1145/3177754).
+
+5. Zakaria Ournani, Mohammed Chakib Belgaid, Romain Rouvoy, Pierre Rust, Joel Penhoat: [Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://inria.hal.science/hal-03275286/document)
+
+5. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
+
