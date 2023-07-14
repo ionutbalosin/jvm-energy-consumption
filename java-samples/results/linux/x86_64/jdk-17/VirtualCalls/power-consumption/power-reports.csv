@@ -1,15 +1,15 @@
      Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;                 bimorphic;        5;           41.615;                0.717;                     41.609
-     azul-prime-vm;            megamorphic_24;        5;          230.575;                2.618;                    230.562
- eclipse-openj9-vm;                 bimorphic;        5;          145.747;                6.179;                    145.635
- eclipse-openj9-vm;            megamorphic_24;        5;          195.799;               12.361;                    195.472
-        graalvm-ce;                 bimorphic;        5;           28.885;                0.612;                     28.879
-        graalvm-ce;            megamorphic_24;        5;          202.568;                4.781;                    202.518
-        graalvm-ee;                 bimorphic;        5;           24.338;                1.127;                     24.315
-        graalvm-ee;            megamorphic_24;        5;          195.758;                3.965;                    195.722
-      native-image;                 bimorphic;        5;          172.955;                2.685;                    172.937
-      native-image;            megamorphic_24;        5;          170.350;                3.677;                    170.315
-openjdk-hotspot-vm;                 bimorphic;        5;           22.030;                0.527;                     22.024
-openjdk-hotspot-vm;            megamorphic_24;        5;          221.913;                3.160;                    221.893
+     azul-prime-vm;                 bimorphic;        5;           34.231;                0.589;                     34.227
+     azul-prime-vm;            megamorphic_24;        5;          174.638;                2.489;                    174.622
+ eclipse-openj9-vm;                 bimorphic;        5;          112.113;                5.685;                    111.990
+ eclipse-openj9-vm;            megamorphic_24;        5;          147.348;               11.300;                    146.989
+        graalvm-ce;                 bimorphic;        5;           22.859;                0.627;                     22.852
+        graalvm-ce;            megamorphic_24;        5;          149.902;                5.159;                    149.825
+        graalvm-ee;                 bimorphic;        5;           19.555;                1.061;                     19.529
+        graalvm-ee;            megamorphic_24;        5;          144.201;                3.870;                    144.154
+      native-image;                 bimorphic;        5;          124.933;                2.415;                    124.913
+      native-image;            megamorphic_24;        5;          122.140;                4.179;                    122.076
+openjdk-hotspot-vm;                 bimorphic;        5;           17.465;                0.496;                     17.459
+openjdk-hotspot-vm;            megamorphic_24;        5;          162.757;                3.077;                    162.731
 
 # Note: The reference baseline is already excluded from this report

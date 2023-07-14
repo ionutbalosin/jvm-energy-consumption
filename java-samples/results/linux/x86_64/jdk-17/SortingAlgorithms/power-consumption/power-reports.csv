@@ -1,27 +1,27 @@
      Test Category;                 Test Type;  Samples;  Mean (Watt⋅sec);  Score Error (90.0%);  Geometric Mean (Watt⋅sec)
-     azul-prime-vm;               bubble_sort;        5;         1630.037;               69.669;                   1628.708
-     azul-prime-vm;                merge_sort;        5;           14.328;                0.081;                     14.327
-     azul-prime-vm;                quick_sort;        5;           12.873;                0.137;                     12.872
-     azul-prime-vm;                radix_sort;        5;           13.347;                0.188;                     13.346
- eclipse-openj9-vm;               bubble_sort;        5;         6342.994;              185.027;                   6340.664
- eclipse-openj9-vm;                merge_sort;        5;           23.798;                1.084;                     23.777
- eclipse-openj9-vm;                quick_sort;        5;           16.682;                0.657;                     16.671
- eclipse-openj9-vm;                radix_sort;        5;           16.882;                0.763;                     16.867
-        graalvm-ce;               bubble_sort;        5;         2633.868;               73.604;                   2632.971
-        graalvm-ce;                merge_sort;        5;            5.994;                0.203;                      5.991
-        graalvm-ce;                quick_sort;        5;            5.454;                0.097;                      5.453
-        graalvm-ce;                radix_sort;        5;            5.647;                0.132;                      5.646
-        graalvm-ee;               bubble_sort;        5;         2587.258;               63.340;                   2586.571
-        graalvm-ee;                merge_sort;        5;            5.827;                0.185;                      5.824
-        graalvm-ee;                quick_sort;        5;            5.476;                0.081;                      5.476
-        graalvm-ee;                radix_sort;        5;            5.653;                0.150;                      5.651
-      native-image;               bubble_sort;        5;         2559.871;               70.922;                   2559.026
-      native-image;                merge_sort;        5;            0.454;                0.060;                      0.451
-      native-image;                quick_sort;        5;            0.028;                0.004;                      0.028
-      native-image;                radix_sort;        5;            0.116;                0.003;                      0.116
-openjdk-hotspot-vm;               bubble_sort;        5;         1383.078;               18.630;                   1382.968
-openjdk-hotspot-vm;                merge_sort;        5;            6.566;                0.363;                      6.557
-openjdk-hotspot-vm;                quick_sort;        5;            5.618;                0.083;                      5.617
-openjdk-hotspot-vm;                radix_sort;        5;            5.911;                0.143;                      5.909
+     azul-prime-vm;               bubble_sort;        5;         1222.581;               54.737;                   1221.487
+     azul-prime-vm;                merge_sort;        5;           12.004;                0.082;                     12.004
+     azul-prime-vm;                quick_sort;        5;           10.744;                0.115;                     10.743
+     azul-prime-vm;                radix_sort;        5;           11.150;                0.170;                     11.149
+ eclipse-openj9-vm;               bubble_sort;        5;         4934.289;              143.866;                   4932.463
+ eclipse-openj9-vm;                merge_sort;        5;           20.212;                0.965;                     20.192
+ eclipse-openj9-vm;                quick_sort;        5;           14.093;                0.569;                     14.082
+ eclipse-openj9-vm;                radix_sort;        5;           14.267;                0.663;                     14.253
+        graalvm-ce;               bubble_sort;        5;         1995.895;               69.314;                   1994.845
+        graalvm-ce;                merge_sort;        5;            4.862;                0.184;                      4.859
+        graalvm-ce;                quick_sort;        5;            4.442;                0.091;                      4.441
+        graalvm-ce;                radix_sort;        5;            4.574;                0.126;                      4.573
+        graalvm-ee;               bubble_sort;        5;         1967.189;               63.377;                   1966.282
+        graalvm-ee;                merge_sort;        5;            4.735;                0.165;                      4.733
+        graalvm-ee;                quick_sort;        5;            4.466;                0.078;                      4.466
+        graalvm-ee;                radix_sort;        5;            4.578;                0.146;                      4.576
+      native-image;               bubble_sort;        5;         1898.806;               65.044;                   1897.852
+      native-image;                merge_sort;        5;            0.343;                0.060;                      0.339
+      native-image;                quick_sort;        5;            0.020;                0.003;                      0.020
+      native-image;                radix_sort;        5;            0.079;                0.003;                      0.079
+openjdk-hotspot-vm;               bubble_sort;        5;         1055.413;               19.182;                   1055.260
+openjdk-hotspot-vm;                merge_sort;        5;            5.351;                0.300;                      5.344
+openjdk-hotspot-vm;                quick_sort;        5;            4.580;                0.077;                      4.579
+openjdk-hotspot-vm;                radix_sort;        5;            4.801;                0.142;                      4.799
 
 # Note: The reference baseline is already excluded from this report
