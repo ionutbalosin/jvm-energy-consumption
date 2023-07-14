@@ -2,9 +2,24 @@
 
 # Content
 
+- [Introduction](#introduction)
+  - [The importance of power consumption in modern computing](#the-importance-of-power-consumption-in-modern-computing)
+  - [Motivation](#motivation)
+  - [Objectives](#objectives)
+- [Methodology](#methodology)
+  - [Measurement Instruments](#measurement-instruments)
+    - [RAPL](#rapl)
+    - [Wall Power Meter](#wall-power-meter)
+    - [RAPL vs. Wall Power Meter](#rapl-vs-wall-power-meter)
+  - [Measurement Considerations](#measurement-considerations)
+  - [Unit of Measurement](#unit-of-measurement)
+  - [Hardware and Software Components](#hardware-and-software-components)
+    - [Application Categories](#application-categories)
+    - [JVM Coverage](#jvm-coverage)
+
 # Introduction
 
-## A brief overview of the importance of power consumption in modern computing
+## The Importance of Power Consumption in Modern Computing
 
 Power consumption is a crucial consideration in modern computing. Firstly, it directly impacts the energy efficiency of devices, contributing to reduced electricity costs and environmental sustainability. With the proliferation of technology and the increasing number of devices we use, minimizing power consumption helps conserve energy resources.
 Power consumption plays a role in thermal management. 
@@ -23,7 +38,9 @@ Conducting power consumption experiments can provide valuable insights and benef
 - **Performance Optimization**: Power consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing power consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks
 - **Sustainable Computing**: Power consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing
 
-## A few objectives that I considered for my experiments
+## Objectives
+
+Below is a list of several objectives I considered for my experiments:
 
 - **Comparative Analysis**: Compare the power consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient
 - **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall power consumption 
@@ -51,7 +68,7 @@ In multi-socket server systems, each socket reports its own RAPL values. For exa
 
 #### RAPL Domains Coverage
 
-It is worth mentioning that since RAPL reports only the energy consumption of a few domains (e.g., CPU/GPU/DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
+It is worth mentioning that since RAPL reports only the energy consumption of a few domains (e.g., CPU, GPU, DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
 - any networking interface as Ethernet, Wi-Fi (Wireless Fidelity), Bluetooth, etc.
 - any attached storage device (as hard disk drives, solid-state drives, and optical drives) relying on SATA (Serial AT Attachment), NVMe (Non-Volatile Memory Express), USB (Universal Serial Bus), Thunderbolt, SCSI (Small Computer System Interface), FireWire (IEEE 1394), Fibre Channel, etc.
 - any display interface using HDMI (High-Definition Multimedia Interface), VGA (Video Graphics Array), DVI (Digital Visual Interface), Thunderbolt, DisplayPort, etc.
@@ -125,7 +142,7 @@ While the watt-second is equivalent to the Joule in both units and meaning (e.g.
 
 **Note:** In general, the overhead introduced by `perf` is relatively low, especially when using hardware performance counters. The impact on system performance is typically considered acceptable for most profiling and performance analysis tasks.
 
-## Hardware and Software
+## Hardware and Software Components
 
 All the tests were launched on a machine having below configuration:
 - CPU: Intel i7-8550U Kaby Lake R
@@ -134,17 +151,39 @@ All the tests were launched on a machine having below configuration:
 
 The specific model of the wall power meter used is the [Ketotek KTEM02-1](https://www.amazon.de/-/en/dp/B0B2953JM5).
 
-## Application Categories
+### Application Categories
 
-Multiple JVM application categories were included:
+Multiple application categories were included in these measurements:
 
-- off the shelf applications (Spring and Quarkus and Reinnesance)
-- java custom made on very specific code patterns
-- baseline
+- off-the-shelf applications, such as:
+  - [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) Application
+  - [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
+  - [Renaissance](https://github.com/renaissance-benchmarks/renaissance/releases) Benchmark Suite
+- custom-made Java applications relying on specific code patterns, such as:
+  - logging patterns
+  - memory access patterns
+  - throwing exception patterns
+  - (sorting) algorithms complexities
+  - virtual calls
 
-Multiple measurements were taken within each category. The results were aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each score. This error score is depicted in each bar plot to provide additional information.
+In addition to these categories, a baseline measurement of the system's power consumption while it is idle or running minimal background processes is provided. This will help establish a reference point.
+
+Multiple measurements were taken within each category. The results were aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot to provide additional information.
 
 To enable a high-level comparison of overall power consumption scores across different JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was calculated across all categories. This serves as an informative metric for assessing relative power consumption.
+
+### JVM Coverage
+
+The list of included JMVs on arch x86_64 is:
+
+No. | JVM distribution
+----|--------------------
+1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+2   | [GraalVM CE](https://www.graalvm.org/downloads)
+3   | [GraalVM EE](https://www.graalvm.org/downloads)
+4   | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
+5   | [Azul Prime VM](https://www.azul.com/products/prime)
+6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
 
 # Results
 
