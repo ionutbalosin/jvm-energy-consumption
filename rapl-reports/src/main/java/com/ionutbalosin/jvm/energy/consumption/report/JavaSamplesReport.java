@@ -87,8 +87,8 @@ public class JavaSamplesReport extends AbstractReport {
 
       for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
         double meanEnergy = energyFormulas.getMean(pair.getValue());
-        double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
         double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
+        double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
         double meanErrorTimeElapsed = timeElapsedFormulas.getMeanError(pair.getValue());
         writer.printf(
             "%18s;%26s;%9d;%24.3f;%28.3f;%20.3f;%29.3f\n",
