@@ -63,12 +63,14 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   data$EnergyUnit <- "Watt⋅sec"
   data$TimeUnit <- "sec"
 
-  # add a new Type column; if it does not exist, just by copy over the Category column
-  # Note: the Type column is used as an identifier for the X-axis in the final generated plot
   types <- c()
   if (is.null(data$Type)) {
+    # if there are no test types (e.g., variations of the same benchmark application), add a new Type column the same as Category
+    # Note: the Type column is used as an identifier for the X-axis in the final generated plot
     data$Type <- data$Category
   } else {
+    # otherwise select all unique test types
+    # Note: this will be later user for generating the individual scatter plots
     types <- unique(data$Type)
   }
 
@@ -85,18 +87,21 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
 
   print(paste("Plotting", plot_title, "...", sep = " "))
 
-  energyPlot <- generateBarPlot(data, "Category", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
-  saveBarPlot(data, energyPlot, paste(output_folder, "plot", sep = "/"), "energy")
+  plot <- generateBarPlot(data, "Category", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
+  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy")
 
-  # generate scatter plot for each category
+  # generate scatter plots, as follows:
+  # - if there are no test types (e.g., variations of the same benchmark application), generate one plot
+  # - if there are test types, for each type generate a dedicated plot
   if (length(types) == 0) {
-    energyVsTimePlot <- generateScatterPlot(data, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
-    saveScatterPlot(data, energyVsTimePlot, paste(output_folder, "plot", sep = "/"), "energy-vs-time")
+    plot <- generateScatterPlot(data, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
+    saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy-vs-time")
   } else {
     for (type in types) {
-      aaaa <- data[data$Type == type, ]
-      energyVsTimePlot <- generateScatterPlot(aaaa, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", paste(plot_title, type, sep = "-"), full_color_palette)
-      saveScatterPlot(aaaa, energyVsTimePlot, paste(output_folder, "plot", sep = "/"), paste("energy-vs-time", type, sep = "-"))
+      data_with_same_types <- data[data$Type == type, ]
+      plot_title_and_type <- paste(plot_title, paste("(", type, ")", sep = ""), sep = " ")
+      plot <- generateScatterPlot(data_with_same_types, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title_and_type, full_color_palette)
+      saveScatterPlot(data_with_same_types, plot, paste(output_folder, "plot", sep = "/"), paste("energy-vs-time", type, sep = "-"))
     }
   }
 }
