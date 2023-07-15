@@ -26,7 +26,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
-import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import java.util.List;
 import org.apache.commons.math3.distribution.TDistribution;
 
@@ -40,18 +40,18 @@ public abstract class AbstractFormulas {
   // applications
   //  - the time elapsed formula (in sec) typically used for any java-samples and off-the-shelf
   // applications
-  public abstract double getFormula(Stats perfStat);
+  public abstract double getFormula(PerfStats perfStat);
 
-  public double getGeometricMean(List<Stats> perfStats) {
+  public double getGeometricMean(List<PerfStats> perfStats) {
     double prod = 1;
-    for (Stats perfStat : perfStats) {
+    for (PerfStats perfStat : perfStats) {
       double energy = getFormula(perfStat);
       prod *= energy;
     }
     return Math.pow(prod, 1.0 / perfStats.size());
   }
 
-  public double getMean(List<Stats> perfStats) {
+  public double getMean(List<PerfStats> perfStats) {
     int count = perfStats.size();
     if (count > 0) {
       return getSum(perfStats) / count;
@@ -60,11 +60,11 @@ public abstract class AbstractFormulas {
     }
   }
 
-  public double getSum(List<Stats> perfStats) {
+  public double getSum(List<PerfStats> perfStats) {
     int size = perfStats.size();
     if (size > 0) {
       double sum = 0;
-      for (Stats perfStat : perfStats) {
+      for (PerfStats perfStat : perfStats) {
         sum += getFormula(perfStat);
       }
       return sum;
@@ -73,7 +73,7 @@ public abstract class AbstractFormulas {
     }
   }
 
-  public double getMeanError(List<Stats> perfStats) {
+  public double getMeanError(List<PerfStats> perfStats) {
     int size = perfStats.size();
     if (size <= 2) {
       return Double.NaN;
@@ -83,16 +83,16 @@ public abstract class AbstractFormulas {
     return probability * getStandardDeviation(perfStats) / Math.sqrt(size);
   }
 
-  public double getStandardDeviation(List<Stats> perfStats) {
+  public double getStandardDeviation(List<PerfStats> perfStats) {
     return Math.sqrt(getVariance(perfStats));
   }
 
-  public double getVariance(List<Stats> perfStats) {
+  public double getVariance(List<PerfStats> perfStats) {
     int size = perfStats.size();
     if (size > 1) {
       double variance = 0;
       double mean = getMean(perfStats);
-      for (Stats perfStat : perfStats) {
+      for (PerfStats perfStat : perfStats) {
         variance += Math.pow(getFormula(perfStat) - mean, 2);
       }
       return variance / (size - 1);

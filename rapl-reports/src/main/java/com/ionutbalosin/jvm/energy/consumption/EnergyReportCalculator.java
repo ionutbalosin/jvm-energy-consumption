@@ -28,12 +28,12 @@ package com.ionutbalosin.jvm.energy.consumption.rapl.report;
 
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.perfstats.Parser;
-import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
 import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
 import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -77,7 +77,7 @@ public class EnergyReportCalculator {
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
-    List<Stats> perfStats = readFiles(energyReport.perfStatsPath);
+    List<PerfStats> perfStats = readFiles(energyReport.perfStatsPath);
     energyReport.setPerfStats(perfStats);
 
     String outputPath =
@@ -91,10 +91,10 @@ public class EnergyReportCalculator {
     energyReport.createMeanReport(geometricMeanOutputFile);
   }
 
-  private static List<Stats> readFiles(String parentFolder) throws IOException {
+  private static List<PerfStats> readFiles(String parentFolder) throws IOException {
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
-        .map(Parser::parseStats)
+        .map(PerfStatsParser::parseStats)
         .collect(toList());
   }
 }

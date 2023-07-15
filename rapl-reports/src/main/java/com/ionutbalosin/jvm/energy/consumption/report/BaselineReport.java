@@ -37,7 +37,7 @@ import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
-import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -57,7 +57,7 @@ public class BaselineReport extends AbstractReport {
   }
 
   @Override
-  public void setPerfStats(List<Stats> perfStats) {
+  public void setPerfStats(List<PerfStats> perfStats) {
     this.perfStats =
         perfStats.stream()
             .collect(
@@ -74,7 +74,7 @@ public class BaselineReport extends AbstractReport {
           "%18s;%9s;%19s;%27s\n",
           "Test Category", "Samples", "Power Mean (Watt)", "Power Score Error (90.0%)");
 
-      for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
+      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
         meanPower = powerFormulas.getMean(pair.getValue());
         double meanErrorPower = powerFormulas.getMeanError(pair.getValue());
         writer.printf(
@@ -97,8 +97,8 @@ public class BaselineReport extends AbstractReport {
           "Energy RAM (Watt⋅sec)",
           "Elapsed (sec)");
 
-      for (Map.Entry<String, List<Stats>> pair : perfStats.entrySet()) {
-        for (Stats perfStat : pair.getValue()) {
+      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+        for (PerfStats perfStat : pair.getValue()) {
           writer.printf(
               "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
               perfStat.testCategory,

@@ -24,7 +24,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.perfstats;
+package com.ionutbalosin.jvm.energy.consumption.stats;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.function.Predicate.not;
@@ -37,13 +37,13 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
-public class Parser {
+public class PerfStatsParser {
 
-  public static Stats parseStats(Path filePath) {
+  public static PerfStats parseStats(Path filePath) {
     try (BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), UTF_8))) {
 
-      Stats perfStats = new Stats();
+      PerfStats perfStats = new PerfStats();
       bufferedReader
           .lines()
           .map(String::trim)

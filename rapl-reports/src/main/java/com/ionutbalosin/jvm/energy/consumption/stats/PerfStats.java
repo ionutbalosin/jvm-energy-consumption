@@ -24,9 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.perfstats;
+package com.ionutbalosin.jvm.energy.consumption.stats;
 
-public class Stats {
+public class PerfStats {
   public double cores;
   public double gpu;
   public double pkg;

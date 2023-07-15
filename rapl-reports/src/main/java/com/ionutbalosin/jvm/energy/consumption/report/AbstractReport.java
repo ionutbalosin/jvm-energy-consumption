@@ -26,7 +26,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -34,9 +34,9 @@ import java.util.Map;
 public abstract class AbstractReport {
 
   public String perfStatsPath;
-  public Map<String, List<Stats>> perfStats;
+  public Map<String, List<PerfStats>> perfStats;
 
-  public abstract void setPerfStats(List<Stats> perfStats);
+  public abstract void setPerfStats(List<PerfStats> perfStats);
 
   public abstract void createRawPerfStatsReport(String outputFilePath) throws IOException;
 
