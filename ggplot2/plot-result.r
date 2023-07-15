@@ -37,7 +37,7 @@ output_folder <- args[2]
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
 plotEnergyConsumption <- function(output_folder, plot_title) {
-  data <- readCsvResults(paste(output_folder, paste("power-consumption", "power-reports.csv", sep = "/"), sep = "/"))
+  data <- readCsvResults(paste(output_folder, paste("energy-consumption", "energy-reports.csv", sep = "/"), sep = "/"))
 
   # delete all spaces from all column values
   data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
@@ -47,6 +47,8 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   colnames(data)[colnames(data) == "Test.Type"] <- "Type"
   colnames(data)[colnames(data) == "Energy.Mean..Watt.sec."] <- "EnergyScore"
   colnames(data)[colnames(data) == "Energy.Score.Error..90.0.."] <- "EnergyError"
+  colnames(data)[colnames(data) == "Elapsed.Mean..sec."] <- "TimeScore"
+  colnames(data)[colnames(data) == "Elapsed.Score.Error..90.0.."] <- "TimeError"
 
   # convert from string to numeric the Score and Error columns
   # in addition, convert commas with dots
@@ -54,9 +56,12 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
   data$EnergyScore <- as.numeric(gsub(",", ".", data$EnergyScore))
   data$EnergyError <- as.numeric(gsub(",", ".", data$EnergyError))
+  data$TimeScore <- as.numeric(gsub(",", ".", data$TimeScore))
+  data$TimeError <- as.numeric(gsub(",", ".", data$TimeError))
 
-  # add a new EnergyUnit column
+  # add a new Unit column
   data$EnergyUnit <- "Watt⋅sec"
+  data$TimeUnit <- "sec"
 
   # add a new Type column; if it does not exist, just by copy the Category column
   # Note: the Type column is used as an identifier for the X-axis in the final generated plot
@@ -65,7 +70,7 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   }
 
   # keep only the necessary columns for plotting
-  data <- data[, grep("^(Category|Type|EnergyScore|EnergyError|EnergyUnit)$", colnames(data))]
+  data <- data[, grep("^(Category|Type|EnergyScore|EnergyError|EnergyUnit|TimeScore|TimeError|TimeUnit)$", colnames(data))]
 
   # rename Category column values
   data$Category[data$Category == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
@@ -75,10 +80,13 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   data$Category[data$Category == "azul-prime-vm"] <- "Azul Prime VM"
   data$Category[data$Category == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
 
-  plot <- generateBarPlot(data, "Category", "Legend", "", "Power Consumption (Watt⋅sec)", plot_title, full_color_palette)
-
   print(paste("Plotting", plot_title, "...", sep = " "))
-  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "power-consumption")
+
+  energyPlot <- generateBarPlot(data, "Category", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
+  saveBarPlot(data, energyPlot, paste(output_folder, "plot", sep = "/"), "energy")
+
+  energyVsTimePlot <- generateScatterPlot(data, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
+  saveScatterPlot(data, energyVsTimePlot, paste(output_folder, "plot", sep = "/"), "energy-vs-time")
 }
 
 # define all application paths for plotting

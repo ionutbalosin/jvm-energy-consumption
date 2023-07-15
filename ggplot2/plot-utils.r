@@ -27,7 +27,7 @@
 
 source("./ggplot2/utils.r")
 
-# Generate the plot (i.e., bar chart plot)
+# Generate the plot (i.e., bar chart plot) with error bars
 generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
   plot <- ggplot(data, aes(x = Type, y = EnergyScore, fill = data[, fill], ymin = EnergyScore - EnergyError, ymax = EnergyScore + EnergyError))
   plot <- plot + geom_bar(stat = "identity", color = NA, position = "dodge", width = .7)
@@ -55,6 +55,31 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_
   plot
 }
 
+# Plot scatter plot with error bars
+generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
+  plot <- ggplot(data, aes(x = EnergyScore, y = TimeScore, color = Category))
+  plot <- plot + geom_point(aes(size = 3))
+  plot <- plot + geom_errorbarh(aes(xmin = EnergyScore - EnergyError, xmax = EnergyScore + EnergyError), height = .7)
+  plot <- plot + geom_errorbar(aes(ymin = TimeScore - TimeError, ymax = TimeScore + TimeError), width = .7)
+  plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title)
+  plot <- plot + theme(
+    text = element_text(size = 18),
+    panel.background = element_rect(fill = NA, colour = NA, linewidth = 0.5, linetype = "solid"),
+    panel.grid.major = element_line(linewidth = 0.5, linetype = "solid", colour = "grey95"),
+    panel.grid.minor = element_line(linewidth = 0.25, linetype = "solid", colour = "grey95"),
+    legend.spacing.y = unit(0.3, "cm"),
+    legend.position = "bottom",
+    plot.title = element_text(size = 18),
+    plot.caption.position = "plot",
+    plot.caption = element_text(hjust = 1),
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")
+  )
+  plot <- plot + guides(fill = guide_legend(byrow = TRUE))
+  plot <- plot + scale_color_manual(fillLabel, values = color_palette)
+
+  plot
+}
+
 # Generate and save the plot to a SVG output file
 saveBarPlot <- function(data, plot, path, file_basename) {
   if (!empty(data)) {
@@ -73,6 +98,27 @@ saveBarPlot <- function(data, plot, path, file_basename) {
       plot = plot,
       width = 50.8, # 1920 pixels
       height = height,
+      dpi = 320,
+      units = "cm",
+      limitsize = FALSE,
+      scale = 1
+    )
+  }
+}
+
+# Generate and save the plot to a SVG output file
+saveScatterPlot <- function(data, plot, path, file_basename) {
+  if (!empty(data)) {
+    # create the path if does not exist
+    if (!dir.exists(path)) {
+      dir.create(path)
+    }
+
+    # save the plot
+    ggsave(
+      file = paste(path, paste(file_basename, "svg", sep = "."), sep = "/"),
+      plot = plot,
+      width = 28.575, # 1080 pixels
       dpi = 320,
       units = "cm",
       limitsize = FALSE,

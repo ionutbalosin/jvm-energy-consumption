@@ -165,7 +165,7 @@
 <polyline points='186.87,1375.25 186.87,1372.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='601.62,1375.25 601.62,1372.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='1016.36,1375.25 1016.36,1372.51 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<text x='776.85' y='1391.12' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='276.99px' lengthAdjust='spacingAndGlyphs'>Power Consumption (Watt⋅sec)</text>
+<text x='776.85' y='1391.12' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='160.65px' lengthAdjust='spacingAndGlyphs'>Energy (Watt⋅sec)</text>
 <rect x='490.75' y='1405.82' width='572.20' height='54.02' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='496.23' y='1439.39' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='66.12px' lengthAdjust='spacingAndGlyphs'>Legend</text>
 <rect x='571.31' y='1411.30' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />

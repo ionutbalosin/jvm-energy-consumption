@@ -43,8 +43,8 @@ import java.util.List;
 public class EnergyReportCalculator {
 
   public static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-  public static final String OUTPUT_FOLDER = "power-consumption";
-  public static final String MEAN_OUTPUT_FILE = "power-reports.csv";
+  public static final String OUTPUT_FOLDER = "energy-consumption";
+  public static final String MEAN_OUTPUT_FILE = "energy-reports.csv";
   public static final String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
   public static final String OS = "linux";
   public static final String ARCH = "x86_64";
