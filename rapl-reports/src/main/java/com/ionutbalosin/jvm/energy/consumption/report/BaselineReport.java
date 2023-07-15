@@ -38,6 +38,7 @@ import static java.util.stream.Collectors.toList;
 import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -47,9 +48,9 @@ import java.util.TreeMap;
 
 public class BaselineReport extends AbstractReport {
 
+  AbstractFormulas powerFormulas;
   // the baseline mean power to be subtracted from any other measurements
   public double meanPower;
-  AbstractFormulas powerFormulas;
 
   public BaselineReport(String module) {
     this.powerFormulas = new PowerFormulas();
@@ -68,18 +69,29 @@ public class BaselineReport extends AbstractReport {
   }
 
   @Override
-  public void createMeanReport(String outputFilePath) throws IOException {
+  public void createReportStats() {
+    for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+      meanPower = powerFormulas.getMean(pair.getValue());
+      double meanErrorPower = powerFormulas.getMeanError(pair.getValue());
+      reportStats.add(
+          new ReportStats(pair.getKey(), pair.getValue().size(), meanPower, meanErrorPower));
+    }
+  }
+
+  @Override
+  public void printReportStats(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%9s;%19s;%27s\n",
           "Test Category", "Samples", "Power Mean (Watt)", "Power Score Error (90.0%)");
 
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
-        meanPower = powerFormulas.getMean(pair.getValue());
-        double meanErrorPower = powerFormulas.getMeanError(pair.getValue());
+      for (ReportStats reportStat : reportStats) {
         writer.printf(
             "%18s;%9d;%19.3f;%27.3f\n",
-            pair.getKey(), pair.getValue().size(), meanPower, meanErrorPower);
+            reportStat.testCategory,
+            reportStat.samples,
+            reportStat.meanPower,
+            reportStat.meanErrorPower);
       }
     }
 
@@ -87,7 +99,7 @@ public class BaselineReport extends AbstractReport {
   }
 
   @Override
-  public void createRawPerfStatsReport(String outputFilePath) throws IOException {
+  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%16s;%27s;%23s;%15s\n",

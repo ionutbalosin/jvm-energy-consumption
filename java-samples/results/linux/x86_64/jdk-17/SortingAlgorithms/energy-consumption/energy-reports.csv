@@ -24,4 +24,4 @@ openjdk-hotspot-vm;                merge_sort;        5;                   5.351
 openjdk-hotspot-vm;                quick_sort;        5;                   4.580;                       0.077;               2.858;                        0.031
 openjdk-hotspot-vm;                radix_sort;        5;                   4.801;                       0.142;               3.057;                        0.013
 
-# Note: The reference baseline is already excluded from this report
+# Note: The reference baseline is already excluded from the energy scores

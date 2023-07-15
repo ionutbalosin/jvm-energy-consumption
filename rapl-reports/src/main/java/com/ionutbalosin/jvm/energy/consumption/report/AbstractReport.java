@@ -26,8 +26,15 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
+import static java.util.stream.Collectors.toList;
+
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -35,10 +42,29 @@ public abstract class AbstractReport {
 
   public String perfStatsPath;
   public Map<String, List<PerfStats>> perfStats;
+  public List<ReportStats> reportStats;
+
+  public AbstractReport() {
+    this.reportStats = new ArrayList<>();
+  }
 
   public abstract void setPerfStats(List<PerfStats> perfStats);
 
-  public abstract void createRawPerfStatsReport(String outputFilePath) throws IOException;
+  public void parseRawPerfStats() throws IOException {
+    List<PerfStats> perfStats = readFiles(perfStatsPath);
+    setPerfStats(perfStats);
+  }
 
-  public abstract void createMeanReport(String outputFilePath) throws IOException;
+  public abstract void printRawPerfStatsReport(String outputFilePath) throws IOException;
+
+  public abstract void createReportStats() throws IOException;
+
+  public abstract void printReportStats(String outputFilePath) throws IOException;
+
+  private List<PerfStats> readFiles(String parentFolder) throws IOException {
+    return Files.walk(Paths.get(parentFolder))
+        .filter(Files::isRegularFile)
+        .map(PerfStatsParser::parseStats)
+        .collect(toList());
+  }
 }

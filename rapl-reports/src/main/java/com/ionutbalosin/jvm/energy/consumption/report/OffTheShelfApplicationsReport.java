@@ -40,6 +40,7 @@ import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -80,7 +81,25 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   }
 
   @Override
-  public void createMeanReport(String outputFilePath) throws IOException {
+  public void createReportStats() {
+    for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+      double meanEnergy = energyFormulas.getMean(pair.getValue());
+      double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
+      double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
+      double meanErrorTimeElapsed = timeElapsedFormulas.getMeanError(pair.getValue());
+      reportStats.add(
+          new ReportStats(
+              pair.getKey(),
+              pair.getValue().size(),
+              meanEnergy,
+              meanErrorEnergy,
+              meanTimeElapsed,
+              meanErrorTimeElapsed));
+    }
+  }
+
+  @Override
+  public void printReportStats(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%9s;%24s;%28s;%20s;%29s\n",
@@ -91,19 +110,15 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
           "Elapsed Mean (sec)",
           "Elapsed Score Error (90.0%)");
 
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
-        double meanEnergy = energyFormulas.getMean(pair.getValue());
-        double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
-        double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
-        double meanErrorTimeElapsed = timeElapsedFormulas.getMeanError(pair.getValue());
+      for (ReportStats reportStat : reportStats) {
         writer.printf(
             "%18s;%9d;%24.3f;%28.3f;%20.3f;%29.3f\n",
-            pair.getKey(),
-            pair.getValue().size(),
-            meanEnergy,
-            meanErrorEnergy,
-            meanTimeElapsed,
-            meanErrorTimeElapsed);
+            reportStat.testCategory,
+            reportStat.samples,
+            reportStat.meanEnergy,
+            reportStat.meanErrorEnergy,
+            reportStat.meanTimeElapsed,
+            reportStat.meanErrorTimeElapsed);
       }
       writer.printf("\n# Note: The reference baseline is already excluded from the energy scores");
     }
@@ -112,7 +127,7 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   }
 
   @Override
-  public void createRawPerfStatsReport(String outputFilePath) throws IOException {
+  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%16s;%27s;%23s;%15s\n",

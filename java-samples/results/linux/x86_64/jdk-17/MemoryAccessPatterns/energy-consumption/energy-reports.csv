@@ -18,4 +18,4 @@ openjdk-hotspot-vm;                    linear;        5;                  43.920
 openjdk-hotspot-vm;               random_heap;        5;                 304.564;                      17.438;             687.710;                        4.358
 openjdk-hotspot-vm;               random_page;        5;                  61.384;                       7.407;              83.836;                        0.577
 
-# Note: The reference baseline is already excluded from this report
+# Note: The reference baseline is already excluded from the energy scores

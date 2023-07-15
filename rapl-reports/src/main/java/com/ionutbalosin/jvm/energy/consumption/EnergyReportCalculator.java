@@ -26,14 +26,10 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.rapl.report;
 
-import static java.util.stream.Collectors.toList;
-
 import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
 import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
 import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -44,7 +40,7 @@ public class EnergyReportCalculator {
 
   public static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
   public static final String OUTPUT_FOLDER = "energy-consumption";
-  public static final String MEAN_OUTPUT_FILE = "energy-reports.csv";
+  public static final String REPORT_STATS_OUTPUT_FILE = "energy-reports.csv";
   public static final String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
   public static final String OS = "linux";
   public static final String ARCH = "x86_64";
@@ -77,24 +73,15 @@ public class EnergyReportCalculator {
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
-    List<PerfStats> perfStats = readFiles(energyReport.perfStatsPath);
-    energyReport.setPerfStats(perfStats);
-
     String outputPath =
         new File(energyReport.perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
+    String rawPerfPerfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
+    String reportStatsOutputFile = outputPath + "/" + REPORT_STATS_OUTPUT_FILE;
 
-    String perfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
-    energyReport.createRawPerfStatsReport(perfStatsOutputFile);
-
-    String geometricMeanOutputFile = outputPath + "/" + MEAN_OUTPUT_FILE;
-    energyReport.createMeanReport(geometricMeanOutputFile);
-  }
-
-  private static List<PerfStats> readFiles(String parentFolder) throws IOException {
-    return Files.walk(Paths.get(parentFolder))
-        .filter(Files::isRegularFile)
-        .map(PerfStatsParser::parseStats)
-        .collect(toList());
+    energyReport.parseRawPerfStats();
+    energyReport.printRawPerfStatsReport(rawPerfPerfStatsOutputFile);
+    energyReport.createReportStats();
+    energyReport.printReportStats(reportStatsOutputFile);
   }
 }

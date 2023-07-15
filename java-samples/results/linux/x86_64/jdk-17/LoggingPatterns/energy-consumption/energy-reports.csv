@@ -42,4 +42,4 @@ openjdk-hotspot-vm;             string_format;        5;                  69.118
 openjdk-hotspot-vm;    unguarded_parametrized;        5;                  84.999;                       7.872;              81.212;                        0.696
 openjdk-hotspot-vm;  unguarded_unparametrized;        5;                  65.077;                       6.036;              63.262;                        0.316
 
-# Note: The reference baseline is already excluded from this report
+# Note: The reference baseline is already excluded from the energy scores
