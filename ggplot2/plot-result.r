@@ -36,7 +36,7 @@ output_folder <- args[2]
 # Note: use a color blindness palette (e.g., https://davidmathlogic.com/colorblind/)
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
-plotGeometricMean <- function(output_folder, plot_title) {
+plotEnergyConsumption <- function(output_folder, plot_title) {
   data <- readCsvResults(paste(output_folder, paste("power-consumption", "power-reports.csv", sep = "/"), sep = "/"))
 
   # delete all spaces from all column values
@@ -45,27 +45,27 @@ plotGeometricMean <- function(output_folder, plot_title) {
   # rename columns
   colnames(data)[colnames(data) == "Test.Category"] <- "Category"
   colnames(data)[colnames(data) == "Test.Type"] <- "Type"
-  colnames(data)[colnames(data) == "Energy.Mean..Watt.sec."] <- "Score"
-  colnames(data)[colnames(data) == "Energy.Score.Error..90.0.."] <- "Error"
+  colnames(data)[colnames(data) == "Energy.Mean..Watt.sec."] <- "EnergyScore"
+  colnames(data)[colnames(data) == "Energy.Score.Error..90.0.."] <- "EnergyError"
 
-  # add a new Unit column
-  data$Unit <- "Watt⋅sec"
+  # convert from string to numeric the Score and Error columns
+  # in addition, convert commas with dots
+  # Note: this conversion is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
+  # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
+  data$EnergyScore <- as.numeric(gsub(",", ".", data$EnergyScore))
+  data$EnergyError <- as.numeric(gsub(",", ".", data$EnergyError))
 
-  # if the Type column does not exist, copy the Category column
+  # add a new EnergyUnit column
+  data$EnergyUnit <- "Watt⋅sec"
+
+  # add a new Type column; if it does not exist, just by copy the Category column
   # Note: the Type column is used as an identifier for the X-axis in the final generated plot
   if (is.null(data$Type)) {
     data$Type <- data$Category
   }
 
-  # convert to numeric the Score and Error columns
-  # in addition, convert commas with dots
-  # Note: this conversion is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
-  # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
-  data$Score <- as.numeric(gsub(",", ".", data$Score))
-  data$Error <- as.numeric(gsub(",", ".", data$Error))
-
   # keep only the necessary columns for plotting
-  data <- data[, grep("^(Category|Type|Score|Error|Unit)$", colnames(data))]
+  data <- data[, grep("^(Category|Type|EnergyScore|EnergyError|EnergyUnit)$", colnames(data))]
 
   # rename Category column values
   data$Category[data$Category == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
@@ -81,6 +81,7 @@ plotGeometricMean <- function(output_folder, plot_title) {
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "power-consumption")
 }
 
+# define all application paths for plotting
 spring_petclinic_output_folder <- paste(base_path, paste("spring-petclinic", output_folder, sep = "/"), sep = "/")
 quarkus_hibernate_orm_panache_output_folder <- paste(base_path, paste("quarkus-hibernate-orm-panache-quickstart", output_folder, sep = "/"), sep = "/")
 renaissance_concurrency_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "concurrency", sep = "/"), sep = "/")
@@ -93,14 +94,14 @@ throw_exception_patterns_output_folder <- paste(base_path, paste(paste("java-sam
 sorting_algorithms_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "SortingAlgorithms", sep = "/"), sep = "/")
 virtual_calls_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "VirtualCalls", sep = "/"), sep = "/")
 
-plotGeometricMean(spring_petclinic_output_folder, "Spring PetClinic")
-plotGeometricMean(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
-plotGeometricMean(renaissance_concurrency_output_folder, "Renaissance Concurrency")
-plotGeometricMean(renaissance_functional_output_folder, "Renaissance Functional")
-plotGeometricMean(renaissance_scala_output_folder, "Renaissance Scala")
-plotGeometricMean(renaissance_web_output_folder, "Renaissance Web")
-plotGeometricMean(logging_patterns_output_folder, "Logging Patterns")
-plotGeometricMean(memory_access_patterns_output_folder, "Memory Access Patterns")
-plotGeometricMean(throw_exception_patterns_output_folder, "Throw Exception Patterns")
-plotGeometricMean(sorting_algorithms_output_folder, "Sorting Algorithms")
-plotGeometricMean(virtual_calls_output_folder, "Virtual Calls")
+plotEnergyConsumption(spring_petclinic_output_folder, "Spring PetClinic")
+plotEnergyConsumption(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
+plotEnergyConsumption(renaissance_concurrency_output_folder, "Renaissance Concurrency")
+plotEnergyConsumption(renaissance_functional_output_folder, "Renaissance Functional")
+plotEnergyConsumption(renaissance_scala_output_folder, "Renaissance Scala")
+plotEnergyConsumption(renaissance_web_output_folder, "Renaissance Web")
+plotEnergyConsumption(logging_patterns_output_folder, "Logging Patterns")
+plotEnergyConsumption(memory_access_patterns_output_folder, "Memory Access Patterns")
+plotEnergyConsumption(throw_exception_patterns_output_folder, "Throw Exception Patterns")
+plotEnergyConsumption(sorting_algorithms_output_folder, "Sorting Algorithms")
+plotEnergyConsumption(virtual_calls_output_folder, "Virtual Calls")
