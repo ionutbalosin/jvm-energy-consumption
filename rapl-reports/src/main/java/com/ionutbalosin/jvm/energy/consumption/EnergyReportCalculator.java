@@ -76,11 +76,12 @@ public class EnergyReportCalculator {
     String outputPath =
         new File(energyReport.perfStatsPath + "/../" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
-    String rawPerfPerfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
-    String reportStatsOutputFile = outputPath + "/" + REPORT_STATS_OUTPUT_FILE;
 
+    String rawPerfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
     energyReport.parseRawPerfStats();
-    energyReport.printRawPerfStatsReport(rawPerfPerfStatsOutputFile);
+    energyReport.printRawPerfStatsReport(rawPerfStatsOutputFile);
+
+    String reportStatsOutputFile = outputPath + "/" + REPORT_STATS_OUTPUT_FILE;
     energyReport.createReportStats();
     energyReport.printReportStats(reportStatsOutputFile);
   }
