@@ -69,8 +69,8 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
     # Note: the Type column is used as an identifier for the X-axis in the final generated plot
     data$Type <- data$Category
   } else {
-    # otherwise select all unique test types
-    # Note: this will be later user for generating the individual scatter plots
+    # otherwise just select all unique test types
+    # Note: this will be used for generating the individual scatter plots
     types <- unique(data$Type)
   }
 

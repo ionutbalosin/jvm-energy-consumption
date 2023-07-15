@@ -28,7 +28,7 @@ package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 
-public class EnergyFormulas extends StatisticsFormulas {
+public class EnergyFormulas extends Formulas {
 
   // the baseline represents the measurement of the machine power consumption while it is idle or
   // running minimal background processes.

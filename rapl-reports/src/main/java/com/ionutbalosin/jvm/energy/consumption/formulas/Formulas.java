@@ -30,7 +30,7 @@ import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.util.List;
 import org.apache.commons.math3.distribution.TDistribution;
 
-public abstract class StatisticsFormulas {
+public abstract class Formulas {
 
   private static double CONFIDENCE = 0.90;
 
