@@ -27,6 +27,7 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 
 public class PowerFormulas extends AbstractFormulas {
 
@@ -35,5 +36,10 @@ public class PowerFormulas extends AbstractFormulas {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats
     return (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
+  }
+
+  @Override
+  public double getFormula(ReportStats reportStat) {
+    throw new UnsupportedOperationException();
   }
 }

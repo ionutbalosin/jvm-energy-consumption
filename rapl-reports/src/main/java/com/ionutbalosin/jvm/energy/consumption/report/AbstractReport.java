@@ -34,34 +34,30 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractReport {
 
-  public String perfStatsPath;
+  public String module;
+  public String basePath;
   public Map<String, List<PerfStats>> perfStats;
   public List<ReportStats> reportStats;
-
-  public AbstractReport() {
-    this.reportStats = new ArrayList<>();
-  }
 
   public abstract void setPerfStats(List<PerfStats> perfStats);
 
   public void parseRawPerfStats() throws IOException {
-    List<PerfStats> perfStats = readFiles(perfStatsPath);
+    List<PerfStats> perfStats = readPerfOutputFiles(basePath + "/perf");
     setPerfStats(perfStats);
   }
 
   public abstract void printRawPerfStatsReport(String outputFilePath) throws IOException;
 
-  public abstract void createReportStats() throws IOException;
+  public abstract void createReportStats();
 
   public abstract void printReportStats(String outputFilePath) throws IOException;
 
-  private List<PerfStats> readFiles(String parentFolder) throws IOException {
+  private List<PerfStats> readPerfOutputFiles(String parentFolder) throws IOException {
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .map(PerfStatsParser::parseStats)

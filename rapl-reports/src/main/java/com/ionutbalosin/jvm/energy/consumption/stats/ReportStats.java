@@ -27,6 +27,7 @@
 package com.ionutbalosin.jvm.energy.consumption.stats;
 
 public class ReportStats {
+  public String module;
   public String testCategory;
   public String testType;
   public int samples;
@@ -36,8 +37,20 @@ public class ReportStats {
   public double meanErrorPower;
   public double meanTimeElapsed;
   public double meanErrorTimeElapsed;
+  public double geoMeanEnergy;
+  public double geoMeanTimeElapsed;
 
   public ReportStats(
+      String module, String testCategory, int samples, double meanPower, double meanErrorPower) {
+    this.module = module;
+    this.testCategory = testCategory;
+    this.samples = samples;
+    this.meanPower = meanPower;
+    this.meanErrorPower = meanErrorPower;
+  }
+
+  public ReportStats(
+      String module,
       String testCategory,
       String testType,
       int samples,
@@ -45,6 +58,7 @@ public class ReportStats {
       double meanErrorEnergy,
       double meanTimeElapsed,
       double meanErrorTimeElapsed) {
+    this.module = module;
     this.testCategory = testCategory;
     this.testType = testType;
     this.samples = samples;
@@ -55,12 +69,14 @@ public class ReportStats {
   }
 
   public ReportStats(
+      String module,
       String testCategory,
       int samples,
       double meanEnergy,
       double meanErrorEnergy,
       double meanTimeElapsed,
       double meanErrorTimeElapsed) {
+    this.module = module;
     this.testCategory = testCategory;
     this.samples = samples;
     this.meanEnergy = meanEnergy;
@@ -69,10 +85,11 @@ public class ReportStats {
     this.meanErrorTimeElapsed = meanErrorTimeElapsed;
   }
 
-  public ReportStats(String testCategory, int samples, double meanPower, double meanErrorPower) {
+  public ReportStats(
+      String testCategory, int samples, double geoMeanEnergy, double geoMeanTimeElapsed) {
     this.testCategory = testCategory;
     this.samples = samples;
-    this.meanPower = meanPower;
-    this.meanErrorPower = meanErrorPower;
+    this.geoMeanEnergy = geoMeanEnergy;
+    this.geoMeanTimeElapsed = geoMeanTimeElapsed;
   }
 }

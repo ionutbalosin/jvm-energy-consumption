@@ -42,6 +42,7 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -53,8 +54,10 @@ public class BaselineReport extends AbstractReport {
   public double meanPower;
 
   public BaselineReport(String module) {
+    this.module = module;
     this.powerFormulas = new PowerFormulas();
-    this.perfStatsPath = String.format("%s/%s/results/%s/%s/perf", BASE_PATH, module, OS, ARCH);
+    this.reportStats = new ArrayList<>();
+    this.basePath = String.format("%s/%s/results/%s/%s", BASE_PATH, this.module, OS, ARCH);
   }
 
   @Override
@@ -70,11 +73,13 @@ public class BaselineReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
+    // Note: there should be only one key entry in the map
     for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
       meanPower = powerFormulas.getMean(pair.getValue());
       double meanErrorPower = powerFormulas.getMeanError(pair.getValue());
       reportStats.add(
-          new ReportStats(pair.getKey(), pair.getValue().size(), meanPower, meanErrorPower));
+          new ReportStats(
+              this.module, pair.getKey(), pair.getValue().size(), meanPower, meanErrorPower));
     }
   }
 
@@ -95,7 +100,7 @@ public class BaselineReport extends AbstractReport {
       }
     }
 
-    System.out.printf(" Mean report %s was successfully created\n", outputFilePath);
+    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 
   @Override

@@ -27,11 +27,17 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 
 public class TimeElapsedFormulas extends AbstractFormulas {
 
   // returns the time elapsed
   public double getFormula(PerfStats perfStat) {
     return perfStat.elapsed;
+  }
+
+  @Override
+  public double getFormula(ReportStats reportStat) {
+    return reportStat.meanTimeElapsed;
   }
 }

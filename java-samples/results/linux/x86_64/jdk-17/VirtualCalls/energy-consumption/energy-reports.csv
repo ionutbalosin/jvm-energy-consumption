@@ -12,4 +12,4 @@
 openjdk-hotspot-vm;                 bimorphic;        5;                  17.465;                       0.496;              12.573;                        0.165
 openjdk-hotspot-vm;            megamorphic_24;        5;                 162.757;                       3.077;             162.926;                        0.392
 
-# Note: The reference baseline is already excluded from the energy scores
+# Note: The reference baseline has already been excluded from the energy scores

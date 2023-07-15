@@ -6,4 +6,4 @@
       native-image;        3;                 653.722;                       4.515;             901.420;                        0.021
 openjdk-hotspot-vm;        3;                 755.092;                      12.281;             933.297;                        0.327
 
-# Note: The reference baseline is already excluded from the energy scores
+# Note: The reference baseline has already been excluded from the energy scores

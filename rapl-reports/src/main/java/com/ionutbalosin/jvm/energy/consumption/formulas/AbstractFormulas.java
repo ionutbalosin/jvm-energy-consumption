@@ -27,6 +27,7 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.util.List;
 import org.apache.commons.math3.distribution.TDistribution;
 
@@ -42,13 +43,14 @@ public abstract class AbstractFormulas {
   // applications
   public abstract double getFormula(PerfStats perfStat);
 
-  public double getGeometricMean(List<PerfStats> perfStats) {
+  public abstract double getFormula(ReportStats reportStat);
+
+  public double getGeometricMean(List<ReportStats> reportStats) {
     double prod = 1;
-    for (PerfStats perfStat : perfStats) {
-      double energy = getFormula(perfStat);
-      prod *= energy;
+    for (ReportStats reportStat : reportStats) {
+      prod *= getFormula(reportStat);
     }
-    return Math.pow(prod, 1.0 / perfStats.size());
+    return Math.pow(prod, 1.0 / reportStats.size());
   }
 
   public double getMean(List<PerfStats> perfStats) {

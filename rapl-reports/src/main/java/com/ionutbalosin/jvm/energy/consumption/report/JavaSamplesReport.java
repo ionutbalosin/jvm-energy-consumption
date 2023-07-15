@@ -44,6 +44,7 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -54,12 +55,14 @@ public class JavaSamplesReport extends AbstractReport {
   AbstractFormulas timeElapsedFormulas;
 
   public JavaSamplesReport(String module, String category, double meanPowerBaseline) {
+    this.module = module;
     this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
     this.timeElapsedFormulas = new TimeElapsedFormulas();
-    this.perfStatsPath =
+    this.reportStats = new ArrayList<>();
+    this.basePath =
         String.format(
-            "%s/%s/results/%s/%s/jdk-%s/%s/perf",
-            BASE_PATH, module, OS, ARCH, JDK_VERSION, category);
+            "%s/%s/results/%s/%s/jdk-%s/%s",
+            BASE_PATH, this.module, OS, ARCH, JDK_VERSION, category);
   }
 
   @Override
@@ -82,6 +85,7 @@ public class JavaSamplesReport extends AbstractReport {
       double meanErrorTimeElapsed = timeElapsedFormulas.getMeanError(pair.getValue());
       reportStats.add(
           new ReportStats(
+              this.module,
               pair.getValue().get(0).testCategory,
               pair.getValue().get(0).testType,
               pair.getValue().size(),
@@ -116,10 +120,11 @@ public class JavaSamplesReport extends AbstractReport {
             reportStat.meanTimeElapsed,
             reportStat.meanErrorTimeElapsed);
       }
-      writer.printf("\n# Note: The reference baseline is already excluded from the energy scores");
+      writer.printf(
+          "\n# Note: The reference baseline has already been excluded from the energy scores");
     }
 
-    System.out.printf("Mean report %s was successfully created\n", outputFilePath);
+    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 
   @Override

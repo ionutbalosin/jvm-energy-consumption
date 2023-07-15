@@ -27,6 +27,7 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 
 public class EnergyFormulas extends AbstractFormulas {
 
@@ -34,6 +35,8 @@ public class EnergyFormulas extends AbstractFormulas {
   // running minimal background processes.
   // Since it is "Watt", it must be converted to "Watt⋅sec" and subtracted from every measurement
   double meanPowerBaseline;
+
+  public EnergyFormulas() {}
 
   public EnergyFormulas(double meanPowerBaseline) {
     this.meanPowerBaseline = meanPowerBaseline;
@@ -44,5 +47,10 @@ public class EnergyFormulas extends AbstractFormulas {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats
     return (perfStat.pkg + perfStat.ram) - (meanPowerBaseline * perfStat.elapsed);
+  }
+
+  @Override
+  public double getFormula(ReportStats reportStat) {
+    return reportStat.meanEnergy;
   }
 }

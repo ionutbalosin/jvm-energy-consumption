@@ -5,4 +5,4 @@
         graalvm-ee;        3;               20836.854;                     259.157;            9283.679;                       69.836
 openjdk-hotspot-vm;        3;               22822.002;                     585.953;           10418.584;                       59.839
 
-# Note: The reference baseline is already excluded from the energy scores
+# Note: The reference baseline has already been excluded from the energy scores
