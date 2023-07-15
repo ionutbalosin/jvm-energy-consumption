@@ -28,7 +28,7 @@ package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 
-public class PowerFormulas extends Formulas {
+public class PowerFormulas extends AbstractFormulas {
 
   // returns the power (in Watt)
   public double getFormula(Stats perfStat) {

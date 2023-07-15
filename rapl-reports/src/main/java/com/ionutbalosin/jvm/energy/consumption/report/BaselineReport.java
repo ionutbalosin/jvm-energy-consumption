@@ -35,8 +35,8 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.Formulas;
 import com.ionutbalosin.jvm.energy.consumption.perfstats.Stats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,7 +49,7 @@ public class BaselineReport extends AbstractReport {
 
   // the baseline mean power to be subtracted from any other measurements
   public double meanPower;
-  Formulas powerFormulas;
+  AbstractFormulas powerFormulas;
 
   public BaselineReport(String module) {
     this.powerFormulas = new PowerFormulas();
