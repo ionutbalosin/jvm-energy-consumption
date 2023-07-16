@@ -28,8 +28,9 @@
     - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
     - [Virtual Calls](#virtual-calls)
   - [Energy Geometric Mean](#energy-geometric-mean)
-- [Limitations and Future Work](#limitations-and-future-work)
+- [How power consumption correlates with performance](#how-power-consumption-correlates-with-performance)
 - [Conclusions](#conclusions)
+- [Future Work](#future-work)
 - [References](#references)
 
 # Introduction
@@ -380,11 +381,9 @@ No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean | Uni
 
 # How power consumption correlates with performance
 
-Let's consider an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and power consumption.
-
 There is no direct relationship between power consumption and performance. In general, power consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
-Based on my empirical studies, I can provide two examples that support my statement.
+In regard to these  empirical studies, I can provide two examples that support my statement.
 
 In the **first example**, higher power consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
@@ -400,31 +399,31 @@ In the **second example**, lower power consumption was observed, but it resulted
 
 Based on this scatter plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
-Let's consider now a theoretical (idealistic) example: Imagine you have definitive knowledge that JVM XXX (or framework YYY, or library ZZZ, or programming language QQQ) is by far the most eco-friendly option. Returning to the car industry analogy, a similar question arises: Would you always choose the most electric eco-friendly car?
-
-The answer may vary. The same principle applies when selecting software, as there are numerous other factors to consider, such as:
-
-- Maturity, community support, and adoption
-- Development experience
-- Lifecycle releases and patch fixes
-- Niche product or mainstream availability
-- Testability, performance, security, etc.
-- Licensing costs
-- And more
-
-Ultimately, decision-making is influenced by a combination of various factors. It is not solely based on eco-friendliness but also takes into account a range of considerations.
-
-# Limitations and Future Work
-
-- Acknowledge any limitations or constraints of your study, such as hardware limitations or external factors that could have influenced the results.
-- Suggest areas for further research or potential improvements to the experimental setup.
+Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and power consumption.
 
 # Conclusions
 
-- Summarize the key findings of your study.
-- Emphasize the practical implications and potential applications of your research.
-- Encourage further investigation or exploration based on your findings.
+This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, and algorithms with varying time complexities.
 
+The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often showing significant differences. 
+
+Notably, GraalVM Native Image demonstrated the highest energy efficiency across the majority of tests. 
+
+In the second group of energy-efficient JVMs, OpenJDK Hotspot VM, GraalVM EE, and GraalVM CE exhibited similar results with marginal differences. 
+
+In the third group, which showed comparatively lower energy efficiency, Azul Prime VM and Eclipse OpenJ9 VM exhibited similar performance.
+
+This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
+
+It is worth noting once again that performance and energy efficiency should not be used interchangeably. They represent distinct aspects, which may align in some instances but can also be at odds with each other at times.
+
+# Future Work
+
+An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or representative code patterns.
+
+If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption) to collaborate. 
+
+Your contributions are welcome and appreciated.
 
 # References
 
@@ -438,5 +437,7 @@ Ultimately, decision-making is influenced by a combination of various factors. I
 
 5. Zakaria Ournani, Mohammed Chakib Belgaid, Romain Rouvoy, Pierre Rust, Joel Penhoat: [Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://inria.hal.science/hal-03275286/document)
 
-5. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
+6. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
+
+7. Ko Turk: [Green Software Engineering: Best Practices](https://www.adesso.nl/en/news/blog/green-software-engineering-best-practices.jsp)
 
