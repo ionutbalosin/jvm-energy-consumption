@@ -173,26 +173,22 @@ The specific model of the wall power meter used is the [Ketotek KTEM02-1](https:
 
 Multiple application categories were included in these measurements:
 
-- off-the-shelf applications, such as:
+- Off-the-shelf applications, such as:
   - [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) Application
   - [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
   - [Renaissance](https://github.com/renaissance-benchmarks/renaissance) Benchmark Suite
-- custom-made Java applications relying on specific (but extremly common) code patterns, such as:
-  - logging patterns
-  - memory access patterns
-  - throwing exception patterns
-  - (sorting) algorithms complexities
-  - virtual calls
+- Custom-made Java applications relying on specific (but extremly common) code patterns, such as:
+  - Logging patterns
+  - Memory access patterns
+  - Throwing exception patterns
+  - (Sorting) algorithms complexities
+  - Virtual calls
 
-In addition to these categories, a baseline measurement of the system's power consumption while it is idle or running minimal background processes is provided. This will help establish a reference point.
-
-Multiple measurements were taken within each category. The results were aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot to provide additional information.
-
-To enable a high-level comparison of overall power consumption scores across different JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was calculated across all categories. This serves as an informative metric for assessing relative power consumption.
+In addition to these categories, a baseline measurement of the system's power consumption while it is idle or running minimal background processes is provided. This establishes a reference point.
 
 ### JVM Coverage
 
-The list of included JMVs on arch x86_64 is:
+The list of included JMVs is:
 
 No. | JVM distribution                                                                       | JDK version |Architecture
 ----|----------------------------------------------------------------------------------------|-------------|---------------
@@ -203,19 +199,19 @@ No. | JVM distribution                                                          
 5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
 6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
 
-For each JVM, the only specific tuning parameter was the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
+For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
 
 # Results
 
-- Present your measured power consumption data in the form of tables or figures.
-- Include plots that clearly visualize the power consumption trends across different programs and usage scenarios.
-- Discuss any noteworthy observations or patterns you observed during the experiments.
+This section contains measurement results for the application categories.
+
+Within each category, multiple measurements were taken, and the baseline was subtracted from each of them. The results were then aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot.
+
+To enable a high-level comparison of overall power consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was calculated. This serves as an informative metric for assessing relative power consumption.
 
 ## Off-the-Shelf Applications
 
-This section contains measurements for a set of off-the-shelf applications (i.e., software applications that are readily available). 
-
-Minimum configurations were performed for each application, primarily to enhance the database connection pools.
+Minimum configurations were performed for each web-based application (Spring and Quarkus), primarily aimed at enhancing the database connection pools.
 
 ### Spring PetClinic Application
 
