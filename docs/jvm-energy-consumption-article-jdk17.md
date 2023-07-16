@@ -38,9 +38,8 @@
 ## The Importance of Power Consumption in Modern Computing
 
 Power consumption is a crucial consideration in modern computing. Firstly, it directly impacts the energy efficiency of devices, contributing to reduced electricity costs and environmental sustainability. With the proliferation of technology and the increasing number of devices we use, minimizing power consumption helps conserve energy resources.
-Power consumption plays a role in thermal management. 
 
-High power consumption generates more heat, which can lead to increased temperatures within devices. Effective thermal management is vital to prevent overheating and maintain optimal performance and reliability.
+Power consumption plays a role in thermal management. High power consumption generates more heat, which can lead to increased temperatures within devices. Effective thermal management is vital to prevent overheating and maintain optimal performance and reliability.
 
 Lastly, power consumption is a consideration in data centers and large-scale computing infrastructure. These facilities consume massive amounts of energy, and reducing power consumption can result in significant cost savings and a smaller environmental footprint.
 
@@ -49,18 +48,18 @@ Overall, managing power consumption is important in modern computing to promote 
 ## Motivation
 
 Conducting power consumption experiments can provide valuable insights and benefits. Here are a few reasons that lead me to conduct such an experiment:
-- **Curiosity, Innovation and Research**: These power consumption experiments were a fascinating field of exploration to me. By conducting these experiments, I hoped to discover techniques, approaches that help me to further minimize power consumption on real applications
-- **Energy Efficiency**: By measuring power consumption, we can identify opportunities to optimize energy usage in our computing devices or systems. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact
-- **Performance Optimization**: Power consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing power consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks
-- **Sustainable Computing**: Power consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing
+- **Curiosity, Innovation and Research**: These power consumption experiments were a fascinating field of exploration to me. By conducting them, I hoped to discover techniques, approaches that help me to further minimize power consumption on real applications.
+- **Energy Efficiency**: By measuring power consumption, we can identify opportunities to optimize the energy usage. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact.
+- **Performance Optimization**: Power consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing power consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks.
+- **Sustainable Computing**: Power consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing.
 
 ## Objectives
 
 Below is a list of several objectives I considered for my experiments:
 
-- **Comparative Analysis**: Compare the power consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient
-- **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall power consumption 
-- **Performance-Optimized Power Efficiency**: Investigate how power consumption correlates with system performance
+- **Comparative Analysis**: Compare the power consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient.
+- **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall power consumption. 
+- **Performance-Optimized Power Efficiency**: Investigate how power consumption correlates with system performance.
 
 # Methodology
 
@@ -84,11 +83,12 @@ In multi-socket server systems, each socket reports its own RAPL values. For exa
 
 #### RAPL Domains Coverage
 
-It is worth mentioning that since RAPL reports only the energy consumption of a few domains (e.g., CPU, GPU, DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
+It is worth mentioning that RAPL reports only the energy consumption of a few domains (e.g., CPU, GPU, DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
 - any networking interface as Ethernet, Wi-Fi (Wireless Fidelity), Bluetooth, etc.
 - any attached storage device (as hard disk drives, solid-state drives, and optical drives) relying on SATA (Serial AT Attachment), NVMe (Non-Volatile Memory Express), USB (Universal Serial Bus), Thunderbolt, SCSI (Small Computer System Interface), FireWire (IEEE 1394), Fibre Channel, etc.
 - any display interface using HDMI (High-Definition Multimedia Interface), VGA (Video Graphics Array), DVI (Digital Visual Interface), Thunderbolt, DisplayPort, etc.
 - the motherboard
+- etc.
 
 In other words, for a typical JVM application, this means that any I/O operation that involves reading data from or writing data to any storage device but also any networking operation that uses I/O to send or receive data over a network are not captured.
 
@@ -112,11 +112,11 @@ A wall power meter directly measures the power consumption at the socket, provid
 
 It provides real-world energy consumption data, which can be particularly useful when evaluating the energy efficiency of an application in practical scenarios.
 
-By using a wall power meter alongside reported RAPL stats, we can obtain more accurate, reliable, and comprehensive measurements of the energy consumption of an application, helping us to make informed decisions regarding energy optimization and efficiency.
+By using a wall power meter alongside reported RAPL stats, we can obtain more accurate, reliable, and comprehensive measurements of the energy consumption of an application.
 
 ### RAPL vs. Wall Power Meter
 
-There are a few significant differences between these two power measuring methods, that make them complementary rather than interchangeable:
+There are a few differences between these two power measuring methods, that make them complementary rather than interchangeable:
 
 - the sampling periods may differ between RAPL and the wall power meter.
 - the measurement scales are also different, with RAPL reporting in Joules and the wall power meter typically using kilowatt-hours (1 kWh = 3.6 x 10^6 Watt⋅sec). Measuring short-running applications, which typically consume only a few Watt⋅sec, using a commercial wall meter is not practical since its scale is higher. Most commercial wall meters are more suitable for applications that consume at least 1 Watt⋅hour of energy (i.e., long running applications).
@@ -124,15 +124,15 @@ There are a few significant differences between these two power measuring method
 
 ## Measurement Considerations
 
-Reduced RAPL accuracy may be expected when the processor is not running heavy workloads and is in an idle state
+Reduced RAPL accuracy may be expected when the processor is not running heavy workloads and is in an idle state.
 
-RAPL measures the total power consumption of the entire system or package, encompassing all components and applications running on the same machine. It does not provide a breakdown of power consumption per individual application or component. Therefore, it is crucial to establish a **baseline measurement** of the system's power consumption during idle or minimal background processes
+RAPL encompasses all components and applications running on the same host machine. It does not provide a breakdown of power consumption per individual application or component. Therefore, it is crucial to establish a **baseline measurement** of the system's power consumption during idle or minimal background processes.
 
-Excessive heat can impact both the overall power consumption and performance of a system, indirectly affecting RAPL measurements. For that reason, disabling both:
-- **turbo-boost** mode and
+Excessive heat can impact both the overall power consumption and performance of a system, indirectly affecting RAPL measurements. For this reason, disabling both:
+- **turbo-boost** and
 - **hyper-threading**
 
-can effectively reduce CPU heat and enhance the consistency of RAPL measurements.
+can effectively reduce CPU heat and improve the consistency of RAPL measurements.
 It is also important to account for any external factors that may influence power consumption, such as variations in ambient temperature or fluctuations in power supply. These factors can introduce additional variability to RAPL measurements and should be taken into consideration during data analysis and interpretation
 
 Measuring power consumption for smaller tasks (such as **micro-benchmarking**) that complete quickly can be challenging, as the overall results are often dominated by the JVM footprint rather than the specific code being tested. This challenge can be partially addressed by employing iteration loops around the code snapshots being measured.
