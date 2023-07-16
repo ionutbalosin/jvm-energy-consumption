@@ -37,7 +37,7 @@ output_folder <- args[2]
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
 plotEnergyConsumption <- function(output_folder, plot_title) {
-  data <- readCsvResults(paste(output_folder, paste("energy-consumption", "energy-reports.csv", sep = "/"), sep = "/"))
+  data <- readCsvResults(paste(output_folder, "energy-consumption", "energy-reports.csv", sep = "/"))
 
   # delete all spaces from all column values
   data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
@@ -107,17 +107,17 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
 }
 
 # define all application paths for plotting
-spring_petclinic_output_folder <- paste(base_path, paste("spring-petclinic", output_folder, sep = "/"), sep = "/")
-quarkus_hibernate_orm_panache_output_folder <- paste(base_path, paste("quarkus-hibernate-orm-panache-quickstart", output_folder, sep = "/"), sep = "/")
-renaissance_concurrency_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "concurrency", sep = "/"), sep = "/")
-renaissance_functional_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "functional", sep = "/"), sep = "/")
-renaissance_scala_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "scala", sep = "/"), sep = "/")
-renaissance_web_output_folder <- paste(base_path, paste(paste("renaissance", output_folder, sep = "/"), "web", sep = "/"), sep = "/")
-logging_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "LoggingPatterns", sep = "/"), sep = "/")
-memory_access_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "MemoryAccessPatterns", sep = "/"), sep = "/")
-throw_exception_patterns_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "ThrowExceptionPatterns", sep = "/"), sep = "/")
-sorting_algorithms_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "SortingAlgorithms", sep = "/"), sep = "/")
-virtual_calls_output_folder <- paste(base_path, paste(paste("java-samples", output_folder, sep = "/"), "VirtualCalls", sep = "/"), sep = "/")
+spring_petclinic_output_folder <- paste(base_path, "spring-petclinic", output_folder, sep = "/")
+quarkus_hibernate_orm_panache_output_folder <- paste(base_path, "quarkus-hibernate-orm-panache-quickstart", output_folder, sep = "/")
+renaissance_concurrency_output_folder <- paste(base_path, "renaissance", output_folder, "concurrency", sep = "/")
+renaissance_functional_output_folder <- paste(base_path, "renaissance", output_folder, "functional", sep = "/")
+renaissance_scala_output_folder <- paste(base_path, "renaissance", output_folder, "scala", sep = "/")
+renaissance_web_output_folder <- paste(base_path, "renaissance", output_folder, "web", sep = "/")
+logging_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "LoggingPatterns", sep = "/")
+memory_access_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "MemoryAccessPatterns", sep = "/")
+throw_exception_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "ThrowExceptionPatterns", sep = "/")
+sorting_algorithms_output_folder <- paste(base_path, "java-samples", output_folder, "SortingAlgorithms", sep = "/")
+virtual_calls_output_folder <- paste(base_path, "java-samples", output_folder, "VirtualCalls", sep = "/")
 
 plotEnergyConsumption(spring_petclinic_output_folder, "Spring PetClinic")
 plotEnergyConsumption(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
