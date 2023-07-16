@@ -24,20 +24,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formulas;
+package com.ionutbalosin.jvm.energy.consumption.formulas.mean;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 
-public class TimeElapsedFormulas extends AbstractFormulas {
+public class EnergyFormulas extends AbstractFormulas {
 
-  // returns the time elapsed
-  public double getFormula(PerfStats perfStat) {
-    return perfStat.elapsed;
+  // the baseline represents the measurement of the machine power consumption while it is idle or
+  // running minimal background processes.
+  // Since it is "Watt", it must be converted to "Watt⋅sec" and subtracted from every measurement
+  double meanPowerBaseline;
+
+  public EnergyFormulas() {}
+
+  public EnergyFormulas(double meanPowerBaseline) {
+    this.meanPowerBaseline = meanPowerBaseline;
   }
 
-  @Override
-  public double getFormula(ReportStats reportStat) {
-    return reportStat.meanTimeElapsed;
+  // returns the energy (in Watt⋅sec) after subtracting the baseline
+  public double getFormula(PerfStats perfStat) {
+    // pkg includes the cores and gpu
+    // Note: on laptop battery the psys counters does not display proper stats
+    return (perfStat.pkg + perfStat.ram) - (meanPowerBaseline * perfStat.elapsed);
   }
 }

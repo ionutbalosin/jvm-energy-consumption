@@ -24,46 +24,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report;
+package com.ionutbalosin.jvm.energy.consumption.formulas.geomean;
 
-import static java.util.stream.Collectors.toList;
-
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractReport {
+public abstract class AbstractFormulas {
 
-  public String module;
-  public String basePath;
-  public List<PerfStats> perfStats;
-  public List<ReportStats> reportStats;
+  // this could return one of below formulas (depending on the implementation/caller):
+  //  - the mean energy formula (in Watt⋅sec)
+  //  - the mean time elapsed formula (in sec)
+  public abstract double getFormula(ReportStats reportStat);
 
-  public AbstractReport() {
-    this.reportStats = new ArrayList<>();
-  }
-
-  public void parseRawPerfStats() throws IOException {
-    this.perfStats = readPerfOutputFiles(basePath + "/perf");
-  }
-
-  public abstract void printRawPerfStatsReport(String outputFilePath) throws IOException;
-
-  public abstract void createReportStats();
-
-  public abstract void createReportStats(List<ReportStats> rawReportStats);
-
-  public abstract void printReportStats(String outputFilePath) throws IOException;
-
-  private List<PerfStats> readPerfOutputFiles(String parentFolder) throws IOException {
-    return Files.walk(Paths.get(parentFolder))
-        .filter(Files::isRegularFile)
-        .map(PerfStatsParser::parseStats)
-        .collect(toList());
+  public double getGeometricMean(List<ReportStats> reportStats) {
+    double prod = 1;
+    for (ReportStats reportStat : reportStats) {
+      prod *= getFormula(reportStat);
+    }
+    return Math.pow(prod, 1.0 / reportStats.size());
   }
 }

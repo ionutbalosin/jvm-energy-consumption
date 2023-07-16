@@ -24,22 +24,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formulas;
+package com.ionutbalosin.jvm.energy.consumption.formulas.geomean;
 
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 
-public class PowerFormulas extends AbstractFormulas {
-
-  // returns the power (in Watt)
-  public double getFormula(PerfStats perfStat) {
-    // pkg includes the cores and gpu
-    // Note: on laptop battery the psys counters does not display proper stats
-    return (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
-  }
+public class TimeElapsedFormulas extends AbstractFormulas {
 
   @Override
   public double getFormula(ReportStats reportStat) {
-    throw new UnsupportedOperationException();
+    return reportStat.meanTimeElapsed;
   }
 }

@@ -32,37 +32,36 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.EnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class SummaryReport extends AbstractReport {
 
+  List<String> TEST_CATEGORIES =
+      List.of(
+          "openjdk-hotspot-vm",
+          "graalvm-ce",
+          "graalvm-ee",
+          "native-image",
+          "eclipse-openj9-vm",
+          "azul-prime-vm");
+
   AbstractFormulas energyFormulas;
   AbstractFormulas timeElapsedFormulas;
-  List<ReportStats> summaryReportStats;
 
-  public SummaryReport(String module, List<ReportStats> reportStats) {
+  public SummaryReport(String module) {
     this.module = module;
-    this.reportStats = reportStats;
     this.energyFormulas = new EnergyFormulas();
     this.timeElapsedFormulas = new TimeElapsedFormulas();
-    this.summaryReportStats = new ArrayList<>();
     this.basePath =
         String.format("%s/%s/results/%s/%s/jdk-%s", BASE_PATH, this.module, OS, ARCH, JDK_VERSION);
-  }
-
-  @Override
-  public void setPerfStats(List<PerfStats> perfStats) {
-    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -72,26 +71,27 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void createReportStats(List<ReportStats> rawReportStats) {
     // filter "renaissance" reports since they were not run for all JVMs (e.g., native image)
     List<ReportStats> filteredReportStats =
-        excludeReportStatsByModule(this.reportStats, "renaissance");
+        excludeReportStatsByModule(rawReportStats, "renaissance");
 
-    // for each JVM calculate the geometric mean for both energy but also time
-    List<String> TEST_CATEGORIES =
-        List.of(
-            "openjdk-hotspot-vm",
-            "graalvm-ce",
-            "graalvm-ee",
-            "native-image",
-            "eclipse-openj9-vm",
-            "azul-prime-vm");
+    // for each test category calculate the geometric mean
     for (String testCategory : TEST_CATEGORIES) {
-      List<ReportStats> reportStats = getReportStatsByCategory(filteredReportStats, testCategory);
-      double energyGeometricMean = energyFormulas.getGeometricMean(reportStats);
-      double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(reportStats);
-      summaryReportStats.add(
+      List<ReportStats> reportStatsByCategory =
+          getReportStatsByCategory(filteredReportStats, testCategory);
+      double energyGeometricMean = energyFormulas.getGeometricMean(reportStatsByCategory);
+      double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(reportStatsByCategory);
+      reportStats.add(
           new ReportStats(
-              testCategory, reportStats.size(), energyGeometricMean, timeElapsedGeometricMean));
+              testCategory,
+              reportStatsByCategory.size(),
+              energyGeometricMean,
+              timeElapsedGeometricMean));
     }
   }
 
@@ -107,9 +107,8 @@ public class SummaryReport extends AbstractReport {
           "Elapsed Geometric Mean (sec)",
           "Normalized Elapsed Geometric Mean");
 
-      ReportStats referenceReportStat =
-          getReportStatByCategory(summaryReportStats, "openjdk-hotspot-vm");
-      for (ReportStats reportStat : summaryReportStats) {
+      ReportStats referenceReportStat = getReportStatByCategory(reportStats, "openjdk-hotspot-vm");
+      for (ReportStats reportStat : reportStats) {
         writer.printf(
             "%18s;%9d;%34.3f;%34.3f;%30.3f;%35.3f\n",
             reportStat.testCategory,

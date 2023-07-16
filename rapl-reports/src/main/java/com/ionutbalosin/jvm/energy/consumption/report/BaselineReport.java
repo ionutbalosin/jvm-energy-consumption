@@ -30,13 +30,9 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
-import static java.util.function.Function.identity;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.mapping;
-import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.mean.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.mean.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
@@ -44,14 +40,11 @@ import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class BaselineReport extends AbstractReport {
 
   AbstractFormulas powerFormulas;
-  // the baseline mean power to be subtracted from any other measurements
-  public double meanPower;
+  public double meanPowerBaseline;
 
   public BaselineReport(String module) {
     this.module = module;
@@ -61,26 +54,22 @@ public class BaselineReport extends AbstractReport {
   }
 
   @Override
-  public void setPerfStats(List<PerfStats> perfStats) {
-    this.perfStats =
-        perfStats.stream()
-            .collect(
-                groupingBy(
-                    perfStat -> perfStat.testCategory,
-                    TreeMap::new,
-                    mapping(identity(), toList())));
+  public void createReportStats(List<ReportStats> rawReportStats) {
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void createReportStats() {
-    // Note: there should be only one key entry in the map
-    for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
-      meanPower = powerFormulas.getMean(pair.getValue());
-      double meanErrorPower = powerFormulas.getMeanError(pair.getValue());
-      reportStats.add(
-          new ReportStats(
-              this.module, pair.getKey(), pair.getValue().size(), meanPower, meanErrorPower));
-    }
+    // Note: rely on the fact that all reports stats have the same test category
+    meanPowerBaseline = powerFormulas.getMean(perfStats);
+    double meanErrorPower = powerFormulas.getMeanError(perfStats);
+    reportStats.add(
+        new ReportStats(
+            this.module,
+            perfStats.get(0).testCategory,
+            perfStats.size(),
+            meanPowerBaseline,
+            meanErrorPower));
   }
 
   @Override
@@ -114,16 +103,14 @@ public class BaselineReport extends AbstractReport {
           "Energy RAM (Watt⋅sec)",
           "Elapsed (sec)");
 
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
-        for (PerfStats perfStat : pair.getValue()) {
-          writer.printf(
-              "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
-              perfStat.testCategory,
-              perfStat.testRunIdentifier,
-              perfStat.pkg,
-              perfStat.ram,
-              perfStat.elapsed);
-        }
+      for (PerfStats perfStat : perfStats) {
+        writer.printf(
+            "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
+            perfStat.testCategory,
+            perfStat.testRunIdentifier,
+            perfStat.pkg,
+            perfStat.ram,
+            perfStat.elapsed);
       }
     }
 

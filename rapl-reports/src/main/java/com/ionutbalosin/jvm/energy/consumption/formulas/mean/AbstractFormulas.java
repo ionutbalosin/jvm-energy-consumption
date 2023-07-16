@@ -24,10 +24,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formulas;
+package com.ionutbalosin.jvm.energy.consumption.formulas.mean;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.util.List;
 import org.apache.commons.math3.distribution.TDistribution;
 
@@ -35,41 +34,16 @@ public abstract class AbstractFormulas {
 
   private static double CONFIDENCE = 0.90;
 
-  // this could return one of below formulae:
-  //  - the power formula (in Watt) typically used for the baseline measurements
-  //  - the energy formula (in Watt⋅sec) typically used for any java-samples and off-the-shelf
-  // applications
-  //  - the time elapsed formula (in sec) typically used for any java-samples and off-the-shelf
-  // applications
+  // this could return one of below formulas (depending on the implementation/caller):
+  //  - the power formula (in Watt)
+  //  - the energy formula (in Watt⋅sec)
+  //  - the time elapsed formula (in sec)
   public abstract double getFormula(PerfStats perfStat);
-
-  public abstract double getFormula(ReportStats reportStat);
-
-  public double getGeometricMean(List<ReportStats> reportStats) {
-    double prod = 1;
-    for (ReportStats reportStat : reportStats) {
-      prod *= getFormula(reportStat);
-    }
-    return Math.pow(prod, 1.0 / reportStats.size());
-  }
 
   public double getMean(List<PerfStats> perfStats) {
     int count = perfStats.size();
     if (count > 0) {
       return getSum(perfStats) / count;
-    } else {
-      return Double.NaN;
-    }
-  }
-
-  public double getSum(List<PerfStats> perfStats) {
-    int size = perfStats.size();
-    if (size > 0) {
-      double sum = 0;
-      for (PerfStats perfStat : perfStats) {
-        sum += getFormula(perfStat);
-      }
-      return sum;
     } else {
       return Double.NaN;
     }
@@ -85,11 +59,24 @@ public abstract class AbstractFormulas {
     return probability * getStandardDeviation(perfStats) / Math.sqrt(size);
   }
 
-  public double getStandardDeviation(List<PerfStats> perfStats) {
+  private double getSum(List<PerfStats> perfStats) {
+    int size = perfStats.size();
+    if (size > 0) {
+      double sum = 0;
+      for (PerfStats perfStat : perfStats) {
+        sum += getFormula(perfStat);
+      }
+      return sum;
+    } else {
+      return Double.NaN;
+    }
+  }
+
+  private double getStandardDeviation(List<PerfStats> perfStats) {
     return Math.sqrt(getVariance(perfStats));
   }
 
-  public double getVariance(List<PerfStats> perfStats) {
+  private double getVariance(List<PerfStats> perfStats) {
     int size = perfStats.size();
     if (size > 1) {
       double variance = 0;

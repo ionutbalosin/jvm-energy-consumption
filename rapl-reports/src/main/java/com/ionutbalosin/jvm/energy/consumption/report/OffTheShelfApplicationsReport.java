@@ -36,9 +36,9 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.mean.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.mean.EnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.mean.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
@@ -75,19 +75,13 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
   }
 
   @Override
-  public void setPerfStats(List<PerfStats> perfStats) {
-    this.perfStats =
-        perfStats.stream()
-            .collect(
-                groupingBy(
-                    perfStat -> perfStat.testCategory,
-                    TreeMap::new,
-                    mapping(identity(), toList())));
+  public void createReportStats(List<ReportStats> rawReportStats) {
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public void createReportStats() {
-    for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+    for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
       double meanEnergy = energyFormulas.getMean(pair.getValue());
       double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
       double meanTimeElapsed = timeElapsedFormulas.getMean(pair.getValue());
@@ -144,7 +138,7 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
           "Energy RAM (Watt⋅sec)",
           "Elapsed (sec)");
 
-      for (Map.Entry<String, List<PerfStats>> pair : perfStats.entrySet()) {
+      for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
         for (PerfStats perfStat : pair.getValue()) {
           writer.printf(
               "%18s;%16s;%27.3f;%23.3f;%15.3f\n",
@@ -158,5 +152,12 @@ public class OffTheShelfApplicationsReport extends AbstractReport {
     }
 
     System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
+  }
+
+  private Map<String, List<PerfStats>> getPerfStatsAsMap() {
+    return perfStats.stream()
+        .collect(
+            groupingBy(
+                perfStat -> perfStat.testCategory, TreeMap::new, mapping(identity(), toList())));
   }
 }

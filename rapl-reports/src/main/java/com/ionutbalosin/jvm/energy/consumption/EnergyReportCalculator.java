@@ -38,17 +38,34 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class EnergyReportCalculator {
 
-  public static final String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-  public static final String OUTPUT_FOLDER = "energy-consumption";
-  public static final String REPORT_STATS_OUTPUT_FILE = "energy-reports.csv";
-  public static final String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
-  public static final String SUMMARY_REPORT_OUTPUT_FILE = "summary-report.csv";
-  public static final String OS = "linux";
-  public static final String ARCH = "x86_64";
-  public static final String JDK_VERSION = "17";
+  static Function<Double, List<AbstractReport>> REPORTS =
+      (meanPowerBaseline) ->
+          List.of(
+              new OffTheShelfApplicationsReport("spring-petclinic", meanPowerBaseline),
+              new OffTheShelfApplicationsReport(
+                  "quarkus-hibernate-orm-panache-quickstart", meanPowerBaseline),
+              new OffTheShelfApplicationsReport("renaissance", "concurrency", meanPowerBaseline),
+              new OffTheShelfApplicationsReport("renaissance", "functional", meanPowerBaseline),
+              new OffTheShelfApplicationsReport("renaissance", "scala", meanPowerBaseline),
+              new OffTheShelfApplicationsReport("renaissance", "web", meanPowerBaseline),
+              new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", meanPowerBaseline),
+              new JavaSamplesReport("java-samples", "MemoryAccessPatterns", meanPowerBaseline),
+              new JavaSamplesReport("java-samples", "LoggingPatterns", meanPowerBaseline),
+              new JavaSamplesReport("java-samples", "SortingAlgorithms", meanPowerBaseline),
+              new JavaSamplesReport("java-samples", "VirtualCalls", meanPowerBaseline));
+
+  public static String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
+  public static String OUTPUT_FOLDER = "energy-consumption";
+  public static String REPORT_STATS_OUTPUT_FILE = "energy-reports.csv";
+  public static String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
+  public static String SUMMARY_REPORT_OUTPUT_FILE = "summary-report.csv";
+  public static String OS = "linux";
+  public static String ARCH = "x86_64";
+  public static String JDK_VERSION = "17";
 
   public static void main(String[] args) throws IOException {
     // 1. calculate the baseline mean power from the baseline measurements
@@ -56,29 +73,15 @@ public class EnergyReportCalculator {
     calculateEnergy(baseline);
 
     // 2. for any other report pass the baseline mean power and save the generated report stats
-    final List<AbstractReport> REPORTS =
-        List.of(
-            new OffTheShelfApplicationsReport("spring-petclinic", baseline.meanPower),
-            new OffTheShelfApplicationsReport(
-                "quarkus-hibernate-orm-panache-quickstart", baseline.meanPower),
-            new OffTheShelfApplicationsReport("renaissance", "concurrency", baseline.meanPower),
-            new OffTheShelfApplicationsReport("renaissance", "functional", baseline.meanPower),
-            new OffTheShelfApplicationsReport("renaissance", "scala", baseline.meanPower),
-            new OffTheShelfApplicationsReport("renaissance", "web", baseline.meanPower),
-            new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baseline.meanPower),
-            new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baseline.meanPower),
-            new JavaSamplesReport("java-samples", "LoggingPatterns", baseline.meanPower),
-            new JavaSamplesReport("java-samples", "SortingAlgorithms", baseline.meanPower),
-            new JavaSamplesReport("java-samples", "VirtualCalls", baseline.meanPower));
     List<ReportStats> reportStats = new ArrayList<>();
-    for (AbstractReport report : REPORTS) {
+    for (AbstractReport report : REPORTS.apply(baseline.meanPowerBaseline)) {
       calculateEnergy(report);
       reportStats.addAll(report.reportStats);
     }
 
     // 3. the summary report takes into account all previously generated report stats
-    SummaryReport summary = new SummaryReport("rapl-reports", reportStats);
-    calculateEnergySummary(summary);
+    SummaryReport summary = new SummaryReport("rapl-reports");
+    calculateEnergy(summary, reportStats);
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
@@ -94,12 +97,13 @@ public class EnergyReportCalculator {
     energyReport.printReportStats(reportStatsOutputFile);
   }
 
-  private static void calculateEnergySummary(AbstractReport energyReport) throws IOException {
+  private static void calculateEnergy(AbstractReport energyReport, List<ReportStats> reportStats)
+      throws IOException {
     String outputPath = new File(energyReport.basePath + "/" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
     String summaryReportOutputFile = outputPath + "/" + SUMMARY_REPORT_OUTPUT_FILE;
-    energyReport.createReportStats();
+    energyReport.createReportStats(reportStats);
     energyReport.printReportStats(summaryReportOutputFile);
   }
 }
