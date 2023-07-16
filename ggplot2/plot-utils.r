@@ -57,7 +57,7 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_
 
 # Plot scatter plot with error bars
 generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
-  plot <- ggplot(data, aes(x = EnergyScore, y = TimeScore, color = Category))
+  plot <- ggplot(data, aes(x = EnergyScore, y = TimeScore, color = JvmIdentifier))
   plot <- plot + geom_point(size = 3)
   plot <- plot + geom_errorbarh(aes(xmin = EnergyScore - EnergyError, xmax = EnergyScore + EnergyError), height = .7)
   plot <- plot + geom_errorbar(aes(ymin = TimeScore - TimeError, ymax = TimeScore + TimeError), width = .7)
@@ -118,7 +118,8 @@ saveScatterPlot <- function(data, plot, path, file_basename) {
     ggsave(
       file = paste(path, paste(file_basename, "svg", sep = "."), sep = "/"),
       plot = plot,
-      width = 28.575, # 1080 pixels
+      height = 15.24, # 590 pixels
+      width = 27.093333333, # 1024 pixels
       dpi = 320,
       units = "cm",
       limitsize = FALSE,

@@ -36,7 +36,7 @@ output_folder <- args[2]
 # Note: use a color blindness palette (e.g., https://davidmathlogic.com/colorblind/)
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
-plotEnergyConsumption <- function(output_folder, plot_title) {
+plotEnergy <- function(output_folder, plot_title) {
   data <- readCsvResults(paste(output_folder, "energy-consumption", "energy-reports.csv", sep = "/"))
 
   # delete all spaces from all column values
@@ -50,10 +50,7 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   colnames(data)[colnames(data) == "Elapsed.Mean..sec."] <- "TimeScore"
   colnames(data)[colnames(data) == "Elapsed.Score.Error..90.0.."] <- "TimeError"
 
-  # convert from string to numeric the Score and Error columns
-  # in addition, convert commas with dots
-  # Note: this conversion is needed for consistency across different platforms (e.g., Linux, macOS, etc.)
-  # Example: on Linux the decimal separator could be "." but on macOS is ",", hence we need to make it consistent
+  # convert from string to numeric the Score and Error columns. In addition, convert commas to dots
   data$EnergyScore <- as.numeric(gsub(",", ".", data$EnergyScore))
   data$EnergyError <- as.numeric(gsub(",", ".", data$EnergyError))
   data$TimeScore <- as.numeric(gsub(",", ".", data$TimeScore))
@@ -63,7 +60,16 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   data$EnergyUnit <- "Watt⋅sec"
   data$TimeUnit <- "sec"
 
-  types <- c()
+  # add a JVM identifier column
+  data$JvmIdentifier <- data$Category
+  data$JvmIdentifier[data$JvmIdentifier == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
+  data$JvmIdentifier[data$JvmIdentifier == "graalvm-ce"] <- "GraalVM CE"
+  data$JvmIdentifier[data$JvmIdentifier == "graalvm-ee"] <- "GraalVM EE"
+  data$JvmIdentifier[data$JvmIdentifier == "native-image"] <- "Native Image"
+  data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
+  data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
+
+  test_types <- c()
   if (is.null(data$Type)) {
     # if there are no test types (e.g., variations of the same benchmark application), add a new Type column the same as Category
     # Note: the Type column is used as an identifier for the X-axis in the final generated plot
@@ -71,37 +77,29 @@ plotEnergyConsumption <- function(output_folder, plot_title) {
   } else {
     # otherwise just select all unique test types
     # Note: this will be used for generating the individual scatter plots
-    types <- unique(data$Type)
+    test_types <- unique(data$Type)
   }
 
-  # keep only the necessary columns for plotting
-  data <- data[, grep("^(Category|Type|EnergyScore|EnergyError|EnergyUnit|TimeScore|TimeError|TimeUnit)$", colnames(data))]
-
-  # rename Category column values
-  data$Category[data$Category == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
-  data$Category[data$Category == "graalvm-ce"] <- "GraalVM CE"
-  data$Category[data$Category == "graalvm-ee"] <- "GraalVM EE"
-  data$Category[data$Category == "native-image"] <- "Native Image"
-  data$Category[data$Category == "azul-prime-vm"] <- "Azul Prime VM"
-  data$Category[data$Category == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
-
-  print(paste("Plotting", plot_title, "...", sep = " "))
-
-  plot <- generateBarPlot(data, "Category", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
+  # generate the bar plots (i.e., energy plots)
+  print(paste("Plotting bar", plot_title, "...", sep = " "))
+  plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy")
 
-  # generate scatter plots, as follows:
-  # - if there are no test types (e.g., variations of the same benchmark application), generate one plot
-  # - if there are test types, for each type generate a dedicated plot
-  if (length(types) == 0) {
-    plot <- generateScatterPlot(data, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
+  # generate the scatter plots (i.e., energy vs time plots), as follows:
+  # - if there are no test types (e.g., variations of the same benchmark application), generate just one scatter plot
+  # - if there are multiple test types, for each type generate a dedicated scatter plot
+  if (length(test_types) == 0) {
+    print(paste("Plotting scatter", plot_title, "...", sep = " "))
+    plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
     saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy-vs-time")
   } else {
-    for (type in types) {
-      data_with_same_types <- data[data$Type == type, ]
-      plot_title_and_type <- paste(plot_title, paste("(", type, ")", sep = ""), sep = " ")
-      plot <- generateScatterPlot(data_with_same_types, "Category", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title_and_type, full_color_palette)
-      saveScatterPlot(data_with_same_types, plot, paste(output_folder, "plot", sep = "/"), paste("energy-vs-time", type, sep = "-"))
+    for (test_type in test_types) {
+      data_with_same_test_types <- data[data$Type == test_type, ]
+      plot_title_and_test_type <- paste(plot_title, paste("(", test_type, ")", sep = ""), sep = " ")
+
+      print(paste("Plotting scatter", plot_title_and_test_type, "...", sep = " "))
+      plot <- generateScatterPlot(data_with_same_test_types, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title_and_test_type, full_color_palette)
+      saveScatterPlot(data_with_same_test_types, plot, paste(output_folder, "plot", sep = "/"), paste("energy-vs-time", test_type, sep = "-"))
     }
   }
 }
@@ -118,15 +116,16 @@ memory_access_patterns_output_folder <- paste(base_path, "java-samples", output_
 throw_exception_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "ThrowExceptionPatterns", sep = "/")
 sorting_algorithms_output_folder <- paste(base_path, "java-samples", output_folder, "SortingAlgorithms", sep = "/")
 virtual_calls_output_folder <- paste(base_path, "java-samples", output_folder, "VirtualCalls", sep = "/")
+summary_rapl_reports_output_folder <- paste(base_path, "rapl-reports", output_folder, "..", sep = "/")
 
-plotEnergyConsumption(spring_petclinic_output_folder, "Spring PetClinic")
-plotEnergyConsumption(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
-plotEnergyConsumption(renaissance_concurrency_output_folder, "Renaissance Concurrency")
-plotEnergyConsumption(renaissance_functional_output_folder, "Renaissance Functional")
-plotEnergyConsumption(renaissance_scala_output_folder, "Renaissance Scala")
-plotEnergyConsumption(renaissance_web_output_folder, "Renaissance Web")
-plotEnergyConsumption(logging_patterns_output_folder, "Logging Patterns")
-plotEnergyConsumption(memory_access_patterns_output_folder, "Memory Access Patterns")
-plotEnergyConsumption(throw_exception_patterns_output_folder, "Throw Exception Patterns")
-plotEnergyConsumption(sorting_algorithms_output_folder, "Sorting Algorithms")
-plotEnergyConsumption(virtual_calls_output_folder, "Virtual Calls")
+plotEnergy(spring_petclinic_output_folder, "Spring PetClinic")
+plotEnergy(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
+plotEnergy(renaissance_concurrency_output_folder, "Renaissance Concurrency")
+plotEnergy(renaissance_functional_output_folder, "Renaissance Functional")
+plotEnergy(renaissance_scala_output_folder, "Renaissance Scala")
+plotEnergy(renaissance_web_output_folder, "Renaissance Web")
+plotEnergy(logging_patterns_output_folder, "Logging Patterns")
+plotEnergy(memory_access_patterns_output_folder, "Memory Access Patterns")
+plotEnergy(throw_exception_patterns_output_folder, "Throw Exception Patterns")
+plotEnergy(sorting_algorithms_output_folder, "Sorting Algorithms")
+plotEnergy(virtual_calls_output_folder, "Virtual Calls")
