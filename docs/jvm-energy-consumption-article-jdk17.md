@@ -391,7 +391,7 @@ No. | JVM                 | Architecture | Normalized Energy Geometric Mean
 5   | Azul Prime VM       | x86_64       | 1.657                            
 6   | Eclipse OpenJ9 VM   | x86_64       | 1.771                            
 
-**Note:** The first in the row is the most eco-friendly JVM, while the last in the row consumes the most energy.
+**Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
 > The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
@@ -436,7 +436,7 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
 6   | Eclipse OpenJ9 VM   | 40,975.966              | 137                              |  1.559
 
-**Note:** The first in the row is the most eco-friendly JVM, while the last in the row emits the most carbon dioxide.
+**Note:** Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 
 > The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
@@ -446,13 +446,17 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 - `gCO₂` - grams of carbon dioxide.
 - `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
+We can observe that when comparing the normalized geometric mean to the total energy consumption, the order of JVMs differs slightly (e.g., OpenJDK HotSpot VM consumes less energy overall compared to Graal Native Image). This discrepancy arises because the sum and geometric mean employ different mathematical operations, emphasizing different aspects of the data:
+- The geometric mean is less affected by extreme values and offers a balanced representation of the power consumption data. It represents the central tendency of the data.
+- In contrast, total energy consumption represents the accumulation of all measurements and directly correlates to our monthly bills, reflecting the additive nature of power consumption.
+
 # Conclusions
 
 This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, algorithms with varying time complexities, etc.
 
 The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often showing significant differences. 
 
-Notably, GraalVM Native Image demonstrated the highest energy efficiency across the majority of tests. 
+Notably, GraalVM Native Image exhibited the highest energy efficiency in the majority of tests, with the exception of a few outliers or extreme values.
 
 In the second group of energy-efficient JVMs, OpenJDK Hotspot VM, GraalVM EE, and GraalVM CE exhibited similar results with marginal differences. 
 
