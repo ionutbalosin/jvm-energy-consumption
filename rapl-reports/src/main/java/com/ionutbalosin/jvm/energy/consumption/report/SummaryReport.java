@@ -39,6 +39,7 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,11 +56,14 @@ public class SummaryReport extends AbstractReport {
 
   AbstractFormulas energyFormulas;
   AbstractFormulas timeElapsedFormulas;
+  public List<ReportStats> reportStatsSummary;
 
-  public SummaryReport(String module) {
+  public SummaryReport(String module, List<ReportStats> reportStats) {
     this.module = module;
     this.energyFormulas = new EnergyFormulas();
     this.timeElapsedFormulas = new TimeElapsedFormulas();
+    this.reportStats = reportStats;
+    this.reportStatsSummary = new ArrayList<>();
     this.basePath =
         String.format("%s/%s/results/%s/%s/jdk-%s", BASE_PATH, this.module, OS, ARCH, JDK_VERSION);
   }
@@ -71,14 +75,8 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public void createReportStats(List<ReportStats> rawReportStats) {
     // filter "renaissance" reports since they were not run for all JVMs (e.g., native image)
-    List<ReportStats> filteredReportStats =
-        excludeReportStatsByModule(rawReportStats, "renaissance");
+    List<ReportStats> filteredReportStats = excludeReportStatsByModule(reportStats, "renaissance");
 
     // for each test category calculate the geometric mean
     for (String testCategory : TEST_CATEGORIES) {
@@ -86,7 +84,7 @@ public class SummaryReport extends AbstractReport {
           getReportStatsByCategory(filteredReportStats, testCategory);
       double energyGeometricMean = energyFormulas.getGeometricMean(reportStatsByCategory);
       double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(reportStatsByCategory);
-      reportStats.add(
+      reportStatsSummary.add(
           new ReportStats(
               testCategory,
               reportStatsByCategory.size(),
@@ -107,8 +105,9 @@ public class SummaryReport extends AbstractReport {
           "Elapsed Geometric Mean (sec)",
           "Normalized Elapsed Geometric Mean");
 
-      ReportStats referenceReportStat = getReportStatByCategory(reportStats, "openjdk-hotspot-vm");
-      for (ReportStats reportStat : reportStats) {
+      ReportStats referenceReportStat =
+          getReportStatByCategory(reportStatsSummary, "openjdk-hotspot-vm");
+      for (ReportStats reportStat : reportStatsSummary) {
         writer.printf(
             "%18s;%9d;%34.3f;%34.3f;%30.3f;%35.3f\n",
             reportStat.testCategory,

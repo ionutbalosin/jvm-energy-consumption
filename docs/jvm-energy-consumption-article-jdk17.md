@@ -29,6 +29,7 @@
     - [Virtual Calls](#virtual-calls)
   - [Energy Geometric Mean](#energy-geometric-mean)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
+- [Energy consumption and carbon emissions](#energy-consumption-and-carbon-emissions)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
 - [References](#references)
@@ -419,6 +420,12 @@ In the **second example**, lower energy consumption was observed, but it resulte
 Based on this plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
 Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
+
+# Energy consumption and carbon emissions
+
+Energy consumption and carbon emissions are closely correlated. To convert energy consumption from Watt⋅sec to CO2 carbon emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Then, we just have to multiply the energy consumption by the carbon emissions factor for the specific energy source.
+
+Let's consider another example.
 
 # Conclusions
 

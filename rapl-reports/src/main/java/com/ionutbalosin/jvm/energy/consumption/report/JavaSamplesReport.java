@@ -66,11 +66,6 @@ public class JavaSamplesReport extends AbstractReport {
   }
 
   @Override
-  public void createReportStats(List<ReportStats> rawReportStats) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
   public void createReportStats() {
     for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
       double meanEnergy = energyFormulas.getMean(pair.getValue());

@@ -80,8 +80,8 @@ public class EnergyReportCalculator {
     }
 
     // 3. the summary report takes into account all previously generated report stats
-    SummaryReport summary = new SummaryReport("rapl-reports");
-    calculateEnergy(summary, reportStats);
+    SummaryReport summary = new SummaryReport("rapl-reports", reportStats);
+    calculateEnergySummary(summary);
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
@@ -97,13 +97,12 @@ public class EnergyReportCalculator {
     energyReport.printReportStats(reportStatsOutputFile);
   }
 
-  private static void calculateEnergy(AbstractReport energyReport, List<ReportStats> reportStats)
-      throws IOException {
+  private static void calculateEnergySummary(AbstractReport energyReport) throws IOException {
     String outputPath = new File(energyReport.basePath + "/" + OUTPUT_FOLDER).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
     String summaryReportOutputFile = outputPath + "/" + SUMMARY_REPORT_OUTPUT_FILE;
-    energyReport.createReportStats(reportStats);
+    energyReport.createReportStats();
     energyReport.printReportStats(summaryReportOutputFile);
   }
 }

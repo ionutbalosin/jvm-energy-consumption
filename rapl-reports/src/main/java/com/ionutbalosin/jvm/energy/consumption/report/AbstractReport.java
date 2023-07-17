@@ -56,8 +56,6 @@ public abstract class AbstractReport {
 
   public abstract void createReportStats();
 
-  public abstract void createReportStats(List<ReportStats> rawReportStats);
-
   public abstract void printReportStats(String outputFilePath) throws IOException;
 
   private List<PerfStats> readPerfOutputFiles(String parentFolder) throws IOException {

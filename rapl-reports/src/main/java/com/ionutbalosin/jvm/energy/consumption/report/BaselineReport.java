@@ -39,7 +39,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BaselineReport extends AbstractReport {
 
@@ -51,11 +50,6 @@ public class BaselineReport extends AbstractReport {
     this.powerFormulas = new PowerFormulas();
     this.reportStats = new ArrayList<>();
     this.basePath = String.format("%s/%s/results/%s/%s", BASE_PATH, this.module, OS, ARCH);
-  }
-
-  @Override
-  public void createReportStats(List<ReportStats> rawReportStats) {
-    throw new UnsupportedOperationException();
   }
 
   @Override
