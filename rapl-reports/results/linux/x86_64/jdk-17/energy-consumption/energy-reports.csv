@@ -1,9 +1,9 @@
      Test Category;  Samples;  Energy Geometric Mean (Watt⋅sec);  Normalized Energy Geometric Mean;  Elapsed Geometric Mean (sec);  Normalized Elapsed Geometric Mean
-openjdk-hotspot-vm;       22;                            72.607;                             1.000;                        74.671;                              1.000
-        graalvm-ce;       22;                            75.117;                             1.035;                        71.825;                              0.962
-        graalvm-ee;       22;                            73.976;                             1.019;                        69.857;                              0.936
-      native-image;       22;                            28.055;                             0.386;                        33.542;                              0.449
- eclipse-openj9-vm;       22;                           128.602;                             1.771;                        99.592;                              1.334
-     azul-prime-vm;       22;                           120.304;                             1.657;                        85.732;                              1.148
+openjdk-hotspot-vm;      106;                            66.582;                             1.000;                        67.903;                              1.000
+        graalvm-ce;      106;                            69.112;                             1.038;                        65.115;                              0.959
+        graalvm-ee;      106;                            68.315;                             1.026;                        63.378;                              0.933
+      native-image;      106;                            24.841;                             0.373;                        29.617;                              0.436
+ eclipse-openj9-vm;      106;                           119.486;                             1.795;                        91.413;                              1.346
+     azul-prime-vm;      106;                           109.404;                             1.643;                        78.340;                              1.154
 
 # Note: 'openjdk-hotspot-vm' was used as the reference value for calculating the normalized geometric mean

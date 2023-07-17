@@ -24,7 +24,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.formulas.mean;
+package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import java.util.List;
@@ -39,6 +39,14 @@ public abstract class AbstractFormulas {
   //  - the energy formula (in Watt⋅sec)
   //  - the time elapsed formula (in sec)
   public abstract double getFormula(PerfStats perfStat);
+
+  public double getGeometricMean(List<PerfStats> perfStats) {
+    double prod = 1;
+    for (PerfStats perfStat : perfStats) {
+      prod *= getFormula(perfStat);
+    }
+    return Math.pow(prod, 1.0 / perfStats.size());
+  }
 
   public double getMean(List<PerfStats> perfStats) {
     int count = perfStats.size();

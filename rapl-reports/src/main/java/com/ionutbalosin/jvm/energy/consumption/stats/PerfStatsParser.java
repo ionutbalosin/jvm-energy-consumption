@@ -95,7 +95,6 @@ public class PerfStatsParser {
       perfStats.testRunIdentifier = fileName.substring(lastDashIndex + 1, statsIndex);
 
       return perfStats;
-
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

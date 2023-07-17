@@ -31,8 +31,8 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.mean.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.mean.PowerFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;

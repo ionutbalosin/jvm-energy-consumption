@@ -62,6 +62,12 @@ public abstract class AbstractReport {
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .map(PerfStatsParser::parseStats)
+        .map(this::setModule)
         .collect(toList());
+  }
+
+  private PerfStats setModule(PerfStats parseStats) {
+    parseStats.module = this.module;
+    return parseStats;
   }
 }

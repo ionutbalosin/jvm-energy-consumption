@@ -33,15 +33,14 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static java.nio.file.Files.newBufferedWriter;
 import static java.util.Optional.ofNullable;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.EnergyFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.TimeElapsedFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,15 +57,12 @@ public class SummaryReport extends AbstractReport {
 
   AbstractFormulas energyFormulas;
   AbstractFormulas timeElapsedFormulas;
-  public List<ReportStats> reportStatsSummary;
 
-  public SummaryReport(String module, List<PerfStats> perfStats, List<ReportStats> reportStats) {
+  public SummaryReport(String module, List<PerfStats> perfStats, double meanPowerBaseline) {
     this.module = module;
     this.perfStats = perfStats;
-    this.reportStats = reportStats;
-    this.energyFormulas = new EnergyFormulas();
+    this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
     this.timeElapsedFormulas = new TimeElapsedFormulas();
-    this.reportStatsSummary = new ArrayList<>();
     this.basePath =
         String.format("%s/%s/results/%s/%s/jdk-%s", BASE_PATH, this.module, OS, ARCH, JDK_VERSION);
   }
@@ -104,19 +100,18 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
-    // filter "renaissance" reports since they were not run for all JVMs (e.g., native image)
-    List<ReportStats> filteredReportStats = excludeReportStatsByModule(reportStats, "renaissance");
+    // filter "renaissance" module since these tests did not run for all JVMs (e.g., native image)
+    List<PerfStats> filteredPerfStats = excludePerfStatsByModule(perfStats, "renaissance");
 
     // for each test category calculate the geometric mean
     for (String testCategory : TEST_CATEGORIES) {
-      List<ReportStats> reportStatsByCategory =
-          getReportStatsByCategory(filteredReportStats, testCategory);
-      double energyGeometricMean = energyFormulas.getGeometricMean(reportStatsByCategory);
-      double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(reportStatsByCategory);
-      reportStatsSummary.add(
+      List<PerfStats> perfStatsByCategory = getPerfStatsByCategory(filteredPerfStats, testCategory);
+      double energyGeometricMean = energyFormulas.getGeometricMean(perfStatsByCategory);
+      double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(perfStatsByCategory);
+      reportStats.add(
           new ReportStats(
               testCategory,
-              reportStatsByCategory.size(),
+              perfStatsByCategory.size(),
               energyGeometricMean,
               timeElapsedGeometricMean));
     }
@@ -134,9 +129,8 @@ public class SummaryReport extends AbstractReport {
           "Elapsed Geometric Mean (sec)",
           "Normalized Elapsed Geometric Mean");
 
-      ReportStats referenceReportStat =
-          getReportStatByCategory(reportStatsSummary, "openjdk-hotspot-vm");
-      for (ReportStats reportStat : reportStatsSummary) {
+      ReportStats referenceReportStat = getReportStatByCategory(reportStats, "openjdk-hotspot-vm");
+      for (ReportStats reportStat : reportStats) {
         writer.printf(
             "%18s;%9d;%34.3f;%34.3f;%30.3f;%35.3f\n",
             reportStat.testCategory,
@@ -156,17 +150,15 @@ public class SummaryReport extends AbstractReport {
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 
-  private List<ReportStats> excludeReportStatsByModule(
-      List<ReportStats> reportStats, String module) {
-    return reportStats.stream()
-        .filter(reportStat -> !module.equals(reportStat.module))
+  private List<PerfStats> excludePerfStatsByModule(List<PerfStats> perfStats, String module) {
+    return perfStats.stream()
+        .filter(perfStat -> !module.equals(perfStat.module))
         .collect(Collectors.toList());
   }
 
-  private List<ReportStats> getReportStatsByCategory(
-      List<ReportStats> reportStats, String testCategory) {
-    return reportStats.stream()
-        .filter(reportStat -> testCategory.equals(reportStat.testCategory))
+  private List<PerfStats> getPerfStatsByCategory(List<PerfStats> perfStats, String testCategory) {
+    return perfStats.stream()
+        .filter(perfStat -> testCategory.equals(perfStat.testCategory))
         .collect(Collectors.toList());
   }
 

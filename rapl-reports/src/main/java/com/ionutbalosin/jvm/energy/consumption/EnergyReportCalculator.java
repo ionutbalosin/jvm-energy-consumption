@@ -32,7 +32,6 @@ import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
 import com.ionutbalosin.jvm.energy.consumption.report.SummaryReport;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -72,17 +71,16 @@ public class EnergyReportCalculator {
     BaselineReport baseline = new BaselineReport("baseline-idle-os");
     calculateEnergy(baseline);
 
-    // 2. for any other report pass the baseline mean power and save the generated reports
+    // 2. for any other report pass the baseline mean power and save the raw perf stats
     List<PerfStats> perfStats = new ArrayList<>();
-    List<ReportStats> reportStats = new ArrayList<>();
     for (AbstractReport report : REPORTS.apply(baseline.meanPowerBaseline)) {
       calculateEnergy(report);
       perfStats.addAll(report.perfStats);
-      reportStats.addAll(report.reportStats);
     }
 
-    // 3. the summary report takes into account all previously generated report stats
-    SummaryReport summary = new SummaryReport("rapl-reports", perfStats, reportStats);
+    // 3. for the summary report pass the baseline mean power and the raw perf stats
+    SummaryReport summary =
+        new SummaryReport("rapl-reports", perfStats, baseline.meanPowerBaseline);
     calculateEnergy(summary);
   }
 

@@ -36,9 +36,9 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
-import com.ionutbalosin.jvm.energy.consumption.formulas.mean.AbstractFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.mean.EnergyFormulas;
-import com.ionutbalosin.jvm.energy.consumption.formulas.mean.TimeElapsedFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
+import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;

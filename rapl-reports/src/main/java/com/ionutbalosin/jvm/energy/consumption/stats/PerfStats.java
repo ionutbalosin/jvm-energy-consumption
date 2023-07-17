@@ -33,6 +33,7 @@ public class PerfStats {
   public double psys;
   public double ram;
   public double elapsed;
+  public String module;
   public String testCategory;
   public String testType;
   public String testRunIdentifier;
