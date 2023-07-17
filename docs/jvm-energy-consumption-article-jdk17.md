@@ -429,12 +429,14 @@ Let's consider our use case. The table below presents a summary of the total CO�
 
 No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|---------------------|-------------------------|----------------------------------|-----------------------
-1   | Graal Native Image  | 4,677.11                | 137                              |  0.178                     
-2   | GraalVM EE          | 5,436.79                | 137                              |  0.207                  
-3   | OpenJDK HotSpot VM  | 5,833.58                | 137                              |  0.222                      
-4   | GraalVM CE          | 6,844.9                 | 137                              |  0.260                     
-5   | Eclipse OpenJ9 VM   | 8,925.11                | 137                              |  0.340
-6   | Azul Prime VM       | 9,044.04                | 137                              |  0.344                       
+1   | Graal Native Image  | 18,176.977              | 137                              |  0.692                     
+2   | OpenJDK HotSpot VM  | 17,090.269              | 137                              |  0.650                      
+3   | GraalVM EE          | 21,521.325              | 137                              |  0.819                  
+4   | GraalVM CE          | 22,081.674              | 137                              |  0.840                     
+5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
+6   | Eclipse OpenJ9 VM   | 40,975.966              | 137                              |  1.559
+
+> The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
 **Legend:** 
 - `CO₂` - carbon dioxide.
