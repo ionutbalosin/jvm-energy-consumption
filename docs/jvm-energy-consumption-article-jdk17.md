@@ -382,14 +382,14 @@ In the context of modern hardware, for most business applications, virtual calls
 
 This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean 
-----|---------------------|-------------|----------------------------------
-1   | Graal Native Image  | x86_64      | 0.386                            
-2   | OpenJDK HotSpot VM  | x86_64      | 1.00                             
-3   | GraalVM EE          | x86_64      | 1.019                            
-4   | GraalVM CE          | x86_64      | 1.035                            
-5   | Azul Prime VM       | x86_64      | 1.657                            
-6   | Eclipse OpenJ9 VM   | x86_64      | 1.771                            
+No. | JVM                 | Architecture | Normalized Energy Geometric Mean 
+----|---------------------|--------------|----------------------------------
+1   | Graal Native Image  | x86_64       | 0.386                            
+2   | OpenJDK HotSpot VM  | x86_64       | 1.00                             
+3   | GraalVM EE          | x86_64       | 1.019                            
+4   | GraalVM CE          | x86_64       | 1.035                            
+5   | Azul Prime VM       | x86_64       | 1.657                            
+6   | Eclipse OpenJ9 VM   | x86_64       | 1.771                            
 
 **Note:** The first in the row is the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -425,12 +425,12 @@ Let's consider now an analogy from the car industry: Is the most powerful car th
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains. The total energy reflects the combined measurements from all tests conducted.
+Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains.
 
 No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|---------------------|-------------------------|----------------------------------|-----------------------
-1   | Graal Native Image  | 18,176.977              | 137                              |  0.692                     
-2   | OpenJDK HotSpot VM  | 17,090.269              | 137                              |  0.650                      
+1   | OpenJDK HotSpot VM  | 17,090.269              | 137                              |  0.650                      
+2   | Graal Native Image  | 18,176.977              | 137                              |  0.692                     
 3   | GraalVM EE          | 21,521.325              | 137                              |  0.819                  
 4   | GraalVM CE          | 22,081.674              | 137                              |  0.840                     
 5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
