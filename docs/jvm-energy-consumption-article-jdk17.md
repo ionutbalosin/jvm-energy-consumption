@@ -436,13 +436,15 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
 6   | Eclipse OpenJ9 VM   | 40,975.966              | 137                              |  1.559
 
+**Note:** The first in the row is the most eco-friendly JVM, while the last in the row emits the most carbon dioxide.
+
 > The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
 **Legend:** 
 - `CO₂` - carbon dioxide.
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
 - `gCO₂` - grams of carbon dioxide.
-- `137` - is the current carbon emission factor for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
+- `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 # Conclusions
 
