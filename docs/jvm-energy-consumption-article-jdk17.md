@@ -28,7 +28,7 @@
     - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
     - [Virtual Calls](#virtual-calls)
   - [Energy Geometric Mean](#energy-geometric-mean)
-- [How power consumption correlates with performance](#how-power-consumption-correlates-with-performance)
+- [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
 - [References](#references)
@@ -47,19 +47,19 @@ Overall, managing power consumption is important in modern computing to promote 
 
 ## Motivation
 
-Conducting power consumption experiments can provide valuable insights and benefits. Here are a few reasons that lead me to conduct such an experiment:
-- **Curiosity, Innovation and Research**: These power consumption experiments were a fascinating field of exploration to me. By conducting them, I hoped to discover techniques, approaches that help me to further minimize power consumption on real applications.
-- **Energy Efficiency**: By measuring power consumption, we can identify opportunities to optimize the energy usage. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact.
-- **Performance Optimization**: Power consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing power consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks.
-- **Sustainable Computing**: Power consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing.
+Conducting energy consumption experiments can provide valuable insights and benefits. Here are a few reasons that lead me to conduct such an experiment:
+- **Curiosity, Innovation and Research**: These energy consumption experiments were a fascinating field of exploration to me. By conducting them, I hoped to discover techniques, approaches that help me to further minimize energy consumption on real applications.
+- **Energy Efficiency**: By measuring energy consumption, we can identify opportunities to optimize the energy usage. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact.
+- **Performance Optimization**: Energy consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing energy consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks.
+- **Sustainable Computing**: Energy consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing.
 
 ## Objectives
 
 Below is a list of several objectives I considered for my experiments:
 
-- **Comparative Analysis**: Compare the power consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient.
-- **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall power consumption. 
-- **Performance-Optimized Power Efficiency**: Investigate how power consumption correlates with system performance.
+- **Comparative Analysis**: Compare the energy consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient.
+- **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall energy consumption. 
+- **Performance-Optimized Power Efficiency**: Investigate how energy consumption correlates with system performance.
 
 # Methodology
 
@@ -135,7 +135,7 @@ Excessive heat can impact both the overall power consumption and performance of 
 can effectively reduce CPU heat and improve the consistency of RAPL measurements.
 It is also important to account for any external factors that may influence power consumption, such as variations in ambient temperature or fluctuations in power supply. These factors can introduce additional variability to RAPL measurements and should be taken into consideration during data analysis and interpretation
 
-Measuring power consumption for smaller tasks (such as **micro-benchmarking**) that complete quickly can be challenging, as the overall results are often dominated by the JVM footprint rather than the specific code being tested. This challenge can be partially addressed by employing iteration loops around the code snapshots being measured.
+Measuring energy consumption for smaller tasks (such as **micro-benchmarking**) that complete quickly can be challenging, as the overall results are often dominated by the JVM footprint rather than the specific code being tested. This challenge can be partially addressed by employing iteration loops around the code snapshots being measured.
 
 ## Unit of Measurement
 
@@ -154,7 +154,7 @@ $ perf stat -a \
 The unit of energy reported by this command is **Joule** (symbol J).
 
 Analogous, a **watt-second** (symbol W s or W⋅s) is a derived unit of energy equivalent to the Joule. The watt-second is the energy equivalent to the power of one watt sustained for one second.
-While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor using the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the power consumption.
+While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor using the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the energy consumption.
 
 **Note:** In general, the overhead introduced by `perf` is relatively low, especially when using hardware performance counters. The impact on system performance is typically considered acceptable for most profiling and performance analysis tasks.
 
@@ -207,7 +207,7 @@ This section contains measurement results for the application categories.
 
 Within each category, multiple measurements were taken, and the baseline was subtracted from each of them. The results were then aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot.
 
-To enable a high-level comparison of overall power consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative power consumption.
+To enable a high-level comparison of overall energy consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative energy consumption.
 
 ## Off-the-Shelf Applications
 
@@ -215,7 +215,7 @@ In the case of off-the-shelf web-based applications (Spring and Quarkus), minimu
 
 ### Spring PetClinic Application
 
-This experiment assesses the power consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
+This experiment assesses the energy consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
 
 It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate ORM core version 6.1.7 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising four independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
 1. The endpoints returning static data (e.g., get home page, find owners page, vets page, petclinic.css, bootstrap.bundle.min.js, font-awesome.min.css) were hit at a constant rate of 12 reqs/sec for 780 seconds.
@@ -225,7 +225,7 @@ It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate OR
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/test-plan.hf.yaml) plan
@@ -233,7 +233,7 @@ Additional resources:
 
 ### Quarkus Hibernate ORM Panache
 
-This experiment assesses the power consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation). This is a simple create, read, update and delete (CRUD) web-based application.
+This experiment assesses the energy consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation). This is a simple create, read, update and delete (CRUD) web-based application.
 
 It involves running the Quarkus Hibernate ORM Panache sample application with Quarkus 3.0.3 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising two independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
 1. The endpoint returning static data (e.g., get home page) was hit at a constant rate of 64 reqs/sec for 780 seconds.
@@ -241,7 +241,7 @@ It involves running the Quarkus Hibernate ORM Panache sample application with Qu
 
 [![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
@@ -249,7 +249,7 @@ Additional resources:
 
 ### Renaissance Benchmark Suite
 
-This experiment assesses the power consumption while running the [Renaissance](https://github.com/renaissance-benchmarks/renaissance) benchmark suite with different JVMs (using Just-in-Time compilation). 
+This experiment assesses the energy consumption while running the [Renaissance](https://github.com/renaissance-benchmarks/renaissance) benchmark suite with different JVMs (using Just-in-Time compilation). 
 The Renaissance suite comprises various JVM workloads grouped into categories such as Big Data, machine learning, and functional programming. 
 
 The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories included in these measurements are 
@@ -262,19 +262,19 @@ Each category ran with 100 repetitions.
 
 [![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 [![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 [![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 [![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 ## Custom-Made Java Applications
 
@@ -282,7 +282,7 @@ In addition to the off-the-shelf applications, a collection of custom-made Java 
 
 ### Memory Access Patterns
 
-This program aims to analyze the relationship between memory access patterns and power consumption under different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
+This program aims to analyze the relationship between memory access patterns and energy consumption under different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
 
 There are three primary memory access patterns:
 - **Temporal**: memory that has been recently accessed is likely to be accessed again in the near future.
@@ -295,19 +295,18 @@ Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-ene
 
 [![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
-The pattern of memory accesses and the co-location or non-co-location of memory significantly influence power consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
+The pattern of memory accesses and the co-location or non-co-location of memory significantly influence energy consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
 
-When we need to perform chunks of work on co-located data, arrays are widely recognized as cache-friendly due to their contiguous memory layout. Accessing array elements sequentially promotes good data locality, minimizing cache misses, enhancing cache utilization, and lowering the energy consumption.
-
-In addition, we can use hash tables with open addressing and linear probing instead of bucket and chain hash tables. Similarly, we can store an array of multiple items in each node instead of employing linked lists or trees with individual items in each node.
+When we need to perform chunks of work on co-located data, arrays are widely recognized as cache-friendly due to their contiguous memory layout. Accessing array elements sequentially promotes good data locality, minimizing cache misses, enhancing cache utilization, and reducing energy consumption. 
+In addition to arrays, we can utilize hash tables with open addressing and linear probing instead of bucket and chain hash tables. Similarly, we can store an array of multiple items in each node instead of employing linked lists or trees with individual items in each node.
 
 ### Logging Patterns
 
-When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher power consumption, which is reflected in our monthly bills.
+When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher energy consumption, which is reflected in our monthly bills.
 
-We can potentially mitigate these costs by employing strategies such as binary logging, asynchronous appenders, writing to RAMFS or TEMPFS, reducing log verbosity, or by selectively retaining only essential logs, particularly those related to unrecoverable or unexpected scenarios.
+We can potentially mitigate these costs by employing strategies such as binary logging, writing to RAMFS or TEMPFS, asynchronous appenders, reducing log verbosity, or by selectively retaining only essential logs, particularly those related to unrecoverable or unexpected scenarios.
 
 The program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
 
@@ -315,15 +314,15 @@ Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-c
 
 [![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy.svg?raw=true)
 
-*This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 While certain logging patterns are more efficient than others (e.g., based on these tests, examples include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc.), it is noteworthy that the energy consumption of each JVM to execute the same code varies significantly.
 
 ### Throwing Exception Patterns
 
-Similar to logging, the creation, throwing, and handling of exceptions introduce additional runtime overhead, impacting both the performance and power consumption of software applications.
+Similar to logging, the creation, throwing, and handling of exceptions introduce additional runtime overhead, impacting both the performance and energy consumption of software applications.
 
-This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated first) dominates the associated costs.
+This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated `first`) dominates the associated costs.
 
 Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
 
@@ -341,17 +340,19 @@ The `bubble_sort` algorithm, with its time complexity of O(n^2), typically consu
 
 Even though `quick_sort` and `radix_sort` have different complexities, with quick sort having O(n log n) and radix sort having O(nk), they tend to consume similar amounts of energy when executed on the same JVM platform.
 
-While the algorithm complexities can impact power consumption, the relationship is not always (direct or) straightforward.
-There are a few factors to take into account like:
-- the computational effort (i.e., algorithms with higher time or space complexities generally require more computational effort to execute, resulting in increased CPU utilization)
-- memory accesses patterns (i.e., algorithms with poor memory access patterns, such as excessive random or cache-unfriendly accesses, can increase the power consumption)
-- the underlying hardware
+As we have seen, while algorithm complexities can impact energy consumption, the relationship is not always straightforward. 
+In theory, algorithms with higher time or space complexities would generally require more computational effort to execute, leading to increased energy consumption. 
+However, when running these algorithms on hardware, there are a few additional factors to consider. 
+- **Memory access patterns**: Algorithms with poor memory access patterns, such as excessive random or cache-unfriendly accesses, can increase energy consumption.
+- **The underlying hardware**: The characteristics and efficiency of the hardware on which the algorithm is executed can also affect energy consumption.
+
+This is the reason why different algorithms with different time complexities could consume the same amount of energy. Even algorithms within the same class of complexity could end up consuming different amounts of energy. This can occur when an algorithm uses data structures that are poorly located in memory and not cache-friendly.
 
 ### Virtual Calls
 
 Virtual calls are generally considered to be a form of micro-optimization. In the context of modern hardware, for most business applications (excluding some categories like library/framework authors), unless there is a specific need, excessive concern about call performance is often unnecessary.
 
-This program evaluates the power consumption of virtual calls using two different scenarios:
+This program evaluates the energy consumption of virtual calls using two different scenarios:
 - one with 2 target implementations (also known as bimorphic) 
 - and another with 24 different target implementations. 
 
@@ -365,7 +366,7 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 ## Energy Geometric Mean
 
-This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall power consumption scores across all JVMs.
+This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
 No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean | Unit
 ----|---------------------|-------------|----------------------------------|--------
@@ -380,13 +381,13 @@ No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean | Uni
 
 > The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
-# How power consumption correlates with performance
+# How energy consumption correlates with performance
 
-There is no direct relationship between power consumption and performance. In general, power consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
+There is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
 In regard to these  empirical studies, I can provide two examples that support my statement.
 
-In the **first example**, higher power consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
+In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
 [![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)
 
@@ -394,13 +395,13 @@ Based on this scatter plot, it is noticeable that:
 - GraalVM EE consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
 - Azul Prime VM consumes more energy compared to GraalVM CE but also achieves faster task completion.
 
-In the **second example**, lower power consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
+In the **second example**, lower energy consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
 
 [![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)
 
 Based on this scatter plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
-Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and power consumption.
+Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
 
 # Conclusions
 
