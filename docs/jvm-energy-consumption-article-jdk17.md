@@ -96,11 +96,11 @@ In other words, for a typical JVM application, this means that any I/O operation
 
 Proof of the measurement methods' validity, which depend on RAPL, is necessary. Therefore, below are some noteworthy RAPL-based studies.
 
-Desrochers et al. [2] measured DRAM energy consumption while minimizing interference, comparing it with RAPL measurements. These findings validate the DRAM domain, utilizing diverse systems and benchmarks. Variances between physical and RAPL measurements are below 20% [2]. Recent processors, like Intel Haswell microarchitecture, exhibit improved precision compared to earlier generations.
+Desrochers et al. [2] measured DRAM energy consumption while minimizing interference, comparing it with RAPL measurements. These findings validate the DRAM domain, utilizing diverse systems and benchmarks. Variances between physical and RAPL measurements are below 20%. Recent processors, like Intel Haswell microarchitecture, exhibit improved precision compared to earlier generations.
 
-Zhang et al. [3] set a power consumption limit using RAPL and evaluated its adherence. Out of 16 benchmarks, 14 had a 2% mean absolute percentage error (MAPE), while 2 had an error rate exceeding 5% [3]. The study also highlighted RAPL's improved accuracy in high energy consumption scenarios.
+Zhang et al. [3] set a power consumption limit using RAPL and evaluated its adherence. Out of 16 benchmarks, 14 had a 2% mean absolute percentage error (MAPE), while 2 had an error rate exceeding 5%. The study also highlighted RAPL's improved accuracy in high energy consumption scenarios.
 
-Khan et al. [4] compared RAPL to wall power measurements in Taito supercomputer, finding a strong 99% correlation. The estimation error (MAPE) was only 1.7%. Performance overhead of reading RAPL was <1% [4].
+Khan et al. [4] compared RAPL to wall power measurements in Taito supercomputer, finding a strong 99% correlation. The estimation error (MAPE) was only 1.7%. Performance overhead of reading RAPL was <1%.
 
 Based to these extensive studies, RAPL is considered to be a reliable and widely used tool for power consumption analysis on Intel-based systems.
 
@@ -306,8 +306,6 @@ In addition to arrays, we can utilize hash tables with open addressing and linea
 
 When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher energy consumption, which is reflected in our monthly bills.
 
-We can potentially mitigate these costs by employing strategies such as binary logging, writing to RAMFS or TEMPFS, asynchronous appenders, reducing log verbosity, or by selectively retaining only essential logs, particularly those related to unrecoverable or unexpected scenarios.
-
 The program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
 
 Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
@@ -316,7 +314,9 @@ Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-c
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
-While certain logging patterns are more efficient than others (e.g., based on these tests, examples include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc.), it is noteworthy that the energy consumption of each JVM to execute the same code varies significantly.
+Certain logging patterns are more efficient than others. Based on these tests, examples of such patterns include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc. It is worth noting that the energy consumption can vary significantly across different JVMs when logging the same data.
+
+Reducing the number of logs to only essential ones, particularly those related to unrecoverable or unexpected scenarios, is a common recommendation that applies well to all business applications. Additionally, employing strategies such as using asynchronous appenders, binary logging, and writing to RAMFS or TEMPFS can further enhance efficiency.
 
 ### Throwing Exception Patterns
 
@@ -328,6 +328,15 @@ Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-e
 
 [![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/energy.svg?raw=true)
 
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Creating constant exceptions and throwing them only when necessary is a good approach to mitigate the negative impact  on energy consumption. 
+
+If constant exceptions do not meet the requirements, another option is to override the 'fillInStackTrace' method each time a new exception is thrown. 
+
+If none of these alternatives are viable, at the very least, aim to minimize the number of exceptions in the application's source code.
+It is important to consider that the cost increases with the actual stack depth at which the exception is created.
+
 ### Sorting Algorithms Complexities
 
 This program utilizes various sorting algorithms with different complexities, ranging from quadratic to linear, to sort an array of 1,000,000 integers. The initial array is deliberately sorted in reverse order, creating a worst-case scenario for the sorting algorithms.
@@ -335,6 +344,8 @@ This program utilizes various sorting algorithms with different complexities, ra
 Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
 
 [![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/energy.svg?raw=true)
+
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 The `bubble_sort` algorithm, with its time complexity of O(n^2), typically consumes a significant amount of energy compared to other sorting algorithms when achieving the same result of providing a sorted array.
 
@@ -350,9 +361,7 @@ This is the reason why different algorithms with different time complexities cou
 
 ### Virtual Calls
 
-Virtual calls are generally considered to be a form of micro-optimization. In the context of modern hardware, for most business applications (excluding some categories like library/framework authors), unless there is a specific need, excessive concern about call performance is often unnecessary.
-
-This program evaluates the energy consumption of virtual calls using two different scenarios:
+The program evaluates the energy consumption of virtual calls using two different scenarios:
 - one with 2 target implementations (also known as bimorphic) 
 - and another with 24 different target implementations. 
 
@@ -364,18 +373,22 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 [![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/energy.svg?raw=true)
 
+*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them entirely or caring too much about them.
+
 ## Energy Geometric Mean
 
 This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean | Unit
-----|---------------------|-------------|----------------------------------|--------
-1   | Graal Native Image  | x86_64      | 0.386                            | Watt⋅sec
-2   | OpenJDK HotSpot VM  | x86_64      | 1.00                             | Watt⋅sec
-3   | GraalVM EE          | x86_64      | 1.019                            | Watt⋅sec
-4   | GraalVM CE          | x86_64      | 1.035                            | Watt⋅sec
-5   | Azul Prime VM       | x86_64      | 1.657                            | Watt⋅sec
-6   | Eclipse OpenJ9 VM   | x86_64      | 1.771                            | Watt⋅sec
+No. | JVM                 | Arcitecture | Normalized Energy Geometric Mean 
+----|---------------------|-------------|----------------------------------
+1   | Graal Native Image  | x86_64      | 0.386                            
+2   | OpenJDK HotSpot VM  | x86_64      | 1.00                             
+3   | GraalVM EE          | x86_64      | 1.019                            
+4   | GraalVM CE          | x86_64      | 1.035                            
+5   | Azul Prime VM       | x86_64      | 1.657                            
+6   | Eclipse OpenJ9 VM   | x86_64      | 1.771                            
 
 **Note:** The first in the row is the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -391,7 +404,9 @@ In the **first example**, higher energy consumption was observed alongside short
 
 [![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)
 
-Based on this scatter plot, it is noticeable that:
+*This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
+
+Based on this plot, it is noticeable that:
 - GraalVM EE consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
 - Azul Prime VM consumes more energy compared to GraalVM CE but also achieves faster task completion.
 
@@ -399,13 +414,15 @@ In the **second example**, lower energy consumption was observed, but it resulte
 
 [![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)
 
-Based on this scatter plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
+*This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
+
+Based on this plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
 Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
 
 # Conclusions
 
-This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, and algorithms with varying time complexities.
+This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, algorithms with varying time complexities, etc.
 
 The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often showing significant differences. 
 
@@ -415,17 +432,21 @@ In the second group of energy-efficient JVMs, OpenJDK Hotspot VM, GraalVM EE, an
 
 In the third group, which showed comparatively lower energy efficiency, Azul Prime VM and Eclipse OpenJ9 VM exhibited similar performance.
 
-This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
+To write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, and defining the scope of allocated objects as close as possible to their usage.
 
-It is worth noting once again that performance and energy efficiency should not be used interchangeably. They represent distinct aspects, which may align in some instances but can also be at odds with each other at times.
+This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
 
 # Future Work
 
 An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or representative code patterns.
 
-If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption) to collaborate. 
+It might also be interesting to assess the energy consumption across multiple web-based frameworks like Quarkus, Spring, and Micronaut. However, at the current stage, I have not found a proper way to compare them due to the differences in application code (i.e., different libraries), which makes the comparison more challenging.
+
+If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption). 
 
 Your contributions are welcome and appreciated.
+
+**Looking forward to contributing to a more eco-friendly world!**
 
 # References
 
@@ -439,7 +460,7 @@ Your contributions are welcome and appreciated.
 
 5. Zakaria Ournani, Mohammed Chakib Belgaid, Romain Rouvoy, Pierre Rust, Joel Penhoat: [Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://inria.hal.science/hal-03275286/document)
 
-6. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
+6. Ko Turk: [Green Software Engineering: Best Practices](https://www.adesso.nl/en/news/blog/green-software-engineering-best-practices.jsp)
 
-7. Ko Turk: [Green Software Engineering: Best Practices](https://www.adesso.nl/en/news/blog/green-software-engineering-best-practices.jsp)
+7. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
 
