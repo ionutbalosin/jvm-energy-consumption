@@ -31,6 +31,7 @@ import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
 import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
 import com.ionutbalosin.jvm.energy.consumption.report.SummaryReport;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.File;
 import java.io.IOException;
@@ -62,7 +63,6 @@ public class EnergyReportCalculator {
   public static String OUTPUT_FOLDER = "energy-consumption";
   public static String REPORT_STATS_OUTPUT_FILE = "energy-reports.csv";
   public static String RAW_PERF_STATS_OUTPUT_FILE = "raw-perf-stats.csv";
-  public static String SUMMARY_REPORT_OUTPUT_FILE = "summary-report.csv";
   public static String OS = "linux";
   public static String ARCH = "x86_64";
   public static String JDK_VERSION = "17";
@@ -72,16 +72,18 @@ public class EnergyReportCalculator {
     BaselineReport baseline = new BaselineReport("baseline-idle-os");
     calculateEnergy(baseline);
 
-    // 2. for any other report pass the baseline mean power and save the generated report stats
+    // 2. for any other report pass the baseline mean power and save the generated reports
+    List<PerfStats> perfStats = new ArrayList<>();
     List<ReportStats> reportStats = new ArrayList<>();
     for (AbstractReport report : REPORTS.apply(baseline.meanPowerBaseline)) {
       calculateEnergy(report);
+      perfStats.addAll(report.perfStats);
       reportStats.addAll(report.reportStats);
     }
 
     // 3. the summary report takes into account all previously generated report stats
-    SummaryReport summary = new SummaryReport("rapl-reports", reportStats);
-    calculateEnergySummary(summary);
+    SummaryReport summary = new SummaryReport("rapl-reports", perfStats, reportStats);
+    calculateEnergy(summary);
   }
 
   private static void calculateEnergy(AbstractReport energyReport) throws IOException {
@@ -95,14 +97,5 @@ public class EnergyReportCalculator {
     String reportStatsOutputFile = outputPath + "/" + REPORT_STATS_OUTPUT_FILE;
     energyReport.createReportStats();
     energyReport.printReportStats(reportStatsOutputFile);
-  }
-
-  private static void calculateEnergySummary(AbstractReport energyReport) throws IOException {
-    String outputPath = new File(energyReport.basePath + "/" + OUTPUT_FOLDER).getCanonicalPath();
-    Files.createDirectories(Paths.get(outputPath));
-
-    String summaryReportOutputFile = outputPath + "/" + SUMMARY_REPORT_OUTPUT_FILE;
-    energyReport.createReportStats();
-    energyReport.printReportStats(summaryReportOutputFile);
   }
 }

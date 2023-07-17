@@ -31,10 +31,12 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
+import static java.util.Optional.ofNullable;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.EnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.geomean.TimeElapsedFormulas;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -58,19 +60,46 @@ public class SummaryReport extends AbstractReport {
   AbstractFormulas timeElapsedFormulas;
   public List<ReportStats> reportStatsSummary;
 
-  public SummaryReport(String module, List<ReportStats> reportStats) {
+  public SummaryReport(String module, List<PerfStats> perfStats, List<ReportStats> reportStats) {
     this.module = module;
+    this.perfStats = perfStats;
+    this.reportStats = reportStats;
     this.energyFormulas = new EnergyFormulas();
     this.timeElapsedFormulas = new TimeElapsedFormulas();
-    this.reportStats = reportStats;
     this.reportStatsSummary = new ArrayList<>();
     this.basePath =
         String.format("%s/%s/results/%s/%s/jdk-%s", BASE_PATH, this.module, OS, ARCH, JDK_VERSION);
   }
 
+  public void parseRawPerfStats() {
+    // intentionally left blank
+  }
+
   @Override
-  public void printRawPerfStatsReport(String outputFilePath) {
-    throw new UnsupportedOperationException();
+  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
+    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
+      writer.printf(
+          "%18s;%26s;%16s;%27s;%23s;%15s\n",
+          "Test Category",
+          "Test Type",
+          "Run Identifier",
+          "Energy Package (Watt⋅sec)",
+          "Energy RAM (Watt⋅sec)",
+          "Elapsed (sec)");
+
+      for (PerfStats perfStat : perfStats) {
+        writer.printf(
+            "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
+            perfStat.testCategory,
+            ofNullable(perfStat.testType).orElse("NA"),
+            perfStat.testRunIdentifier,
+            perfStat.pkg,
+            perfStat.ram,
+            perfStat.elapsed);
+      }
+    }
+
+    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
   }
 
   @Override
