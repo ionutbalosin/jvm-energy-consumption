@@ -196,7 +196,7 @@ No. | JVM distribution                                                          
 1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads) | 17.0.7      |x86_64
 2   | [GraalVM CE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
 3   | [GraalVM EE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
-4   | [Graal Native Image](https://www.graalvm.org/22.0/reference-manual/native-image/)            | 17.0.7      |x86_64
+4   | [Graal Native Image](https://www.graalvm.org/22.0/reference-manual/native-image/)      | 17.0.7      |x86_64
 5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
 6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
 
@@ -376,11 +376,13 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
-In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them entirely or caring too much about them.
+In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them or caring too much about them.
 
 ## Energy Geometric Mean
 
 This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
+
+The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image, which would result in an unfair comparison.
 
 No. | JVM                 | Architecture | Normalized Energy Geometric Mean 
 ----|---------------------|--------------|----------------------------------
@@ -392,8 +394,6 @@ No. | JVM                 | Architecture | Normalized Energy Geometric Mean
 6   | Eclipse OpenJ9 VM   | x86_64       | 1.771                            
 
 **Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
-
-> The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
 
 # How energy consumption correlates with performance
 
@@ -417,7 +417,7 @@ In the **second example**, lower energy consumption was observed, but it resulte
 
 *This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
 
-Based on this plot, it can be observed that GraalVM EE consumes slightly less power than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
+Based on this plot, it can be observed that GraalVM EE consumes slightly less energy than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
 Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
 
@@ -425,7 +425,9 @@ Let's consider now an analogy from the car industry: Is the most powerful car th
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains.
+Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains. 
+
+The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image, which would result in an unfair comparison.
 
 No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|---------------------|-------------------------|----------------------------------|-----------------------
@@ -438,8 +440,6 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 
 **Note:** Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 
-> The Renaissance benchmark suite was excluded from this analysis because it cannot run on the Native Image.
-
 **Legend:** 
 - `CO₂` - carbon dioxide.
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
@@ -447,8 +447,8 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 - `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 We can observe that when comparing the normalized geometric mean to the total energy consumption, the order of JVMs differs slightly (e.g., OpenJDK HotSpot VM consumes less energy overall compared to Graal Native Image). This discrepancy arises because the sum and geometric mean employ different mathematical operations, emphasizing different aspects of the data:
-- The geometric mean is less affected by extreme values and offers a balanced representation of the power consumption data. It represents the central tendency of the data.
-- In contrast, total energy consumption represents the accumulation of all measurements and directly correlates to our monthly bills, reflecting the additive nature of power consumption.
+- The geometric mean is less affected by extreme values and offers a balanced representation of the central tendency of the data.
+- In contrast, total energy consumption represents the accumulation of all measurements and directly correlates to our monthly bills.
 
 # Conclusions
 
@@ -462,7 +462,7 @@ In the second group of energy-efficient JVMs, OpenJDK Hotspot VM, GraalVM EE, an
 
 In the third group, which showed comparatively lower energy efficiency, Azul Prime VM and Eclipse OpenJ9 VM exhibited similar performance.
 
-To write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, and defining the scope of allocated objects as close as possible to their usage.
+To write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, defining the scope of allocated objects as close as possible to their usage, etc.
 
 This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
 
