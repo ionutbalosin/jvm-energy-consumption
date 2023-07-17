@@ -104,8 +104,8 @@ public class SummaryReport extends AbstractReport {
       // exclude the "renaissance" tests since they did not run for all JVMs
       List<PerfStats> filteredPerfStats = getPerfStats(perfStats, "renaissance", testCategory);
 
-      double energyGeometricMean = energyFormulas.getGeometricMean(filteredPerfStats);
       double energy = energyFormulas.getSum(filteredPerfStats);
+      double energyGeometricMean = energyFormulas.getGeometricMean(filteredPerfStats);
       double carbonDioxide = energyFormulas.getCarbonDioxide(filteredPerfStats);
       reportStats.add(
           new ReportStats(
