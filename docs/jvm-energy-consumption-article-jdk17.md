@@ -29,7 +29,7 @@
     - [Virtual Calls](#virtual-calls)
   - [Energy Geometric Mean](#energy-geometric-mean)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
-- [Energy consumption and carbon emissions](#energy-consumption-and-carbon-emissions)
+- [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
 - [References](#references)
@@ -421,11 +421,26 @@ Based on this plot, it can be observed that GraalVM EE consumes slightly less po
 
 Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
 
-# Energy consumption and carbon emissions
+# From energy consumption to carbon emissions
 
-Energy consumption and carbon emissions are closely correlated. To convert energy consumption from Watt⋅sec to CO2 carbon emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Then, we just have to multiply the energy consumption by the carbon emissions factor for the specific energy source.
+Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider another example.
+Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains. The total energy reflects the combined measurements from all tests conducted.
+
+No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
+----|---------------------|-------------------------|----------------------------------|-----------------------
+1   | Graal Native Image  | 4,677.11                | 137                              |  0.178                     
+2   | GraalVM EE          | 5,436.79                | 137                              |  0.207                  
+3   | OpenJDK HotSpot VM  | 5,833.58                | 137                              |  0.222                      
+4   | GraalVM CE          | 6,844.9                 | 137                              |  0.260                     
+5   | Eclipse OpenJ9 VM   | 8,925.11                | 137                              |  0.340
+6   | Azul Prime VM       | 9,044.04                | 137                              |  0.344                       
+
+**Legend:** 
+- `CO₂` - carbon dioxide.
+- `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
+- `gCO₂` - grams of carbon dioxide.
+- `137` - is the current carbon emission factor for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 # Conclusions
 
