@@ -31,6 +31,7 @@ public class ReportStats {
   public String testCategory;
   public String testType;
   public int samples;
+  public double energy;
   public double meanEnergy;
   public double meanErrorEnergy;
   public double meanPower;
@@ -38,7 +39,7 @@ public class ReportStats {
   public double meanTimeElapsed;
   public double meanErrorTimeElapsed;
   public double geoMeanEnergy;
-  public double geoMeanTimeElapsed;
+  public double carbonDioxide;
 
   public ReportStats(
       String module, String testCategory, int samples, double meanPower, double meanErrorPower) {
@@ -86,10 +87,11 @@ public class ReportStats {
   }
 
   public ReportStats(
-      String testCategory, int samples, double geoMeanEnergy, double geoMeanTimeElapsed) {
+      String testCategory, int samples, double energy, double geoMeanEnergy, double carbonDioxide) {
     this.testCategory = testCategory;
     this.samples = samples;
+    this.energy = energy;
     this.geoMeanEnergy = geoMeanEnergy;
-    this.geoMeanTimeElapsed = geoMeanTimeElapsed;
+    this.carbonDioxide = carbonDioxide;
   }
 }

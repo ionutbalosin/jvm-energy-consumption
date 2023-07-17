@@ -32,7 +32,9 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 public abstract class AbstractFormulas {
 
-  private static double CONFIDENCE = 0.90;
+  // Source: https://app.electricitymaps.com/zone/AT
+  public static double CARBON_DIOXIDE_EMISSION_FACTOR = 137;
+  double CONFIDENCE = 0.90;
 
   // this could return one of below formulas (depending on the implementation/caller):
   //  - the power formula (in Watt)
@@ -67,7 +69,7 @@ public abstract class AbstractFormulas {
     return probability * getStandardDeviation(perfStats) / Math.sqrt(size);
   }
 
-  private double getSum(List<PerfStats> perfStats) {
+  public double getSum(List<PerfStats> perfStats) {
     int size = perfStats.size();
     if (size > 0) {
       double sum = 0;
@@ -78,6 +80,12 @@ public abstract class AbstractFormulas {
     } else {
       return Double.NaN;
     }
+  }
+
+  public double getCarbonDioxide(List<PerfStats> perfStats) {
+    double energyWattSec = getSum(perfStats);
+    double energyKWh = energyWattSec / 3_600_000;
+    return energyKWh * CARBON_DIOXIDE_EMISSION_FACTOR;
   }
 
   private double getStandardDeviation(List<PerfStats> perfStats) {

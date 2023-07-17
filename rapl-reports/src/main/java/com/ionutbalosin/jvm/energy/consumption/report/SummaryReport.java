@@ -100,20 +100,16 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
-    // filter "renaissance" module since these tests did not run for all JVMs (e.g., native image)
-    List<PerfStats> filteredPerfStats = excludePerfStatsByModule(perfStats, "renaissance");
-
-    // for each test category calculate the geometric mean
     for (String testCategory : TEST_CATEGORIES) {
-      List<PerfStats> perfStatsByCategory = getPerfStatsByCategory(filteredPerfStats, testCategory);
-      double energyGeometricMean = energyFormulas.getGeometricMean(perfStatsByCategory);
-      double timeElapsedGeometricMean = timeElapsedFormulas.getGeometricMean(perfStatsByCategory);
+      // exclude the "renaissance" tests since they did not run for all JVMs
+      List<PerfStats> filteredPerfStats = getPerfStats(perfStats, "renaissance", testCategory);
+
+      double energyGeometricMean = energyFormulas.getGeometricMean(filteredPerfStats);
+      double energy = energyFormulas.getSum(filteredPerfStats);
+      double carbonDioxide = energyFormulas.getCarbonDioxide(filteredPerfStats);
       reportStats.add(
           new ReportStats(
-              testCategory,
-              perfStatsByCategory.size(),
-              energyGeometricMean,
-              timeElapsedGeometricMean));
+              testCategory, filteredPerfStats.size(), energy, energyGeometricMean, carbonDioxide));
     }
   }
 
@@ -121,45 +117,44 @@ public class SummaryReport extends AbstractReport {
   public void printReportStats(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%9s;%34s;%34s;%30s;%35s\n",
+          "%18s;%9s;%19s;%34s;%34s;%22s\n",
           "Test Category",
           "Samples",
+          "Energy (Watt⋅sec)",
           "Energy Geometric Mean (Watt⋅sec)",
           "Normalized Energy Geometric Mean",
-          "Elapsed Geometric Mean (sec)",
-          "Normalized Elapsed Geometric Mean");
+          "CO₂ Emissions (gCO₂)");
 
       ReportStats referenceReportStat = getReportStatByCategory(reportStats, "openjdk-hotspot-vm");
       for (ReportStats reportStat : reportStats) {
         writer.printf(
-            "%18s;%9d;%34.3f;%34.3f;%30.3f;%35.3f\n",
+            "%18s;%9d;%19.3f;%34.3f;%34.3f;%22.3f\n",
             reportStat.testCategory,
             reportStat.samples,
+            reportStat.energy,
             reportStat.geoMeanEnergy,
             reportStat.geoMeanEnergy / referenceReportStat.geoMeanEnergy,
-            reportStat.geoMeanTimeElapsed,
-            reportStat.geoMeanTimeElapsed / referenceReportStat.geoMeanTimeElapsed);
+            reportStat.carbonDioxide);
       }
       writer.printf(
-              "\n# Note1: The reference baseline has already been excluded from the energy scores");
+          "\n# Note1: The reference baseline has already been excluded from the energy scores");
       writer.printf(
           "\n"
               + "# Note2: '%s' was used as the reference value for calculating the normalized"
               + " geometric mean",
           referenceReportStat.testCategory);
+      writer.printf(
+          "\n# Note3: The carbon emission factor used was '%s'",
+          AbstractFormulas.CARBON_DIOXIDE_EMISSION_FACTOR);
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 
-  private List<PerfStats> excludePerfStatsByModule(List<PerfStats> perfStats, String module) {
+  private List<PerfStats> getPerfStats(
+      List<PerfStats> perfStats, String module, String testCategory) {
     return perfStats.stream()
         .filter(perfStat -> !module.equals(perfStat.module))
-        .collect(Collectors.toList());
-  }
-
-  private List<PerfStats> getPerfStatsByCategory(List<PerfStats> perfStats, String testCategory) {
-    return perfStats.stream()
         .filter(perfStat -> testCategory.equals(perfStat.testCategory))
         .collect(Collectors.toList());
   }
