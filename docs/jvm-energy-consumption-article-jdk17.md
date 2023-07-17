@@ -362,8 +362,8 @@ This is the reason why different algorithms with different time complexities cou
 ### Virtual Calls
 
 The program evaluates the energy consumption of virtual calls using two different scenarios:
-- one with 2 target implementations (also known as bimorphic) 
-- and another with 24 different target implementations. 
+- one with 2 target implementations (also known as bimorphic).
+- and another with 24 different target implementations (also known as megamorphic) . 
 
 **Note:** Bimorphic call sites are more commonly encountered, while having 24 target implementations for the same call site is quite unusual.
 
