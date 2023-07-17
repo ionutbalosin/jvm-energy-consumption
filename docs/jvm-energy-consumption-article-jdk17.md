@@ -440,7 +440,7 @@ This report should not be considered as the final determination of the most ener
 
 An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or representative code patterns.
 
-It might also be interesting to assess the energy consumption across multiple web-based frameworks like Quarkus, Spring, and Micronaut. However, at the current stage, I have not found a proper way to compare them due to the differences in application code (i.e., different libraries), which makes the comparison more challenging.
+It might also be interesting to assess the energy consumption across multiple web-based frameworks like Quarkus, Spring, Micronaut, etc. However, at the current stage, I have not found a proper way to compare them.
 
 If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption). 
 
