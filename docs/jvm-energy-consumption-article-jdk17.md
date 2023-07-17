@@ -207,11 +207,11 @@ This section contains measurement results for the application categories.
 
 Within each category, multiple measurements were taken, and the baseline was subtracted from each of them. The results were then aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot.
 
-To enable a high-level comparison of overall power consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was calculated. This serves as an informative metric for assessing relative power consumption.
+To enable a high-level comparison of overall power consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative power consumption.
 
 ## Off-the-Shelf Applications
 
-Minimum configurations were performed for each web-based application (Spring and Quarkus), primarily aimed at enhancing the database connection pools.
+In the case of off-the-shelf web-based applications (Spring and Quarkus), minimum configurations were performed primarily to enhance the database connection pools.
 
 ### Spring PetClinic Application
 
@@ -253,10 +253,10 @@ This experiment assesses the power consumption while running the [Renaissance](h
 The Renaissance suite comprises various JVM workloads grouped into categories such as Big Data, machine learning, and functional programming. 
 
 The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories included in these measurements are 
-- concurrency
-- functional
+- Concurrency
+- Functional
 - Scala
-- web
+- Web
  
 Each category ran with 100 repetitions. 
 
@@ -285,11 +285,11 @@ In addition to the off-the-shelf applications, a collection of custom-made Java 
 This program aims to analyze the relationship between memory access patterns and power consumption under different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
 
 There are three primary memory access patterns:
-- **temporal**: memory that has been recently accessed is likely to be accessed again in the near future.
-- **spatial**: adjacent memory locations are likely to be accessed in close succession.
-- **striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
+- **Temporal**: memory that has been recently accessed is likely to be accessed again in the near future.
+- **Spatial**: adjacent memory locations are likely to be accessed in close succession.
+- **Striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
 
-This program creates a large array of longs, occupying approximately 4 GB of RAM memory. Then, during 10 consecutive iterations, the array elements are accesses based on one of the described patterns. After each iteration, the validity of the tests is checked.
+The program creates a large array of longs, occupying approximately 4 GB of RAM memory. Then, during 10 consecutive iterations, the array elements are accesses based on one of the described patterns. After each iteration, the validity of the tests is checked.
 
 Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
 
@@ -297,14 +297,19 @@ Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-ene
 
 *This plot represents the mean power consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
-As a well-known fact, accessing co-located memory in a predictable pattern reduces latency. However, interestingly, it also has an impact on power consumption. Despite using the same hardware machine for each test (i.e., identical memory bandwidth, CPU caches, and memory latency), it is intriguing to observe that each JVM consumes slightly different energy while executing the same code.
+The pattern of memory accesses and the co-location or non-co-location of memory significantly influence power consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
+
+When we need to perform chunks of work on co-located data, arrays are widely recognized as cache-friendly due to their contiguous memory layout. Accessing array elements sequentially promotes good data locality, minimizing cache misses, enhancing cache utilization, and lowering the energy consumption.
+
+In addition, we can use hash tables with open addressing and linear probing instead of bucket and chain hash tables. Similarly, we can store an array of multiple items in each node instead of employing linked lists or trees with individual items in each node.
 
 ### Logging Patterns
 
 When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher power consumption, which is reflected in our monthly bills.
+
 We can potentially mitigate these costs by employing strategies such as binary logging, asynchronous appenders, writing to RAMFS or TEMPFS, reducing log verbosity, or by selectively retaining only essential logs, particularly those related to unrecoverable or unexpected scenarios.
 
-This program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
+The program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
 
 Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
 
@@ -318,7 +323,7 @@ While certain logging patterns are more efficient than others (e.g., based on th
 
 Similar to logging, the creation, throwing, and handling of exceptions introduce additional runtime overhead, impacting both the performance and power consumption of software applications.
 
-This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, as the time spent on filling in the stack trace (abbreviated *fist*) dominates the associated costs.
+This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated first) dominates the associated costs.
 
 Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
 
