@@ -6,4 +6,5 @@ openjdk-hotspot-vm;      106;                            66.582;                
  eclipse-openj9-vm;      106;                           119.486;                             1.795;                        91.413;                              1.346
      azul-prime-vm;      106;                           109.404;                             1.643;                        78.340;                              1.154
 
-# Note: 'openjdk-hotspot-vm' was used as the reference value for calculating the normalized geometric mean
+# Note1: The reference baseline has already been excluded from the energy scores
+# Note2: 'openjdk-hotspot-vm' was used as the reference value for calculating the normalized geometric mean

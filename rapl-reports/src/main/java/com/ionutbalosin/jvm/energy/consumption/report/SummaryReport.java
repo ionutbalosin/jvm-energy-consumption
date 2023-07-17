@@ -141,8 +141,10 @@ public class SummaryReport extends AbstractReport {
             reportStat.geoMeanTimeElapsed / referenceReportStat.geoMeanTimeElapsed);
       }
       writer.printf(
+              "\n# Note1: The reference baseline has already been excluded from the energy scores");
+      writer.printf(
           "\n"
-              + "# Note: '%s' was used as the reference value for calculating the normalized"
+              + "# Note2: '%s' was used as the reference value for calculating the normalized"
               + " geometric mean",
           referenceReportStat.testCategory);
     }
