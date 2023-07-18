@@ -36,7 +36,7 @@ public abstract class AbstractFormulas {
   public static double CARBON_DIOXIDE_EMISSION_FACTOR = 137;
   double CONFIDENCE = 0.90;
 
-  // this could return one of below formulas (depending on the implementation/caller):
+  // this could return one of below consumption formulas (depending on the implementation/caller):
   //  - the power (in Watt) consumption
   //  - the energy (in Watt⋅sec) consumption
   //  - the time elapsed (in sec) consumption
