@@ -132,6 +132,38 @@ start_sample() {
     $RUN_CMD > $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
+start_samples() {
+  echo "Starting samples at: $(date) ... "
+  read -r -p "Press ENTER to continue or CRTL+C to abort ... "
+
+  start_sample "ThrowExceptionPatterns" "const"
+  start_sample "ThrowExceptionPatterns" "lambda"
+  start_sample "ThrowExceptionPatterns" "new"
+  start_sample "ThrowExceptionPatterns" "override_fist"
+
+  start_sample "MemoryAccessPatterns" "linear"
+  start_sample "MemoryAccessPatterns" "random_page"
+  start_sample "MemoryAccessPatterns" "random_heap"
+
+  start_sample "LoggingPatterns" "string_format"
+  start_sample "LoggingPatterns" "lambda_heap"
+  start_sample "LoggingPatterns" "lambda_local"
+  start_sample "LoggingPatterns" "guarded_parametrized"
+  start_sample "LoggingPatterns" "guarded_unparametrized"
+  start_sample "LoggingPatterns" "unguarded_parametrized"
+  start_sample "LoggingPatterns" "unguarded_unparametrized"
+
+  start_sample "SortingAlgorithms" "bubble_sort"
+  start_sample "SortingAlgorithms" "merge_sort"
+  start_sample "SortingAlgorithms" "quick_sort"
+  start_sample "SortingAlgorithms" "radix_sort"
+
+  start_sample "VirtualCalls" "bimorphic"
+  start_sample "VirtualCalls" "megamorphic_24"
+
+  echo "Finished samples at: $(date) ... "
+}
+
 check_command_line_options "$@"
 if [ $? -ne 0 ]; then
   exit 1
@@ -172,30 +204,7 @@ echo ""
 echo "+==============================+"
 echo "| [5/5] Start the Java samples |"
 echo "+==============================+"
-#start_sample "ThrowExceptionPatterns" "const"
-#start_sample "ThrowExceptionPatterns" "lambda"
-#start_sample "ThrowExceptionPatterns" "new"
-#start_sample "ThrowExceptionPatterns" "override_fist"
-
-#start_sample "MemoryAccessPatterns" "linear"
-#start_sample "MemoryAccessPatterns" "random_page"
-#start_sample "MemoryAccessPatterns" "random_heap"
-
-#start_sample "LoggingPatterns" "string_format"
-#start_sample "LoggingPatterns" "lambda_heap"
-#start_sample "LoggingPatterns" "lambda_local"
-#start_sample "LoggingPatterns" "guarded_parametrized"
-#start_sample "LoggingPatterns" "guarded_unparametrized"
-#start_sample "LoggingPatterns" "unguarded_parametrized"
-#start_sample "LoggingPatterns" "unguarded_unparametrized"
-
-start_sample "SortingAlgorithms" "bubble_sort"
-start_sample "SortingAlgorithms" "merge_sort"
-start_sample "SortingAlgorithms" "quick_sort"
-start_sample "SortingAlgorithms" "radix_sort"
-
-start_sample "VirtualCalls" "bimorphic"
-start_sample "VirtualCalls" "megamorphic_24"
+start_samples
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
