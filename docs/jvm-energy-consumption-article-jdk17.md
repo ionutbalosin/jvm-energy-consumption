@@ -265,17 +265,25 @@ Each category ran with 100 repetitions.
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
+
 [![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/functional/reports)
 
 [![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/scala/reports)
+
 [![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/web/reports)
 
 ## Custom-Made Java Applications
 
