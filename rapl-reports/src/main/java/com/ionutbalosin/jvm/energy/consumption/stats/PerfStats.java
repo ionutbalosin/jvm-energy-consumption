@@ -33,13 +33,13 @@ public class PerfStats {
   public double psys;
   public double ram;
   public double elapsed;
-  public TYPE type;
+  public EXECUTION_TYPE type;
   public String module;
   public String testCategory;
   public String testType;
   public String testRunIdentifier;
 
-  public enum TYPE {
+  public enum EXECUTION_TYPE {
     RUN,
     BUILD;
   }

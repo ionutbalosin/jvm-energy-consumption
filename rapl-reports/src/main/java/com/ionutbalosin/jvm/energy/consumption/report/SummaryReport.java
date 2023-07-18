@@ -69,7 +69,7 @@ public class SummaryReport extends AbstractReport {
   }
 
   @Override
-  public void parseRawPerfStats(PerfStats.TYPE perfType) {
+  public void parseRawPerfStats(PerfStats.EXECUTION_TYPE perfType) {
     // intentionally left blank
   }
 

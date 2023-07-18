@@ -39,7 +39,7 @@ import java.util.Locale;
 
 public class PerfStatsParser {
 
-  public static PerfStats parseStats(Path filePath) {
+  public static PerfStats parseStats(Path filePath, PerfStats.EXECUTION_TYPE executionType) {
     try (BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), UTF_8))) {
 
@@ -76,14 +76,15 @@ public class PerfStatsParser {
 
       // extract the test category, test type and test run identifier from the output file name
       // Note: this entire logic relies on a very specific file name convention:
-      // "<test_category>-run-<test_type>-<test_run_identifier>.stats"
+      // "<test_category>-<execution_type>-<test_type>-<test_run_identifier>.stats"
       // Example:
-      //  -filename: "openjdk-hotspot-vm-run-guarded_parametrized-1.log"
+      //  -filename: "openjdk-hotspot-vm-run-guarded_parametrized-1.stats"
       //  - test category: "openjdk-hotspot-vm"
+      //  - execution type: "run"
       //  - test type: "guarded_parametrized"
       //  - test run identifier: "1"
       String fileName = filePath.getFileName().toString();
-      int runIndex = fileName.indexOf("-run-");
+      int runIndex = fileName.indexOf("-" + executionType.toString().toLowerCase() + "-");
       int statsIndex = fileName.indexOf(".stats");
       int lastDashIndex = fileName.lastIndexOf("-");
       int beforeLastDashIndex = fileName.lastIndexOf("-", lastDashIndex - 1);

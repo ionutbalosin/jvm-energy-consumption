@@ -29,6 +29,7 @@ package com.ionutbalosin.jvm.energy.consumption.report;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats.EXECUTION_TYPE;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
@@ -42,10 +43,10 @@ import java.util.function.Function;
 
 public abstract class AbstractReport {
 
-  Function<PerfStats.TYPE, PathMatcher> FILENAME_MATCHER =
-      (perfType) ->
+  Function<EXECUTION_TYPE, PathMatcher> FILENAME_MATCHER =
+      (executionType) ->
           FileSystems.getDefault()
-              .getPathMatcher("regex:.*-" + perfType.toString().toLowerCase() + "-.*.stats");
+              .getPathMatcher("regex:.*-" + executionType.toString().toLowerCase() + "-.*.stats");
 
   public String module;
   public String basePath;
@@ -56,7 +57,7 @@ public abstract class AbstractReport {
     this.reportStats = new ArrayList<>();
   }
 
-  public void parseRawPerfStats(PerfStats.TYPE perfType) throws IOException {
+  public void parseRawPerfStats(EXECUTION_TYPE perfType) throws IOException {
     this.perfStats = readPerfOutputFiles(basePath + "/perf", perfType);
   }
 
@@ -66,13 +67,13 @@ public abstract class AbstractReport {
 
   public abstract void printReportStats(String outputFilePath) throws IOException;
 
-  private List<PerfStats> readPerfOutputFiles(String parentFolder, PerfStats.TYPE perfType)
+  private List<PerfStats> readPerfOutputFiles(String parentFolder, EXECUTION_TYPE executionType)
       throws IOException {
-    PathMatcher filenameMatcher = FILENAME_MATCHER.apply(perfType);
+    PathMatcher filenameMatcher = FILENAME_MATCHER.apply(executionType);
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(filenameMatcher::matches)
-        .map(PerfStatsParser::parseStats)
+        .map(filePath -> PerfStatsParser.parseStats(filePath, executionType))
         .map(this::setModule)
         .collect(toList());
   }
