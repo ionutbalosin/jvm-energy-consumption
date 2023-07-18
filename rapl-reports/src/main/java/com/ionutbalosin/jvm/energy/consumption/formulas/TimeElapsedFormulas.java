@@ -27,11 +27,18 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import java.util.List;
 
 public class TimeElapsedFormulas extends AbstractFormulas {
 
-  // returns the time elapsed
-  public double getFormula(PerfStats perfStat) {
+  // returns the time elapsed (in sec) consumption
+  @Override
+  public double getConsumption(PerfStats perfStat) {
     return perfStat.elapsed;
+  }
+
+  @Override
+  public double getCarbonDioxide(List<PerfStats> perfStats) {
+    throw new UnsupportedOperationException();
   }
 }

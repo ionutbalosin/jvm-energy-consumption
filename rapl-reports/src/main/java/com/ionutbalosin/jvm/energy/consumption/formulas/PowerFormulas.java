@@ -27,13 +27,20 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import java.util.List;
 
 public class PowerFormulas extends AbstractFormulas {
 
-  // returns the power (in Watt)
-  public double getFormula(PerfStats perfStat) {
+  // returns the power consumption (in Watt)
+  @Override
+  public double getConsumption(PerfStats perfStat) {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats
     return (perfStat.pkg + perfStat.ram) / perfStat.elapsed;
+  }
+
+  @Override
+  public double getCarbonDioxide(List<PerfStats> perfStats) {
+    throw new UnsupportedOperationException();
   }
 }

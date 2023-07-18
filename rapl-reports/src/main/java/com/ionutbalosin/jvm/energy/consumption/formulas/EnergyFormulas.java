@@ -27,6 +27,7 @@
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
+import java.util.List;
 
 public class EnergyFormulas extends AbstractFormulas {
 
@@ -39,10 +40,18 @@ public class EnergyFormulas extends AbstractFormulas {
     this.meanPowerBaseline = meanPowerBaseline;
   }
 
-  // returns the energy (in Watt⋅sec) after subtracting the baseline
-  public double getFormula(PerfStats perfStat) {
+  // returns the energy consumption (in Watt⋅sec) after subtracting the baseline
+  @Override
+  public double getConsumption(PerfStats perfStat) {
     // pkg includes the cores and gpu
     // Note: on laptop battery the psys counters does not display proper stats
     return (perfStat.pkg + perfStat.ram) - (meanPowerBaseline * perfStat.elapsed);
+  }
+
+  // returns the carbon dioxide (in grams) based on consumed energy
+  public double getCarbonDioxide(List<PerfStats> perfStats) {
+    double energyInWattSec = getSum(perfStats);
+    double energyInKWh = energyInWattSec / 3_600_000;
+    return energyInKWh * CARBON_DIOXIDE_EMISSION_FACTOR;
   }
 }

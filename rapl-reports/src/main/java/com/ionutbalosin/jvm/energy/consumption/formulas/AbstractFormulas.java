@@ -37,15 +37,18 @@ public abstract class AbstractFormulas {
   double CONFIDENCE = 0.90;
 
   // this could return one of below formulas (depending on the implementation/caller):
-  //  - the power formula (in Watt)
-  //  - the energy formula (in Watt⋅sec)
-  //  - the time elapsed formula (in sec)
-  public abstract double getFormula(PerfStats perfStat);
+  //  - the power (in Watt) consumption
+  //  - the energy (in Watt⋅sec) consumption
+  //  - the time elapsed (in sec) consumption
+  public abstract double getConsumption(PerfStats perfStat);
+
+  // returns the carbon dioxide (in grams) based on consumed energy
+  public abstract double getCarbonDioxide(List<PerfStats> perfStats);
 
   public double getGeometricMean(List<PerfStats> perfStats) {
     double prod = 1;
     for (PerfStats perfStat : perfStats) {
-      prod *= getFormula(perfStat);
+      prod *= getConsumption(perfStat);
     }
     return Math.pow(prod, 1.0 / perfStats.size());
   }
@@ -74,18 +77,12 @@ public abstract class AbstractFormulas {
     if (size > 0) {
       double sum = 0;
       for (PerfStats perfStat : perfStats) {
-        sum += getFormula(perfStat);
+        sum += getConsumption(perfStat);
       }
       return sum;
     } else {
       return Double.NaN;
     }
-  }
-
-  public double getCarbonDioxide(List<PerfStats> perfStats) {
-    double energyWattSec = getSum(perfStats);
-    double energyKWh = energyWattSec / 3_600_000;
-    return energyKWh * CARBON_DIOXIDE_EMISSION_FACTOR;
   }
 
   private double getStandardDeviation(List<PerfStats> perfStats) {
@@ -98,7 +95,7 @@ public abstract class AbstractFormulas {
       double variance = 0;
       double mean = getMean(perfStats);
       for (PerfStats perfStat : perfStats) {
-        variance += Math.pow(getFormula(perfStat) - mean, 2);
+        variance += Math.pow(getConsumption(perfStat) - mean, 2);
       }
       return variance / (size - 1);
     } else {

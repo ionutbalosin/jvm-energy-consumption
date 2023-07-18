@@ -104,12 +104,16 @@ public class SummaryReport extends AbstractReport {
       // exclude the "renaissance" tests since they did not run for all JVMs
       List<PerfStats> filteredPerfStats = getPerfStats(perfStats, "renaissance", testCategory);
 
-      double energy = energyFormulas.getSum(filteredPerfStats);
+      double totalEnergy = energyFormulas.getSum(filteredPerfStats);
       double energyGeometricMean = energyFormulas.getGeometricMean(filteredPerfStats);
       double carbonDioxide = energyFormulas.getCarbonDioxide(filteredPerfStats);
       reportStats.add(
           new ReportStats(
-              testCategory, filteredPerfStats.size(), energy, energyGeometricMean, carbonDioxide));
+              testCategory,
+              filteredPerfStats.size(),
+              totalEnergy,
+              energyGeometricMean,
+              carbonDioxide));
     }
   }
 
@@ -117,10 +121,10 @@ public class SummaryReport extends AbstractReport {
   public void printReportStats(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%9s;%19s;%34s;%34s;%22s\n",
+          "%18s;%9s;%25s;%34s;%34s;%22s\n",
           "Test Category",
           "Samples",
-          "Energy (Watt⋅sec)",
+          "Total Energy (Watt⋅sec)",
           "Energy Geometric Mean (Watt⋅sec)",
           "Normalized Energy Geometric Mean",
           "CO₂ Emissions (gCO₂)");
@@ -128,10 +132,10 @@ public class SummaryReport extends AbstractReport {
       ReportStats referenceReportStat = getReportStatByCategory(reportStats, "openjdk-hotspot-vm");
       for (ReportStats reportStat : reportStats) {
         writer.printf(
-            "%18s;%9d;%19.3f;%34.3f;%34.3f;%22.3f\n",
+            "%18s;%9d;%25.3f;%34.3f;%34.3f;%22.3f\n",
             reportStat.testCategory,
             reportStat.samples,
-            reportStat.energy,
+            reportStat.totalEnergy,
             reportStat.geoMeanEnergy,
             reportStat.geoMeanEnergy / referenceReportStat.geoMeanEnergy,
             reportStat.carbonDioxide);

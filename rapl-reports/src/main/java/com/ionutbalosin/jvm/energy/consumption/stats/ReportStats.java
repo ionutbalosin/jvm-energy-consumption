@@ -31,7 +31,7 @@ public class ReportStats {
   public String testCategory;
   public String testType;
   public int samples;
-  public double energy;
+  public double totalEnergy;
   public double meanEnergy;
   public double meanErrorEnergy;
   public double meanPower;
@@ -87,10 +87,14 @@ public class ReportStats {
   }
 
   public ReportStats(
-      String testCategory, int samples, double energy, double geoMeanEnergy, double carbonDioxide) {
+      String testCategory,
+      int samples,
+      double totalEnergy,
+      double geoMeanEnergy,
+      double carbonDioxide) {
     this.testCategory = testCategory;
     this.samples = samples;
-    this.energy = energy;
+    this.totalEnergy = totalEnergy;
     this.geoMeanEnergy = geoMeanEnergy;
     this.carbonDioxide = carbonDioxide;
   }
