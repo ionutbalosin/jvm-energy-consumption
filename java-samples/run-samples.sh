@@ -47,6 +47,7 @@ check_command_line_options() {
 }
 
 configure_samples() {
+  export CURR_DIR=$(pwd)
   export APP_HOME=$(pwd)
   export JAVA_OPS="-Xms1m -Xmx6g"
   export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns" "SortingAlgorithms" "VirtualCalls")
@@ -73,15 +74,39 @@ create_output_resources() {
 
 build_samples() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export BUILD_CMD="./mvnw clean package"
-    echo "$BUILD_CMD"
-    cd .. && $BUILD_CMD && cd -
+    for sample_name in "${SAMPLE_APPS[@]}"; do
+      export BUILD_CMD="./mvnw clean package"
+
+      echo "$BUILD_CMD"
+      cd ..
+      sudo -E perf stat -a \
+        -e "power/energy-cores/" \
+        -e "power/energy-gpu/" \
+        -e "power/energy-pkg/" \
+        -e "power/energy-psys/" \
+        -e "power/energy-ram/" \
+        -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
+        $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
+      cd -
+
+    done
   else
     cd .. && ./mvnw clean && cd -
     for sample_name in "${SAMPLE_APPS[@]}"; do
       export BUILD_CMD="./mvnw -D.maven.clean.skip=true -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" -DimageName="$sample_name" -Pnative package"
+
       echo "$BUILD_CMD"
-      cd .. && $BUILD_CMD && cd -
+      cd ..
+      sudo -E perf stat -a \
+        -e "power/energy-cores/" \
+        -e "power/energy-gpu/" \
+        -e "power/energy-pkg/" \
+        -e "power/energy-psys/" \
+        -e "power/energy-ram/" \
+        -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
+        $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
+      cd -
+
     done
   fi
 }

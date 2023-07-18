@@ -47,6 +47,7 @@ check_command_line_options() {
 }
 
 configure_application() {
+  export CURR_DIR=$(pwd)
   export APP_HOME=/home/ionutbalosin/Workspace/spring-petclinic
   export APP_BASE_URL=localhost:8080
   export APP_RUNNING_TIME=900
@@ -79,7 +80,15 @@ build_application() {
   fi
 
   echo "$BUILD_CMD"
-  cd $APP_HOME && $BUILD_CMD
+  cd $APP_HOME
+  sudo -E perf stat -a \
+    -e "power/energy-cores/" \
+    -e "power/energy-gpu/" \
+    -e "power/energy-pkg/" \
+    -e "power/energy-psys/" \
+    -e "power/energy-ram/" \
+    -o $CURR_DIR/$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
+    $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
   cd -
 }
 
