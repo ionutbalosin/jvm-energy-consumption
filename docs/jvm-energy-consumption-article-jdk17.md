@@ -166,7 +166,7 @@ All the tests were launched on a machine having below configuration:
 - Memory: 32GB DDR4 2400 MHz
 - OS: Ubuntu 22.04.2 LTS / 5.19.0-46-generic
 
-The load testing tool used is [Hyperfoil](https://hyperfoil.io), a distributed benchmark framework oriented towards microservices.
+The load testing tool used is [Hyperfoil](https://hyperfoil.io), a distributed benchmark framework oriented towards microservices that avoids the coordinated-omission fallacy.
 
 The specific model of the wall power meter used is the [Ketotek KTEM02-1](https://www.amazon.de/-/en/dp/B0B2953JM5).
 
@@ -212,7 +212,7 @@ To enable a high-level comparison of overall energy consumption scores across al
 
 ## Off-the-Shelf Applications
 
-In the case of off-the-shelf web-based applications (Spring and Quarkus), minimum configurations were performed primarily to enhance the database connection pools.
+In the case of off-the-shelf web-based applications such as Spring and Quarkus, minimal configurations were primarily performed to enhance the database connection and application server's thread pools in order to handle increased loads.
 
 ### Spring PetClinic Application
 
