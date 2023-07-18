@@ -1,0 +1,105 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.acme:hibernate-orm-panache-quickstart >--------------
+[INFO] Building hibernate-orm-panache-quickstart 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ hibernate-orm-panache-quickstart ---
+[INFO] Deleting /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ hibernate-orm-panache-quickstart ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ hibernate-orm-panache-quickstart ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ hibernate-orm-panache-quickstart ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ hibernate-orm-panache-quickstart ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ hibernate-orm-panache-quickstart ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ hibernate-orm-panache-quickstart ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- quarkus-maven-plugin:3.0.3.Final:build (default) @ hibernate-orm-panache-quickstart ---
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building native image source jar: /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-native-image-source-jar/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Building native image from /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-native-image-source-jar/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Running Quarkus native-image plugin on native-image 17.0.7 2023-04-18
+GraalVM Runtime Environment Oracle GraalVM 17.0.7+8.1 (build 17.0.7+8-LTS-jvmci-23.0-b12)
+Substrate VM Oracle GraalVM 17.0.7+8.1 (build 17.0.7+8-LTS, serial gc, compressed references)
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] /usr/lib/jvm/graalvm-ee-jdk-17.0.7+8-LTS-jvmci-23.0-b12/bin/native-image -J-Djava.util.logging.manager=org.jboss.logmanager.LogManager -J-DCoordinatorEnvironmentBean.transactionStatusManagerEnable=false -J-Dsun.nio.ch.maxUpdateArraySize=100 -J-Dlogging.initial-configurator.min-level=500 -J-Dvertx.logger-delegate-factory-class-name=io.quarkus.vertx.core.runtime.VertxLogDelegateFactory -J-Dvertx.disableDnsResolver=true -J-Dio.netty.leakDetection.level=DISABLED -J-Dio.netty.allocator.maxOrder=3 -J-Duser.language=en -J-Duser.country=US -J-Dfile.encoding=UTF-8 --features=io.quarkus.runner.Feature,io.quarkus.runtime.graal.DisableLoggingFeature,io.quarkus.hibernate.orm.runtime.graal.DisableLoggingFeature,org.hibernate.graalvm.internal.GraalVMStaticFeature,io.quarkus.caffeine.runtime.graal.CacheConstructorsFeature,io.quarkus.jdbc.postgresql.runtime.graal.SQLXMLFeature -J--add-exports=java.security.jgss/sun.security.krb5=ALL-UNNAMED -J--add-opens=java.base/java.text=ALL-UNNAMED -J--add-opens=java.base/java.io=ALL-UNNAMED -J--add-opens=java.base/java.lang.invoke=ALL-UNNAMED -J--add-opens=java.base/java.util=ALL-UNNAMED -H:BuildOutputJSONFile=hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner-build-output-stats.json -H:+AllowFoldMethods -J-Djava.awt.headless=true --no-fallback --link-at-build-time -H:+ReportExceptionStackTraces -H:-AddAllCharsets --enable-url-protocols=http,https -H:NativeLinkerOption=-no-pie -H:-UseServiceLoaderFeature -H:+StackTrace -J--add-exports=org.graalvm.sdk/org.graalvm.nativeimage.impl=ALL-UNNAMED --exclude-config io\.netty\.netty-codec /META-INF/native-image/io\.netty/netty-codec/generated/handlers/reflect-config\.json --exclude-config io\.netty\.netty-handler /META-INF/native-image/io\.netty/netty-handler/generated/handlers/reflect-config\.json hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner -jar hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner.jar
+========================================================================================================================
+GraalVM Native Image: Generating 'hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner' (executable)...
+========================================================================================================================
+[1/8] Initializing...                                                                                   (34.6s @ 0.27GB)
+ Java version: 17.0.7+8-LTS, vendor version: Oracle GraalVM 17.0.7+8.1
+ Graal compiler: optimization level: 2, target machine: x86-64-v3, PGO: ML-inferred
+ C compiler: gcc (linux, x86_64, 11.3.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 7 user-specific feature(s)
+ - io.quarkus.caffeine.runtime.graal.CacheConstructorsFeature
+ - io.quarkus.hibernate.orm.runtime.graal.DisableLoggingFeature: Disables INFO logging during the analysis phase
+ - io.quarkus.jdbc.postgresql.runtime.graal.SQLXMLFeature
+ - io.quarkus.runner.Feature: Auto-generated class by Quarkus from the existing extensions
+ - io.quarkus.runtime.graal.DisableLoggingFeature: Disables INFO logging during the analysis phase
+ - org.eclipse.angus.activation.nativeimage.AngusActivationFeature
+ - org.hibernate.graalvm.internal.GraalVMStaticFeature: Hibernate ORM's static reflection registrations for GraalVM
+[2/8] Performing analysis...  [*****]                                                                  (272.8s @ 2.10GB)
+  19,094 (88.91%) of 21,475 types reachable
+  26,674 (61.43%) of 43,421 fields reachable
+ 103,224 (56.79%) of 181,754 methods reachable
+   5,875 types,   127 fields, and 3,728 methods registered for reflection
+      63 types,    68 fields, and    55 methods registered for JNI access
+       4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                              (46.3s @ 2.11GB)
+[4/8] Parsing methods...      [**********]                                                             (106.6s @ 3.39GB)
+[5/8] Inlining methods...     [***]                                                                     (12.6s @ 3.38GB)
+[6/8] Compiling methods...    [*************************]                                              (643.1s @ 4.98GB)
+[7/8] Layouting methods...    [*****]                                                                   (30.7s @ 6.60GB)
+[8/8] Creating image...       [******]                                                                  (36.4s @ 7.54GB)
+  49.77MB (59.24%) for code area:    57,597 compilation units
+  33.69MB (40.10%) for image heap:  489,503 objects and 11 resources
+ 570.46kB ( 0.66%) for other data
+  84.02MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  16.33MB java.base                                           11.05MB byte[] for code metadata
+  10.06MB org.hibernate.orm.hibernate-core-6.2.1.Final.jar     4.50MB byte[] for java.lang.String
+   4.35MB svm.jar (Native Image)                               3.47MB java.lang.Class
+   2.38MB c.f.jackson.core.jackson-databind-2.14.2.jar         3.34MB java.lang.String
+   1.71MB modified-io.vertx.vertx-core-4.4.1.jar               2.82MB byte[] for general heap data
+   1.34MB org.postgresql.postgresql-42.6.0.jar                 1.09MB byte[] for reflection metadata
+   1.16MB h.0.0-SNAPSHOT-runner.jar                          895.03kB com.oracle.svm.core.hub.DynamicHubCompanion
+   1.16MB io.netty.netty-buffer-4.1.90.Final.jar             590.34kB java.util.HashMap$Node
+ 803.97kB o.jboss.narayana.jta.narayana-jta-6.0.1.Final.jar  538.94kB c.o.svm.core.hub.DynamicHub$ReflectionMetadata
+ 673.98kB com.fasterxml.jackson.core.jackson-core-2.14.2.jar 448.75kB java.lang.String[]
+   9.42MB for 111 more packages                                4.69MB for 4292 more object types
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ G1GC: Use the G1 GC ('--gc=G1') for improved latency and throughput.
+ PGO:  Use Profile-Guided Optimizations ('--pgo') for improved throughput.
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+ QBM:  Use the quick build mode ('-Ob') to speed up builds during development.
+------------------------------------------------------------------------------------------------------------------------
+                       71.3s (6.0% of total time) in 118 GCs | Peak RSS: 9.24GB | CPU load: 3.74
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-native-image-source-jar/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner (executable)
+ /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-native-image-source-jar/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner-build-output-stats.json (build_info)
+========================================================================================================================
+Finished generating 'hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner' in 19m 48s.
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] objcopy --strip-debug hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1205865ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20:21 min
+[INFO] Finished at: 2023-07-18T19:33:36+02:00
+[INFO] ------------------------------------------------------------------------

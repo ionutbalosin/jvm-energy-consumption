@@ -1,0 +1,37 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.acme:hibernate-orm-panache-quickstart >--------------
+[INFO] Building hibernate-orm-panache-quickstart 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ hibernate-orm-panache-quickstart ---
+[INFO] Deleting /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ hibernate-orm-panache-quickstart ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ hibernate-orm-panache-quickstart ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ hibernate-orm-panache-quickstart ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ hibernate-orm-panache-quickstart ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ hibernate-orm-panache-quickstart ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ hibernate-orm-panache-quickstart ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- quarkus-maven-plugin:3.0.3.Final:build (default) @ hibernate-orm-panache-quickstart ---
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 8980ms
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.241 s
+[INFO] Finished at: 2023-07-18T16:50:44+02:00
+[INFO] ------------------------------------------------------------------------
