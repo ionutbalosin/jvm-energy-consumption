@@ -32,12 +32,20 @@ import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public abstract class AbstractReport {
+
+  Function<PerfStats.TYPE, PathMatcher> FILENAME_MATCHER =
+      (perfType) ->
+          FileSystems.getDefault()
+              .getPathMatcher("regex:.*-" + perfType.toString().toLowerCase() + "-.*.stats");
 
   public String module;
   public String basePath;
@@ -48,8 +56,8 @@ public abstract class AbstractReport {
     this.reportStats = new ArrayList<>();
   }
 
-  public void parseRawPerfStats() throws IOException {
-    this.perfStats = readPerfOutputFiles(basePath + "/perf");
+  public void parseRawPerfStats(PerfStats.TYPE perfType) throws IOException {
+    this.perfStats = readPerfOutputFiles(basePath + "/perf", perfType);
   }
 
   public abstract void printRawPerfStatsReport(String outputFilePath) throws IOException;
@@ -58,9 +66,12 @@ public abstract class AbstractReport {
 
   public abstract void printReportStats(String outputFilePath) throws IOException;
 
-  private List<PerfStats> readPerfOutputFiles(String parentFolder) throws IOException {
+  private List<PerfStats> readPerfOutputFiles(String parentFolder, PerfStats.TYPE perfType)
+      throws IOException {
+    PathMatcher filenameMatcher = FILENAME_MATCHER.apply(perfType);
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
+        .filter(filenameMatcher::matches)
         .map(PerfStatsParser::parseStats)
         .map(this::setModule)
         .collect(toList());

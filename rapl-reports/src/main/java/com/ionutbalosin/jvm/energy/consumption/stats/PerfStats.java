@@ -33,8 +33,14 @@ public class PerfStats {
   public double psys;
   public double ram;
   public double elapsed;
+  public TYPE type;
   public String module;
   public String testCategory;
   public String testType;
   public String testRunIdentifier;
+
+  public enum TYPE {
+    RUN,
+    BUILD;
+  }
 }

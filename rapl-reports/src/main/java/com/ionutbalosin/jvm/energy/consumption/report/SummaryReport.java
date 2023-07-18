@@ -68,7 +68,8 @@ public class SummaryReport extends AbstractReport {
         String.format("%s/%s/results/%s/%s/jdk-%s", BASE_PATH, this.module, OS, ARCH, JDK_VERSION);
   }
 
-  public void parseRawPerfStats() {
+  @Override
+  public void parseRawPerfStats(PerfStats.TYPE perfType) {
     // intentionally left blank
   }
 
@@ -101,6 +102,10 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
+    if (perfStats.isEmpty()) {
+      return;
+    }
+
     for (String testCategory : TEST_CATEGORIES) {
       // exclude the "renaissance" tests since they did not run for all JVMs
       List<PerfStats> filteredPerfStats = getPerfStats(perfStats, "renaissance", testCategory);

@@ -54,8 +54,13 @@ public class EnergyFormulas extends AbstractFormulas {
 
   // returns the carbon dioxide (in grams) based on consumed energy
   public double getCarbonDioxide(List<PerfStats> perfStats) {
-    double energyInWattSec = getSum(perfStats);
-    double energyInKWh = energyInWattSec / 3_600_000;
-    return energyInKWh * CARBON_DIOXIDE_EMISSION_FACTOR;
+    int size = perfStats.size();
+    if (size > 0) {
+      double energyInWattSec = getSum(perfStats);
+      double energyInKWh = energyInWattSec / 3_600_000;
+      return energyInKWh * CARBON_DIOXIDE_EMISSION_FACTOR;
+    } else {
+      return Double.NaN;
+    }
   }
 }

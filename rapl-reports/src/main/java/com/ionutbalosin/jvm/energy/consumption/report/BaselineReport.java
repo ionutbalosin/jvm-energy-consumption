@@ -54,6 +54,10 @@ public class BaselineReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
+    if (perfStats.isEmpty()) {
+      return;
+    }
+
     // Note: rely on the fact that all reports stats have the same test category
     meanPowerBaseline = powerFormulas.getMean(perfStats);
     double meanErrorPower = powerFormulas.getMeanError(perfStats);

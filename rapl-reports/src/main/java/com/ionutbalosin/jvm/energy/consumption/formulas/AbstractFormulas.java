@@ -44,17 +44,22 @@ public abstract class AbstractFormulas {
   public abstract double getCarbonDioxide(List<PerfStats> perfStats);
 
   public double getGeometricMean(List<PerfStats> perfStats) {
-    double prod = 1;
-    for (PerfStats perfStat : perfStats) {
-      prod *= getConsumption(perfStat);
+    int size = perfStats.size();
+    if (size > 0) {
+      double prod = 1;
+      for (PerfStats perfStat : perfStats) {
+        prod *= getConsumption(perfStat);
+      }
+      return Math.pow(prod, 1.0 / size);
+    } else {
+      return Double.NaN;
     }
-    return Math.pow(prod, 1.0 / perfStats.size());
   }
 
   public double getMean(List<PerfStats> perfStats) {
-    int count = perfStats.size();
-    if (count > 0) {
-      return getSum(perfStats) / count;
+    int size = perfStats.size();
+    if (size > 0) {
+      return getSum(perfStats) / size;
     } else {
       return Double.NaN;
     }
