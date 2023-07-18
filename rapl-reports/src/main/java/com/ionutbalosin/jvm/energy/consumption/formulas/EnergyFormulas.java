@@ -31,6 +31,10 @@ import java.util.List;
 
 public class EnergyFormulas extends AbstractFormulas {
 
+  // Source: https://app.electricitymaps.com/zone/AT
+  // TODO: this value changes frequently, it should be checked before every run
+  public static double CARBON_DIOXIDE_EMISSION_FACTOR = 137;
+
   // the baseline represents the measurement of the machine power consumption while it is idle or
   // running minimal background processes.
   // Since it is "Watt", it must be converted to "Watt⋅sec" and subtracted from every measurement

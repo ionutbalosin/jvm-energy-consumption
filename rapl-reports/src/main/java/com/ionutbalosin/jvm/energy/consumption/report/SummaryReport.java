@@ -26,6 +26,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
+import static com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas.CARBON_DIOXIDE_EMISSION_FACTOR;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.JDK_VERSION;
@@ -148,8 +149,7 @@ public class SummaryReport extends AbstractReport {
               + " geometric mean",
           referenceReportStat.testCategory);
       writer.printf(
-          "\n# Note3: The carbon emission factor used was '%s'",
-          AbstractFormulas.CARBON_DIOXIDE_EMISSION_FACTOR);
+          "\n# Note3: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);

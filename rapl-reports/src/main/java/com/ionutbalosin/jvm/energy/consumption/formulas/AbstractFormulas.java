@@ -32,8 +32,6 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 public abstract class AbstractFormulas {
 
-  // Source: https://app.electricitymaps.com/zone/AT
-  public static double CARBON_DIOXIDE_EMISSION_FACTOR = 137;
   double CONFIDENCE = 0.90;
 
   // this could return one of below consumption formulas (depending on the implementation/caller):
