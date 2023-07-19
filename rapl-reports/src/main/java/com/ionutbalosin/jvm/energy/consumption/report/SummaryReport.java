@@ -94,7 +94,7 @@ public class SummaryReport extends AbstractReport {
         writer.printf(
             "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
             perfStat.testCategory,
-            ofNullable(perfStat.testType).orElse("NA"),
+            ofNullable(perfStat.testType).orElse("N/A"),
             perfStat.testRunIdentifier,
             perfStat.pkg,
             perfStat.ram,

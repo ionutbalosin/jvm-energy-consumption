@@ -1,9 +1,9 @@
      Test Category;                 Test Type;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Elapsed Mean (sec);  Elapsed Score Error (90.0%)
-     azul-prime-vm;                        NA;        5;                  54.331;                       2.245;              26.373;                        0.289
- eclipse-openj9-vm;                        NA;        5;                  82.781;                       4.860;              40.028;                        1.318
-        graalvm-ce;                        NA;        5;                  30.262;                       2.343;              18.543;                        0.270
-        graalvm-ee;                        NA;        5;                  30.365;                       2.852;              18.108;                        0.193
-      native-image;                        NA;        5;                 725.720;                       5.756;             300.314;                        4.159
-openjdk-hotspot-vm;                        NA;        5;                  35.016;                       0.641;              18.994;                        0.102
+     azul-prime-vm;                       N/A;        5;                  54.331;                       2.245;              26.373;                        0.289
+ eclipse-openj9-vm;                       N/A;        5;                  82.781;                       4.860;              40.028;                        1.318
+        graalvm-ce;                       N/A;        5;                  30.262;                       2.343;              18.543;                        0.270
+        graalvm-ee;                       N/A;        5;                  30.365;                       2.852;              18.108;                        0.193
+      native-image;                       N/A;        5;                 725.720;                       5.756;             300.314;                        4.159
+openjdk-hotspot-vm;                       N/A;        5;                  35.016;                       0.641;              18.994;                        0.102
 
 # Note: The reference baseline has already been excluded from the energy scores

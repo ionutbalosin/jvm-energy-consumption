@@ -34,7 +34,7 @@ output_folder <- args[2]
 
 # Define the color palette (corresponding to each JVM) to be used in the final generated plot
 # Note: use a color blindness palette (e.g., https://davidmathlogic.com/colorblind/)
-full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
+full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "Oracle GraalVM" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
 # Apply column data changes on the initial data frame
 processCsvColumns <- function(data) {
@@ -59,11 +59,14 @@ processCsvColumns <- function(data) {
   data$EnergyUnit <- "Watt⋅sec"
   data$TimeUnit <- "sec"
 
-  # add a JVM identifier column
+  # rename "graalvm-ee" into "oracle-graalvm" (i.e., the new JVM name)
+  data$Category[data$Category == "graalvm-ee"] <- "oracle-graalvm"
+
+  # add a JVM identifier column based on Category
   data$JvmIdentifier <- data$Category
   data$JvmIdentifier[data$JvmIdentifier == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
   data$JvmIdentifier[data$JvmIdentifier == "graalvm-ce"] <- "GraalVM CE"
-  data$JvmIdentifier[data$JvmIdentifier == "graalvm-ee"] <- "GraalVM EE"
+  data$JvmIdentifier[data$JvmIdentifier == "oracle-graalvm"] <- "Oracle GraalVM"
   data$JvmIdentifier[data$JvmIdentifier == "native-image"] <- "Native Image"
   data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
   data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
@@ -73,8 +76,8 @@ processCsvColumns <- function(data) {
 
 plotBarAndScatter <- function(data, output_folder, report_type, plot_title) {
   test_types <- c()
-  if (is.null(data$Type)) {
-    # if there are no test types (e.g., variations of the same benchmark application), add a new Type column the same as Category
+  if (is.null(data$Type) || all(data$Type == "N/A")) {
+    # if there are no test types (i.e., variations of the same benchmark application), add a new Type column the same as Category
     # Note: the Type column is used as an identifier for the X-axis in the final generated plot
     data$Type <- data$Category
   } else {
@@ -84,7 +87,7 @@ plotBarAndScatter <- function(data, output_folder, report_type, plot_title) {
   }
 
   # 1. generate the bar plots (i.e., energy plots)
-  print(paste("Plotting bar", plot_title, "...", sep = " "))
+  print(paste("Plotting bar of type", report_type, "for", plot_title, "...", sep = " "))
   plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy", sep = "-"))
 
@@ -92,7 +95,7 @@ plotBarAndScatter <- function(data, output_folder, report_type, plot_title) {
   # - if there are no test types (e.g., variations of the same benchmark application), generate just one scatter plot
   # - if there are multiple test types, for each type generate a dedicated scatter plot
   if (length(test_types) == 0) {
-    print(paste("Plotting scatter", plot_title, "...", sep = " "))
+    print(paste("Plotting scatter of type", report_type, "for", plot_title, "...", sep = " "))
     plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
     saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy-vs-time", sep = "-"))
   } else {
@@ -100,7 +103,7 @@ plotBarAndScatter <- function(data, output_folder, report_type, plot_title) {
       data_with_same_test_types <- data[data$Type == test_type, ]
       plot_title_and_test_type <- paste(plot_title, paste("(", test_type, ")", sep = ""), sep = " ")
 
-      print(paste("Plotting scatter", plot_title_and_test_type, "...", sep = " "))
+      print(paste("Plotting scatter of type", report_type, "for", plot_title_and_test_type, "...", sep = " "))
       plot <- generateScatterPlot(data_with_same_test_types, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title_and_test_type, full_color_palette)
       saveScatterPlot(data_with_same_test_types, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy-vs-time", test_type, sep = "-"))
     }

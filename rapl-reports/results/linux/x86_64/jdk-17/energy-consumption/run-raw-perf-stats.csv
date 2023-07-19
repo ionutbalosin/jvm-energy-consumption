@@ -1,100 +1,100 @@
      Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
-      native-image;                        NA;               2;                   1332.160;                571.230;        901.407
-openjdk-hotspot-vm;                        NA;               2;                   1422.170;                627.940;        933.376
-openjdk-hotspot-vm;                        NA;               3;                   1409.290;                631.020;        933.438
-      native-image;                        NA;               3;                   1332.420;                572.400;        901.432
-     azul-prime-vm;                        NA;               3;                   2334.050;                936.750;        946.282
- eclipse-openj9-vm;                        NA;               1;                   1609.860;                659.030;        954.344
- eclipse-openj9-vm;                        NA;               2;                   1564.000;                649.200;        951.243
-      native-image;                        NA;               1;                   1330.560;                569.070;        901.422
-        graalvm-ce;                        NA;               2;                   1387.640;                623.900;        929.215
-        graalvm-ee;                        NA;               3;                   1311.370;                636.520;        929.045
-        graalvm-ce;                        NA;               1;                   1374.730;                621.680;        929.611
-     azul-prime-vm;                        NA;               2;                   2292.450;                941.040;        946.326
-        graalvm-ee;                        NA;               2;                   1311.040;                632.210;        929.131
-        graalvm-ce;                        NA;               3;                   1387.080;                624.210;        929.542
-     azul-prime-vm;                        NA;               1;                   2270.610;                940.360;        947.322
-        graalvm-ee;                        NA;               1;                   1334.220;                635.870;        929.795
-openjdk-hotspot-vm;                        NA;               1;                   1424.210;                629.810;        933.076
- eclipse-openj9-vm;                        NA;               3;                   1597.880;                657.310;        954.031
-      native-image;                        NA;               2;                   1196.780;                548.250;        900.342
-openjdk-hotspot-vm;                        NA;               2;                   1229.370;                566.540;        910.132
-openjdk-hotspot-vm;                        NA;               3;                   1224.690;                566.050;        910.060
-      native-image;                        NA;               3;                   1170.390;                547.580;        900.363
-     azul-prime-vm;                        NA;               3;                   1733.300;                658.820;        917.085
- eclipse-openj9-vm;                        NA;               1;                   1354.740;                571.490;        916.972
- eclipse-openj9-vm;                        NA;               2;                   1406.350;                577.490;        918.815
-      native-image;                        NA;               1;                   1193.130;                548.200;        900.463
-        graalvm-ce;                        NA;               2;                   1239.830;                563.860;        910.036
-        graalvm-ee;                        NA;               3;                   1234.840;                569.630;        909.925
-        graalvm-ce;                        NA;               1;                   1252.960;                563.880;        910.181
-     azul-prime-vm;                        NA;               2;                   1734.230;                659.130;        916.829
-        graalvm-ee;                        NA;               2;                   1226.960;                569.750;        909.833
-        graalvm-ce;                        NA;               3;                   1235.080;                564.600;        910.042
-     azul-prime-vm;                        NA;               1;                   1728.890;                656.120;        917.042
-        graalvm-ee;                        NA;               1;                   1251.780;                569.440;        909.879
-openjdk-hotspot-vm;                        NA;               1;                   1240.440;                564.540;        910.167
- eclipse-openj9-vm;                        NA;               3;                   1360.570;                574.720;        916.690
-openjdk-hotspot-vm;                        NA;               2;                  27405.260;               9634.100;      10428.805
-openjdk-hotspot-vm;                        NA;               3;                  27454.050;               9674.910;      10447.847
-     azul-prime-vm;                        NA;               3;                  30593.840;              11455.660;      11472.506
- eclipse-openj9-vm;                        NA;               1;                  35228.180;              10651.950;      13093.132
- eclipse-openj9-vm;                        NA;               2;                  34500.210;              10578.690;      12908.710
-        graalvm-ce;                        NA;               2;                  28128.510;               9573.230;      10582.719
-        graalvm-ee;                        NA;               3;                  24555.900;               9044.220;       9309.338
-        graalvm-ce;                        NA;               1;                  26843.330;               9330.670;      10267.162
-     azul-prime-vm;                        NA;               2;                  30195.830;              11430.440;      11442.333
-        graalvm-ee;                        NA;               2;                  24746.610;               9053.840;       9235.889
-        graalvm-ce;                        NA;               3;                  27215.800;               9350.710;      10356.902
-     azul-prime-vm;                        NA;               1;                  30723.050;              11496.630;      11525.135
-        graalvm-ee;                        NA;               1;                  24614.870;               9081.920;       9305.810
-openjdk-hotspot-vm;                        NA;               1;                  27953.380;               9648.240;      10379.101
- eclipse-openj9-vm;                        NA;               3;                  34025.210;              10398.960;      12576.130
-openjdk-hotspot-vm;                        NA;               2;                  15633.620;               5566.470;       8520.323
-openjdk-hotspot-vm;                        NA;               3;                  16485.440;               5650.080;       8659.912
-     azul-prime-vm;                        NA;               3;                   6752.540;               2607.580;       3246.750
- eclipse-openj9-vm;                        NA;               1;                  10653.720;               4150.410;       5750.138
- eclipse-openj9-vm;                        NA;               2;                  12997.730;               4789.500;       6900.481
-        graalvm-ce;                        NA;               2;                  12985.420;               4612.320;       6724.199
-        graalvm-ee;                        NA;               3;                   5997.440;               2288.870;       3022.126
-        graalvm-ce;                        NA;               1;                  12786.890;               4580.480;       6685.162
-     azul-prime-vm;                        NA;               2;                   6588.670;               2603.570;       3208.209
-        graalvm-ee;                        NA;               2;                   7698.160;               2784.970;       3865.559
-        graalvm-ce;                        NA;               3;                  12647.380;               4562.730;       6699.691
-     azul-prime-vm;                        NA;               1;                   6735.910;               2628.370;       3242.559
-        graalvm-ee;                        NA;               1;                   7159.350;               2639.380;       3614.217
-openjdk-hotspot-vm;                        NA;               1;                  15552.920;               5370.580;       8178.429
- eclipse-openj9-vm;                        NA;               3;                  13185.670;               4897.100;       7084.561
-openjdk-hotspot-vm;                        NA;               2;                   7715.050;               2487.740;       3718.472
-openjdk-hotspot-vm;                        NA;               3;                   7436.860;               2384.240;       3527.373
-     azul-prime-vm;                        NA;               3;                   7304.490;               2493.030;       3144.593
- eclipse-openj9-vm;                        NA;               1;                  12507.430;               4005.850;       6382.233
- eclipse-openj9-vm;                        NA;               2;                  13303.530;               4167.030;       6643.615
-        graalvm-ce;                        NA;               2;                   6293.740;               1975.560;       2898.715
-        graalvm-ee;                        NA;               3;                   4556.320;               1516.120;       2138.912
-        graalvm-ce;                        NA;               1;                   6261.190;               1949.160;       2866.601
-     azul-prime-vm;                        NA;               2;                   7343.700;               2541.350;       3233.089
-        graalvm-ee;                        NA;               2;                   5658.820;               1834.610;       2694.399
-        graalvm-ce;                        NA;               3;                   6172.760;               1950.210;       2878.885
-     azul-prime-vm;                        NA;               1;                   7303.760;               2464.320;       3142.581
-        graalvm-ee;                        NA;               1;                   5587.430;               1797.020;       2650.356
-openjdk-hotspot-vm;                        NA;               1;                   8216.940;               2650.510;       4036.825
- eclipse-openj9-vm;                        NA;               3;                  13388.470;               4177.430;       6676.688
-openjdk-hotspot-vm;                        NA;               2;                   6958.550;               1784.060;       2665.658
-openjdk-hotspot-vm;                        NA;               3;                   7310.720;               1853.100;       2807.626
-     azul-prime-vm;                        NA;               3;                   8295.400;               2704.480;       3056.327
- eclipse-openj9-vm;                        NA;               1;                   9191.350;               2321.440;       3596.387
- eclipse-openj9-vm;                        NA;               2;                   9078.070;               2240.980;       3456.770
-        graalvm-ce;                        NA;               2;                   6764.570;               1802.560;       2623.311
-        graalvm-ee;                        NA;               3;                   5509.000;               1556.340;       2199.052
-        graalvm-ce;                        NA;               1;                   6930.230;               1834.600;       2663.926
-     azul-prime-vm;                        NA;               2;                   8198.890;               2690.590;       3076.851
-        graalvm-ee;                        NA;               2;                   5548.260;               1568.190;       2193.919
-        graalvm-ce;                        NA;               3;                   6500.470;               1713.670;       2514.773
-     azul-prime-vm;                        NA;               1;                   8419.760;               2734.710;       3142.836
-        graalvm-ee;                        NA;               1;                   5561.460;               1560.400;       2197.000
-openjdk-hotspot-vm;                        NA;               1;                   6716.620;               1744.870;       2620.837
- eclipse-openj9-vm;                        NA;               3;                   9371.800;               2312.300;       3585.135
+      native-image;                       N/A;               2;                   1332.160;                571.230;        901.407
+openjdk-hotspot-vm;                       N/A;               2;                   1422.170;                627.940;        933.376
+openjdk-hotspot-vm;                       N/A;               3;                   1409.290;                631.020;        933.438
+      native-image;                       N/A;               3;                   1332.420;                572.400;        901.432
+     azul-prime-vm;                       N/A;               3;                   2334.050;                936.750;        946.282
+ eclipse-openj9-vm;                       N/A;               1;                   1609.860;                659.030;        954.344
+ eclipse-openj9-vm;                       N/A;               2;                   1564.000;                649.200;        951.243
+      native-image;                       N/A;               1;                   1330.560;                569.070;        901.422
+        graalvm-ce;                       N/A;               2;                   1387.640;                623.900;        929.215
+        graalvm-ee;                       N/A;               3;                   1311.370;                636.520;        929.045
+        graalvm-ce;                       N/A;               1;                   1374.730;                621.680;        929.611
+     azul-prime-vm;                       N/A;               2;                   2292.450;                941.040;        946.326
+        graalvm-ee;                       N/A;               2;                   1311.040;                632.210;        929.131
+        graalvm-ce;                       N/A;               3;                   1387.080;                624.210;        929.542
+     azul-prime-vm;                       N/A;               1;                   2270.610;                940.360;        947.322
+        graalvm-ee;                       N/A;               1;                   1334.220;                635.870;        929.795
+openjdk-hotspot-vm;                       N/A;               1;                   1424.210;                629.810;        933.076
+ eclipse-openj9-vm;                       N/A;               3;                   1597.880;                657.310;        954.031
+      native-image;                       N/A;               2;                   1196.780;                548.250;        900.342
+openjdk-hotspot-vm;                       N/A;               2;                   1229.370;                566.540;        910.132
+openjdk-hotspot-vm;                       N/A;               3;                   1224.690;                566.050;        910.060
+      native-image;                       N/A;               3;                   1170.390;                547.580;        900.363
+     azul-prime-vm;                       N/A;               3;                   1733.300;                658.820;        917.085
+ eclipse-openj9-vm;                       N/A;               1;                   1354.740;                571.490;        916.972
+ eclipse-openj9-vm;                       N/A;               2;                   1406.350;                577.490;        918.815
+      native-image;                       N/A;               1;                   1193.130;                548.200;        900.463
+        graalvm-ce;                       N/A;               2;                   1239.830;                563.860;        910.036
+        graalvm-ee;                       N/A;               3;                   1234.840;                569.630;        909.925
+        graalvm-ce;                       N/A;               1;                   1252.960;                563.880;        910.181
+     azul-prime-vm;                       N/A;               2;                   1734.230;                659.130;        916.829
+        graalvm-ee;                       N/A;               2;                   1226.960;                569.750;        909.833
+        graalvm-ce;                       N/A;               3;                   1235.080;                564.600;        910.042
+     azul-prime-vm;                       N/A;               1;                   1728.890;                656.120;        917.042
+        graalvm-ee;                       N/A;               1;                   1251.780;                569.440;        909.879
+openjdk-hotspot-vm;                       N/A;               1;                   1240.440;                564.540;        910.167
+ eclipse-openj9-vm;                       N/A;               3;                   1360.570;                574.720;        916.690
+openjdk-hotspot-vm;                       N/A;               2;                  27405.260;               9634.100;      10428.805
+openjdk-hotspot-vm;                       N/A;               3;                  27454.050;               9674.910;      10447.847
+     azul-prime-vm;                       N/A;               3;                  30593.840;              11455.660;      11472.506
+ eclipse-openj9-vm;                       N/A;               1;                  35228.180;              10651.950;      13093.132
+ eclipse-openj9-vm;                       N/A;               2;                  34500.210;              10578.690;      12908.710
+        graalvm-ce;                       N/A;               2;                  28128.510;               9573.230;      10582.719
+        graalvm-ee;                       N/A;               3;                  24555.900;               9044.220;       9309.338
+        graalvm-ce;                       N/A;               1;                  26843.330;               9330.670;      10267.162
+     azul-prime-vm;                       N/A;               2;                  30195.830;              11430.440;      11442.333
+        graalvm-ee;                       N/A;               2;                  24746.610;               9053.840;       9235.889
+        graalvm-ce;                       N/A;               3;                  27215.800;               9350.710;      10356.902
+     azul-prime-vm;                       N/A;               1;                  30723.050;              11496.630;      11525.135
+        graalvm-ee;                       N/A;               1;                  24614.870;               9081.920;       9305.810
+openjdk-hotspot-vm;                       N/A;               1;                  27953.380;               9648.240;      10379.101
+ eclipse-openj9-vm;                       N/A;               3;                  34025.210;              10398.960;      12576.130
+openjdk-hotspot-vm;                       N/A;               2;                  15633.620;               5566.470;       8520.323
+openjdk-hotspot-vm;                       N/A;               3;                  16485.440;               5650.080;       8659.912
+     azul-prime-vm;                       N/A;               3;                   6752.540;               2607.580;       3246.750
+ eclipse-openj9-vm;                       N/A;               1;                  10653.720;               4150.410;       5750.138
+ eclipse-openj9-vm;                       N/A;               2;                  12997.730;               4789.500;       6900.481
+        graalvm-ce;                       N/A;               2;                  12985.420;               4612.320;       6724.199
+        graalvm-ee;                       N/A;               3;                   5997.440;               2288.870;       3022.126
+        graalvm-ce;                       N/A;               1;                  12786.890;               4580.480;       6685.162
+     azul-prime-vm;                       N/A;               2;                   6588.670;               2603.570;       3208.209
+        graalvm-ee;                       N/A;               2;                   7698.160;               2784.970;       3865.559
+        graalvm-ce;                       N/A;               3;                  12647.380;               4562.730;       6699.691
+     azul-prime-vm;                       N/A;               1;                   6735.910;               2628.370;       3242.559
+        graalvm-ee;                       N/A;               1;                   7159.350;               2639.380;       3614.217
+openjdk-hotspot-vm;                       N/A;               1;                  15552.920;               5370.580;       8178.429
+ eclipse-openj9-vm;                       N/A;               3;                  13185.670;               4897.100;       7084.561
+openjdk-hotspot-vm;                       N/A;               2;                   7715.050;               2487.740;       3718.472
+openjdk-hotspot-vm;                       N/A;               3;                   7436.860;               2384.240;       3527.373
+     azul-prime-vm;                       N/A;               3;                   7304.490;               2493.030;       3144.593
+ eclipse-openj9-vm;                       N/A;               1;                  12507.430;               4005.850;       6382.233
+ eclipse-openj9-vm;                       N/A;               2;                  13303.530;               4167.030;       6643.615
+        graalvm-ce;                       N/A;               2;                   6293.740;               1975.560;       2898.715
+        graalvm-ee;                       N/A;               3;                   4556.320;               1516.120;       2138.912
+        graalvm-ce;                       N/A;               1;                   6261.190;               1949.160;       2866.601
+     azul-prime-vm;                       N/A;               2;                   7343.700;               2541.350;       3233.089
+        graalvm-ee;                       N/A;               2;                   5658.820;               1834.610;       2694.399
+        graalvm-ce;                       N/A;               3;                   6172.760;               1950.210;       2878.885
+     azul-prime-vm;                       N/A;               1;                   7303.760;               2464.320;       3142.581
+        graalvm-ee;                       N/A;               1;                   5587.430;               1797.020;       2650.356
+openjdk-hotspot-vm;                       N/A;               1;                   8216.940;               2650.510;       4036.825
+ eclipse-openj9-vm;                       N/A;               3;                  13388.470;               4177.430;       6676.688
+openjdk-hotspot-vm;                       N/A;               2;                   6958.550;               1784.060;       2665.658
+openjdk-hotspot-vm;                       N/A;               3;                   7310.720;               1853.100;       2807.626
+     azul-prime-vm;                       N/A;               3;                   8295.400;               2704.480;       3056.327
+ eclipse-openj9-vm;                       N/A;               1;                   9191.350;               2321.440;       3596.387
+ eclipse-openj9-vm;                       N/A;               2;                   9078.070;               2240.980;       3456.770
+        graalvm-ce;                       N/A;               2;                   6764.570;               1802.560;       2623.311
+        graalvm-ee;                       N/A;               3;                   5509.000;               1556.340;       2199.052
+        graalvm-ce;                       N/A;               1;                   6930.230;               1834.600;       2663.926
+     azul-prime-vm;                       N/A;               2;                   8198.890;               2690.590;       3076.851
+        graalvm-ee;                       N/A;               2;                   5548.260;               1568.190;       2193.919
+        graalvm-ce;                       N/A;               3;                   6500.470;               1713.670;       2514.773
+     azul-prime-vm;                       N/A;               1;                   8419.760;               2734.710;       3142.836
+        graalvm-ee;                       N/A;               1;                   5561.460;               1560.400;       2197.000
+openjdk-hotspot-vm;                       N/A;               1;                   6716.620;               1744.870;       2620.837
+ eclipse-openj9-vm;                       N/A;               3;                   9371.800;               2312.300;       3585.135
         graalvm-ce;                     const;               2;                     35.850;                 11.980;         20.795
      azul-prime-vm;             override_fist;               4;                     55.480;                 16.910;         27.455
  eclipse-openj9-vm;             override_fist;               1;                     50.100;                 13.550;         21.318

@@ -110,38 +110,38 @@
 <text x='730.45' y='338.74' text-anchor='middle' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='27.48px' lengthAdjust='spacingAndGlyphs'>200</text>
 <text x='410.01' y='357.60' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='160.65px' lengthAdjust='spacingAndGlyphs'>Energy (Watt⋅sec)</text>
 <text transform='translate(27.30,179.92) rotate(-90)' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='94.16px' lengthAdjust='spacingAndGlyphs'>Time (sec)</text>
-<rect x='133.13' y='372.31' width='553.75' height='45.52' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='138.61' y='401.63' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='66.12px' lengthAdjust='spacingAndGlyphs'>Legend</text>
-<rect x='213.70' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='222.34' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #785EF0; fill: #785EF0;' />
-<line x1='215.42' y1='386.43' x2='229.25' y2='386.43' style='stroke-width: 1.07; stroke: #785EF0; stroke-linecap: butt;' />
-<line x1='215.42' y1='386.43' x2='229.25' y2='386.43' style='stroke-width: 1.07; stroke: #785EF0; stroke-linecap: butt;' />
-<rect x='213.70' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='222.34' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #009E73; fill: #009E73;' />
-<line x1='215.42' y1='403.71' x2='229.25' y2='403.71' style='stroke-width: 1.07; stroke: #009E73; stroke-linecap: butt;' />
-<line x1='215.42' y1='403.71' x2='229.25' y2='403.71' style='stroke-width: 1.07; stroke: #009E73; stroke-linecap: butt;' />
-<rect x='382.65' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='391.29' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #FFB000; fill: #FFB000;' />
-<line x1='384.38' y1='386.43' x2='398.20' y2='386.43' style='stroke-width: 1.07; stroke: #FFB000; stroke-linecap: butt;' />
-<line x1='384.38' y1='386.43' x2='398.20' y2='386.43' style='stroke-width: 1.07; stroke: #FFB000; stroke-linecap: butt;' />
-<rect x='382.65' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='391.29' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #FE6100; fill: #FE6100;' />
-<line x1='384.38' y1='403.71' x2='398.20' y2='403.71' style='stroke-width: 1.07; stroke: #FE6100; stroke-linecap: butt;' />
-<line x1='384.38' y1='403.71' x2='398.20' y2='403.71' style='stroke-width: 1.07; stroke: #FE6100; stroke-linecap: butt;' />
-<rect x='502.55' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='511.19' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #DC267F; fill: #DC267F;' />
-<line x1='504.28' y1='386.43' x2='518.10' y2='386.43' style='stroke-width: 1.07; stroke: #DC267F; stroke-linecap: butt;' />
-<line x1='504.28' y1='386.43' x2='518.10' y2='386.43' style='stroke-width: 1.07; stroke: #DC267F; stroke-linecap: butt;' />
-<rect x='502.55' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<circle cx='511.19' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #648FFF; fill: #648FFF;' />
-<line x1='504.28' y1='403.71' x2='518.10' y2='403.71' style='stroke-width: 1.07; stroke: #648FFF; stroke-linecap: butt;' />
-<line x1='504.28' y1='403.71' x2='518.10' y2='403.71' style='stroke-width: 1.07; stroke: #648FFF; stroke-linecap: butt;' />
-<text x='239.94' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='103.13px' lengthAdjust='spacingAndGlyphs'>Azul Prime VM</text>
-<text x='239.94' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='133.74px' lengthAdjust='spacingAndGlyphs'>Eclipse OpenJ9 VM</text>
-<text x='408.89' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='84.69px' lengthAdjust='spacingAndGlyphs'>GraalVM CE</text>
-<text x='408.89' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='83.73px' lengthAdjust='spacingAndGlyphs'>GraalVM EE</text>
-<text x='528.79' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='96.25px' lengthAdjust='spacingAndGlyphs'>Native Image</text>
-<text x='528.79' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='152.61px' lengthAdjust='spacingAndGlyphs'>OpenJDK HotSpot VM</text>
+<rect x='127.35' y='372.31' width='565.32' height='45.52' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='132.83' y='401.63' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='66.12px' lengthAdjust='spacingAndGlyphs'>Legend</text>
+<rect x='207.91' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='216.55' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #785EF0; fill: #785EF0;' />
+<line x1='209.64' y1='386.43' x2='223.47' y2='386.43' style='stroke-width: 1.07; stroke: #785EF0; stroke-linecap: butt;' />
+<line x1='209.64' y1='386.43' x2='223.47' y2='386.43' style='stroke-width: 1.07; stroke: #785EF0; stroke-linecap: butt;' />
+<rect x='207.91' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='216.55' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #009E73; fill: #009E73;' />
+<line x1='209.64' y1='403.71' x2='223.47' y2='403.71' style='stroke-width: 1.07; stroke: #009E73; stroke-linecap: butt;' />
+<line x1='209.64' y1='403.71' x2='223.47' y2='403.71' style='stroke-width: 1.07; stroke: #009E73; stroke-linecap: butt;' />
+<rect x='376.87' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='385.51' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #FFB000; fill: #FFB000;' />
+<line x1='378.59' y1='386.43' x2='392.42' y2='386.43' style='stroke-width: 1.07; stroke: #FFB000; stroke-linecap: butt;' />
+<line x1='378.59' y1='386.43' x2='392.42' y2='386.43' style='stroke-width: 1.07; stroke: #FFB000; stroke-linecap: butt;' />
+<rect x='376.87' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='385.51' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #DC267F; fill: #DC267F;' />
+<line x1='378.59' y1='403.71' x2='392.42' y2='403.71' style='stroke-width: 1.07; stroke: #DC267F; stroke-linecap: butt;' />
+<line x1='378.59' y1='403.71' x2='392.42' y2='403.71' style='stroke-width: 1.07; stroke: #DC267F; stroke-linecap: butt;' />
+<rect x='508.33' y='377.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='516.97' cy='386.43' r='3.56' style='stroke-width: 0.71; stroke: #648FFF; fill: #648FFF;' />
+<line x1='510.06' y1='386.43' x2='523.88' y2='386.43' style='stroke-width: 1.07; stroke: #648FFF; stroke-linecap: butt;' />
+<line x1='510.06' y1='386.43' x2='523.88' y2='386.43' style='stroke-width: 1.07; stroke: #648FFF; stroke-linecap: butt;' />
+<rect x='508.33' y='395.07' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<circle cx='516.97' cy='403.71' r='3.56' style='stroke-width: 0.71; stroke: #FE6100; fill: #FE6100;' />
+<line x1='510.06' y1='403.71' x2='523.88' y2='403.71' style='stroke-width: 1.07; stroke: #FE6100; stroke-linecap: butt;' />
+<line x1='510.06' y1='403.71' x2='523.88' y2='403.71' style='stroke-width: 1.07; stroke: #FE6100; stroke-linecap: butt;' />
+<text x='234.16' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='103.13px' lengthAdjust='spacingAndGlyphs'>Azul Prime VM</text>
+<text x='234.16' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='133.74px' lengthAdjust='spacingAndGlyphs'>Eclipse OpenJ9 VM</text>
+<text x='403.11' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='84.69px' lengthAdjust='spacingAndGlyphs'>GraalVM CE</text>
+<text x='403.11' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='96.25px' lengthAdjust='spacingAndGlyphs'>Native Image</text>
+<text x='534.58' y='391.67' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='152.61px' lengthAdjust='spacingAndGlyphs'>OpenJDK HotSpot VM</text>
+<text x='534.58' y='408.95' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='112.37px' lengthAdjust='spacingAndGlyphs'>Oracle GraalVM</text>
 <text x='66.19' y='27.30' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='398.62px' lengthAdjust='spacingAndGlyphs'>Logging Patterns (unguarded_parametrized)</text>
 </g>
 </svg>

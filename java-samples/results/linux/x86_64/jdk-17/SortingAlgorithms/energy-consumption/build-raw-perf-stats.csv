@@ -1,31 +1,31 @@
      Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
-     azul-prime-vm;                        NA;               3;                     68.970;                 20.110;         25.989
-     azul-prime-vm;                        NA;               2;                     69.080;                 20.230;         26.288
-     azul-prime-vm;                        NA;               1;                     69.800;                 20.410;         26.366
-     azul-prime-vm;                        NA;               5;                     69.650;                 20.320;         26.349
-     azul-prime-vm;                        NA;               4;                     69.380;                 20.490;         26.567
- eclipse-openj9-vm;                        NA;               4;                     99.440;                 25.400;         36.596
- eclipse-openj9-vm;                        NA;               3;                    106.700;                 27.140;         38.900
- eclipse-openj9-vm;                        NA;               2;                    111.230;                 28.600;         40.603
- eclipse-openj9-vm;                        NA;               5;                    108.940;                 28.110;         40.022
- eclipse-openj9-vm;                        NA;               1;                    101.830;                 25.920;         37.280
-        graalvm-ce;                        NA;               2;                     42.060;                 12.980;         18.397
-        graalvm-ce;                        NA;               4;                     42.180;                 12.940;         18.327
-        graalvm-ce;                        NA;               5;                     42.530;                 13.140;         18.452
-        graalvm-ce;                        NA;               3;                     42.010;                 12.970;         18.290
-        graalvm-ce;                        NA;               1;                     42.340;                 12.970;         18.439
-        graalvm-ee;                        NA;               5;                     41.270;                 13.200;         18.106
-        graalvm-ee;                        NA;               4;                     41.780;                 13.300;         18.201
-        graalvm-ee;                        NA;               2;                     40.960;                 13.110;         17.952
-        graalvm-ee;                        NA;               3;                     41.430;                 13.090;         17.978
-        graalvm-ee;                        NA;               1;                     41.220;                 13.220;         18.130
-      native-image;                        NA;               4;                    838.800;                296.500;        295.676
-      native-image;                        NA;               2;                    832.120;                294.410;        295.823
-      native-image;                        NA;               5;                    836.990;                294.320;        294.960
-      native-image;                        NA;               1;                    829.660;                293.610;        295.129
-      native-image;                        NA;               3;                    841.350;                293.750;        296.958
-openjdk-hotspot-vm;                        NA;               1;                     47.440;                 13.820;         18.786
-openjdk-hotspot-vm;                        NA;               5;                     48.740;                 14.090;         19.046
-openjdk-hotspot-vm;                        NA;               3;                     48.400;                 14.010;         18.861
-openjdk-hotspot-vm;                        NA;               2;                     46.600;                 13.700;         18.666
-openjdk-hotspot-vm;                        NA;               4;                     48.380;                 13.740;         18.848
+     azul-prime-vm;                       N/A;               3;                     68.970;                 20.110;         25.989
+     azul-prime-vm;                       N/A;               2;                     69.080;                 20.230;         26.288
+     azul-prime-vm;                       N/A;               1;                     69.800;                 20.410;         26.366
+     azul-prime-vm;                       N/A;               5;                     69.650;                 20.320;         26.349
+     azul-prime-vm;                       N/A;               4;                     69.380;                 20.490;         26.567
+ eclipse-openj9-vm;                       N/A;               4;                     99.440;                 25.400;         36.596
+ eclipse-openj9-vm;                       N/A;               3;                    106.700;                 27.140;         38.900
+ eclipse-openj9-vm;                       N/A;               2;                    111.230;                 28.600;         40.603
+ eclipse-openj9-vm;                       N/A;               5;                    108.940;                 28.110;         40.022
+ eclipse-openj9-vm;                       N/A;               1;                    101.830;                 25.920;         37.280
+        graalvm-ce;                       N/A;               2;                     42.060;                 12.980;         18.397
+        graalvm-ce;                       N/A;               4;                     42.180;                 12.940;         18.327
+        graalvm-ce;                       N/A;               5;                     42.530;                 13.140;         18.452
+        graalvm-ce;                       N/A;               3;                     42.010;                 12.970;         18.290
+        graalvm-ce;                       N/A;               1;                     42.340;                 12.970;         18.439
+        graalvm-ee;                       N/A;               5;                     41.270;                 13.200;         18.106
+        graalvm-ee;                       N/A;               4;                     41.780;                 13.300;         18.201
+        graalvm-ee;                       N/A;               2;                     40.960;                 13.110;         17.952
+        graalvm-ee;                       N/A;               3;                     41.430;                 13.090;         17.978
+        graalvm-ee;                       N/A;               1;                     41.220;                 13.220;         18.130
+      native-image;                       N/A;               4;                    838.800;                296.500;        295.676
+      native-image;                       N/A;               2;                    832.120;                294.410;        295.823
+      native-image;                       N/A;               5;                    836.990;                294.320;        294.960
+      native-image;                       N/A;               1;                    829.660;                293.610;        295.129
+      native-image;                       N/A;               3;                    841.350;                293.750;        296.958
+openjdk-hotspot-vm;                       N/A;               1;                     47.440;                 13.820;         18.786
+openjdk-hotspot-vm;                       N/A;               5;                     48.740;                 14.090;         19.046
+openjdk-hotspot-vm;                       N/A;               3;                     48.400;                 14.010;         18.861
+openjdk-hotspot-vm;                       N/A;               2;                     46.600;                 13.700;         18.666
+openjdk-hotspot-vm;                       N/A;               4;                     48.380;                 13.740;         18.848
