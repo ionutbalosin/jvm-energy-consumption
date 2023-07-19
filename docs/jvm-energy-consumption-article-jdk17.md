@@ -522,11 +522,13 @@ Eclipse OpenJ9 VM exhibited comparatively lower energy efficiency.
 
 When it comes to software development, to write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, defining the scope of allocated objects as close as possible to their usage, etc.
 
-This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
+This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size). However, it is important to note that there are specific JVM features available (to improve start-up response times, reducing memory footprint) that might change the picture in a real-world scenario, reducing memory footprint, and thus reducing energy consumption. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://openjdk.org/projects/crac) introduced to the OpenJDK by Azul.
+
+Therefore, the report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption in real-world application scenarios.
 
 # Future Work
 
-An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or representative code patterns.
+An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or other code patterns.
 
 It might also be interesting to assess the energy consumption across multiple web-based frameworks like Quarkus, Spring, Micronaut, etc. However, at the current stage, I have not found a proper way to compare them.
 
