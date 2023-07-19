@@ -224,7 +224,7 @@ It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate OR
 3. The endpoints for creating/reading/editing owners and creating/reading pets encountered an increased load ranging from 1 to 12 reqs/sec over 780 seconds.
 4. The endpoints for creating/reading pet visits experienced an increased load ranging from 1 to 10 reqs/sec over 780 seconds.
 
-[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)
+[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -240,7 +240,7 @@ It involves running the Quarkus Hibernate ORM Panache sample application with Qu
 1. The endpoint returning static data (e.g., get home page) was hit at a constant rate of 64 reqs/sec for 780 seconds.
 3. The endpoints for creating/reading/updating/deleting fruits encountered an increased load ranging from 1 to 312 reqs/sec over 780 seconds.
 
-[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/energy.svg?raw=true)
+[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -261,25 +261,25 @@ The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories in
  
 Each category ran with 100 repetitions. 
 
-[![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/energy.svg?raw=true)
+[![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
 
-[![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy.svg?raw=true)
+[![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/functional/reports)
 
-[![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/energy.svg?raw=true)
+[![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/scala/reports)
 
-[![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/energy.svg?raw=true)
+[![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -302,7 +302,7 @@ The program creates a large array of longs, occupying approximately 4 GB of RAM 
 
 Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
 
-[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/energy.svg?raw=true)
+[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -319,7 +319,7 @@ The program measures various logging patterns using human-readable strings, whic
 
 Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
 
-[![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy.svg?raw=true)
+[![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -335,7 +335,7 @@ This program measures different exception throwing patterns. It involves a total
 
 Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
 
-[![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/energy.svg?raw=true)
+[![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -352,7 +352,7 @@ This program utilizes various sorting algorithms with different complexities, ra
 
 Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
 
-[![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/energy.svg?raw=true)
+[![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
@@ -380,7 +380,7 @@ An array of 9,600 elements of a base abstract class is initialized. Within 300,0
 
 Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VirtualCalls.java)
 
-[![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/energy.svg?raw=true)
+[![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)
 
 *This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
 
