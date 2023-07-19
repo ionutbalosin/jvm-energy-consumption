@@ -1,0 +1,21 @@
+     Test Category;                 Test Type;  Samples;  Energy Mean (Watt⋅sec);  Energy Score Error (90.0%);  Elapsed Mean (sec);  Elapsed Score Error (90.0%)
+     azul-prime-vm;                    linear;        5;                  84.433;                       4.442;              68.866;                        0.433
+     azul-prime-vm;               random_heap;        5;                 390.874;                      12.269;             705.504;                        6.357
+     azul-prime-vm;               random_page;        5;                 106.725;                       3.918;              98.683;                        1.196
+ eclipse-openj9-vm;                    linear;        5;                  99.308;                       4.358;              72.836;                        1.371
+ eclipse-openj9-vm;               random_heap;        5;                 311.542;                       4.580;             215.252;                        1.035
+ eclipse-openj9-vm;               random_page;        5;                 117.633;                       2.968;             107.996;                        1.334
+        graalvm-ce;                    linear;        5;                  56.540;                       1.222;              54.260;                        1.256
+        graalvm-ce;               random_heap;        5;                 329.393;                      19.383;             673.620;                        1.929
+        graalvm-ce;               random_page;        5;                  75.334;                       2.267;              85.262;                        1.408
+        graalvm-ee;                    linear;        5;                  50.001;                       0.992;              52.123;                        0.726
+        graalvm-ee;               random_heap;        5;                 327.509;                      12.328;             678.963;                        9.558
+        graalvm-ee;               random_page;        5;                  74.399;                       1.544;              85.130;                        1.625
+      native-image;                    linear;        5;                  33.066;                       6.602;              32.477;                        1.607
+      native-image;               random_heap;        5;                 273.687;                      18.951;             614.377;                        3.536
+      native-image;               random_page;        5;                  51.522;                       8.416;              63.148;                        1.050
+openjdk-hotspot-vm;                    linear;        5;                  43.920;                       4.777;              52.726;                        0.437
+openjdk-hotspot-vm;               random_heap;        5;                 304.564;                      17.438;             687.710;                        4.358
+openjdk-hotspot-vm;               random_page;        5;                  61.384;                       7.407;              83.836;                        0.577
+
+# Note: The reference baseline has already been excluded from the energy scores

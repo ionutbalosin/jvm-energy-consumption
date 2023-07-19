@@ -1,0 +1,31 @@
+     Test Category;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;               3;                    191.710;                 55.290;         73.137
+     azul-prime-vm;               2;                    187.500;                 55.350;         73.182
+     azul-prime-vm;               1;                    190.150;                 54.020;         72.126
+     azul-prime-vm;               5;                    187.830;                 54.970;         72.903
+     azul-prime-vm;               4;                    188.330;                 54.900;         72.408
+ eclipse-openj9-vm;               4;                    215.710;                 57.880;         84.368
+ eclipse-openj9-vm;               3;                    200.170;                 54.370;         78.156
+ eclipse-openj9-vm;               2;                    195.140;                 52.420;         74.643
+ eclipse-openj9-vm;               5;                    229.080;                 60.350;         86.736
+ eclipse-openj9-vm;               1;                    224.460;                 58.710;         84.955
+        graalvm-ce;               2;                    103.870;                 32.360;         47.085
+        graalvm-ce;               4;                    104.950;                 32.470;         47.216
+        graalvm-ce;               5;                    106.520;                 32.850;         48.002
+        graalvm-ce;               3;                    109.430;                 33.420;         48.854
+        graalvm-ce;               1;                    111.090;                 32.890;         48.020
+        graalvm-ee;               5;                     93.620;                 30.320;         42.207
+        graalvm-ee;               4;                     95.410;                 30.300;         41.932
+        graalvm-ee;               2;                     96.350;                 30.580;         42.426
+        graalvm-ee;               3;                     95.080;                 30.280;         41.982
+        graalvm-ee;               1;                    103.120;                 30.860;         42.944
+      native-image;               4;                   6460.760;               2071.660;       2235.075
+      native-image;               2;                   6559.880;               2061.180;       2220.365
+      native-image;               5;                   6478.580;               2081.260;       2248.837
+      native-image;               1;                   6507.290;               2057.930;       2214.660
+      native-image;               3;                   6577.310;               2090.650;       2251.550
+openjdk-hotspot-vm;               1;                    153.300;                 39.360;         57.110
+openjdk-hotspot-vm;               5;                    108.720;                 32.660;         46.161
+openjdk-hotspot-vm;               3;                    113.400;                 33.510;         47.413
+openjdk-hotspot-vm;               2;                    106.750;                 31.910;         44.775
+openjdk-hotspot-vm;               4;                    107.570;                 32.380;         45.697

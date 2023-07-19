@@ -26,11 +26,11 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
+import static com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser.parseStats;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats.EXECUTION_TYPE;
-import com.ionutbalosin.jvm.energy.consumption.stats.PerfStatsParser;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -39,41 +39,35 @@ import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 public abstract class AbstractReport {
 
-  Function<EXECUTION_TYPE, PathMatcher> FILENAME_MATCHER =
-      (executionType) ->
-          FileSystems.getDefault()
-              .getPathMatcher("regex:.*-" + executionType.toString().toLowerCase() + "-.*.stats");
-
   public String module;
   public String basePath;
-  public List<PerfStats> perfStats;
-  public List<ReportStats> reportStats;
+  public List<PerfStats> perfStats = new ArrayList<>();
+  public List<ReportStats> reportStats = new ArrayList<>();
 
-  public AbstractReport() {
-    this.reportStats = new ArrayList<>();
-  }
-
-  public void parseRawPerfStats(EXECUTION_TYPE perfType) throws IOException {
-    this.perfStats = readPerfOutputFiles(basePath + "/perf", perfType);
+  public void parseRawPerfStats(ExecutionType perfType) throws IOException {
+    this.perfStats = parseRawPerfStats(basePath + "/perf", perfType);
   }
 
   public abstract void printRawPerfStatsReport(String outputFilePath) throws IOException;
+
+  public void resetReportStats() {
+    this.reportStats.clear();
+  }
 
   public abstract void createReportStats();
 
   public abstract void printReportStats(String outputFilePath) throws IOException;
 
-  private List<PerfStats> readPerfOutputFiles(String parentFolder, EXECUTION_TYPE executionType)
+  private List<PerfStats> parseRawPerfStats(String parentFolder, ExecutionType executionType)
       throws IOException {
-    PathMatcher filenameMatcher = FILENAME_MATCHER.apply(executionType);
+    PathMatcher filenameMatcher = getPathMatcher(executionType);
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(filenameMatcher::matches)
-        .map(filePath -> PerfStatsParser.parseStats(filePath, executionType))
+        .map(filePath -> parseStats(filePath, executionType))
         .map(this::setModule)
         .collect(toList());
   }
@@ -81,5 +75,10 @@ public abstract class AbstractReport {
   private PerfStats setModule(PerfStats parseStats) {
     parseStats.module = this.module;
     return parseStats;
+  }
+
+  private PathMatcher getPathMatcher(ExecutionType executionType) {
+    return FileSystems.getDefault()
+        .getPathMatcher("regex:.*-" + executionType.toString().toLowerCase() + "-.*.stats");
   }
 }

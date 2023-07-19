@@ -31,13 +31,16 @@ import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
 import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
 import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
 import com.ionutbalosin.jvm.energy.consumption.report.SummaryReport;
+import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 
 public class EnergyReportCalculator {
@@ -71,29 +74,67 @@ public class EnergyReportCalculator {
     BaselineReport baseline = new BaselineReport("baseline-idle-os");
     calculateEnergy(baseline);
 
-    // 2. for any other report pass the baseline mean power and save the raw perf stats
-    List<PerfStats> perfStats = new ArrayList<>();
+    // 2. for any other report pass the baseline mean power and collect raw perf stats
+    Map<ExecutionType, List<PerfStats>> allPerfStats = new HashMap();
     for (AbstractReport report : REPORTS.apply(baseline.meanPowerBaseline)) {
-      calculateEnergy(report);
-      perfStats.addAll(report.perfStats);
+      Map<ExecutionType, List<PerfStats>> result = calculateEnergy(report);
+
+      // collect individual raw perf stats for each execution type (e.g., RUN, BUILD)
+      for (ExecutionType executionType : ExecutionType.values()) {
+        List<PerfStats> perfStats = allPerfStats.getOrDefault(executionType, new ArrayList<>());
+        perfStats.addAll(result.get(executionType));
+        allPerfStats.put(executionType, perfStats);
+      }
     }
 
     // 3. for the summary report pass the baseline mean power and the raw perf stats
-    SummaryReport summary =
-        new SummaryReport("rapl-reports", perfStats, baseline.meanPowerBaseline);
-    calculateEnergy(summary);
+    SummaryReport summary = new SummaryReport("rapl-reports", baseline.meanPowerBaseline);
+    calculateEnergy(summary, allPerfStats);
   }
 
-  private static void calculateEnergy(AbstractReport energyReport) throws IOException {
-    String outputPath = new File(energyReport.basePath + "/" + OUTPUT_FOLDER).getCanonicalPath();
+  private static Map<ExecutionType, List<PerfStats>> calculateEnergy(AbstractReport energyReport)
+      throws IOException {
+    String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
+    Files.createDirectories(Paths.get(outputPath));
+    Map<ExecutionType, List<PerfStats>> result = new HashMap();
+
+    for (ExecutionType executionType : ExecutionType.values()) {
+      calculateEnergy(energyReport, outputPath, executionType);
+      result.put(executionType, energyReport.perfStats);
+    }
+
+    return result;
+  }
+
+  private static void calculateEnergy(
+      AbstractReport energyReport, Map<ExecutionType, List<PerfStats>> allPerfStats)
+      throws IOException {
+    String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
-    String rawPerfStatsOutputFile = outputPath + "/" + RAW_PERF_STATS_OUTPUT_FILE;
-    energyReport.parseRawPerfStats(PerfStats.EXECUTION_TYPE.RUN);
+    for (ExecutionType executionType : ExecutionType.values()) {
+      energyReport.perfStats = allPerfStats.get(executionType);
+      calculateEnergy(energyReport, outputPath, executionType);
+    }
+  }
+
+  private static void calculateEnergy(
+      AbstractReport energyReport, String outputPath, ExecutionType executionType)
+      throws IOException {
+    String rawPerfStatsOutputFile = getPath(outputPath, executionType, RAW_PERF_STATS_OUTPUT_FILE);
+    energyReport.parseRawPerfStats(executionType);
     energyReport.printRawPerfStatsReport(rawPerfStatsOutputFile);
 
-    String reportStatsOutputFile = outputPath + "/" + REPORT_STATS_OUTPUT_FILE;
+    String reportStatsOutputFile = getPath(outputPath, executionType, REPORT_STATS_OUTPUT_FILE);
     energyReport.createReportStats();
     energyReport.printReportStats(reportStatsOutputFile);
+  }
+
+  private static String getPath(String outputPath, String outputFile) {
+    return outputPath + "/" + outputFile;
+  }
+
+  private static String getPath(String outputPath, ExecutionType executionType, String outputFile) {
+    return outputPath + "/" + executionType.toString().toLowerCase() + "-" + outputFile;
   }
 }

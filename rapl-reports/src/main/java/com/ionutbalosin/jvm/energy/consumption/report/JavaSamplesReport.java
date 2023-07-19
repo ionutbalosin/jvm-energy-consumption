@@ -44,7 +44,6 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -58,7 +57,6 @@ public class JavaSamplesReport extends AbstractReport {
     this.module = module;
     this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
     this.timeElapsedFormulas = new TimeElapsedFormulas();
-    this.reportStats = new ArrayList<>();
     this.basePath =
         String.format(
             "%s/%s/results/%s/%s/jdk-%s/%s",
@@ -66,7 +64,42 @@ public class JavaSamplesReport extends AbstractReport {
   }
 
   @Override
+  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
+    if (perfStats.isEmpty()) {
+      return;
+    }
+
+    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
+      writer.printf(
+          "%18s;%26s;%16s;%27s;%23s;%15s\n",
+          "Test Category",
+          "Test Type",
+          "Run Identifier",
+          "Energy Package (Watt⋅sec)",
+          "Energy RAM (Watt⋅sec)",
+          "Elapsed (sec)");
+
+      for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
+        for (PerfStats perfStat : pair.getValue()) {
+          writer.printf(
+              "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
+              perfStat.testCategory,
+              perfStat.testType,
+              perfStat.testRunIdentifier,
+              perfStat.pkg,
+              perfStat.ram,
+              perfStat.elapsed);
+        }
+      }
+    }
+
+    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
+  }
+
+  @Override
   public void createReportStats() {
+    resetReportStats();
+
     for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
       double meanEnergy = energyFormulas.getMean(pair.getValue());
       double meanErrorEnergy = energyFormulas.getMeanError(pair.getValue());
@@ -87,6 +120,10 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void printReportStats(String outputFilePath) throws IOException {
+    if (reportStats.isEmpty()) {
+      return;
+    }
+
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%26s;%9s;%24s;%28s;%20s;%29s\n",
@@ -114,35 +151,6 @@ public class JavaSamplesReport extends AbstractReport {
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);
-  }
-
-  @Override
-  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
-    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf(
-          "%18s;%26s;%16s;%27s;%23s;%15s\n",
-          "Test Category",
-          "Test Type",
-          "Run Identifier",
-          "Energy Package (Watt⋅sec)",
-          "Energy RAM (Watt⋅sec)",
-          "Elapsed (sec)");
-
-      for (Map.Entry<String, List<PerfStats>> pair : getPerfStatsAsMap().entrySet()) {
-        for (PerfStats perfStat : pair.getValue()) {
-          writer.printf(
-              "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
-              perfStat.testCategory,
-              perfStat.testType,
-              perfStat.testRunIdentifier,
-              perfStat.pkg,
-              perfStat.ram,
-              perfStat.elapsed);
-        }
-      }
-    }
-
-    System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
   }
 
   private Map<String, List<PerfStats>> getPerfStatsAsMap() {

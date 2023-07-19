@@ -26,15 +26,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.stats;
 
-public class PerfStats {
-  public double cores;
-  public double gpu;
-  public double pkg;
-  public double psys;
-  public double ram;
-  public double elapsed;
-  public String module;
-  public String testCategory;
-  public String testType;
-  public String testRunIdentifier;
+public enum ExecutionType {
+  RUN,
+  BUILD;
 }

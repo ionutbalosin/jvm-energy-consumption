@@ -37,6 +37,7 @@ import static java.util.Optional.ofNullable;
 import com.ionutbalosin.jvm.energy.consumption.formulas.AbstractFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.EnergyFormulas;
 import com.ionutbalosin.jvm.energy.consumption.formulas.TimeElapsedFormulas;
+import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.PerfStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
@@ -59,9 +60,8 @@ public class SummaryReport extends AbstractReport {
   AbstractFormulas energyFormulas;
   AbstractFormulas timeElapsedFormulas;
 
-  public SummaryReport(String module, List<PerfStats> perfStats, double meanPowerBaseline) {
+  public SummaryReport(String module, double meanPowerBaseline) {
     this.module = module;
-    this.perfStats = perfStats;
     this.energyFormulas = new EnergyFormulas(meanPowerBaseline);
     this.timeElapsedFormulas = new TimeElapsedFormulas();
     this.basePath =
@@ -69,12 +69,17 @@ public class SummaryReport extends AbstractReport {
   }
 
   @Override
-  public void parseRawPerfStats(PerfStats.EXECUTION_TYPE perfType) {
+  public void parseRawPerfStats(ExecutionType perfType) {
     // intentionally left blank
+    // Note: this report does not parse anything, it just receives all other perf stats reports
   }
 
   @Override
   public void printRawPerfStatsReport(String outputFilePath) throws IOException {
+    if (perfStats.isEmpty()) {
+      return;
+    }
+
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%26s;%16s;%27s;%23s;%15s\n",
@@ -102,6 +107,8 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
+    resetReportStats();
+
     if (perfStats.isEmpty()) {
       return;
     }
@@ -125,6 +132,10 @@ public class SummaryReport extends AbstractReport {
 
   @Override
   public void printReportStats(String outputFilePath) throws IOException {
+    if (reportStats.isEmpty()) {
+      return;
+    }
+
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%9s;%25s;%34s;%34s;%22s\n",

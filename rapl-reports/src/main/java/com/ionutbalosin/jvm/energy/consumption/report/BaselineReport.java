@@ -38,7 +38,6 @@ import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 
 public class BaselineReport extends AbstractReport {
 
@@ -48,50 +47,15 @@ public class BaselineReport extends AbstractReport {
   public BaselineReport(String module) {
     this.module = module;
     this.powerFormulas = new PowerFormulas();
-    this.reportStats = new ArrayList<>();
     this.basePath = String.format("%s/%s/results/%s/%s", BASE_PATH, this.module, OS, ARCH);
   }
 
   @Override
-  public void createReportStats() {
+  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
     if (perfStats.isEmpty()) {
       return;
     }
 
-    // Note: rely on the fact that all reports stats have the same test category
-    meanPowerBaseline = powerFormulas.getMean(perfStats);
-    double meanErrorPower = powerFormulas.getMeanError(perfStats);
-    reportStats.add(
-        new ReportStats(
-            this.module,
-            perfStats.get(0).testCategory,
-            perfStats.size(),
-            meanPowerBaseline,
-            meanErrorPower));
-  }
-
-  @Override
-  public void printReportStats(String outputFilePath) throws IOException {
-    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf(
-          "%18s;%9s;%19s;%27s\n",
-          "Test Category", "Samples", "Power Mean (Watt)", "Power Score Error (90.0%)");
-
-      for (ReportStats reportStat : reportStats) {
-        writer.printf(
-            "%18s;%9d;%19.3f;%27.3f\n",
-            reportStat.testCategory,
-            reportStat.samples,
-            reportStat.meanPower,
-            reportStat.meanErrorPower);
-      }
-    }
-
-    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
-  }
-
-  @Override
-  public void printRawPerfStatsReport(String outputFilePath) throws IOException {
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
           "%18s;%16s;%27s;%23s;%15s\n",
@@ -113,5 +77,49 @@ public class BaselineReport extends AbstractReport {
     }
 
     System.out.printf("Raw perf stats report %s was successfully created\n", outputFilePath);
+  }
+
+  @Override
+  public void createReportStats() {
+    resetReportStats();
+
+    if (perfStats.isEmpty()) {
+      return;
+    }
+
+    // Note: rely on the fact that all reports stats have the same test category
+    meanPowerBaseline = powerFormulas.getMean(perfStats);
+    double meanErrorPower = powerFormulas.getMeanError(perfStats);
+    reportStats.add(
+        new ReportStats(
+            this.module,
+            perfStats.get(0).testCategory,
+            perfStats.size(),
+            meanPowerBaseline,
+            meanErrorPower));
+  }
+
+  @Override
+  public void printReportStats(String outputFilePath) throws IOException {
+    if (reportStats.isEmpty()) {
+      return;
+    }
+
+    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
+      writer.printf(
+          "%18s;%9s;%19s;%27s\n",
+          "Test Category", "Samples", "Power Mean (Watt)", "Power Score Error (90.0%)");
+
+      for (ReportStats reportStat : reportStats) {
+        writer.printf(
+            "%18s;%9d;%19.3f;%27.3f\n",
+            reportStat.testCategory,
+            reportStat.samples,
+            reportStat.meanPower,
+            reportStat.meanErrorPower);
+      }
+    }
+
+    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 }

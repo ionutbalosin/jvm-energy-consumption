@@ -1,0 +1,16 @@
+     Test Category;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;               3;                   8295.400;               2704.480;       3056.327
+     azul-prime-vm;               2;                   8198.890;               2690.590;       3076.851
+     azul-prime-vm;               1;                   8419.760;               2734.710;       3142.836
+ eclipse-openj9-vm;               1;                   9191.350;               2321.440;       3596.387
+ eclipse-openj9-vm;               2;                   9078.070;               2240.980;       3456.770
+ eclipse-openj9-vm;               3;                   9371.800;               2312.300;       3585.135
+        graalvm-ce;               2;                   6764.570;               1802.560;       2623.311
+        graalvm-ce;               1;                   6930.230;               1834.600;       2663.926
+        graalvm-ce;               3;                   6500.470;               1713.670;       2514.773
+        graalvm-ee;               3;                   5509.000;               1556.340;       2199.052
+        graalvm-ee;               2;                   5548.260;               1568.190;       2193.919
+        graalvm-ee;               1;                   5561.460;               1560.400;       2197.000
+openjdk-hotspot-vm;               2;                   6958.550;               1784.060;       2665.658
+openjdk-hotspot-vm;               3;                   7310.720;               1853.100;       2807.626
+openjdk-hotspot-vm;               1;                   6716.620;               1744.870;       2620.837

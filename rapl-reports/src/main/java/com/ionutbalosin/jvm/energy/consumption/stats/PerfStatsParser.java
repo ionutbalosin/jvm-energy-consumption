@@ -39,7 +39,7 @@ import java.util.Locale;
 
 public class PerfStatsParser {
 
-  public static PerfStats parseStats(Path filePath, PerfStats.EXECUTION_TYPE executionType) {
+  public static PerfStats parseStats(Path filePath, ExecutionType executionType) {
     try (BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), UTF_8))) {
 

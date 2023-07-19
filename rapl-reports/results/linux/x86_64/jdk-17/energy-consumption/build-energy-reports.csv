@@ -1,0 +1,11 @@
+     Test Category;  Samples;  Total Energy (Watt⋅sec);  Energy Geometric Mean (Watt⋅sec);  Normalized Energy Geometric Mean;  CO₂ Emissions (gCO₂)
+openjdk-hotspot-vm;       10;                  767.239;                            75.489;                             1.000;                 0.029
+        graalvm-ce;       10;                  621.065;                            60.956;                             0.807;                 0.024
+        graalvm-ee;       10;                  588.010;                            57.907;                             0.767;                 0.022
+      native-image;       10;                42585.469;                          4074.837;                            53.979;                 1.621
+ eclipse-openj9-vm;       10;                 1524.146;                           152.141;                             2.015;                 0.058
+     azul-prime-vm;       10;                 1198.444;                           117.526;                             1.557;                 0.046
+
+# Note1: The reference baseline has already been excluded from the energy scores
+# Note2: 'openjdk-hotspot-vm' was used as the reference value for calculating the normalized geometric mean
+# Note3: The carbon emission factor used was '137.0'

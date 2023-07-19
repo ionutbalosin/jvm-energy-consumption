@@ -1,0 +1,6 @@
+     Test Category;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+  baseline-idle-os;               1;                    755.370;                493.060;        900.005
+  baseline-idle-os;               5;                    753.660;                493.320;        900.005
+  baseline-idle-os;               3;                    754.530;                493.060;        900.004
+  baseline-idle-os;               2;                    753.510;                493.000;        900.005
+  baseline-idle-os;               4;                    752.270;                492.870;        900.005
