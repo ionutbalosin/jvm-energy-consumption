@@ -84,7 +84,7 @@ public class PerfStatsParser {
       //  - test type: "guarded_parametrized"
       //  - test run identifier: "1"
       String fileName = filePath.getFileName().toString();
-      int runIndex = fileName.indexOf("-" + executionType.toString().toLowerCase() + "-");
+      int runIndex = fileName.indexOf("-" + executionType.getType() + "-");
       int statsIndex = fileName.indexOf(".stats");
       int lastDashIndex = fileName.lastIndexOf("-");
       int beforeLastDashIndex = fileName.lastIndexOf("-", lastDashIndex - 1);

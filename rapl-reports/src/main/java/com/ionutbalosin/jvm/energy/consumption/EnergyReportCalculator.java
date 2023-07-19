@@ -135,6 +135,6 @@ public class EnergyReportCalculator {
   }
 
   private static String getPath(String outputPath, ExecutionType executionType, String outputFile) {
-    return outputPath + "/" + executionType.toString().toLowerCase() + "-" + outputFile;
+    return outputPath + "/" + executionType.getType() + "-" + outputFile;
   }
 }

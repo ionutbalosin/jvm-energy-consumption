@@ -79,6 +79,6 @@ public abstract class AbstractReport {
 
   private PathMatcher getPathMatcher(ExecutionType executionType) {
     return FileSystems.getDefault()
-        .getPathMatcher("regex:.*-" + executionType.toString().toLowerCase() + "-.*.stats");
+        .getPathMatcher("regex:.*-" + executionType.getType() + "-.*.stats");
   }
 }

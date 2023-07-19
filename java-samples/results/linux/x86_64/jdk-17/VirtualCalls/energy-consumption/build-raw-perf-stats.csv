@@ -1,0 +1,31 @@
+     Test Category;                 Test Type;  Run Identifier;  Energy Package (Watt⋅sec);  Energy RAM (Watt⋅sec);  Elapsed (sec)
+     azul-prime-vm;                        NA;               3;                     69.530;                 20.520;         26.556
+     azul-prime-vm;                        NA;               2;                     68.760;                 20.060;         25.962
+     azul-prime-vm;                        NA;               1;                     69.510;                 20.290;         26.299
+     azul-prime-vm;                        NA;               5;                     71.070;                 20.720;         26.825
+     azul-prime-vm;                        NA;               4;                     68.100;                 19.950;         25.880
+ eclipse-openj9-vm;                        NA;               4;                    100.630;                 26.010;         37.346
+ eclipse-openj9-vm;                        NA;               3;                    101.780;                 26.030;         37.513
+ eclipse-openj9-vm;                        NA;               2;                    114.400;                 29.430;         41.565
+ eclipse-openj9-vm;                        NA;               5;                    107.460;                 27.840;         39.506
+ eclipse-openj9-vm;                        NA;               1;                    103.720;                 26.850;         38.629
+        graalvm-ce;                        NA;               2;                     42.690;                 13.070;         18.531
+        graalvm-ce;                        NA;               4;                     41.700;                 12.880;         18.120
+        graalvm-ce;                        NA;               5;                     42.030;                 12.900;         18.243
+        graalvm-ce;                        NA;               3;                     41.810;                 12.830;         18.076
+        graalvm-ce;                        NA;               1;                     42.060;                 12.910;         18.246
+        graalvm-ee;                        NA;               5;                     41.010;                 13.180;         18.090
+        graalvm-ee;                        NA;               4;                     41.110;                 13.090;         17.975
+        graalvm-ee;                        NA;               2;                     41.180;                 13.100;         17.970
+        graalvm-ee;                        NA;               3;                     42.000;                 13.330;         18.229
+        graalvm-ee;                        NA;               1;                     41.030;                 13.100;         17.969
+      native-image;                        NA;               4;                    832.570;                295.390;        294.902
+      native-image;                        NA;               2;                    815.570;                291.190;        289.703
+      native-image;                        NA;               5;                    817.140;                287.780;        287.644
+      native-image;                        NA;               1;                    829.840;                293.990;        294.993
+      native-image;                        NA;               3;                    839.770;                294.890;        297.923
+openjdk-hotspot-vm;                        NA;               1;                     47.090;                 13.770;         18.805
+openjdk-hotspot-vm;                        NA;               5;                     48.560;                 14.080;         19.054
+openjdk-hotspot-vm;                        NA;               3;                     48.120;                 13.730;         18.862
+openjdk-hotspot-vm;                        NA;               2;                     46.690;                 13.800;         19.004
+openjdk-hotspot-vm;                        NA;               4;                     48.540;                 13.920;         18.867

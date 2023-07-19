@@ -31,6 +31,7 @@ import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCa
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.rapl.report.EnergyReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
+import static java.util.Optional.ofNullable;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
@@ -84,7 +85,7 @@ public class JavaSamplesReport extends AbstractReport {
           writer.printf(
               "%18s;%26s;%16s;%27.3f;%23.3f;%15.3f\n",
               perfStat.testCategory,
-              perfStat.testType,
+              ofNullable(perfStat.testType).orElse("NA"),
               perfStat.testRunIdentifier,
               perfStat.pkg,
               perfStat.ram,
@@ -139,7 +140,7 @@ public class JavaSamplesReport extends AbstractReport {
         writer.printf(
             "%18s;%26s;%9d;%24.3f;%28.3f;%20.3f;%29.3f\n",
             reportStat.testCategory,
-            reportStat.testType,
+            ofNullable(reportStat.testType).orElse("NA"),
             reportStat.samples,
             reportStat.meanEnergy,
             reportStat.meanErrorEnergy,
