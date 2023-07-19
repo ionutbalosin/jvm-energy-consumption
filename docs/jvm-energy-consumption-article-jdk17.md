@@ -435,8 +435,6 @@ Additional resources:
 - [SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/build-energy.svg?raw=true) build time energy
 - [VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/build-energy.svg?raw=true) build time energy
 
-*This plot represents the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
-
 ## Build Time Geometric Mean
 
 This section describes the normalized energy geometric mean for all application categories during build time. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
@@ -484,7 +482,7 @@ Let's consider now an analogy from the car industry: Is the most powerful car th
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains. 
+Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains during applications runtime execution time. 
 
 The Renaissance benchmark suite was excluded from this report because it cannot run on the Native Image, which would result in an unfair comparison.
 
