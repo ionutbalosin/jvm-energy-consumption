@@ -36,9 +36,8 @@ output_folder <- args[2]
 # Note: use a color blindness palette (e.g., https://davidmathlogic.com/colorblind/)
 full_color_palette <- c("OpenJDK HotSpot VM" = "#648FFF", "GraalVM CE" = "#FFB000", "GraalVM EE" = "#FE6100", "Native Image" = "#DC267F", "Azul Prime VM" = "#785EF0", "Eclipse OpenJ9 VM" = "#009E73")
 
-plotEnergy <- function(output_folder, plot_title) {
-  data <- readCsvResults(paste(output_folder, "energy-consumption", "energy-reports.csv", sep = "/"))
-
+# Apply column data changes on the initial data frame
+processCsvColumns <- function(data) {
   # delete all spaces from all column values
   data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
 
@@ -69,6 +68,10 @@ plotEnergy <- function(output_folder, plot_title) {
   data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
   data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
 
+  data
+}
+
+plotBarAndScatter <- function(data, output_folder, report_type, plot_title) {
   test_types <- c()
   if (is.null(data$Type)) {
     # if there are no test types (e.g., variations of the same benchmark application), add a new Type column the same as Category
@@ -80,18 +83,18 @@ plotEnergy <- function(output_folder, plot_title) {
     test_types <- unique(data$Type)
   }
 
-  # generate the bar plots (i.e., energy plots)
+  # 1. generate the bar plots (i.e., energy plots)
   print(paste("Plotting bar", plot_title, "...", sep = " "))
   plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", "Energy (Watt⋅sec)", plot_title, full_color_palette)
-  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy")
+  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy", sep = "-"))
 
-  # generate the scatter plots (i.e., energy vs time plots), as follows:
+  # 2. generate the scatter plots (i.e., energy vs time plots), as follows:
   # - if there are no test types (e.g., variations of the same benchmark application), generate just one scatter plot
   # - if there are multiple test types, for each type generate a dedicated scatter plot
   if (length(test_types) == 0) {
     print(paste("Plotting scatter", plot_title, "...", sep = " "))
     plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title, full_color_palette)
-    saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), "energy-vs-time")
+    saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy-vs-time", sep = "-"))
   } else {
     for (test_type in test_types) {
       data_with_same_test_types <- data[data$Type == test_type, ]
@@ -99,7 +102,23 @@ plotEnergy <- function(output_folder, plot_title) {
 
       print(paste("Plotting scatter", plot_title_and_test_type, "...", sep = " "))
       plot <- generateScatterPlot(data_with_same_test_types, "JvmIdentifier", "Legend", "Energy (Watt⋅sec)", "Time (sec)", plot_title_and_test_type, full_color_palette)
-      saveScatterPlot(data_with_same_test_types, plot, paste(output_folder, "plot", sep = "/"), paste("energy-vs-time", test_type, sep = "-"))
+      saveScatterPlot(data_with_same_test_types, plot, paste(output_folder, "plot", sep = "/"), paste(report_type, "energy-vs-time", test_type, sep = "-"))
+    }
+  }
+}
+
+plotEnergyReports <- function(output_folder, plot_title) {
+  # Define the report types that could be generated
+  report_types <- c("run", "build")
+
+  # For each report type generate the corresponding plots
+  for (report_type in report_types) {
+    file_basename <- paste(report_type, "energy-reports.csv", sep = "-")
+    data <- readCsvResults(paste(output_folder, "energy-consumption", file_basename, sep = "/"))
+
+    if (!empty(data)) {
+      data <- processCsvColumns(data)
+      plotBarAndScatter(data, output_folder, report_type, plot_title)
     }
   }
 }
@@ -118,14 +137,14 @@ sorting_algorithms_output_folder <- paste(base_path, "java-samples", output_fold
 virtual_calls_output_folder <- paste(base_path, "java-samples", output_folder, "VirtualCalls", sep = "/")
 summary_rapl_reports_output_folder <- paste(base_path, "rapl-reports", output_folder, "..", sep = "/")
 
-plotEnergy(spring_petclinic_output_folder, "Spring PetClinic")
-plotEnergy(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
-plotEnergy(renaissance_concurrency_output_folder, "Renaissance Concurrency")
-plotEnergy(renaissance_functional_output_folder, "Renaissance Functional")
-plotEnergy(renaissance_scala_output_folder, "Renaissance Scala")
-plotEnergy(renaissance_web_output_folder, "Renaissance Web")
-plotEnergy(logging_patterns_output_folder, "Logging Patterns")
-plotEnergy(memory_access_patterns_output_folder, "Memory Access Patterns")
-plotEnergy(throw_exception_patterns_output_folder, "Throw Exception Patterns")
-plotEnergy(sorting_algorithms_output_folder, "Sorting Algorithms")
-plotEnergy(virtual_calls_output_folder, "Virtual Calls")
+plotEnergyReports(spring_petclinic_output_folder, "Spring PetClinic")
+plotEnergyReports(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
+plotEnergyReports(renaissance_concurrency_output_folder, "Renaissance Concurrency")
+plotEnergyReports(renaissance_functional_output_folder, "Renaissance Functional")
+plotEnergyReports(renaissance_scala_output_folder, "Renaissance Scala")
+plotEnergyReports(renaissance_web_output_folder, "Renaissance Web")
+plotEnergyReports(logging_patterns_output_folder, "Logging Patterns")
+plotEnergyReports(memory_access_patterns_output_folder, "Memory Access Patterns")
+plotEnergyReports(throw_exception_patterns_output_folder, "Throw Exception Patterns")
+plotEnergyReports(sorting_algorithms_output_folder, "Sorting Algorithms")
+plotEnergyReports(virtual_calls_output_folder, "Virtual Calls")
