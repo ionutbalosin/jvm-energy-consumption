@@ -16,7 +16,7 @@
   - [Hardware and Software Components](#hardware-and-software-components)
     - [Application Categories](#application-categories)
     - [JVM Coverage](#jvm-coverage)
-- [Results](#results)
+- [Results of Applications Runtime Execution](#results-of-applications-runtime-execution)
   - [Off-the-Shelf Applications](#off-the-shelf-applications)
     - [Spring PetClinic Application](#spring-petclinic-application)
     - [Quarkus Hibernate ORM Panache](#quarkus-hibernate-orm-panache)
@@ -27,7 +27,9 @@
     - [Throwing Exception Patterns](#throwing-exception-patterns)
     - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
     - [Virtual Calls](#virtual-calls)
-  - [Energy Geometric Mean](#energy-geometric-mean)
+  - [Runtime Geometric Mean](#runtime-execution-geometric-mean)
+- [Results of Build Execution Time](#results-of-build-execution-time)
+  - [Build Time Geometric Mean](#build-time-geometric-mean)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
 - [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
@@ -187,6 +189,11 @@ Multiple application categories were included in these measurements:
 
 In addition to these categories, a baseline measurement of the system's power consumption while it is idle or running minimal background processes is provided. This establishes a reference point.
 
+For each application category, the end-to-end energy consumption is measured. This measurement includes the energy consumed from the moment an application starts until it finishes its task, taking into account factors such as the initialization of the JVM, the application warmup period, etc. The main rationale behind this approach is to reflect the total energy consumption, including all phases, rather than just the ideal state of each JVM when it reaches a steady point. 
+Even though at first glance this approach may seem to favor short-running applications that are Ahead-of-Time compiled, running them for a longer period of time enables a more realistic evaluation..
+
+Therefore, the evaluated applications vary significantly in terms of total execution time that is being measured, ranging from a few minutes to several hours.
+
 ### JVM Coverage
 
 The list of included JMVs is:
@@ -202,9 +209,9 @@ No. | JVM distribution                                                          
 
 For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
 
-# Results
+# Results of Applications Runtime Execution
 
-This section contains measurement results for the application categories.
+This section presents the measurement results obtained during the execution of each application category.
 
 Within each category, multiple measurements were taken, and the baseline was subtracted from each of them. The results were then aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot.
 
@@ -226,7 +233,7 @@ It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate OR
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/test-plan.hf.yaml) plan
@@ -242,7 +249,7 @@ It involves running the Quarkus Hibernate ORM Panache sample application with Qu
 
 [![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
@@ -263,25 +270,25 @@ Each category ran with 100 repetitions.
 
 [![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
 
 [![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/functional/reports)
 
 [![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/scala/reports)
 
 [![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/web/reports)
 
@@ -304,7 +311,7 @@ Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-ene
 
 [![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 The pattern of memory accesses and the co-location or non-co-location of memory significantly influence energy consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
 
@@ -321,7 +328,7 @@ Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-c
 
 [![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Certain logging patterns are more efficient than others. Based on these tests, examples of such patterns include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc. It is worth noting that the energy consumption can vary significantly across different JVMs when logging the same data.
 
@@ -337,7 +344,7 @@ Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-e
 
 [![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 Creating constant exceptions and throwing them only when necessary is a good approach to mitigate the negative impact  on energy consumption. 
 
@@ -354,7 +361,7 @@ Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy
 
 [![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 The `bubble_sort` algorithm, with its time complexity of O(n^2), typically consumes a significant amount of energy compared to other sorting algorithms when achieving the same result of providing a sorted array.
 
@@ -382,24 +389,68 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 [![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)
 
-*This plot represents the mean energy consumption for each JVM after subtracting the baseline measurements, including the 90% confidence level error.*
+*This plot represents the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
 
 In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them or caring too much about them.
 
-## Energy Geometric Mean
+## Runtime Geometric Mean
 
-This section describes the normalized energy geometric mean for all application categories. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
+This section describes the normalized energy geometric mean for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-The Renaissance benchmark suite was excluded from this report because it cannot run on the Native Image, which would result in an unfair comparison.
+The Renaissance benchmark suite has been excluded from this report because it cannot run on the Native Image, which would result in an unfair comparison.
 
-No. | JVM                 | Architecture | Normalized Energy Geometric Mean 
-----|---------------------|--------------|----------------------------------
-1   | Graal Native Image  | x86_64       | 0.386                            
-2   | OpenJDK HotSpot VM  | x86_64       | 1.00                             
-3   | Oracle GraalVM      | x86_64       | 1.019                            
-4   | GraalVM CE          | x86_64       | 1.035                            
-5   | Azul Prime VM       | x86_64       | 1.657                            
-6   | Eclipse OpenJ9 VM   | x86_64       | 1.771                            
+No. | JVM                 | Architecture | Normalized Energy Geometric Mean | Phase 
+----|---------------------|--------------|----------------------------------|--------
+1   | Graal Native Image  | x86_64       | 0.373                            | runtime
+2   | OpenJDK HotSpot VM  | x86_64       | 1.000                            | runtime
+3   | Oracle GraalVM      | x86_64       | 1.026                            | runtime
+4   | GraalVM CE          | x86_64       | 1.038                            | runtime
+5   | Azul Prime VM       | x86_64       | 1.643                            | runtime
+6   | Eclipse OpenJ9 VM   | x86_64       | 1.795                            | runtime
+
+**Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
+
+# Results of Build Execution Time
+
+This section presents the measurement results obtained during the execution of the build process for each application category, using both Just-in-Time and Ahead-of-Time compilation.
+
+Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only three of them in this section, representing each distinct application category.
+
+[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+
+*This plot represents the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
+
+[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+
+*This plot represents the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
+
+[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)
+
+*This plot represents the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
+
+Additional resources:
+
+- [LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/build-energy.svg?raw=true) build time energy
+- [ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/build-energy.svg?raw=true) build time energy
+- [SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/build-energy.svg?raw=true) build time energy
+- [VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/build-energy.svg?raw=true) build time energy
+
+*This plot represents the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
+
+## Build Time Geometric Mean
+
+This section describes the normalized energy geometric mean for all application categories during build time. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
+
+The Renaissance benchmark suite has been excluded from this report since it is provided as pre-compiled JAR.
+
+No. | JVM                 | Architecture | Normalized Energy Geometric Mean   | Phase
+----|---------------------|--------------|------------------------------------|-------
+1   | Oracle GraalVM      | x86_64       | 0.814                              | build time
+2   | GraalVM CE          | x86_64       | 0.829                              | build time
+3   | OpenJDK HotSpot VM  | x86_64       | 1.000                              | build time
+4   | Azul Prime VM       | x86_64       | 1.523                              | build time
+5   | Eclipse OpenJ9 VM   | x86_64       | 2.192                              | build time
+6   | Graal Native Image  | x86_64       | 26.910                             | build time
 
 **Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
