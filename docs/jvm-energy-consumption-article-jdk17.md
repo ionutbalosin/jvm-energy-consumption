@@ -411,7 +411,7 @@ In regard to these  empirical studies, I can provide two examples that support m
 
 In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
-[![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/energy-vs-time-lambda_local.svg?raw=true)
+[![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
 
 *This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
 
@@ -421,7 +421,7 @@ Based on this plot, it is noticeable that:
 
 In the **second example**, lower energy consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
 
-[![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/energy-vs-time.svg?raw=true)
+[![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)
 
 *This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
 
