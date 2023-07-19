@@ -1,0 +1,153 @@
+[INFO] Scanning for projects...
+[INFO] Found GraalVM installation from JAVA_HOME variable.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] JVM Energy Consumption                                             [pom]
+[INFO] JVM Energy Consumption Java Samples                                [jar]
+[INFO] JVM Energy Consumption RAPL Reports                                [jar]
+[INFO] 
+[INFO] -----------< jvm.energy.consumption:jvm-energy-consumption >------------
+[INFO] Building JVM Energy Consumption 1.0.0-SNAPSHOT                     [1/3]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- spotless-maven-plugin:2.37.0:apply (default) @ jvm-energy-consumption ---
+[INFO] Index file does not exist. Fallback to an empty index
+[INFO] 
+[INFO] ----------------< jvm.energy.consumption:java-samples >-----------------
+[INFO] Building JVM Energy Consumption Java Samples 1.0.0-SNAPSHOT        [2/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ java-samples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/classes
+[INFO] 
+[INFO] --- spotless-maven-plugin:2.37.0:apply (default) @ java-samples ---
+[INFO] Index file does not exist. Fallback to an empty index
+[INFO] Spotless.Java is keeping 5 files clean - 0 were changed to be clean, 5 were already clean, 0 were skipped because caching determined they were already clean
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ java-samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ java-samples ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- native-maven-plugin:0.9.12:merge-agent-files (test-native) @ java-samples ---
+[INFO] 
+[INFO] --- native-maven-plugin:0.9.12:test (test-native) @ java-samples ---
+[INFO] Skipped native-image tests since there are no test classes.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ java-samples ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/java-samples-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- native-maven-plugin:0.9.12:build (build-native) @ java-samples ---
+[INFO] ImageClasspath Entry: jvm.energy.consumption:java-samples:jar:1.0.0-SNAPSHOT (file:///home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/java-samples-1.0.0-SNAPSHOT.jar)
+[INFO] Executing: /usr/lib/jvm/graalvm-ee-jdk-17.0.7+8-LTS-jvmci-23.0-b12/bin/native-image -cp /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/java-samples-1.0.0-SNAPSHOT.jar --no-fallback -H:Path=/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target -H:Name=ThrowExceptionPatterns -H:Class=com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns -H:DashboardDump=fortune -H:+DashboardAll
+========================================================================================================================
+GraalVM Native Image: Generating 'ThrowExceptionPatterns' (executable)...
+========================================================================================================================
+# Printing Dashboard BGV dump header to: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/fortune.bgv
+[1/8] Initializing...                                                                                   (18.5s @ 0.17GB)
+ Java version: 17.0.7+8-LTS, vendor version: Oracle GraalVM 17.0.7+8.1
+ Graal compiler: optimization level: 2, target machine: x86-64-v3, PGO: ML-inferred
+ C compiler: gcc (linux, x86_64, 11.3.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+[2/8] Performing analysis...  [***]                                                                     (56.9s @ 0.35GB)
+   2,983 (70.70%) of  4,219 types reachable
+   3,604 (51.21%) of  7,038 fields reachable
+  14,546 (45.44%) of 32,009 methods reachable
+     929 types,     0 fields, and   343 methods registered for reflection
+      58 types,    58 fields, and    52 methods registered for JNI access
+       4 native libraries: dl, pthread, rt, z
+# Printing Dashboard PointsTo analysis BGV dump to: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/fortune.bgv
+[3/8] Building universe...                                                                               (8.0s @ 0.59GB)
+[4/8] Parsing methods...      [*****]                                                                   (22.5s @ 0.38GB)
+[5/8] Inlining methods...     [***]                                                                      (3.4s @ 0.48GB)
+[6/8] Compiling methods...    [***********]                                                            (132.4s @ 0.55GB)
+[7/8] Layouting methods...    [***]                                                                      (5.8s @ 0.77GB)
+# Printing Dashboard Code-Breakdown BGV dump to: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/fortune.bgv
+# Printing Dashboard Heap-Breakdown BGV dump to: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/fortune.bgv
+[8/8] Creating image...       [***]                                                                     (11.0s @ 0.98GB)
+   6.08MB (43.81%) for code area:     7,228 compilation units
+   7.20MB (51.87%) for image heap:  135,510 objects and 5 resources
+ 613.70kB ( 4.32%) for other data
+  13.88MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+   4.33MB java.base                                            1.20MB byte[] for code metadata
+   1.33MB svm.jar (Native Image)                             846.84kB java.lang.String
+ 164.58kB java.logging                                       844.14kB byte[] for java.lang.String
+ 108.79kB com.oracle.svm.svm_enterprise                      822.66kB byte[] for general heap data
+  32.12kB org.graalvm.sdk                                    523.45kB java.lang.Class
+  30.92kB org.graalvm.nativeimage.base                       395.41kB java.util.HashMap$Node
+  15.27kB jdk.internal.vm.compiler                           297.53kB java.util.concurrent.ConcurrentHashMap$Node
+  14.52kB jdk.internal.vm.ci                                 148.84kB byte[] for embedded resources
+   8.83kB java-samples-1.0.0-SNAPSHOT.jar                    141.95kB char[]
+   2.20kB jdk.localedata                                     139.83kB com.oracle.svm.core.hub.DynamicHubCompanion
+   2.77kB for 3 more packages                                  1.49MB for 839 more object types
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ G1GC: Use the G1 GC ('--gc=G1') for improved latency and throughput.
+ PGO:  Use Profile-Guided Optimizations ('--pgo') for improved throughput.
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+ QBM:  Use the quick build mode ('-Ob') to speed up builds during development.
+Print of Dashboard dump output ended.
+------------------------------------------------------------------------------------------------------------------------
+                       10.7s (3.9% of total time) in 113 GCs | Peak RSS: 1.65GB | CPU load: 3.63
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/ThrowExceptionPatterns (executable)
+========================================================================================================================
+Finished generating 'ThrowExceptionPatterns' in 4m 32s.
+[INFO] 
+[INFO] ----------------< jvm.energy.consumption:rapl-reports >-----------------
+[INFO] Building JVM Energy Consumption RAPL Reports 1.0.0-SNAPSHOT        [3/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rapl-reports ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rapl-reports ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/target/classes
+[WARNING] /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/src/main/java/com/ionutbalosin/jvm/energy/consumption/EnergyReportCalculator.java: /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/src/main/java/com/ionutbalosin/jvm/energy/consumption/EnergyReportCalculator.java uses unchecked or unsafe operations.
+[WARNING] /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/src/main/java/com/ionutbalosin/jvm/energy/consumption/EnergyReportCalculator.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- spotless-maven-plugin:2.37.0:apply (default) @ rapl-reports ---
+[INFO] Index file does not exist. Fallback to an empty index
+[INFO] Spotless.Java is keeping 14 files clean - 0 were changed to be clean, 14 were already clean, 0 were skipped because caching determined they were already clean
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rapl-reports ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rapl-reports ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ rapl-reports ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ rapl-reports ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/jvm-energy-consumption/rapl-reports/target/rapl-reports-1.0.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for JVM Energy Consumption 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] JVM Energy Consumption ............................. SUCCESS [  2.266 s]
+[INFO] JVM Energy Consumption Java Samples ................ SUCCESS [04:45 min]
+[INFO] JVM Energy Consumption RAPL Reports ................ SUCCESS [  4.866 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  04:53 min
+[INFO] Finished at: 2023-07-19T11:54:24+02:00
+[INFO] ------------------------------------------------------------------------
