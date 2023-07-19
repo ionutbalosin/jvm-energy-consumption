@@ -52,8 +52,7 @@ Overall, managing power consumption is important in modern computing to promote 
 
 Conducting energy consumption experiments can provide valuable insights and benefits. Here are a few reasons that lead me to conduct such an experiment:
 - **Curiosity, Innovation and Research**: These energy consumption experiments were a fascinating field of exploration to me. By conducting them, I hoped to discover techniques, approaches that help me to further minimize energy consumption on real applications.
-- **Energy Efficiency**: By measuring energy consumption, we can identify opportunities to optimize the energy usage. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact.
-- **Performance Optimization**: Energy consumption experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. By optimizing energy consumption, we may also improve overall system performance, as power-efficient designs often lead to better thermal management and reduced bottlenecks.
+- **Energy Efficiency**: By measuring energy consumption, we can identify opportunities to optimize energy usage. Such experiments can help us understand how different software configurations, algorithms, or hardware choices affect power usage. This knowledge can lead to more energy-efficient designs, reduced electricity costs, and a smaller environmental impact.
 - **Sustainable Computing**: Energy consumption experiments align with the growing emphasis on sustainability in technology. By investigating and mitigating power inefficiencies, we actively contribute to reducing energy waste and minimizing the carbon footprint associated with computing.
 
 ## Objectives
@@ -513,15 +512,15 @@ This article presents an empirical investigation into the variations in energy c
 
 The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often displaying significant differences.
 
-Notably, GraalVM Native Image demonstrated the highest energy efficiency in the majority of tests, except for a few outliers or extreme values.
+At the cost of increased compilation expenses and excluding the Renaissance Benchmark Suite (due to its lack of support for Ahead-of-Time compilation), GraalVM Native Image showcased the highest energy efficiency overall for the runtime execution.
 
-OpenJDK HotSpot VM, Oracle GraalVM, and GraalVM CE showcased similar efficiency in the majority of tests, with marginal differences.
+OpenJDK HotSpot VM, Oracle GraalVM, and GraalVM CE exhibited similar efficiency in the majority of tests, with marginal differences.
 
 Azul Prime VM's energy consumption varied depending on the test case, but generally, it consumed more energy than other HotSpot-based JVMs.
 
 Eclipse OpenJ9 VM exhibited comparatively lower energy efficiency.
 
-To write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, defining the scope of allocated objects as close as possible to their usage, etc.
+When it comes to software development, to write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, defining the scope of allocated objects as close as possible to their usage, etc.
 
 This report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption and offering a reference for assessing energy usage in real-world application scenarios.
 
