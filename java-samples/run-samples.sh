@@ -75,7 +75,7 @@ create_output_resources() {
 build_samples() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     for sample_name in "${SAMPLE_APPS[@]}"; do
-      export BUILD_CMD="./mvnw clean package"
+      export BUILD_CMD="./mvnw clean package -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" "
 
       echo "$BUILD_CMD"
       cd ..
