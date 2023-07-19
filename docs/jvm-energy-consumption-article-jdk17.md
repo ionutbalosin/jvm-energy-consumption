@@ -195,7 +195,7 @@ No. | JVM distribution                                                          
 ----|----------------------------------------------------------------------------------------|-------------|---------------
 1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads) | 17.0.7      |x86_64
 2   | [GraalVM CE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
-3   | [GraalVM EE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
+3   | [Oracle GraalVM](https://www.graalvm.org/downloads)                                    | 17.0.7      |x86_64
 4   | [Graal Native Image](https://www.graalvm.org/22.0/reference-manual/native-image/)      | 17.0.7      |x86_64
 5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
 6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
@@ -396,7 +396,7 @@ No. | JVM                 | Architecture | Normalized Energy Geometric Mean
 ----|---------------------|--------------|----------------------------------
 1   | Graal Native Image  | x86_64       | 0.386                            
 2   | OpenJDK HotSpot VM  | x86_64       | 1.00                             
-3   | GraalVM EE          | x86_64       | 1.019                            
+3   | Oracle GraalVM      | x86_64       | 1.019                            
 4   | GraalVM CE          | x86_64       | 1.035                            
 5   | Azul Prime VM       | x86_64       | 1.657                            
 6   | Eclipse OpenJ9 VM   | x86_64       | 1.771                            
@@ -416,7 +416,7 @@ In the **first example**, higher energy consumption was observed alongside short
 *This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
 
 Based on this plot, it is noticeable that:
-- GraalVM EE consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
+- Oracle GraalVM consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
 - Azul Prime VM consumes more energy compared to GraalVM CE but also achieves faster task completion.
 
 In the **second example**, lower energy consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
@@ -425,7 +425,7 @@ In the **second example**, lower energy consumption was observed, but it resulte
 
 *This plot represents the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
 
-Based on this plot, it can be observed that GraalVM EE consumes slightly less energy than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
+Based on this plot, it can be observed that Oracle GraalVM consumes slightly less energy than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
 Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
 
@@ -441,7 +441,7 @@ No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (g
 ----|---------------------|-------------------------|----------------------------------|-----------------------
 1   | OpenJDK HotSpot VM  | 17,090.269              | 137                              |  0.650                      
 2   | Graal Native Image  | 18,176.977              | 137                              |  0.692                     
-3   | GraalVM EE          | 21,521.325              | 137                              |  0.819                  
+3   | Oracle GraalVM      | 21,521.325              | 137                              |  0.819                  
 4   | GraalVM CE          | 22,081.674              | 137                              |  0.840                     
 5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
 6   | Eclipse OpenJ9 VM   | 40,975.966              | 137                              |  1.559
@@ -466,7 +466,7 @@ The selected JVM implementations exhibit varying levels of energy efficiency dep
 
 Notably, GraalVM Native Image demonstrated the highest energy efficiency in the majority of tests, except for a few outliers or extreme values.
 
-OpenJDK HotSpot VM, GraalVM EE, and GraalVM CE showcased similar efficiency in the majority of tests, with marginal differences.
+OpenJDK HotSpot VM, Oracle GraalVM, and GraalVM CE showcased similar efficiency in the majority of tests, with marginal differences.
 
 Azul Prime VM's energy consumption varied depending on the test case, but generally, it consumed more energy than other HotSpot-based JVMs.
 
