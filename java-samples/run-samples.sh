@@ -86,7 +86,7 @@ build_samples() {
         -e "power/energy-psys/" \
         -e "power/energy-ram/" \
         -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-        $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
+        $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
       cd -
 
     done
@@ -104,7 +104,7 @@ build_samples() {
         -e "power/energy-psys/" \
         -e "power/energy-ram/" \
         -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-        $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
+        $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
       cd -
 
     done
@@ -129,7 +129,7 @@ start_sample() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD > $OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
+    $RUN_CMD >$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
 }
 
 start_samples() {

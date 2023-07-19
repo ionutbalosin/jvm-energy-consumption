@@ -27,7 +27,7 @@
 #
 
 check_command_line_options() {
-  if [[ ( $EUID != 0 ) || ( $# -ne 1 && $# -ne 2 ) ]]; then
+  if [[ ($EUID != 0) || ($# -ne 1 && $# -ne 2) ]]; then
     echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
@@ -88,7 +88,7 @@ build_application() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $CURR_DIR/$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-    $BUILD_CMD > $CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
+    $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
   cd -
 }
 
@@ -101,7 +101,7 @@ start_application() {
 
   echo ""
   echo "Command line: $RUN_CMD"
-  
+
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 
@@ -113,7 +113,7 @@ start_application() {
     -e "power/energy-psys/" \
     -e "power/energy-ram/" \
     -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD > $OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1 &
+    $RUN_CMD >$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1 &
 
   export APP_PID=$!
 }

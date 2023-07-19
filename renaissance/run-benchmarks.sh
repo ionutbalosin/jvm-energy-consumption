@@ -72,7 +72,7 @@ create_output_resources() {
   done
 }
 
-run_benchmarks(){
+run_benchmarks() {
   for benchmark_category in "${BENCHMARK_CATEGORIES[@]}"; do
     echo "Starting benchmark category $benchmark_category at: $(date) "
 
@@ -87,7 +87,7 @@ run_benchmarks(){
       -r $BENCHMARK_REPETITIONS \
       --csv $OUTPUT_FOLDER/$benchmark_category/reports/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.csv \
       $benchmark_category \
-      > $OUTPUT_FOLDER/$benchmark_category/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1
+      >$OUTPUT_FOLDER/$benchmark_category/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1
 
     # give a bit of time to the process to gracefully shut down
     sleep 10
