@@ -188,11 +188,6 @@ Multiple application categories were included in these measurements:
 
 In addition to these categories, a baseline measurement of the system's power consumption while it is idle or running minimal background processes is provided. This establishes a reference point.
 
-For each application category, the end-to-end energy consumption is measured. This measurement includes the energy consumed from the moment an application starts until it finishes its task, taking into account factors such as the initialization of the JVM, the application warmup period, etc. The main rationale behind this approach is to reflect the total energy consumption, including all phases, rather than just the ideal state of each JVM. 
-Even though at first glance this approach may seem to favor short-running applications that are Ahead-of-Time compiled, running them for a longer period of time enables a more realistic evaluation.
-
-Therefore, the evaluated applications vary significantly in terms of total execution time that is being measured, ranging from a few minutes to several hours.
-
 ### JVM Coverage
 
 The list of included JMVs is:
@@ -211,6 +206,12 @@ For each JVM, the only specific tuning parameters were the initial heap size, ty
 # Applications Runtime Execution Results
 
 This section presents the measurement results obtained during the execution of each application category.
+
+For each application category, the end-to-end energy consumption is measured. This measurement includes the energy consumed from the moment an application starts until it finishes its task, taking into account factors such as the initialization of the JVM, the application warmup period, etc. The main rationale behind this approach is to reflect the total energy consumption, including all phases, rather than just the ideal state of each JVM.
+
+Even though at first glance this approach may seem to favor short-running applications that are Ahead-of-Time compiled, running them for a longer period of time enables a more realistic evaluation.
+
+Therefore, the evaluated applications vary significantly in terms of total execution time that is being measured, ranging from a few minutes to several hours.
 
 Within each category, multiple measurements were taken, and the baseline was subtracted from each of them. The results were then aggregated using the arithmetic mean (average), and a margin of error was calculated based on a [confidence](https://en.wikipedia.org/wiki/Confidence_interval) interval for each group. This error score is depicted in each bar plot.
 
