@@ -34,6 +34,7 @@
 - [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
+- [Acknowledgements](#acknowledgements)
 - [References](#references)
 
 # Introduction
@@ -514,6 +515,10 @@ If you have any suggestions or are interested in contributing to this project, p
 Your contributions are welcome and appreciated.
 
 **Looking forward to contributing to a more eco-friendly world!**
+
+# Acknowledgements
+
+I am very thankful to [Gerrit Grunwald](https://twitter.com/hansolo_) and [Jiří Holuša](https://linkedin.com/in/jiří-holuša-16987874) from [Azul Systems](https://www.azul.com/), to [GraalVM](https://www.graalvm.org) team members and others for their reviews, and helpful suggestions.
 
 # References
 
