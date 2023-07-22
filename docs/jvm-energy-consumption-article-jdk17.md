@@ -141,7 +141,7 @@ Measuring energy consumption for smaller tasks (such as **micro-benchmarking**) 
 
 ## Unit of Measurement
 
-The command pattern used to start the JVM application that also reports at the end the energy stats rely on `perf` (available only on Linux):
+The command pattern used to start the JVM application that also reports at the end the energy stats relies on `perf` (available only on Linux):
 
 ```
 $ perf stat -a \
@@ -201,7 +201,7 @@ JVM distribution                                                                
 [Azul Prime VM](https://www.azul.com/products/prime)                                                                | 17.0.7      |x86_64
 [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                                                 | 17.0.6      |x86_64
 
-For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
+For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, the heap tuning flags remained the same.
 
 In the case of Graal Native Image, no specific compilation parameters were used (i.e., no Profile-Guided Optimizations, no G1 GC). An example of such a compilation log can be read [here](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/logs/native-image-build-1.log).
 
@@ -219,7 +219,7 @@ Within each category, multiple measurements were taken, and the baseline was sub
 
 To enable a high-level comparison of overall energy consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative energy consumption.
 
-*Note: All subsequent plots from this category represent the mean energy consumption for each JVM during runtime execution after subtracting the baseline measurements, including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats for each JVM during runtime execution after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
 
 ## Off-the-Shelf Applications
 
@@ -398,7 +398,7 @@ This section presents the measurement results obtained during the execution of t
 
 Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only three of them in this section, representing each distinct application category.
 
-*Note: All subsequent plots from this category represent the mean energy consumption for each JVM during build time after subtracting the baseline measurements, including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats for each JVM during runtime execution after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
 
@@ -438,7 +438,7 @@ In regard to these  empirical studies, I can provide two examples that support m
 
 In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
-*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption for each JVM, with error bars in two dimensions, including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats for each JVM after subtracting the baseline measurements (i.e., default system overhead), with error bars in two dimensions, including the 90% confidence level.*
 
 [![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
 
