@@ -192,16 +192,18 @@ In addition to these categories, a baseline measurement of the system's power co
 
 The list of included JMVs is:
 
-No. | JVM distribution                                                                       | JDK version |Architecture
-----|----------------------------------------------------------------------------------------|-------------|---------------
-1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads) | 17.0.7      |x86_64
-2   | [GraalVM CE](https://www.graalvm.org/downloads)                                        | 17.0.7      |x86_64
-3   | [Oracle GraalVM](https://www.graalvm.org/downloads)                                    | 17.0.7      |x86_64
-4   | [Graal Native Image](https://www.graalvm.org/22.0/reference-manual/native-image/)      | 17.0.7      |x86_64
-5   | [Azul Prime VM](https://www.azul.com/products/prime)                                   | 17.0.7      |x86_64
-6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                    | 17.0.6      |x86_64
+JVM distribution                                                                                                    | JDK version |Architecture
+--------------------------------------------------------------------------------------------------------------------|-------------|---------------
+[OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)                              | 17.0.7      |x86_64
+[GraalVM CE 23](https://www.graalvm.org/downloads)                                                                  | 17.0.7      |x86_64
+[Oracle GraalVM 23](https://www.graalvm.org/downloads)                                                              | 17.0.7      |x86_64
+[Graal Native Image (shipped with Oracle GraalVM 23)](https://www.graalvm.org/22.0/reference-manual/native-image/)  | 17.0.7      |x86_64
+[Azul Prime VM](https://www.azul.com/products/prime)                                                                | 17.0.7      |x86_64
+[Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                                                 | 17.0.6      |x86_64
 
 For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, these heap tuning flags remained the same.
+
+In the case of Graal Native Image, no specific compilation parameters were used (i.e., no Profile-Guided Optimizations, no G1 GC). An example of such a compilation log can be read [here](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/logs/native-image-build-1.log).
 
 # Applications Runtime Execution Results
 
@@ -377,16 +379,16 @@ In the context of modern hardware, for most business applications, virtual calls
 
 This section describes the normalized energy geometric mean for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-The Renaissance benchmark suite has been excluded from this report because it cannot run on the Native Image, which would result in an unfair comparison.
+The Renaissance benchmark suite has been excluded from this report because it was not (explicitly) launched on the Native Image, which would result in an unfair comparison.
 
-No. | JVM                 | Architecture | Normalized Energy Geometric Mean | Phase 
-----|---------------------|--------------|----------------------------------|--------
-1   | Graal Native Image  | x86_64       | 0.373                            | runtime
-2   | OpenJDK HotSpot VM  | x86_64       | 1.000                            | runtime
-3   | Oracle GraalVM      | x86_64       | 1.026                            | runtime
-4   | GraalVM CE          | x86_64       | 1.038                            | runtime
-5   | Azul Prime VM       | x86_64       | 1.643                            | runtime
-6   | Eclipse OpenJ9 VM   | x86_64       | 1.795                            | runtime
+No. | JVM                                                  | Architecture | Normalized Energy Geometric Mean | Phase 
+----|------------------------------------------------------|--------------|----------------------------------|--------
+1   | Graal Native Image (shipped with Oracle GraalVM 23)  | x86_64       | 0.373                            | runtime
+2   | OpenJDK HotSpot VM                                   | x86_64       | 1.000                            | runtime
+3   | Oracle GraalVM 23                                    | x86_64       | 1.026                            | runtime
+4   | GraalVM CE 23                                        | x86_64       | 1.038                            | runtime
+5   | Azul Prime VM                                        | x86_64       | 1.643                            | runtime
+6   | Eclipse OpenJ9 VM                                    | x86_64       | 1.795                            | runtime
 
 **Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -417,14 +419,14 @@ This section describes the normalized energy geometric mean for all application 
 
 The Renaissance benchmark suite has been excluded from this report since it is provided as pre-compiled JAR.
 
-No. | JVM                 | Architecture | Normalized Energy Geometric Mean   | Phase
-----|---------------------|--------------|------------------------------------|-------
-1   | Oracle GraalVM      | x86_64       | 0.814                              | build time
-2   | GraalVM CE          | x86_64       | 0.829                              | build time
-3   | OpenJDK HotSpot VM  | x86_64       | 1.000                              | build time
-4   | Azul Prime VM       | x86_64       | 1.523                              | build time
-5   | Eclipse OpenJ9 VM   | x86_64       | 2.192                              | build time
-6   | Graal Native Image  | x86_64       | 26.910                             | build time
+No. | JVM                                                   | Architecture | Normalized Energy Geometric Mean   | Phase
+----|-------------------------------------------------------|--------------|------------------------------------|-------
+1   | Oracle GraalVM 23                                     | x86_64       | 0.814                              | build time
+2   | GraalVM CE 23                                         | x86_64       | 0.829                              | build time
+3   | OpenJDK HotSpot VM                                    | x86_64       | 1.000                              | build time
+4   | Azul Prime VM                                         | x86_64       | 1.523                              | build time
+5   | Eclipse OpenJ9 VM                                     | x86_64       | 2.192                              | build time
+6   | Graal Native Image (shipped with Oracle GraalVM 23)   | x86_64       | 26.910                             | build time
 
 **Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -458,16 +460,16 @@ Energy consumption and carbon emissions are closely correlated. To convert energ
 
 Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains during applications runtime execution time. 
 
-The Renaissance benchmark suite was excluded from this report because it cannot run on the Native Image, which would result in an unfair comparison.
+The Renaissance benchmark suite has been excluded from this report because it was not (explicitly) launched on the Native Image, which would result in an unfair comparison.
 
-No. | JVM                 | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
-----|---------------------|-------------------------|----------------------------------|-----------------------
-1   | OpenJDK HotSpot VM  | 17,090.269              | 137                              |  0.650                      
-2   | Graal Native Image  | 18,176.977              | 137                              |  0.692                     
-3   | Oracle GraalVM      | 21,521.325              | 137                              |  0.819                  
-4   | GraalVM CE          | 22,081.674              | 137                              |  0.840                     
-5   | Azul Prime VM       | 27,163.172              | 137                              |  1.034                       
-6   | Eclipse OpenJ9 VM   | 40,975.966              | 137                              |  1.559
+No. | JVM                                                   | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
+----|-------------------------------------------------------|-------------------------|----------------------------------|-----------------------
+1   | OpenJDK HotSpot VM                                    | 17,090.269              | 137                              |  0.650                      
+2   | Graal Native Image (shipped with Oracle GraalVM 23)   | 18,176.977              | 137                              |  0.692                     
+3   | Oracle GraalVM 23                                     | 21,521.325              | 137                              |  0.819                  
+4   | GraalVM CE 23                                         | 22,081.674              | 137                              |  0.840                     
+5   | Azul Prime VM                                         | 27,163.172              | 137                              |  1.034                       
+6   | Eclipse OpenJ9 VM                                     | 40,975.966              | 137                              |  1.559
 
 **Note:** Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 
