@@ -236,6 +236,8 @@ It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate OR
 3. The endpoints for creating/reading/editing owners and creating/reading pets encountered an increased load ranging from 1 to 12 reqs/sec over 780 seconds.
 4. The endpoints for creating/reading pet visits experienced an increased load ranging from 1 to 10 reqs/sec over 780 seconds.
 
+The total number of requests to the application, spread across all endpoints, is around 110,000. This information can be checked in the [Hyperfoil report](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports/openjdk-hotspot-vm-run-1.html)'s Summary tab. This configuration was calibrated to my hardware machine to effectively utilize the CPU's resources.
+
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
 Additional resources:
@@ -249,6 +251,8 @@ This experiment assesses the energy consumption of the [Quarkus Hibernate ORM Pa
 It involves running the Quarkus Hibernate ORM Panache sample application with Quarkus 3.0.3 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising two independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
 1. The endpoint returning static data (e.g., get home page) was hit at a constant rate of 64 reqs/sec for 780 seconds.
 3. The endpoints for creating/reading/updating/deleting fruits encountered an increased load ranging from 1 to 312 reqs/sec over 780 seconds.
+
+The total number of requests to the application, spread across all endpoints, is around 650,000. This information can be checked in the [Hyperfoil report](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports/openjdk-hotspot-vm-run-1.html)'s Summary tab. This configuration was calibrated to my hardware machine to effectively utilize the CPU's resources.
 
 [![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
