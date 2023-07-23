@@ -220,7 +220,7 @@ Within each category, multiple measurements were taken, and the baseline was sub
 
 To enable a high-level comparison of overall energy consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative energy consumption.
 
-*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats for each JVM during runtime execution after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
 
 ## Off-the-Shelf Applications
 
@@ -230,13 +230,13 @@ In the case of off-the-shelf web-based applications such as Spring and Quarkus, 
 
 This experiment assesses the energy consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
 
-It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate ORM core version 6.1.7 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising four independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
+It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate ORM core version 6.1.7.Final for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising four independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
 1. The endpoints returning static data (e.g., get home page, find owners page, vets page, petclinic.css, bootstrap.bundle.min.js, font-awesome.min.css) were hit at a constant rate of 12 reqs/sec for 780 seconds.
 2. The endpoint for searching owners by their last name using a wildcard of 1, 2, or 3 characters experienced an increased load ranging from 1 to 14 reqs/sec over 780 seconds.
 3. The endpoints for creating/reading/editing owners and creating/reading pets encountered an increased load ranging from 1 to 12 reqs/sec over 780 seconds.
 4. The endpoints for creating/reading pet visits experienced an increased load ranging from 1 to 10 reqs/sec over 780 seconds.
 
-The total number of requests to the application, spread across all endpoints, is around 110,000. This information can be checked in the [Hyperfoil report](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports/openjdk-hotspot-vm-run-1.html)'s Summary tab. This configuration was calibrated to my hardware machine to effectively utilize the CPU's resources.
+The number of requests per second was calibrated to match my hardware machine and effectively utilize the CPU's resources. In total, there were around 110,000 requests sent to the application, spread across all endpoints. Please refer to the Hyperfoil reports in the additional resources to see the distribution of these requests and other further details.
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
@@ -248,11 +248,11 @@ Additional resources:
 
 This experiment assesses the energy consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application while running different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation). This is a simple create, read, update and delete (CRUD) web-based application.
 
-It involves running the Quarkus Hibernate ORM Panache sample application with Quarkus 3.0.3 for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising two independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
+It involves running the Quarkus Hibernate ORM Panache sample application with Quarkus 3.0.3 and Hibernate ORM core version 6.2.1.Final for approximately 900 seconds, corresponding to real-world wall clock time. During this time, a load test comprising two independent phases was triggered, as described below. Each phase runs concurrently and targets different endpoints of the application:
 1. The endpoint returning static data (e.g., get home page) was hit at a constant rate of 64 reqs/sec for 780 seconds.
 3. The endpoints for creating/reading/updating/deleting fruits encountered an increased load ranging from 1 to 312 reqs/sec over 780 seconds.
 
-The total number of requests to the application, spread across all endpoints, is around 650,000. This information can be checked in the [Hyperfoil report](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports/openjdk-hotspot-vm-run-1.html)'s Summary tab. This configuration was calibrated to my hardware machine to effectively utilize the CPU's resources.
+The number of requests per second was calibrated to match my hardware machine and effectively utilize the CPU's resources. In total, there were around 650,000 requests sent to the application, spread across all endpoints. Please refer to the Hyperfoil reports in the additional resources to see the distribution of these requests and other further details.
 
 [![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
@@ -271,7 +271,7 @@ The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories in
 - Scala
 - Web
  
-Each category ran with 100 repetitions. 
+Each category ran with 100 repetitions. The execution of these benchmarks takes from tens of minutes to a few hours, depending on the benchmark category.
 
 [![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
 
@@ -395,7 +395,7 @@ No. | JVM                                                  | Architecture | Norm
 5   | Azul Prime VM                                        | x86_64       | 1.643                            | runtime
 6   | Eclipse OpenJ9 VM                                    | x86_64       | 1.795                            | runtime
 
-**Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
+Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
 # Applications Build Time Execution Results
 
@@ -403,7 +403,7 @@ This section presents the measurement results obtained during the execution of t
 
 Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only three of them in this section, representing each distinct application category.
 
-*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats for each JVM during runtime execution after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
 
@@ -433,7 +433,7 @@ No. | JVM                                                   | Architecture | Nor
 5   | Eclipse OpenJ9 VM                                     | x86_64       | 2.192                              | build time
 6   | Graal Native Image (shipped with Oracle GraalVM 23)   | x86_64       | 26.910                             | build time
 
-**Note:** Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
+Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
 # How energy consumption correlates with performance
 
@@ -443,7 +443,7 @@ In regard to these  empirical studies, I can provide two examples that support m
 
 In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
-*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats for each JVM after subtracting the baseline measurements (i.e., default system overhead), with error bars in two dimensions, including the 90% confidence level.*
+*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats subtracting the baseline measurements (i.e., default system overhead), with error bars in two dimensions, including the 90% confidence level.*
 
 [![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
 
@@ -476,7 +476,7 @@ No. | JVM                                                   | Total Energy (Watt
 5   | Azul Prime VM                                         | 27,163.172              | 137                              |  1.034                       
 6   | Eclipse OpenJ9 VM                                     | 40,975.966              | 137                              |  1.559
 
-**Note:** Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
+Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 
 **Legend:** 
 - `CO₂` - carbon dioxide.
