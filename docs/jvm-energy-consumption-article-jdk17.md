@@ -210,7 +210,7 @@ In the case of Graal Native Image, no specific compilation parameters were used 
 
 This section presents the measurement results obtained during the execution of each application category.
 
-For each application category, the end-to-end energy consumption is measured. This measurement includes the energy consumed from the moment an application starts until it finishes its task, taking into account factors such as the initialization of the JVM, the application warmup period, etc. The main rationale behind this approach is to reflect the total energy consumption, including all phases, rather than just the ideal state of each JVM.
+For each application category, the **end-to-end energy consumption** is measured. This measurement includes the energy consumed from the moment an application starts until it finishes its task, taking into account factors such as the initialization of the JVM, the application warmup period, etc. The main rationale behind this approach is to reflect the total energy consumption, including all phases, rather than just the ideal state of each JVM.
 
 Even though at first glance this approach may seem to favor short-running applications that are Ahead-of-Time compiled, running them for a longer period of time enables a more realistic evaluation.
 
