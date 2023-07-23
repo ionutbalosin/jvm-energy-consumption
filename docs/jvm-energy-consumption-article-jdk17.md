@@ -220,7 +220,7 @@ Within each category, multiple measurements were taken, and the baseline was sub
 
 To enable a high-level comparison of overall energy consumption scores across all the categories and JVMs, the normalized [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) was generated. This serves as an informative metric for assessing relative energy consumption.
 
-*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., idle system power consumption), including the 90% confidence level error.*
 
 ## Off-the-Shelf Applications
 
@@ -291,7 +291,7 @@ Additional resources: Renaissance [output results](https://github.com/ionutbalos
 
 ## Custom-Made Java Applications
 
-In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms were developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
+In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms was developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications. The execution of each program generally takes only a few minutes (i.e., relatively short running applications).
 
 ### Memory Access Patterns
 
@@ -403,7 +403,7 @@ This section presents the measurement results obtained during the execution of t
 
 Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only three of them in this section, representing each distinct application category.
 
-*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., default system overhead), including the 90% confidence level error.*
+*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., idle system power consumption), including the 90% confidence level error.*
 
 [![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
 
@@ -445,7 +445,7 @@ In regard to these  empirical studies, I can provide two examples that support m
 
 In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
 
-*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats subtracting the baseline measurements (i.e., default system overhead), with error bars in two dimensions, including the 90% confidence level.*
+*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats subtracting the baseline measurements (i.e., idle system power consumption), with error bars in two dimensions, including the 90% confidence level.*
 
 [![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
 
