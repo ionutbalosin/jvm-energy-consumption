@@ -411,6 +411,8 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 [![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)
 
+**Note:** Once the build with native image is done, the resulting binary can be executed multiple times without the need to recompile it (i.e., the compilation cost is paid once), as long as it runs on the specific machine and architecture for which the compilation was performed.
+
 Additional resources:
 
 - [LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/build-energy.svg?raw=true) build time energy
