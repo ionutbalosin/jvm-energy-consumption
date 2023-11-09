@@ -27,7 +27,7 @@
     - [Throwing Exception Patterns](#throwing-exception-patterns)
     - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
     - [Virtual Calls](#virtual-calls)
-  - [Runtime Geometric Mean](#runtime-execution-geometric-mean)
+  - [Runtime Geometric Mean](#runtime-geometric-mean)
 - [Applications Build Time Execution Results](#applications-build-time-execution-results)
   - [Build Time Geometric Mean](#build-time-geometric-mean)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
