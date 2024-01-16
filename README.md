@@ -14,7 +14,6 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
   - [Java Samples](#java-samples)
   - [Spring PetClinic Application](#spring-petclinic-application)
   - [Quarkus Hibernate ORM Panache Quickstart](#quarkus-hibernate-orm-panache-quickstart)
-  - [Renaissance Benchmark Suite](#renaissance-benchmark-suite)
 - [License](#license)
 
 ## Purpose
@@ -174,19 +173,6 @@ $ sudo ./run-application.sh
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
 $ sudo ./run-hyperfoil.sh
-```
-
-### Renaissance Benchmark Suite
-
-This set of measurements uses the off-the-shelf Renaissance benchmark suite.
-
-1. Download the [Renaissance release](https://github.com/renaissance-benchmarks/renaissance/releases)
-2. Open the [run-benchmarks.sh](./renaissance/run-benchmarks.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
-3. Launch the benchmarks:
-
-```
-$ cd /renaissance
-$ sudo ./run-benchmarks.sh
 ```
 
 # License

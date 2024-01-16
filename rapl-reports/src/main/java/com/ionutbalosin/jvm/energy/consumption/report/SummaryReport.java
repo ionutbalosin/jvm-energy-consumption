@@ -114,16 +114,15 @@ public class SummaryReport extends AbstractReport {
     }
 
     for (String testCategory : TEST_CATEGORIES) {
-      // exclude the "renaissance" tests since they did not run for all JVMs
-      List<PerfStats> filteredPerfStats = getPerfStats(perfStats, "renaissance", testCategory);
+      List<PerfStats> categoryPerfStats = getPerfStats(perfStats, testCategory);
 
-      double totalEnergy = energyFormulas.getSum(filteredPerfStats);
-      double energyGeometricMean = energyFormulas.getGeometricMean(filteredPerfStats);
-      double carbonDioxide = energyFormulas.getCarbonDioxide(filteredPerfStats);
+      double totalEnergy = energyFormulas.getSum(categoryPerfStats);
+      double energyGeometricMean = energyFormulas.getGeometricMean(categoryPerfStats);
+      double carbonDioxide = energyFormulas.getCarbonDioxide(categoryPerfStats);
       reportStats.add(
           new ReportStats(
               testCategory,
-              filteredPerfStats.size(),
+              categoryPerfStats.size(),
               totalEnergy,
               energyGeometricMean,
               carbonDioxide));
@@ -171,10 +170,8 @@ public class SummaryReport extends AbstractReport {
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);
   }
 
-  private List<PerfStats> getPerfStats(
-      List<PerfStats> perfStats, String module, String testCategory) {
+  private List<PerfStats> getPerfStats(List<PerfStats> perfStats, String testCategory) {
     return perfStats.stream()
-        .filter(perfStat -> !module.equals(perfStat.module))
         .filter(perfStat -> testCategory.equals(perfStat.testCategory))
         .collect(Collectors.toList());
   }

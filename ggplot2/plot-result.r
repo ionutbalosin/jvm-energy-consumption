@@ -129,10 +129,6 @@ plotEnergyReports <- function(output_folder, plot_title) {
 # define all application paths for plotting
 spring_petclinic_output_folder <- paste(base_path, "spring-petclinic", output_folder, sep = "/")
 quarkus_hibernate_orm_panache_output_folder <- paste(base_path, "quarkus-hibernate-orm-panache-quickstart", output_folder, sep = "/")
-renaissance_concurrency_output_folder <- paste(base_path, "renaissance", output_folder, "concurrency", sep = "/")
-renaissance_functional_output_folder <- paste(base_path, "renaissance", output_folder, "functional", sep = "/")
-renaissance_scala_output_folder <- paste(base_path, "renaissance", output_folder, "scala", sep = "/")
-renaissance_web_output_folder <- paste(base_path, "renaissance", output_folder, "web", sep = "/")
 logging_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "LoggingPatterns", sep = "/")
 memory_access_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "MemoryAccessPatterns", sep = "/")
 throw_exception_patterns_output_folder <- paste(base_path, "java-samples", output_folder, "ThrowExceptionPatterns", sep = "/")
@@ -142,10 +138,6 @@ summary_rapl_reports_output_folder <- paste(base_path, "rapl-reports", output_fo
 
 plotEnergyReports(spring_petclinic_output_folder, "Spring PetClinic")
 plotEnergyReports(quarkus_hibernate_orm_panache_output_folder, "Quarkus Hibernate ORM Panache Quickstart")
-plotEnergyReports(renaissance_concurrency_output_folder, "Renaissance Concurrency")
-plotEnergyReports(renaissance_functional_output_folder, "Renaissance Functional")
-plotEnergyReports(renaissance_scala_output_folder, "Renaissance Scala")
-plotEnergyReports(renaissance_web_output_folder, "Renaissance Web")
 plotEnergyReports(logging_patterns_output_folder, "Logging Patterns")
 plotEnergyReports(memory_access_patterns_output_folder, "Memory Access Patterns")
 plotEnergyReports(throw_exception_patterns_output_folder, "Throw Exception Patterns")

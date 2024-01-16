@@ -51,10 +51,6 @@ public class EnergyReportCalculator {
               new OffTheShelfApplicationsReport("spring-petclinic", meanPowerBaseline),
               new OffTheShelfApplicationsReport(
                   "quarkus-hibernate-orm-panache-quickstart", meanPowerBaseline),
-              new OffTheShelfApplicationsReport("renaissance", "concurrency", meanPowerBaseline),
-              new OffTheShelfApplicationsReport("renaissance", "functional", meanPowerBaseline),
-              new OffTheShelfApplicationsReport("renaissance", "scala", meanPowerBaseline),
-              new OffTheShelfApplicationsReport("renaissance", "web", meanPowerBaseline),
               new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", meanPowerBaseline),
               new JavaSamplesReport("java-samples", "MemoryAccessPatterns", meanPowerBaseline),
               new JavaSamplesReport("java-samples", "LoggingPatterns", meanPowerBaseline),

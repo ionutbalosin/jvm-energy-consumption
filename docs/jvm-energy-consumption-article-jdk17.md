@@ -204,7 +204,7 @@ JVM distribution                                                                
 
 For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, the heap tuning flags remained the same.
 
-In the case of Graal Native Image, no specific compilation parameters were used (i.e., no Profile-Guided Optimizations, no G1 GC). An example of such a compilation log can be read [here](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/logs/native-image-build-1.log).
+In the case of Graal Native Image, no specific compilation parameters were used (i.e., no Profile-Guided Optimizations, no G1 GC). An example of such a compilation log can be read [here](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/logs/native-image-build-1.log).
 
 # Applications Runtime Execution Results
 
@@ -238,10 +238,10 @@ It involves running the Spring PetClinic with Spring Boot 3.0.6 and Hibernate OR
 
 The number of requests per second was calibrated to match my hardware machine and effectively utilize the CPU's resources. In total, there were around 110,000 requests sent to the application, spread across all endpoints. Please refer to the Hyperfoil reports in the additional resources to see the distribution of these requests and other further details.
 
-[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
+[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
 Additional resources:
-- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/test-plan.hf.yaml) plan
+- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/test-plan.hf.yaml) plan
 - Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports)
 
 ### Quarkus Hibernate ORM Panache
@@ -254,11 +254,11 @@ It involves running the Quarkus Hibernate ORM Panache sample application with Qu
 
 The number of requests per second was calibrated to match my hardware machine and effectively utilize the CPU's resources. In total, there were around 650,000 requests sent to the application, spread across all endpoints. Please refer to the Hyperfoil reports in the additional resources to see the distribution of these requests and other further details.
 
-[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
+[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/run-energy.svg?raw=true)
 
 Additional resources:
-- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
-- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports)
+- Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/test-plan.hf.yaml) plan
+- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/hreports)
 
 ### Renaissance Benchmark Suite
 
@@ -273,19 +273,19 @@ The Renaissance version used was `renaissance-gpl-0.14.2.jar`. The categories in
  
 Each category ran with 100 repetitions. The execution of these benchmarks takes from tens of minutes to a few hours, depending on the benchmark category.
 
-[![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
+[![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
 
-[![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)
+[![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/functional/reports)
 
-[![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)
+[![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/scala/reports)
 
-[![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)
+[![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)
 
 Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/web/reports)
 
@@ -304,9 +304,9 @@ There are three primary memory access patterns:
 
 The program creates a large array of longs, occupying approximately 4 GB of RAM memory. Then, during 10 consecutive iterations, the array elements are accesses based on one of the described patterns. After each iteration, the validity of the tests is checked.
 
-Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
+Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
 
-[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)
+[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/run-energy.svg?raw=true)
 
 The pattern of memory accesses and the co-location or non-co-location of memory significantly influence energy consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
 
@@ -319,9 +319,9 @@ When it comes to logging, performance is one of the major concerns. The manner i
 
 The program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It consists of a total of 1,000,000 iterations, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related activity.
 
-Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
+Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
 
-[![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)
+[![LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy.svg?raw=true)
 
 Certain logging patterns are more efficient than others. Based on these tests, examples of such patterns include `garded_unparameterized`, `lambda_local`, `lambda_heap`, `ungarded_unparameterized`, etc. It is worth noting that the energy consumption can vary significantly across different JVMs when logging the same data.
 
@@ -333,9 +333,9 @@ Similar to logging, the creation, throwing, and handling of exceptions introduce
 
 This program measures different exception throwing patterns. It involves a total of 100,000 iterations, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated `first`) dominates the associated costs.
 
-Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
+Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
 
-[![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)
+[![ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/run-energy.svg?raw=true)
 
 Creating constant exceptions and throwing them only when necessary is a good approach to mitigate the negative impact  on energy consumption. 
 
@@ -348,9 +348,9 @@ It is important to consider that the cost increases with the actual stack depth 
 
 This program utilizes various sorting algorithms with different complexities, ranging from quadratic to linear, to sort an array of 1,000,000 integers. The initial array is deliberately sorted in reverse order, creating a worst-case scenario for the sorting algorithms.
 
-Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
+Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
 
-[![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)
+[![SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/run-energy.svg?raw=true)
 
 The `bubble_sort` algorithm, with its time complexity of O(n^2), typically consumes a significant amount of energy compared to other sorting algorithms when achieving the same result of providing a sorted array.
 
@@ -374,9 +374,9 @@ The program evaluates the energy consumption of virtual calls using two differen
 
 An array of 9,600 elements of a base abstract class is initialized. Within 300,000 iterations, the program traverses the array and invokes the method on the base abstract object class for each array element.
 
-Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VirtualCalls.java)
+Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VirtualCalls.java)
 
-[![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)
+[![VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/run-energy.svg?raw=true)
 
 In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them or caring too much about them.
 
@@ -405,20 +405,20 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 *Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., idle system power consumption), including the 90% confidence level error.*
 
-[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
 
-[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
 
-[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)
+[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)
 
 **Note:** Once the build with native image is done, the resulting binary can be executed multiple times without the need to recompile it (i.e., the compilation cost is paid once), as long as it runs on the specific machine and architecture for which the compilation was performed.
 
 Additional resources:
 
-- [LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/build-energy.svg?raw=true) build time energy
-- [ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/build-energy.svg?raw=true) build time energy
-- [SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/build-energy.svg?raw=true) build time energy
-- [VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/build-energy.svg?raw=true) build time energy
+- [LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/build-energy.svg?raw=true) build time energy
+- [ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/build-energy.svg?raw=true) build time energy
+- [SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/build-energy.svg?raw=true) build time energy
+- [VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/build-energy.svg?raw=true) build time energy
 
 ## Build Time Geometric Mean
 
@@ -447,7 +447,7 @@ In the **first example**, higher energy consumption was observed alongside short
 
 *Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats subtracting the baseline measurements (i.e., idle system power consumption), with error bars in two dimensions, including the 90% confidence level.*
 
-[![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
+[![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
 
 Based on this plot, it is noticeable that:
 - Oracle GraalVM consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
@@ -455,7 +455,7 @@ Based on this plot, it is noticeable that:
 
 In the **second example**, lower energy consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
 
-[![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)
+[![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)
 
 Based on this plot, it can be observed that Oracle GraalVM consumes slightly less energy than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
 
@@ -484,7 +484,7 @@ Based on the total energy consumption, the JVM in the first row consumes less en
 - `CO₂` - carbon dioxide.
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
 - `gCO₂` - grams of carbon dioxide.
-- `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
+- `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 We can observe that when comparing the normalized geometric mean to the total energy consumption, the order of JVMs differs slightly (e.g., OpenJDK HotSpot VM consumes less energy overall compared to Graal Native Image). This discrepancy arises because the sum and geometric mean employ different mathematical operations, emphasizing distinct aspects of the data:
 - The geometric mean is less affected by extreme values and offers a balanced representation of the central tendency of the data.
