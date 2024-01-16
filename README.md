@@ -129,9 +129,9 @@ $ sudo ./run-samples.sh
 This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
-2. Append the custom [application properties](./spring-petclinic/application.properties) to the existing [application.properties](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/application.properties) and then build the application
-3. Open the [run-application.sh](./spring-petclinic/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
-4. Open the [run-hyperfoil.sh](./spring-petclinic/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
+2. Append the custom [application properties](off-the-shelf-applications/spring-petclinic/application.properties) to the existing [application.properties](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/application.properties) and then build the application
+3. Open the [run-application.sh](off-the-shelf-applications/spring-petclinic/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
+4. Open the [run-hyperfoil.sh](off-the-shelf-applications/spring-petclinic/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
 5. Launch the JVM application on the **system under test**:
 
 ```
@@ -151,9 +151,9 @@ $ ./run-hyperfoil.sh
 This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache quickstart.
 
 1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts) and build the **hibernate-orm-panache-quickstart** sources
-2. Append the custom [application properties](./quarkus-hibernate-orm-panache-quickstart/application.properties) to the existing [application.properties](https://github.com/quarkusio/quarkus-quickstarts/blob/main/hibernate-orm-panache-quickstart/src/main/resources/application.properties) and then build the application
-3. Open the [run-application.sh](./quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
-4. Open the [run-hyperfoil.sh](./quarkus-hibernate-orm-panache-quickstart/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
+2. Append the custom [application properties](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/application.properties) to the existing [application.properties](https://github.com/quarkusio/quarkus-quickstarts/blob/main/hibernate-orm-panache-quickstart/src/main/resources/application.properties) and then build the application
+3. Open the [run-application.sh](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
+4. Open the [run-hyperfoil.sh](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
 5. Launch the PostgreSQL database on the **system client test**:
 
 ```
