@@ -193,14 +193,14 @@ In addition to these categories, a baseline measurement of the system's power co
 
 The list of included JMVs is:
 
-JVM distribution                                                                                                    | JDK version |Architecture
---------------------------------------------------------------------------------------------------------------------|-------------|---------------
-[OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)                              | 17.0.7      |x86_64
-[GraalVM CE 23](https://www.graalvm.org/downloads)                                                                  | 17.0.7      |x86_64
-[Oracle GraalVM 23](https://www.graalvm.org/downloads)                                                              | 17.0.7      |x86_64
-[Graal Native Image (shipped with Oracle GraalVM 23)](https://www.graalvm.org/22.0/reference-manual/native-image/)  | 17.0.7      |x86_64
-[Azul Prime VM](https://www.azul.com/products/prime)                                                                | 17.0.7      |x86_64
-[Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                                                 | 17.0.6      |x86_64
+JVM distribution                                          | JDK version |Architecture
+----------------------------------------------------------|-------------|---------------
+[OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)                                 | 17.0.7      |x86_64
+[GraalVM CE 23](https://www.graalvm.org/downloads)                                      | 17.0.7      |x86_64
+[Oracle GraalVM 23](https://www.graalvm.org/downloads)                                  | 17.0.7      |x86_64
+[Graal Native Image (shipped with Oracle GraalVM 23)](https://www.graalvm.org/22.0/reference-manual/native-image/)| 17.0.7      |x86_64
+[Azul Prime VM](https://www.azul.com/products/prime)                                      | 17.0.7      |x86_64
+[Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                  | 17.0.6      |x86_64
 
 For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., -Xms1m), and the maximum heap size, which varies depending on the application category. However, within the same category of tests, the heap tuning flags remained the same.
 
@@ -469,7 +469,7 @@ Let's consider our use case. The table below presents a summary of the total CO�
 
 The Renaissance benchmark suite has been excluded from this report because it was not (explicitly) launched on the Native Image, which would result in an unfair comparison.
 
-No. | JVM distribution                                      | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
+No. | JVM distribution                                    | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|-----------------------------------------------------|-------------------------|----------------------------------|-----------------------
 1   | OpenJDK HotSpot VM                                  | 17,090.269              | 137                              |  0.650                      
 2   | Graal Native Image (shipped with Oracle GraalVM 23) | 18,176.977              | 137                              |  0.692                     
