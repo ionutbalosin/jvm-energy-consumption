@@ -26,8 +26,11 @@
 # SOFTWARE.
 #
 
-if [ -f ../settings/config.properties ]; then
-  source ../settings/config.properties
+# Get the current directory of this script, regardless of where it was run from
+CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ -f "$CURR_DIR/../../settings/config.properties" ]; then
+  source "$CURR_DIR/../../settings/config.properties"
   echo "Configuration properties have been successfully loaded from the 'config.properties' file."
 else
   echo "ERROR: File 'config.properties' not found. Unable to continue!"
