@@ -12,10 +12,10 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spotless.maven.plugin.version>2.37.0</spotless.maven.plugin.version>
+        <spotless.maven.plugin.version>2.42.0</spotless.maven.plugin.version>
         <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
         <mainClass>com.ionutbalosin.jvm.energy.consumption.TBD</mainClass>
     </properties>
@@ -66,7 +66,7 @@
                 <configuration>
                     <java>
                         <googleJavaFormat>
-                            <version>1.17.0</version>
+                            <version>1.19.2</version>
                             <style>GOOGLE</style>
                             <reflowLongStrings>true</reflowLongStrings>
                             <groupArtifact>com.google.googlejavaformat:google-java-format</groupArtifact>

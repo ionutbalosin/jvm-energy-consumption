@@ -14,8 +14,8 @@
     <artifactId>java-samples</artifactId>
 
     <properties>
-        <native.maven.plugin.version>0.9.12</native.maven.plugin.version>
-        <exec.maven.plugin.version>3.0.0</exec.maven.plugin.version>
+        <native.maven.plugin.version>0.9.28</native.maven.plugin.version>
+        <exec.maven.plugin.version>3.1.1</exec.maven.plugin.version>
         <!-- These two properties could be overridden by command line parameters -DmainClass="..." -DimageName="..."-->
         <mainClass>com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms</mainClass>
         <imageName>SortingAlgorithms</imageName>
