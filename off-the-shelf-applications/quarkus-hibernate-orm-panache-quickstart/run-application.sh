@@ -27,7 +27,7 @@
 #
 
 check_command_line_options() {
-  if [[ ($EUID != 0) || ($# -ne 1 && $# -ne 2) ]]; then
+  if [[ $EUID -ne 0 || ($# -ne 1 && $# -ne 2) ]]; then
     echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
@@ -41,14 +41,12 @@ check_command_line_options() {
     return 1
   fi
 
-  if [ "$1" ]; then
-    export TEST_RUN_IDENTIFIER="$1"
-  fi
+  export TEST_RUN_IDENTIFIER="$1"
 }
 
 configure_application() {
   export CURR_DIR=$(pwd)
-  export APP_HOME=/home/ionutbalosin/Workspace/quarkus-quickstarts/hibernate-orm-panache-quickstart
+  export APP_HOME=$QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME
   export APP_BASE_URL=localhost:8080
   export APP_RUNNING_TIME=900
   export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://192.168.0.186:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
@@ -69,55 +67,64 @@ create_output_resources() {
 }
 
 build_application() {
+  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
+  stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
+  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export BUILD_CMD="./mvnw clean package -Dmaven.test.skip"
+    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    export BUILD_CMD="./mvnw clean package -Dmaven.test.skip -Dnative"
+    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
   fi
 
-  echo "$BUILD_CMD"
-  cd $APP_HOME
-  sudo -E perf stat -a \
-    -e "power/energy-cores/" \
-    -e "power/energy-gpu/" \
-    -e "power/energy-pkg/" \
-    -e "power/energy-psys/" \
-    -e "power/energy-ram/" \
-    -o $CURR_DIR/$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-    $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
-  cd -
+  echo "Building application at: $(date) ... "
+  echo "$PREFIX_COMMAND $BUILD_CMD"
+  echo ""
+  eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Build failed for application. Check $build_output_file for details."
+    return 1
+  fi
 }
 
 start_application() {
+  run_output_file="$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
+  stats_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER"
+  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
   else
     export RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
   fi
 
+  echo "Running application at: $(date) ... "
+  echo "$PREFIX_COMMAND $RUN_CMD"
   echo ""
-  echo "Command line: $RUN_CMD"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
-
-  echo "Starting the application ... "
-  sudo perf stat -a \
-    -e "power/energy-cores/" \
-    -e "power/energy-gpu/" \
-    -e "power/energy-pkg/" \
-    -e "power/energy-psys/" \
-    -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD >$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log 2>&1 &
+  eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Run failed for application. Check $run_output_file for details."
+    return 1
+  fi
 
   export APP_PID=$!
 }
 
 time_to_first_response() {
-  # wait until the application answers to the first request
+  # Set the timeout threshold (in seconds)
+  # Note: the SECONDS is a built-in variable in Bash that represents the number of seconds since the shell was started.
+  timeout=30
+  end_time=$((SECONDS + timeout))
+
+  # Wait until the application answers to the first request or timeout occurs
   while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://$APP_BASE_URL/entity/fruits)" != "200" ]]; do
     sleep .00001
+
+    # Check if the timeout has been reached
+    if [ $SECONDS -ge $end_time ]; then
+      echo "ERROR: The application did not respond within $timeout seconds (timeout)."
+      return 1
+    fi
   done
 }
 
@@ -127,20 +134,33 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
+echo "+================================+"
+echo "| [1/8] Configuration Properties |"
+echo "+================================+"
+. ../../scripts/shell/configure-properties.sh || exit 1
+
+echo ""
+echo "+=============================+"
+echo "| [2/8] Hardware Architecture |"
+echo "+=============================+"
+. ../../scripts/shell/configure-arch.sh
+
+echo ""
 echo "+========================+"
-echo "| [1/6] OS configuration |"
+echo "| [3/8] OS Configuration |"
 echo "+========================+"
-. ../configure-os.sh
+. ../../scripts/shell/configure-os.sh || exit 1
+. ../../scripts/shell/configure-os-$OS.sh
 
 echo ""
 echo "+=========================+"
-echo "| [2/6] JVM configuration |"
+echo "| [4/8] JVM Configuration |"
 echo "+=========================+"
-. ../configure-jvm.sh
+. ../../scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
 echo "+=================================+"
-echo "| [3/6] Application configuration |"
+echo "| [5/8] Application configuration |"
 echo "+=================================+"
 configure_application
 
@@ -149,37 +169,35 @@ create_output_resources
 
 echo ""
 echo "+=============================+"
-echo "| [4/6] Build the application |"
+echo "| [6/8] Build the application |"
 echo "+=============================+"
 if [ "$2" == "--skip-build" ]; then
-  echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
+  echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
-  build_application
+  build_application || exit 1
 fi
 
 echo ""
 echo "+=============================+"
-echo "| [5/6] Start the application |"
+echo "| [7/8] Start the application |"
 echo "+=============================+"
-start_application
-
-time_to_first_response
+start_application || exit 1
+time_to_first_response || exit 1
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
 
-echo "Application with pid=$APP_PID successfully started at: $(date) and it will be running for about $APP_RUNNING_TIME sec"
+echo "Application with PID $APP_PID successfully started at $(date). It will be running for approximately $APP_RUNNING_TIME seconds."
 echo ""
-
 sleep $APP_RUNNING_TIME
 
 echo ""
 echo "+============================+"
-echo "| [6/6] Stop the application |"
+echo "| [8/8] Stop the application |"
 echo "+============================+"
-echo "Stop the application with pid=$APP_PID"
+echo "Stopping the application with PID $APP_PID."
 sudo kill -INT $APP_PID
-echo "Application with pid=$APP_PID successfully stopped at: $(date)"
+echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 # give a bit of time to the process to gracefully shut down
 sleep 10

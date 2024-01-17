@@ -27,7 +27,7 @@
 #
 
 check_command_line_options() {
-  if [[ ($EUID != 0) || ($# -ne 1 && $# -ne 2) ]]; then
+  if [[ $EUID -ne 0 || ($# -ne 1 && $# -ne 2) ]]; then
     echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
@@ -41,9 +41,7 @@ check_command_line_options() {
     return 1
   fi
 
-  if [ "$1" ]; then
-    export TEST_RUN_IDENTIFIER="$1"
-  fi
+  export TEST_RUN_IDENTIFIER="$1"
 }
 
 configure_application() {
@@ -80,7 +78,7 @@ build_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml -Pnative clean native:compile -Dmaven.test.skip"
+    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Pnative native:compile"
   fi
 
   echo "Building application at: $(date) ... "
@@ -117,9 +115,20 @@ start_application() {
 }
 
 time_to_first_response() {
-  # wait until the application answers to the first request
+  # Set the timeout threshold (in seconds)
+  # Note: the SECONDS is a built-in variable in Bash that represents the number of seconds since the shell was started.
+  timeout=30
+  end_time=$((SECONDS + timeout))
+
+  # Wait until the application answers to the first request or timeout occurs
   while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://$APP_BASE_URL/owners?lastName=)" != "200" ]]; do
     sleep .00001
+
+    # Check if the timeout has been reached
+    if [ $SECONDS -ge $end_time ]; then
+      echo "ERROR: The application did not respond within $timeout seconds (timeout)."
+      return 1
+    fi
   done
 }
 
@@ -177,15 +186,13 @@ echo "+=============================+"
 echo "| [7/8] Start the application |"
 echo "+=============================+"
 start_application || exit 1
-
-time_to_first_response
+time_to_first_response || exit 1
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
 
 echo "Application with PID $APP_PID successfully started at $(date). It will be running for approximately $APP_RUNNING_TIME seconds."
 echo ""
-
 sleep $APP_RUNNING_TIME
 
 echo ""
