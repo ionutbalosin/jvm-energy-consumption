@@ -184,13 +184,17 @@ confirm_os_settings() {
 }
 
 set_environment_variables() {
+  # TODO: Adjust the perf options based on your specific Intel CPU.
+  # Note: Some CPUs might not support all power events, therefore please
+  # check what is supported on your machine by running $ perf list | grep "power/"
   perf_options=(
     -e "power/energy-cores/"
     -e "power/energy-gpu/"
     -e "power/energy-pkg/"
     -e "power/energy-psys/"
+    #-e "power/energy-ram/"
   )
-  export OS_PREFIX_COMMAND="sudo -E perf stat -a "${perf_options[@]}" -o ((statsOutputFile)).stats"
+  export OS_PREFIX_COMMAND="sudo -E perf stat -a ${perf_options[*]} -o ((statsOutputFile)).stats"
 
   echo "Prefix command: $OS_PREFIX_COMMAND"
 }
