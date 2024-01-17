@@ -47,7 +47,7 @@ check_command_line_options() {
 }
 
 configure_samples() {
-  export APP_HOME=$(pwd)
+  export CURR_DIR=$(pwd)
   export JAVA_OPS="-Xms1m -Xmx6g"
   export SAMPLE_APPS=(
     "ThrowExceptionPatterns"
@@ -58,7 +58,6 @@ configure_samples() {
   )
 
   echo ""
-  echo "Application home: $APP_HOME"
   echo "Java samples:"
   for sample_name in "${SAMPLE_APPS[@]}"; do
     echo "  - $sample_name"
@@ -79,14 +78,14 @@ create_output_resources() {
 
 build_samples() {
   for sample_name in "${SAMPLE_APPS[@]}"; do
-    build_output_file="$APP_HOME/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
-    stats_output_file="$APP_HOME/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
+    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
+    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
     PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
     if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-      BUILD_CMD="$APP_HOME/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\""
+      BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\""
     else
-      BUILD_CMD="$APP_HOME/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\" -DimageName=\"$sample_name\" -Pnative package"
+      BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\" -DimageName=\"$sample_name\" -Pnative package"
     fi
 
     echo "Building $sample_name at: $(date) ... "
@@ -109,9 +108,9 @@ start_sample() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
   else
-    export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_test_type"
+    export RUN_CMD="$CURR_DIR/target/$sample_name $JAVA_OPS $sample_test_type"
   fi
 
   echo "Running $sample_name ($sample_test_type) at: $(date) ... "
