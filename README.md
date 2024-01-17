@@ -82,21 +82,24 @@ The table below summarizes the list of Operating Systems included in the measure
 No. | OS      | Covered
 ----|---------|--------
 1   | linux   | yes
-2   | mac     | no
+2   | mac     | wip
 3   | windows | no
 
 ## JVM Coverage
 
 The table below summarizes the list of JVM distributions included in the measurements:
 
-No. | JVM distribution
-----|--------------------
-1   | [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
-2   | [GraalVM CE](https://www.graalvm.org/downloads)
-3   | [GraalVM EE](https://www.graalvm.org/downloads)
-4   | [Native-Image](https://www.graalvm.org/22.0/reference-manual/native-image/)
-5   | [Azul Prime VM](https://www.azul.com/products/prime)
-6   | [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9) 
+JVM Distribution     | Build
+-------------------- | -------------------------------------------------------
+OpenJDK HotSpot VM   | [Download](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
+GraalVM CE           | [Download](https://github.com/graalvm/graalvm-ce-builds/releases)
+Oracle GraalVM       | [Download](https://www.graalvm.org/downloads)
+Native-Image         | [Download](https://www.graalvm.org/downloads)
+Azul Prime VM `(*)`  | [Download](https://www.azul.com/downloads)
+Eclipse OpenJ9 VM    | [Download](https://www.eclipse.org/openj9) 
+
+**Notes:**
+- `(*)` License restrictions might apply
 
 ## Measurements
 
@@ -175,8 +178,6 @@ $ cd /quarkus-hibernate-orm-panache-quickstart
 $ sudo ./run-hyperfoil.sh
 ```
 
-# License
-
 ### Generate the plots
 
 ```
@@ -184,6 +185,8 @@ $ sudo ./run-hyperfoil.sh
 ```
 
 The plots are saved under `results/$OS/$ARCH/jdk-$JDK_VERSION/plot` directory.
+
+# License
 
 Please see the [LICENSE](LICENSE) file for full license.
 
