@@ -30,7 +30,7 @@ check_command_line_options() {
     echo "Usage: sudo ./run-baseline.sh <test-run-identifier>"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier  is a mandatory parameter to identify the current execution test."
+    echo "  test-run-identifier   A mandatory parameter to identify the current execution test."
     echo ""
     echo "Examples:"
     echo "   $ ./run-baseline.sh 1"
