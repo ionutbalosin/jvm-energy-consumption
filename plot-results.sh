@@ -30,13 +30,13 @@ check_command_line_options() {
     echo "Usage: ./plot-results <jdk-version> [<os>] [<arch>]"
     echo ""
     echo "Options:"
-    echo "  jdk-version   java version identifier for the generated results. The supported values are {17}"
+    echo "  jdk-version   java version identifier for the generated results. The supported values are {21}"
     echo "  os            operating system. The supported values are {linux, windows, mac}. The default value is linux"
     echo "  arch          target architecture. The supported values are {x86_64, arm64}. The default value is detected based on the current target architecture."
     echo ""
     echo "Examples:"
-    echo "  ./plot-results 17"
-    echo "  ./plot-results 17 linux x86_64"
+    echo "  ./plot-results 21"
+    echo "  ./plot-results 21 linux x86_64"
     echo ""
     return 1
   fi

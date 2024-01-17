@@ -242,7 +242,7 @@ The number of requests per second was calibrated to match my hardware machine an
 
 Additional resources:
 - Hyperfoil [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/test-plan.hf.yaml) plan
-- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/spring-petclinic/results/linux/x86_64/jdk-17/hreports)
+- Hyperfoil [reports](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/hreports)
 
 ### Quarkus Hibernate ORM Panache
 
@@ -275,19 +275,19 @@ Each category ran with 100 repetitions. The execution of these benchmarks takes 
 
 [![RenaissanceConcurrency.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/concurrency/plot/run-energy.svg?raw=true)
 
-Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/concurrency/reports)
 
 [![RenaissanceFunctional.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy.svg?raw=true)
 
-Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/functional/reports)
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/reports)
 
 [![RenaissanceScala.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/scala/plot/run-energy.svg?raw=true)
 
-Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/scala/reports)
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/scala/reports)
 
 [![RenaissanceWeb.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/web/plot/run-energy.svg?raw=true)
 
-Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/renaissance/results/linux/x86_64/jdk-17/web/reports)
+Additional resources: Renaissance [output results](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/web/reports)
 
 ## Custom-Made Java Applications
 
