@@ -47,10 +47,15 @@ check_command_line_options() {
 }
 
 configure_samples() {
-  export CURR_DIR=$(pwd)
   export APP_HOME=$(pwd)
   export JAVA_OPS="-Xms1m -Xmx6g"
-  export SAMPLE_APPS=("ThrowExceptionPatterns" "MemoryAccessPatterns" "LoggingPatterns" "SortingAlgorithms" "VirtualCalls")
+  export SAMPLE_APPS=(
+    "ThrowExceptionPatterns"
+    "MemoryAccessPatterns"
+    "LoggingPatterns"
+    "SortingAlgorithms"
+    "VirtualCalls"
+  )
 
   echo ""
   echo "Application home: $APP_HOME"
@@ -73,47 +78,35 @@ create_output_resources() {
 }
 
 build_samples() {
-  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    for sample_name in "${SAMPLE_APPS[@]}"; do
-      export BUILD_CMD="./mvnw clean package -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" "
+  for sample_name in "${SAMPLE_APPS[@]}"; do
+    build_output_file="$APP_HOME/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
+    stats_output_file="$APP_HOME/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
+    PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
-      echo "$BUILD_CMD"
-      cd ..
-      sudo -E perf stat -a \
-        -e "power/energy-cores/" \
-        -e "power/energy-gpu/" \
-        -e "power/energy-pkg/" \
-        -e "power/energy-psys/" \
-        -e "power/energy-ram/" \
-        -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-        $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
-      cd -
+    if [ "$JVM_IDENTIFIER" != "native-image" ]; then
+      BUILD_CMD="$APP_HOME/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\""
+    else
+      BUILD_CMD="$APP_HOME/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\" -DimageName=\"$sample_name\" -Pnative package"
+    fi
 
-    done
-  else
-    cd .. && ./mvnw clean && cd -
-    for sample_name in "${SAMPLE_APPS[@]}"; do
-      export BUILD_CMD="./mvnw -D.maven.clean.skip=true -DmainClass="com.ionutbalosin.jvm.energy.consumption.$sample_name" -DimageName="$sample_name" -Pnative package"
-
-      echo "$BUILD_CMD"
-      cd ..
-      sudo -E perf stat -a \
-        -e "power/energy-cores/" \
-        -e "power/energy-gpu/" \
-        -e "power/energy-pkg/" \
-        -e "power/energy-psys/" \
-        -e "power/energy-ram/" \
-        -o $CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.stats \
-        $BUILD_CMD >$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log 2>&1
-      cd -
-
-    done
-  fi
+    echo "Building $sample_name at: $(date) ... "
+    echo "$PREFIX_COMMAND $BUILD_CMD"
+    echo ""
+    eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
+    if [ $? -ne 0 ]; then
+      echo "ERROR: Build failed for $sample_name. Check $build_output_file for details."
+      return 1
+    fi
+  done
 }
 
 start_sample() {
   sample_name="$1"
   sample_test_type="$2"
+
+  run_output_file="$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log"
+  stats_output_file="$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER"
+  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $APP_HOME/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
@@ -121,47 +114,46 @@ start_sample() {
     export RUN_CMD="$APP_HOME/target/$sample_name $JAVA_OPS $sample_test_type"
   fi
 
-  echo "Starting $sample_name ($sample_test_type) at: $(date) ... "
-  sudo perf stat -a \
-    -e "power/energy-cores/" \
-    -e "power/energy-gpu/" \
-    -e "power/energy-pkg/" \
-    -e "power/energy-psys/" \
-    -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD >$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log 2>&1
+  echo "Running $sample_name ($sample_test_type) at: $(date) ... "
+  echo "$PREFIX_COMMAND $RUN_CMD"
+  echo ""
+  eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Run failed for $sample_name ($sample_test_type). Check $run_output_file for details."
+    return 1
+  fi
 }
 
 start_samples() {
-  echo "Starting samples at: $(date) ... "
+  echo "Starting running samples at: $(date) ... "
   read -r -p "Press ENTER to continue or CRTL+C to abort ... "
 
-  start_sample "ThrowExceptionPatterns" "const"
-  start_sample "ThrowExceptionPatterns" "lambda"
-  start_sample "ThrowExceptionPatterns" "new"
-  start_sample "ThrowExceptionPatterns" "override_fist"
+  start_sample "ThrowExceptionPatterns" "const" || exit 1
+  start_sample "ThrowExceptionPatterns" "lambda" || exit 1
+  start_sample "ThrowExceptionPatterns" "new" || exit 1
+  start_sample "ThrowExceptionPatterns" "override_fist" || exit 1
 
-  start_sample "MemoryAccessPatterns" "linear"
-  start_sample "MemoryAccessPatterns" "random_page"
-  start_sample "MemoryAccessPatterns" "random_heap"
+  start_sample "MemoryAccessPatterns" "linear" || exit 1
+  start_sample "MemoryAccessPatterns" "random_page" || exit 1
+  start_sample "MemoryAccessPatterns" "random_heap" || exit 1
 
-  start_sample "LoggingPatterns" "string_format"
-  start_sample "LoggingPatterns" "lambda_heap"
-  start_sample "LoggingPatterns" "lambda_local"
-  start_sample "LoggingPatterns" "guarded_parametrized"
-  start_sample "LoggingPatterns" "guarded_unparametrized"
-  start_sample "LoggingPatterns" "unguarded_parametrized"
-  start_sample "LoggingPatterns" "unguarded_unparametrized"
+  start_sample "LoggingPatterns" "string_format" || exit 1
+  start_sample "LoggingPatterns" "lambda_heap" || exit 1
+  start_sample "LoggingPatterns" "lambda_local" || exit 1
+  start_sample "LoggingPatterns" "guarded_parametrized" || exit 1
+  start_sample "LoggingPatterns" "guarded_unparametrized" || exit 1
+  start_sample "LoggingPatterns" "unguarded_parametrized" || exit 1
+  start_sample "LoggingPatterns" "unguarded_unparametrized" || exit 1
 
-  start_sample "SortingAlgorithms" "bubble_sort"
-  start_sample "SortingAlgorithms" "merge_sort"
-  start_sample "SortingAlgorithms" "quick_sort"
-  start_sample "SortingAlgorithms" "radix_sort"
+  start_sample "SortingAlgorithms" "bubble_sort" || exit 1
+  start_sample "SortingAlgorithms" "merge_sort" || exit 1
+  start_sample "SortingAlgorithms" "quick_sort" || exit 1
+  start_sample "SortingAlgorithms" "radix_sort" || exit 1
 
-  start_sample "VirtualCalls" "bimorphic"
-  start_sample "VirtualCalls" "megamorphic_24"
+  start_sample "VirtualCalls" "bimorphic" || exit 1
+  start_sample "VirtualCalls" "megamorphic_24" || exit 1
 
-  echo "Finished samples at: $(date) ... "
+  echo "Finished running samples at: $(date) ... "
 }
 
 check_command_line_options "$@"
@@ -170,20 +162,33 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
+echo "+================================+"
+echo "| [1/7] Configuration Properties |"
+echo "+================================+"
+. ../scripts/shell/configure-properties.sh || exit 1
+
+echo ""
+echo "+=============================+"
+echo "| [2/7] Hardware Architecture |"
+echo "+=============================+"
+. ../scripts/shell/configure-arch.sh
+
+echo ""
 echo "+========================+"
-echo "| [1/5] OS configuration |"
+echo "| [3/7] OS Configuration |"
 echo "+========================+"
-. ../configure-os.sh
+. ../scripts/shell/configure-os.sh || exit 1
+. ../scripts/shell/configure-os-$OS.sh
 
 echo ""
 echo "+=========================+"
-echo "| [2/5] JVM configuration |"
+echo "| [4/7] JVM Configuration |"
 echo "+=========================+"
-. ../configure-jvm.sh
+. ../scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
 echo "+==================================+"
-echo "| [3/5] Java samples configuration |"
+echo "| [5/7] Java samples configuration |"
 echo "+==================================+"
 configure_samples
 
@@ -192,19 +197,19 @@ create_output_resources
 
 echo ""
 echo "+==============================+"
-echo "| [4/5] Build the Java samples |"
+echo "| [6/7] Build the Java samples |"
 echo "+==============================+"
 if [ "$2" == "--skip-build" ]; then
-  echo "WARNING: Skip building the application. A previously generated artifact will be used to start the application."
+  echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
-  build_samples
+  build_samples || exit 1
 fi
 
 echo ""
 echo "+==============================+"
-echo "| [5/5] Start the Java samples |"
+echo "| [7/7] Start the Java samples |"
 echo "+==============================+"
-start_samples
+start_samples || exit 1
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

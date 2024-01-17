@@ -26,17 +26,20 @@
 # SOFTWARE.
 #
 
-configure_os() {
-  if [ "$(uname -s)" == "Linux" ]; then
-    . ../configure-linux-os.sh
-  elif [ "$(uname -s)" == "Darwin" ]; then
-    . ../configure-mac-os.sh
-  elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ] || [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
-    . ../configure-win-os.sh
-  else
-    echo "ERROR: No configuration is available for this OS. This is neither a Linux, Darwin nor a Windows OS."
-    exit 1
-  fi
-}
+case $(uname -s) in
+Linux)
+  export OS="linux"
+  ;;
+Darwin)
+  export OS="mac"
+  ;;
+CYGWIN* | MINGW*)
+  export OS="win"
+  ;;
+*)
+  echo "ERROR: Unable to detect this OS. This is neither a Linux, Darwin, nor a Windows OS."
+  return 1
+  ;;
+esac
 
-configure_os
+echo "Operating system: $OS"

@@ -26,17 +26,8 @@
 # SOFTWARE.
 #
 
-set_environment_variables() {
-  export ARCH="$(uname -m)"
-  export OS="windows"
-
-  echo "Operating system: $OS"
-  echo "Architecture: $ARCH"
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
-}
-
-echo "+--------------------+"
-echo "| OS tuning settings |"
-echo "+--------------------+"
-set_environment_variables
+echo ""
+echo "+----------------+"
+echo "| macOS Settings |"
+echo "+----------------+"
+echo "No specific settings are defined for this OS."
