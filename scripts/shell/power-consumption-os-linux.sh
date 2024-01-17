@@ -26,39 +26,54 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || $# -ne 3 ]]; then
-    echo "Usage: sudo ./power-consumption-os-linux.sh <test-run-identifier> <duration> <output-file>"
+  if [[ $EUID -ne 0 || ($# -ne 1 && $# -ne 2) ]]; then
+    echo "Usage: sudo ./power-consumption-os-linux.sh <output-file> [<duration>]"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier  A mandatory parameter to identify the current execution test."
-    echo "  duration             A mandatory parameter to specify the duration in minutes."
     echo "  output-file          A mandatory parameter to specify the output file name."
+    echo "  duration             An optional parameter to specify the duration in minutes."
+    echo ""
+    echo "Note: If the duration is not specified, the command will run indefinitely or until interrupted."
     echo ""
     echo "Examples:"
-    echo "  sudo ./power-consumption-os-linux.sh 1 900 power-consumption.txt"
+    echo "  sudo ./power-consumption-os-linux.sh power-consumption.txt"
+    echo "  sudo ./power-consumption-os-linux.sh power-consumption.txt 900"
     echo ""
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER="$1"
-  export TEST_RUN_DURATION="$2"
-  export TEST_RUN_OUTPUT_FILE="$3"
+  export TEST_RUN_OUTPUT_FILE="$1"
+  if [ "$2" ]; then
+    export TEST_RUN_DURATION="$2"
+  fi
 
-  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
-  echo "Test duration (in min): $TEST_RUN_DURATION"
   echo "Test output file: $TEST_RUN_OUTPUT_FILE"
+  echo "Test duration (in min): $TEST_RUN_DURATION"
 }
 
-check_command_line_options "$@"
+start_power_consumption() {
+  echo "Starting power consumption measurements at: $(date) ... "
+  if [ -n "$TEST_RUN_DURATION" ]; then
+    nohup timeout "${TEST_RUN_DURATION}m" sudo powerstat -DfHtn > "$TEST_RUN_OUTPUT_FILE" 2>&1 &
+  else
+    nohup sudo powerstat -DfHtn > "$TEST_RUN_OUTPUT_FILE" 2>&1 &
+  fi
+  export POWER_CONSUMPTION_MONITOR_PID=$!
+}
 
-echo "Running power consumption measurements at: $(date) ... "
-nohup timeout "${TEST_RUN_DURATION}m" sudo powerstat12 -DfHtn > "$TEST_RUN_OUTPUT_FILE" 2>&1 &
+check_power_consumption_started() {
+  if ps -p $POWER_CONSUMPTION_MONITOR_PID > /dev/null; then
+    echo "Power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID started successfully."
+  else
+    echo "ERROR: Failed to start power consumption measurements."
+  fi
+}
 
-# Sleep for a short duration to allow the command to start
+check_command_line_options "$@" || exit 1
+
+start_power_consumption
+
+# Sleep for a short duration to allow the power consumption measurements to start
 sleep 1
 
-if ps -p $! > /dev/null; then
-  echo "The power consumption measurements started successfully."
-else
-  echo "ERROR: Failed to start the power consumption measurements."
-fi
+check_power_consumption_started
