@@ -59,7 +59,7 @@ check_command_line_options() {
 }
 
 set_environment_variables() {
-  export OUTPUT_FOLDER=results/$OS/$ARCH/jdk-$JDK_VERSION
+  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION/$ARCH/$OS
 
   echo "Output folder: $OUTPUT_FOLDER"
   echo ""

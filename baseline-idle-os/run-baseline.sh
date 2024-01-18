@@ -33,24 +33,24 @@ check_command_line_options() {
     echo "  test-run-identifier   A mandatory parameter to identify the current execution test."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-baseline.sh 1"
+    echo "   $ sudo ./run-baseline.sh 1"
     echo ""
     return 1
   fi
 
-  if [ "$1" ]; then
-    export TEST_RUN_IDENTIFIER="$1"
-  fi
+  export TEST_RUN_IDENTIFIER="$1"
 }
 
 configure_baseline() {
   export APP_RUNNING_TIME=900
-  export OUTPUT_FOLDER=results/$OS/$ARCH
+  export OUTPUT_FOLDER=results/$ARCH/$OS
+  export OUTPUT_FILE="$OUTPUT_FOLDER/perf/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
 
   echo ""
-  echo "Output folder: $OUTPUT_FOLDER"
-  echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
+  echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
+  echo "Output folder: $OUTPUT_FOLDER"
+  echo "Test output file identifier: $OUTPUT_FILE"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
@@ -60,40 +60,26 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
 }
 
-start_baseline() {
-  export RUN_CMD="sleep $APP_RUNNING_TIME"
-
-  echo ""
-  echo "Command line: $RUN_CMD"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
-
-  echo "Starting the idle OS baseline at: $(date) ... "
-  sudo perf stat -a \
-    -e "power/energy-cores/" \
-    -e "power/energy-gpu/" \
-    -e "power/energy-pkg/" \
-    -e "power/energy-psys/" \
-    -e "power/energy-ram/" \
-    -o $OUTPUT_FOLDER/perf/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats \
-    $RUN_CMD
-}
-
 check_command_line_options "$@"
 if [ $? -ne 0 ]; then
   exit 1
 fi
 
 echo ""
+echo "+=============================+"
+echo "| [1/4] Hardware Architecture |"
+echo "+=============================+"
+. ../scripts/shell/configure-arch.sh
+
+echo ""
 echo "+========================+"
-echo "| [1/3] OS configuration |"
+echo "| [2/4] OS Configuration |"
 echo "+========================+"
-. ../configure-os.sh
+. ../scripts/shell/configure-os.sh || exit 1
 
 echo ""
 echo "+======================================+"
-echo "| [2/3] Idle OS baseline configuration |"
+echo "| [3/4] Idle OS baseline configuration |"
 echo "+======================================+"
 configure_baseline
 
@@ -102,11 +88,11 @@ create_output_resources
 
 echo ""
 echo "+==================================+"
-echo "| [3/3] Start the idle OS baseline |"
+echo "| [4/4] Start the idle OS baseline |"
 echo "+==================================+"
-start_baseline
-
-echo "Idle OS baseline successfully stopped at: $(date)"
+echo "Starting the idle OS baseline at: $(date) ... "
+. ../scripts/shell/power-consumption-os-$OS.sh --duration="$APP_RUNNING_TIME" --output-file="$OUTPUT_FILE"
+echo "Idle OS baseline successfully finished at: $(date)"
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

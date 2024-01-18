@@ -184,7 +184,7 @@ $ sudo ./run-hyperfoil.sh
 ./plot-results.sh
 ```
 
-The plots are saved under `results/$OS/$ARCH/jdk-$JDK_VERSION/plot` directory.
+The plots are saved under `results/jdk-$JDK_VERSION/$ARCH/$OS/plot` directory.
 
 # License
 
