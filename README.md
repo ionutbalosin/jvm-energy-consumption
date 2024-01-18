@@ -44,15 +44,6 @@ In multi-socket server systems, each socket reports its own RAPL values. For exa
 
 On macOS, the `powermetrics` command is used to report energy consumption.
 
-### Units of Measurement
-
-The unit of energy reported by this command is **Joule** (symbol J).
-
-Analogous, a **watt-second** (symbol W s or W⋅s) is a derived unit of energy equivalent to the Joule. The watt-second is the energy equivalent to the power of one watt sustained for one second.
-While the watt-second is equivalent to the Joule in both units and meaning (e.g., 1 W⋅s = 1 J), I favor using the term "watt-second" instead of "Joule", which is, in general, easier to understand (and correlate with real-life examples) when speaking about the power consumption.
-
-**Note:** In general, the overhead introduced by `perf` is relatively low, especially when using hardware performance counters. The impact on system performance is typically considered acceptable for most profiling and performance analysis tasks.
-
 ### Load Test System Architecture
 
 When measuring JVM energy consumption, it is crucial to simulate a realistic application workload, ensuring the usage of the application and triggering as many endpoints as possible within a reasonable time interval. Merely starting and stopping the application is insufficient, as it may skip critical factors such as the Garbage Collector footprint and Just-In-Time compiler optimizations, thereby rendering the measurements less relevant. In this context, load test scenarios should be conducted for certain applications, such as Spring Boot and Quarkus web-based applications.
