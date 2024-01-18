@@ -6,9 +6,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 - [Purpose](#purpose)
 - [Methodology](#methodology)
-- [Prerequisites](#prerequisites)
-- [OS Coverage](#os-coverage)
-- [JVM Coverage](#jvm-coverage)
+- [Setup](#setup)
 - [Measurements](#measurements)
   - [Baseline Idle OS](#baseline-idle-os)
   - [Java Samples](#java-samples)
@@ -24,28 +22,29 @@ While comparing energy consumption across different frameworks is not the primar
 
 ## Methodology
 
-To measure energy consumption, Intel's Running Average Power Limit (**RAPL**) interface is utilized. RAPL offers power-limiting capabilities and precise energy readings for multiple power domains. Each supported power domain exposes a Machine Specific Register (MSR) containing a 32-bit integer, which is updated at approximately 1-millisecond intervals. The RAPL power domains include:
+Energy consumption reporting methods vary depending on the operating system and CPU architecture.
+
+### RAPL interface on GNU/Linux
+
+On GNU/Linux, the Running Average Power Limit (**RAPL**) interface is utilized. RAPL offers power-limiting capabilities and precise energy readings for multiple power domains. Each supported power domain exposes a Machine Specific Register (MSR) containing a 32-bit integer, which is updated at approximately 1-millisecond intervals. 
+
+The RAPL power domains that are available on Intel CPUs (and potentially AMD Ryzen CPUs) include:
 
 - Package (PKG) domain: Measures the energy consumption of the entire socket, including all cores, integrated graphics, and uncore components like last-level caches and memory controller.
 - Power Plane 0 (PP0) domain: Measures the energy consumption of all processor cores on the socket.
 - Power Plane 1 (PP1) domain: Measures the energy consumption of the processor graphics (GPU) on the socket (desktop models only).
 - DRAM domain: Measures the energy consumption of the random access memory (RAM) attached to the integrated memory controller.
-- PSys domain: Introduced with Intel Skylake, it monitors and controls the thermal and power specifications of the entire SoC (System on a Chip). It is especially useful when the power consumption source is neither the CPU nor the GPU. PSys includes power consumption from the package domain, System Agent, PCH, eDRAM, and other domains within a single-socket SoC.
+- PSys domain: Monitors and controls the thermal and power specifications of the entire SoC (System on a Chip). It is especially useful when the power consumption source is neither the CPU nor the GPU. PSys includes power consumption from the package domain, System Agent, PCH, eDRAM, and other domains within a single-socket SoC.
 
 In multi-socket server systems, each socket reports its own RAPL values. For example, a two-socket computing system has separate PKG readings for both packages, separate PP0 readings, and so on.
 
+> Depending on the CPU manufacturer and series, some of the RAPL domains might be available or not. Please check your hardware.
 
-The command pattern used to start the JVM application that also reports at the end the energy stats rely on `perf` (available only on Linux):
+### powermetrics on macOS
 
-```
-$ perf stat -a \
-   -e "power/energy-cores/" \
-   -e "power/energy-gpu/" \
-   -e "power/energy-pkg/" \
-   -e "power/energy-psys/" \
-   -e "power/energy-ram/" \
-   <application_runner_path>
-```
+On macOS, the `powermetrics` command is used to report energy consumption.
+
+### Units of Measurement
 
 The unit of energy reported by this command is **Joule** (symbol J).
 
@@ -68,29 +67,24 @@ On **system client test** runs the load testing tool (e.g., Hyperfoil) as well a
 
 The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
 
-## Prerequisites
+## Setup
 
-In order to properly run the scripts you need to:
-- install `perf` on Linux
-- download and install any JDK distribution (please see below the list of the recommended ones)
-- download and install [Hyperfoil](https://hyperfoil.io) (i.e., a microservice-oriented distributed benchmark framework)
+To properly run the scripts, you need to download, install, and properly configure the following tools:
 
-## OS Coverage
+### Operating system-specific tools
 
-The table below summarizes the list of Operating Systems included in the measurements:
+ OS        | Covered | Tools                               
+-----------|---------|-------------------------------------
+ GNU/Linux | Yes     | RAPL interface, `perf`, `powerstat` 
+ macOS     | Yes     | `powermetrics`                      
+ Windows   | No      | N/A                                 
 
-No. | OS      | Covered
-----|---------|--------
-1   | linux   | yes
-2   | mac     | wip
-3   | windows | no
+_Please make sure you have `sudo root` access._
 
-## JVM Coverage
-
-The table below summarizes the list of JVM distributions included in the measurements:
+### Java Development Kit (JDK)
 
 JVM Distribution     | Build
--------------------- | -------------------------------------------------------
+-------------------- | ----------------------------------------------------------------------------
 OpenJDK HotSpot VM   | [Download](https://projects.eclipse.org/projects/adoptium.temurin/downloads)
 GraalVM CE           | [Download](https://github.com/graalvm/graalvm-ce-builds/releases)
 Oracle GraalVM       | [Download](https://www.graalvm.org/downloads)
@@ -98,8 +92,11 @@ Native-Image         | [Download](https://www.graalvm.org/downloads)
 Azul Prime VM `(*)`  | [Download](https://www.azul.com/downloads)
 Eclipse OpenJ9 VM    | [Download](https://www.eclipse.org/openj9) 
 
-**Notes:**
-- `(*)` License restrictions might apply
+_`(*)` - License restrictions might apply_
+
+### Hyperfoil
+
+Download and install [Hyperfoil](https://hyperfoil.io), a microservice-oriented distributed benchmark framework used for the load testing.
 
 ## Measurements
 
