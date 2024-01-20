@@ -63,6 +63,7 @@ configure_application() {
 create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
   mkdir -p $OUTPUT_FOLDER/logs
+  mkdir -p $OUTPUT_FOLDER/power
 }
 
 build_application() {
@@ -86,6 +87,22 @@ build_application() {
   fi
 }
 
+start_power_consumption_measurements() {
+  power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
+  . ../../scripts/shell/power-consumption-os-"$OS".sh --background --duration="$APP_RUNNING_TIME" --output-file="$power_output_file"
+
+  if [ $? -ne 0 ]; then
+    return 1
+  fi
+}
+
+stop_power_consumption_measurements() {
+  if ps -p "$POWER_CONSUMPTION_MONITOR_PID" > /dev/null; then
+    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID."
+    sudo kill -s INT "$POWER_CONSUMPTION_MONITOR_PID"
+  fi
+}
+
 start_application() {
   run_output_file="$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
   stats_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER"
@@ -100,19 +117,23 @@ start_application() {
   echo "Running application at: $(date) ... "
   echo "$PREFIX_COMMAND $RUN_CMD"
   echo ""
+
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
-  if [ $? -ne 0 ]; then
+  export APP_PID=$!
+
+  # Sleep for a short duration to allow the asynchronous process to start
+  sleep 3
+
+  if ! ps -p "$APP_PID" > /dev/null; then
     echo "ERROR: Run failed for application. Check $run_output_file for details."
     return 1
   fi
-
-  export APP_PID=$!
 }
 
 time_to_first_response() {
   # Set the timeout threshold (in seconds)
   # Note: the SECONDS is a built-in variable in Bash that represents the number of seconds since the shell was started.
-  timeout=30
+  timeout=20
   end_time=$((SECONDS + timeout))
 
   # Wait until the application answers to the first request or timeout occurs
@@ -134,32 +155,32 @@ fi
 
 echo ""
 echo "+================================+"
-echo "| [1/8] Configuration Properties |"
+echo "| [1/9] Configuration Properties |"
 echo "+================================+"
 . ../../scripts/shell/configure-properties.sh || exit 1
 
 echo ""
 echo "+=============================+"
-echo "| [2/8] Hardware Architecture |"
+echo "| [2/9] Hardware Architecture |"
 echo "+=============================+"
 . ../../scripts/shell/configure-arch.sh
 
 echo ""
 echo "+========================+"
-echo "| [3/8] OS Configuration |"
+echo "| [3/9] OS Configuration |"
 echo "+========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
 . ../../scripts/shell/configure-os-$OS.sh
 
 echo ""
 echo "+=========================+"
-echo "| [4/8] JVM Configuration |"
+echo "| [4/9] JVM Configuration |"
 echo "+=========================+"
 . ../../scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
 echo "+=================================+"
-echo "| [5/8] Application configuration |"
+echo "| [5/9] Application configuration |"
 echo "+=================================+"
 configure_application
 
@@ -168,7 +189,7 @@ create_output_resources
 
 echo ""
 echo "+=============================+"
-echo "| [6/8] Build the application |"
+echo "| [6/9] Build the application |"
 echo "+=============================+"
 if [ "$2" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
@@ -177,11 +198,17 @@ else
 fi
 
 echo ""
+echo "+============================================+"
+echo "| [7/9] Start power consumption measurements |"
+echo "+============================================+"
+start_power_consumption_measurements || exit 1
+
+echo ""
 echo "+=============================+"
-echo "| [7/8] Start the application |"
+echo "| [8/9] Start the application |"
 echo "+=============================+"
-start_application || exit 1
-time_to_first_response || exit 1
+start_application || { stop_power_consumption_measurements && exit 1; }
+time_to_first_response || { stop_power_consumption_measurements && exit 1; }
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
@@ -192,10 +219,10 @@ sleep $APP_RUNNING_TIME
 
 echo ""
 echo "+============================+"
-echo "| [8/8] Stop the application |"
+echo "| [9/9] Stop the application |"
 echo "+============================+"
 echo "Stopping the application with PID $APP_PID."
-sudo kill -INT $APP_PID
+sudo pkill -INT -P "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 # give a bit of time to the process to gracefully shut down

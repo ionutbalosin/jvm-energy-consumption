@@ -44,20 +44,27 @@ check_command_line_options() {
 configure_baseline() {
   export APP_RUNNING_TIME=900
   export OUTPUT_FOLDER=results/$ARCH/$OS
-  export OUTPUT_FILE="$OUTPUT_FOLDER/perf/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
 
   echo ""
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
   echo "Output folder: $OUTPUT_FOLDER"
-  echo "Test output file identifier: $OUTPUT_FILE"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
-  mkdir -p $OUTPUT_FOLDER/perf
+  mkdir -p $OUTPUT_FOLDER/power
+}
+
+start_power_consumption() {
+  power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
+  . ../scripts/shell/power-consumption-os-"$OS".sh --duration="$APP_RUNNING_TIME" --output-file="$power_output_file"
+
+  if [ $? -ne 0 ]; then
+    return 1
+  fi
 }
 
 check_command_line_options "$@"
@@ -87,12 +94,10 @@ configure_baseline
 create_output_resources
 
 echo ""
-echo "+==================================+"
-echo "| [4/4] Start the idle OS baseline |"
-echo "+==================================+"
-echo "Starting the idle OS baseline at: $(date) ... "
-. ../scripts/shell/power-consumption-os-$OS.sh --duration="$APP_RUNNING_TIME" --output-file="$OUTPUT_FILE"
-echo "Idle OS baseline successfully finished at: $(date)"
+echo "+============================================+"
+echo "| [4/4] Start power consumption measurements |"
+echo "+============================================+"
+start_power_consumption || exit 1
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

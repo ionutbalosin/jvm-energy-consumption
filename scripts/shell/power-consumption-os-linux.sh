@@ -30,17 +30,17 @@ check_command_line_options() {
     echo "Usage: sudo ./power-consumption-os-linux.sh [--background] [--duration=<duration>] --output-file=<output-file>"
     echo ""
     echo "Options:"
-    echo "  --background         An optional parameter to specify if the command runs in the background or not."
-    echo "  duration             An optional parameter to specify the duration in seconds. If specified, it needs to be greater than 60 seconds. This is a restriction of the 'powerstat' command."
-    echo "  output-file          A mandatory parameter to specify the output file name."
+    echo "  --background           An optional parameter to specify if the command runs in the background (i.e., asynchronous) or not."
+    echo "  --duration=<duration>  An optional parameter to specify the duration in seconds. If specified, it needs to be greater than 60 seconds. This is a restriction of the 'powerstat' command."
+    echo "  --output-file=<file>   A mandatory parameter to specify the output file name."
     echo ""
     echo "Note: If the duration is not specified, the command will run for 86400 seconds (i.e., 24 hours) or until interrupted."
     echo "      If --background is specified, the command will run in the background, and the shell prompt is immediately returned; otherwise, it will run in the foreground."
     echo ""
     echo "Examples:"
-    echo "  sudo ./power-consumption-os-linux.sh --background --duration=900 --output-file=power-consumption.txt"
-    echo "  sudo ./power-consumption-os-linux.sh --output-file=power-consumption.txt"
-    echo "  sudo ./power-consumption-os-linux.sh --background --output-file=power-consumption.txt"
+    echo "  sudo ./power-consumption-os-linux.sh --background --duration=900 --output-file=power-consumption.stats"
+    echo "  sudo ./power-consumption-os-linux.sh --output-file=power-consumption.stats"
+    echo "  sudo ./power-consumption-os-linux.sh --background --output-file=power-consumption.stats"
     echo ""
     return 1
   fi
@@ -85,20 +85,41 @@ check_command_line_options() {
 }
 
 start_power_consumption() {
-  echo "Starting power consumption measurements at: $(date) ... "
-  eval "sudo powerstat -DfHtn 1 ${APP_RUNNING_TIME}" > "$STATS_OUTPUT_FILE" 2>&1 "$BACKGROUND_MODE"
-  export POWER_CONSUMPTION_MONITOR_PID=$!
+  echo "Starting power consumption measurements at: $(date) ..."
+  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $APP_RUNNING_TIME seconds), unless explicitly terminated."
+
+  power_command="sudo powerstat -DfHtn 1 ${APP_RUNNING_TIME} > $STATS_OUTPUT_FILE 2>&1 $BACKGROUND_MODE"
+  echo "$power_command"
+  eval "$power_command"
+
+  # This only returns with an error if the command itself failed to execute (e.g., it does not exist)
+  # Note: Any errors encountered by the command while running in background mode will not be captured by this exit status
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Power consumption measurements failed. Check $STATS_OUTPUT_FILE for details."
+    return 1
+  fi
+
+  # In case of background (i.e., asynchronous) mode, export the PID of the running command (to be used later by subsequent programs)
+  if [[ "$BACKGROUND_MODE" == "&" ]]; then
+    export POWER_CONSUMPTION_MONITOR_PID=$!
+  fi
 }
 
 check_power_consumption() {
-  # In case of background (i.e., asynchronous) mode, check if the power consumption measurements successfully started
-  if [ -n "$BACKGROUND_MODE" ]; then
+  # 1. In case of background (i.e., asynchronous) mode, check if the power consumption measurements successfully started
+  if [[ "$BACKGROUND_MODE" == "&" ]]; then
+    # Sleep for a short duration to allow the asynchronous process to start
+    sleep 3
+
+    # Check if the process is running
     if ps -p $POWER_CONSUMPTION_MONITOR_PID > /dev/null; then
-      echo "Power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID started successfully."
+      echo "Power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID started successfully and will run in background."
     else
-      echo "ERROR: Power consumption measurements failed to start."
+      echo "ERROR: Power consumption measurements failed. Check $STATS_OUTPUT_FILE for details."
+      return 1
     fi
-  # Otherwise (i.e., the command was already executed synchronously) just show the termination message
+
+  # 2. Otherwise (i.e., in blocking mode), the command has already been executed synchronously, and now display the termination message
   else
     echo "Power consumption measurements successfully finished at $(date)."
   fi
@@ -106,9 +127,6 @@ check_power_consumption() {
 
 check_command_line_options "$@" || exit 1
 
-start_power_consumption
+start_power_consumption || exit 1
 
-# Sleep for a short duration to allow the power consumption measurements to start
-sleep 1
-
-check_power_consumption
+check_power_consumption || exit 1

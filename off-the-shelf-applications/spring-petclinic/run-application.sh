@@ -199,7 +199,7 @@ echo "+============================+"
 echo "| [8/8] Stop the application |"
 echo "+============================+"
 echo "Stopping the application with PID $APP_PID."
-sudo kill -INT $APP_PID
+sudo kill -s INT $APP_PID
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 # give a bit of time to the process to gracefully shut down
