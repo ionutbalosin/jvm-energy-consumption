@@ -203,7 +203,7 @@ sudo kill -s INT $APP_PID
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 # give a bit of time to the process to gracefully shut down
-sleep 10
+sleep 5
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

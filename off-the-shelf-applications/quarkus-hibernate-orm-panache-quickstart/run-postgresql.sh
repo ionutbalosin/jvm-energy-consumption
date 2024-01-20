@@ -34,7 +34,7 @@ docker run -it --rm \
   -N 2048
 
 # give a bit of time to the process to gracefully start
-sleep 10
+sleep 5
 
 ###
 # To check the number of connections after Docker container has started:
