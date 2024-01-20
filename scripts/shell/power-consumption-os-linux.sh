@@ -84,7 +84,7 @@ check_command_line_options() {
   echo ""
 }
 
-start_power_consumption() {
+start_power_consumption_measurements() {
   echo "Starting power consumption measurements at: $(date) ..."
   echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $APP_RUNNING_TIME seconds), unless explicitly terminated."
 
@@ -105,7 +105,7 @@ start_power_consumption() {
   fi
 }
 
-check_power_consumption() {
+check_power_consumption_measurements() {
   # 1. In case of background (i.e., asynchronous) mode, check if the power consumption measurements successfully started
   if [[ "$BACKGROUND_MODE" == "&" ]]; then
     # Sleep for a short duration to allow the asynchronous process to start
@@ -127,6 +127,6 @@ check_power_consumption() {
 
 check_command_line_options "$@" || exit 1
 
-start_power_consumption || exit 1
+start_power_consumption_measurements || exit 1
 
-check_power_consumption || exit 1
+check_power_consumption_measurements || exit 1
