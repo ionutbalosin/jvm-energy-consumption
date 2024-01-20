@@ -89,7 +89,7 @@ build_application() {
 
 start_power_consumption_measurements() {
   power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
-  . ../../scripts/shell/power-consumption-os-"$OS".sh --background --duration="$APP_RUNNING_TIME" --output-file="$power_output_file"
+  . ../../scripts/shell/power-consumption-os-"$OS".sh --background --output-file="$power_output_file"
 
   if [ $? -ne 0 ]; then
     return 1
@@ -97,9 +97,10 @@ start_power_consumption_measurements() {
 }
 
 stop_power_consumption_measurements() {
-  if ps -p "$POWER_CONSUMPTION_MONITOR_PID" > /dev/null; then
-    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID."
-    sudo kill -s INT "$POWER_CONSUMPTION_MONITOR_PID"
+  if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
+    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_PID."
+    sudo kill -s INT "$POWER_CONSUMPTION_PID"
+    echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
   fi
 }
 
@@ -154,43 +155,43 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "+================================+"
-echo "| [1/9] Configuration Properties |"
-echo "+================================+"
+echo "+=================================+"
+echo "| [1/10] Configuration Properties |"
+echo "+=================================+"
 . ../../scripts/shell/configure-properties.sh || exit 1
 
 echo ""
-echo "+=============================+"
-echo "| [2/9] Hardware Architecture |"
-echo "+=============================+"
+echo "+==============================+"
+echo "| [2/10] Hardware Architecture |"
+echo "+==============================+"
 . ../../scripts/shell/configure-arch.sh
 
 echo ""
-echo "+========================+"
-echo "| [3/9] OS Configuration |"
-echo "+========================+"
+echo "+=========================+"
+echo "| [3/10] OS Configuration |"
+echo "+=========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
 . ../../scripts/shell/configure-os-$OS.sh
 
 echo ""
-echo "+=========================+"
-echo "| [4/9] JVM Configuration |"
-echo "+=========================+"
+echo "+==========================+"
+echo "| [4/10] JVM Configuration |"
+echo "+==========================+"
 . ../../scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
-echo "+=================================+"
-echo "| [5/9] Application configuration |"
-echo "+=================================+"
+echo "+==================================+"
+echo "| [5/10] Application configuration |"
+echo "+==================================+"
 configure_application
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
 echo ""
-echo "+=============================+"
-echo "| [6/9] Build the application |"
-echo "+=============================+"
+echo "+==============================+"
+echo "| [6/10] Build the application |"
+echo "+==============================+"
 if [ "$2" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
@@ -198,15 +199,15 @@ else
 fi
 
 echo ""
-echo "+============================================+"
-echo "| [7/9] Start power consumption measurements |"
-echo "+============================================+"
+echo "+=================================================+"
+echo "| [7/10] Start the power consumption measurements |"
+echo "+=================================================+"
 start_power_consumption_measurements || exit 1
 
 echo ""
-echo "+=============================+"
-echo "| [8/9] Start the application |"
-echo "+=============================+"
+echo "+==============================+"
+echo "| [8/10] Start the application |"
+echo "+==============================+"
 start_application || { stop_power_consumption_measurements && exit 1; }
 time_to_first_response || { stop_power_consumption_measurements && exit 1; }
 
@@ -218,12 +219,18 @@ echo ""
 sleep $APP_RUNNING_TIME
 
 echo ""
-echo "+============================+"
-echo "| [9/9] Stop the application |"
-echo "+============================+"
+echo "+=============================+"
+echo "| [9/10] Stop the application |"
+echo "+=============================+"
 echo "Stopping the application with PID $APP_PID."
 sudo pkill -INT -P "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
+
+echo ""
+echo "+=================================================+"
+echo "| [10/10] Stop the power consumption measurements |"
+echo "+=================================================+"
+stop_power_consumption_measurements
 
 # give a bit of time to the process to gracefully shut down
 sleep 5

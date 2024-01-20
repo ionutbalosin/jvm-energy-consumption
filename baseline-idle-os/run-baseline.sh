@@ -94,9 +94,9 @@ configure_baseline
 create_output_resources
 
 echo ""
-echo "+============================================+"
-echo "| [4/4] Start power consumption measurements |"
-echo "+============================================+"
+echo "+================================================+"
+echo "| [4/4] Start the power consumption measurements |"
+echo "+================================================+"
 start_power_consumption_measurements || exit 1
 
 echo ""

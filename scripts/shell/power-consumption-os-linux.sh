@@ -45,20 +45,20 @@ check_command_line_options() {
     return 1
   fi
 
-  export STATS_OUTPUT_FILE=""
-  export APP_RUNNING_TIME="86400"
-  export BACKGROUND_MODE=""
+  export POWER_CONSUMPTION_OUTPUT_FILE=""
+  export POWER_CONSUMPTION_RUNNING_TIME="86400"
+  export POWER_CONSUMPTION_BACKGROUND_MODE=""
 
   while [ $# -gt 0 ]; do
     case "$1" in
       --background)
-        BACKGROUND_MODE="&"
+        POWER_CONSUMPTION_BACKGROUND_MODE="&"
         ;;
       --duration=*)
-        APP_RUNNING_TIME="${1#*=}"
+        POWER_CONSUMPTION_RUNNING_TIME="${1#*=}"
         ;;
       --output-file=*)
-        STATS_OUTPUT_FILE="${1#*=}"
+        POWER_CONSUMPTION_OUTPUT_FILE="${1#*=}"
         ;;
       *)
         echo "ERROR: Unknown command line parameter: $1"
@@ -68,54 +68,54 @@ check_command_line_options() {
     shift
   done
 
-  if [ "$APP_RUNNING_TIME" -lt 60 ]; then
+  if [ "$POWER_CONSUMPTION_RUNNING_TIME" -lt 60 ]; then
     echo "ERROR: Duration must be greater than 60 seconds."
     return 1
   fi
 
-  if [ -z "$STATS_OUTPUT_FILE" ]; then
+  if [ -z "$POWER_CONSUMPTION_OUTPUT_FILE" ]; then
     echo "ERROR: Missing mandatory parameter output file."
     return 1
   fi
 
-  echo "Output file: $STATS_OUTPUT_FILE"
-  echo "Duration (in sec): $APP_RUNNING_TIME"
-  echo "Background mode: $BACKGROUND_MODE"
+  echo "Power consumption output file: $POWER_CONSUMPTION_OUTPUT_FILE"
+  echo "Power consumption running time: $POWER_CONSUMPTION_RUNNING_TIME sec"
+  echo "Power consumption background mode: $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo ""
 }
 
 start_power_consumption_measurements() {
   echo "Starting power consumption measurements at: $(date) ..."
-  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $APP_RUNNING_TIME seconds), unless explicitly terminated."
+  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated."
 
-  power_command="sudo powerstat -DfHtn 1 ${APP_RUNNING_TIME} > $STATS_OUTPUT_FILE 2>&1 $BACKGROUND_MODE"
+  power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
 
   # This only returns with an error if the command itself failed to execute (e.g., it does not exist)
   # Note: Any errors encountered by the command while running in background mode will not be captured by this exit status
   if [ $? -ne 0 ]; then
-    echo "ERROR: Power consumption measurements failed. Check $STATS_OUTPUT_FILE for details."
+    echo "ERROR: Power consumption measurements failed. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
     return 1
   fi
 
   # In case of background (i.e., asynchronous) mode, export the PID of the running command (to be used later by subsequent programs)
-  if [[ "$BACKGROUND_MODE" == "&" ]]; then
-    export POWER_CONSUMPTION_MONITOR_PID=$!
+  if [[ "$POWER_CONSUMPTION_BACKGROUND_MODE" == "&" ]]; then
+    export POWER_CONSUMPTION_PID=$!
   fi
 }
 
 check_power_consumption_measurements() {
   # 1. In case of background (i.e., asynchronous) mode, check if the power consumption measurements successfully started
-  if [[ "$BACKGROUND_MODE" == "&" ]]; then
+  if [[ "$POWER_CONSUMPTION_BACKGROUND_MODE" == "&" ]]; then
     # Sleep for a short duration to allow the asynchronous process to start
     sleep 3
 
     # Check if the process is running
-    if ps -p $POWER_CONSUMPTION_MONITOR_PID > /dev/null; then
-      echo "Power consumption measurements with PID $POWER_CONSUMPTION_MONITOR_PID started successfully and will run in background."
+    if ps -p $POWER_CONSUMPTION_PID > /dev/null; then
+      echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID started successfully and will run in background."
     else
-      echo "ERROR: Power consumption measurements failed. Check $STATS_OUTPUT_FILE for details."
+      echo "ERROR: Power consumption measurements failed. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
       return 1
     fi
 
