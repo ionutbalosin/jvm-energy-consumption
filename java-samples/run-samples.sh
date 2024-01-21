@@ -26,22 +26,42 @@
 #
 
 check_command_line_options() {
-  if [[ ($EUID != 0) || ($# -ne 1 && $# -ne 2) ]]; then
-    echo "Usage: sudo ./run-samples.sh <test-run-identifier> [--skip-build]"
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
+    echo "Usage: sudo ./run-samples.sh --test-run-identifier=<test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier   A mandatory parameter to identify the current execution test."
-    echo "  --skip-build          An optional parameter to skip the build process."
+    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
+    echo "  --skip-build                                 An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-samples.sh 1"
-    echo "   $ sudo ./run-samples.sh 1 --skip-build"
+    echo "   $ sudo ./run-samples.sh --test-run-identifier=1"
+    echo "   $ sudo ./run-samples.sh --test-run-identifier=1 --skip-build"
     echo ""
     return 1
   fi
 
-  if [ "$1" ]; then
-    export TEST_RUN_IDENTIFIER="$1"
+  export TEST_RUN_IDENTIFIER=""
+  export APP_SKIP_BUILD=""
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --skip-build)
+        APP_SKIP_BUILD="--skip-build"
+        ;;
+      --test-run-identifier=*)
+        TEST_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      *)
+        echo "ERROR: Unknown parameter: $1"
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter test run identifier."
+    return 1
   fi
 }
 
@@ -58,9 +78,10 @@ configure_samples() {
 
   echo ""
   echo "Java samples:"
-  for sample_name in "${SAMPLE_APPS[@]}"; do
-    echo "  - $sample_name"
+  for sample_app in "${SAMPLE_APPS[@]}"; do
+    echo "  - $sample_app"
   done
+  echo "Java samples skip build: $APP_SKIP_BUILD"
   echo "Java opts: $JAVA_OPS"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
@@ -69,87 +90,90 @@ configure_samples() {
 }
 
 create_output_resources() {
-  for sample_name in "${SAMPLE_APPS[@]}"; do
-    mkdir -p $OUTPUT_FOLDER/$sample_name/perf
-    mkdir -p $OUTPUT_FOLDER/$sample_name/logs
+  for sample_app in "${SAMPLE_APPS[@]}"; do
+    mkdir -p $OUTPUT_FOLDER/$sample_app/perf
+    mkdir -p $OUTPUT_FOLDER/$sample_app/logs
   done
 }
 
 build_samples() {
-  for sample_name in "${SAMPLE_APPS[@]}"; do
-    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
-    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
+  for sample_app in "${SAMPLE_APPS[@]}"; do
+    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
+    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
     PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
     if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-      BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\""
+      BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
     else
-      BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_name\" -DimageName=\"$sample_name\" -Pnative package"
+      BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app\" -Pnative package"
     fi
 
-    echo "Building $sample_name at: $(date) ... "
+    echo "Building $sample_app at: $(date) ... "
     echo "$PREFIX_COMMAND $BUILD_CMD"
     echo ""
+
     eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
     if [ $? -ne 0 ]; then
-      echo "ERROR: Build failed for $sample_name. Check $build_output_file for details."
+      echo "ERROR: Build failed for $sample_app. Check $build_output_file for details."
       return 1
     fi
   done
 }
 
 start_sample() {
-  sample_name="$1"
-  sample_test_type="$2"
+  sample_app="$1"
+  sample_app_test_type="$2"
 
-  run_output_file="$OUTPUT_FOLDER/$sample_name/logs/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER.log"
-  stats_output_file="$OUTPUT_FOLDER/$sample_name/perf/$JVM_IDENTIFIER-run-$sample_test_type-$TEST_RUN_IDENTIFIER"
+  run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER.log"
+  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER"
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_name.java $sample_test_type"
+    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
   else
-    export RUN_CMD="$CURR_DIR/target/$sample_name $JAVA_OPS $sample_test_type"
+    export RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS $sample_app_test_type"
   fi
 
-  echo "Running $sample_name ($sample_test_type) at: $(date) ... "
+  echo "Running $sample_app ($sample_app_test_type) at: $(date) ... "
   echo "$PREFIX_COMMAND $RUN_CMD"
   echo ""
+
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1
   if [ $? -ne 0 ]; then
-    echo "ERROR: Run failed for $sample_name ($sample_test_type). Check $run_output_file for details."
+    echo "ERROR: Run failed for $sample_app ($sample_app_test_type). Check $run_output_file for details."
     return 1
   fi
 }
 
 start_samples() {
   echo "Starting running samples at: $(date) ... "
-  read -r -p "Press ENTER to continue or CRTL+C to abort ... "
 
-  start_sample "ThrowExceptionPatterns" "const" || exit 1
-  start_sample "ThrowExceptionPatterns" "lambda" || exit 1
-  start_sample "ThrowExceptionPatterns" "new" || exit 1
-  start_sample "ThrowExceptionPatterns" "override_fist" || exit 1
+  SAMPLE_APPS_WITH_TEST_TYPES=(
+    "ThrowExceptionPatterns const"
+    "ThrowExceptionPatterns lambda"
+    "ThrowExceptionPatterns new"
+    "ThrowExceptionPatterns override_first"
+    "MemoryAccessPatterns linear"
+    "MemoryAccessPatterns random_page"
+    "MemoryAccessPatterns random_heap"
+    "LoggingPatterns string_format"
+    "LoggingPatterns lambda_heap"
+    "LoggingPatterns lambda_local"
+    "LoggingPatterns guarded_parametrized"
+    "LoggingPatterns guarded_unparametrized"
+    "LoggingPatterns unguarded_parametrized"
+    "LoggingPatterns unguarded_unparametrized"
+    "SortingAlgorithms bubble_sort"
+    "SortingAlgorithms merge_sort"
+    "SortingAlgorithms quick_sort"
+    "SortingAlgorithms radix_sort"
+    "VirtualCalls bimorphic"
+    "VirtualCalls megamorphic_24"
+  )
 
-  start_sample "MemoryAccessPatterns" "linear" || exit 1
-  start_sample "MemoryAccessPatterns" "random_page" || exit 1
-  start_sample "MemoryAccessPatterns" "random_heap" || exit 1
-
-  start_sample "LoggingPatterns" "string_format" || exit 1
-  start_sample "LoggingPatterns" "lambda_heap" || exit 1
-  start_sample "LoggingPatterns" "lambda_local" || exit 1
-  start_sample "LoggingPatterns" "guarded_parametrized" || exit 1
-  start_sample "LoggingPatterns" "guarded_unparametrized" || exit 1
-  start_sample "LoggingPatterns" "unguarded_parametrized" || exit 1
-  start_sample "LoggingPatterns" "unguarded_unparametrized" || exit 1
-
-  start_sample "SortingAlgorithms" "bubble_sort" || exit 1
-  start_sample "SortingAlgorithms" "merge_sort" || exit 1
-  start_sample "SortingAlgorithms" "quick_sort" || exit 1
-  start_sample "SortingAlgorithms" "radix_sort" || exit 1
-
-  start_sample "VirtualCalls" "bimorphic" || exit 1
-  start_sample "VirtualCalls" "megamorphic_24" || exit 1
+  for sample_app_with_test_type in "${SAMPLE_APPS_WITH_TEST_TYPES[@]}"; do
+    start_sample $sample_app_with_test_type || exit 1
+  done
 
   echo "Finished running samples at: $(date) ... "
 }
