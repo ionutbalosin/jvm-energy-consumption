@@ -31,7 +31,7 @@ check_command_line_options() {
     echo ""
     echo "Options:"
     echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
-    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If specified, it is set by default to 900 seconds."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
     echo "   $ sudo ./run-baseline.sh --test-run-identifier=1"
@@ -52,7 +52,7 @@ check_command_line_options() {
         TEST_RUN_IDENTIFIER="${1#*=}"
         ;;
       *)
-        echo "ERROR: Unknown command line parameter: $1"
+        echo "ERROR: Unknown parameter: $1"
         return 1
         ;;
     esac

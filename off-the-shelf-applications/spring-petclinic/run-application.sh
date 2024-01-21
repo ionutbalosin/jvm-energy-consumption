@@ -26,37 +26,65 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -ne 1 && $# -ne 2) ]]; then
-    echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 3) ]]; then
+    echo "Usage: sudo ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier   A mandatory parameter to identify the current execution test."
-    echo "  --skip-build          An optional parameter to skip the build process."
+    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
+    echo "  --skip-build                                 An optional parameter to skip the build process."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-application.sh 1"
-    echo "   $ sudo ./run-application.sh 1 --skip-build"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600 --skip-build"
     echo ""
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER="$1"
+  export TEST_RUN_IDENTIFIER=""
+  export APP_SKIP_BUILD=""
+  export APP_RUNNING_TIME="900"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --skip-build)
+        APP_SKIP_BUILD="--skip-build"
+        ;;
+      --duration=*)
+        APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --test-run-identifier=*)
+        TEST_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      *)
+        echo "ERROR: Unknown parameter: $1"
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter test run identifier."
+    return 1
+  fi
 }
 
 configure_application() {
   export CURR_DIR=$(pwd)
   export APP_HOME=$SPRING_PETCLINIC_HOME
   export APP_BASE_URL=localhost:8080
-  export APP_RUNNING_TIME=900
   export JAVA_OPS="-Xms1m -Xmx1g"
   # export JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.jfr"
 
   echo ""
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
+  echo "Application skip build: $APP_SKIP_BUILD"
   echo "Java opts: $JAVA_OPS"
-  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "JFR opts: $JFR_OPS"
 
   echo ""
@@ -67,6 +95,7 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/perf
   mkdir -p $OUTPUT_FOLDER/logs
   mkdir -p $OUTPUT_FOLDER/jfr
+  mkdir -p $OUTPUT_FOLDER/power
 }
 
 build_application() {
@@ -104,13 +133,17 @@ start_application() {
   echo "Running application at: $(date) ... "
   echo "$PREFIX_COMMAND $RUN_CMD"
   echo ""
+
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
-  if [ $? -ne 0 ]; then
+  export APP_PID=$!
+
+  # Sleep for a short duration to allow the asynchronous process to start
+  sleep 3
+
+  if ! ps -p "$APP_PID" > /dev/null; then
     echo "ERROR: Run failed for application. Check $run_output_file for details."
     return 1
   fi
-
-  export APP_PID=$!
 }
 
 time_to_first_response() {
@@ -137,55 +170,63 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "+================================+"
-echo "| [1/8] Configuration Properties |"
-echo "+================================+"
+echo "+=================================+"
+echo "| [1/10] Configuration Properties |"
+echo "+=================================+"
 . ../../scripts/shell/configure-properties.sh || exit 1
 
 echo ""
-echo "+=============================+"
-echo "| [2/8] Hardware Architecture |"
-echo "+=============================+"
+echo "+==============================+"
+echo "| [2/10] Hardware Architecture |"
+echo "+==============================+"
 . ../../scripts/shell/configure-arch.sh
 
 echo ""
-echo "+========================+"
-echo "| [3/8] OS Configuration |"
-echo "+========================+"
+echo "+=========================+"
+echo "| [3/10] OS Configuration |"
+echo "+=========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
 . ../../scripts/shell/configure-os-$OS.sh
 
 echo ""
-echo "+=========================+"
-echo "| [4/8] JVM Configuration |"
-echo "+=========================+"
+echo "+==========================+"
+echo "| [4/10] JVM Configuration |"
+echo "+==========================+"
 . ../../scripts/shell/configure-jvm.sh || exit 1
 
 echo ""
-echo "+=================================+"
-echo "| [5/8] Application configuration |"
-echo "+=================================+"
+echo "+==================================+"
+echo "| [5/10] Application configuration |"
+echo "+==================================+"
 configure_application
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
 echo ""
-echo "+=============================+"
-echo "| [6/8] Build the application |"
-echo "+=============================+"
-if [ "$2" == "--skip-build" ]; then
+echo "+==============================+"
+echo "| [6/10] Build the application |"
+echo "+==============================+"
+if [ "$APP_SKIP_BUILD" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
   build_application || exit 1
 fi
 
 echo ""
-echo "+=============================+"
-echo "| [7/8] Start the application |"
-echo "+=============================+"
-start_application || exit 1
-time_to_first_response || exit 1
+echo "+=================================================+"
+echo "| [7/10] Start the power consumption measurements |"
+echo "+=================================================+"
+. ../../scripts/shell/power-consumption-os-$OS.sh
+power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
+start_power_consumption --background --output-file="$power_output_file" || exit 1
+
+echo ""
+echo "+==============================+"
+echo "| [8/10] Start the application |"
+echo "+==============================+"
+start_application || { stop_power_consumption && exit 1; }
+time_to_first_response || { stop_power_consumption && exit 1; }
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
@@ -195,12 +236,18 @@ echo ""
 sleep $APP_RUNNING_TIME
 
 echo ""
-echo "+============================+"
-echo "| [8/8] Stop the application |"
-echo "+============================+"
+echo "+=============================+"
+echo "| [9/10] Stop the application |"
+echo "+=============================+"
 echo "Stopping the application with PID $APP_PID."
-sudo kill -s INT $APP_PID
+sudo pkill -INT -P "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
+
+echo ""
+echo "+=================================================+"
+echo "| [10/10] Stop the power consumption measurements |"
+echo "+=================================================+"
+stop_power_consumption
 
 # give a bit of time to the process to gracefully shut down
 sleep 5

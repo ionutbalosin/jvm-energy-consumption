@@ -32,7 +32,7 @@ check_command_line_options() {
     echo "Options:"
     echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
     echo "  --skip-build                                 An optional parameter to skip the build process."
-    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If specified, it is set by default to 900 seconds."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
     echo "   $ sudo ./run-application.sh --test-run-identifier=1"
@@ -58,7 +58,7 @@ check_command_line_options() {
         TEST_RUN_IDENTIFIER="${1#*=}"
         ;;
       *)
-        echo "ERROR: Unknown command line parameter: $1"
+        echo "ERROR: Unknown parameter: $1"
         return 1
         ;;
     esac
@@ -79,13 +79,13 @@ configure_application() {
   export JAVA_OPS="-Xms1m -Xmx512m"
 
   echo ""
+  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
+  echo "Application skip build: $APP_SKIP_BUILD"
   echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
   echo "Java opts: $JAVA_OPS"
-  echo "Application skip build: $APP_SKIP_BUILD"
-  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 }
 
 create_output_resources() {

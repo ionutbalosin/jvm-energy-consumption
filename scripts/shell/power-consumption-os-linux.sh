@@ -61,20 +61,20 @@ check_and_configure_power_consumption_options() {
         POWER_CONSUMPTION_OUTPUT_FILE="${1#*=}"
         ;;
       *)
-        echo "ERROR: Unknown command line parameter: $1"
+        echo "ERROR: Unknown parameter: $1"
         return 1
         ;;
     esac
     shift
   done
 
-  if [ "$POWER_CONSUMPTION_RUNNING_TIME" -lt 60 ]; then
-    echo "ERROR: Duration must be greater than 60 seconds."
+  if [ -z "$POWER_CONSUMPTION_OUTPUT_FILE" ]; then
+    echo "ERROR: Missing mandatory parameter output file."
     return 1
   fi
 
-  if [ -z "$POWER_CONSUMPTION_OUTPUT_FILE" ]; then
-    echo "ERROR: Missing mandatory parameter output file."
+  if [ "$POWER_CONSUMPTION_RUNNING_TIME" -lt 60 ]; then
+    echo "ERROR: Duration must be greater than 60 seconds."
     return 1
   fi
 
