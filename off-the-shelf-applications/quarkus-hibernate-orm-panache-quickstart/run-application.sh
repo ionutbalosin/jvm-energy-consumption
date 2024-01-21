@@ -26,28 +26,55 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -ne 1 && $# -ne 2) ]]; then
-    echo "Usage: sudo ./run-application.sh <test-run-identifier> [--skip-build]"
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 3) ]]; then
+    echo "Usage: sudo ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier  A mandatory parameter to identify the current execution test."
-    echo "  --skip-build         An optional parameter to skip the build process."
+    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
+    echo "  --skip-build                                 An optional parameter to skip the build process."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-application.sh 1"
-    echo "   $ sudo ./run-application.sh 1 --skip-build"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600"
+    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600 --skip-build"
     echo ""
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER="$1"
+  export TEST_RUN_IDENTIFIER=""
+  export APP_SKIP_BUILD=""
+  export APP_RUNNING_TIME="900"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --skip-build)
+        APP_SKIP_BUILD="--skip-build"
+        ;;
+      --duration=*)
+        APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --test-run-identifier=*)
+        TEST_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      *)
+        echo "ERROR: Unknown command line parameter: $1"
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter test run identifier."
+    return 1
+  fi
 }
 
 configure_application() {
   export CURR_DIR=$(pwd)
   export APP_HOME=$QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME
   export APP_BASE_URL=localhost:8080
-  export APP_RUNNING_TIME=900
   export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
   export JAVA_OPS="-Xms1m -Xmx512m"
 
@@ -57,6 +84,7 @@ configure_application() {
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
   echo "Java opts: $JAVA_OPS"
+  echo "Application skip build: $APP_SKIP_BUILD"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 }
 
@@ -175,7 +203,7 @@ echo ""
 echo "+==============================+"
 echo "| [6/10] Build the application |"
 echo "+==============================+"
-if [ "$2" == "--skip-build" ]; then
+if [ "$APP_SKIP_BUILD" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
   build_application || exit 1

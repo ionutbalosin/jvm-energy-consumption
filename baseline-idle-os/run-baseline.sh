@@ -26,23 +26,46 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID != 0 || $# -ne 1 ]]; then
-    echo "Usage: sudo ./run-baseline.sh <test-run-identifier>"
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
+    echo "Usage: sudo ./run-baseline.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>]"
     echo ""
     echo "Options:"
-    echo "  test-run-identifier   A mandatory parameter to identify the current execution test."
+    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-baseline.sh 1"
+    echo "   $ sudo ./run-baseline.sh --test-run-identifier=1"
+    echo "   $ sudo ./run-baseline.sh --test-run-identifier=1 --duration=3600"
     echo ""
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER="$1"
+  export TEST_RUN_IDENTIFIER=""
+  export APP_RUNNING_TIME="900"
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --duration=*)
+        APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --test-run-identifier=*)
+        TEST_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      *)
+        echo "ERROR: Unknown command line parameter: $1"
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter test run identifier."
+    return 1
+  fi
 }
 
 configure_baseline() {
-  export APP_RUNNING_TIME=900
   export OUTPUT_FOLDER=results/$ARCH/$OS
 
   echo ""
