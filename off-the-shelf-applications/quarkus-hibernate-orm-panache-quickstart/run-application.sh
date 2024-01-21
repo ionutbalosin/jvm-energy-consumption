@@ -78,7 +78,6 @@ configure_application() {
   export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
   export JAVA_OPS="-Xms1m -Xmx512m"
 
-  echo ""
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
@@ -107,7 +106,6 @@ build_application() {
 
   echo "Building application at: $(date) ... "
   echo "$PREFIX_COMMAND $BUILD_CMD"
-  echo ""
 
   eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
   if [ $? -ne 0 ]; then
@@ -229,7 +227,6 @@ time_to_first_response || { stop_power_consumption && exit 1; }
 stty sane
 
 echo "Application with PID $APP_PID successfully started at $(date). It will be running for approximately $APP_RUNNING_TIME seconds."
-echo ""
 sleep $APP_RUNNING_TIME
 
 echo ""

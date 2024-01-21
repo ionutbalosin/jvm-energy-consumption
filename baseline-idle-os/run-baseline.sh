@@ -68,7 +68,6 @@ check_command_line_options() {
 configure_baseline() {
   export OUTPUT_FOLDER=results/$ARCH/$OS
 
-  echo ""
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
   echo "Output folder: $OUTPUT_FOLDER"

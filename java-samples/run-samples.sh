@@ -77,7 +77,6 @@ configure_samples() {
     "VirtualCalls"
   )
 
-  echo ""
   echo "Java samples:"
   for sample_app in "${SAMPLE_APPS[@]}"; do
     echo "  - $sample_app"
@@ -94,6 +93,7 @@ create_output_resources() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
     mkdir -p $OUTPUT_FOLDER/$sample_app/perf
     mkdir -p $OUTPUT_FOLDER/$sample_app/logs
+    mkdir -p $OUTPUT_FOLDER/$sample_app/power
   done
 }
 
@@ -173,8 +173,32 @@ start_samples() {
     "VirtualCalls megamorphic_24"
   )
 
+  iteration=1
+  loop_counter="${#SAMPLE_APPS_WITH_TEST_TYPES[@]}"
+
   for sample_app_with_test_type in "${SAMPLE_APPS_WITH_TEST_TYPES[@]}"; do
-    start_sample $sample_app_with_test_type || exit 1
+    read -r -a sample_app_components <<< "$sample_app_with_test_type"
+    sample_app="${sample_app_components[0]}"
+    sample_app_test_type="${sample_app_components[1]}"
+
+    echo ""
+    echo "+--------------------------------------------------+"
+    echo "| [7.$iteration/$loop_counter] Start the power consumption measurements |"
+    echo "+--------------------------------------------------+"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER.stats"
+    start_power_consumption --background --output-file="$power_output_file" || exit 1
+
+    echo "+-------------------------------+"
+    echo "| [7.$iteration/$loop_counter] Start the Java sample |"
+    echo "+-------------------------------+"
+    start_sample $sample_app $sample_app_test_type || exit 1
+
+    echo "+-------------------------------------------------+"
+    echo "| [7.$iteration/$loop_counter] Stop the power consumption measurements |"
+    echo "+-------------------------------------------------+"
+    stop_power_consumption
+
+    ((iteration++))
   done
 
   echo "Finished running samples at: $(date) ... "
@@ -233,6 +257,7 @@ echo ""
 echo "+==============================+"
 echo "| [7/7] Start the Java samples |"
 echo "+==============================+"
+. ../scripts/shell/power-consumption-os-$OS.sh
 start_samples || exit 1
 
 echo ""

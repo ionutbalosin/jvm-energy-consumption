@@ -85,10 +85,6 @@ check_and_configure_power_consumption_options() {
 }
 
 start_power_consumption_measurements() {
-  echo "Starting power consumption measurements at: $(date) ..."
-  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated."
-  echo ""
-
   power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
@@ -127,6 +123,9 @@ check_power_consumption_measurements() {
 }
 
 start_power_consumption() {
+  echo "Starting power consumption measurements at: $(date) ..."
+  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated."
+
   check_and_configure_power_consumption_options "$@" || return 1
   start_power_consumption_measurements || return 1
   check_power_consumption_measurements || return 1
