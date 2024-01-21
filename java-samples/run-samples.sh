@@ -68,6 +68,7 @@ check_command_line_options() {
 configure_samples() {
   export CURR_DIR=$(pwd)
   export JAVA_OPS="-Xms1m -Xmx6g"
+  # Defines the list of all Java sample apps
   export SAMPLE_APPS=(
     "ThrowExceptionPatterns"
     "MemoryAccessPatterns"
@@ -148,7 +149,8 @@ start_sample() {
 start_samples() {
   echo "Starting running samples at: $(date) ... "
 
-  SAMPLE_APPS_WITH_TEST_TYPES=(
+  # Defines the list of all Java sample apps including their running parameters
+  export SAMPLE_APPS_WITH_TEST_TYPES=(
     "ThrowExceptionPatterns const"
     "ThrowExceptionPatterns lambda"
     "ThrowExceptionPatterns new"
