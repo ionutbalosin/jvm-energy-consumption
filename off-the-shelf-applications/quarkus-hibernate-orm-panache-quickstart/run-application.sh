@@ -108,6 +108,7 @@ build_application() {
   echo "Building application at: $(date) ... "
   echo "$PREFIX_COMMAND $BUILD_CMD"
   echo ""
+
   eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
   if [ $? -ne 0 ]; then
     echo "ERROR: Build failed for application. Check $build_output_file for details."
