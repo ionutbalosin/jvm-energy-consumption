@@ -87,23 +87,6 @@ build_application() {
   fi
 }
 
-start_power_consumption_measurements() {
-  power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
-  . ../../scripts/shell/power-consumption-os-"$OS".sh --background --output-file="$power_output_file"
-
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
-}
-
-stop_power_consumption_measurements() {
-  if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
-    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_PID."
-    sudo kill -s INT "$POWER_CONSUMPTION_PID"
-    echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
-  fi
-}
-
 start_application() {
   run_output_file="$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
   stats_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER"
@@ -202,14 +185,16 @@ echo ""
 echo "+=================================================+"
 echo "| [7/10] Start the power consumption measurements |"
 echo "+=================================================+"
-start_power_consumption_measurements || exit 1
+. ../../scripts/shell/power-consumption-os-$OS.sh
+power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
+start_power_consumption --background --output-file="$power_output_file" || exit 1
 
 echo ""
 echo "+==============================+"
 echo "| [8/10] Start the application |"
 echo "+==============================+"
-start_application || { stop_power_consumption_measurements && exit 1; }
-time_to_first_response || { stop_power_consumption_measurements && exit 1; }
+start_application || { stop_power_consumption && exit 1; }
+time_to_first_response || { stop_power_consumption && exit 1; }
 
 # reset the terminal line settings, otherwise it gets a wired indentation
 stty sane
@@ -230,7 +215,7 @@ echo ""
 echo "+=================================================+"
 echo "| [10/10] Stop the power consumption measurements |"
 echo "+=================================================+"
-stop_power_consumption_measurements
+stop_power_consumption
 
 # give a bit of time to the process to gracefully shut down
 sleep 5

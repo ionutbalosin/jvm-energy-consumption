@@ -58,15 +58,6 @@ create_output_resources() {
   mkdir -p $OUTPUT_FOLDER/power
 }
 
-start_power_consumption_measurements() {
-  power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
-  . ../scripts/shell/power-consumption-os-"$OS".sh --duration="$APP_RUNNING_TIME" --output-file="$power_output_file"
-
-  if [ $? -ne 0 ]; then
-    return 1
-  fi
-}
-
 check_command_line_options "$@"
 if [ $? -ne 0 ]; then
   exit 1
@@ -97,7 +88,9 @@ echo ""
 echo "+================================================+"
 echo "| [4/4] Start the power consumption measurements |"
 echo "+================================================+"
-start_power_consumption_measurements || exit 1
+. ../scripts/shell/power-consumption-os-$OS.sh
+power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
+start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 
 echo ""
 echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"

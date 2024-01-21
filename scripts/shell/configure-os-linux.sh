@@ -188,7 +188,7 @@ set_environment_variables() {
   # check what is supported on your machine by running $ perf list | grep "power/"
   perf_options=(
     -e "power/energy-cores/"
-    -e "power/energy-gpu/"
+    #-e "power/energy-gpu/"
     -e "power/energy-pkg/"
     -e "power/energy-psys/"
     #-e "power/energy-ram/"

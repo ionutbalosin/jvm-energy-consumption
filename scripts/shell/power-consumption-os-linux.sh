@@ -25,9 +25,9 @@
 # SOFTWARE.
 #
 
-check_command_line_options() {
-  if [ $EUID -ne 0 ] || [ $# -lt 1 ] || [ $# -gt 3 ]; then
-    echo "Usage: sudo ./power-consumption-os-linux.sh [--background] [--duration=<duration>] --output-file=<output-file>"
+check_and_configure_power_consumption_options() {
+  if [ $# -lt 1 ] || [ $# -gt 3 ]; then
+    echo "Usage: start_power_consumption [--background] [--duration=<duration>] --output-file=<output-file>"
     echo ""
     echo "Options:"
     echo "  --background           An optional parameter to specify if the command runs in the background (i.e., asynchronous) or not."
@@ -38,9 +38,9 @@ check_command_line_options() {
     echo "      If --background is specified, the command will run in the background, and the shell prompt is immediately returned; otherwise, it will run in the foreground."
     echo ""
     echo "Examples:"
-    echo "  sudo ./power-consumption-os-linux.sh --background --duration=900 --output-file=power-consumption.stats"
-    echo "  sudo ./power-consumption-os-linux.sh --output-file=power-consumption.stats"
-    echo "  sudo ./power-consumption-os-linux.sh --background --output-file=power-consumption.stats"
+    echo "  start_power_consumption --background --duration=900 --output-file=power-consumption.stats"
+    echo "  start_power_consumption --output-file=power-consumption.stats"
+    echo "  start_power_consumption --background --output-file=power-consumption.stats"
     echo ""
     return 1
   fi
@@ -87,6 +87,7 @@ check_command_line_options() {
 start_power_consumption_measurements() {
   echo "Starting power consumption measurements at: $(date) ..."
   echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated."
+  echo ""
 
   power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
@@ -125,8 +126,16 @@ check_power_consumption_measurements() {
   fi
 }
 
-check_command_line_options "$@" || exit 1
+start_power_consumption() {
+  check_and_configure_power_consumption_options "$@" || return 1
+  start_power_consumption_measurements || return 1
+  check_power_consumption_measurements || return 1
+}
 
-start_power_consumption_measurements || exit 1
-
-check_power_consumption_measurements || exit 1
+stop_power_consumption() {
+  if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
+    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_PID."
+    sudo kill -s INT "$POWER_CONSUMPTION_PID"
+    echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
+  fi
+}
