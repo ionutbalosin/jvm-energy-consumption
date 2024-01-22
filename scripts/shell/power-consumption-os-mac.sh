@@ -25,4 +25,10 @@
 # SOFTWARE.
 #
 
-echo "WARNING: No current method to measure power consumption on mac."
+start_power_consumption() {
+  echo "WARNING: Power consumption measurements are not (yet) supported on macOS."
+}
+
+stop_power_consumption() {
+  echo "WARNING: Power consumption measurements are not (yet) supported on macOS."
+}

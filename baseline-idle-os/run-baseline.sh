@@ -77,7 +77,7 @@ configure_baseline() {
 }
 
 create_output_resources() {
-  mkdir -p $OUTPUT_FOLDER/power
+  mkdir -p "$OUTPUT_FOLDER/power"
 }
 
 check_command_line_options "$@"
@@ -110,7 +110,7 @@ echo ""
 echo "+================================================+"
 echo "| [4/4] Start the power consumption measurements |"
 echo "+================================================+"
-. ../scripts/shell/power-consumption-os-$OS.sh
+. ../scripts/shell/power-consumption-os-"$OS".sh
 power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$TEST_RUN_IDENTIFIER.stats"
 start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 

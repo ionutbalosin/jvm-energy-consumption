@@ -91,9 +91,9 @@ configure_samples() {
 
 create_output_resources() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
-    mkdir -p $OUTPUT_FOLDER/$sample_app/perf
-    mkdir -p $OUTPUT_FOLDER/$sample_app/logs
-    mkdir -p $OUTPUT_FOLDER/$sample_app/power
+    mkdir -p "$OUTPUT_FOLDER/$sample_app/perf"
+    mkdir -p "$OUTPUT_FOLDER/$sample_app/logs"
+    mkdir -p "$OUTPUT_FOLDER/$sample_app/power"
   done
 }
 
@@ -226,7 +226,7 @@ echo "+========================+"
 echo "| [3/7] OS Configuration |"
 echo "+========================+"
 . ../scripts/shell/configure-os.sh || exit 1
-. ../scripts/shell/configure-os-$OS.sh
+. ../scripts/shell/configure-os-"$OS".sh
 
 echo ""
 echo "+=========================+"

@@ -25,4 +25,10 @@
 # SOFTWARE.
 #
 
-echo "WARNING: No current method to measure power consumption on win."
+start_power_consumption() {
+  echo "WARNING: Power consumption measurements are not supported on Windows."
+}
+
+stop_power_consumption() {
+  echo "WARNING: Power consumption measurements are not supported on Windows."
+}

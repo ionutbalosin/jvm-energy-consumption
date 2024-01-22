@@ -109,7 +109,7 @@ check_power_consumption_measurements() {
     sleep 3
 
     # Check if the process is running
-    if ps -p $POWER_CONSUMPTION_PID > /dev/null; then
+    if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
       echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID started successfully and will run in background."
     else
       echo "ERROR: Power consumption measurements failed. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."

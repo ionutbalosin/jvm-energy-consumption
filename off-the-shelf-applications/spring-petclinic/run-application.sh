@@ -91,10 +91,10 @@ configure_application() {
 }
 
 create_output_resources() {
-  mkdir -p $OUTPUT_FOLDER/perf
-  mkdir -p $OUTPUT_FOLDER/logs
-  mkdir -p $OUTPUT_FOLDER/jfr
-  mkdir -p $OUTPUT_FOLDER/power
+  mkdir -p "$OUTPUT_FOLDER/perf"
+  mkdir -p "$OUTPUT_FOLDER/logs"
+  mkdir -p "$OUTPUT_FOLDER/jfr"
+  mkdir -p "$OUTPUT_FOLDER/power"
 }
 
 build_application() {
@@ -185,7 +185,7 @@ echo "+=========================+"
 echo "| [3/10] OS Configuration |"
 echo "+=========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
-. ../../scripts/shell/configure-os-$OS.sh
+. ../../scripts/shell/configure-os-"$OS".sh
 
 echo ""
 echo "+==========================+"
@@ -231,14 +231,14 @@ time_to_first_response || { stop_power_consumption && exit 1; }
 stty sane
 
 echo "Application with PID $APP_PID successfully started at $(date). It will be running for approximately $APP_RUNNING_TIME seconds."
-sleep $APP_RUNNING_TIME
+sleep "$APP_RUNNING_TIME"
 
 echo ""
 echo "+=============================+"
 echo "| [9/10] Stop the application |"
 echo "+=============================+"
 echo "Stopping the application with PID $APP_PID."
-sudo pkill -INT -P "$APP_PID"
+pkill -TERM -P "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 echo ""
