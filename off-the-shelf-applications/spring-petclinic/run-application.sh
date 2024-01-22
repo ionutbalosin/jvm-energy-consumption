@@ -238,7 +238,7 @@ echo "+=============================+"
 echo "| [9/10] Stop the application |"
 echo "+=============================+"
 echo "Stopping the application with PID $APP_PID."
-pkill -TERM -P "$APP_PID"
+sudo pkill -TERM -P "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 echo ""
