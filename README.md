@@ -1,4 +1,11 @@
-# JVM Energy Consumption
+<p align="center">
+  <img alt="JvmEnergyConsumption" title="JvmEnergyConsumption" src="docs/images/jec_dinosaur_logo_320.png">
+</p>
+
+<h1 align="center">JVM Energy Consumption</h1>
+<h4 align="center">⚡️ A Software-Based Empirical Approach to Assess JVMs Energy Efficiency ⚡️</h4>
+
+---
 
 This repository contains different Java Virtual Machine (JVM) benchmarks to measure the JVM energy consumption using various off-the-shelf applications implemented with multiple technology stacks.
 
