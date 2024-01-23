@@ -85,7 +85,8 @@ check_and_configure_power_consumption_options() {
 }
 
 start_power_consumption_measurements() {
-  power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
+  power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} \
+    > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
 
