@@ -115,6 +115,31 @@ _`(*)` - License restrictions might apply_
 
 Download and install [Hyperfoil](https://hyperfoil.io), a microservice-oriented distributed benchmark framework used for the load testing.
 
+### Configurations
+
+The following configuration is required before starting any measurement:
+
+1. Open the [config.properties](./settings/config.properties) file.
+
+2. Update the specific **VM_HOME** property for the JDK you intend to use. You don't need to update all of them; only the one you plan to use for compiling and running.
+
+ ```properties
+OPENJDK_HOTSPOT_VM_HOME="<path_to_openjdk_hotspot>"
+GRAAL_VM_CE_HOME="<path_to_graalvm_ce>"
+ORACLE_GRAAL_VM_HOME="<path_to_oracle_graalvm>"
+GRAAL_VM_NATIVE_IMAGE_HOME="<path_to_graalvm_native_image>"
+AZUL_PRIME_VM_HOME="<path_to_azul_prime_vm>"
+ECLIPSE_OPEN_J9_VM_HOME="<path_to_eclipse_openj9>"
+ ```
+
+3. Update the specific **APP_HOME** properties that point to the locally downloaded/installed application. 
+
+ ```properties
+SPRING_PETCLINIC_HOME="<path_to_spring_petclinic>"
+QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME="<path_to_quarkus_quickstart>"
+HYPERFOIL_HOME="<path_to_hyperfoil>"
+ ```
+
 ## Measurements
 
 ### Baseline Idle OS
