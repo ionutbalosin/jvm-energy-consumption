@@ -13,6 +13,11 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 
 - [Purpose](#purpose)
 - [Methodology](#methodology)
+  - [High-Level Architecture](#high-level-architecture)
+  - [Software-based Power Meters](#software-based-power-meters) 
+- [Software-based Power Meters](#software-based-power-meters)
+  - [RAPL interface on GNU/Linux](#rapl-interface-on-gnulinux)
+  - [powermetrics on macOS](#powermetrics-on-macos)
 - [Setup](#setup)
 - [Measurements](#measurements)
   - [Baseline Idle OS](#baseline-idle-os)
@@ -28,6 +33,32 @@ The objective of this project is to evaluate energy consumption among various JV
 While comparing energy consumption across different frameworks is not the primary focus (due to variations in code, making direct comparisons challenging), the goal is to maintain the same application (or code samples) and assess the energy consumption when changing only the runtime or the JVM.
 
 ## Methodology
+
+### High-Level Architecture
+
+For a comprehensive analysis, we need to record both real-time energy consumption and additionally the internal temperature (reported by available PC hardware sensors) while running the JVM application.
+
+Therefore, both physical and software measurements are needed:
+- _Physical measurements_ rely on physical devices (e.g., wall power meters) to capture end-to-end energy consumption.
+- _Software measurements_ rely on existing OS/CPU architecture-specific interfaces to report the energy consumption for different parts of the system and the available sensor temperatures.
+
+[![high-level-system-architecture.svg](./docs/high-level-system-architecture.svg?raw=true)](./docs/high-level-system-architecture.svg?raw=true)
+
+_Note: On **system under test** runs the target JVM application._
+
+### Load Test System Architecture
+
+When measuring JVM energy consumption, it is crucial to simulate a realistic application workload, ensuring the usage of the application and triggering as many endpoints as possible within a reasonable time interval. Merely starting and stopping the application is insufficient, as it may skip critical factors such as the Garbage Collector footprint and Just-In-Time compiler optimizations, thereby rendering the measurements less relevant. In this context, load test scenarios should be conducted for certain applications, such as Spring Boot and Quarkus web-based applications.
+
+The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
+
+[![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
+
+_On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database)._
+
+The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
+
+## Software-based Power Meters
 
 Energy consumption reporting methods vary depending on the operating system and CPU architecture.
 
@@ -49,21 +80,9 @@ In multi-socket server systems, each socket reports its own RAPL values. For exa
 
 ### powermetrics on macOS
 
-On macOS, the `powermetrics` command is used to report energy consumption.
+On macOS, the `powermetrics` command is used to display various system metrics, including CPU usage statistics, for different samplers like cpu, gpu, thermal, battery, network, and disk at a specific sampling interval.
 
-### Load Test System Architecture
-
-When measuring JVM energy consumption, it is crucial to simulate a realistic application workload, ensuring the usage of the application and triggering as many endpoints as possible within a reasonable time interval. Merely starting and stopping the application is insufficient, as it may skip critical factors such as the Garbage Collector footprint and Just-In-Time compiler optimizations, thereby rendering the measurements less relevant. In this context, load test scenarios should be conducted for certain applications, such as Spring Boot and Quarkus web-based applications.
-
-The load testing tool should run on a different host than the target JVM application, otherwise, the energy measurements will be negatively impacted.
-
-[![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
-
-On **system under test** runs only the target JVM application.
-
-On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
-
-The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
+> Depending on the CPU manufacturer and series, some of the samplers might be available or not. Please check your hardware.
 
 ## Setup
 
