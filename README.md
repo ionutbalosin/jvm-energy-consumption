@@ -44,7 +44,7 @@ Therefore, both physical and software measurements are needed:
 
 [![high-level-system-architecture.svg](./docs/high-level-system-architecture.svg?raw=true)](./docs/high-level-system-architecture.svg?raw=true)
 
-_Note: On **system under test** runs the target JVM application._
+On **system under test** runs the target JVM application.
 
 ### Load Test System Architecture
 
@@ -54,7 +54,7 @@ The load testing tool should run on a different host than the target JVM applica
 
 [![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
 
-_On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database)._
+On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
 
 The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
 
