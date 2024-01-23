@@ -14,7 +14,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
 - [Purpose](#purpose)
 - [Methodology](#methodology)
   - [High-Level Architecture](#high-level-architecture)
-  - [Software-based Power Meters](#software-based-power-meters) 
+  - [Load Test System Architecture](#load-test-system-architecture) 
 - [Software-based Power Meters](#software-based-power-meters)
   - [RAPL interface on GNU/Linux](#rapl-interface-on-gnulinux)
   - [powermetrics on macOS](#powermetrics-on-macos)
