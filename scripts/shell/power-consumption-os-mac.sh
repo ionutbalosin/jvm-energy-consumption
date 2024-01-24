@@ -88,7 +88,7 @@ start_power_consumption_measurements() {
   power_command="sudo powermetrics -i 1000 \
       -n ${POWER_CONSUMPTION_RUNNING_TIME} -a ${POWER_CONSUMPTION_RUNNING_TIME} \
       --samplers cpu_power,gpu_power,thermal,battery,network,disk | \
-      grep -E \"Sampled system activity|CPU Power|GPU Power|ANE Power|Combined Power|package power|Current pressure level|in:|out:|read:|write:|Battery:\" | \
+      grep -E \"Sampled system activity|CPU Power|GPU Power|ANE Power|Combined Power|package power|Current pressure level|in:|out:|read:|write:|Battery:\" \
       > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
