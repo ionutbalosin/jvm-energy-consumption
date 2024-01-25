@@ -26,7 +26,7 @@
 #
 
 check_command_line_options() {
-  if [[ ($# -lt 1 || $# -gt 2) ]]; then
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
     echo "Usage: sudo ./run-samples.sh --test-run-identifier=<test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
