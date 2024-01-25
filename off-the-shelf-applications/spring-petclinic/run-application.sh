@@ -42,9 +42,9 @@ check_command_line_options() {
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER=""
-  export APP_SKIP_BUILD=""
-  export APP_RUNNING_TIME="900"
+  TEST_RUN_IDENTIFIER=""
+  APP_SKIP_BUILD=""
+  APP_RUNNING_TIME="900"
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -72,11 +72,11 @@ check_command_line_options() {
 }
 
 configure_application() {
-  export CURR_DIR=$(pwd)
-  export APP_HOME=$SPRING_PETCLINIC_HOME
-  export APP_BASE_URL=localhost:8080
-  export JAVA_OPS="-Xms1m -Xmx1g"
-  # export JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.jfr"
+  CURR_DIR=$(pwd)
+  APP_HOME=$SPRING_PETCLINIC_HOME
+  APP_BASE_URL=localhost:8080
+  JAVA_OPS="-Xms1m -Xmx1g"
+  # JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.jfr"
 
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
@@ -103,9 +103,9 @@ build_application() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Pnative native:compile"
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Pnative native:compile"
   fi
 
   echo "Building application at: $(date) ... "
@@ -124,9 +124,9 @@ start_application() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $JFR_OPS -jar $APP_HOME/target/*.jar"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $JFR_OPS -jar $APP_HOME/target/*.jar"
   else
-    export RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS"
+    RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS"
   fi
 
   echo "Running application at: $(date) ... "
@@ -134,7 +134,7 @@ start_application() {
   echo ""
 
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
-  export APP_PID=$!
+  APP_PID=$!
 
   # Sleep for a short duration to allow the asynchronous process to start
   sleep 3

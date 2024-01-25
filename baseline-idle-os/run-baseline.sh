@@ -40,8 +40,8 @@ check_command_line_options() {
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER=""
-  export APP_RUNNING_TIME="900"
+  TEST_RUN_IDENTIFIER=""
+  APP_RUNNING_TIME="900"
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -66,7 +66,7 @@ check_command_line_options() {
 }
 
 configure_baseline() {
-  export OUTPUT_FOLDER=results/$ARCH/$OS
+  OUTPUT_FOLDER=results/$ARCH/$OS
 
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"

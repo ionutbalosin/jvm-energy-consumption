@@ -26,7 +26,7 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
+  if [[ ($# -lt 1 || $# -gt 2) ]]; then
     echo "Usage: sudo ./run-samples.sh --test-run-identifier=<test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
@@ -40,8 +40,8 @@ check_command_line_options() {
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER=""
-  export APP_SKIP_BUILD=""
+  TEST_RUN_IDENTIFIER=""
+  APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -66,10 +66,10 @@ check_command_line_options() {
 }
 
 configure_samples() {
-  export CURR_DIR=$(pwd)
-  export JAVA_OPS="-Xms1m -Xmx6g"
+  CURR_DIR=$(pwd)
+  JAVA_OPS="-Xms1m -Xmx6g"
   # Defines the list of all Java sample apps
-  export SAMPLE_APPS=(
+  SAMPLE_APPS=(
     "ThrowExceptionPatterns"
     "MemoryAccessPatterns"
     "LoggingPatterns"
@@ -130,9 +130,9 @@ start_sample() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
   else
-    export RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS $sample_app_test_type"
+    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS $sample_app_test_type"
   fi
 
   echo "Running $sample_app ($sample_app_test_type) at: $(date) ... "
@@ -150,7 +150,7 @@ start_samples() {
   echo "Starting running samples at: $(date) ... "
 
   # Defines the list of all Java sample apps including their running parameters
-  export SAMPLE_APPS_WITH_TEST_TYPES=(
+  SAMPLE_APPS_WITH_TEST_TYPES=(
     "ThrowExceptionPatterns const"
     "ThrowExceptionPatterns lambda"
     "ThrowExceptionPatterns new"

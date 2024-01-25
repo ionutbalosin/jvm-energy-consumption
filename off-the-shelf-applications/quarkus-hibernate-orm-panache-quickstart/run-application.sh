@@ -42,9 +42,9 @@ check_command_line_options() {
     return 1
   fi
 
-  export TEST_RUN_IDENTIFIER=""
-  export APP_SKIP_BUILD=""
-  export APP_RUNNING_TIME="900"
+  TEST_RUN_IDENTIFIER=""
+  APP_SKIP_BUILD=""
+  APP_RUNNING_TIME="900"
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -72,11 +72,11 @@ check_command_line_options() {
 }
 
 configure_application() {
-  export CURR_DIR=$(pwd)
-  export APP_HOME=$QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME
-  export APP_BASE_URL=localhost:8080
-  export POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
-  export JAVA_OPS="-Xms1m -Xmx512m"
+  CURR_DIR=$(pwd)
+  APP_HOME=$QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME
+  APP_BASE_URL=localhost:8080
+  POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
+  JAVA_OPS="-Xms1m -Xmx512m"
 
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
@@ -99,9 +99,9 @@ build_application() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    export BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
   fi
 
   echo "Building application at: $(date) ... "
@@ -120,9 +120,9 @@ start_application() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    export RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
   else
-    export RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
+    RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
   fi
 
   echo "Running application at: $(date) ... "
@@ -130,7 +130,7 @@ start_application() {
   echo ""
 
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
-  export APP_PID=$!
+  APP_PID=$!
 
   # Sleep for a short duration to allow the asynchronous process to start
   sleep 3

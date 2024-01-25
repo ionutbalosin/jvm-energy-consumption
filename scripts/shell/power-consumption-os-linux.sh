@@ -26,7 +26,7 @@
 #
 
 check_and_configure_power_consumption_options() {
-  if [ $# -lt 1 ] || [ $# -gt 3 ]; then
+  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 3) ]]; then
     echo "Usage: start_power_consumption [--background] [--duration=<duration>] --output-file=<output-file>"
     echo ""
     echo "Options:"
