@@ -25,15 +25,23 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
+import static java.lang.Integer.valueOf;
+
+import java.util.Date;
+
 /*
  * References:
  * - https://shipilev.net/jvm/anatomy-quarks/16-megamorphic-virtual-calls
  */
 public class VirtualCalls {
 
-  int ITERATIONS = 300_000;
+  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
+  // otherwise default it to 15 minutes
+  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+
   int ARRAY_SIZE = 9_600;
   CMath[] array;
+  long operations;
 
   public static void main(String[] args) {
     if (args.length != 1) {
@@ -49,15 +57,25 @@ public class VirtualCalls {
     VirtualCalls instance = new VirtualCalls();
     instance.initialize(args[0]);
 
-    // start the tests
-    for (int counter = 0; counter < instance.ITERATIONS; counter++) {
-      instance.virtual_calls();
-      instance.validate_results(args, counter);
-    }
-
     System.out.printf(
-        "Virtual call type = %s, number of virtual calls = %d\n",
-        args[0], instance.array.length * (long) instance.ITERATIONS);
+        "Starting %s at %tT, expected duration = %d sec, number of virtual calls = %d\n",
+        args[0], new Date(), instance.DURATION / 1000, instance.array.length);
+
+    // start the tests
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
+      instance.virtual_calls();
+      instance.validate_results(args, instance.operations);
+      instance.operations++;
+    }
+    long endTime = System.currentTimeMillis();
+
+    System.out.printf("Successfully finished at %tT%n", new Date());
+    System.out.printf(
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        (endTime - startTime) / 1000,
+        instance.operations,
+        (double) ((endTime - startTime) / 1000) / instance.operations);
   }
 
   public void initialize(String mode) {
@@ -108,7 +126,7 @@ public class VirtualCalls {
     }
   }
 
-  public void validate_results(String[] args, int counter) {
+  public void validate_results(String[] args, long counter) {
     // validate the results (note: the assertion error branch(es) should never be taken)
     if ("bimorphic".equals(args[0]) && (counter + 1) * 2 != array[1].total) {
       throw new AssertionError(

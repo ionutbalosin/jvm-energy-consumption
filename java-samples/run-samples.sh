@@ -68,6 +68,7 @@ check_command_line_options() {
 configure_samples() {
   CURR_DIR=$(pwd)
   JAVA_OPS="-Xms1m -Xmx6g"
+  APP_RUNNING_TIME="60"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
     "ThrowExceptionPatterns"
@@ -83,6 +84,7 @@ configure_samples() {
   done
   echo "Java samples skip build: $APP_SKIP_BUILD"
   echo "Java opts: $JAVA_OPS"
+  echo "Java samples time: $APP_RUNNING_TIME sec"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
 
   echo ""
@@ -130,9 +132,9 @@ start_sample() {
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
   else
-    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS $sample_app_test_type"
+    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_test_type"
   fi
 
   echo "Running $sample_app ($sample_app_test_type) at: $(date) ... "
@@ -154,11 +156,10 @@ start_samples() {
     "ThrowExceptionPatterns const"
     "ThrowExceptionPatterns lambda"
     "ThrowExceptionPatterns new"
-    "ThrowExceptionPatterns override_first"
+    "ThrowExceptionPatterns override_fist"
     "MemoryAccessPatterns linear"
     "MemoryAccessPatterns random_page"
     "MemoryAccessPatterns random_heap"
-    "LoggingPatterns string_format"
     "LoggingPatterns lambda_heap"
     "LoggingPatterns lambda_local"
     "LoggingPatterns guarded_parametrized"

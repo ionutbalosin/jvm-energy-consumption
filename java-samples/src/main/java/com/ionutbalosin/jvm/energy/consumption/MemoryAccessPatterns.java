@@ -25,6 +25,9 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
+import static java.lang.Integer.valueOf;
+
+import java.util.Date;
 import java.util.Random;
 
 /*
@@ -33,7 +36,10 @@ import java.util.Random;
  */
 public class MemoryAccessPatterns {
 
-  int ITERATIONS = 10;
+  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
+  // otherwise default it to 15 minutes
+  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+
   int LONG_SIZE = 8; // 8 bytes
   int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB (each Page)
   int ONE_GIG = 1024 * 1024 * 1024; // 1 GB
@@ -46,6 +52,7 @@ public class MemoryAccessPatterns {
 
   WalkerStep walkerStep;
   long[] array;
+  long operations;
 
   public static void main(String[] args) {
     if (args.length != 1) {
@@ -62,15 +69,25 @@ public class MemoryAccessPatterns {
     MemoryAccessPatterns instance = new MemoryAccessPatterns();
     instance.initialize(args[0]);
 
+    System.out.printf(
+        "Starting %s at %tT, expected duration = %d sec.%n",
+        instance.walkerStep.getClass().getName(), new Date(), instance.DURATION / 1000);
+
     // start the tests
-    for (int counter = 0; counter < instance.ITERATIONS; counter++) {
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
       long result = instance.memory_access();
       instance.validate_results(result);
+      instance.operations++;
     }
+    long endTime = System.currentTimeMillis();
 
+    System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Memory access type = %s, number of iterations = %d\n",
-        instance.walkerStep.getClass().getName(), instance.ITERATIONS);
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        (endTime - startTime) / 1000,
+        instance.operations,
+        (double) ((endTime - startTime) / 1000) / instance.operations);
   }
 
   public void initialize(String type) {

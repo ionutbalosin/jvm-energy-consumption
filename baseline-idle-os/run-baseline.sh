@@ -31,7 +31,7 @@ check_command_line_options() {
     echo ""
     echo "Options:"
     echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
-    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 1800 seconds."
     echo ""
     echo "Examples:"
     echo "   $ sudo ./run-baseline.sh --test-run-identifier=1"
@@ -41,7 +41,7 @@ check_command_line_options() {
   fi
 
   TEST_RUN_IDENTIFIER=""
-  APP_RUNNING_TIME="900"
+  APP_RUNNING_TIME="1800"
 
   while [ $# -gt 0 ]; do
     case "$1" in

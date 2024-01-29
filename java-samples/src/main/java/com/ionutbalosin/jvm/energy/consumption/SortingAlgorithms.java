@@ -41,7 +41,10 @@ package com.ionutbalosin.jvm.energy.consumption;
  * Radix sort can be efficient for sorting large integers or strings.
  */
 
+import static java.lang.Integer.valueOf;
+
 import java.util.Arrays;
+import java.util.Date;
 
 /*
  * References:
@@ -51,10 +54,15 @@ import java.util.Arrays;
  */
 public class SortingAlgorithms {
 
-  int ARRAY_SIZE = 1_000_000;
+  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
+  // otherwise default it to 15 minutes
+  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+
+  int ARRAY_SIZE = 100_000;
 
   Sorter sorter;
   int[] array;
+  long operations;
 
   public static void main(String[] args) {
     if (args.length != 1) {
@@ -73,13 +81,29 @@ public class SortingAlgorithms {
     SortingAlgorithms instance = new SortingAlgorithms();
     instance.initialize(args[0]);
 
-    // start the tests
-    instance.sorter.sort(instance.array);
-    instance.validate_results();
-
     System.out.printf(
-        "Sorting algorithm = %s, number of sorted elements = %d\n",
-        instance.sorter.getClass().getName(), instance.array.length);
+        "Starting %s at %tT, expected duration = %d sec, number of elements to sort = %d%n",
+        instance.sorter.getClass().getName(),
+        new Date(),
+        instance.DURATION / 1000,
+        instance.array.length);
+
+    // start the tests
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
+      instance.initializeDescending();
+      instance.sorter.sortAscending(instance.array);
+      instance.validate_results();
+      instance.operations++;
+    }
+    long endTime = System.currentTimeMillis();
+
+    System.out.printf("Successfully finished at %tT%n", new Date());
+    System.out.printf(
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        (endTime - startTime) / 1000,
+        instance.operations,
+        (double) ((endTime - startTime) / 1000) / instance.operations);
   }
 
   public void initialize(String type) {
@@ -100,9 +124,12 @@ public class SortingAlgorithms {
         throw new UnsupportedOperationException("Unsupported algorithm type: " + type);
     }
 
+    array = new int[ARRAY_SIZE];
+  }
+
+  private void initializeDescending() {
     // the given array is sorted in descending order, this might lead (for some algorithms) to the
     // maximum number of comparisons
-    array = new int[ARRAY_SIZE];
     for (int i = 0; i < ARRAY_SIZE; i++) {
       array[i] = ARRAY_SIZE - i - 1;
     }
@@ -118,12 +145,12 @@ public class SortingAlgorithms {
   }
 
   public abstract class Sorter {
-    public abstract void sort(int array[]);
+    public abstract void sortAscending(int array[]);
   }
 
   public class BubbleSorter extends Sorter {
     @Override
-    public void sort(int[] array) {
+    public void sortAscending(int[] array) {
       int last_swap = array.length - 1;
       for (int i = 1; i < array.length; i++) {
         boolean is_sorted = true;
@@ -151,7 +178,7 @@ public class SortingAlgorithms {
   public class MergeSorter extends Sorter {
 
     @Override
-    public void sort(int[] array) {
+    public void sortAscending(int[] array) {
       sort(array, 0, array.length - 1);
     }
 
@@ -209,7 +236,7 @@ public class SortingAlgorithms {
   public class QuickSorter extends Sorter {
 
     @Override
-    public void sort(int[] array) {
+    public void sortAscending(int[] array) {
       Arrays.sort(array);
     }
   }
@@ -217,7 +244,7 @@ public class SortingAlgorithms {
   public class RadixSorter extends Sorter {
 
     @Override
-    public void sort(int[] array) {
+    public void sortAscending(int[] array) {
       int[] array_copy = new int[array.length];
       int[] level_0 = new int[257];
       int[] level_1 = new int[257];

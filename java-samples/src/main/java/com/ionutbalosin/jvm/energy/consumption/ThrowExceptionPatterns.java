@@ -25,17 +25,24 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
+import static java.lang.Integer.valueOf;
+
+import java.util.Date;
 import java.util.function.Supplier;
 
 public class ThrowExceptionPatterns {
 
-  int ITERATIONS = 100_000;
+  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
+  // otherwise default it to 15 minutes
+  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+
   int STACK_DEPTH = 1024;
   Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
   RuntimeException CONSTANT_EXCEPTION = new RuntimeException("Something wrong happened.");
   int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
   ExceptionThrower exceptionThrower;
+  long operations;
 
   public static void main(String[] args) {
     if (args.length != 1) {
@@ -53,20 +60,34 @@ public class ThrowExceptionPatterns {
     ThrowExceptionPatterns instance = new ThrowExceptionPatterns();
     instance.initialize(args[0]);
 
+    System.out.printf(
+        "Starting %s at %tT, expected duration = %d sec, stack depth = %d\n",
+        instance.exceptionThrower.getClass().getName(),
+        new Date(),
+        instance.DURATION / 1000,
+        instance.STACK_DEPTH);
+
     // start the tests
-    long result = 0;
-    for (int counter = 0; counter < instance.ITERATIONS; counter++) {
+    long result = 0, startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
       try {
         instance.exceptionThrower.throw_exception(instance.STACK_DEPTH);
       } catch (Exception exc) {
         instance.validate_results(args, exc);
         result += exc.getStackTrace().length;
+        instance.operations++;
       }
     }
+    long endTime = System.currentTimeMillis();
 
+    System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Exception type = %s, stack depth = %d, number of generated stack trace elements = %d\n",
-        instance.exceptionThrower.getClass().getName(), instance.STACK_DEPTH, result);
+        "Summary: stack trace elements = %d, wall-clock duration = %d sec,"
+            + " ops = %d, sec/ops = %.6f%n",
+        result,
+        (endTime - startTime) / 1000,
+        instance.operations,
+        (double) ((endTime - startTime) / 1000) / instance.operations);
   }
 
   public void initialize(String type) {

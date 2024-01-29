@@ -25,11 +25,12 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
-import static java.lang.String.format;
+import static java.lang.Integer.valueOf;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,26 +39,32 @@ import java.util.logging.StreamHandler;
 
 public class LoggingPatterns {
 
+  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
+  // otherwise default it to 15 minutes
+  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+
   Logger LOGGER = Logger.getLogger(LoggingPatterns.class.getName());
   Level LOG_LEVEL = Level.INFO;
-  int ITERATIONS = 1_000_000;
 
   String aString;
   int anInt;
   float aFloat;
-  boolean aBoolean;
   char aChar;
+  long aLong;
+  double aDouble;
+  boolean aBoolean;
+  Object anObject;
   JulLogger julLogger;
+  long operations;
 
   public static void main(String[] args) {
     if (args.length != 1) {
       System.out.println("Usage: LoggingPatterns <log_type>");
       System.out.println("Options:");
       System.out.println(
-          "  log_type   must be {string_format, lambda_heap, lambda_local, guarded_parametrized,"
+          "  log_type   must be {lambda_heap, lambda_local, guarded_parametrized,"
               + " guarded_unparametrized, unguarded_parametrized, unguarded_unparametrized}");
       System.out.println("Examples:");
-      System.out.println("  LoggingPatterns string_format");
       System.out.println("  LoggingPatterns lambda_heap");
       System.out.println("  LoggingPatterns lambda_local");
       System.out.println("  LoggingPatterns guarded_parametrized");
@@ -70,22 +77,31 @@ public class LoggingPatterns {
     LoggingPatterns instance = new LoggingPatterns();
     instance.initialize(args[0]);
 
-    // start the tests
-    for (int counter = 0; counter < instance.ITERATIONS; counter++) {
-      instance.julLogger.log();
-      instance.validate_results(counter);
-    }
-
     System.out.printf(
-        "Log level = %s, log type = %s, number of logged lines = %d\n",
-        instance.LOG_LEVEL.getName(), instance.julLogger.getClass().getName(), instance.ITERATIONS);
+        "Starting %s at %tT, expected duration = %d sec, log level = %s%n",
+        instance.julLogger.getClass().getName(),
+        new Date(),
+        instance.DURATION / 1000,
+        instance.LOG_LEVEL.getName());
+
+    // start the tests
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
+      instance.julLogger.log();
+      instance.operations++;
+    }
+    long endTime = System.currentTimeMillis();
+
+    System.out.printf("Successfully finished at %tT%n", new Date());
+    System.out.printf(
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        (endTime - startTime) / 1000,
+        instance.operations,
+        (double) ((endTime - startTime) / 1000) / instance.operations);
   }
 
   public void initialize(String type) {
     switch (type) {
-      case "string_format":
-        julLogger = new StringFormatLogger();
-        break;
       case "lambda_heap":
         julLogger = new LambdaHeapLogger();
         break;
@@ -109,6 +125,7 @@ public class LoggingPatterns {
     }
 
     OutputStream nullOutputStream = OutputStream.nullOutputStream();
+    // OutputStream nullOutputStream = new FileOutputStream("output-" + type + ".txt");
     LOGGER.addHandler(
         new StreamHandler(
             new PrintStream(
@@ -134,30 +151,17 @@ public class LoggingPatterns {
 
     Random random = new Random(16384);
     aString = System.getProperty("java.home");
-    anInt = 0;
-    aFloat = random.nextFloat(4);
-    aBoolean = random.nextBoolean();
+    anInt = 1;
+    aFloat = 1F;
     aChar = (char) (random.nextInt(26) + 'a');
-  }
-
-  public void validate_results(int counter) {
-    // validate the results (note: the assertion error branch(es) should never be taken)
-    if (counter + 1 != anInt) {
-      throw new AssertionError(String.format("Expected = %s, found = %s", counter + 1, anInt));
-    }
+    aLong = 1L;
+    aDouble = 1D;
+    aBoolean = random.nextBoolean();
+    anObject = new Object();
   }
 
   public abstract class JulLogger {
     public abstract void log();
-  }
-
-  public class StringFormatLogger extends JulLogger {
-    @Override
-    public void log() {
-      LOGGER.log(
-          LOG_LEVEL,
-          format("[%s], [%s], [%s], [%s], [%s]", aString, ++anInt, aBoolean, aFloat++, ++aChar));
-    }
   }
 
   public class LambdaHeapLogger extends JulLogger {
@@ -166,8 +170,9 @@ public class LoggingPatterns {
       LOGGER.log(
           LOG_LEVEL,
           () ->
-              ("[" + aString + "], [" + (++anInt) + "], [" + aBoolean + "], [" + aFloat++ + "], ["
-                  + ++aChar + "]"));
+              ("[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], ["
+                  + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject
+                  + "]"));
     }
   }
 
@@ -175,10 +180,13 @@ public class LoggingPatterns {
     @Override
     public void log() {
       String localString = aString;
-      int localInt = ++anInt;
-      boolean localBoolean = aBoolean;
+      int localInt = anInt++;
       float localFloat = aFloat++;
-      char localChar = ++aChar;
+      char localChar = aChar++;
+      long localLong = aLong++;
+      double localDouble = aDouble++;
+      boolean localBoolean = aBoolean;
+      Object localObject = anObject;
       LOGGER.log(
           LOG_LEVEL,
           () ->
@@ -187,11 +195,17 @@ public class LoggingPatterns {
                   + "], ["
                   + localInt
                   + "], ["
-                  + localBoolean
-                  + "], ["
                   + localFloat
                   + "], ["
                   + localChar
+                  + "], ["
+                  + localLong
+                  + "], ["
+                  + localDouble
+                  + "], ["
+                  + localBoolean
+                  + "], ["
+                  + localObject
                   + "]"));
     }
   }
@@ -202,8 +216,10 @@ public class LoggingPatterns {
       if (LOGGER.isLoggable(LOG_LEVEL)) {
         LOGGER.log(
             LOG_LEVEL,
-            "[{0}], [{1}], [{2}], [{3}], [{4}]",
-            new Object[] {aString, ++anInt, aBoolean, aFloat++, ++aChar});
+            "[{0}], [{1}], [{2}], [{3}], [{4}], [{5}], [{6}], [{7}]",
+            new Object[] {
+              aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBoolean, anObject
+            });
       }
     }
   }
@@ -214,8 +230,8 @@ public class LoggingPatterns {
       if (LOGGER.isLoggable(LOG_LEVEL)) {
         LOGGER.log(
             LOG_LEVEL,
-            "[" + aString + "], [" + (++anInt) + "], [" + aBoolean + "], [" + aFloat++ + "], ["
-                + ++aChar + "]");
+            "[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], ["
+                + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject + "]");
       }
     }
   }
@@ -225,8 +241,10 @@ public class LoggingPatterns {
     public void log() {
       LOGGER.log(
           LOG_LEVEL,
-          "[{0}], [{1}], [{2}], [{3}], [{4}]",
-          new Object[] {aString, ++anInt, aBoolean, aFloat++, ++aChar});
+          "[{0}], [{1}], [{2}], [{3}], [{4}], [{5}], [{6}], [{7}]",
+          new Object[] {
+            aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBoolean, anObject
+          });
     }
   }
 
@@ -235,8 +253,8 @@ public class LoggingPatterns {
     public void log() {
       LOGGER.log(
           LOG_LEVEL,
-          "[" + aString + "], [" + (++anInt) + "], [" + aBoolean + "], [" + aFloat++ + "], ["
-              + ++aChar + "]");
+          "[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], [" + aLong++
+              + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject + "]");
     }
   }
 }
