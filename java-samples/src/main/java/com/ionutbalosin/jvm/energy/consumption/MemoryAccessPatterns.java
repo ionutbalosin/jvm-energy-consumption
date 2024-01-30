@@ -41,9 +41,8 @@ public class MemoryAccessPatterns {
   long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
   int LONG_SIZE = 8; // 8 bytes
-  int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB (each Page)
-  int ONE_GIG = 1024 * 1024 * 1024; // 1 GB
-  long FOUR_GIG = 4L * ONE_GIG; // 4GB
+  int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB
+  long FOUR_GIG = 4L * 1024 * 1024 * 1024; // 4 GB
   int ARRAY_SIZE = (int) (FOUR_GIG / LONG_SIZE);
   int ARRAY_MASK = ARRAY_SIZE - 1;
   int WORDS_PER_PAGE = PAGE_SIZE / LONG_SIZE;
@@ -61,7 +60,7 @@ public class MemoryAccessPatterns {
           Usage: MemoryAccessPatterns <access_type>
 
           Options:
-            access_type - must be one of {linear, random_page, random_heap}
+            <access_type> - must be one of {linear, random_page, random_heap}
 
           Examples:
             MemoryAccessPatterns linear
@@ -86,13 +85,12 @@ public class MemoryAccessPatterns {
       instance.operations++;
     }
     long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
-        (endTime - startTime) / 1000,
-        instance.operations,
-        (double) ((endTime - startTime) / 1000) / instance.operations);
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
   public void initialize(String type) {

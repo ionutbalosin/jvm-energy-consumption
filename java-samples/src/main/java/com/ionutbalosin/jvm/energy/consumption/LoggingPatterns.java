@@ -64,9 +64,9 @@ public class LoggingPatterns {
           Usage: LoggingPatterns <log_type>
 
           Options:
-            log_type - must be one of {lambda_heap, lambda_local, guarded_parametrized,
-                                       guarded_unparametrized, unguarded_parametrized,
-                                       unguarded_unparametrized}
+            <log_type> - must be one of {lambda_heap, lambda_local,
+                                         guarded_parametrized, guarded_unparametrized,
+                                         unguarded_parametrized, unguarded_unparametrized}
 
           Examples:
             LoggingPatterns lambda_heap
@@ -96,13 +96,12 @@ public class LoggingPatterns {
       instance.operations++;
     }
     long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
-        (endTime - startTime) / 1000,
-        instance.operations,
-        (double) ((endTime - startTime) / 1000) / instance.operations);
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
   public void initialize(String type) {

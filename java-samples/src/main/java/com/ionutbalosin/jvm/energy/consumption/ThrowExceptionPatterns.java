@@ -38,7 +38,7 @@ public class ThrowExceptionPatterns {
 
   int STACK_DEPTH = 1024;
   Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
-  RuntimeException CONSTANT_EXCEPTION = new RuntimeException("Something wrong happened.");
+  RuntimeException CONSTANT_EXCEPTION = new RuntimeException();
   int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
   ExceptionThrower exceptionThrower;
@@ -51,13 +51,13 @@ public class ThrowExceptionPatterns {
           Usage: ThrowExceptionPatterns <exception_type>
 
           Options:
-            exception_type - must be one of {const, lambda, new, override_fist}
+            <exception_type> - must be one of {const, override_fist, lambda, new}
 
           Examples:
-            ThrowExceptionPatterns lambda
             ThrowExceptionPatterns const
-            ThrowExceptionPatterns new
             ThrowExceptionPatterns override_fist
+            ThrowExceptionPatterns lambda
+            ThrowExceptionPatterns new
           """);
       return;
     }
@@ -84,15 +84,12 @@ public class ThrowExceptionPatterns {
       }
     }
     long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: stack trace elements = %d, wall-clock duration = %d sec,"
-            + " ops = %d, sec/ops = %.9f%n",
-        result,
-        (endTime - startTime) / 1000,
-        instance.operations,
-        (double) ((endTime - startTime) / 1000) / instance.operations);
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f, stack trace elements = %d%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations, result);
   }
 
   public void initialize(String type) {

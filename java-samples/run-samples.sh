@@ -84,15 +84,6 @@ configure_samples() {
   )
   # Defines the list of all Java sample apps including their running types (i.e., parameters)
   SAMPLE_APPS_WITH_RUN_TYPES=(
-    "ThrowExceptionPatterns const"
-    "ThrowExceptionPatterns lambda"
-    "ThrowExceptionPatterns new"
-    "ThrowExceptionPatterns override_fist"
-
-    "MemoryAccessPatterns linear"
-    "MemoryAccessPatterns random_page"
-    "MemoryAccessPatterns random_heap"
-
     "LoggingPatterns lambda_heap"
     "LoggingPatterns lambda_local"
     "LoggingPatterns guarded_parametrized"
@@ -100,13 +91,25 @@ configure_samples() {
     "LoggingPatterns unguarded_parametrized"
     "LoggingPatterns unguarded_unparametrized"
 
-    "SortingAlgorithms bubble_sort"
-    "SortingAlgorithms merge_sort"
+    "MemoryAccessPatterns linear"
+    "MemoryAccessPatterns random_page"
+    "MemoryAccessPatterns random_heap"
+
+    # Note: selection sort and bubble sort are very slow; it does not make sense to test them
+    #"SortingAlgorithms selection_sort"
+    #"SortingAlgorithms bubble_sort"
     "SortingAlgorithms quick_sort"
+    "SortingAlgorithms merge_sort"
     "SortingAlgorithms radix_sort"
 
+    "ThrowExceptionPatterns const"
+    "ThrowExceptionPatterns override_fist"
+    "ThrowExceptionPatterns lambda"
+    "ThrowExceptionPatterns new"
+
+    "VirtualCalls monomorphic"
     "VirtualCalls bimorphic"
-    "VirtualCalls megamorphic_24"
+    "VirtualCalls megamorphic_8"
   )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"

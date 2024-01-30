@@ -26,7 +26,13 @@
 package com.ionutbalosin.jvm.energy.consumption;
 
 /*
- * Bubble sort is a simple sorting algorithm with a time complexity of O(n^2).
+ * Selection sort is a simple, in-place comparison-based sorting algorithm with a quadratic time complexity of O(n^2).
+ * It repeatedly selects the smallest element from the unsorted portion of the array and swaps it with the first unsorted element,
+ * gradually building a sorted sequence. Selection sort's efficiency is limited, making it less suitable for large datasets.
+ *
+ * Bubble sort is a basic comparison-based sorting algorithm with a time complexity of O(n^2).
+ * It repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+ * Bubble sort is inefficient for large datasets and is mainly used for educational purposes or small datasets.
  *
  * Merge sort is a divide-and-conquer algorithm with a time complexity of O(n log n). It divides the input into
  * smaller sub-problems, sorts them, and then merges the sorted sub-arrays. Merge sort generally
@@ -39,6 +45,14 @@ package com.ionutbalosin.jvm.energy.consumption;
  * Radix sort is a non-comparative sorting algorithm with a time complexity of O(n k), where n is the number of elements and k is the average length of the keys.
  * It sorts the elements by their individual digits or characters, from least significant to most significant.
  * Radix sort can be efficient for sorting large integers or strings.
+ *
+ * | Sorting Algorithm | Worst Case Time Complexity | Best Case Time Complexity | Average Case Time Complexity |
+ * |-------------------|----------------------------|---------------------------|------------------------------|
+ * | Selection Sort    | O(n^2)                     | O(n^2)                    | O(n^2)                       |
+ * | Bubble Sort       | O(n^2)                     | O(n)                      | O(n^2)                       |
+ * | Quick Sort        | O(n^2)                     | O(n log n)                | O(n log n)                   |
+ * | Merge Sort        | O(n log n)                 | O(n log n)                | O(n log n)                   |
+ * | Radix Sort        | O(nk)                      | O(nk)                     | O(nk)                        |
  */
 
 import static java.lang.Integer.valueOf;
@@ -58,7 +72,9 @@ public class SortingAlgorithms {
   // otherwise default it to 15 minutes
   long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  int ARRAY_SIZE = 100_000;
+  int INT_SIZE = 4; // 4 bytes
+  long _1_GB = 1 * 1024 * 1024 * 1024; // 1 GB
+  int ARRAY_SIZE = (int) (_1_GB / INT_SIZE);
 
   Sorter sorter;
   int[] array;
@@ -71,12 +87,13 @@ public class SortingAlgorithms {
           Usage: SortingAlgorithms <algorithm_type>
 
           Options:
-            algorithm_type - must be one of {bubble_sort, merge_sort, quick_sort, radix_sort}
+            <algorithm_type> - must be one of {selection_sort, bubble_sort, quick_sort, merge_sort, radix_sort}
 
           Examples:
+            SortingAlgorithms selection_sort
             SortingAlgorithms bubble_sort
-            SortingAlgorithms merge_sort
             SortingAlgorithms quick_sort
+            SortingAlgorithms merge_sort
             SortingAlgorithms radix_sort
           """);
       return;
@@ -101,19 +118,21 @@ public class SortingAlgorithms {
       instance.operations++;
     }
     long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
-        (endTime - startTime) / 1000,
-        instance.operations,
-        (double) ((endTime - startTime) / 1000) / instance.operations);
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
   public void initialize(String type) {
     switch (type) {
       case "bubble_sort":
         sorter = new BubbleSorter();
+        break;
+      case "selection_sort":
+        sorter = new SelectionSorter();
         break;
       case "merge_sort":
         sorter = new MergeSorter();
@@ -125,7 +144,7 @@ public class SortingAlgorithms {
         sorter = new RadixSorter();
         break;
       default:
-        throw new UnsupportedOperationException("Unsupported algorithm type: " + type);
+        throw new UnsupportedOperationException("Unsupported sorting algorithm type: " + type);
     }
 
     array = new int[ARRAY_SIZE];
@@ -175,6 +194,31 @@ public class SortingAlgorithms {
           return;
         }
         last_swap = current_swap;
+      }
+    }
+  }
+
+  public class SelectionSorter extends Sorter {
+
+    @Override
+    public void sortAscending(int[] array) {
+      int n = array.length;
+
+      for (int i = 0; i < n - 1; i++) {
+        // Find the minimum element in the unsorted part of the array
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+          if (array[j] < array[minIndex]) {
+            minIndex = j;
+          }
+        }
+
+        // Swap the found minimum element with the first element in the unsorted part
+        if (minIndex != i) {
+          int temp = array[minIndex];
+          array[minIndex] = array[i];
+          array[i] = temp;
+        }
       }
     }
   }
