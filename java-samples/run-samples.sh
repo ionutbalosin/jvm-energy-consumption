@@ -142,7 +142,6 @@ start_sample() {
 
   echo "Running $sample_app ($sample_app_test_type) at: $(date) ... "
   echo "$PREFIX_COMMAND $RUN_CMD"
-  echo ""
 
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1
   if [ $? -ne 0 ]; then
@@ -152,8 +151,6 @@ start_sample() {
 }
 
 start_samples() {
-  echo "Starting running samples at: $(date) ... "
-
   # Defines the list of all Java sample apps including their running parameters
   SAMPLE_APPS_WITH_TEST_TYPES=(
     "ThrowExceptionPatterns const"
@@ -188,28 +185,15 @@ start_samples() {
     read -r -a sample_app_components <<< "$sample_app_with_test_type"
     sample_app="${sample_app_components[0]}"
     sample_app_test_type="${sample_app_components[1]}"
-
-    echo ""
-    echo "+---------------------------------------------------+"
-    echo "| [7.$iteration/$loop_counter] Start the power consumption measurements |"
-    echo "+---------------------------------------------------+"
     power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER.stats"
+
     start_power_consumption --background --output-file="$power_output_file" || exit 1
-
-    echo "+--------------------------------+"
-    echo "| [7.$iteration/$loop_counter] Start the Java sample |"
-    echo "+--------------------------------+"
     start_sample $sample_app $sample_app_test_type || exit 1
-
-    echo "+--------------------------------------------------+"
-    echo "| [7.$iteration/$loop_counter] Stop the power consumption measurements |"
-    echo "+--------------------------------------------------+"
     stop_power_consumption
 
+    echo ""
     ((iteration++))
   done
-
-  echo "Finished running samples at: $(date) ... "
 }
 
 check_command_line_options "$@"
@@ -251,16 +235,15 @@ configure_samples
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
+iteration=1
+loop_counter="${#APP_RUN_IDENTIFIERS[@]}"
 for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   RUN_IDENTIFIER="$app_run_identifier"
 
   echo ""
-  echo "*** Starting run $RUN_IDENTIFIER at: $(date) ... ***"
-
-  echo ""
-  echo "+==============================+"
-  echo "| [6/7] Build the Java samples |"
-  echo "+==============================+"
+  echo "+===================================+"
+  echo "| [6/7][$iteration/$loop_counter] Build the Java samples |"
+  echo "+===================================+"
   if [ "$2" == "--skip-build" ]; then
     echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
   else
@@ -268,13 +251,11 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   fi
 
   echo ""
-  echo "+==============================+"
-  echo "| [7/7] Start the Java samples |"
-  echo "+==============================+"
+  echo "+===================================+"
+  echo "| [7/7][$iteration/$loop_counter] Start the Java samples |"
+  echo "+===================================+"
   . ../scripts/shell/power-consumption-os-$OS.sh
   start_samples || exit 1
 
-  echo ""
-  echo "*** Run $RUN_IDENTIFIER successfully finished at: $(date) ***"
-
+  ((iteration++))
 done
