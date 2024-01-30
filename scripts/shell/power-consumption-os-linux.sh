@@ -77,11 +77,6 @@ check_and_configure_power_consumption_options() {
     echo "ERROR: Duration must be greater than 60 seconds."
     return 1
   fi
-
-  echo "Power consumption output file: $POWER_CONSUMPTION_OUTPUT_FILE"
-  echo "Power consumption running time: $POWER_CONSUMPTION_RUNNING_TIME sec"
-  echo "Power consumption background mode: $POWER_CONSUMPTION_BACKGROUND_MODE"
-  echo ""
 }
 
 start_power_consumption_measurements() {
