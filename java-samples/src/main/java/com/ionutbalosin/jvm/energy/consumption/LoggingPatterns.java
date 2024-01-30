@@ -59,18 +59,23 @@ public class LoggingPatterns {
 
   public static void main(String[] args) {
     if (args.length != 1) {
-      System.out.println("Usage: LoggingPatterns <log_type>");
-      System.out.println("Options:");
       System.out.println(
-          "  log_type   must be {lambda_heap, lambda_local, guarded_parametrized,"
-              + " guarded_unparametrized, unguarded_parametrized, unguarded_unparametrized}");
-      System.out.println("Examples:");
-      System.out.println("  LoggingPatterns lambda_heap");
-      System.out.println("  LoggingPatterns lambda_local");
-      System.out.println("  LoggingPatterns guarded_parametrized");
-      System.out.println("  LoggingPatterns guarded_unparametrized");
-      System.out.println("  LoggingPatterns unguarded_parametrized");
-      System.out.println("  LoggingPatterns unguarded_unparametrized");
+          """
+          Usage: LoggingPatterns <log_type>
+
+          Options:
+            log_type - must be one of {lambda_heap, lambda_local, guarded_parametrized,
+                                       guarded_unparametrized, unguarded_parametrized,
+                                       unguarded_unparametrized}
+
+          Examples:
+            LoggingPatterns lambda_heap
+            LoggingPatterns lambda_local
+            LoggingPatterns guarded_parametrized
+            LoggingPatterns guarded_unparametrized
+            LoggingPatterns unguarded_parametrized
+            LoggingPatterns unguarded_unparametrized
+          """);
       return;
     }
 
@@ -94,7 +99,7 @@ public class LoggingPatterns {
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
         (endTime - startTime) / 1000,
         instance.operations,
         (double) ((endTime - startTime) / 1000) / instance.operations);

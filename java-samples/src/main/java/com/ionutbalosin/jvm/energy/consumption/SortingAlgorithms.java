@@ -66,15 +66,19 @@ public class SortingAlgorithms {
 
   public static void main(String[] args) {
     if (args.length != 1) {
-      System.out.println("Usage: SortingAlgorithms <algorithm_type>");
-      System.out.println("Options:");
       System.out.println(
-          "  algorithm_type   must be {bubble_sort, merge_sort, quick_sort, radix_sort}");
-      System.out.println("Examples:");
-      System.out.println("  SortingAlgorithms bubble_sort");
-      System.out.println("  SortingAlgorithms merge_sort");
-      System.out.println("  SortingAlgorithms quick_sort");
-      System.out.println("  SortingAlgorithms radix_sort");
+          """
+          Usage: SortingAlgorithms <algorithm_type>
+
+          Options:
+            algorithm_type - must be one of {bubble_sort, merge_sort, quick_sort, radix_sort}
+
+          Examples:
+            SortingAlgorithms bubble_sort
+            SortingAlgorithms merge_sort
+            SortingAlgorithms quick_sort
+            SortingAlgorithms radix_sort
+          """);
       return;
     }
 
@@ -100,7 +104,7 @@ public class SortingAlgorithms {
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
         (endTime - startTime) / 1000,
         instance.operations,
         (double) ((endTime - startTime) / 1000) / instance.operations);

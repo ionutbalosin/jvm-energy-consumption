@@ -30,26 +30,32 @@ check_command_line_options() {
     echo "Usage: sudo ./run-samples.sh --test-run-identifier=<test-run-identifier> [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
-    echo "  --skip-build                                 An optional parameter to skip the build process."
+    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
+    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-samples.sh --test-run-identifier=1"
-    echo "   $ sudo ./run-samples.sh --test-run-identifier=1 --skip-build"
+    echo "  $ sudo ./run-samples.sh --run-identifier=1"
+    echo "  $ sudo ./run-samples.sh --run-identifier=1,2 --duration=3600"
+    echo "  $ sudo ./run-samples.sh --run-identifier=1,2,3  --duration=3600 --skip-build"
     echo ""
     return 1
   fi
 
-  TEST_RUN_IDENTIFIER=""
   APP_SKIP_BUILD=""
+  APP_RUNNING_TIME="900"
+  APP_RUN_IDENTIFIER=""
 
   while [ $# -gt 0 ]; do
     case "$1" in
       --skip-build)
         APP_SKIP_BUILD="--skip-build"
         ;;
-      --test-run-identifier=*)
-        TEST_RUN_IDENTIFIER="${1#*=}"
+      --duration=*)
+        APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --run-identifier=*)
+        APP_RUN_IDENTIFIER="${1#*=}"
         ;;
       *)
         echo "ERROR: Unknown parameter: $1"
@@ -59,8 +65,8 @@ check_command_line_options() {
     shift
   done
 
-  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
-    echo "ERROR: Missing mandatory parameter test run identifier."
+  if [ -z "$APP_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter run identifier."
     return 1
   fi
 }
@@ -68,7 +74,6 @@ check_command_line_options() {
 configure_samples() {
   CURR_DIR=$(pwd)
   JAVA_OPS="-Xms1m -Xmx6g"
-  APP_RUNNING_TIME="60"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
     "ThrowExceptionPatterns"
@@ -78,14 +83,12 @@ configure_samples() {
     "VirtualCalls"
   )
 
-  echo "Java samples:"
-  for sample_app in "${SAMPLE_APPS[@]}"; do
-    echo "  - $sample_app"
-  done
+  echo "Java samples: ${SAMPLE_APPS[@]}"
   echo "Java samples skip build: $APP_SKIP_BUILD"
   echo "Java opts: $JAVA_OPS"
   echo "Java samples time: $APP_RUNNING_TIME sec"
-  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
+  read -ra APP_RUN_IDENTIFIERS <<< "$(tr ',' ' ' <<< "$APP_RUN_IDENTIFIER")"
+  echo "Run identifier(s): ${APP_RUN_IDENTIFIERS[@]}"
 
   echo ""
   read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
@@ -101,8 +104,8 @@ create_output_resources() {
 
 build_samples() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
-    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
-    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
+    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.log"
+    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER"
     PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
     if [ "$JVM_IDENTIFIER" != "native-image" ]; then
@@ -127,8 +130,8 @@ start_sample() {
   sample_app="$1"
   sample_app_test_type="$2"
 
-  run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER.log"
-  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER"
+  run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER.log"
+  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER"
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
@@ -157,19 +160,23 @@ start_samples() {
     "ThrowExceptionPatterns lambda"
     "ThrowExceptionPatterns new"
     "ThrowExceptionPatterns override_fist"
+
     "MemoryAccessPatterns linear"
     "MemoryAccessPatterns random_page"
     "MemoryAccessPatterns random_heap"
+
     "LoggingPatterns lambda_heap"
     "LoggingPatterns lambda_local"
     "LoggingPatterns guarded_parametrized"
     "LoggingPatterns guarded_unparametrized"
     "LoggingPatterns unguarded_parametrized"
     "LoggingPatterns unguarded_unparametrized"
+
     "SortingAlgorithms bubble_sort"
     "SortingAlgorithms merge_sort"
     "SortingAlgorithms quick_sort"
     "SortingAlgorithms radix_sort"
+
     "VirtualCalls bimorphic"
     "VirtualCalls megamorphic_24"
   )
@@ -183,20 +190,20 @@ start_samples() {
     sample_app_test_type="${sample_app_components[1]}"
 
     echo ""
-    echo "+--------------------------------------------------+"
+    echo "+---------------------------------------------------+"
     echo "| [7.$iteration/$loop_counter] Start the power consumption measurements |"
-    echo "+--------------------------------------------------+"
-    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_test_type-$TEST_RUN_IDENTIFIER.stats"
+    echo "+---------------------------------------------------+"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER.stats"
     start_power_consumption --background --output-file="$power_output_file" || exit 1
 
-    echo "+-------------------------------+"
+    echo "+--------------------------------+"
     echo "| [7.$iteration/$loop_counter] Start the Java sample |"
-    echo "+-------------------------------+"
+    echo "+--------------------------------+"
     start_sample $sample_app $sample_app_test_type || exit 1
 
-    echo "+-------------------------------------------------+"
+    echo "+--------------------------------------------------+"
     echo "| [7.$iteration/$loop_counter] Stop the power consumption measurements |"
-    echo "+-------------------------------------------------+"
+    echo "+--------------------------------------------------+"
     stop_power_consumption
 
     ((iteration++))
@@ -244,22 +251,30 @@ configure_samples
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
-echo ""
-echo "+==============================+"
-echo "| [6/7] Build the Java samples |"
-echo "+==============================+"
-if [ "$2" == "--skip-build" ]; then
-  echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
-else
-  build_samples || exit 1
-fi
+for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
+  RUN_IDENTIFIER="$app_run_identifier"
 
-echo ""
-echo "+==============================+"
-echo "| [7/7] Start the Java samples |"
-echo "+==============================+"
-. ../scripts/shell/power-consumption-os-$OS.sh
-start_samples || exit 1
+  echo ""
+  echo "*** Starting run $RUN_IDENTIFIER at: $(date) ... ***"
 
-echo ""
-echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
+  echo ""
+  echo "+==============================+"
+  echo "| [6/7] Build the Java samples |"
+  echo "+==============================+"
+  if [ "$2" == "--skip-build" ]; then
+    echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
+  else
+    build_samples || exit 1
+  fi
+
+  echo ""
+  echo "+==============================+"
+  echo "| [7/7] Start the Java samples |"
+  echo "+==============================+"
+  . ../scripts/shell/power-consumption-os-$OS.sh
+  start_samples || exit 1
+
+  echo ""
+  echo "*** Run $RUN_IDENTIFIER successfully finished at: $(date) ***"
+
+done

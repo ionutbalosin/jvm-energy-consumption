@@ -45,12 +45,17 @@ public class VirtualCalls {
 
   public static void main(String[] args) {
     if (args.length != 1) {
-      System.out.println("Usage: VirtualCalls <mode>");
-      System.out.println("Options:");
-      System.out.println("  mode   must be {bimorphic, megamorphic_24}");
-      System.out.println("Examples:");
-      System.out.println("  VirtualCalls bimorphic");
-      System.out.println("  VirtualCalls megamorphic_24");
+      System.out.println(
+          """
+          Usage: VirtualCalls <mode>
+
+          Options:
+            mode - must be one of {bimorphic, megamorphic_24}
+
+          Examples:
+            VirtualCalls bimorphic
+            VirtualCalls megamorphic_24
+          """);
       return;
     }
 
@@ -72,7 +77,7 @@ public class VirtualCalls {
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
         (endTime - startTime) / 1000,
         instance.operations,
         (double) ((endTime - startTime) / 1000) / instance.operations);

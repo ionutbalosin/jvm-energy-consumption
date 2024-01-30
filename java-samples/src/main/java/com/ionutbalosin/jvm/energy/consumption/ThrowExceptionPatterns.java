@@ -46,14 +46,19 @@ public class ThrowExceptionPatterns {
 
   public static void main(String[] args) {
     if (args.length != 1) {
-      System.out.println("Usage: ThrowExceptionPatterns <exception_type>");
-      System.out.println("Options:");
-      System.out.println("  exception_type  must be {const, lambda, new, override_fist}");
-      System.out.println("Examples:");
-      System.out.println("  ThrowExceptionPatterns const");
-      System.out.println("  ThrowExceptionPatterns lambda");
-      System.out.println("  ThrowExceptionPatterns new");
-      System.out.println("  ThrowExceptionPatterns override_fist");
+      System.out.println(
+          """
+          Usage: ThrowExceptionPatterns <exception_type>
+
+          Options:
+            exception_type - must be one of {const, lambda, new, override_fist}
+
+          Examples:
+            ThrowExceptionPatterns lambda
+            ThrowExceptionPatterns const
+            ThrowExceptionPatterns new
+            ThrowExceptionPatterns override_fist
+          """);
       return;
     }
 
@@ -83,7 +88,7 @@ public class ThrowExceptionPatterns {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: stack trace elements = %d, wall-clock duration = %d sec,"
-            + " ops = %d, sec/ops = %.6f%n",
+            + " ops = %d, sec/ops = %.9f%n",
         result,
         (endTime - startTime) / 1000,
         instance.operations,

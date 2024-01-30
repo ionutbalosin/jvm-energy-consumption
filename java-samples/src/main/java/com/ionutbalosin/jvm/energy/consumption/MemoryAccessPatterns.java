@@ -56,13 +56,18 @@ public class MemoryAccessPatterns {
 
   public static void main(String[] args) {
     if (args.length != 1) {
-      System.out.println("Usage: MemoryAccessPatterns <access_type>");
-      System.out.println("Options:");
-      System.out.println("  access_type must be {linear, random_page, random_heap}");
-      System.out.println("Examples:");
-      System.out.println("  MemoryAccessPatterns linear");
-      System.out.println("  MemoryAccessPatterns random_page");
-      System.out.println("  MemoryAccessPatterns random_heap");
+      System.out.println(
+          """
+          Usage: MemoryAccessPatterns <access_type>
+
+          Options:
+            access_type - must be one of {linear, random_page, random_heap}
+
+          Examples:
+            MemoryAccessPatterns linear
+            MemoryAccessPatterns random_page
+            MemoryAccessPatterns random_heap
+          """);
       return;
     }
 
@@ -84,7 +89,7 @@ public class MemoryAccessPatterns {
 
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
-        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.6f%n",
+        "Summary: wall-clock duration = %d sec, ops = %d, sec/ops = %.9f%n",
         (endTime - startTime) / 1000,
         instance.operations,
         (double) ((endTime - startTime) / 1000) / instance.operations);
