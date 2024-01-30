@@ -128,27 +128,38 @@ create_output_resources() {
   done
 }
 
+build_sample() {
+  sample_app="$1"
+  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.log"
+  stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER"
+  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+
+  if [ "$JVM_IDENTIFIER" != "native-image" ]; then
+    BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
+  else
+    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app\" -Pnative package"
+  fi
+
+  sample_build_command="$PREFIX_COMMAND $BUILD_CMD > $build_output_file 2>&1"
+  echo "Building $sample_app at: $(date) ... "
+  echo "$sample_build_command"
+
+  eval "$sample_build_command"
+  if [ $? -ne 0 ]; then
+    echo "ERROR: Build failed for $sample_app. Check $build_output_file for details."
+    return 1
+  fi
+}
+
 build_samples() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
-    build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.log"
-    stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER"
-    PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.stats"
 
-    if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-      BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
-    else
-      BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app\" -Pnative package"
-    fi
+    start_power_consumption --background --output-file="$power_output_file" || exit 1
+    build_sample $sample_app || exit 1
+    stop_power_consumption
 
-    echo "Building $sample_app at: $(date) ... "
-    echo "$PREFIX_COMMAND $BUILD_CMD"
     echo ""
-
-    eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
-    if [ $? -ne 0 ]; then
-      echo "ERROR: Build failed for $sample_app. Check $build_output_file for details."
-      return 1
-    fi
   done
 }
 
@@ -166,10 +177,11 @@ start_sample() {
     RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_run_type"
   fi
 
+  sample_run_command="$PREFIX_COMMAND $RUN_CMD > $run_output_file 2>&1"
   echo "Running $sample_app ($sample_app_run_type) at: $(date) ... "
-  echo "$PREFIX_COMMAND $RUN_CMD"
+  echo "$sample_run_command"
 
-  eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1
+  eval "$sample_run_command"
   if [ $? -ne 0 ]; then
     echo "ERROR: Run failed for $sample_app ($sample_app_run_type). Check $run_output_file for details."
     return 1
@@ -230,6 +242,9 @@ configure_samples
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
+# source the power consumption scripts
+. ../scripts/shell/power-consumption-os-$OS.sh
+
 app_run_counter=1
 app_run_limit="${#APP_RUN_IDENTIFIERS[@]}"
 for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
@@ -249,7 +264,6 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   echo "+===================================+"
   echo "| [7/7][$app_run_counter/$app_run_limit] Start the Java samples |"
   echo "+===================================+"
-  . ../scripts/shell/power-consumption-os-$OS.sh
   start_samples || exit 1
 
   ((app_run_counter++))
