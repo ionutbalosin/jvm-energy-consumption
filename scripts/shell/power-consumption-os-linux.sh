@@ -124,8 +124,9 @@ check_power_consumption_measurements() {
 }
 
 start_power_consumption() {
+  # Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second
+  # throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated.
   echo "Starting power consumption measurements at: $(date) ..."
-  echo "Note: Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated."
 
   check_and_configure_power_consumption_options "$@" || return 1
   start_power_consumption_measurements || return 1
