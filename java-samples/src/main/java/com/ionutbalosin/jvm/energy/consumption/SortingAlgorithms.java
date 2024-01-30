@@ -88,6 +88,8 @@ public class SortingAlgorithms {
 
           Options:
             <algorithm_type> - must be one of {selection_sort, bubble_sort, quick_sort, merge_sort, radix_sort}
+            
+          Note: The selection_sort and bubble_sort algorithms are very slow on larger data sets!
 
           Examples:
             SortingAlgorithms selection_sort
