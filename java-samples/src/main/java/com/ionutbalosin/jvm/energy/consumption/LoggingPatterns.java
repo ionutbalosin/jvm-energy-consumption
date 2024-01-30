@@ -130,7 +130,7 @@ public class LoggingPatterns {
     }
 
     OutputStream nullOutputStream = OutputStream.nullOutputStream();
-    // OutputStream nullOutputStream = new FileOutputStream("output-" + type + ".txt");
+    // OutputStream nullOutputStream = new FileOutputStream("output-" + type + ".log");
     LOGGER.addHandler(
         new StreamHandler(
             new PrintStream(

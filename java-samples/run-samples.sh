@@ -82,6 +82,32 @@ configure_samples() {
     "SortingAlgorithms"
     "VirtualCalls"
   )
+  # Defines the list of all Java sample apps including their running types (i.e., parameters)
+  SAMPLE_APPS_WITH_RUN_TYPES=(
+    "ThrowExceptionPatterns const"
+    "ThrowExceptionPatterns lambda"
+    "ThrowExceptionPatterns new"
+    "ThrowExceptionPatterns override_fist"
+
+    "MemoryAccessPatterns linear"
+    "MemoryAccessPatterns random_page"
+    "MemoryAccessPatterns random_heap"
+
+    "LoggingPatterns lambda_heap"
+    "LoggingPatterns lambda_local"
+    "LoggingPatterns guarded_parametrized"
+    "LoggingPatterns guarded_unparametrized"
+    "LoggingPatterns unguarded_parametrized"
+    "LoggingPatterns unguarded_unparametrized"
+
+    "SortingAlgorithms bubble_sort"
+    "SortingAlgorithms merge_sort"
+    "SortingAlgorithms quick_sort"
+    "SortingAlgorithms radix_sort"
+
+    "VirtualCalls bimorphic"
+    "VirtualCalls megamorphic_24"
+  )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"
   echo "Java samples skip build: $APP_SKIP_BUILD"
@@ -128,71 +154,40 @@ build_samples() {
 
 start_sample() {
   sample_app="$1"
-  sample_app_test_type="$2"
+  sample_app_run_type="$2"
 
-  run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER.log"
-  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER"
+  run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.log"
+  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER"
   PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_test_type"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_run_type"
   else
-    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_test_type"
+    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_run_type"
   fi
 
-  echo "Running $sample_app ($sample_app_test_type) at: $(date) ... "
+  echo "Running $sample_app ($sample_app_run_type) at: $(date) ... "
   echo "$PREFIX_COMMAND $RUN_CMD"
 
   eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1
   if [ $? -ne 0 ]; then
-    echo "ERROR: Run failed for $sample_app ($sample_app_test_type). Check $run_output_file for details."
+    echo "ERROR: Run failed for $sample_app ($sample_app_run_type). Check $run_output_file for details."
     return 1
   fi
 }
 
 start_samples() {
-  # Defines the list of all Java sample apps including their running parameters
-  SAMPLE_APPS_WITH_TEST_TYPES=(
-    "ThrowExceptionPatterns const"
-    "ThrowExceptionPatterns lambda"
-    "ThrowExceptionPatterns new"
-    "ThrowExceptionPatterns override_fist"
-
-    "MemoryAccessPatterns linear"
-    "MemoryAccessPatterns random_page"
-    "MemoryAccessPatterns random_heap"
-
-    "LoggingPatterns lambda_heap"
-    "LoggingPatterns lambda_local"
-    "LoggingPatterns guarded_parametrized"
-    "LoggingPatterns guarded_unparametrized"
-    "LoggingPatterns unguarded_parametrized"
-    "LoggingPatterns unguarded_unparametrized"
-
-    "SortingAlgorithms bubble_sort"
-    "SortingAlgorithms merge_sort"
-    "SortingAlgorithms quick_sort"
-    "SortingAlgorithms radix_sort"
-
-    "VirtualCalls bimorphic"
-    "VirtualCalls megamorphic_24"
-  )
-
-  iteration=1
-  loop_counter="${#SAMPLE_APPS_WITH_TEST_TYPES[@]}"
-
-  for sample_app_with_test_type in "${SAMPLE_APPS_WITH_TEST_TYPES[@]}"; do
-    read -r -a sample_app_components <<< "$sample_app_with_test_type"
-    sample_app="${sample_app_components[0]}"
-    sample_app_test_type="${sample_app_components[1]}"
-    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_test_type-$RUN_IDENTIFIER.stats"
+  for sample_app_with_run_type in "${SAMPLE_APPS_WITH_RUN_TYPES[@]}"; do
+    read -r -a sample_app_with_run_type_array <<< "$sample_app_with_run_type"
+    sample_app="${sample_app_with_run_type_array[0]}"
+    sample_app_run_type="${sample_app_with_run_type_array[1]}"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.stats"
 
     start_power_consumption --background --output-file="$power_output_file" || exit 1
-    start_sample $sample_app $sample_app_test_type || exit 1
+    start_sample $sample_app $sample_app_run_type || exit 1
     stop_power_consumption
 
     echo ""
-    ((iteration++))
   done
 }
 
@@ -235,14 +230,14 @@ configure_samples
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
-iteration=1
-loop_counter="${#APP_RUN_IDENTIFIERS[@]}"
+app_run_counter=1
+app_run_limit="${#APP_RUN_IDENTIFIERS[@]}"
 for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   RUN_IDENTIFIER="$app_run_identifier"
 
   echo ""
   echo "+===================================+"
-  echo "| [6/7][$iteration/$loop_counter] Build the Java samples |"
+  echo "| [6/7][$app_run_counter/$app_run_limit] Build the Java samples |"
   echo "+===================================+"
   if [ "$2" == "--skip-build" ]; then
     echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
@@ -252,10 +247,10 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
 
   echo ""
   echo "+===================================+"
-  echo "| [7/7][$iteration/$loop_counter] Start the Java samples |"
+  echo "| [7/7][$app_run_counter/$app_run_limit] Start the Java samples |"
   echo "+===================================+"
   . ../scripts/shell/power-consumption-os-$OS.sh
   start_samples || exit 1
 
-  ((iteration++))
+  ((app_run_counter++))
 done
