@@ -27,7 +27,7 @@
 
 check_command_line_options() {
   if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
-    echo "Usage: sudo ./run-baseline.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>]"
+    echo "Usage: sudo ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
