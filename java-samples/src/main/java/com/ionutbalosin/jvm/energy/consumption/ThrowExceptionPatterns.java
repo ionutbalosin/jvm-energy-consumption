@@ -34,17 +34,17 @@ public class ThrowExceptionPatterns {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  int STACK_DEPTH = 1024;
-  Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
-  RuntimeException CONSTANT_EXCEPTION = new RuntimeException();
-  int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
+  private final int STACK_DEPTH = 1024;
+  private final Supplier<RuntimeException> LAMBDA_PROVIDER_EXCEPTION = () -> new RuntimeException();
+  private final RuntimeException CONSTANT_EXCEPTION = new RuntimeException();
+  private final int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
-  ExceptionThrower exceptionThrower;
-  String exceptionType;
-  long stackTraces;
-  long iterations;
+  private ExceptionThrower exceptionThrower;
+  private String exceptionType;
+  private long stackTraces;
+  private long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -53,7 +53,7 @@ public class ThrowExceptionPatterns {
     instance.initialize(args);
 
     System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec, stack depth = %d\n",
+        "Starting %s at %tT, expected duration = %d sec, stack depth = %d%n",
         instance.exceptionThrower.getClass().getName(),
         new Date(),
         instance.DURATION / 1000,

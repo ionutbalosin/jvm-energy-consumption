@@ -38,16 +38,16 @@ public class MemoryAccessPatterns {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  int LONG_SIZE = 8; // 8 bytes
-  int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB
-  long FOUR_GIG = 4L * 1024 * 1024 * 1024; // 4 GB
-  int ARRAY_SIZE = (int) (FOUR_GIG / LONG_SIZE);
-  int ARRAY_MASK = ARRAY_SIZE - 1;
-  int WORDS_PER_PAGE = PAGE_SIZE / LONG_SIZE;
-  int PAGE_MASK = WORDS_PER_PAGE - 1;
-  int PRIME_INC = 514_229;
+  private final int LONG_SIZE = 8; // 8 bytes
+  private final int PAGE_SIZE = 2 * 1024 * 1024; // 2 MB
+  private final long FOUR_GIG = 4L * 1024 * 1024 * 1024; // 4 GB
+  private final int ARRAY_SIZE = (int) (FOUR_GIG / LONG_SIZE);
+  private final int ARRAY_MASK = ARRAY_SIZE - 1;
+  private final int WORDS_PER_PAGE = PAGE_SIZE / LONG_SIZE;
+  private final int PAGE_MASK = WORDS_PER_PAGE - 1;
+  private final int PRIME_INC = 514_229;
 
   WalkerStep walkerStep;
   long[] array;
@@ -60,7 +60,7 @@ public class MemoryAccessPatterns {
     instance.initialize(args);
 
     System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec.%n",
+        "Starting %s at %tT, expected duration = %d sec%n",
         instance.walkerStep.getClass().getName(), new Date(), instance.DURATION / 1000);
 
     long startTime = System.currentTimeMillis();

@@ -37,12 +37,13 @@ public class VirtualCalls {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  int ARRAY_SIZE = 9_600;
-  CMath[] array;
-  int targetTypes;
-  long iterations;
+  private final int ARRAY_SIZE = 9_600;
+
+  private CMath[] array;
+  private int targetTypes;
+  private long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -51,7 +52,7 @@ public class VirtualCalls {
     instance.initialize(args);
 
     System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec, number of virtual calls = %d\n",
+        "Starting %s at %tT, expected duration = %d sec, number of virtual calls = %d%n",
         args[0], new Date(), instance.DURATION / 1000, instance.array.length);
 
     long startTime = System.currentTimeMillis();

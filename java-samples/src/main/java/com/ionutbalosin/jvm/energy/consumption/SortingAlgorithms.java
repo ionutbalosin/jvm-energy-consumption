@@ -67,21 +67,21 @@ public class SortingAlgorithms {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  int INT_SIZE = 4; // 4 bytes
-  long _1_GB = 1 * 1024 * 1024 * 1024; // 1 GB
-  int ARRAY_SIZE = (int) (_1_GB / INT_SIZE);
+  private final int INT_SIZE = 4; // 4 bytes
+  private final long _1_GB = 1 * 1024 * 1024 * 1024; // 1 GB
+  private final int ARRAY_SIZE = (int) (_1_GB / INT_SIZE);
 
-  Sorter sorter;
-  int[] array;
-  long iterations;
+  private Sorter sorter;
+  private int[] array;
+  private long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
 
     SortingAlgorithms instance = new SortingAlgorithms();
-    instance.initialize(args[0]);
+    instance.initialize(args);
 
     System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, number of elements to sort = %d%n",
@@ -119,7 +119,8 @@ public class SortingAlgorithms {
     }
   }
 
-  public void initialize(String type) {
+  public void initialize(String[] args) {
+    String type = args[0];
     switch (type) {
       case "merge_sort":
         sorter = new MergeSorter();
@@ -140,14 +141,14 @@ public class SortingAlgorithms {
   public void benchmark(long startTime) {
     // benchmark loop: attempts to run for a specific expected duration
     while (System.currentTimeMillis() < startTime + DURATION) {
-      initializeArray();
+      initializeInteration();
       sorter.sort(array);
       validateResults(array);
       iterations++;
     }
   }
 
-  private void initializeArray() {
+  private void initializeInteration() {
     // the given array is sorted in descending order, this might lead (for some algorithms) to the
     // maximum number of comparisons
     for (int i = 0; i < ARRAY_SIZE; i++) {

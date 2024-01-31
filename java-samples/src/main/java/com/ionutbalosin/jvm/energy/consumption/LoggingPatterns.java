@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Date;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -41,21 +40,21 @@ public class LoggingPatterns {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
 
-  Logger LOGGER = Logger.getLogger(LoggingPatterns.class.getName());
-  Level LOG_LEVEL = Level.INFO;
+  private final Logger LOGGER = Logger.getLogger(LoggingPatterns.class.getName());
+  private final Level LOG_LEVEL = Level.INFO;
 
-  String aString;
-  int anInt;
-  float aFloat;
-  char aChar;
-  long aLong;
-  double aDouble;
-  boolean aBoolean;
-  Object anObject;
-  JulLogger julLogger;
-  long iterations;
+  private String aString;
+  private int anInt;
+  private float aFloat;
+  private char aChar;
+  private long aLong;
+  private double aDouble;
+  private boolean aBool;
+  private Object anObject;
+  private JulLogger julLogger;
+  private long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -149,14 +148,13 @@ public class LoggingPatterns {
     LOGGER.setUseParentHandlers(false);
     LOGGER.setLevel(LOG_LEVEL);
 
-    Random random = new Random(16384);
     aString = System.getProperty("java.home");
     anInt = 0;
     aFloat = 0F;
     aChar = '\u0000';
     aLong = 0L;
     aDouble = 0D;
-    aBoolean = random.nextBoolean();
+    aBool = aString.length() > 64 ? true : false;
     anObject = new Object();
   }
 
@@ -188,8 +186,7 @@ public class LoggingPatterns {
           LOG_LEVEL,
           () ->
               ("[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], ["
-                  + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject
-                  + "]"));
+                  + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBool + "], [" + anObject + "]"));
     }
   }
 
@@ -201,7 +198,7 @@ public class LoggingPatterns {
             LOG_LEVEL,
             "[{0}], [{1}], [{2}], [{3}], [{4}], [{5}], [{6}], [{7}]",
             new Object[] {
-              aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBoolean, anObject
+              aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBool, anObject
             });
       }
     }
@@ -214,7 +211,7 @@ public class LoggingPatterns {
         LOGGER.log(
             LOG_LEVEL,
             "[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], ["
-                + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject + "]");
+                + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBool + "], [" + anObject + "]");
       }
     }
   }
@@ -225,9 +222,7 @@ public class LoggingPatterns {
       LOGGER.log(
           LOG_LEVEL,
           "[{0}], [{1}], [{2}], [{3}], [{4}], [{5}], [{6}], [{7}]",
-          new Object[] {
-            aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBoolean, anObject
-          });
+          new Object[] {aString, anInt++, aFloat++, aChar++, aLong++, aDouble++, aBool, anObject});
     }
   }
 
@@ -237,7 +232,7 @@ public class LoggingPatterns {
       LOGGER.log(
           LOG_LEVEL,
           "[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], [" + aLong++
-              + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject + "]");
+              + "]" + "], [" + aDouble++ + "], [" + aBool + "], [" + anObject + "]");
     }
   }
 }

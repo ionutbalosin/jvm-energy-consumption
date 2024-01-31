@@ -73,14 +73,16 @@ check_command_line_options() {
 
 configure_samples() {
   CURR_DIR=$(pwd)
-  JAVA_OPS="-Xms1m -Xmx6g"
+  JAVA_OPS="--enable-preview --source 21 -Xms1m -Xmx6g"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
     "ThrowExceptionPatterns"
     "MemoryAccessPatterns"
     "LoggingPatterns"
     "SortingAlgorithms"
+    "StringConcatenationPatterns"
     "VirtualCalls"
+    "VPThreadThroughput"
   )
   # Defines the list of all Java sample apps including their running types (i.e., parameters)
   SAMPLE_APPS_WITH_RUN_TYPES=(
@@ -98,6 +100,10 @@ configure_samples() {
     "SortingAlgorithms merge_sort"
     "SortingAlgorithms radix_sort"
 
+    "StringConcatenationPatterns plus_operator"
+    "StringConcatenationPatterns string_builder"
+    "StringConcatenationPatterns string_template"
+
     "ThrowExceptionPatterns const"
     "ThrowExceptionPatterns override_fist"
     "ThrowExceptionPatterns lambda"
@@ -107,6 +113,9 @@ configure_samples() {
     "VirtualCalls bimorphic"
     "VirtualCalls megamorphic_3"
     "VirtualCalls megamorphic_8"
+
+     "VPThreadThroughput virtual"
+     "VPThreadThroughput platform"
   )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"
