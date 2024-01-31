@@ -27,6 +27,7 @@ package com.ionutbalosin.jvm.energy.consumption;
 
 import static java.lang.Integer.valueOf;
 import static java.lang.Thread.ofPlatform;
+import static java.lang.Thread.ofVirtual;
 import static java.util.Optional.ofNullable;
 import static java.util.concurrent.Executors.newFixedThreadPool;
 import static java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor;
@@ -35,11 +36,11 @@ import java.util.Date;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.IntStream;
 
-public class VPThreadThroughput {
+public class VPThreadQueueThroughput {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
@@ -52,16 +53,17 @@ public class VPThreadThroughput {
   private static final int TASKS = PARALLELISM_COUNT * 100_000;
 
   private final Integer ELEMENT = 42;
-  private final BlockingQueue<Integer> queue = new LinkedBlockingQueue<>(TASKS);
+  private final BlockingQueue<Integer> queue = new SynchronousQueue<>();
   private final LongAdder counter = new LongAdder();
 
-  private ExecutorService service;
+  private Thread producerThread;
+  private ExecutorService consumerService;
   private long iterations;
 
   public static void main(String[] args) throws InterruptedException {
     validateArguments(args);
 
-    VPThreadThroughput instance = new VPThreadThroughput();
+    VPThreadQueueThroughput instance = new VPThreadQueueThroughput();
     instance.initialize(args);
 
     System.out.printf(
@@ -85,14 +87,14 @@ public class VPThreadThroughput {
     if (args.length != 1) {
       System.out.println(
           """
-            Usage: VPThreadThroughput <thread_type>
+            Usage: VPThreadQueueThroughput <thread_type>
 
             Options:
               <thread_type> - must be one of {virtual, platform}
 
             Examples:
-              VPThreadThroughput virtual
-              VPThreadThroughput platform
+              VPThreadQueueThroughput virtual
+              VPThreadQueueThroughput platform
             """);
       System.exit(1);
     }
@@ -102,41 +104,38 @@ public class VPThreadThroughput {
     String threadType = args[0];
     switch (threadType) {
       case "virtual":
-        service = newVirtualThreadPerTaskExecutor();
+        producerThread = ofVirtual().unstarted(() -> produce());
+        consumerService = newVirtualThreadPerTaskExecutor();
         break;
       case "platform":
-        service = newFixedThreadPool(PARALLELISM_COUNT, ofPlatform().factory());
+        producerThread = ofPlatform().unstarted(() -> produce());
+        consumerService = newFixedThreadPool(PARALLELISM_COUNT, ofPlatform().factory());
         break;
       default:
         throw new UnsupportedOperationException("Unsupported thread type: " + threadType);
     }
-  }
 
-  public void initializeInteration() throws InterruptedException {
-    counter.reset();
-    queue.clear();
-    for (int i = 0; i < TASKS; i++) {
-      queue.put(ELEMENT);
-    }
+    producerThread.start();
   }
 
   public void tearDown() {
-    service.shutdownNow();
+    producerThread.interrupt();
+    consumerService.shutdownNow();
   }
 
   public void benchmark(long startTime) throws InterruptedException {
     // benchmark loop: attempts to run for a specific expected duration
     while (System.currentTimeMillis() < startTime + DURATION) {
-      initializeInteration();
+      counter.reset();
       final CountDownLatch latch = new CountDownLatch(TASKS);
-      IntStream.range(0, TASKS).forEach(task -> service.submit(() -> work(latch)));
+      IntStream.range(0, TASKS).forEach(task -> consumerService.submit(() -> consume(latch)));
       latch.await();
-      validateResults();
+      validateResults(counter.intValue());
       iterations++;
     }
   }
 
-  public void work(CountDownLatch latch) {
+  public void consume(CountDownLatch latch) {
     try {
       if (queue.take() == ELEMENT) {
         counter.increment();
@@ -147,9 +146,21 @@ public class VPThreadThroughput {
     }
   }
 
+  public void produce() {
+    boolean interrupted = false;
+    while (!interrupted) {
+      try {
+        // If necessary, a backoff strategy can be employed to lower the producer rate
+        queue.put(ELEMENT);
+      } catch (InterruptedException ignore) {
+        interrupted = true;
+      }
+    }
+  }
+
   // validate the results (Note: The assertion error branch(es) should never be taken)
-  public void validateResults() {
-    if (TASKS != counter.intValue()) {
+  public void validateResults(int value) {
+    if (TASKS != value) {
       throw new AssertionError(
           String.format("Expected = %s, actual = %s", TASKS, counter.intValue()));
     }

@@ -82,7 +82,7 @@ configure_samples() {
     "StringConcatenationPatterns"
     "ThrowExceptionPatterns"
     "VirtualCalls"
-    "VPThreadThroughput"
+    "VPThreadQueueThroughput"
   )
   # Defines the list of all Java sample apps including their running types (i.e., parameters)
   SAMPLE_APPS_WITH_RUN_TYPES=(
@@ -114,8 +114,8 @@ configure_samples() {
     "VirtualCalls megamorphic_3"
     "VirtualCalls megamorphic_8"
 
-    "VPThreadThroughput virtual"
-    "VPThreadThroughput platform"
+    "VPThreadQueueThroughput virtual"
+    "VPThreadQueueThroughput platform"
   )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"
