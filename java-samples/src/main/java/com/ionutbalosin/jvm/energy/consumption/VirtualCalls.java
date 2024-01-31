@@ -45,30 +45,16 @@ public class VirtualCalls {
   long operations;
 
   public static void main(String[] args) {
-    if (args.length != 1) {
-      System.out.println(
-          """
-          Usage: VirtualCalls <mode>
-
-          Options:
-            <mode> - must be one of {monomorphic, bimorphic, megamorphic_24}
-
-          Examples:
-            VirtualCalls monomorphic
-            VirtualCalls bimorphic
-            VirtualCalls megamorphic_8
-          """);
-      return;
-    }
+    validateArguments(args);
 
     VirtualCalls instance = new VirtualCalls();
-    instance.initialize(args[0]);
+    instance.initialize(args);
 
     System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, number of virtual calls = %d\n",
         args[0], new Date(), instance.DURATION / 1000, instance.array.length);
 
-    // start the tests
+    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
       instance.virtual_calls();
@@ -84,7 +70,26 @@ public class VirtualCalls {
         elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
-  public void initialize(String mode) {
+  public static void validateArguments(String[] args) {
+    if (args.length != 1) {
+      System.out.println(
+          """
+          Usage: VirtualCalls <mode>
+
+          Options:
+            <mode> - must be one of {monomorphic, bimorphic, megamorphic_24}
+
+          Examples:
+            VirtualCalls monomorphic
+            VirtualCalls bimorphic
+            VirtualCalls megamorphic_8
+          """);
+      System.exit(1);
+    }
+  }
+
+  public void initialize(String[] args) {
+    String mode = args[0];
     array = new CMath[ARRAY_SIZE];
     switch (mode) {
       case "monomorphic":

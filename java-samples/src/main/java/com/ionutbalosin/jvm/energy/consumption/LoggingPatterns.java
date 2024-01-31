@@ -58,6 +58,34 @@ public class LoggingPatterns {
   long operations;
 
   public static void main(String[] args) {
+    validateArguments(args);
+
+    LoggingPatterns instance = new LoggingPatterns();
+    instance.initialize(args);
+
+    System.out.printf(
+        "Starting %s at %tT, expected duration = %d sec, log level = %s%n",
+        instance.julLogger.getClass().getName(),
+        new Date(),
+        instance.DURATION / 1000,
+        instance.LOG_LEVEL.getName());
+
+    // benchmark loop: attempts to run for a specific expected duration
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
+      instance.julLogger.log();
+      instance.operations++;
+    }
+    long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
+
+    System.out.printf("Successfully finished at %tT%n", new Date());
+    System.out.printf(
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations);
+  }
+
+  public static void validateArguments(String[] args) {
     if (args.length != 1) {
       System.out.println(
           """
@@ -76,35 +104,12 @@ public class LoggingPatterns {
             LoggingPatterns unguarded_parametrized
             LoggingPatterns unguarded_unparametrized
           """);
-      return;
+      System.exit(1);
     }
-
-    LoggingPatterns instance = new LoggingPatterns();
-    instance.initialize(args[0]);
-
-    System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec, log level = %s%n",
-        instance.julLogger.getClass().getName(),
-        new Date(),
-        instance.DURATION / 1000,
-        instance.LOG_LEVEL.getName());
-
-    // start the tests
-    long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.julLogger.log();
-      instance.operations++;
-    }
-    long endTime = System.currentTimeMillis();
-    double elapsedTime = (double) (endTime - startTime) / 1000;
-
-    System.out.printf("Successfully finished at %tT%n", new Date());
-    System.out.printf(
-        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
-  public void initialize(String type) {
+  public void initialize(String[] args) {
+    String type = args[0];
     switch (type) {
       case "lambda_heap":
         julLogger = new LambdaHeapLogger();

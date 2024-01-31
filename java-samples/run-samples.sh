@@ -95,9 +95,6 @@ configure_samples() {
     "MemoryAccessPatterns random_page"
     "MemoryAccessPatterns random_heap"
 
-    # Note: selection sort and bubble sort are very slow; it does not make sense to test them
-    #"SortingAlgorithms selection_sort"
-    #"SortingAlgorithms bubble_sort"
     "SortingAlgorithms quick_sort"
     "SortingAlgorithms merge_sort"
     "SortingAlgorithms radix_sort"

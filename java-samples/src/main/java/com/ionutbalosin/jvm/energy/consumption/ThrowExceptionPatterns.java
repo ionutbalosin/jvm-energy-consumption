@@ -45,25 +45,10 @@ public class ThrowExceptionPatterns {
   long operations;
 
   public static void main(String[] args) {
-    if (args.length != 1) {
-      System.out.println(
-          """
-          Usage: ThrowExceptionPatterns <exception_type>
-
-          Options:
-            <exception_type> - must be one of {const, override_fist, lambda, new}
-
-          Examples:
-            ThrowExceptionPatterns const
-            ThrowExceptionPatterns override_fist
-            ThrowExceptionPatterns lambda
-            ThrowExceptionPatterns new
-          """);
-      return;
-    }
+    validateArguments(args);
 
     ThrowExceptionPatterns instance = new ThrowExceptionPatterns();
-    instance.initialize(args[0]);
+    instance.initialize(args);
 
     System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, stack depth = %d\n",
@@ -72,7 +57,7 @@ public class ThrowExceptionPatterns {
         instance.DURATION / 1000,
         instance.STACK_DEPTH);
 
-    // start the tests
+    // benchmark loop: attempts to run for a specific expected duration
     long result = 0, startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
       try {
@@ -92,7 +77,27 @@ public class ThrowExceptionPatterns {
         elapsedTime, instance.operations, elapsedTime / instance.operations, result);
   }
 
-  public void initialize(String type) {
+  public static void validateArguments(String[] args) {
+    if (args.length != 1) {
+      System.out.println(
+          """
+          Usage: ThrowExceptionPatterns <exception_type>
+
+          Options:
+            <exception_type> - must be one of {const, override_fist, lambda, new}
+
+          Examples:
+            ThrowExceptionPatterns const
+            ThrowExceptionPatterns override_fist
+            ThrowExceptionPatterns lambda
+            ThrowExceptionPatterns new
+          """);
+      System.exit(1);
+    }
+  }
+
+  public void initialize(String[] args) {
+    String type = args[0];
     switch (type) {
       case "const":
         exceptionThrower = new ThrowConstantException();

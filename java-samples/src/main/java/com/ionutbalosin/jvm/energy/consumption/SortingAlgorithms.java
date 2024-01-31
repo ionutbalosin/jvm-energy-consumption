@@ -48,8 +48,6 @@ package com.ionutbalosin.jvm.energy.consumption;
  *
  * | Sorting Algorithm | Worst Case Time Complexity | Best Case Time Complexity | Average Case Time Complexity |
  * |-------------------|----------------------------|---------------------------|------------------------------|
- * | Selection Sort    | O(n^2)                     | O(n^2)                    | O(n^2)                       |
- * | Bubble Sort       | O(n^2)                     | O(n)                      | O(n^2)                       |
  * | Quick Sort        | O(n^2)                     | O(n log n)                | O(n log n)                   |
  * | Merge Sort        | O(n log n)                 | O(n log n)                | O(n log n)                   |
  * | Radix Sort        | O(nk)                      | O(nk)                     | O(nk)                        |
@@ -64,7 +62,6 @@ import java.util.Date;
  * References:
  * - https://lemire.me/blog/2021/04/09/how-fast-can-you-sort-arrays-of-integers-in-java
  * - https://www.geeksforgeeks.org/merge-sort
- * - https://stackoverflow.com/questions/16195092/optimized-bubble-sort
  */
 public class SortingAlgorithms {
 
@@ -81,25 +78,7 @@ public class SortingAlgorithms {
   long operations;
 
   public static void main(String[] args) {
-    if (args.length != 1) {
-      System.out.println(
-          """
-          Usage: SortingAlgorithms <algorithm_type>
-
-          Options:
-            <algorithm_type> - must be one of {selection_sort, bubble_sort, quick_sort, merge_sort, radix_sort}
-            
-          Note: The selection_sort and bubble_sort algorithms are very slow on larger data sets!
-
-          Examples:
-            SortingAlgorithms selection_sort
-            SortingAlgorithms bubble_sort
-            SortingAlgorithms quick_sort
-            SortingAlgorithms merge_sort
-            SortingAlgorithms radix_sort
-          """);
-      return;
-    }
+    validateArguments(args);
 
     SortingAlgorithms instance = new SortingAlgorithms();
     instance.initialize(args[0]);
@@ -111,12 +90,12 @@ public class SortingAlgorithms {
         instance.DURATION / 1000,
         instance.array.length);
 
-    // start the tests
+    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.initializeDescending();
-      instance.sorter.sortAscending(instance.array);
-      instance.validate_results();
+      instance.initialize();
+      instance.sorter.sort(instance.array);
+      instance.validateResults();
       instance.operations++;
     }
     long endTime = System.currentTimeMillis();
@@ -128,14 +107,26 @@ public class SortingAlgorithms {
         elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
+  public static void validateArguments(String[] args) {
+    if (args.length != 1) {
+      System.out.println(
+          """
+          Usage: SortingAlgorithms <algorithm_type>
+
+          Options:
+            <algorithm_type> - must be one of {quick_sort, merge_sort, radix_sort}
+
+          Examples:
+            SortingAlgorithms quick_sort
+            SortingAlgorithms merge_sort
+            SortingAlgorithms radix_sort
+          """);
+      System.exit(1);
+    }
+  }
+
   public void initialize(String type) {
     switch (type) {
-      case "bubble_sort":
-        sorter = new BubbleSorter();
-        break;
-      case "selection_sort":
-        sorter = new SelectionSorter();
-        break;
       case "merge_sort":
         sorter = new MergeSorter();
         break;
@@ -152,7 +143,7 @@ public class SortingAlgorithms {
     array = new int[ARRAY_SIZE];
   }
 
-  private void initializeDescending() {
+  private void initialize() {
     // the given array is sorted in descending order, this might lead (for some algorithms) to the
     // maximum number of comparisons
     for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -160,7 +151,7 @@ public class SortingAlgorithms {
     }
   }
 
-  public void validate_results() {
+  public void validateResults() {
     // validate the results (note: the assertion error branch(es) should never be taken)
     for (int i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1])
@@ -170,65 +161,13 @@ public class SortingAlgorithms {
   }
 
   public abstract class Sorter {
-    public abstract void sortAscending(int array[]);
-  }
-
-  public class BubbleSorter extends Sorter {
-    @Override
-    public void sortAscending(int[] array) {
-      int last_swap = array.length - 1;
-      for (int i = 1; i < array.length; i++) {
-        boolean is_sorted = true;
-        int current_swap = -1;
-
-        for (int j = 0; j < last_swap; j++) {
-          if (array[j] > array[j + 1]) {
-            int temp = array[j];
-            array[j] = array[j + 1];
-            array[j + 1] = temp;
-            is_sorted = false;
-            current_swap = j;
-          }
-        }
-
-        // if no two elements were swapped by inner loop, then break
-        if (is_sorted) {
-          return;
-        }
-        last_swap = current_swap;
-      }
-    }
-  }
-
-  public class SelectionSorter extends Sorter {
-
-    @Override
-    public void sortAscending(int[] array) {
-      int n = array.length;
-
-      for (int i = 0; i < n - 1; i++) {
-        // Find the minimum element in the unsorted part of the array
-        int minIndex = i;
-        for (int j = i + 1; j < n; j++) {
-          if (array[j] < array[minIndex]) {
-            minIndex = j;
-          }
-        }
-
-        // Swap the found minimum element with the first element in the unsorted part
-        if (minIndex != i) {
-          int temp = array[minIndex];
-          array[minIndex] = array[i];
-          array[i] = temp;
-        }
-      }
-    }
+    public abstract void sort(int array[]);
   }
 
   public class MergeSorter extends Sorter {
 
     @Override
-    public void sortAscending(int[] array) {
+    public void sort(int[] array) {
       sort(array, 0, array.length - 1);
     }
 
@@ -286,7 +225,7 @@ public class SortingAlgorithms {
   public class QuickSorter extends Sorter {
 
     @Override
-    public void sortAscending(int[] array) {
+    public void sort(int[] array) {
       Arrays.sort(array);
     }
   }
@@ -294,7 +233,7 @@ public class SortingAlgorithms {
   public class RadixSorter extends Sorter {
 
     @Override
-    public void sortAscending(int[] array) {
+    public void sort(int[] array) {
       int[] array_copy = new int[array.length];
       int[] level_0 = new int[257];
       int[] level_1 = new int[257];

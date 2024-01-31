@@ -54,6 +54,32 @@ public class MemoryAccessPatterns {
   long operations;
 
   public static void main(String[] args) {
+    validateArguments(args);
+
+    MemoryAccessPatterns instance = new MemoryAccessPatterns();
+    instance.initialize(args);
+
+    System.out.printf(
+        "Starting %s at %tT, expected duration = %d sec.%n",
+        instance.walkerStep.getClass().getName(), new Date(), instance.DURATION / 1000);
+
+    // benchmark loop: attempts to run for a specific expected duration
+    long startTime = System.currentTimeMillis();
+    while (System.currentTimeMillis() < startTime + instance.DURATION) {
+      long result = instance.memoryAccess();
+      instance.validateResults(result);
+      instance.operations++;
+    }
+    long endTime = System.currentTimeMillis();
+    double elapsedTime = (double) (endTime - startTime) / 1000;
+
+    System.out.printf("Successfully finished at %tT%n", new Date());
+    System.out.printf(
+        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
+        elapsedTime, instance.operations, elapsedTime / instance.operations);
+  }
+
+  public static void validateArguments(String[] args) {
     if (args.length != 1) {
       System.out.println(
           """
@@ -67,33 +93,12 @@ public class MemoryAccessPatterns {
             MemoryAccessPatterns random_page
             MemoryAccessPatterns random_heap
           """);
-      return;
+      System.exit(1);
     }
-
-    MemoryAccessPatterns instance = new MemoryAccessPatterns();
-    instance.initialize(args[0]);
-
-    System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec.%n",
-        instance.walkerStep.getClass().getName(), new Date(), instance.DURATION / 1000);
-
-    // start the tests
-    long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      long result = instance.memory_access();
-      instance.validate_results(result);
-      instance.operations++;
-    }
-    long endTime = System.currentTimeMillis();
-    double elapsedTime = (double) (endTime - startTime) / 1000;
-
-    System.out.printf("Successfully finished at %tT%n", new Date());
-    System.out.printf(
-        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
   }
 
-  public void initialize(String type) {
+  public void initialize(String[] args) {
+    String type = args[0];
     switch (type) {
       case "linear":
         walkerStep = new LinearWalk();
@@ -115,7 +120,7 @@ public class MemoryAccessPatterns {
     }
   }
 
-  public long memory_access() {
+  public long memoryAccess() {
     long result = 0;
     int pos = -1;
     // Walk page by page (of how many pages there are)
@@ -131,7 +136,7 @@ public class MemoryAccessPatterns {
     return result;
   }
 
-  public void validate_results(long result) {
+  public void validateResults(long result) {
     // validate the results (note: the assertion error branch(es) should never be taken)
     if (268435456L != result) {
       throw new AssertionError(String.format("Expected = 268435456L, found = %s", result));
