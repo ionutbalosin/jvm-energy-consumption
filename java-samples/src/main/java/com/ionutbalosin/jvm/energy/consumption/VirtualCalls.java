@@ -54,12 +54,8 @@ public class VirtualCalls {
         "Starting %s at %tT, expected duration = %d sec, number of virtual calls = %d\n",
         args[0], new Date(), instance.DURATION / 1000, instance.array.length);
 
-    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.virtualCalls();
-      instance.validateResults(instance.iterations++);
-    }
+    instance.benchmark(startTime);
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
 
@@ -128,13 +124,21 @@ public class VirtualCalls {
     }
   }
 
-  public void validateResults(long counter) {
-    // validate the results (Note: The assertion error branch(es) should never be taken)
-    if ((counter + 1) * targetTypes != array[targetTypes - 1].total) {
+  public void benchmark(long startTime) {
+    // benchmark loop: attempts to run for a specific expected duration
+    while (System.currentTimeMillis() < startTime + DURATION) {
+      virtualCalls();
+      validateResults();
+      iterations++;
+    }
+  }
+
+  // validate the results (Note: The assertion error branch(es) should never be taken)
+  public void validateResults() {
+    long totalExpected = (iterations + 1) * targetTypes;
+    if (totalExpected != array[targetTypes - 1].total) {
       throw new AssertionError(
-          String.format(
-              "Expected = %s, actual = %s",
-              (counter + 1) * targetTypes, array[targetTypes - 1].total));
+          String.format("Expected = %s, actual = %s", totalExpected, array[targetTypes - 1].total));
     }
   }
 

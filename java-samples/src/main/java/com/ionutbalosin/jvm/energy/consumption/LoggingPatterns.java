@@ -70,12 +70,8 @@ public class LoggingPatterns {
         instance.DURATION / 1000,
         instance.LOG_LEVEL.getName());
 
-    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.julLogger.log();
-      instance.iterations++;
-    }
+    instance.benchmark(startTime);
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
 
@@ -167,6 +163,23 @@ public class LoggingPatterns {
     aDouble = 1D;
     aBoolean = random.nextBoolean();
     anObject = new Object();
+  }
+
+  public void benchmark(long startTime) {
+    // benchmark loop: attempts to run for a specific expected duration
+    while (System.currentTimeMillis() < startTime + DURATION) {
+      julLogger.log();
+      validateResults();
+      iterations++;
+    }
+  }
+
+  // validate the results (Note: The assertion error branch(es) should never be taken)
+  public void validateResults() {
+    // artificial check: if every line was logged, then 'aLong' has been incremented
+    if (iterations + 1 != aLong) {
+      throw new AssertionError(String.format("Expected = %s, actual = %s", iterations + 1, aLong));
+    }
   }
 
   public abstract class JulLogger {

@@ -90,14 +90,8 @@ public class SortingAlgorithms {
         instance.DURATION / 1000,
         instance.array.length);
 
-    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.initializeArray();
-      instance.sorter.sort(instance.array);
-      instance.validateResults();
-      instance.iterations++;
-    }
+    instance.benchmark(startTime);
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
 
@@ -143,6 +137,16 @@ public class SortingAlgorithms {
     array = new int[ARRAY_SIZE];
   }
 
+  public void benchmark(long startTime) {
+    // benchmark loop: attempts to run for a specific expected duration
+    while (System.currentTimeMillis() < startTime + DURATION) {
+      initializeArray();
+      sorter.sort(array);
+      validateResults(array);
+      iterations++;
+    }
+  }
+
   private void initializeArray() {
     // the given array is sorted in descending order, this might lead (for some algorithms) to the
     // maximum number of comparisons
@@ -151,8 +155,8 @@ public class SortingAlgorithms {
     }
   }
 
-  public void validateResults() {
-    // validate the results (Note: The assertion error branch(es) should never be taken)
+  // validate the results (Note: The assertion error branch(es) should never be taken)
+  public void validateResults(int array[]) {
     for (int i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1])
         throw new AssertionError(

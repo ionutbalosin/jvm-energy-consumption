@@ -42,8 +42,9 @@ public class ThrowExceptionPatterns {
   int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
   ExceptionThrower exceptionThrower;
-  long iterations;
+  String exceptionType;
   long stackTraces;
+  long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -58,17 +59,8 @@ public class ThrowExceptionPatterns {
         instance.DURATION / 1000,
         instance.STACK_DEPTH);
 
-    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      try {
-        instance.exceptionThrower.throwException(instance.STACK_DEPTH);
-      } catch (Exception exc) {
-        instance.validateResults(args, exc);
-        instance.stackTraces += exc.getStackTrace().length;
-        instance.iterations++;
-      }
-    }
+    instance.benchmark(startTime);
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
 
@@ -98,8 +90,8 @@ public class ThrowExceptionPatterns {
   }
 
   public void initialize(String[] args) {
-    String type = args[0];
-    switch (type) {
+    exceptionType = args[0];
+    switch (exceptionType) {
       case "const":
         exceptionThrower = new ThrowConstantException();
         break;
@@ -113,28 +105,38 @@ public class ThrowExceptionPatterns {
         exceptionThrower = new ThrowNewExceptionOverrideFillInStackTrace();
         break;
       default:
-        throw new UnsupportedOperationException("Unsupported exception type: " + type);
+        throw new UnsupportedOperationException("Unsupported exception type: " + exceptionType);
     }
   }
 
-  public void validateResults(String[] args, Exception exc) {
-    String type = args[0];
-    // validate the results (Note: The assertion error branch(es) should never be taken)
-    if ("const".equals(type) && CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
+  // validate the results (Note: The assertion error branch(es) should never be taken)
+  public void validateResults(int stackTraces) {
+    if ("const".equals(exceptionType) && CONSTANT_STACK_TRACES != stackTraces) {
       throw new AssertionError(
-          String.format(
-              "Expected = %s, actual = %s", CONSTANT_STACK_TRACES, exc.getStackTrace().length));
+          String.format("Expected = %s, actual = %s", CONSTANT_STACK_TRACES, stackTraces));
     }
-    if (("lambda".equals(type) || "new".equals(type)) && STACK_DEPTH > exc.getStackTrace().length) {
+    if (("lambda".equals(exceptionType) || "new".equals(exceptionType))
+        && STACK_DEPTH > stackTraces) {
       // Note: The number of generated frames depends on the JVM, but it should (always)
-      // be greater than STACK_DEPTH (plus eventually 1/2 frames more)
+      // be greater than STACK_DEPTH (plus eventually 1 or 2 frames more)
       throw new AssertionError(
-          String.format(
-              "Expected at least = %s, actual = %s", STACK_DEPTH, exc.getStackTrace().length));
+          String.format("Expected at least = %s, actual = %s", STACK_DEPTH, stackTraces));
     }
-    if ("override_fist".equals(type) && 0 != exc.getStackTrace().length) {
-      throw new AssertionError(
-          String.format("Expected = 0, actual = %s", exc.getStackTrace().length));
+    if ("override_fist".equals(exceptionType) && 0 != stackTraces) {
+      throw new AssertionError(String.format("Expected = 0, actual = %s", stackTraces));
+    }
+  }
+
+  public void benchmark(long startTime) {
+    // benchmark loop: attempts to run for a specific expected duration
+    while (System.currentTimeMillis() < startTime + DURATION) {
+      try {
+        exceptionThrower.throwException(STACK_DEPTH);
+      } catch (Exception exc) {
+        validateResults(exc.getStackTrace().length);
+        stackTraces += exc.getStackTrace().length;
+        iterations++;
+      }
     }
   }
 

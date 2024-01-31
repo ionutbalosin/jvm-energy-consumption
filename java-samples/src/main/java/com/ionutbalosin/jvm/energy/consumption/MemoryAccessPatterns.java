@@ -63,13 +63,8 @@ public class MemoryAccessPatterns {
         "Starting %s at %tT, expected duration = %d sec.%n",
         instance.walkerStep.getClass().getName(), new Date(), instance.DURATION / 1000);
 
-    // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
-    while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      long result = instance.memoryAccess();
-      instance.validateResults(result);
-      instance.iterations++;
-    }
+    instance.benchmark(startTime);
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
 
@@ -120,6 +115,15 @@ public class MemoryAccessPatterns {
     }
   }
 
+  public void benchmark(long startTime) {
+    // benchmark loop: attempts to run for a specific expected duration
+    while (System.currentTimeMillis() < startTime + DURATION) {
+      long result = memoryAccess();
+      validateResults(result);
+      iterations++;
+    }
+  }
+
   public long memoryAccess() {
     long result = 0;
     int pos = -1;
@@ -136,8 +140,8 @@ public class MemoryAccessPatterns {
     return result;
   }
 
+  // validate the results (Note: The assertion error branch(es) should never be taken)
   public void validateResults(long result) {
-    // validate the results (Note: The assertion error branch(es) should never be taken)
     if (268435456L != result) {
       throw new AssertionError(String.format("Expected = 268435456L, actual = %s", result));
     }
