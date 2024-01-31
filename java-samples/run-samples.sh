@@ -76,11 +76,11 @@ configure_samples() {
   JAVA_OPS="--enable-preview --source 21 -Xms1m -Xmx6g"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
-    "ThrowExceptionPatterns"
-    "MemoryAccessPatterns"
     "LoggingPatterns"
+    "MemoryAccessPatterns"
     "SortingAlgorithms"
     "StringConcatenationPatterns"
+    "ThrowExceptionPatterns"
     "VirtualCalls"
     "VPThreadThroughput"
   )
@@ -114,8 +114,8 @@ configure_samples() {
     "VirtualCalls megamorphic_3"
     "VirtualCalls megamorphic_8"
 
-     "VPThreadThroughput virtual"
-     "VPThreadThroughput platform"
+    "VPThreadThroughput virtual"
+    "VPThreadThroughput platform"
   )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"
