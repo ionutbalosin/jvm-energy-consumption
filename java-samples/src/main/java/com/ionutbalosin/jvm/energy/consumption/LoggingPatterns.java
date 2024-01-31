@@ -55,7 +55,7 @@ public class LoggingPatterns {
   boolean aBoolean;
   Object anObject;
   JulLogger julLogger;
-  long operations;
+  long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -74,7 +74,7 @@ public class LoggingPatterns {
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
       instance.julLogger.log();
-      instance.operations++;
+      instance.iterations++;
     }
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
@@ -82,7 +82,7 @@ public class LoggingPatterns {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
+        elapsedTime, instance.iterations, elapsedTime / instance.iterations);
   }
 
   public static void validateArguments(String[] args) {

@@ -75,7 +75,7 @@ public class SortingAlgorithms {
 
   Sorter sorter;
   int[] array;
-  long operations;
+  long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -93,10 +93,10 @@ public class SortingAlgorithms {
     // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.initialize();
+      instance.initializeArray();
       instance.sorter.sort(instance.array);
       instance.validateResults();
-      instance.operations++;
+      instance.iterations++;
     }
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
@@ -104,7 +104,7 @@ public class SortingAlgorithms {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
+        elapsedTime, instance.iterations, elapsedTime / instance.iterations);
   }
 
   public static void validateArguments(String[] args) {
@@ -143,7 +143,7 @@ public class SortingAlgorithms {
     array = new int[ARRAY_SIZE];
   }
 
-  private void initialize() {
+  private void initializeArray() {
     // the given array is sorted in descending order, this might lead (for some algorithms) to the
     // maximum number of comparisons
     for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -152,7 +152,7 @@ public class SortingAlgorithms {
   }
 
   public void validateResults() {
-    // validate the results (note: the assertion error branch(es) should never be taken)
+    // validate the results (Note: The assertion error branch(es) should never be taken)
     for (int i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1])
         throw new AssertionError(

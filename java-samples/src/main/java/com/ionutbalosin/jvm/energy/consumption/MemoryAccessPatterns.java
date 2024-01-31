@@ -51,7 +51,7 @@ public class MemoryAccessPatterns {
 
   WalkerStep walkerStep;
   long[] array;
-  long operations;
+  long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -68,7 +68,7 @@ public class MemoryAccessPatterns {
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
       long result = instance.memoryAccess();
       instance.validateResults(result);
-      instance.operations++;
+      instance.iterations++;
     }
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
@@ -76,7 +76,7 @@ public class MemoryAccessPatterns {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
+        elapsedTime, instance.iterations, elapsedTime / instance.iterations);
   }
 
   public static void validateArguments(String[] args) {
@@ -137,9 +137,9 @@ public class MemoryAccessPatterns {
   }
 
   public void validateResults(long result) {
-    // validate the results (note: the assertion error branch(es) should never be taken)
+    // validate the results (Note: The assertion error branch(es) should never be taken)
     if (268435456L != result) {
-      throw new AssertionError(String.format("Expected = 268435456L, found = %s", result));
+      throw new AssertionError(String.format("Expected = 268435456L, actual = %s", result));
     }
   }
 

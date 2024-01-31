@@ -42,7 +42,7 @@ public class VirtualCalls {
   int ARRAY_SIZE = 9_600;
   CMath[] array;
   int targetTypes;
-  long operations;
+  long iterations;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -57,9 +57,8 @@ public class VirtualCalls {
     // benchmark loop: attempts to run for a specific expected duration
     long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
-      instance.virtual_calls();
-      instance.validate_results(instance.operations);
-      instance.operations++;
+      instance.virtualCalls();
+      instance.validateResults(instance.iterations++);
     }
     long endTime = System.currentTimeMillis();
     double elapsedTime = (double) (endTime - startTime) / 1000;
@@ -67,7 +66,7 @@ public class VirtualCalls {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations);
+        elapsedTime, instance.iterations, elapsedTime / instance.iterations);
   }
 
   public static void validateArguments(String[] args) {
@@ -123,18 +122,18 @@ public class VirtualCalls {
     }
   }
 
-  public void virtual_calls() {
+  public void virtualCalls() {
     for (CMath instance : array) {
       instance.compute();
     }
   }
 
-  public void validate_results(long counter) {
-    // validate the results (note: the assertion error branch(es) should never be taken)
+  public void validateResults(long counter) {
+    // validate the results (Note: The assertion error branch(es) should never be taken)
     if ((counter + 1) * targetTypes != array[targetTypes - 1].total) {
       throw new AssertionError(
           String.format(
-              "Expected = %s, found = %s",
+              "Expected = %s, actual = %s",
               (counter + 1) * targetTypes, array[targetTypes - 1].total));
     }
   }

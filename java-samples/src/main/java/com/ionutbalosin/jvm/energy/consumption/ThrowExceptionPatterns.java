@@ -42,7 +42,8 @@ public class ThrowExceptionPatterns {
   int CONSTANT_STACK_TRACES = CONSTANT_EXCEPTION.getStackTrace().length;
 
   ExceptionThrower exceptionThrower;
-  long operations;
+  long iterations;
+  long stackTraces;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -58,14 +59,14 @@ public class ThrowExceptionPatterns {
         instance.STACK_DEPTH);
 
     // benchmark loop: attempts to run for a specific expected duration
-    long result = 0, startTime = System.currentTimeMillis();
+    long startTime = System.currentTimeMillis();
     while (System.currentTimeMillis() < startTime + instance.DURATION) {
       try {
-        instance.exceptionThrower.throw_exception(instance.STACK_DEPTH);
+        instance.exceptionThrower.throwException(instance.STACK_DEPTH);
       } catch (Exception exc) {
-        instance.validate_results(args, exc);
-        result += exc.getStackTrace().length;
-        instance.operations++;
+        instance.validateResults(args, exc);
+        instance.stackTraces += exc.getStackTrace().length;
+        instance.iterations++;
       }
     }
     long endTime = System.currentTimeMillis();
@@ -74,7 +75,7 @@ public class ThrowExceptionPatterns {
     System.out.printf("Successfully finished at %tT%n", new Date());
     System.out.printf(
         "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f, stack trace elements = %d%n",
-        elapsedTime, instance.operations, elapsedTime / instance.operations, result);
+        elapsedTime, instance.iterations, elapsedTime / instance.iterations, instance.stackTraces);
   }
 
   public static void validateArguments(String[] args) {
@@ -116,64 +117,64 @@ public class ThrowExceptionPatterns {
     }
   }
 
-  public void validate_results(String[] args, Exception exc) {
-    // validate the results (note: the assertion error branch(es) should never be taken)
-    if ("const".equals(args[0]) && CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
+  public void validateResults(String[] args, Exception exc) {
+    String type = args[0];
+    // validate the results (Note: The assertion error branch(es) should never be taken)
+    if ("const".equals(type) && CONSTANT_STACK_TRACES != exc.getStackTrace().length) {
       throw new AssertionError(
           String.format(
-              "Expected = %s, found = %s", CONSTANT_STACK_TRACES, exc.getStackTrace().length));
+              "Expected = %s, actual = %s", CONSTANT_STACK_TRACES, exc.getStackTrace().length));
     }
-    if (("lambda".equals(args[0]) || "new".equals(args[0]))
-        && STACK_DEPTH > exc.getStackTrace().length) {
-      // Note: it depends on the JVM, but the number of generated frames should be (always)
-      // greater than STACK_DEPTH (+ eventually 1/2 frames more)
+    if (("lambda".equals(type) || "new".equals(type)) && STACK_DEPTH > exc.getStackTrace().length) {
+      // Note: The number of generated frames depends on the JVM, but it should (always)
+      // be greater than STACK_DEPTH (plus eventually 1/2 frames more)
       throw new AssertionError(
           String.format(
-              "Expected at least = %s, found = %s", STACK_DEPTH, exc.getStackTrace().length));
+              "Expected at least = %s, actual = %s", STACK_DEPTH, exc.getStackTrace().length));
     }
-    if ("override_fist".equals(args[0]) && 0 != exc.getStackTrace().length) {
+    if ("override_fist".equals(type) && 0 != exc.getStackTrace().length) {
       throw new AssertionError(
-          String.format("Expected = 0, found = %s", exc.getStackTrace().length));
+          String.format("Expected = 0, actual = %s", exc.getStackTrace().length));
     }
   }
 
   public abstract class ExceptionThrower {
-    public abstract void throw_exception(int depth);
+    public abstract void throwException(int depth);
   }
 
   public class ThrowConstantException extends ExceptionThrower {
     @Override
-    public void throw_exception(int depth) {
+    public void throwException(int depth) {
       if (depth == 0) {
         throw CONSTANT_EXCEPTION;
       }
-      throw_exception(depth - 1);
+      throwException(depth - 1);
     }
   }
 
   public class ThrowLambdaException extends ExceptionThrower {
     @Override
-    public void throw_exception(int depth) {
+    public void throwException(int depth) {
       if (depth == 0) {
         throw LAMBDA_PROVIDER_EXCEPTION.get();
       }
-      throw_exception(depth - 1);
+      throwException(depth - 1);
     }
   }
 
   public class ThrowNewException extends ExceptionThrower {
     @Override
-    public void throw_exception(int depth) {
+    public void throwException(int depth) {
       if (depth == 0) {
         throw new RuntimeException();
       }
-      throw_exception(depth - 1);
+      throwException(depth - 1);
     }
   }
 
   public class ThrowNewExceptionOverrideFillInStackTrace extends ExceptionThrower {
     @Override
-    public void throw_exception(int depth) {
+    public void throwException(int depth) {
       if (depth == 0) {
         throw new RuntimeException() {
           @Override
@@ -182,7 +183,7 @@ public class ThrowExceptionPatterns {
           }
         };
       }
-      throw_exception(depth - 1);
+      throwException(depth - 1);
     }
   }
 }
