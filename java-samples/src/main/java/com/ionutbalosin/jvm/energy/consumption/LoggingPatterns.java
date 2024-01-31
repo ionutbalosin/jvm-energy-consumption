@@ -88,13 +88,11 @@ public class LoggingPatterns {
           Usage: LoggingPatterns <log_type>
 
           Options:
-            <log_type> - must be one of {lambda_heap, lambda_local,
-                                         guarded_parametrized, guarded_unparametrized,
+            <log_type> - must be one of {lambda, guarded_parametrized, guarded_unparametrized,
                                          unguarded_parametrized, unguarded_unparametrized}
 
           Examples:
-            LoggingPatterns lambda_heap
-            LoggingPatterns lambda_local
+            LoggingPatterns lambda
             LoggingPatterns guarded_parametrized
             LoggingPatterns guarded_unparametrized
             LoggingPatterns unguarded_parametrized
@@ -107,11 +105,8 @@ public class LoggingPatterns {
   public void initialize(String[] args) {
     String type = args[0];
     switch (type) {
-      case "lambda_heap":
+      case "lambda":
         julLogger = new LambdaHeapLogger();
-        break;
-      case "lambda_local":
-        julLogger = new LambdaLocalLogger();
         break;
       case "guarded_parametrized":
         julLogger = new GuardedParametrizedLogger();
@@ -156,11 +151,11 @@ public class LoggingPatterns {
 
     Random random = new Random(16384);
     aString = System.getProperty("java.home");
-    anInt = 1;
-    aFloat = 1F;
-    aChar = (char) (random.nextInt(26) + 'a');
-    aLong = 1L;
-    aDouble = 1D;
+    anInt = 0;
+    aFloat = 0F;
+    aChar = '\u0000';
+    aLong = 0L;
+    aDouble = 0D;
     aBoolean = random.nextBoolean();
     anObject = new Object();
   }
@@ -176,7 +171,7 @@ public class LoggingPatterns {
 
   // validate the results (Note: The assertion error branch(es) should never be taken)
   public void validateResults() {
-    // artificial check: if every line was logged, then 'aLong' has been incremented
+    // verification check: if every line was logged, then 'aLong' has been incremented
     if (iterations + 1 != aLong) {
       throw new AssertionError(String.format("Expected = %s, actual = %s", iterations + 1, aLong));
     }
@@ -194,40 +189,6 @@ public class LoggingPatterns {
           () ->
               ("[" + aString + "], [" + anInt++ + "], [" + aFloat++ + "], [" + aChar++ + "], ["
                   + aLong++ + "]" + "], [" + aDouble++ + "], [" + aBoolean + "], [" + anObject
-                  + "]"));
-    }
-  }
-
-  public class LambdaLocalLogger extends JulLogger {
-    @Override
-    public void log() {
-      String localString = aString;
-      int localInt = anInt++;
-      float localFloat = aFloat++;
-      char localChar = aChar++;
-      long localLong = aLong++;
-      double localDouble = aDouble++;
-      boolean localBoolean = aBoolean;
-      Object localObject = anObject;
-      LOGGER.log(
-          LOG_LEVEL,
-          () ->
-              ("["
-                  + localString
-                  + "], ["
-                  + localInt
-                  + "], ["
-                  + localFloat
-                  + "], ["
-                  + localChar
-                  + "], ["
-                  + localLong
-                  + "], ["
-                  + localDouble
-                  + "], ["
-                  + localBoolean
-                  + "], ["
-                  + localObject
                   + "]"));
     }
   }

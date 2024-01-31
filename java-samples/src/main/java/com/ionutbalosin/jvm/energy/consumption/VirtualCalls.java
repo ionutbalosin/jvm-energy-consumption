@@ -100,6 +100,14 @@ public class VirtualCalls {
           array[i + 1] = new Alg2(2);
         }
         break;
+      case "megamorphic_3":
+        targetTypes = 3;
+        for (int i = 0; i < ARRAY_SIZE; i += 3) {
+          array[i] = new Alg1(1);
+          array[i + 1] = new Alg2(2);
+          array[i + 2] = new Alg3(3);
+        }
+        break;
       case "megamorphic_8":
         targetTypes = 8;
         for (int i = 0; i < ARRAY_SIZE; i += 8) {

@@ -84,8 +84,7 @@ configure_samples() {
   )
   # Defines the list of all Java sample apps including their running types (i.e., parameters)
   SAMPLE_APPS_WITH_RUN_TYPES=(
-    "LoggingPatterns lambda_heap"
-    "LoggingPatterns lambda_local"
+    "LoggingPatterns lambda"
     "LoggingPatterns guarded_parametrized"
     "LoggingPatterns guarded_unparametrized"
     "LoggingPatterns unguarded_parametrized"
@@ -106,6 +105,7 @@ configure_samples() {
 
     "VirtualCalls monomorphic"
     "VirtualCalls bimorphic"
+    "VirtualCalls megamorphic_3"
     "VirtualCalls megamorphic_8"
   )
 
