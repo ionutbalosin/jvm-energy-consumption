@@ -92,11 +92,11 @@ To properly run the scripts, you need to download, install, and properly configu
 
  OS        | Covered | Tools                               
 -----------|---------|-------------------------------------
- GNU/Linux | Yes     | RAPL interface, `perf`, `powerstat` 
- macOS     | Yes     | `powermetrics`                      
+ GNU/Linux | Yes     | `ps`, `powerstat` (i.e., RAPL interface) 
+ macOS     | Yes     | `ps`, `powermetrics`                      
  Windows   | No      | N/A                                 
 
-_Please make sure you have `sudo root` access._
+_Please ensure that you have `sudo` (root) access; otherwise, the `powerstat` and `powermetrics` commands cannot be executed._
 
 ### Java Development Kit (JDK)
 
@@ -148,7 +148,7 @@ This set of measurements captures the idle power consumption, and it is used to 
 
 ```
 $ cd /baseline-idle-os
-$ sudo ./run-baseline.sh
+$ ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]
 ```
 
 ### Java Samples
@@ -163,7 +163,7 @@ This set of measurements relies on specific code patterns to identify what is th
 
 ```
 $ cd /java-samples
-$ sudo ./run-samples.sh
+$ ./run-samples.sh --run-identifier=<run-identifier> [--duration=<duration>] [--skip-build]
 ```
 
 ### Spring PetClinic Application
@@ -178,7 +178,7 @@ This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 ```
 $ cd /spring-petclinic
-$ sudo ./run-application.sh
+$ ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]
 ```
 
 6. After the application has successfully started, launch the Hyperfoil on the **system client test**:
@@ -200,21 +200,21 @@ This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache qu
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ sudo ./run-postgresql.sh
+$ ./run-postgresql.sh
 ```
 
 6. After the PostgreSQL database has successfully started, launch the JVM application on the **system under test**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ sudo ./run-application.sh
+$ ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]
 ```
 
 7. After the application has successfully started, launch the Hyperfoil on the **system client test**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ sudo ./run-hyperfoil.sh
+$ ./run-hyperfoil.sh
 ```
 
 ### Generate the plots
