@@ -74,7 +74,8 @@ check_command_line_options() {
 configure_application() {
   CURR_DIR=$(pwd)
   APP_HOME="$SPRING_PETCLINIC_HOME"
-  APP_BASE_URL=localhost:8080
+  APP_PORT=8080
+  APP_BASE_URL="localhost:$APP_PORT"
   JAVA_OPS="-Xms1m -Xmx1g"
   # JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.jfr"
 
@@ -113,6 +114,13 @@ build_application() {
   eval "$app_build_command"
   if [ $? -ne 0 ]; then
     echo "ERROR: Build failed for application. Check $build_output_file for details."
+    return 1
+  fi
+}
+
+check_application_port() {
+  if lsof -i :$APP_PORT >/dev/null 2>&1 ; then
+    echo "ERROR: There is already an application running on port $APP_PORT. Please stop it before running another one on the same port."
     return 1
   fi
 }
@@ -221,6 +229,7 @@ echo ""
 echo "+==============================+"
 echo "| [8/10] Start the application |"
 echo "+==============================+"
+check_application_port || { stop_power_consumption && exit 1; }
 start_application || { stop_power_consumption && exit 1; }
 time_to_first_response || { stop_power_consumption && exit 1; }
 
