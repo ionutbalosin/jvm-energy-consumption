@@ -73,9 +73,6 @@ configure_baseline() {
   echo "Run identifier(s): ${APP_RUN_IDENTIFIERS[@]}"
   echo "Idle OS baseline running time: $APP_RUNNING_TIME sec"
   echo "Output folder: $OUTPUT_FOLDER"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
@@ -114,10 +111,10 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   RUN_IDENTIFIER="$app_run_identifier"
 
   echo ""
-  echo "+=====================================================+"
-  echo "| [4/4][$iteration/$loop_counter] Start the power consumption measurements |"
-  echo "+=====================================================+"
-  . ../scripts/shell/power-consumption-os-"$OS".sh
+  echo "+============================================================+"
+  echo "| [4/4][$iteration/$loop_counter] Start the system power consumption measurements |"
+  echo "+============================================================+"
+  . ../scripts/shell/system-power-consumption-os-"$OS".sh
   power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$RUN_IDENTIFIER.txt"
   start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 

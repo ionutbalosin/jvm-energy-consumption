@@ -62,8 +62,6 @@ set_environment_variables() {
   export OUTPUT_FOLDER=results/jdk-$JDK_VERSION/$ARCH/$OS
 
   echo "Output folder: $OUTPUT_FOLDER"
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 check_folder_exists() {

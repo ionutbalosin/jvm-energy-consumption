@@ -56,9 +56,6 @@ configure_hyperfoil() {
   echo ""
   echo "Hyperfoil home: $HYPERFOIL_HOME"
   echo "Test run identifier: $TEST_RUN_IDENTIFIER"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_folders() {

@@ -124,9 +124,6 @@ configure_samples() {
   echo "Java samples time: $APP_RUNNING_TIME sec"
   read -ra APP_RUN_IDENTIFIERS <<< "$(tr ',' ' ' <<< "$APP_RUN_IDENTIFIER")"
   echo "Run identifier(s): ${APP_RUN_IDENTIFIERS[@]}"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
@@ -246,8 +243,8 @@ configure_samples
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
-# source the power consumption scripts
-. ../scripts/shell/power-consumption-os-$OS.sh
+# source the system power consumption scripts
+. ../scripts/shell/system-power-consumption-os-$OS.sh
 
 app_run_counter=1
 app_run_limit="${#APP_RUN_IDENTIFIERS[@]}"

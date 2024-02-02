@@ -86,15 +86,12 @@ configure_application() {
   echo "Application skip build: $APP_SKIP_BUILD"
   echo "Java opts: $JAVA_OPS"
   echo "JFR opts: $JFR_OPS"
-
-  echo ""
-  read -r -p "If the above configuration is correct, press ENTER to continue or CRTL+C to abort ... "
 }
 
 create_output_resources() {
   mkdir -p "$OUTPUT_FOLDER/log"
   mkdir -p "$OUTPUT_FOLDER/power"
-  mkdir -p "$OUTPUT_FOLDER/perfmon"
+  mkdir -p "$OUTPUT_FOLDER/perf"
   mkdir -p "$OUTPUT_FOLDER/jfr"
 }
 
@@ -218,10 +215,10 @@ else
 fi
 
 echo ""
-echo "+=================================================+"
-echo "| [7/10] Start the power consumption measurements |"
-echo "+=================================================+"
-. ../../scripts/shell/power-consumption-os-$OS.sh
+echo "+========================================================+"
+echo "| [7/10] Start the system power consumption measurements |"
+echo "+========================================================+"
+. ../../scripts/shell/system-power-consumption-os-$OS.sh
 power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
 start_power_consumption --background --output-file="$power_output_file" || exit 1
 
@@ -242,7 +239,7 @@ echo "+=================================================+"
 echo "| [8/10] Start the process performance monitoring |"
 echo "+=================================================+"
 . ../../scripts/shell/process-performance-monitoring-os-$OS.sh
-performance_monitoring_output_file="$OUTPUT_FOLDER/perfmon/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
+performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
 start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || exit 1
 
 # wait for the application to run for specified duration
@@ -265,9 +262,9 @@ kill -TERM "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 echo ""
-echo "+=================================================+"
-echo "| [10/10] Stop the power consumption measurements |"
-echo "+=================================================+"
+echo "+========================================================+"
+echo "| [10/10] Stop the system power consumption measurements |"
+echo "+========================================================+"
 stop_power_consumption
 
 # give a bit of time to the process to gracefully shut down

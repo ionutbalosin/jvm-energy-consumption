@@ -34,20 +34,20 @@ check_and_configure_power_consumption_options() {
   fi
 
   if [[ $# -lt 1 || $# -gt 3 ]]; then
-    echo "Usage: ./power-consumption-os-linux.sh --output-file=<output-file> [--duration=<duration>] [--background]"
+    echo "Usage: ./system-power-consumption-os-mac.sh --output-file=<output-file> [--duration=<duration>] [--background]"
     echo ""
     echo "Options:"
     echo "  --output-file=<output-file>  A mandatory parameter to specify the output file name."
-    echo "  --duration=<duration>        An optional parameter to specify the duration in seconds. If specified, it needs to be greater than 60 seconds. This is a restriction of the 'powerstat' command."
+    echo "  --duration=<duration>        An optional parameter to specify the duration in seconds."
     echo "  --background                 An optional parameter to specify if the command runs in the background (i.e., asynchronous) or not."
     echo ""
     echo "Note: If the duration is not specified, the command will run for 86400 seconds (i.e., 24 hours) or until interrupted."
     echo "      If --background is specified, the command will run in the background, and the shell prompt is immediately returned; otherwise, it will run in the foreground."
     echo ""
     echo "Examples:"
-    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt"
-    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt --duration=900"
-    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt --duration=900 --background"
+    echo "  ./system-power-consumption-os-mac.sh --output-file=power-consumption.txt"
+    echo "  ./system-power-consumption-os-mac.sh --output-file=power-consumption.txt --duration=900"
+    echo "  ./system-power-consumption-os-mac.sh --output-file=power-consumption.txt --duration=900 --background"
     echo ""
     return 1
   fi
@@ -58,14 +58,14 @@ check_and_configure_power_consumption_options() {
 
   while [ $# -gt 0 ]; do
     case "$1" in
-      --background)
-        POWER_CONSUMPTION_BACKGROUND_MODE="&"
+      --output-file=*)
+        POWER_CONSUMPTION_OUTPUT_FILE="${1#*=}"
         ;;
       --duration=*)
         POWER_CONSUMPTION_RUNNING_TIME="${1#*=}"
         ;;
-      --output-file=*)
-        POWER_CONSUMPTION_OUTPUT_FILE="${1#*=}"
+      --background)
+        POWER_CONSUMPTION_BACKGROUND_MODE="&"
         ;;
       *)
         echo "ERROR: Unknown parameter: $1"
@@ -87,15 +87,18 @@ check_and_configure_power_consumption_options() {
 }
 
 start_power_consumption_measurements() {
-  power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} \
-    > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
+  power_command="sudo powermetrics -i 1000 \
+      -n ${POWER_CONSUMPTION_RUNNING_TIME} -a ${POWER_CONSUMPTION_RUNNING_TIME} \
+      --samplers cpu_power,gpu_power,thermal,battery,network,disk | \
+      grep -E \"Sampled system activity|CPU Power|GPU Power|ANE Power|Combined Power|package power|Current pressure level|in:|out:|read:|write:|Battery:\" \
+      > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
 
   # This only returns with an error if the command itself failed to execute (e.g., it does not exist)
   # Note: Any errors encountered by the command while running in background mode will not be captured by this exit status
   if [ $? -ne 0 ]; then
-    echo "ERROR: Power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
+    echo "ERROR: System power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
     return 1
   fi
 
@@ -106,29 +109,29 @@ start_power_consumption_measurements() {
 }
 
 check_power_consumption_measurements() {
-  # 1. In case of background (i.e., asynchronous) mode, check if the power consumption measurements successfully started
+  # 1. In case of background (i.e., asynchronous) mode, check if the system power consumption measurements successfully started
   if [[ "$POWER_CONSUMPTION_BACKGROUND_MODE" == "&" ]]; then
     # Sleep for a short duration to allow the asynchronous process to start
     sleep 3
 
     # Check if the asynchronous process is still running
     if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
-      echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID started successfully and will run in background."
+      echo "System power consumption measurements with PID $POWER_CONSUMPTION_PID started successfully and will run in background."
     else
-      echo "ERROR: Power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
+      echo "ERROR: System power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
       return 1
     fi
 
   # 2. Otherwise (i.e., in blocking mode), the command has already been executed synchronously, and now display the termination message
   else
-    echo "Power consumption measurements successfully finished at $(date)."
+    echo "System power consumption measurements successfully finished at $(date)."
   fi
 }
 
 start_power_consumption() {
-  # Power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second
+  # System power consumption measurements utilize the 'powermetrics' command to record the machine's overall energy consumption every second
   # throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated.
-  echo "Starting power consumption measurements at: $(date) ..."
+  echo "Starting system power consumption measurements at: $(date) ..."
 
   check_and_configure_power_consumption_options "$@" || return 1
   start_power_consumption_measurements || return 1
@@ -137,8 +140,8 @@ start_power_consumption() {
 
 stop_power_consumption() {
   if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
-    echo "Stopping the power consumption measurements with PID $POWER_CONSUMPTION_PID."
+    echo "Stopping the system power consumption measurements with PID $POWER_CONSUMPTION_PID."
     sudo kill -s INT "$POWER_CONSUMPTION_PID"
-    echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
+    echo "System power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
   fi
 }
