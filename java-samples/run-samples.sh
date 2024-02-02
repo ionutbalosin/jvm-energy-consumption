@@ -227,6 +227,7 @@ echo "| [3/7] OS Configuration |"
 echo "+========================+"
 . ../scripts/shell/configure-os.sh || exit 1
 . ../scripts/shell/configure-os-"$OS".sh
+. ../scripts/shell/system-power-consumption-os-$OS.sh
 
 echo ""
 echo "+=========================+"
@@ -242,9 +243,6 @@ configure_samples
 
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
-
-# source the system power consumption scripts
-. ../scripts/shell/system-power-consumption-os-$OS.sh
 
 app_run_counter=1
 app_run_limit="${#APP_RUN_IDENTIFIERS[@]}"

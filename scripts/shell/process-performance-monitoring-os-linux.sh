@@ -95,7 +95,7 @@ start_process_performance_monitoring_measurements() {
         SHOW_HEADERS="--no-headers"
       fi
 
-      ps -p "$PERFORMANCE_MONITOR_TARGET_PID" -o pid,etime,cputime,pcpu,pmem,rss,vsz,pss,user,comm,s "$SHOW_HEADERS" >> "$PERFORMANCE_MONITOR_OUTPUT_FILE"
+      ps -p "$PERFORMANCE_MONITOR_TARGET_PID" -o pid,pcpu,pmem,rss,vsz,pss,state,rbytes,wbytes,etime,cputime,user,comm $SHOW_HEADERS >> "$PERFORMANCE_MONITOR_OUTPUT_FILE"
       sleep 1
     done
     

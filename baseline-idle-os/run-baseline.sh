@@ -95,6 +95,7 @@ echo "+========================+"
 echo "| [2/4] OS Configuration |"
 echo "+========================+"
 . ../scripts/shell/configure-os.sh || exit 1
+. ../scripts/shell/system-power-consumption-os-"$OS".sh
 
 echo ""
 echo "+======================================+"
@@ -114,7 +115,6 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   echo "+============================================================+"
   echo "| [4/4][$iteration/$loop_counter] Start the system power consumption measurements |"
   echo "+============================================================+"
-  . ../scripts/shell/system-power-consumption-os-"$OS".sh
   power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$RUN_IDENTIFIER.txt"
   start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 
