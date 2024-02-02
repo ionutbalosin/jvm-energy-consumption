@@ -26,21 +26,28 @@
 #
 
 check_and_configure_power_consumption_options() {
-  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 3) ]]; then
-    echo "Usage: start_power_consumption [--background] [--duration=<duration>] --output-file=<output-file>"
+  # Simulate a harmless command that requires sudo
+  # Note: sudo is needed to further run this script
+  if ! sudo true; then
+    echo "ERROR: Invalid sudo password. Unable to continue."
+    exit 1
+  fi
+
+  if [[ $# -lt 1 || $# -gt 3 ]]; then
+    echo "Usage: ./power-consumption-os-linux.sh --output-file=<output-file> [--duration=<duration>] [--background]"
     echo ""
     echo "Options:"
-    echo "  --background           An optional parameter to specify if the command runs in the background (i.e., asynchronous) or not."
-    echo "  --duration=<duration>  An optional parameter to specify the duration in seconds. If specified, it needs to be greater than 60 seconds. This is a restriction of the 'powerstat' command."
-    echo "  --output-file=<file>   A mandatory parameter to specify the output file name."
+    echo "  --output-file=<output-file>  A mandatory parameter to specify the output file name."
+    echo "  --duration=<duration>        An optional parameter to specify the duration in seconds. If specified, it needs to be greater than 60 seconds. This is a restriction of the 'powerstat' command."
+    echo "  --background                 An optional parameter to specify if the command runs in the background (i.e., asynchronous) or not."
     echo ""
     echo "Note: If the duration is not specified, the command will run for 86400 seconds (i.e., 24 hours) or until interrupted."
     echo "      If --background is specified, the command will run in the background, and the shell prompt is immediately returned; otherwise, it will run in the foreground."
     echo ""
     echo "Examples:"
-    echo "  start_power_consumption --background --duration=900 --output-file=power-consumption.stats"
-    echo "  start_power_consumption --output-file=power-consumption.stats"
-    echo "  start_power_consumption --background --output-file=power-consumption.stats"
+    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt"
+    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt --duration=900"
+    echo "  ./power-consumption-os-linux.sh --output-file=power-consumption.txt --duration=900 --background"
     echo ""
     return 1
   fi
@@ -88,7 +95,7 @@ start_power_consumption_measurements() {
   # This only returns with an error if the command itself failed to execute (e.g., it does not exist)
   # Note: Any errors encountered by the command while running in background mode will not be captured by this exit status
   if [ $? -ne 0 ]; then
-    echo "ERROR: Power consumption measurements failed. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
+    echo "ERROR: Power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
     return 1
   fi
 
@@ -104,11 +111,11 @@ check_power_consumption_measurements() {
     # Sleep for a short duration to allow the asynchronous process to start
     sleep 3
 
-    # Check if the process is running
+    # Check if the asynchronous process is still running
     if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
       echo "Power consumption measurements with PID $POWER_CONSUMPTION_PID started successfully and will run in background."
     else
-      echo "ERROR: Power consumption measurements failed. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
+      echo "ERROR: Power consumption measurements failed to be started. Check $POWER_CONSUMPTION_OUTPUT_FILE for details."
       return 1
     fi
 

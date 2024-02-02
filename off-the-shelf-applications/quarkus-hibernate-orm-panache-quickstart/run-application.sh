@@ -26,8 +26,8 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 3) ]]; then
-    echo "Usage: sudo ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 3 ]]; then
+    echo "Usage: ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
@@ -35,9 +35,9 @@ check_command_line_options() {
     echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-application.sh --test-run-identifier=1"
-    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600"
-    echo "   $ sudo ./run-application.sh --test-run-identifier=1 --duration=3600 --skip-build"
+    echo "   $ ./run-application.sh --test-run-identifier=1"
+    echo "   $ ./run-application.sh --test-run-identifier=1 --duration=3600"
+    echo "   $ ./run-application.sh --test-run-identifier=1 --duration=3600 --skip-build"
     echo ""
     return 1
   fi
@@ -48,14 +48,14 @@ check_command_line_options() {
 
   while [ $# -gt 0 ]; do
     case "$1" in
-      --skip-build)
-        APP_SKIP_BUILD="--skip-build"
+      --test-run-identifier=*)
+        TEST_RUN_IDENTIFIER="${1#*=}"
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
         ;;
-      --test-run-identifier=*)
-        TEST_RUN_IDENTIFIER="${1#*=}"
+      --skip-build)
+        APP_SKIP_BUILD="--skip-build"
         ;;
       *)
         echo "ERROR: Unknown parameter: $1"
@@ -88,15 +88,14 @@ configure_application() {
 }
 
 create_output_resources() {
-  mkdir -p "$OUTPUT_FOLDER/perf"
-  mkdir -p "$OUTPUT_FOLDER/logs"
+  mkdir -p "$OUTPUT_FOLDER/log"
   mkdir -p "$OUTPUT_FOLDER/power"
+  mkdir -p "$OUTPUT_FOLDER/perfmon"
+  mkdir -p "$OUTPUT_FOLDER/jfr"
 }
 
 build_application() {
-  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
-  stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER"
-  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
@@ -104,10 +103,11 @@ build_application() {
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
   fi
 
+  app_build_command="$BUILD_CMD > $build_output_file 2>&1"
   echo "Building application at: $(date) ... "
-  echo "$PREFIX_COMMAND $BUILD_CMD"
+  echo "$app_build_command"
 
-  eval "$PREFIX_COMMAND $BUILD_CMD" > "$build_output_file" 2>&1
+  eval "$app_build_command"
   if [ $? -ne 0 ]; then
     echo "ERROR: Build failed for application. Check $build_output_file for details."
     return 1
@@ -115,9 +115,7 @@ build_application() {
 }
 
 start_application() {
-  run_output_file="$OUTPUT_FOLDER/logs/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
-  stats_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER"
-  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
+  run_output_file="$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
@@ -125,11 +123,11 @@ start_application() {
     RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
   fi
 
+  app_run_command="$RUN_CMD > $run_output_file 2>&1 &"
   echo "Running application at: $(date) ... "
-  echo "$PREFIX_COMMAND $RUN_CMD"
-  echo ""
+  echo "$app_run_command"
 
-  eval "$PREFIX_COMMAND $RUN_CMD" > "$run_output_file" 2>&1 &
+  eval "$app_run_command"
   APP_PID=$!
 
   # Sleep for a short duration to allow the asynchronous process to start
@@ -213,7 +211,7 @@ echo "+=================================================+"
 echo "| [7/10] Start the power consumption measurements |"
 echo "+=================================================+"
 . ../../scripts/shell/power-consumption-os-$OS.sh
-power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.stats"
+power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
 start_power_consumption --background --output-file="$power_output_file" || exit 1
 
 echo ""
@@ -223,18 +221,35 @@ echo "+==============================+"
 start_application || { stop_power_consumption && exit 1; }
 time_to_first_response || { stop_power_consumption && exit 1; }
 
-# reset the terminal line settings, otherwise it gets a wired indentation
+# reset the terminal line settings, otherwise (sometimes) it gets a wired indentation
 stty sane
+echo "Application with PID $APP_PID successfully started at $(date)."
 
-echo "Application with PID $APP_PID successfully started at $(date). It will be running for approximately $APP_RUNNING_TIME seconds."
+echo ""
+echo "+=================================================+"
+echo "| [8/10] Start the process performance monitoring |"
+echo "+=================================================+"
+. ../../scripts/shell/process-performance-monitoring-os-$OS.sh
+performance_monitoring_output_file="$OUTPUT_FOLDER/perfmon/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
+start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || exit 1
+
+# wait for the application to run for specified duration
+echo ""
+echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds..."
 sleep "$APP_RUNNING_TIME"
+
+echo ""
+echo "+================================================+"
+echo "| [9/10] Stop the process performance monitoring |"
+echo "+================================================+"
+stop_process_performance_monitoring
 
 echo ""
 echo "+=============================+"
 echo "| [9/10] Stop the application |"
 echo "+=============================+"
 echo "Stopping the application with PID $APP_PID."
-sudo pkill -TERM -P "$APP_PID"
+kill -TERM "$APP_PID"
 echo "Application with PID $APP_PID successfully stopped at $(date)."
 
 echo ""

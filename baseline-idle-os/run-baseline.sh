@@ -26,17 +26,17 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
-    echo "Usage: sudo ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]"
+  if [[ $# -lt 1 || $# -gt 2 ]]; then
+    echo "Usage: ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 1800 seconds."
     echo ""
     echo "Examples:"
-    echo "   $ sudo ./run-baseline.sh --run-identifier=1"
-    echo "   $ sudo ./run-baseline.sh --run-identifier=1,2"
-    echo "   $ sudo ./run-baseline.sh --run-identifier=1,2,3 --duration=3600"
+    echo "   $ ./run-baseline.sh --run-identifier=1"
+    echo "   $ ./run-baseline.sh --run-identifier=1,2"
+    echo "   $ ./run-baseline.sh --run-identifier=1,2,3 --duration=3600"
     echo ""
     return 1
   fi
@@ -118,7 +118,7 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   echo "| [4/4][$iteration/$loop_counter] Start the power consumption measurements |"
   echo "+=====================================================+"
   . ../scripts/shell/power-consumption-os-"$OS".sh
-  power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$RUN_IDENTIFIER.stats"
+  power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$RUN_IDENTIFIER.txt"
   start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 
   ((iteration++))

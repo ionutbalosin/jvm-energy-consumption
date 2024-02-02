@@ -26,8 +26,8 @@
 #
 
 check_command_line_options() {
-  if [[ $EUID -ne 0 || ($# -lt 1 || $# -gt 2) ]]; then
-    echo "Usage: sudo ./run-samples.sh --run-identifier=<run-identifier> [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 3 ]]; then
+    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
@@ -35,9 +35,9 @@ check_command_line_options() {
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "  $ sudo ./run-samples.sh --run-identifier=1"
-    echo "  $ sudo ./run-samples.sh --run-identifier=1,2 --duration=3600"
-    echo "  $ sudo ./run-samples.sh --run-identifier=1,2,3  --duration=3600 --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=1"
+    echo "  $ ./run-samples.sh --run-identifier=1,2 --duration=3600"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3  --duration=3600 --skip-build"
     echo ""
     return 1
   fi
@@ -131,7 +131,6 @@ configure_samples() {
 
 create_output_resources() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
-    mkdir -p "$OUTPUT_FOLDER/$sample_app/perf"
     mkdir -p "$OUTPUT_FOLDER/$sample_app/logs"
     mkdir -p "$OUTPUT_FOLDER/$sample_app/power"
   done
@@ -140,8 +139,6 @@ create_output_resources() {
 build_sample() {
   sample_app="$1"
   build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.log"
-  stats_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER"
-  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
@@ -149,7 +146,7 @@ build_sample() {
     BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app\" -Pnative package"
   fi
 
-  sample_build_command="$PREFIX_COMMAND $BUILD_CMD > $build_output_file 2>&1"
+  sample_build_command="$BUILD_CMD > $build_output_file 2>&1"
   echo "Building $sample_app at: $(date) ... "
   echo "$sample_build_command"
 
@@ -162,7 +159,7 @@ build_sample() {
 
 build_samples() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
-    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.stats"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.txt"
 
     start_power_consumption --background --output-file="$power_output_file" || exit 1
     build_sample $sample_app || exit 1
@@ -177,8 +174,6 @@ start_sample() {
   sample_app_run_type="$2"
 
   run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.log"
-  stats_output_file="$OUTPUT_FOLDER/$sample_app/perf/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER"
-  PREFIX_COMMAND="${OS_PREFIX_COMMAND/((statsOutputFile))/$stats_output_file}"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_run_type"
@@ -186,7 +181,7 @@ start_sample() {
     RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_run_type"
   fi
 
-  sample_run_command="$PREFIX_COMMAND $RUN_CMD > $run_output_file 2>&1"
+  sample_run_command="$RUN_CMD > $run_output_file 2>&1"
   echo "Running $sample_app ($sample_app_run_type) at: $(date) ... "
   echo "$sample_run_command"
 
@@ -202,9 +197,9 @@ start_samples() {
     read -r -a sample_app_with_run_type_array <<< "$sample_app_with_run_type"
     sample_app="${sample_app_with_run_type_array[0]}"
     sample_app_run_type="${sample_app_with_run_type_array[1]}"
-    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.stats"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.txt"
 
-    start_power_consumption --background --output-file="$power_output_file" || exit 1
+    start_power_consumption --output-file="$power_output_file" --background || exit 1
     start_sample $sample_app $sample_app_run_type || exit 1
     stop_power_consumption
 
