@@ -106,17 +106,20 @@ configure_baseline
 # make sure the output resources (e.g., folders and files) exist
 create_output_resources
 
-iteration=1
-loop_counter="${#APP_RUN_IDENTIFIERS[@]}"
-for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
-  RUN_IDENTIFIER="$app_run_identifier"
+base_run_counter=1
+base_run_limit="${#APP_RUN_IDENTIFIERS[@]}"
+for base_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
+  RUN_IDENTIFIER="$base_run_identifier"
 
   echo ""
   echo "+============================================================+"
-  echo "| [4/4][$iteration/$loop_counter] Start the system power consumption measurements |"
+  echo "| [4/4][$base_run_counter/$base_run_limit] Start the system power consumption measurements |"
   echo "+============================================================+"
   power_output_file="$OUTPUT_FOLDER/power/baseline-idle-os-run-$RUN_IDENTIFIER.txt"
-  start_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
+  start_system_power_consumption --duration="$APP_RUNNING_TIME" --output-file="$power_output_file" || exit 1
 
-  ((iteration++))
+  ((base_run_counter++))
 done
+
+echo ""
+echo "Everything went well, bye bye! 👋"

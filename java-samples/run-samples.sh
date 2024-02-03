@@ -158,9 +158,9 @@ build_samples() {
   for sample_app in "${SAMPLE_APPS[@]}"; do
     power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.txt"
 
-    start_power_consumption --background --output-file="$power_output_file" || exit 1
+    start_system_power_consumption --background --output-file="$power_output_file" || exit 1
     build_sample $sample_app || exit 1
-    stop_power_consumption
+    stop_system_power_consumption
 
     echo ""
   done
@@ -196,9 +196,9 @@ start_samples() {
     sample_app_run_type="${sample_app_with_run_type_array[1]}"
     power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.txt"
 
-    start_power_consumption --output-file="$power_output_file" --background || exit 1
+    start_system_power_consumption --output-file="$power_output_file" --background || exit 1
     start_sample $sample_app $sample_app_run_type || exit 1
-    stop_power_consumption
+    stop_system_power_consumption
 
     echo ""
   done
@@ -227,7 +227,7 @@ echo "| [3/7] OS Configuration |"
 echo "+========================+"
 . ../scripts/shell/configure-os.sh || exit 1
 . ../scripts/shell/configure-os-"$OS".sh
-. ../scripts/shell/system-power-consumption-os-$OS.sh
+. ../scripts/shell/system-power-consumption-os-"$OS".sh
 
 echo ""
 echo "+=========================+"
@@ -267,3 +267,6 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
 
   ((app_run_counter++))
 done
+
+echo ""
+echo "Everything went well, bye bye! 👋"

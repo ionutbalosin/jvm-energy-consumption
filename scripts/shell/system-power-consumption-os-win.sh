@@ -25,10 +25,10 @@
 # SOFTWARE.
 #
 
-start_power_consumption() {
+start_system_power_consumption() {
   echo "WARNING: System power consumption measurements are not supported on Windows."
 }
 
-stop_power_consumption() {
+stop_system_power_consumption() {
   echo "WARNING: System power consumption measurements are not supported on Windows."
 }

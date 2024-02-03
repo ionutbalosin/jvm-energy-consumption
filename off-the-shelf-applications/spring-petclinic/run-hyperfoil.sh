@@ -97,4 +97,4 @@ echo ""
 start_hyperfoil
 
 echo ""
-echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
+echo "Everything went well, bye bye! 👋"

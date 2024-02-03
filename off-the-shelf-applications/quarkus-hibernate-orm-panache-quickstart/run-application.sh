@@ -198,8 +198,8 @@ echo "| [3/8] OS Configuration |"
 echo "+========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
 . ../../scripts/shell/configure-os-"$OS".sh
-. ../../scripts/shell/system-power-consumption-os-$OS.sh
-. ../../scripts/shell/process-performance-monitoring-os-$OS.sh
+. ../../scripts/shell/system-power-consumption-os-"$OS".sh
+. ../../scripts/shell/process-performance-monitoring-os-"$OS".sh
 
 echo ""
 echo "+=========================+"
@@ -224,9 +224,9 @@ if [ "$APP_SKIP_BUILD" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
   power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.txt"
-  start_power_consumption --background --output-file="$power_output_file" || exit 1
+  start_system_power_consumption --background --output-file="$power_output_file" || exit 1
   build_application || exit 1
-  stop_power_consumption
+  stop_system_power_consumption
 fi
 
 echo ""
@@ -235,19 +235,19 @@ echo "| [7/8] Start the application |"
 echo "+=============================+"
 check_application_port_availability || exit 1
 
-# Start power consumption monitoring
+# Start system power consumption monitoring
 power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
-start_power_consumption --background --output-file="$power_output_file" || exit 1
+start_system_power_consumption --background --output-file="$power_output_file" || exit 1
 
 # Start the application
-start_application || { stop_power_consumption && exit 1; }
-check_application_initial_request || { stop_power_consumption && exit 1; }
+start_application || { stop_system_power_consumption && exit 1; }
+check_application_initial_request || { stop_system_power_consumption && exit 1; }
 
 # Start process performance monitoring
 performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
-start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_power_consumption && stop_application && exit 1; }
+start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_system_power_consumption && stop_application && exit 1; }
 
-echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds..."
+echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
 sleep "$APP_RUNNING_TIME"
 
 echo ""
@@ -256,10 +256,10 @@ echo "| [8/8] Stop the application |"
 echo "+============================+"
 stop_process_performance_monitoring
 stop_application
-stop_power_consumption
+stop_system_power_consumption
 
 # give a bit of time to the process to gracefully shut down
 sleep 5
 
 echo ""
-echo "*** Test $TEST_RUN_IDENTIFIER successfully finished! ***"
+echo "Everything went well, bye bye! 👋"

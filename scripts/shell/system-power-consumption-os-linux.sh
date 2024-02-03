@@ -25,7 +25,7 @@
 # SOFTWARE.
 #
 
-check_and_configure_power_consumption_options() {
+check_and_configure_system_power_consumption_options() {
   # Simulate a harmless command that requires sudo
   # Note: sudo is needed to further run this script
   if ! sudo true; then
@@ -86,8 +86,8 @@ check_and_configure_power_consumption_options() {
   fi
 }
 
-start_power_consumption_measurements() {
-  power_command="sudo powerstat -DfHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} \
+start_system_power_consumption_measurements() {
+  power_command="sudo powerstat -DRHtn 1 ${POWER_CONSUMPTION_RUNNING_TIME} \
     > $POWER_CONSUMPTION_OUTPUT_FILE 2>&1 $POWER_CONSUMPTION_BACKGROUND_MODE"
   echo "$power_command"
   eval "$power_command"
@@ -105,7 +105,7 @@ start_power_consumption_measurements() {
   fi
 }
 
-check_power_consumption_measurements() {
+check_system_power_consumption_measurements() {
   # 1. In case of background (i.e., asynchronous) mode, check if the system power consumption measurements successfully started
   if [[ "$POWER_CONSUMPTION_BACKGROUND_MODE" == "&" ]]; then
     # Sleep for a short duration to allow the asynchronous process to start
@@ -125,17 +125,17 @@ check_power_consumption_measurements() {
   fi
 }
 
-start_power_consumption() {
+start_system_power_consumption() {
   # System power consumption measurements utilize the 'powerstat' command to record the machine's overall energy consumption every second
   # throughout the entire test duration (e.g., $POWER_CONSUMPTION_RUNNING_TIME seconds), unless explicitly terminated.
   echo "Starting system power consumption measurements at: $(date) ..."
 
-  check_and_configure_power_consumption_options "$@" || return 1
-  start_power_consumption_measurements || return 1
-  check_power_consumption_measurements || return 1
+  check_and_configure_system_power_consumption_options "$@" || return 1
+  start_system_power_consumption_measurements || return 1
+  check_system_power_consumption_measurements || return 1
 }
 
-stop_power_consumption() {
+stop_system_power_consumption() {
   if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
     echo "Stopping the system power consumption measurements with PID $POWER_CONSUMPTION_PID."
     sudo kill -s INT "$POWER_CONSUMPTION_PID"
