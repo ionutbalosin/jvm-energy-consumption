@@ -63,6 +63,11 @@ public class LoggingPatterns {
     instance.initialize(args);
 
     System.out.printf(
+        "%s %s %s %n",
+        System.getProperty("java.vm.name"),
+        System.getProperty("java.vendor"),
+        System.getProperty("java.vm.version"));
+    System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, log level = %s%n",
         instance.julLogger.getClass().getName(),
         new Date(),

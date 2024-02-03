@@ -67,6 +67,11 @@ public class VPThreadQueueThroughput {
     instance.initialize(args);
 
     System.out.printf(
+        "%s %s %s %n",
+        System.getProperty("java.vm.name"),
+        System.getProperty("java.vendor"),
+        System.getProperty("java.vm.version"));
+    System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, number of tasks = %d%n",
         args[0], new Date(), instance.DURATION / 1000, TASKS);
 

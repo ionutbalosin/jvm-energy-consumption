@@ -26,30 +26,37 @@
 #
 
 check_command_line_options() {
-  if [[ $# -lt 1 || $# -gt 3 ]]; then
-    echo "Usage: ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 4 ]]; then
+    echo "Usage: ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  --test-run-identifier=<test-run-identifier>  A mandatory parameter to identify the current execution test."
-    echo "  --skip-build                                 An optional parameter to skip the build process."
-    echo "  --duration=<duration>                        An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run."
+    echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
+    echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
+    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-application.sh --test-run-identifier=1"
-    echo "   $ ./run-application.sh --test-run-identifier=1 --duration=3600"
-    echo "   $ ./run-application.sh --test-run-identifier=1 --duration=3600 --skip-build"
+    echo "   $ ./run-application.sh --run-identifier=1"
+    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
+    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=3600"
+    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=3600 --skip-build"
     echo ""
     return 1
   fi
 
-  TEST_RUN_IDENTIFIER=""
-  APP_SKIP_BUILD=""
+  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="900"
+  APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
     case "$1" in
-      --test-run-identifier=*)
-        TEST_RUN_IDENTIFIER="${1#*=}"
+      --run-identifier=*)
+        APP_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      --jvm-identifier=*)
+        APP_JVM_IDENTIFIER="${1#*=}"
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
@@ -58,15 +65,15 @@ check_command_line_options() {
         APP_SKIP_BUILD="--skip-build"
         ;;
       *)
-        echo "ERROR: Unknown parameter: $1"
+        echo "ERROR: Unknown parameter $1"
         return 1
         ;;
     esac
     shift
   done
 
-  if [ -z "$TEST_RUN_IDENTIFIER" ]; then
-    echo "ERROR: Missing mandatory parameter test run identifier."
+  if [ -z "$APP_RUN_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter run identifier."
     return 1
   fi
 }
@@ -77,9 +84,9 @@ configure_application() {
   APP_PORT=8080
   APP_BASE_URL="localhost:$APP_PORT"
   JAVA_OPS="-Xms1m -Xmx1g"
-  # JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.jfr"
+  # JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.jfr"
 
-  echo "Test run identifier: $TEST_RUN_IDENTIFIER"
+  echo "Application run identifier: $APP_RUN_IDENTIFIER"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
@@ -96,7 +103,7 @@ create_output_resources() {
 }
 
 build_application() {
-  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.log"
+  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-build-$APP_RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
@@ -123,7 +130,7 @@ check_application_port_availability() {
 }
 
 start_application() {
-  run_output_file="$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.log"
+  run_output_file="$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $JFR_OPS -jar $APP_HOME/target/*.jar"
@@ -205,7 +212,7 @@ echo ""
 echo "+=========================+"
 echo "| [4/8] JVM Configuration |"
 echo "+=========================+"
-. ../../scripts/shell/configure-jvm.sh || exit 1
+. ../../scripts/shell/configure-jvm.sh "$APP_JVM_IDENTIFIER" || exit 1
 
 echo ""
 echo "+=================================+"
@@ -223,7 +230,7 @@ echo "+=============================+"
 if [ "$APP_SKIP_BUILD" == "--skip-build" ]; then
   echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
 else
-  power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-build-$TEST_RUN_IDENTIFIER.txt"
+  power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-build-$APP_RUN_IDENTIFIER.txt"
   start_system_power_consumption --background --output-file="$power_output_file" || exit 1
   build_application || exit 1
   stop_system_power_consumption
@@ -236,7 +243,7 @@ echo "+=============================+"
 check_application_port_availability || exit 1
 
 # Start system power consumption monitoring
-power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
+power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
 start_system_power_consumption --background --output-file="$power_output_file" || exit 1
 
 # Start the application
@@ -244,7 +251,7 @@ start_application || { stop_system_power_consumption && exit 1; }
 check_application_initial_request || { stop_system_power_consumption && exit 1; }
 
 # Start process performance monitoring
-performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.txt"
+performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
 start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_system_power_consumption && stop_application && exit 1; }
 
 echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."

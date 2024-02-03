@@ -163,7 +163,7 @@ This set of measurements relies on specific code patterns to identify what is th
 
 ```
 $ cd /java-samples
-$ ./run-samples.sh --run-identifier=<run-identifier> [--duration=<duration>] [--skip-build]
+$ ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
 ```
 
 ### Spring PetClinic Application
@@ -178,7 +178,7 @@ This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 ```
 $ cd /spring-petclinic
-$ ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]
+$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
 ```
 
 6. After the application has successfully started, launch the Hyperfoil on the **system client test**:
@@ -207,7 +207,7 @@ $ ./run-postgresql.sh
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-application.sh --test-run-identifier=<test-run-identifier> [--duration=<duration>] [--skip-build]
+$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
 ```
 
 7. After the application has successfully started, launch the Hyperfoil on the **system client test**:

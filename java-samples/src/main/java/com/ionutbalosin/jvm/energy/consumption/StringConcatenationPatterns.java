@@ -54,6 +54,11 @@ public class StringConcatenationPatterns {
     instance.initialize(args);
 
     System.out.printf(
+        "%s %s %s %n",
+        System.getProperty("java.vm.name"),
+        System.getProperty("java.vendor"),
+        System.getProperty("java.vm.version"));
+    System.out.printf(
         "Starting %s at %tT, expected duration = %d sec%n",
         instance.concatPattern.getClass().getName(), new Date(), instance.DURATION / 1000);
 

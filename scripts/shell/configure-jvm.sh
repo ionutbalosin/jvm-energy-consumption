@@ -31,7 +31,7 @@ configure_jvm() {
   export JVM_IDENTIFIER="$3"
 }
 
-select_jvm() {
+configure_jvm_by_input_key() {
   echo ""
   echo "Select the JVM:"
   echo "    1) - OpenJDK HotSpot VM"
@@ -45,35 +45,35 @@ select_jvm() {
   while :; do
     read -r INPUT_KEY
     case $INPUT_KEY in
-    1)
-      configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER"
-      break
-      ;;
-    2)
-      configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER"
-      break
-      ;;
-    3)
-      configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER"
-      break
-      ;;
-    4)
-      configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER"
-      break
-      ;;
-    5)
-      configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"
-      break
-      ;;
-    6)
-      configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER"
-      break
-      ;;
-    *)
-      echo "Sorry, I don't understand. Please try again!"
-      ;;
+    1) configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER"; break ;;
+    2) configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER"; break ;;
+    3) configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER"; break ;;
+    4) configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER"; break ;;
+    5) configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"; break ;;
+    6) configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER"; break ;;
+    *) echo "Invalid input key. Please try again!" ;;
     esac
   done
+}
+
+configure_jvm_by_argument() {
+  case "$1" in
+    openjdk-hotspot-vm)   configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER"; break ;;
+    graalvm-ce)           configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER"; break ;;
+    oracle-graalvm)       configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER"; break ;;
+    native-image)         configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER"; break ;;
+    azul-prime-vm)        configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"; break ;;
+    eclipse-openj9-vm)    configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER"; break ;;
+    *) echo "ERROR: Invalid JVM identifier $1"; return 1 ;;
+  esac
+}
+
+select_jvm() {
+  if [ -n "$1" ]; then
+    configure_jvm_by_argument "$1" || return 1
+  else
+    configure_jvm_by_input_key || return 1
+  fi
 }
 
 set_environment_variables() {
@@ -100,15 +100,10 @@ echo "| Select JVM |"
 echo "+------------+"
 echo "The JDK version is automatically detected based on the JDK distribution found at the preconfigured 'JAVA_HOME' path."
 echo "This assumes that the 'JAVA_HOME' variable has already been specified in the benchmark configuration scripts (i.e., the ./configure-jvm file). Otherwise, the subsequent execution will fail."
-select_jvm
+select_jvm "$@" || exit 1
 
 echo ""
 echo "+---------------------------+"
 echo "| JVM Environment Variables |"
 echo "+---------------------------+"
-if ! set_environment_variables; then
-  exit 1
-fi
-
-
-
+set_environment_variables || exit 1

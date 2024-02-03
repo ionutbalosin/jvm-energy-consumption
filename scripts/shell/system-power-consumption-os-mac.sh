@@ -68,7 +68,7 @@ check_and_configure_system_power_consumption_options() {
         POWER_CONSUMPTION_BACKGROUND_MODE="&"
         ;;
       *)
-        echo "ERROR: Unknown parameter: $1"
+        echo "ERROR: Unknown parameter $1"
         return 1
         ;;
     esac

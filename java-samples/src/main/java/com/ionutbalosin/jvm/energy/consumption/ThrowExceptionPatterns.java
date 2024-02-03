@@ -53,6 +53,11 @@ public class ThrowExceptionPatterns {
     instance.initialize(args);
 
     System.out.printf(
+        "%s %s %s %n",
+        System.getProperty("java.vm.name"),
+        System.getProperty("java.vendor"),
+        System.getProperty("java.vm.version"));
+    System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, stack depth = %d%n",
         instance.exceptionThrower.getClass().getName(),
         new Date(),

@@ -84,6 +84,11 @@ public class SortingAlgorithms {
     instance.initialize(args);
 
     System.out.printf(
+        "%s %s %s %n",
+        System.getProperty("java.vm.name"),
+        System.getProperty("java.vendor"),
+        System.getProperty("java.vm.version"));
+    System.out.printf(
         "Starting %s at %tT, expected duration = %d sec, number of elements to sort = %d%n",
         instance.sorter.getClass().getName(),
         new Date(),

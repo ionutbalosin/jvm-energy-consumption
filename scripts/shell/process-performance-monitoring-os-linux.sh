@@ -59,7 +59,7 @@ check_and_configure_process_performance_monitoring_options() {
         PERFORMANCE_MONITOR_RUNNING_TIME="${1#*=}"
         ;;
       *)
-        echo "ERROR: Unknown parameter: $1"
+        echo "ERROR: Unknown parameter $1"
         return 1
         ;;
     esac

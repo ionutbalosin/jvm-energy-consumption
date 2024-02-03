@@ -26,39 +26,46 @@
 #
 
 check_command_line_options() {
-  if [[ $# -lt 1 || $# -gt 3 ]]; then
-    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--duration=<duration>] [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 4 ]]; then
+    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
+    echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
+    echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
     echo "  $ ./run-samples.sh --run-identifier=1"
-    echo "  $ ./run-samples.sh --run-identifier=1,2 --duration=3600"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3  --duration=3600 --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=3600"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=3600 --skip-build"
     echo ""
     return 1
   fi
 
-  APP_SKIP_BUILD=""
-  APP_RUNNING_TIME="900"
   APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIER=""
+  APP_RUNNING_TIME="900"
+  APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
     case "$1" in
-      --skip-build)
-        APP_SKIP_BUILD="--skip-build"
+      --run-identifier=*)
+        APP_RUN_IDENTIFIER="${1#*=}"
+        ;;
+      --jvm-identifier=*)
+        APP_JVM_IDENTIFIER="${1#*=}"
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
         ;;
-      --run-identifier=*)
-        APP_RUN_IDENTIFIER="${1#*=}"
+      --skip-build)
+        APP_SKIP_BUILD="--skip-build"
         ;;
       *)
-        echo "ERROR: Unknown parameter: $1"
+        echo "ERROR: Unknown parameter $1"
         return 1
         ;;
     esac
@@ -124,6 +131,7 @@ configure_samples() {
   echo "Java samples time: $APP_RUNNING_TIME sec"
   read -ra APP_RUN_IDENTIFIERS <<< "$(tr ',' ' ' <<< "$APP_RUN_IDENTIFIER")"
   echo "Run identifier(s): ${APP_RUN_IDENTIFIERS[@]}"
+  echo "JVM identifier: $APP_JVM_IDENTIFIER"
 }
 
 create_output_resources() {
@@ -233,7 +241,7 @@ echo ""
 echo "+=========================+"
 echo "| [4/7] JVM Configuration |"
 echo "+=========================+"
-. ../scripts/shell/configure-jvm.sh || exit 1
+. ../scripts/shell/configure-jvm.sh "$APP_JVM_IDENTIFIER" || exit 1
 
 echo ""
 echo "+==================================+"
