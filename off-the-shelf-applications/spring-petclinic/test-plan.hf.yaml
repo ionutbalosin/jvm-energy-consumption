@@ -1,6 +1,6 @@
 name: test-plan-benchmark
 http:
-  host: http://192.168.0.186:8080
+  host: http://192.168.0.2:8080
   sharedConnections: 1024
 phases:
 
