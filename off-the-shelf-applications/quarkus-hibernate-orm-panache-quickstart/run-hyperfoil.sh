@@ -86,13 +86,7 @@ create_output_resources() {
 }
 
 start_hyperfoil() {
-  $HYPERFOIL_HOME/bin/cli.sh <<EOF
-start-local
-upload test-plan.hf.yaml
-run test-plan-benchmark
-report --destination=$CURR_DIR/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.html
-exit
-EOF
+  $HYPERFOIL_HOME/bin/cli.sh
 }
 
 check_command_line_options "$@"
@@ -131,11 +125,8 @@ echo ""
 echo "+=======================+"
 echo "| [5/5] Start Hyperfoil |"
 echo "+=======================+"
-echo "IMPORTANT: The following commands will be automatically executed in the CLI to trigger the load test, save the report, and exit at the end."
-echo "$ start-local"
-echo "$ upload test-plan.hf.yaml"
-echo "$ run test-plan-benchmark"
-echo "$ report --destination=$CURR_DIR/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.html"
+echo "IMPORTANT: Execute the below commands in the Hyperfoil CLI to trigger the load test, save the report, and exit the CLI at the end:"
+echo "$ start-local && upload test-plan.hf.yaml && run test-plan-benchmark && report --destination=$(pwd)/$OUTPUT_FOLDER/hreports/$JVM_IDENTIFIER-run-$TEST_RUN_IDENTIFIER.html"
 echo "$ exit"
 echo ""
 echo "Please enjoy a coffee ☕ while the application runs. This may take some time ..."

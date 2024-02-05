@@ -19,13 +19,13 @@ phases:
             GET: /owners/find
       - getVetsPage:
         - httpRequest:
-            GET: /vets.html           
+            GET: /vets.html
       - getPetClinicCss:
         - httpRequest:
             GET: /resources/css/petclinic.css            
       - getBootstrapJs:
         - httpRequest:
-            GET: /webjars/bootstrap/5.2.3/dist/js/bootstrap.bundle.min.js           
+            GET: /webjars/bootstrap/5.3.2/dist/js/bootstrap.bundle.min.js
       - getFontAwesomeCss:
         - httpRequest:
             GET: /webjars/font-awesome/4.7.0/css/font-awesome.min.css
