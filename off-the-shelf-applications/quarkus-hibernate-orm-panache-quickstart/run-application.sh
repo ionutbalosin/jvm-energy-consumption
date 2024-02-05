@@ -26,21 +26,23 @@
 #
 
 check_command_line_options() {
-  if [[ $# -lt 1 || $# -gt 4 ]]; then
-    echo "Usage: ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 5 ]]; then
+    echo "Usage: ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "   $ ./run-application.sh --run-identifier=1"
-    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
-    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=3600"
-    echo "   $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=3600 --skip-build"
+    echo "  $ ./run-application.sh --run-identifier=1"
+    echo "  $ ./run-application.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-application.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-application.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
+    echo "  $ ./run-application.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
@@ -48,6 +50,7 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="900"
+  APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
@@ -60,6 +63,9 @@ check_command_line_options() {
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --skip-os-tuning)
+        APP_SKIP_OS_TUNING="--skip-os-tuning"
         ;;
       --skip-build)
         APP_SKIP_BUILD="--skip-build"
@@ -87,12 +93,14 @@ configure_application() {
   JAVA_OPS="-Xms1m -Xmx512m"
 
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
-  echo "Application home: $APP_HOME"
-  echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Application skip build: $APP_SKIP_BUILD"
-  echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
+  echo "Application skip OS tuning: $APP_SKIP_OS_TUNING"
+  echo "JVM identifier: $APP_JVM_IDENTIFIER"
+  echo "Application home: $APP_HOME"
+  echo "Application base url: $APP_BASE_URL"
   echo "Java opts: $JAVA_OPS"
+  echo "Postgresql datasource: $POSTGRESQL_DATASOURCE"
 }
 
 create_output_resources() {
@@ -204,7 +212,11 @@ echo "+========================+"
 echo "| [3/8] OS Configuration |"
 echo "+========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
-. ../../scripts/shell/configure-os-"$OS".sh
+if [ "$APP_SKIP_OS_TUNING" == "--skip-os-tuning" ]; then
+  echo "WARNING: Skipping the OS tuning settings."
+else
+  . ../../scripts/shell/configure-os-"$OS".sh
+fi
 . ../../scripts/shell/system-power-consumption-os-"$OS".sh
 . ../../scripts/shell/process-performance-monitoring-os-"$OS".sh
 
@@ -268,5 +280,4 @@ stop_system_power_consumption
 # give a bit of time to the process to gracefully shut down
 sleep 5
 
-echo ""
 echo "Everything went well, bye bye! 👋"

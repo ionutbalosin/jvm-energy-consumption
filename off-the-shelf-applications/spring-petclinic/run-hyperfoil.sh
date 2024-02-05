@@ -96,5 +96,4 @@ echo "$ exit"
 echo ""
 start_hyperfoil
 
-echo ""
 echo "Everything went well, bye bye! 👋"

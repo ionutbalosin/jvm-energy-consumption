@@ -121,5 +121,4 @@ for base_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   ((base_run_counter++))
 done
 
-echo ""
 echo "Everything went well, bye bye! 👋"

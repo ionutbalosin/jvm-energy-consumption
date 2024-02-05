@@ -26,21 +26,23 @@
 #
 
 check_command_line_options() {
-  if [[ $# -lt 1 || $# -gt 4 ]]; then
-    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]"
+  if [[ $# -lt 1 || $# -gt 5 ]]; then
+    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
     echo "  $ ./run-samples.sh --run-identifier=1"
     echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=3600"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=3600 --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
@@ -48,6 +50,7 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="900"
+  APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
@@ -60,6 +63,9 @@ check_command_line_options() {
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --skip-os-tuning)
+        APP_SKIP_OS_TUNING="--skip-os-tuning"
         ;;
       --skip-build)
         APP_SKIP_BUILD="--skip-build"
@@ -127,11 +133,12 @@ configure_samples() {
 
   echo "Java samples: ${SAMPLE_APPS[@]}"
   echo "Java samples skip build: $APP_SKIP_BUILD"
-  echo "Java opts: $JAVA_OPS"
+  echo "Java samples skip OS tuning: $APP_SKIP_OS_TUNING"
   echo "Java samples time: $APP_RUNNING_TIME sec"
   read -ra APP_RUN_IDENTIFIERS <<< "$(tr ',' ' ' <<< "$APP_RUN_IDENTIFIER")"
   echo "Run identifier(s): ${APP_RUN_IDENTIFIERS[@]}"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
+  echo "Java opts: $JAVA_OPS"
 }
 
 create_output_resources() {
@@ -204,7 +211,7 @@ start_samples() {
     sample_app_run_type="${sample_app_with_run_type_array[1]}"
     power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.txt"
 
-    start_system_power_consumption --output-file="$power_output_file" --background || exit 1
+    start_system_power_consumption --background --output-file="$power_output_file" || exit 1
     start_sample $sample_app $sample_app_run_type || exit 1
     stop_system_power_consumption
 
@@ -234,7 +241,11 @@ echo "+========================+"
 echo "| [3/7] OS Configuration |"
 echo "+========================+"
 . ../scripts/shell/configure-os.sh || exit 1
-. ../scripts/shell/configure-os-"$OS".sh
+if [ "$APP_SKIP_OS_TUNING" == "--skip-os-tuning" ]; then
+  echo "WARNING: Skipping the OS tuning settings."
+else
+  . ../scripts/shell/configure-os-"$OS".sh
+fi
 . ../scripts/shell/system-power-consumption-os-"$OS".sh
 
 echo ""
@@ -261,7 +272,7 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   echo "+===================================+"
   echo "| [6/7][$app_run_counter/$app_run_limit] Build the Java samples |"
   echo "+===================================+"
-  if [ "$2" == "--skip-build" ]; then
+  if [ "$APP_SKIP_BUILD" == "--skip-build" ]; then
     echo "WARNING: Skipping the build process. A previously generated artifact will be used to start the application."
   else
     build_samples || exit 1
@@ -276,5 +287,4 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   ((app_run_counter++))
 done
 
-echo ""
 echo "Everything went well, bye bye! 👋"
