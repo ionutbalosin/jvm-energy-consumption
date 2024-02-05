@@ -39,10 +39,10 @@ check_command_line_options() {
     echo ""
     echo "Examples:"
     echo "  $ ./run-application.sh --run-identifier=1"
-    echo "  $ ./run-application.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-application.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-application.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
-    echo "  $ ./run-application.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
+    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
+    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
