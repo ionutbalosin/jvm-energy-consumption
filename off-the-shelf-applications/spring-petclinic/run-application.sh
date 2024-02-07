@@ -89,7 +89,7 @@ configure_application() {
   APP_HOME="$SPRING_PETCLINIC_HOME"
   APP_PORT=8080
   APP_BASE_URL="localhost:$APP_PORT"
-  JAVA_OPS="-Xms1m -Xmx1g"
+  JAVA_OPS="-Xms1m -Xmx6g"
   # JFR_OPS="-XX:StartFlightRecording=duration=$APP_RUNNING_TIMEs,filename=$OUTPUT_FOLDER/jfr/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.jfr"
 
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
