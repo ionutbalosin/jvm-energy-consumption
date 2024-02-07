@@ -82,7 +82,7 @@ start_process_performance_monitoring_measurements() {
   echo -n > "$PERFORMANCE_MONITOR_OUTPUT_FILE"
 
   # Run the process performance monitoring in the background using a subshell
-  (
+  {
     for ((i = 1; i <= $PERFORMANCE_MONITOR_RUNNING_TIME; i++)); do
       if ! ps -p "$PERFORMANCE_MONITOR_TARGET_PID" > /dev/null; then
         echo "WARNING: Process with PID $PERFORMANCE_MONITOR_TARGET_PID no longer exists. Stopping the process performance monitoring." >> "$PERFORMANCE_MONITOR_OUTPUT_FILE"
@@ -100,7 +100,7 @@ start_process_performance_monitoring_measurements() {
     done
     
     echo "Process performance monitoring successfully finished." >> "$PERFORMANCE_MONITOR_OUTPUT_FILE"
-  ) &
+  } &
 
   export PERFORMANCE_MONITOR_PID=$!
 }
