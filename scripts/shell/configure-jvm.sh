@@ -50,7 +50,7 @@ configure_jvm_by_input_key() {
     3) configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER"; break ;;
     4) configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER"; break ;;
     5) configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"; break ;;
-    6) configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER"; break ;;
+    6) configure_jvm "$ECLIPSE_OPEN_J9_VM_HOME" "$ECLIPSE_OPEN_J9_VM_NAME" "$ECLIPSE_OPEN_J9_VM_IDENTIFIER"; break ;;
     *) echo "Invalid input key. Accepted options: {1, 2, 3, 4, 5, 6}. Please try again!" ;;
     esac
   done
@@ -63,7 +63,7 @@ configure_jvm_by_argument() {
     oracle-graalvm)       configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER" ;;
     native-image)         configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER" ;;
     azul-prime-vm)        configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER" ;;
-    eclipse-openj9-vm)    configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER" ;;
+    eclipse-openj9-vm)    configure_jvm "$ECLIPSE_OPEN_J9_VM_HOME" "$ECLIPSE_OPEN_J9_VM_NAME" "$ECLIPSE_OPEN_J9_VM_IDENTIFIER" ;;
     *) echo "ERROR: Invalid JVM identifier $1. Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."; return 1 ;;
   esac
 }
