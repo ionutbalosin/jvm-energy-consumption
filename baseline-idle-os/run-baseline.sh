@@ -26,12 +26,15 @@
 #
 
 check_command_line_options() {
+  APP_RUNNING_TIME="1800"
+  APP_RUN_IDENTIFIER=""
+
   if [[ $# -lt 1 || $# -gt 2 ]]; then
     echo "Usage: ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
-    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 1800 seconds."
+    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo ""
     echo "Examples:"
     echo "   $ ./run-baseline.sh --run-identifier=1"
@@ -40,9 +43,6 @@ check_command_line_options() {
     echo ""
     return 1
   fi
-
-  APP_RUNNING_TIME="1800"
-  APP_RUN_IDENTIFIER=""
 
   while [ $# -gt 0 ]; do
     case "$1" in

@@ -26,6 +26,9 @@
 #
 
 check_command_line_options() {
+  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIER=""
+
   if [[ $# -lt 1 || $# -gt 2 ]]; then
     echo "Usage: ./run-hyperfoil.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>]"
     echo ""
@@ -40,9 +43,6 @@ check_command_line_options() {
     echo ""
     return 1
   fi
-
-  APP_RUN_IDENTIFIER=""
-  APP_JVM_IDENTIFIER=""
 
   while [ $# -gt 0 ]; do
     case "$1" in

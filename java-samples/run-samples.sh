@@ -26,6 +26,12 @@
 #
 
 check_command_line_options() {
+  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIER=""
+  APP_RUNNING_TIME="900"
+  APP_SKIP_OS_TUNING=""
+  APP_SKIP_BUILD=""
+
   if [[ $# -lt 1 || $# -gt 5 ]]; then
     echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
     echo ""
@@ -33,7 +39,7 @@ check_command_line_options() {
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
-    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
+    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
@@ -46,12 +52,6 @@ check_command_line_options() {
     echo ""
     return 1
   fi
-
-  APP_RUN_IDENTIFIER=""
-  APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="900"
-  APP_SKIP_OS_TUNING=""
-  APP_SKIP_BUILD=""
 
   while [ $# -gt 0 ]; do
     case "$1" in

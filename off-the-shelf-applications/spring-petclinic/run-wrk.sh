@@ -26,29 +26,31 @@
 #
 
 check_command_line_options() {
-  if [[ $# -lt 1 || $# -gt 4 ]]; then
-    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>]"
+  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIER=""
+  APP_RUNNING_TIME="900"
+  APP_BASE_URL="localhost:8080"
+  APP_THREADS="$(( $(nproc) * 2 / 3 ))"
+
+  if [[ $# -lt 1 || $# -gt 5 ]]; then
+    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the target JVM where the application is running (for a match). Java is not needed to launch the test client. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
-    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to 900 seconds."
-    echo "  --threads=<threads>                An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to two-thirds of the number of available CPUs."
+    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
+    echo "  --threads=<threads>                An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $APP_THREADS (i.e., two-thirds of the number of available CPUs)."
+    echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
     echo ""
     echo "Examples:"
     echo "  $ ./run-wrk.sh --run-identifier=1"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8"
+    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080"
     echo ""
     return 1
   fi
-
-  APP_RUN_IDENTIFIER=""
-  APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="900"
-  APP_THREADS="$(( $(nproc) * 2 / 3 ))"
 
   while [ $# -gt 0 ]; do
     case "$1" in
@@ -63,6 +65,9 @@ check_command_line_options() {
         ;;
       --threads=*)
         APP_THREADS="${1#*=}"
+        ;;
+      --app-base-url=*)
+        APP_BASE_URL="${1#*=}"
         ;;
       *)
         echo "ERROR: Unknown parameter $1"
@@ -84,6 +89,7 @@ configure_wrk() {
   echo ""
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
+  echo "Application base url: $APP_BASE_URL"
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Application threads: $APP_THREADS"
 
@@ -100,7 +106,7 @@ create_output_resources() {
 
 start_wrk() {
   output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-  run_command="wrk -t${APP_THREADS} -c256 -d${APP_RUNNING_TIME}s -s test-plan.lua --latency http://127.0.0.1:8080 | tee $output_file"
+  run_command="wrk -t${APP_THREADS} -c256 -d${APP_RUNNING_TIME}s -s test-plan.lua --latency http://$APP_BASE_URL | tee $output_file"
 
   echo "$run_command"
   eval "$run_command"
@@ -113,25 +119,31 @@ fi
 
 echo ""
 echo "+================================+"
-echo "| [1/5] Configuration Properties |"
+echo "| [1/6] Configuration Properties |"
 echo "+================================+"
 . ../../scripts/shell/configure-properties.sh || exit 1
 
 echo ""
 echo "+=============================+"
-echo "| [2/5] Hardware Architecture |"
+echo "| [2/6] Hardware Architecture |"
 echo "+=============================+"
 . ../../scripts/shell/configure-arch.sh
 
 echo ""
+echo "+========================+"
+echo "| [3/6] OS Configuration |"
+echo "+========================+"
+. ../../scripts/shell/configure-os.sh || exit 1
+
+echo ""
 echo "+=========================+"
-echo "| [3/5] JVM Configuration |"
+echo "| [4/6] JVM Configuration |"
 echo "+=========================+"
 . ../../scripts/shell/configure-jvm.sh "$APP_JVM_IDENTIFIER" || exit 1
 
 echo ""
 echo "+=========================+"
-echo "| [4/5] Wrk configuration |"
+echo "| [5/6] wrk configuration |"
 echo "+=========================+"
 configure_wrk || exit 1
 
@@ -140,10 +152,10 @@ create_output_resources
 
 echo ""
 echo "+=================+"
-echo "| [5/5] Start Wrk |"
+echo "| [6/6] Start wrk |"
 echo "+=================+"
 echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
-echo ""
 start_wrk
 
+echo ""
 echo "Bye bye! 👋"
