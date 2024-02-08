@@ -34,9 +34,8 @@ local headers = {["Content-Type"] = "application/x-www-form-urlencoded"}
 
 function setup(thread)
     thread:set("owner_url", nil)
-    thread:set("pet_url", nil)
     thread:set("pet_visit_url", nil)
-    thread:set("current_request_index", 1)
+    thread:set("request_index", 1)
 
     table.insert(threads, thread)
 end
@@ -85,16 +84,6 @@ function request_create_pet()
    return wrk.format("POST", path, headers, pet)
 end
 
-function request_get_pet()
-    local pet_url = wrk.thread:get("pet_url")
-    if not pet_url then
-        return nil -- no further requests to execute
-    end
-
-    local path = "/owners/" .. pet_url
-    return wrk.format("GET", path, headers)
-end
-
 function request_create_visit()
     local pet_visit_url = wrk.thread:get("pet_visit_url")
     if not pet_visit_url then
@@ -120,14 +109,14 @@ function init(args)
 end
 
 function request()
-    local request_index = wrk.thread:get("current_request_index")
+    local request_index = wrk.thread:get("request_index")
     local request = requests[request_index]()
     if not request then
         return nil -- no further requests to execute
     end
 
     request_index = (request_index % #requests) + 1
-    wrk.thread:set("current_request_index", request_index)
+    wrk.thread:set("request_index", request_index)
 
     return request
 end
@@ -140,13 +129,6 @@ function response(status, headers, body)
         if is_add_pet_visit_url then
             wrk.thread:set("pet_visit_url", is_add_pet_visit_url)
         end
-
-        -- attempt to read the edit pet URL from the HTML response; not available otherwise (due to server limitation)
-        local edit_pet_url_pattern = '<td><a href="([^"]+/pets/%d+/edit)">Edit Pet</a></td>'
-        local is_edit_pet_url = body:match(edit_pet_url_pattern)
-        if is_edit_pet_url then
-            wrk.thread:set("pet_url", is_edit_pet_url)
-        end
     end
 
     -- in general, the redirection is back to the '/owners/{ownerId}' home page.
@@ -157,25 +139,21 @@ function response(status, headers, body)
             wrk.thread:set("owner_url", redirect_url)
         end
     end
-
-    if status >= 400 then
-        print("ERROR: status code: ", status)
-    end
 end
 
 done = function(summary, latency, requests)
    io.write("------------------------------\n")
    io.write("Summary:\n")
-   io.write(string.format("Total requests: %d\n", summary.requests))
-   io.write(string.format("Total socket connection errors: %d\n", summary.errors.connect))
-   io.write(string.format("Total socket read errors: %d\n", summary.errors.read))
-   io.write(string.format("Total socket write errors: %d\n", summary.errors.write))
-   io.write(string.format("Total errors status: %d\n", summary.errors.status))
-   io.write(string.format("Total errors timeouts: %d\n", summary.errors.timeout))
+   io.write(string.format("  Total requests: %d\n", summary.requests))
+   io.write(string.format("  Total socket connection errors: %d\n", summary.errors.connect))
+   io.write(string.format("  Total socket read errors: %d\n", summary.errors.read))
+   io.write(string.format("  Total socket write errors: %d\n", summary.errors.write))
+   io.write(string.format("  Total errors status: %d\n", summary.errors.status))
+   io.write(string.format("  Total errors timeouts: %d\n", summary.errors.timeout))
    io.write("------------------------------\n")
    io.write("Statistics:\n")
    for _, p in pairs({ 50, 75, 90, 94, 98, 99, 99.9, 99.99, 99.999, 99.9999 }) do
       n = latency:percentile(p)
-      io.write(string.format("%g%%, %d ms\n", p, n / 1000))
+      io.write(string.format("%7g%% %8.2fms\n", p, n / 1000))
    end
 end
