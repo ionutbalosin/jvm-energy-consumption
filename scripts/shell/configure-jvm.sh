@@ -58,12 +58,12 @@ configure_jvm_by_input_key() {
 
 configure_jvm_by_argument() {
   case "$1" in
-    openjdk-hotspot-vm)   configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER"; break ;;
-    graalvm-ce)           configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER"; break ;;
-    oracle-graalvm)       configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER"; break ;;
-    native-image)         configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER"; break ;;
-    azul-prime-vm)        configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER"; break ;;
-    eclipse-openj9-vm)    configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER"; break ;;
+    openjdk-hotspot-vm)   configure_jvm "$OPENJDK_HOTSPOT_VM_HOME" "$OPENJDK_HOTSPOT_VM_NAME" "$OPENJDK_HOTSPOT_VM_IDENTIFIER" ;;
+    graalvm-ce)           configure_jvm "$GRAAL_VM_CE_HOME" "$GRAAL_VM_CE_NAME" "$GRAAL_VM_CE_IDENTIFIER" ;;
+    oracle-graalvm)       configure_jvm "$ORACLE_GRAAL_VM_HOME" "$ORACLE_GRAAL_VM_NAME" "$ORACLE_GRAAL_VM_IDENTIFIER" ;;
+    native-image)         configure_jvm "$GRAAL_VM_NATIVE_IMAGE_HOME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER" ;;
+    azul-prime-vm)        configure_jvm "$AZUL_PRIME_VM_HOME" "$AZUL_PRIME_VM_NAME" "$AZUL_PRIME_VM_IDENTIFIER" ;;
+    eclipse-openj9-vm)    configure_jvm "$ECLIPSE_OPEN_J9_HOME" "$ECLIPSE_OPEN_J9_NAME" "$ECLIPSE_OPEN_J9_IDENTIFIER" ;;
     *) echo "ERROR: Invalid JVM identifier $1. Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."; return 1 ;;
   esac
 }
