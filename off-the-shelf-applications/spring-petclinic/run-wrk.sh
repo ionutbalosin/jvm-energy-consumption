@@ -28,9 +28,9 @@
 check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="900"
+  APP_RUNNING_TIME="5280"
   APP_BASE_URL="localhost:8080"
-  APP_THREADS="$(( $(nproc) * 2 / 3 ))"
+  APP_THREADS="$(( $(nproc) / 2 ))"
 
   if [[ $# -lt 1 || $# -gt 5 ]]; then
     echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]"
@@ -40,7 +40,7 @@ check_command_line_options() {
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the target JVM where the application is running (for a match). Java is not needed to launch the test client. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
-    echo "  --threads=<threads>                An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $APP_THREADS (i.e., two-thirds of the number of available CPUs)."
+    echo "  --threads=<threads>                An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $APP_THREADS (i.e., half the number of available CPUs)."
     echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
     echo ""
     echo "Examples:"
@@ -86,7 +86,6 @@ check_command_line_options() {
 configure_wrk() {
   CURR_DIR=$(pwd)
 
-  echo ""
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
   echo "Application base url: $APP_BASE_URL"
@@ -105,6 +104,10 @@ create_output_resources() {
 }
 
 start_wrk() {
+  echo "Starting wrk at: $(date) ..."
+  echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
+  echo ""
+
   output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
   run_command="wrk -t${APP_THREADS} -c256 -d${APP_RUNNING_TIME}s -s test-plan.lua --latency http://$APP_BASE_URL | tee $output_file"
 
@@ -154,7 +157,6 @@ echo ""
 echo "+=================+"
 echo "| [6/6] Start wrk |"
 echo "+=================+"
-echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
 start_wrk
 
 echo ""

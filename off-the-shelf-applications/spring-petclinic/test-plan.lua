@@ -152,7 +152,7 @@ done = function(summary, latency, requests)
    io.write(string.format("  Total errors status: %d\n", summary.errors.status))
    io.write(string.format("  Total errors timeouts: %d\n", summary.errors.timeout))
    io.write("------------------------------\n")
-   io.write("Statistics:\n")
+   io.write("Percentiles:\n")
    for _, p in pairs({ 50, 75, 90, 94, 98, 99, 99.9, 99.99, 99.999, 99.9999 }) do
       n = latency:percentile(p)
       io.write(string.format("%7g%% %8.2fms\n", p, n / 1000))
