@@ -59,12 +59,12 @@ function request_create_owner()
 end
 
 function request_get_owner()
-    local owner_url = wrk.thread:get("owner_url")
-    if not owner_url then
+    local path = wrk.thread:get("owner_url")
+    if not path then
         return nil -- no further requests to execute
     end
 
-   return wrk.format("GET", owner_url, headers)
+   return wrk.format("GET", path, headers, nil)
 end
 
 function request_create_pet()
@@ -84,7 +84,7 @@ function request_create_pet()
    return wrk.format("POST", path, headers, pet)
 end
 
-function request_create_visit()
+function request_create_pet_visit()
     local pet_visit_url = wrk.thread:get("pet_visit_url")
     if not pet_visit_url then
         return nil -- no further requests to execute
@@ -93,17 +93,17 @@ function request_create_visit()
     local path = "/owners/" .. pet_visit_url
     local randomNumber = random_number()
     local randomDate = dates[math.random(1, #dates)]
-    local pet = "description=Visit-" .. randomNumber ..
+    local pet_visit = "description=Visit-" .. randomNumber ..
         "&date=" .. randomDate
 
-   return wrk.format("POST", path, headers, pet)
+   return wrk.format("POST", path, headers, pet_visit)
 end
 
 function init(args)
     requests[1] = request_create_owner
     requests[2] = request_create_pet
     requests[3] = request_get_owner
-    requests[4] = request_create_visit
+    requests[4] = request_create_pet_visit
 
     return requests
 end
