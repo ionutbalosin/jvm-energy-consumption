@@ -89,8 +89,8 @@ configure_application() {
   APP_HOME=$QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME
   APP_PORT=8080
   APP_BASE_URL="localhost:$APP_PORT"
-  POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://127.0.0.1:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
   JAVA_OPS="-Xms1m -Xmx2g"
+  #POSTGRESQL_DATASOURCE="-Dquarkus.datasource.jdbc.url=jdbc:postgresql://localhost:5432/quarkus_test -Dquarkus.datasource.username=quarkus_test -Dquarkus.datasource.password=quarkus_test"
 
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
   echo "Application running time: $APP_RUNNING_TIME sec"
