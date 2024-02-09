@@ -1,0 +1,47 @@
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.2.1
+
+
+2024-02-08T19:10:40.984+01:00  INFO 61312 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication using Java 21.0.2 with PID 61312 (/home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar started by ionutbalosin in /home/ionutbalosin/Workspace/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic)
+2024-02-08T19:10:41.008+01:00  INFO 61312 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-02-08T19:10:44.315+01:00  INFO 61312 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-08T19:10:44.475+01:00  INFO 61312 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 2 JPA repository interfaces.
+2024-02-08T19:10:46.633+01:00  INFO 61312 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-08T19:10:46.658+01:00  INFO 61312 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-08T19:10:46.658+01:00  INFO 61312 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-08T19:10:46.734+01:00  INFO 61312 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-08T19:10:46.736+01:00  INFO 61312 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5472 ms
+2024-02-08T19:10:47.379+01:00  WARN 61312 --- [           main] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-02-08T19:10:47.382+01:00  INFO 61312 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-08T19:10:47.746+01:00  INFO 61312 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ac9aa2c3-1868-4348-a012-febdfdaf7cc3 user=SA
+2024-02-08T19:10:47.748+01:00  INFO 61312 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-08T19:10:48.133+01:00  INFO 61312 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-08T19:10:48.257+01:00  INFO 61312 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-08T19:10:48.333+01:00  INFO 61312 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-08T19:10:48.784+01:00  INFO 61312 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-08T19:10:51.130+01:00  INFO 61312 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-08T19:10:51.137+01:00  INFO 61312 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-08T19:10:51.880+01:00  INFO 61312 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-08T19:10:55.422+01:00  INFO 61312 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-02-08T19:10:55.667+01:00  INFO 61312 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-02-08T19:10:55.767+01:00  INFO 61312 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 15.903 seconds (process running for 17.14)
+2024-02-08T19:10:55.819+01:00  INFO 61312 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-08T19:10:55.820+01:00  INFO 61312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-08T19:10:55.824+01:00  INFO 61312 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-02-08T20:34:53.898+01:00  WARN 61312 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m14s977ms279µs325ns).
+2024-02-08T20:39:58.208+01:00  WARN 61312 --- [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m27s10ms583µs85ns).
+2024-02-08T20:41:00.085+01:00  INFO 61312 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-08T20:41:00.093+01:00  INFO 61312 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-02-08T20:41:00.129+01:00  INFO 61312 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
