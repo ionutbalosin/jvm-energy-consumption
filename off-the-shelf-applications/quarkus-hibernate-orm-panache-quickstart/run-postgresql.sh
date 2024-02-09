@@ -31,7 +31,7 @@ docker run -it --rm \
   -e POSTGRES_USER=quarkus_test -e POSTGRES_PASSWORD=quarkus_test -e POSTGRES_DB=quarkus_test \
   -e POSTGRESQL_MAX_IDLE_CONNS=0 -e POSTGRESQL_MAX_OPEN_CONNS=0 \
   -p 5432:5432 postgres:13.3 \
-  -N 2048
+  -N 4096
 
 # give a bit of time to the process to gracefully start
 sleep 5

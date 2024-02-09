@@ -28,84 +28,57 @@ local math = require("math")
 
 local threads = {}
 local requests = {}
-local petTypes = { "bird", "cat", "dog", "hamster", "lizard", "snake" }
-local dates = { "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10", "2010-11-11", "2010-12-12" }
-local headers = {["Content-Type"] = "application/x-www-form-urlencoded"}
-local ownerUrlPattern = '/owners/(%d+)$'
-local addPetVisitUrlPattern = '<td><a href="([^"]+/pets/%d+/visits/new)">Add Visit</a></td>'
+local headers = {["Content-Type"] = "application/json"}
+local fruits = { "Apple", "Bananas", "Oranges", "Pineapple", "Grape", "Strawberry", "Watermelon", "Pears", "Cherries", "Peach", "Lemon", "Avocado", "Blueberries", "Raspberry", "Blackberry", "Plums", "Muskmelon", "Papaya", "Mangoes" }
+local fruitIdPattern = '{"id":(%d+),"name":"([^"]+)"'
 
 function setup(thread)
-    thread:set("owner_url", nil)
-    thread:set("pet_visit_url", nil)
+    thread:set("fruit_id", nil)
     thread:set("request_index", 1)
 
     table.insert(threads, thread)
 end
 
 function getRandomNumber()
-    return math.random(100000000, 999999999)
+    return math.random(1, 999999999)
 end
 
-function requestCreateOwner()
-    local path = "/owners/new"
+function requestCreateFruit()
+    local path = "/entity/fruits"
     local randomNumber = getRandomNumber()
-    local randomDate = dates[math.random(1, #dates)]
-    local randomPetType = petTypes[math.random(1, #petTypes)]
-    local owner = "firstName=Owner" ..
-      "&lastName=" .. randomNumber ..
-      "&address=Address-" .. randomNumber ..
-      "&city=City-" .. randomNumber ..
-      "&telephone=" .. randomNumber
+    local randomFruit = fruits[math.random(1, #fruits)]
+    local fruit = '{"name": "' .. randomFruit .. ' - ' .. randomNumber .. '"}'
 
-    return wrk.format("POST", path, headers, owner)
+    return wrk.format("POST", path, headers, fruit)
 end
 
-function requestGetOwner()
-    local path = wrk.thread:get("owner_url")
-    if not path then
+function requestGetFruit()
+    local fruit_id = wrk.thread:get("fruit_id")
+    if not fruit_id then
         return nil -- no further requests to execute
     end
 
+   local path = "/entity/fruits/" .. fruit_id
    return wrk.format("GET", path, headers, nil)
 end
 
-function requestCreatePet()
-    local owner_url = wrk.thread:get("owner_url")
-    if not owner_url then
+function requestDeleteFruit()
+    local fruit_id = wrk.thread:get("fruit_id")
+    if not fruit_id then
         return nil -- no further requests to execute
     end
 
-    local path = owner_url .. "/pets/new"
-    local randomNumber = getRandomNumber()
-    local randomDate = dates[math.random(1, #dates)]
-    local randomPetType = petTypes[math.random(1, #petTypes)]
-    local pet = "name=Pet-" .. randomNumber ..
-        "&birthDate=" .. randomDate ..
-        "&type=" .. randomPetType
+   -- set fruit_id to nil to prevent duplicate deletions
+   wrk.thread:set("fruit_id", isFruitId)
 
-   return wrk.format("POST", path, headers, pet)
-end
-
-function requestCreatePetVisit()
-    local pet_visit_url = wrk.thread:get("pet_visit_url")
-    if not pet_visit_url then
-        return nil -- no further requests to execute
-    end
-
-    local path = "/owners/" .. pet_visit_url
-    local randomNumber = getRandomNumber()
-    local randomDate = dates[math.random(1, #dates)]
-    local pet_visit = "description=Visit-" .. randomNumber ..
-        "&date=" .. randomDate
-
-   return wrk.format("POST", path, headers, pet_visit)
+   local path = "/entity/fruits/" .. fruit_id
+   return wrk.format("DELETE", path, headers, nil)
 end
 
 function init(args)
-    requests[1] = requestCreateOwner
-    requests[2] = requestCreatePet
-    requests[3] = requestGetOwner
-    requests[4] = requestCreatePetVisit
+    requests[1] = requestCreateFruit
+    requests[2] = requestGetFruit
+    requests[3] = requestDeleteFruit
 
     return requests
 end
@@ -124,21 +97,10 @@ function request()
 end
 
 function response(status, headers, body)
-    if status >= 200 and status < 300 then
-        -- attempt to read the add pet visits URL from the HTML response; not available otherwise (due to server limitation)
-        local isAddPetVisitUrl = body:match(addPetVisitUrlPattern)
-        if isAddPetVisitUrl then
-            wrk.thread:set("pet_visit_url", isAddPetVisitUrl)
-        end
-    end
-
-    -- in general, the redirection is back to the '/owners/{ownerId}' home page.
-    if status >= 300 and status < 400 then
-        local redirect_url = headers["Location"]
-        local isOwnersUrl = string.match(redirect_url, ownerUrlPattern)
-        if isOwnersUrl then
-            wrk.thread:set("owner_url", redirect_url)
-        end
+    -- attempt to read the fruit id from the HTML response
+    local isFruitId = body:match(fruitIdPattern)
+    if isFruitId then
+        wrk.thread:set("fruit_id", isFruitId)
     end
 end
 
