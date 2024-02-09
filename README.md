@@ -44,7 +44,7 @@ Therefore, both physical and software measurements are needed:
 
 [![high-level-system-architecture.svg](./docs/high-level-system-architecture.svg?raw=true)](./docs/high-level-system-architecture.svg?raw=true)
 
-On **system under test** runs the target JVM application.
+On **system under test machine** runs the target JVM application.
 
 ### Load Test System Architecture
 
@@ -54,9 +54,9 @@ The load testing tool should run on a different host than the target JVM applica
 
 [![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
 
-On **system client test** runs the load testing tool (e.g., Hyperfoil) as well as any additional resource needed for the application (e.g., PostgreSQL database).
+On **system client test** runs the load testing tool (e.g., `wrk`) as well as any additional resource needed for the application (e.g., PostgreSQL database).
 
-The network latency between the system under test and the system client test (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
+The network latency between the system under test machine and the system client test machine (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
 
 ## Software-based Power Meters
 
@@ -92,8 +92,8 @@ To properly run the scripts, you need to download, install, and properly configu
 
  OS        | Covered | Tools                               
 -----------|---------|-------------------------------------
- GNU/Linux | Yes     | `ps`, `powerstat` (i.e., RAPL interface) 
- macOS     | Yes     | `ps`, `powermetrics`                      
+ GNU/Linux | Yes     | `ps`, `powerstat` (i.e., RAPL interface), `wrk`
+ macOS     | Yes     | `ps`, `powermetrics`, `wrk`                      
  Windows   | No      | N/A                                 
 
 _Please ensure that you have `sudo` (root) access; otherwise, the `powerstat` and `powermetrics` commands cannot be executed._
@@ -111,9 +111,17 @@ Eclipse OpenJ9 VM    | [Download](https://www.eclipse.org/openj9)
 
 _`(*)` - License restrictions might apply_
 
-### Hyperfoil
+### wrk
 
-Download and install [Hyperfoil](https://hyperfoil.io), a microservice-oriented distributed benchmark framework used for the load testing.
+1. Clone the [wrk](https://github.com/wg/wrk) repository, a modern HTTP benchmarking tool used for the load testing.
+
+2. Build wrk from sources
+```properties
+$ cd wrk 
+$ sudo make 
+# move the executable to PATH
+$ sudo cp wrk /usr/local/bin 
+```
 
 ### Configurations
 
@@ -130,14 +138,13 @@ ORACLE_GRAAL_VM_HOME="<path_to_oracle_graalvm>"
 GRAAL_VM_NATIVE_IMAGE_HOME="<path_to_graalvm_native_image>"
 AZUL_PRIME_VM_HOME="<path_to_azul_prime_vm>"
 ECLIPSE_OPEN_J9_VM_HOME="<path_to_eclipse_openj9>"
- ```
+```
 
 3. Update the specific **APP_HOME** properties that point to the locally downloaded/installed application. 
 
  ```properties
 SPRING_PETCLINIC_HOME="<path_to_spring_petclinic>"
 QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME="<path_to_quarkus_quickstart>"
-HYPERFOIL_HOME="<path_to_hyperfoil>"
  ```
 
 ## Measurements
@@ -149,7 +156,13 @@ This set of measurements captures the idle power consumption, and it is used to 
 ```
 $ cd /baseline-idle-os
 $ ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]
+
+# Example:
+$ ./run-baseline.sh --run-identifier=1 --duration=60
 ```
+
+example:
+
 
 ### Java Samples
 
@@ -163,7 +176,10 @@ This set of measurements relies on specific code patterns to identify what is th
 
 ```
 $ cd /java-samples
-$ ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
+$ ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
+
+# Example:
+$ ./run-samples.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
 ### Spring PetClinic Application
@@ -171,50 +187,59 @@ $ ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-iden
 This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
-2. Append the custom [application properties](off-the-shelf-applications/spring-petclinic/application.properties) to the existing [application.properties](https://github.com/spring-projects/spring-petclinic/blob/main/src/main/resources/application.properties) and then build the application
-3. Open the [run-application.sh](off-the-shelf-applications/spring-petclinic/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`
-4. Open the [run-hyperfoil.sh](off-the-shelf-applications/spring-petclinic/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
-5. Launch the JVM application on the **system under test**:
+2. On top of the existing code, apply the custom configurations as explained in the [application-readme.md](off-the-shelf-applications/spring-petclinic/application-readme.md)
+5. Launch the JVM application on the **system under test machine**:
 
 ```
 $ cd /spring-petclinic
 $ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
+
+# Example:
+$ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-6. After the application has successfully started, launch the Hyperfoil on the **system client test**:
+6. After the application has successfully started, launch the `wrk` on the **system client test machine**:
 
 ```
 $ cd /spring-petclinic
-$ ./run-hyperfoil.sh
+$ ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]
+
+# Example:
+$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080
 ```
 
 ### Quarkus Hibernate ORM Panache Quickstart
 
 This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache quickstart.
 
-1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts) and build the **hibernate-orm-panache-quickstart** sources
-2. Append the custom [application properties](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/application.properties) to the existing [application.properties](https://github.com/quarkusio/quarkus-quickstarts/blob/main/hibernate-orm-panache-quickstart/src/main/resources/application.properties) and then build the application
-3. Open the [run-application.sh](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/run-application.sh) script and update the variables `JAVA_HOME`, `APP_HOME`, `POSTGRESQL_DATASOURCE`
-4. Open the [run-hyperfoil.sh](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/run-hyperfoil.sh) script and update the variable `HYPERFOIL_HOME`
-5. Launch the PostgreSQL database on the **system client test**:
+1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts)
+2. On top of the existing **hibernate-orm-panache-quickstart** source module, apply the custom configurations as explained in the [application-readme.md](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/application-readme.md)
+
+3. Launch the PostgreSQL database on the **system client test machine**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
 $ ./run-postgresql.sh
 ```
 
-6. After the PostgreSQL database has successfully started, launch the JVM application on the **system under test**:
+4. After the PostgreSQL database has successfully started, launch the JVM application on the **system under test machine**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
 $ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
+
+# Example:
+$ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-7. After the application has successfully started, launch the Hyperfoil on the **system client test**:
+5. After the application has successfully started, launch the `wrk` on the **system client test**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-hyperfoil.sh
+$ ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]
+
+# Example:
+$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080
 ```
 
 ### Generate the plots
