@@ -111,11 +111,18 @@ done = function(summary, latency, requests)
    io.write(string.format("  Total socket connection errors: %d\n", summary.errors.connect))
    io.write(string.format("  Total socket read errors: %d\n", summary.errors.read))
    io.write(string.format("  Total socket write errors: %d\n", summary.errors.write))
-   io.write(string.format("  Total errors status: %d\n", summary.errors.status))
+   io.write(string.format("  Total HTTP errors (i.e., status codes > 399): %d\n", summary.errors.status))
    io.write(string.format("  Total errors timeouts: %d\n", summary.errors.timeout))
    io.write("------------------------------\n")
    io.write("Percentiles:\n")
-   for _, p in pairs({ 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 99, 99.9, 99.99, 99.999, 99.9999, 100 }) do
+   local percentiles = {}
+   for i = 1, 99 do
+      table.insert(percentiles, i)
+   end
+   for _, p in ipairs({99.9, 99.99, 99.999, 99.9999, 100}) do
+      table.insert(percentiles, p)
+   end
+   for _, p in ipairs(percentiles) do
       n = latency:percentile(p)
       io.write(string.format("%7g%% %8.2fms\n", p, n / 1000))
    end
