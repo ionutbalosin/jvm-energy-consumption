@@ -26,29 +26,32 @@
 #
 
 check_command_line_options() {
-  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIERS=("openjdk-hotspot-vm" "graalvm-ce" "oracle-graalvm" "native-image" "azul-prime-vm" "eclipse-openj9-vm")
+  APP_JDK_VERSION="21"
   APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="5280"
+  APP_RUN_IDENTIFIER=""
   APP_BASE_URL="localhost:8080"
-  APP_THREADS="$(( $(nproc) / 2 ))"
-  APP_SESSIONS="256"
+  WRK_RUNNING_TIME="5280"
+  WRK_THREADS="$(( $(nproc) * 2 / 3 ))"
+  WRK_RATE="3000"
+  WRK_SESSIONS="384"
 
-  if [[ $# -lt 1 || $# -gt 5 ]]; then
-    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]"
+  if [[ $# -lt 1 || $# -gt 7 ]]; then
+    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>] [--wrk-rate=<wrk-rate>]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run."
-    echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the target JVM where the application is running (for a match). Java is not needed to launch the test client. If not specified, the user will be prompted to select it at the beginning of the run."
-    echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
-    echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
-    echo "  --threads=<threads>                An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $APP_THREADS (i.e., half the number of available CPUs)."
+    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run. This should match the target JVM execution run for test correlation."
+    echo "  --jvm-identifier=<jvm-identifier>  A mandatory parameter that should match the target JVM where the application is running for test correlation."
+    echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
+    echo "  --jdk-version=<jdk-version>        An optional parameter to specify the target JDK version where the application is running for test correlation. If not specified, it defaults to $APP_JDK_VERSION."
     echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
+    echo "  --wrk-duration=<wrk-duration>      An optional parameter to specify the wrk duration in seconds. If not specified, it is set by default to $WRK_RUNNING_TIME seconds."
+    echo "  --wrk-threads=<wrk-threads>        An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $WRK_THREADS (i.e., half the number of available CPUs)."
+    echo "  --wrk-rate=<wrk-rate>              An optional parameter to specify the number requests per second (i.e., throughput) for wrk. If not specified, it is set by default to $WRK_RATE."
     echo ""
     echo "Examples:"
-    echo "  $ ./run-wrk.sh --run-identifier=1"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080"
+    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --jdk-version=21 --app-base-url=192.168.0.2:8080 --wrk-duration=60 --wrk-threads=4 --wrk-rate=2000"
     echo ""
     return 1
   fi
@@ -61,14 +64,20 @@ check_command_line_options() {
       --jvm-identifier=*)
         APP_JVM_IDENTIFIER="${1#*=}"
         ;;
-      --duration=*)
-        APP_RUNNING_TIME="${1#*=}"
-        ;;
-      --threads=*)
-        APP_THREADS="${1#*=}"
+      --jdk-version=*)
+        APP_JDK_VERSION="${1#*=}"
         ;;
       --app-base-url=*)
         APP_BASE_URL="${1#*=}"
+        ;;
+      --wrk-duration=*)
+        WRK_RUNNING_TIME="${1#*=}"
+        ;;
+      --wrk-threads=*)
+        WRK_THREADS="${1#*=}"
+        ;;
+      --wrk-rate=*)
+        WRK_RATE="${1#*=}"
         ;;
       *)
         echo "ERROR: Unknown parameter $1"
@@ -82,17 +91,31 @@ check_command_line_options() {
     echo "ERROR: Missing mandatory parameter run identifier."
     return 1
   fi
+
+  if [ -z "$APP_JVM_IDENTIFIER" ]; then
+    echo "ERROR: Missing mandatory parameter jvm identifier."
+    return 1
+  fi
+
+  if [[ ! " ${APP_JVM_IDENTIFIERS[@]} " =~ " $APP_JVM_IDENTIFIER " ]]; then
+    echo "ERROR: Invalid parameter jvm identifier '$APP_JVM_IDENTIFIER'. Accepted options:  {${APP_JVM_IDENTIFIERS[*]}}"
+    return 1
+  fi
 }
 
 configure_wrk() {
   CURR_DIR=$(pwd)
+  OUTPUT_FOLDER=results/jdk-$APP_JDK_VERSION/$ARCH/$OS
 
-  echo "Application run identifier: $APP_RUN_IDENTIFIER"
-  echo "Application running time: $APP_RUNNING_TIME sec"
-  echo "Application sessions: $APP_SESSIONS"
-  echo "Application threads: $APP_THREADS"
-  echo "JVM identifier: $APP_JVM_IDENTIFIER"
-  echo "Application base url: $APP_BASE_URL"
+  echo "Application run identifier (on the target machine): $APP_RUN_IDENTIFIER"
+  echo "Application base url (on the target machine): $APP_BASE_URL"
+  echo "Application JDK version (on the target machine): $APP_JDK_VERSION"
+  echo "Application JVM identifier (on the target machine): $APP_JVM_IDENTIFIER"
+  echo "Output folder: $OUTPUT_FOLDER"
+  echo "wrk running time: $WRK_RUNNING_TIME sec"
+  echo "wrk threads: $WRK_THREADS"
+  echo "wrk requests per second: $WRK_RATE"
+  echo "wrk sessions: $WRK_SESSIONS"
 
   if ! command -v wrk &> /dev/null; then
     echo ""
@@ -107,14 +130,14 @@ create_output_resources() {
 
 start_wrk() {
   echo "Starting wrk at: $(date) ..."
-  echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
+  echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $WRK_RUNNING_TIME seconds ..."
   echo ""
 
-  output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-  run_command="wrk -t${APP_THREADS} -c${APP_SESSIONS} -d${APP_RUNNING_TIME}s -s test-plan.lua --latency http://$APP_BASE_URL | tee $output_file"
+  output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$APP_JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
+  wrk_command="wrk -t${WRK_THREADS} -c${WRK_SESSIONS} -d${WRK_RUNNING_TIME}s -R${WRK_RATE} -s test-plan.lua --latency http://$APP_BASE_URL | tee $output_file"
 
-  echo "$run_command"
-  eval "$run_command"
+  echo "$wrk_command"
+  eval "$wrk_command"
 }
 
 check_command_line_options "$@"
@@ -123,32 +146,20 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "+================================+"
-echo "| [1/6] Configuration Properties |"
-echo "+================================+"
-. ../../scripts/shell/configure-properties.sh || exit 1
-
-echo ""
 echo "+=============================+"
-echo "| [2/6] Hardware Architecture |"
+echo "| [1/4] Hardware Architecture |"
 echo "+=============================+"
 . ../../scripts/shell/configure-arch.sh
 
 echo ""
 echo "+========================+"
-echo "| [3/6] OS Configuration |"
+echo "| [2/4] OS Configuration |"
 echo "+========================+"
 . ../../scripts/shell/configure-os.sh || exit 1
 
 echo ""
 echo "+=========================+"
-echo "| [4/6] JVM Configuration |"
-echo "+=========================+"
-. ../../scripts/shell/configure-jvm.sh "$APP_JVM_IDENTIFIER" || exit 1
-
-echo ""
-echo "+=========================+"
-echo "| [5/6] wrk configuration |"
+echo "| [3/4] wrk configuration |"
 echo "+=========================+"
 configure_wrk || exit 1
 
@@ -157,7 +168,7 @@ create_output_resources
 
 echo ""
 echo "+=================+"
-echo "| [6/6] Start wrk |"
+echo "| [4/4] Start wrk |"
 echo "+=================+"
 start_wrk
 
