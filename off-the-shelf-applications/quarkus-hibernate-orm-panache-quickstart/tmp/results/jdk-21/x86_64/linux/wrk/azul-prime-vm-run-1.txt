@@ -1,0 +1,43 @@
+Running 88m test @ http://192.168.0.2:8080
+  8 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.95ms  366.19us 259.29ms   89.23%
+    Req/Sec     0.98k   150.26     1.78k    71.72%
+  Latency Distribution
+     50%    0.91ms
+     75%    1.04ms
+     90%    1.28ms
+     99%    1.82ms
+  36204549 requests in 88.00m, 3.24GB read
+  Socket errors: connect 0, read 498, write 0, timeout 0
+  Non-2xx or 3xx responses: 279
+Requests/sec:   6856.80
+Transfer/sec:    644.33KB
+------------------------------
+Summary:
+  Total requests: 36204549
+  Total socket connection errors: 0
+  Total socket read errors: 498
+  Total socket write errors: 0
+  Total errors status: 279
+  Total errors timeouts: 0
+------------------------------
+Percentiles:
+     10%     0.71ms
+     20%     0.74ms
+     25%     0.75ms
+     30%     0.76ms
+     40%     0.80ms
+     50%     0.91ms
+     60%     0.98ms
+     70%     1.02ms
+     75%     1.04ms
+     80%     1.07ms
+     90%     1.28ms
+     95%     1.43ms
+     99%     1.82ms
+   99.9%     3.96ms
+  99.99%     7.35ms
+ 99.999%    16.48ms
+99.9999%    54.10ms
+    100%     0.00ms
