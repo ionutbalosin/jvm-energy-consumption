@@ -112,14 +112,23 @@ create_output_resources() {
 
 build_application() {
   build_output_file="$CURR_DIR/$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-build-$APP_RUN_IDENTIFIER.log"
+  BUILD_ARGS=""
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Pnative native:compile"
+
+    # enable PGO and G1 GC for the native image; otherwise, disabled by default.
+    pgo_output_file="$CURR_DIR/default.iprof"
+    if ! test -e "$pgo_output_file"; then
+      BUILD_ARGS="-DbuildArgs=--pgo-instrument\,--gc=G1"
+    else
+      BUILD_ARGS="-DbuildArgs=--pgo=$pgo_output_file\,--gc=G1"
+    fi
   fi
 
-  app_build_command="$BUILD_CMD > $build_output_file 2>&1"
+  app_build_command="$BUILD_CMD $BUILD_ARGS > $build_output_file 2>&1"
   echo "Building application at: $(date) ... "
   echo "$app_build_command"
 
