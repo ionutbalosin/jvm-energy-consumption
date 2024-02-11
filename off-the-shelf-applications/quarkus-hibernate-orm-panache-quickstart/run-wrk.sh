@@ -32,9 +32,9 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_BASE_URL="localhost:8080"
   WRK_RUNNING_TIME="5280"
-  WRK_THREADS="$(( $(nproc) * 2 / 3 ))"
+  WRK_THREADS="$(nproc)"
   WRK_RATE="3000"
-  WRK_SESSIONS="384"
+  WRK_SESSIONS="1000"
 
   if [[ $# -lt 1 || $# -gt 7 ]]; then
     echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>] [--wrk-rate=<wrk-rate>]"
@@ -51,6 +51,7 @@ check_command_line_options() {
     echo ""
     echo "Examples:"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --jdk-version=21 --app-base-url=192.168.0.2:8080 --wrk-duration=60 --wrk-threads=4 --wrk-rate=2000"
     echo ""
     return 1
