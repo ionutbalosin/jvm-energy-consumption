@@ -106,15 +106,15 @@ end
 
 done = function(summary, latency, requests)
    io.write("------------------------------\n")
-   io.write("Summary:\n")
-   io.write(string.format("  Total requests: %d\n", summary.requests))
-   io.write(string.format("  Total socket connection errors: %d\n", summary.errors.connect))
-   io.write(string.format("  Total socket read errors: %d\n", summary.errors.read))
-   io.write(string.format("  Total socket write errors: %d\n", summary.errors.write))
-   io.write(string.format("  Total HTTP errors (i.e., status codes > 399): %d\n", summary.errors.status))
-   io.write(string.format("  Total errors timeouts: %d\n", summary.errors.timeout))
+    io.write("Summary statistics:\n")
+    io.write(string.format("  Total requests: %d\n", summary.requests))
+    io.write(string.format("  Total socket connection errors: %d\n", summary.errors.connect))
+    io.write(string.format("  Total socket read errors: %d\n", summary.errors.read))
+    io.write(string.format("  Total socket write errors: %d\n", summary.errors.write))
+    io.write(string.format("  Total HTTP errors (i.e., status codes > 399): %d\n", summary.errors.status))
+    io.write(string.format("  Total timeout errors: %d\n", summary.errors.timeout))
    io.write("------------------------------\n")
-   io.write("Percentiles:\n")
+   io.write("Latency percentiles:\n")
    local percentiles = {}
    for i = 1, 99 do
       table.insert(percentiles, i)
@@ -126,4 +126,5 @@ done = function(summary, latency, requests)
       n = latency:percentile(p)
       io.write(string.format("%7g%% %8.2fms\n", p, n / 1000))
    end
+  io.write("  Note: Please take these latency percentiles with caution since wrk suffers from the Coordinated Omission problem. To get accurate latency measurements, use wrk2.\n")
 end

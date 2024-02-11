@@ -32,12 +32,11 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_BASE_URL="localhost:8080"
   WRK_RUNNING_TIME="5280"
-  WRK_THREADS="$(nproc)"
-  WRK_RATE="3000"
-  WRK_SESSIONS="1000"
+  WRK_THREADS="$(( $(nproc) * 2 / 3 ))"
+  WRK_SESSIONS="384"
 
-  if [[ $# -lt 1 || $# -gt 7 ]]; then
-    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>] [--wrk-rate=<wrk-rate>]"
+  if [[ $# -lt 1 || $# -gt 6 ]]; then
+    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]"
     echo ""
     echo "Options:"
     echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run. This should match the target JVM execution run for test correlation."
@@ -47,12 +46,11 @@ check_command_line_options() {
     echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
     echo "  --wrk-duration=<wrk-duration>      An optional parameter to specify the wrk duration in seconds. If not specified, it is set by default to $WRK_RUNNING_TIME seconds."
     echo "  --wrk-threads=<wrk-threads>        An optional parameter to specify the number of threads to use for wrk. If not specified, it is set by default to $WRK_THREADS (i.e., half the number of available CPUs)."
-    echo "  --wrk-rate=<wrk-rate>              An optional parameter to specify the number requests per second (i.e., throughput) for wrk. If not specified, it is set by default to $WRK_RATE."
     echo ""
     echo "Examples:"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
     echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080"
-    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --jdk-version=21 --app-base-url=192.168.0.2:8080 --wrk-duration=60 --wrk-threads=4 --wrk-rate=2000"
+    echo "  $ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080 --jdk-version=21 --wrk-duration=60 --wrk-threads=4"
     echo ""
     return 1
   fi
@@ -76,9 +74,6 @@ check_command_line_options() {
         ;;
       --wrk-threads=*)
         WRK_THREADS="${1#*=}"
-        ;;
-      --wrk-rate=*)
-        WRK_RATE="${1#*=}"
         ;;
       *)
         echo "ERROR: Unknown parameter $1"
@@ -115,7 +110,6 @@ configure_wrk() {
   echo "Output folder: $OUTPUT_FOLDER"
   echo "wrk running time: $WRK_RUNNING_TIME sec"
   echo "wrk threads: $WRK_THREADS"
-  echo "wrk requests per second: $WRK_RATE"
   echo "wrk sessions: $WRK_SESSIONS"
 
   if ! command -v wrk &> /dev/null; then
@@ -135,7 +129,7 @@ start_wrk() {
   echo ""
 
   output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$APP_JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-  wrk_command="wrk -t${WRK_THREADS} -c${WRK_SESSIONS} -d${WRK_RUNNING_TIME}s -R${WRK_RATE} -s test-plan.lua --latency http://$APP_BASE_URL | tee $output_file"
+  wrk_command="wrk -t${WRK_THREADS} -c${WRK_SESSIONS} -d${WRK_RUNNING_TIME}s -s test-plan.lua http://$APP_BASE_URL | tee $output_file"
 
   echo "$wrk_command"
   eval "$wrk_command"

@@ -113,16 +113,16 @@ _`(*)` - License restrictions might apply_
 
 ### wrk
 
-1. Clone the [wrk2](https://github.com/giltene/wrk2) repository, a modern HTTP benchmarking tool used for the load testing.
+1. Clone the [wrk](https://github.com/wg/wrk) repository, a modern HTTP benchmarking tool used for the load testing.
 
 2. Build wrk from sources
 ```properties
 # install the build prerequisites
 $ sudo apt-get install build-essential libssl-dev libz-dev make -y 
 
-# clone and build the wrk2 repository
-$ git clone https://github.com/giltene/wrk2.git
-$ cd wrk2
+# clone and build the wrk repository
+$ git clone https://github.com/wg/wrk.git
+$ cd wrk
 $ sudo make
 
 # move the wrk executable to PATH
