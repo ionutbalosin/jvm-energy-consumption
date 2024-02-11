@@ -33,7 +33,7 @@ check_command_line_options() {
   APP_BASE_URL="localhost:8080"
   WRK_RUNNING_TIME="5280"
   WRK_THREADS="$(nproc)"
-  WRK_SESSIONS="384"
+  WRK_SESSIONS="400"
 
   if [[ $# -lt 1 || $# -gt 6 ]]; then
     echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]"
