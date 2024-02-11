@@ -36,7 +36,7 @@ local addPetVisitUrlPattern = '<td><a href="([^"]+/pets/%d+/visits/new)">Add Vis
 
 function setup(thread)
     thread:set("owner_url", nil)
-    thread:set("pet_visit_url", nil)
+    thread:set("add_pet_visit_url", nil)
     thread:set("request_index", 1)
 
     table.insert(threads, thread)
@@ -87,12 +87,12 @@ function requestCreatePet()
 end
 
 function requestCreatePetVisit()
-    local pet_visit_url = wrk.thread:get("pet_visit_url")
-    if not pet_visit_url then
+    local add_pet_visit_url = wrk.thread:get("add_pet_visit_url")
+    if not add_pet_visit_url then
         return nil -- no further requests to execute
     end
 
-    local path = "/owners/" .. pet_visit_url
+    local path = "/owners/" .. add_pet_visit_url
     local randomNumber = getRandomNumber()
     local randomDate = dates[math.random(1, #dates)]
     local pet_visit = "description=Visit-" .. randomNumber ..
@@ -104,8 +104,11 @@ end
 function init(args)
     requests[1] = requestCreateOwner
     requests[2] = requestCreatePet
+    -- The GET owner request retrieves the owner and the pet
     requests[3] = requestGetOwner
     requests[4] = requestCreatePetVisit
+    -- The GET owner request retrieves the owner, the pet, and the visit
+    requests[5] = requestGetOwner
 
     return requests
 end
@@ -128,7 +131,7 @@ function response(status, headers, body)
         -- attempt to read the add pet visits URL from the HTML response; not available otherwise (due to server limitation)
         local isAddPetVisitUrl = body:match(addPetVisitUrlPattern)
         if isAddPetVisitUrl then
-            wrk.thread:set("pet_visit_url", isAddPetVisitUrl)
+            wrk.thread:set("add_pet_visit_url", isAddPetVisitUrl)
         end
     end
 

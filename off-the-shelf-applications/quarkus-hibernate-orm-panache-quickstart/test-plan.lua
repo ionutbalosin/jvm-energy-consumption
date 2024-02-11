@@ -62,6 +62,19 @@ function requestGetFruit()
    return wrk.format("GET", path, headers, nil)
 end
 
+function requestUpdateFruit()
+    local fruit_id = wrk.thread:get("fruit_id")
+    if not fruit_id then
+        return nil -- no further requests to execute
+    end
+
+    local path = "/entity/fruits/" .. fruit_id
+    local randomNumber = getRandomNumber()
+    local randomFruit = fruits[math.random(1, #fruits)]
+    local fruit = '{"name": "' .. randomFruit .. ' - ' .. randomNumber .. ' upd"}'
+    return wrk.format("PUT", path, headers, fruit)
+end
+
 function requestDeleteFruit()
     local fruit_id = wrk.thread:get("fruit_id")
     if not fruit_id then
@@ -78,7 +91,8 @@ end
 function init(args)
     requests[1] = requestCreateFruit
     requests[2] = requestGetFruit
-    requests[3] = requestDeleteFruit
+    requests[3] = requestUpdateFruit
+    requests[4] = requestDeleteFruit
 
     return requests
 end

@@ -32,7 +32,7 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER=""
   APP_BASE_URL="localhost:8080"
   WRK_RUNNING_TIME="5280"
-  WRK_THREADS="$(( $(nproc) * 2 / 3 ))"
+  WRK_THREADS="$(nproc)"
   WRK_SESSIONS="384"
 
   if [[ $# -lt 1 || $# -gt 6 ]]; then

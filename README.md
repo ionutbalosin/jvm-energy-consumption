@@ -117,17 +117,22 @@ _`(*)` - License restrictions might apply_
 
 2. Build wrk from sources
 ```properties
-# install the build prerequisites
+# Install the build prerequisites
 $ sudo apt-get install build-essential libssl-dev libz-dev make -y 
 
-# clone and build the wrk repository
+# Clone and build the wrk repository
 $ git clone https://github.com/wg/wrk.git
 $ cd wrk
 $ sudo make
 
-# move the wrk executable to PATH
+# Move the wrk executable to PATH
 $ sudo cp wrk /usr/local/bin 
 ```
+
+**Note:** Latencies shown by `wrk` suffer from Coordinated Omission; nevertheless, we use it to measure maximum throughput. 
+For accurate latency measurements, complement this with [wrk2](https://github.com/giltene/wrk2). 
+
+In summary, `wrk` can be used for measuring maximum throughput, while `wrk2` is utilized to capture latency numbers under a sustained load.
 
 ### Configurations
 
