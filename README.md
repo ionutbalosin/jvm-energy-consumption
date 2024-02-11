@@ -199,24 +199,24 @@ This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 1. Clone the repository [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 2. On top of the existing code, apply the custom configurations as explained in the [application-readme.md](off-the-shelf-applications/spring-petclinic/application-readme.md)
-5. Launch the JVM application on the **system under test machine**:
+3. Launch the JVM application on the **system under test machine**:
 
 ```
 $ cd /spring-petclinic
-$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
+$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
 
 # Example:
 $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-6. After the application has successfully started, launch the `wrk` on the **system client test machine**:
+4. After the application has successfully started, launch the `wrk` on the **system client test machine**:
 
 ```
 $ cd /spring-petclinic
-$ ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]
+$ ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
 
 # Example:
-$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080
+$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080 --jdk-version=21 --wrk-duration=60 --wrk-threads=4
 ```
 
 ### Quarkus Hibernate ORM Panache Quickstart
@@ -225,32 +225,24 @@ This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache qu
 
 1. Clone the repository [quarkus-quickstarts](https://github.com/quarkusio/quarkus-quickstarts)
 2. On top of the existing **hibernate-orm-panache-quickstart** source module, apply the custom configurations as explained in the [application-readme.md](off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/application-readme.md)
-
-3. Launch the PostgreSQL database on the **system client test machine**:
-
-```
-$ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-postgresql.sh
-```
-
-4. After the PostgreSQL database has successfully started, launch the JVM application on the **system under test machine**:
+3. Launch the JVM application on the **system under test machine**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-build]
+$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
 
 # Example:
 $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-5. After the application has successfully started, launch the `wrk` on the **system client test**:
+4. After the application has successfully started, launch the `wrk` on the **system client test**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-wrk.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--threads=<threads>] [--app-base-url=<app-base-url>]
+$ ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
 
 # Example:
-$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --threads=8 --app-base-url=192.168.0.2:8080
+$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080 --jdk-version=21 --wrk-duration=60 --wrk-threads=4
 ```
 
 ### Generate the plots
