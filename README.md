@@ -54,9 +54,9 @@ The load testing tool should run on a different host than the target JVM applica
 
 [![load-test-system-architecture.svg](./docs/load-test-system-architecture.svg?raw=true)](./docs/load-test-system-architecture.svg?raw=true)
 
-On **system client test** runs the load testing tool (e.g., `wrk`) as well as any additional resource needed for the application (e.g., PostgreSQL database).
+On **test client machine** runs the load testing tool (e.g., `wrk`) as well as any additional resource needed for the application (e.g., PostgreSQL database).
 
-The network latency between the system under test machine and the system client test machine (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
+The network latency between the system under test machine and the test client machine (i.e., round trip time) must be constant and neglectable, that's why a wired connection is preferred.
 
 ## Software-based Power Meters
 
@@ -209,7 +209,7 @@ $ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-
 $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-4. After the application has successfully started, launch the `wrk` on the **system client test machine**:
+4. After the application has successfully started, launch the `wrk` on the **test client machine**:
 
 ```
 $ cd /spring-petclinic
@@ -235,7 +235,7 @@ $ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-
 $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
 ```
 
-4. After the application has successfully started, launch the `wrk` on the **system client test**:
+4. After the application has successfully started, launch the `wrk` on the **test client machine**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
