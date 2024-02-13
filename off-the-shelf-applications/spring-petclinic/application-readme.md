@@ -2,7 +2,7 @@
 
 GitHub Repository: [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 
-These application configurations are needed before starting the wrk tests.
+These application configurations are needed before starting the `wrk` tests.
 
 ### Step I
 

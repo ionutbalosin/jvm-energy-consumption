@@ -29,19 +29,19 @@ check_command_line_options() {
   APP_JVM_IDENTIFIERS=("openjdk-hotspot-vm" "graalvm-ce" "oracle-graalvm" "native-image" "azul-prime-vm" "eclipse-openj9-vm")
   APP_JDK_VERSION="21"
   APP_JVM_IDENTIFIER=""
-  APP_RUN_IDENTIFIER=""
+  APP_RUN_IDENTIFIER="default"
   APP_BASE_URL="localhost:8080"
-  WRK_RUNNING_TIME="5280"
+  WRK_RUNNING_TIME="7080"
   WRK_THREADS="$(nproc)"
   WRK_SESSIONS="900"
 
   if [[ $# -lt 1 || $# -gt 6 ]]; then
-    echo "Usage: ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]"
+    echo "Usage: ./run-wrk.sh --jvm-identifier=<jvm-identifier> [--run-identifier=<run-identifier>] [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run. This should match the target JVM execution run for test correlation."
     echo "  --jvm-identifier=<jvm-identifier>  A mandatory parameter that should match the target JVM where the application is running for test correlation."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. This should match the target JVM execution run for test correlation. If not specified, it defaults to the value 'default'."
     echo "  --jdk-version=<jdk-version>        An optional parameter to specify the target JDK version where the application is running for test correlation. If not specified, it defaults to $APP_JDK_VERSION."
     echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
     echo "  --wrk-duration=<wrk-duration>      An optional parameter to specify the wrk duration in seconds. If not specified, it is set by default to $WRK_RUNNING_TIME seconds."
@@ -83,11 +83,6 @@ check_command_line_options() {
     shift
   done
 
-  if [ -z "$APP_RUN_IDENTIFIER" ]; then
-    echo "ERROR: Missing mandatory parameter run identifier."
-    return 1
-  fi
-
   if [ -z "$APP_JVM_IDENTIFIER" ]; then
     echo "ERROR: Missing mandatory parameter jvm identifier."
     return 1
@@ -125,7 +120,7 @@ create_output_resources() {
 
 start_wrk() {
   echo "Starting wrk at: $(date) ..."
-  echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $WRK_RUNNING_TIME seconds ..."
+  echo "Please enjoy a ☕ while the application runs. This may take approximately $WRK_RUNNING_TIME seconds ..."
   echo ""
 
   output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$APP_JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"

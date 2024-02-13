@@ -166,14 +166,10 @@ This set of measurements captures the idle power consumption, and it is used to 
 
 ```
 $ cd /baseline-idle-os
-$ ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]
-
-# Example:
-$ ./run-baseline.sh --run-identifier=1 --duration=60
+$ ./run-baseline.sh [--run-identifier=<run-identifier>] [--duration=<duration>]
 ```
 
-example:
-
+Please follow the [how-to-run](./baseline-idle-os/how-to-run.md) instructions.
 
 ### Java Samples
 
@@ -187,11 +183,10 @@ This set of measurements relies on specific code patterns to identify what is th
 
 ```
 $ cd /java-samples
-$ ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
-
-# Example:
-$ ./run-samples.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
+$ ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
 ```
+
+Please follow the [how-to-run](./java-samples/how-to-run.md) instructions.
 
 ### Spring PetClinic Application
 
@@ -203,21 +198,17 @@ This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 ```
 $ cd /spring-petclinic
-$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
-
-# Example:
-$ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
+$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]
 ```
 
 4. After the application has successfully started, launch the `wrk` on the **test client machine**:
 
 ```
 $ cd /spring-petclinic
-$ ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
-
-# Example:
-$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080 --jdk-version=21 --wrk-duration=60 --wrk-threads=4
+$ ./run-wrk.sh --jvm-identifier=<jvm-identifier> [--run-identifier=<run-identifier>] [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
 ```
+
+Please follow the [how-to-run](./off-the-shelf-applications/how-to-run.md) instructions.
 
 ### Quarkus Hibernate ORM Panache Quickstart
 
@@ -229,21 +220,17 @@ This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache qu
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]
-
-# Example:
-$ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build
+$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]
 ```
 
 4. After the application has successfully started, launch the `wrk` on the **test client machine**:
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-wrk.sh --run-identifier=<run-identifier> --jvm-identifier=<jvm-identifier> [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
-
-# Example:
-$ ./run-wrk.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080 --jdk-version=21 --wrk-duration=60 --wrk-threads=4
+$ ./run-wrk.sh --jvm-identifier=<jvm-identifier> [--run-identifier=<run-identifier>] [--jdk-version=<jdk-version>] [--app-base-url=<app-base-url>] [--wrk-duration=<wrk-duration>] [--wrk-threads=<wrk-threads>]
 ```
+
+Please follow the [how-to-run](./off-the-shelf-applications/how-to-run.md) instructions.
 
 ### Generate the plots
 

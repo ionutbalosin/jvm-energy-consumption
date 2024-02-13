@@ -2,7 +2,7 @@
 
 GitHub Repository: [hibernate-orm-panache-quickstart](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
 
-These application configurations are needed before starting the wrk tests.
+These application configurations are needed before starting the `wrk` tests.
 
 ### Step I
 

@@ -26,20 +26,20 @@
 #
 
 check_command_line_options() {
-  APP_RUNNING_TIME="1800"
-  APP_RUN_IDENTIFIER=""
+  APP_RUNNING_TIME="3600"
+  APP_RUN_IDENTIFIER="default"
 
-  if [[ $# -lt 1 || $# -gt 2 ]]; then
-    echo "Usage: ./run-baseline.sh --run-identifier=<run-identifier> [--duration=<duration>]"
+  if [[ $# -gt 2 ]]; then
+    echo "Usage: ./run-baseline.sh [--run-identifier=<run-identifier>] [--duration=<duration>]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value 'default'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo ""
     echo "Examples:"
+    echo "   $ ./run-baseline.sh"
     echo "   $ ./run-baseline.sh --run-identifier=1"
-    echo "   $ ./run-baseline.sh --run-identifier=1,2"
-    echo "   $ ./run-baseline.sh --run-identifier=1,2,3 --duration=3600"
+    echo "   $ ./run-baseline.sh --run-identifier=1,2 --duration=3600"
     echo ""
     return 1
   fi
@@ -59,11 +59,6 @@ check_command_line_options() {
     esac
     shift
   done
-
-  if [ -z "$APP_RUN_IDENTIFIER" ]; then
-    echo "ERROR: Missing mandatory parameter run identifier."
-    return 1
-  fi
 }
 
 configure_baseline() {

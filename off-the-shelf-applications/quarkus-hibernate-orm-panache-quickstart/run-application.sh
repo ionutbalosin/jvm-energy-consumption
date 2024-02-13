@@ -26,29 +26,32 @@
 #
 
 check_command_line_options() {
-  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIERS=("openjdk-hotspot-vm" "graalvm-ce" "oracle-graalvm" "native-image" "azul-prime-vm" "eclipse-openj9-vm")
+  APP_RUN_IDENTIFIER="default"
   APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="5400"
+  APP_RUNNING_TIME="7200"
+  APP_ENABLE_PGO_G1GC=""
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
 
-  if [[ $# -lt 1 || $# -gt 5 ]]; then
-    echo "Usage: ./run-application.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
+  if [[ $# -gt 6 ]]; then
+    echo "Usage: ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
-    echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
+    echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. It can be a number or any other string identifier. If not specified, it defaults to the value 'default'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
+    echo "  --enable-pgo-g1gc                  An optional parameter to enable PGO and G1 GC for the native image."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "  $ ./run-application.sh --run-identifier=1"
-    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
-    echo "  $ ./run-application.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
+    echo "  $ ./run-application.sh"
+    echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning"
+    echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
@@ -64,6 +67,9 @@ check_command_line_options() {
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
         ;;
+      --enable-pgo-g1gc)
+        APP_ENABLE_PGO_G1GC="--enable-pgo-g1gc"
+        ;;
       --skip-os-tuning)
         APP_SKIP_OS_TUNING="--skip-os-tuning"
         ;;
@@ -77,11 +83,6 @@ check_command_line_options() {
     esac
     shift
   done
-
-  if [ -z "$APP_RUN_IDENTIFIER" ]; then
-    echo "ERROR: Missing mandatory parameter run identifier."
-    return 1
-  fi
 }
 
 configure_application() {
@@ -110,25 +111,36 @@ create_output_resources() {
   mkdir -p "$OUTPUT_FOLDER/jfr"
 }
 
+native_image_enable_pgo_g1gc() {
+  # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
+  # Note: G1GC is currently only supported on Linux AMD64 and AArch64
+  if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO_G1GC" = "--enable-pgo-g1gc" ]; then
+    # Enable PGO
+    pgo_output_file="$CURR_DIR/default.iprof"
+    if ! test -e "$pgo_output_file"; then
+      PGO_G1GC_BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo-instrument"
+    else
+      PGO_G1GC_BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo=\"$pgo_output_file\""
+    fi
+
+    # Enable G1 GC option only if the OS is Linux
+    if [ "$OS" = "linux" ]; then
+      PGO_G1GC_BUILD_ARGS="$PGO_G1GC_BUILD_ARGS,--gc=G1"
+    fi
+  fi
+}
+
 build_application() {
   build_output_file="$CURR_DIR/$OUTPUT_FOLDER/log/$JVM_IDENTIFIER-build-$APP_RUN_IDENTIFIER.log"
-  BUILD_ARGS=""
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
-
-    # enable PGO and G1 GC for the native image; otherwise, disabled by default.
-    pgo_output_file="$CURR_DIR/default.iprof"
-    if ! test -e "$pgo_output_file"; then
-      BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo-instrument\,--gc=G1"
-    else
-      BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo=$pgo_output_file\,--gc=G1"
-    fi
+    native_image_enable_pgo_g1gc
   fi
 
-  app_build_command="$BUILD_CMD $BUILD_ARGS > $build_output_file 2>&1"
+  app_build_command="$BUILD_CMD $PGO_G1GC_BUILD_ARGS > $build_output_file 2>&1"
   echo "Building application at: $(date) ... "
   echo "$app_build_command"
 
@@ -275,7 +287,7 @@ check_application_initial_request || { stop_system_power_consumption && exit 1; 
 performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
 start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_system_power_consumption && stop_application && exit 1; }
 
-echo "Please enjoy a coffee ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
+echo "Please enjoy a ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
 sleep "$APP_RUNNING_TIME"
 
 echo ""

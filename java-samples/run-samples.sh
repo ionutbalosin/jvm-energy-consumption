@@ -26,29 +26,30 @@
 #
 
 check_command_line_options() {
-  APP_RUN_IDENTIFIER=""
+  APP_JVM_IDENTIFIERS=("openjdk-hotspot-vm" "graalvm-ce" "oracle-graalvm" "native-image" "azul-prime-vm" "eclipse-openj9-vm")
+  APP_RUN_IDENTIFIER="default"
   APP_JVM_IDENTIFIER=""
-  APP_RUNNING_TIME="900"
+  APP_RUNNING_TIME="1200"
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
 
-  if [[ $# -lt 1 || $# -gt 5 ]]; then
-    echo "Usage: ./run-samples.sh --run-identifier=<run-identifier> [--jvm-identifier=<jvm-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
+  if [[ $# -gt 5 ]]; then
+    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  A mandatory parameter to identify the current execution run(s). It can be a single value or a comma-separated list for multiple runs."
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
-    echo "                                     Accepted options: {openjdk-hotspot-vm, graalvm-ce, oracle-graalvm, native-image, azul-prime-vm, eclipse-openj9-vm}."
+    echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value 'default'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
     echo "Examples:"
-    echo "  $ ./run-samples.sh --run-identifier=1"
-    echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-samples.sh"
+    echo "  $ ./run-samples.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
     echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
     echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
