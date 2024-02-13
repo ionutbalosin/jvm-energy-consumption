@@ -39,7 +39,7 @@ check_command_line_options() {
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
-    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value 'default'."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."

@@ -41,7 +41,7 @@ check_command_line_options() {
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  A mandatory parameter that should match the target JVM where the application is running for test correlation."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
-    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. This should match the target JVM execution run for test correlation. If not specified, it defaults to the value 'default'."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. This should match the target JVM execution run for test correlation. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --jdk-version=<jdk-version>        An optional parameter to specify the target JDK version where the application is running for test correlation. If not specified, it defaults to $APP_JDK_VERSION."
     echo "  --app-base-url=<app-base-url>      An optional parameter to specify where the target JVM application runs. If not specified, it is set by default to $APP_BASE_URL"
     echo "  --wrk-duration=<wrk-duration>      An optional parameter to specify the wrk duration in seconds. If not specified, it is set by default to $WRK_RUNNING_TIME seconds."

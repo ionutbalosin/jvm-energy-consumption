@@ -33,7 +33,7 @@ check_command_line_options() {
     echo "Usage: ./run-baseline.sh [--run-identifier=<run-identifier>] [--duration=<duration>]"
     echo ""
     echo "Options:"
-    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value 'default'."
+    echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo ""
     echo "Examples:"
