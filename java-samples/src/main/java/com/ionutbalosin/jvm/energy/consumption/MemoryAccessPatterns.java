@@ -121,7 +121,8 @@ public class MemoryAccessPatterns {
   }
 
   public void benchmark(long startTime) {
-    // benchmark loop: attempts to run for a specific expected duration
+    // Benchmark loop: Attempts to run for a specific expected duration
+    // Note: This loop may run beyond the expected duration, but it is acceptable for our goal
     while (System.currentTimeMillis() < startTime + DURATION) {
       long result = memoryAccess();
       validateResults(result);

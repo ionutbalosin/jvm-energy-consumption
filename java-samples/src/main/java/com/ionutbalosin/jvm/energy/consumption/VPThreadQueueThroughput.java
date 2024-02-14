@@ -129,7 +129,8 @@ public class VPThreadQueueThroughput {
   }
 
   public void benchmark(long startTime) throws InterruptedException {
-    // benchmark loop: attempts to run for a specific expected duration
+    // Benchmark loop: Attempts to run for a specific expected duration
+    // Note: This loop may run beyond the expected duration, but it is acceptable for our goal
     while (System.currentTimeMillis() < startTime + DURATION) {
       counter.reset();
       final CountDownLatch latch = new CountDownLatch(TASKS);

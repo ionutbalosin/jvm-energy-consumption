@@ -173,13 +173,15 @@ Please follow the [how-to-run](./baseline-idle-os/how-to-run.md) instructions.
 
 ### Java Samples
 
-This set of measurements relies on specific code patterns to identify what is the most friendly energy coding paradigm. It includes the most common patterns as:
+This set of measurements relies on specific code patterns to identify the most efficient energy-friendly coding paradigm. It includes the following common patterns:
 
-- logging patterns
-- memory access patterns
-- throwing exception patterns
-- (sorting) algorithms complexities
-- virtual calls
+- Logging patterns
+- Memory access patterns
+- Exception throwing patterns
+- String concatenation patterns
+- (Sorting) algorithm
+- Virtual calls
+- Maximum throughput while using virtual/physical threads
 
 ```
 $ cd /java-samples
