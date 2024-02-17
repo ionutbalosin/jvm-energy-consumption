@@ -96,7 +96,20 @@ To properly run the scripts, you need to download, install, and properly configu
  macOS     | Yes     | `ps`, `powermetrics`, `wrk`                      
  Windows   | No      | N/A                                 
 
-_Please ensure that you have `sudo` (root) access; otherwise, the `powerstat` and `powermetrics` commands cannot be executed._
+### sudo root access
+
+Please ensure that you have `sudo` (root) access; otherwise, the `powerstat` and `powermetrics` commands cannot be executed while measuring the energy consumption during tests.
+
+**On Linux**, for smooth operation, we recommend extending the default `sudo timeout`, which is typically a few minutes depending on the Linux distribution, to a higher value (e.g., 1440 minutes) to accommodate the test durations and avoid the sudo prompt from appearing again while tests are running.
+
+```
+$ sudo visudo
+
+# Add the following line to change the sudo timeout 
+Defaults        timestamp_timeout=1440
+```
+
+For more information, please refer to the [How to Change Sudo Timeout Period on Linux](https://www.omglinux.com/change-sudo-timeout-linux) tutorial.
 
 ### Java Development Kit (JDK)
 
