@@ -2,7 +2,7 @@
 
 Each of the following command pairs should be executed on different machines, with `run-application.sh` run on the **system under test machine** and `run-wrk.sh` run on the **test client machine**.
 
-**Note:** Each application run includes the parameter `--skip-os-tuning` for convenience only, to bypass the OS configuration prompt. However, this does not imply that these configurations, especially on Linux, should be skipped. We recommend applying them once at the beginning.
+**Note:** Each `run-application.sh` includes the parameter `--skip-os-tuning` for convenience only, to bypass the OS configuration prompt. However, this does not imply that these configurations, especially on Linux, should be skipped. We recommend applying them once at the beginning.
 
 # Test with OpenJDK HotSpot VM
 ```bash
