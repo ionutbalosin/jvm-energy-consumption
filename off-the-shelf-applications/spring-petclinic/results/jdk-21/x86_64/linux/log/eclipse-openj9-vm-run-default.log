@@ -1,0 +1,45 @@
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.2.1
+
+
+2024-02-19T07:27:27.128+01:00  INFO 5904 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication using Java 21.0.2 with PID 5904 (/home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar started by ionutbalosin in /home/ionutbalosin/Workspace/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic)
+2024-02-19T07:27:27.168+01:00  INFO 5904 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-02-19T07:27:30.112+01:00  INFO 5904 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-19T07:27:30.275+01:00  INFO 5904 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 2 JPA repository interfaces.
+2024-02-19T07:27:32.289+01:00  INFO 5904 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-02-19T07:27:32.313+01:00  INFO 5904 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-19T07:27:32.313+01:00  INFO 5904 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-02-19T07:27:32.397+01:00  INFO 5904 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-19T07:27:32.399+01:00  INFO 5904 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4987 ms
+2024-02-19T07:27:33.008+01:00  WARN 5904 --- [           main] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-02-19T07:27:33.010+01:00  INFO 5904 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-19T07:27:33.320+01:00  INFO 5904 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:c866761f-c7da-44c3-a443-4e1e20e8a145 user=SA
+2024-02-19T07:27:33.322+01:00  INFO 5904 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-19T07:27:33.662+01:00  INFO 5904 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-19T07:27:33.781+01:00  INFO 5904 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-02-19T07:27:33.850+01:00  INFO 5904 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-02-19T07:27:34.275+01:00  INFO 5904 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-19T07:27:36.610+01:00  INFO 5904 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-19T07:27:36.618+01:00  INFO 5904 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-19T07:27:37.253+01:00  INFO 5904 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-02-19T07:27:40.691+01:00  INFO 5904 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+2024-02-19T07:27:40.919+01:00  INFO 5904 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-02-19T07:27:40.955+01:00  INFO 5904 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 14.923 seconds (process running for 15.955)
+2024-02-19T07:27:41.048+01:00  INFO 5904 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-19T07:27:41.049+01:00  INFO 5904 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-19T07:27:41.050+01:00  INFO 5904 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-19T09:27:45.169+01:00  INFO 5904 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-19T09:27:45.175+01:00  INFO 5904 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-02-19T09:27:45.204+01:00  INFO 5904 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

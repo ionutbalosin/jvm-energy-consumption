@@ -1,0 +1,474 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< org.springframework.samples:spring-petclinic >------------
+[INFO] Building petclinic 3.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ spring-petclinic ---
+[INFO] Deleting /home/ionutbalosin/Workspace/spring-petclinic/target
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- spring-javaformat:0.0.40:validate (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- checkstyle:3.3.1:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (default) @ spring-petclinic ---
+[INFO] argLine set to -javaagent:/home/ionutbalosin/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/home/ionutbalosin/Workspace/spring-petclinic/target/jacoco.exec
+[INFO] 
+[INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
+[INFO] dotGitDirectory '/home/ionutbalosin/Workspace/spring-petclinic/.git'
+[INFO] Collected git.build.user.name with value Ionut Balosin
+[INFO] Collected git.build.user.email with value ionutbalosin@yahoo.com
+[INFO] Collected git.branch with value main
+[INFO] --always = true
+[INFO] --dirty = -dirty
+[INFO] --abbrev = 7
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Collected git.commit.id.describe with value cdd925d-dirty
+[INFO] Collected git.commit.id.describe-short with value cdd925d-dirty
+[INFO] Collected git.commit.id with value cdd925d664e678f6d1a2f768ff02e374a5e55fef
+[INFO] Collected git.commit.id.abbrev with value cdd925d
+[INFO] Collected git.dirty with value true
+[INFO] Collected git.commit.user.name with value Dave Syer
+[INFO] Collected git.commit.user.email with value dsyer@vmware.com
+[INFO] Collected git.commit.message.full with value Small optimization for empty petId
+[INFO] Collected git.commit.message.short with value Small optimization for empty petId
+[INFO] Collected git.commit.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.commit.author.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.commit.committer.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.remote.origin.url with value https://github.com/spring-projects/spring-petclinic.git
+[INFO] Collected git.tags with value 
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.name with value 
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 880
+[INFO] Collected git.local.branch.ahead with value 0
+[INFO] Collected git.local.branch.behind with value 0
+[INFO] Collected git.build.time with value 2023-05-10T09:42:50+0200
+[INFO] Collected git.build.version with value 3.2.0-SNAPSHOT
+[INFO] Collected git.build.host with value ubuntu
+[INFO] including property 'git.tags' in results
+[INFO] including property 'git.build.version' in results
+[INFO] including property 'git.branch' in results
+[INFO] including property 'git.build.host' in results
+[INFO] including property 'git.commit.id' in results
+[INFO] including property 'git.commit.user.email' in results
+[INFO] including property 'git.local.branch.behind' in results
+[INFO] including property 'git.commit.author.time' in results
+[INFO] including property 'git.build.user.name' in results
+[INFO] including property 'git.dirty' in results
+[INFO] including property 'git.closest.tag.commit.count' in results
+[INFO] including property 'git.commit.user.name' in results
+[INFO] including property 'git.commit.id.abbrev' in results
+[INFO] including property 'git.commit.id.describe-short' in results
+[INFO] including property 'git.total.commit.count' in results
+[INFO] including property 'git.commit.id.describe' in results
+[INFO] including property 'git.build.user.email' in results
+[INFO] including property 'git.commit.message.short' in results
+[INFO] including property 'git.commit.committer.time' in results
+[INFO] including property 'git.closest.tag.name' in results
+[INFO] including property 'git.local.branch.ahead' in results
+[INFO] including property 'git.commit.time' in results
+[INFO] including property 'git.build.time' in results
+[INFO] including property 'git.commit.message.full' in results
+[INFO] including property 'git.remote.origin.url' in results
+[INFO] Writing properties file [/home/ionutbalosin/Workspace/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[INFO] 
+[INFO] --- native:0.9.28:add-reachability-metadata (add-reachability-metadata) @ spring-petclinic ---
+[INFO] Downloaded GraalVM reachability metadata repository from file:/home/ionutbalosin/.m2/repository/org/graalvm/buildtools/graalvm-reachability-metadata/0.9.28/graalvm-reachability-metadata-0.9.28-repository.zip
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory is ch.qos.logback/logback-classic/1.4.1
+[INFO] [graalvm reachability metadata repository for org.hdrhistogram:HdrHistogram:2.1.12]: Configuration directory is org.hdrhistogram/HdrHistogram/2.1.12
+[INFO] [graalvm reachability metadata repository for com.zaxxer:HikariCP:5.0.1]: Configuration directory is com.zaxxer/HikariCP/5.0.1
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory is org.hibernate.orm/hibernate-core/6.2.0.Final
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory is org.jboss.logging/jboss-logging/3.5.0.Final
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory is org.glassfish.jaxb/jaxb-runtime/3.0.2
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory is org.apache.tomcat.embed/tomcat-embed-core/10.0.20
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Latest version not found!
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: missing.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory is org.hibernate.validator/hibernate-validator/7.0.4.Final
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf-spring6/3.1.0.M2
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf/3.1.0.RC1
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory is com.h2database/h2/2.1.210
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory is com.mysql/mysql-connector-j/8.0.31
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory is org.postgresql/postgresql/42.3.4
+[INFO] [graalvm reachability metadata repository for javax.cache:cache-api:1.1.1]: Configuration directory is javax.cache/cache-api/1.1.1
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory is com.github.ben-manes.caffeine/caffeine/3.1.2
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory is com.fasterxml.jackson.core/jackson-databind/2.15.2
+[INFO] 
+[INFO] --- spring-boot:3.2.1:build-info (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 43 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ spring-petclinic ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ spring-petclinic ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ spring-petclinic ---
+[WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- spring-boot:3.2.1:process-aot (process-aot) @ spring-petclinic ---
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.2.1
+
+
+2024-02-19T20:05:13.022+01:00  INFO 115915 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication using Java 21.0.1 with PID 115915 (/home/ionutbalosin/Workspace/spring-petclinic/target/classes started by ionutbalosin in /home/ionutbalosin/Workspace/spring-petclinic)
+2024-02-19T20:05:13.032+01:00  INFO 115915 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-02-19T20:05:14.467+01:00  INFO 115915 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-19T20:05:14.547+01:00  INFO 115915 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 2 JPA repository interfaces.
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (report) @ spring-petclinic ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ spring-petclinic ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.1:repackage (repackage) @ spring-petclinic ---
+[INFO] Replacing main artifact /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] >>> native:0.9.28:compile (default-cli) > package @ spring-petclinic >>>
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
+[INFO] 
+[INFO] --- spring-javaformat:0.0.40:validate (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- checkstyle:3.3.1:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (default) @ spring-petclinic ---
+[INFO] argLine set to -javaagent:/home/ionutbalosin/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/home/ionutbalosin/Workspace/spring-petclinic/target/jacoco.exec
+[INFO] 
+[INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
+[INFO] dotGitDirectory '/home/ionutbalosin/Workspace/spring-petclinic/.git'
+[INFO] Collected git.build.user.name with value Ionut Balosin
+[INFO] Collected git.build.user.email with value ionutbalosin@yahoo.com
+[INFO] Collected git.branch with value main
+[INFO] --always = true
+[INFO] --dirty = -dirty
+[INFO] --abbrev = 7
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Collected git.commit.id.describe with value cdd925d-dirty
+[INFO] Collected git.commit.id.describe-short with value cdd925d-dirty
+[INFO] Collected git.commit.id with value cdd925d664e678f6d1a2f768ff02e374a5e55fef
+[INFO] Collected git.commit.id.abbrev with value cdd925d
+[INFO] Collected git.dirty with value true
+[INFO] Collected git.commit.user.name with value Dave Syer
+[INFO] Collected git.commit.user.email with value dsyer@vmware.com
+[INFO] Collected git.commit.message.full with value Small optimization for empty petId
+[INFO] Collected git.commit.message.short with value Small optimization for empty petId
+[INFO] Collected git.commit.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.commit.author.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.commit.committer.time with value 2024-01-11T14:18:33+0100
+[INFO] Collected git.remote.origin.url with value https://github.com/spring-projects/spring-petclinic.git
+[INFO] Collected git.tags with value 
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.name with value 
+[INFO] evalCommit is [cdd925d664e678f6d1a2f768ff02e374a5e55fef]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 880
+[INFO] Collected git.local.branch.ahead with value 0
+[INFO] Collected git.local.branch.behind with value 0
+[INFO] Collected git.build.time with value 2023-05-10T09:42:50+0200
+[INFO] Collected git.build.version with value 3.2.0-SNAPSHOT
+[INFO] Collected git.build.host with value ubuntu
+[INFO] including property 'git.tags' in results
+[INFO] including property 'git.build.version' in results
+[INFO] including property 'git.branch' in results
+[INFO] including property 'git.build.host' in results
+[INFO] including property 'git.commit.id' in results
+[INFO] including property 'git.commit.user.email' in results
+[INFO] including property 'git.local.branch.behind' in results
+[INFO] including property 'git.commit.author.time' in results
+[INFO] including property 'git.build.user.name' in results
+[INFO] including property 'git.dirty' in results
+[INFO] including property 'git.closest.tag.commit.count' in results
+[INFO] including property 'git.commit.user.name' in results
+[INFO] including property 'git.commit.id.abbrev' in results
+[INFO] including property 'git.commit.id.describe-short' in results
+[INFO] including property 'git.total.commit.count' in results
+[INFO] including property 'git.commit.id.describe' in results
+[INFO] including property 'git.build.user.email' in results
+[INFO] including property 'git.commit.message.short' in results
+[INFO] including property 'git.commit.committer.time' in results
+[INFO] including property 'git.closest.tag.name' in results
+[INFO] including property 'git.local.branch.ahead' in results
+[INFO] including property 'git.commit.time' in results
+[INFO] including property 'git.build.time' in results
+[INFO] including property 'git.commit.message.full' in results
+[INFO] including property 'git.remote.origin.url' in results
+[INFO] Reading existing properties file [/home/ionutbalosin/Workspace/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[INFO] Properties file [/home/ionutbalosin/Workspace/spring-petclinic/target/classes/git.properties] is up-to-date (for module petclinic)...
+[INFO] 
+[INFO] --- native:0.9.28:add-reachability-metadata (add-reachability-metadata) @ spring-petclinic ---
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory is ch.qos.logback/logback-classic/1.4.1
+[INFO] [graalvm reachability metadata repository for org.hdrhistogram:HdrHistogram:2.1.12]: Configuration directory is org.hdrhistogram/HdrHistogram/2.1.12
+[INFO] [graalvm reachability metadata repository for com.zaxxer:HikariCP:5.0.1]: Configuration directory is com.zaxxer/HikariCP/5.0.1
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory is org.hibernate.orm/hibernate-core/6.2.0.Final
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory is org.jboss.logging/jboss-logging/3.5.0.Final
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory is org.glassfish.jaxb/jaxb-runtime/3.0.2
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory is org.apache.tomcat.embed/tomcat-embed-core/10.0.20
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Latest version not found!
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: missing.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory is org.hibernate.validator/hibernate-validator/7.0.4.Final
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf-spring6/3.1.0.M2
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf/3.1.0.RC1
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory is com.h2database/h2/2.1.210
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory is com.mysql/mysql-connector-j/8.0.31
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory is org.postgresql/postgresql/42.3.4
+[INFO] [graalvm reachability metadata repository for javax.cache:cache-api:1.1.1]: Configuration directory is javax.cache/cache-api/1.1.1
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory is com.github.ben-manes.caffeine/caffeine/3.1.2
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory is com.fasterxml.jackson.core/jackson-databind/2.15.2
+[INFO] 
+[INFO] --- spring-boot:3.2.1:build-info (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 43 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ spring-petclinic ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ spring-petclinic ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ spring-petclinic ---
+[WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- spring-boot:3.2.1:process-aot (process-aot) @ spring-petclinic ---
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 3.2.1
+
+
+2024-02-19T20:05:25.199+01:00  INFO 115994 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication using Java 21.0.1 with PID 115994 (/home/ionutbalosin/Workspace/spring-petclinic/target/classes started by ionutbalosin in /home/ionutbalosin/Workspace/spring-petclinic)
+2024-02-19T20:05:25.209+01:00  INFO 115994 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-02-19T20:05:26.686+01:00  INFO 115994 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-19T20:05:26.769+01:00  INFO 115994 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 2 JPA repository interfaces.
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (report) @ spring-petclinic ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ spring-petclinic ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.1:repackage (repackage) @ spring-petclinic ---
+[INFO] Replacing main artifact /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] <<< native:0.9.28:compile (default-cli) < package @ spring-petclinic <<<
+[INFO] 
+[INFO] 
+[INFO] --- native:0.9.28:compile (default-cli) @ spring-petclinic ---
+[INFO] Found GraalVM installation from JAVA_HOME variable.
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for ch.qos.logback:logback-classic:1.4.14]: Configuration directory is ch.qos.logback/logback-classic/1.4.1
+[INFO] [graalvm reachability metadata repository for org.hdrhistogram:HdrHistogram:2.1.12]: Configuration directory is org.hdrhistogram/HdrHistogram/2.1.12
+[INFO] [graalvm reachability metadata repository for com.zaxxer:HikariCP:5.0.1]: Configuration directory is com.zaxxer/HikariCP/5.0.1
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.orm:hibernate-core:6.4.1.Final]: Configuration directory is org.hibernate.orm/hibernate-core/6.2.0.Final
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.jboss.logging:jboss-logging:3.5.3.Final]: Configuration directory is org.jboss.logging/jboss-logging/3.5.0.Final
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.glassfish.jaxb:jaxb-runtime:4.0.4]: Configuration directory is org.glassfish.jaxb/jaxb-runtime/3.0.2
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.apache.tomcat.embed:tomcat-embed-core:10.1.17]: Configuration directory is org.apache.tomcat.embed/tomcat-embed-core/10.0.20
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Latest version not found!
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: missing.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.hibernate.validator:hibernate-validator:8.0.1.Final]: Configuration directory is org.hibernate.validator/hibernate-validator/7.0.4.Final
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf-spring6/3.1.0.M2
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.thymeleaf:thymeleaf:3.1.2.RELEASE]: Configuration directory is org.thymeleaf/thymeleaf/3.1.0.RC1
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.h2database:h2:2.2.224]: Configuration directory is com.h2database/h2/2.1.210
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.mysql:mysql-connector-j:8.1.0]: Configuration directory is com.mysql/mysql-connector-j/8.0.31
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for org.postgresql:postgresql:42.6.0]: Configuration directory is org.postgresql/postgresql/42.3.4
+[INFO] [graalvm reachability metadata repository for javax.cache:cache-api:1.1.1]: Configuration directory is javax.cache/cache-api/1.1.1
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.github.ben-manes.caffeine:caffeine:3.1.8]: Configuration directory is com.github.ben-manes.caffeine/caffeine/3.1.2
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory not found. Trying latest version.
+[INFO] [graalvm reachability metadata repository for com.fasterxml.jackson.core:jackson-databind:2.15.3]: Configuration directory is com.fasterxml.jackson.core/jackson-databind/2.15.2
+[INFO] Executing: /usr/lib/jvm/graalvm-jdk-21.0.1+12.1/bin/native-image -cp /home/ionutbalosin/Workspace/spring-petclinic/target/classes:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.2.1/spring-boot-starter-actuator-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.1/spring-boot-starter-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.1/spring-boot-starter-logging-3.2.1.jar:/home/ionutbalosin/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/home/ionutbalosin/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/home/ionutbalosin/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/home/ionutbalosin/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/home/ionutbalosin/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/home/ionutbalosin/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/home/ionutbalosin/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.2.1/spring-boot-actuator-autoconfigure-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-actuator/3.2.1/spring-boot-actuator-3.2.1.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/home/ionutbalosin/.m2/repository/io/micrometer/micrometer-observation/1.12.1/micrometer-observation-1.12.1.jar:/home/ionutbalosin/.m2/repository/io/micrometer/micrometer-commons/1.12.1/micrometer-commons-1.12.1.jar:/home/ionutbalosin/.m2/repository/io/micrometer/micrometer-jakarta9/1.12.1/micrometer-jakarta9-1.12.1.jar:/home/ionutbalosin/.m2/repository/io/micrometer/micrometer-core/1.12.1/micrometer-core-1.12.1.jar:/home/ionutbalosin/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/home/ionutbalosin/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-cache/3.2.1/spring-boot-starter-cache-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-context-support/6.1.2/spring-context-support-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-beans/6.1.2/spring-beans-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-context/6.1.2/spring-context-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.1/spring-boot-starter-data-jpa-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.1/spring-boot-starter-aop-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-aop/6.1.2/spring-aop-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/aspectj/aspectjweaver/1.9.21/aspectjweaver-1.9.21.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.1/spring-boot-starter-jdbc-3.2.1.jar:/home/ionutbalosin/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-jdbc/6.1.2/spring-jdbc-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/hibernate/orm/hibernate-core/6.4.1.Final/hibernate-core-6.4.1.Final.jar:/home/ionutbalosin/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/home/ionutbalosin/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/home/ionutbalosin/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/home/ionutbalosin/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/home/ionutbalosin/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/home/ionutbalosin/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/home/ionutbalosin/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/home/ionutbalosin/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/home/ionutbalosin/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/home/ionutbalosin/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/home/ionutbalosin/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/home/ionutbalosin/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/home/ionutbalosin/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/home/ionutbalosin/.m2/repository/org/springframework/data/spring-data-jpa/3.2.1/spring-data-jpa-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/data/spring-data-commons/3.2.1/spring-data-commons-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-orm/6.1.2/spring-orm-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-tx/6.1.2/spring-tx-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-aspects/6.1.2/spring-aspects-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.1/spring-boot-starter-web-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.1/spring-boot-starter-json-3.2.1.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.1/spring-boot-starter-tomcat-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.17/tomcat-embed-core-10.1.17.jar:/home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.17/tomcat-embed-websocket-10.1.17.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-web/6.1.2/spring-web-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-webmvc/6.1.2/spring-webmvc-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-expression/6.1.2/spring-expression-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.1/spring-boot-starter-validation-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.17/tomcat-embed-el-10.1.17.jar:/home/ionutbalosin/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/home/ionutbalosin/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/3.2.1/spring-boot-starter-thymeleaf-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/thymeleaf/thymeleaf-spring6/3.1.2.RELEASE/thymeleaf-spring6-3.1.2.RELEASE.jar:/home/ionutbalosin/.m2/repository/org/thymeleaf/thymeleaf/3.1.2.RELEASE/thymeleaf-3.1.2.RELEASE.jar:/home/ionutbalosin/.m2/repository/org/attoparser/attoparser/2.0.7.RELEASE/attoparser-2.0.7.RELEASE.jar:/home/ionutbalosin/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-core/6.1.2/spring-core-6.1.2.jar:/home/ionutbalosin/.m2/repository/org/springframework/spring-jcl/6.1.2/spring-jcl-6.1.2.jar:/home/ionutbalosin/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/home/ionutbalosin/.m2/repository/com/mysql/mysql-connector-j/8.1.0/mysql-connector-j-8.1.0.jar:/home/ionutbalosin/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/home/ionutbalosin/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/home/ionutbalosin/.m2/repository/javax/cache/cache-api/1.1.1/cache-api-1.1.1.jar:/home/ionutbalosin/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.1.8/caffeine-3.1.8.jar:/home/ionutbalosin/.m2/repository/com/google/errorprone/error_prone_annotations/2.21.1/error_prone_annotations-2.21.1.jar:/home/ionutbalosin/.m2/repository/org/webjars/npm/bootstrap/5.3.2/bootstrap-5.3.2.jar:/home/ionutbalosin/.m2/repository/org/webjars/npm/font-awesome/4.7.0/font-awesome-4.7.0.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot/3.2.1/spring-boot-3.2.1.jar:/home/ionutbalosin/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.1/spring-boot-autoconfigure-3.2.1.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/home/ionutbalosin/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/home/ionutbalosin/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/home/ionutbalosin/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar --no-fallback -o /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic -H:ConfigurationFileDirectories=/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.apache.tomcat.embed/tomcat-embed-core/10.0.20,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.thymeleaf/thymeleaf/3.1.0.RC1,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/com.h2database/h2/2.1.210,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/com.mysql/mysql-connector-j/8.0.31,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.hibernate.orm/hibernate-core/6.2.0.Final,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.postgresql/postgresql/42.3.4,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.jboss.logging/jboss-logging/3.5.0.Final,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.thymeleaf/thymeleaf-spring6/3.1.0.M2,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/javax.cache/cache-api/1.1.1,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/com.zaxxer/HikariCP/5.0.1,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.hibernate.validator/hibernate-validator/7.0.4.Final,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.hdrhistogram/HdrHistogram/2.1.12,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/com.fasterxml.jackson.core/jackson-databind/2.15.2,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/ch.qos.logback/logback-classic/1.4.1,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/org.glassfish.jaxb/jaxb-runtime/3.0.2,/home/ionutbalosin/Workspace/spring-petclinic/target/graalvm-reachability-metadata/db445cd79554e84fe7fc091c5ea8892d61af8132/com.github.ben-manes.caffeine/caffeine/3.1.2
+Warning: The option '-H:ResourceConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-core/tomcat-resource.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: The option '-H:ReflectionConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-core/tomcat-reflection.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: The option '-H:ReflectionConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-websocket/tomcat-reflection.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: The option '-H:ReflectionConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-el/tomcat-reflection.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: The option '-H:ResourceConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-el/tomcat-resource.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: The option '-H:ResourceConfigurationResources=META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-websocket/tomcat-resource.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+Warning: Please re-evaluate whether any experimental option is required, and either remove or unlock it. The build output lists all active experimental options, including where they come from and possible alternatives. If you think an experimental option should be considered as stable, please file an issue.
+========================================================================================================================
+GraalVM Native Image: Generating 'spring-petclinic' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                    (9.7s @ 0.22GB)
+ Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+ Graal compiler: optimization level: 2, target machine: x86-64-v3, PGO: ML-inferred
+ C compiler: gcc (linux, x86_64, 13.2.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 3 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+ - org.eclipse.angus.activation.nativeimage.AngusActivationFeature
+ - org.springframework.aot.nativex.feature.PreComputeFieldFeature
+------------------------------------------------------------------------------------------------------------------------
+ 2 experimental option(s) unlocked:
+ - '-H:ResourceConfigurationResources' (origin(s): 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-core/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.17/tomcat-embed-core-10.1.17.jar', 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-websocket/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.17/tomcat-embed-websocket-10.1.17.jar', 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-el/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.17/tomcat-embed-el-10.1.17.jar')
+ - '-H:ReflectionConfigurationResources' (origin(s): 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-core/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.17/tomcat-embed-core-10.1.17.jar', 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-websocket/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.17/tomcat-embed-websocket-10.1.17.jar', 'META-INF/native-image/org.apache.tomcat.embed/tomcat-embed-el/native-image.properties' in 'file:///home/ionutbalosin/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.17/tomcat-embed-el-10.1.17.jar')
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 26.49GB of memory (42.4% of 62.50GB system memory, determined at start)
+ - 24 thread(s) (100.0% of 24 available processor(s), determined at start)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+Found pending operations, continuing analysis.
+[2/8] Performing analysis...  [******]                                                                 (100.1s @ 9.27GB)
+   39,492 reachable types   (93.2% of   42,392 total)
+   61,019 reachable fields  (63.4% of   96,174 total)
+  212,644 reachable methods (65.7% of  323,656 total)
+   12,026 types,   925 fields, and 14,557 methods registered for reflection
+       65 types,    65 fields, and    57 methods registered for JNI access
+        4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                              (23.1s @ 4.40GB)
+[4/8] Parsing methods...      [****]                                                                   (20.8s @ 10.22GB)
+[5/8] Inlining methods...     [****]                                                                     (3.1s @ 7.92GB)
+[6/8] Compiling methods...    [**********]                                                            (109.3s @ 10.94GB)
+[7/8] Layouting methods...    [*****]                                                                   (30.2s @ 4.54GB)
+[8/8] Creating image...       [*****]                                                                   (22.0s @ 6.04GB)
+ 107.77MB (53.41%) for code area:   126,052 compilation units
+  85.88MB (42.56%) for image heap:  808,540 objects and 749 resources
+   8.12MB ( 4.02%) for other data
+ 201.78MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  18.38MB java.base                                           31.87MB byte[] for code metadata
+  18.05MB hibernate-core-6.4.1.Final.jar                      13.81MB byte[] for embedded resources
+   8.27MB svm.jar (Native Image)                              12.74MB byte[] for java.lang.String
+   7.30MB h2-2.2.224.jar                                       7.33MB java.lang.Class
+   5.26MB tomcat-embed-core-10.1.17.jar                        6.17MB java.lang.String
+   4.64MB java.desktop                                         2.74MB byte[] for reflection metadata
+   4.44MB java.xml                                             1.81MB com.oracle.svm.core.hub.DynamicHubCompanion
+   3.34MB mysql-connector-j-8.1.0.jar                          1.10MB c.o.svm.core.hub.DynamicHub$ReflectionMetadata
+   2.39MB jackson-databind-2.15.3.jar                          1.04MB byte[] for general heap data
+   2.36MB spring-data-jpa-3.2.1.jar                          849.02kB java.lang.String[]
+  32.42MB for 177 more packages                                6.44MB for 6853 more object types
+                              Use '-H:+BuildReport' to create a report with more details.
+------------------------------------------------------------------------------------------------------------------------
+Security report:
+ - Binary includes Java deserialization.
+ - Use '--enable-sbom' to embed a Software Bill of Materials (SBOM) in the binary.
+ - The log4j library has been detected, but the version is unavailable. Due to Log4Shell, please ensure log4j is at version 2.17.1 or later.
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ G1GC: Use the G1 GC ('--gc=G1') for improved latency and throughput.
+ PGO:  Use Profile-Guided Optimizations ('--pgo') for improved throughput.
+ INIT: Adopt '--strict-image-heap' to prepare for the next GraalVM release.
+ AWT:  Use the tracing agent to collect metadata for AWT.
+ HEAP: Set max heap for improved and more predictable memory usage.
+------------------------------------------------------------------------------------------------------------------------
+                       24.3s (7.5% of total time) in 93 GCs | Peak RSS: 15.33GB | CPU load: 15.35
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libawt.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libawt_headless.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libawt_xawt.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libfontmanager.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libjava.so (jdk_library_shim)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libjavajpeg.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/libjvm.so (jdk_library_shim)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/liblcms.so (jdk_library)
+ /home/ionutbalosin/Workspace/spring-petclinic/target/spring-petclinic (executable)
+========================================================================================================================
+Finished generating 'spring-petclinic' in 5m 21s.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:53 min
+[INFO] Finished at: 2024-02-19T20:10:58+01:00
+[INFO] ------------------------------------------------------------------------
