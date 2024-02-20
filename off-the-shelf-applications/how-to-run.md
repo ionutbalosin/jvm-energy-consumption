@@ -10,47 +10,47 @@ Each of the following command pairs should be executed on different machines, wi
 $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm --skip-os-tuning
 
 # Once the application successfully starts, switch to the test client machine and execute the following command:
-$ ./run-wrk.sh --jvm-identifier=openjdk-hotspot-vm
+$ ./run-wrk.sh --jvm-identifier=openjdk-hotspot-vm --app-base-url=192.168.0.2:8080
 ```
 
 # Test with GraalVM CE
 ```bash
 $ ./run-application.sh --jvm-identifier=graalvm-ce --skip-os-tuning
 
-$ ./run-wrk.sh --jvm-identifier=graalvm-ce
+$ ./run-wrk.sh --jvm-identifier=graalvm-ce --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Oracle GraalVM
 ```bash
 $ ./run-application.sh --jvm-identifier=oracle-graalvm --skip-os-tuning
 
-$ ./run-wrk.sh --jvm-identifier=oracle-graalvm
+$ ./run-wrk.sh --jvm-identifier=oracle-graalvm --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Native Image
 ```bash
 $ ./run-application.sh --jvm-identifier=native-image --skip-os-tuning
 
-$ ./run-wrk.sh --jvm-identifier=native-image
+$ ./run-wrk.sh --jvm-identifier=native-image --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Native Image and PGO/G1GC
 ```bash
 $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --enable-pgo-g1gc --skip-os-tuning
 
-$ ./run-wrk.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image
+$ ./run-wrk.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Azul Prime VM
 ```bash
 $ ./run-application.sh --jvm-identifier=azul-prime-vm --skip-os-tuning
 
-$ ./run-wrk.sh --jvm-identifier=azul-prime-vm
+$ ./run-wrk.sh --jvm-identifier=azul-prime-vm --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Eclipse OpenJ9 VM
 ```bash
 $ ./run-application.sh --jvm-identifier=eclipse-openj9-vm --skip-os-tuning
 
-$ ./run-wrk.sh --jvm-identifier=eclipse-openj9-vm
+$ ./run-wrk.sh --jvm-identifier=eclipse-openj9-vm --app-base-url=192.168.0.2:8080
 ```
