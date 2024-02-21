@@ -1,0 +1,125 @@
+Running 118m test @ http://192.168.0.2:8080
+  8 threads and 900 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   423.47us  230.93us  74.31ms   88.61%
+    Req/Sec     2.25k   567.59     7.55k    59.33%
+  111183648 requests in 118.00m, 10.94GB read
+  Socket errors: connect 0, read 2667, write 0, timeout 0
+  Non-2xx or 3xx responses: 2573
+Requests/sec:  15703.72
+Transfer/sec:      1.58MB
+------------------------------
+Summary statistics:
+  Total requests: 111183648
+  Total socket connection errors: 0
+  Total socket read errors: 2667
+  Total socket write errors: 0
+  Total HTTP errors (i.e., status codes > 399): 2573
+  Total timeout errors: 0
+------------------------------
+Latency percentiles:
+      1%     0.17ms
+      2%     0.18ms
+      3%     0.21ms
+      4%     0.22ms
+      5%     0.22ms
+      6%     0.22ms
+      7%     0.22ms
+      8%     0.23ms
+      9%     0.23ms
+     10%     0.23ms
+     11%     0.23ms
+     12%     0.24ms
+     13%     0.25ms
+     14%     0.26ms
+     15%     0.27ms
+     16%     0.27ms
+     17%     0.28ms
+     18%     0.28ms
+     19%     0.28ms
+     20%     0.28ms
+     21%     0.29ms
+     22%     0.29ms
+     23%     0.29ms
+     24%     0.29ms
+     25%     0.30ms
+     26%     0.30ms
+     27%     0.31ms
+     28%     0.31ms
+     29%     0.32ms
+     30%     0.32ms
+     31%     0.33ms
+     32%     0.33ms
+     33%     0.33ms
+     34%     0.34ms
+     35%     0.34ms
+     36%     0.34ms
+     37%     0.34ms
+     38%     0.34ms
+     39%     0.35ms
+     40%     0.35ms
+     41%     0.35ms
+     42%     0.35ms
+     43%     0.36ms
+     44%     0.36ms
+     45%     0.36ms
+     46%     0.37ms
+     47%     0.37ms
+     48%     0.38ms
+     49%     0.38ms
+     50%     0.39ms
+     51%     0.39ms
+     52%     0.39ms
+     53%     0.40ms
+     54%     0.40ms
+     55%     0.40ms
+     56%     0.41ms
+     57%     0.41ms
+     58%     0.41ms
+     59%     0.41ms
+     60%     0.42ms
+     61%     0.42ms
+     62%     0.43ms
+     63%     0.43ms
+     64%     0.44ms
+     65%     0.44ms
+     66%     0.45ms
+     67%     0.45ms
+     68%     0.46ms
+     69%     0.46ms
+     70%     0.47ms
+     71%     0.47ms
+     72%     0.48ms
+     73%     0.48ms
+     74%     0.49ms
+     75%     0.50ms
+     76%     0.50ms
+     77%     0.51ms
+     78%     0.52ms
+     79%     0.52ms
+     80%     0.53ms
+     81%     0.54ms
+     82%     0.55ms
+     83%     0.56ms
+     84%     0.57ms
+     85%     0.58ms
+     86%     0.59ms
+     87%     0.60ms
+     88%     0.61ms
+     89%     0.62ms
+     90%     0.64ms
+     91%     0.65ms
+     92%     0.67ms
+     93%     0.69ms
+     94%     0.71ms
+     95%     0.74ms
+     96%     0.78ms
+     97%     0.82ms
+     98%     0.88ms
+     99%     1.02ms
+   99.9%     3.56ms
+  99.99%     7.40ms
+ 99.999%     9.18ms
+99.9999%    10.91ms
+    100%     0.00ms
+  Note: Please take these latency percentiles with caution since wrk suffers from the Coordinated Omission problem. To get accurate latency measurements, use wrk2.
