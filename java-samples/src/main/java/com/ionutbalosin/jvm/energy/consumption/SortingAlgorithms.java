@@ -67,7 +67,8 @@ public class SortingAlgorithms {
 
   // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
   // otherwise default it to 15 minutes
-  private final long DURATION = valueOf(System.getProperty("duration", "9000")) * 1_000;
+  private final long DURATION_SEC = valueOf(System.getProperty("duration", "9000"));
+  private final long DURATION_NS = DURATION_SEC * 1_000_000_000L;
 
   private final int INT_SIZE = 4; // 4 bytes
   private final long _1_GB = 1 * 1024 * 1024 * 1024; // 1 GB
@@ -92,18 +93,20 @@ public class SortingAlgorithms {
         "Starting %s at %tT, expected duration = %d sec, number of elements to sort = %d%n",
         instance.sorter.getClass().getName(),
         new Date(),
-        instance.DURATION / 1000,
+        instance.DURATION_SEC,
         instance.array.length);
 
-    long startTime = System.currentTimeMillis();
+    long startTime = System.nanoTime();
     instance.benchmark(startTime);
-    long endTime = System.currentTimeMillis();
-    double elapsedTime = (double) (endTime - startTime) / 1000;
+    long endTime = System.nanoTime();
+    double elapsedTime = (double) (endTime - startTime) / 1_000_000_000L;
 
     System.out.printf("Successfully finished at %tT%n", new Date());
-    System.out.printf(
-        "Summary: elapsed = %.3f sec, ops = %d, sec/ops = %.9f%n",
-        elapsedTime, instance.iterations, elapsedTime / instance.iterations);
+    System.out.printf("---------------------------------%n");
+    System.out.printf("Summary statistics:%n");
+    System.out.printf("  Elapsed = %.3f sec%n", elapsedTime);
+    System.out.printf("  Ops = %d%n", instance.iterations);
+    System.out.printf("  Ops/sec = %.9f%n", instance.iterations / elapsedTime);
   }
 
   public static void validateArguments(String[] args) {
@@ -146,7 +149,7 @@ public class SortingAlgorithms {
   public void benchmark(long startTime) {
     // Benchmark loop: Attempts to run for a specific expected duration
     // Note: This loop may run beyond the expected duration, but it is acceptable for our goal
-    while (System.currentTimeMillis() < startTime + DURATION) {
+    while (System.nanoTime() < startTime + DURATION_NS) {
       initializeInteration();
       sorter.sort(array);
       validateResults(array);
