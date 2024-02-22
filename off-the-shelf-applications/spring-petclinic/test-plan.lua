@@ -24,6 +24,11 @@
 -- SOFTWARE.
 --
 
+-- Note: When launched with multiple concurrent threads, there is no guarantee
+-- that the object created within the request() function is handled within
+-- the response() function by the same thread.
+-- Therefore, any thread could read the response triggered by another thread.
+
 local math = require("math")
 
 local threads = {}
