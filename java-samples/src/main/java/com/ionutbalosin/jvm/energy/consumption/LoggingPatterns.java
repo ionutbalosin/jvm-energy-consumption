@@ -89,7 +89,7 @@ public class LoggingPatterns {
   }
 
   public static void validateArguments(String[] args) {
-    if (args.length != 1) {
+    if (args.length < 1) {
       System.out.println(
           """
           Usage: LoggingPatterns <log_type>
@@ -156,7 +156,7 @@ public class LoggingPatterns {
     LOGGER.setUseParentHandlers(false);
     LOGGER.setLevel(LOG_LEVEL);
 
-    aString = System.getProperty("java.home");
+    aString = System.getProperty("user.dir");
     anInt = 0;
     aFloat = 0F;
     aChar = '\u0000';

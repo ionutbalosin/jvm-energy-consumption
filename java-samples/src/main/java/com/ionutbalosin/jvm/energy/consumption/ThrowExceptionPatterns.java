@@ -80,7 +80,7 @@ public class ThrowExceptionPatterns {
   }
 
   public static void validateArguments(String[] args) {
-    if (args.length != 1) {
+    if (args.length < 1) {
       System.out.println(
           """
           Usage: ThrowExceptionPatterns <exception_type>

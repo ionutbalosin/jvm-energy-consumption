@@ -110,7 +110,7 @@ public class SortingAlgorithms {
   }
 
   public static void validateArguments(String[] args) {
-    if (args.length != 1) {
+    if (args.length < 1) {
       System.out.println(
           """
           Usage: SortingAlgorithms <algorithm_type>

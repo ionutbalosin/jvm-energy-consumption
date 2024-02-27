@@ -92,7 +92,7 @@ public class VPThreadQueueThroughput {
   }
 
   public static void validateArguments(String[] args) {
-    if (args.length != 1) {
+    if (args.length < 1) {
       System.out.println(
           """
             Usage: VPThreadQueueThroughput <thread_type>

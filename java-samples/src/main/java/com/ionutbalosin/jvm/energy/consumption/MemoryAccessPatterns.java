@@ -83,7 +83,7 @@ public class MemoryAccessPatterns {
   }
 
   public static void validateArguments(String[] args) {
-    if (args.length != 1) {
+    if (args.length < 1) {
       System.out.println(
           """
           Usage: MemoryAccessPatterns <access_type>

@@ -87,7 +87,7 @@ check_command_line_options() {
 
 configure_samples() {
   CURR_DIR=$(pwd)
-  JAVA_OPS="--enable-preview --source 21 -Xms1m -Xmx6g"
+  JAVA_OPS="--enable-preview --source 21 -Xms1m -Xmx8g"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
     "LoggingPatterns"
@@ -191,7 +191,7 @@ start_sample() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_run_type"
   else
-    RUN_CMD="$CURR_DIR/target/$sample_app $JAVA_OPS -Dduration=$APP_RUNNING_TIME $sample_app_run_type"
+    RUN_CMD="$CURR_DIR/target/$sample_app $sample_app_run_type $JAVA_OPS -Dduration=$APP_RUNNING_TIME"
   fi
 
   sample_run_command="$RUN_CMD > $run_output_file 2>&1"
