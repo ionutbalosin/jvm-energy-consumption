@@ -1,0 +1,122 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< org.springframework.samples:spring-petclinic >------------
+[INFO] Building petclinic 3.2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ spring-petclinic ---
+[INFO] Deleting /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target
+[INFO] 
+[INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- spring-javaformat:0.0.40:validate (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- checkstyle:3.3.1:check (nohttp-checkstyle-validation) @ spring-petclinic ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.11:prepare-agent (default) @ spring-petclinic ---
+[INFO] argLine set to -javaagent:/Users/<username>/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/jacoco.exec
+[INFO] 
+[INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
+[INFO] dotGitDirectory '/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
+[INFO] Collected git.build.user.name with value <username>
+[INFO] Collected git.build.user.email with value <email>
+[INFO] Collected git.branch with value main
+[INFO] --always = true
+[INFO] --dirty = -dirty
+[INFO] --abbrev = 7
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] evalCommit is [516722647ae474746a84c197127e323135907d57]
+[INFO] Collected git.commit.id.describe with value 5167226-dirty
+[INFO] Collected git.commit.id.describe-short with value 5167226-dirty
+[INFO] Collected git.commit.id with value 516722647ae474746a84c197127e323135907d57
+[INFO] Collected git.commit.id.abbrev with value 5167226
+[INFO] Collected git.dirty with value true
+[INFO] Collected git.commit.user.name with value Maksim Sasnouski
+[INFO] Collected git.commit.user.email with value qeeqez@gmail.com
+[INFO] Collected git.commit.message.full with value Gradle wrapper files should have correct line endings
+[INFO] Collected git.commit.message.short with value Gradle wrapper files should have correct line endings
+[INFO] Collected git.commit.time with value 2024-02-29T15:35:20+0100
+[INFO] Collected git.commit.author.time with value 2024-02-29T11:15:20+0100
+[INFO] Collected git.commit.committer.time with value 2024-02-29T11:15:20+0100
+[INFO] Collected git.remote.origin.url with value git@github.com:spring-projects/spring-petclinic.git
+[INFO] Collected git.tags with value 
+[INFO] evalCommit is [516722647ae474746a84c197127e323135907d57]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.name with value 
+[INFO] evalCommit is [516722647ae474746a84c197127e323135907d57]
+[INFO] Tag refs [[Ref[refs/tags/1.5.x=c36452a2c34443ae26b4ecbba4f149906af14717(-1)]]]
+[INFO] Created map: [{}]
+[INFO] Collected git.closest.tag.commit.count with value 
+[INFO] Collected git.total.commit.count with value 893
+[INFO] Collected git.local.branch.ahead with value 0
+[INFO] Collected git.local.branch.behind with value 0
+[INFO] Collected git.build.time with value 2023-05-10T09:42:50+0200
+[INFO] Collected git.build.version with value 3.2.0-SNAPSHOT
+[INFO] Collected git.build.host with value MacBook-Pro-8.local
+[INFO] including property 'git.tags' in results
+[INFO] including property 'git.build.version' in results
+[INFO] including property 'git.branch' in results
+[INFO] including property 'git.build.host' in results
+[INFO] including property 'git.commit.id' in results
+[INFO] including property 'git.commit.user.email' in results
+[INFO] including property 'git.local.branch.behind' in results
+[INFO] including property 'git.commit.author.time' in results
+[INFO] including property 'git.build.user.name' in results
+[INFO] including property 'git.dirty' in results
+[INFO] including property 'git.closest.tag.commit.count' in results
+[INFO] including property 'git.commit.user.name' in results
+[INFO] including property 'git.commit.id.abbrev' in results
+[INFO] including property 'git.commit.id.describe-short' in results
+[INFO] including property 'git.total.commit.count' in results
+[INFO] including property 'git.commit.id.describe' in results
+[INFO] including property 'git.build.user.email' in results
+[INFO] including property 'git.commit.message.short' in results
+[INFO] including property 'git.commit.committer.time' in results
+[INFO] including property 'git.closest.tag.name' in results
+[INFO] including property 'git.local.branch.ahead' in results
+[INFO] including property 'git.commit.time' in results
+[INFO] including property 'git.build.time' in results
+[INFO] including property 'git.commit.message.full' in results
+[INFO] including property 'git.remote.origin.url' in results
+[INFO] Writing properties file [/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[INFO] 
+[INFO] --- spring-boot:3.2.1:build-info (default) @ spring-petclinic ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ spring-petclinic ---
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 43 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ spring-petclinic ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 24 source files with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ spring-petclinic ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ spring-petclinic ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ spring-petclinic ---
+[WARNING]  Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jacoco:0.8.11:report (report) @ spring-petclinic ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ spring-petclinic ---
+[INFO] Building jar: /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.2.1:repackage (repackage) @ spring-petclinic ---
+[INFO] Replacing main artifact /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.670 s
+[INFO] Finished at: 2024-03-06T20:03:02+01:00
+[INFO] ------------------------------------------------------------------------
