@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting megamorphic_8 at 12:11:34, expected duration = 1200 sec, number of virtual calls = 9600
+Successfully finished at 12:31:34
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 81181510
+  Ops/sec = 67651.256387289

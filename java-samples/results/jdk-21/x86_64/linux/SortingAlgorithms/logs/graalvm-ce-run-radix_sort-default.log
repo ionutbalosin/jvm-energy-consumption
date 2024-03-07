@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 08:30:49, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 08:50:55
+---------------------------------
+Summary statistics:
+  Elapsed = 1206.189 sec
+  Ops = 67
+  Ops/sec = 0.055546842

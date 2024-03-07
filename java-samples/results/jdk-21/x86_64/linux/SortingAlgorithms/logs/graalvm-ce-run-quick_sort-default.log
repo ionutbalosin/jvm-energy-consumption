@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 07:50:37, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 08:10:37
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.038 sec
+  Ops = 3348
+  Ops/sec = 2.789912232

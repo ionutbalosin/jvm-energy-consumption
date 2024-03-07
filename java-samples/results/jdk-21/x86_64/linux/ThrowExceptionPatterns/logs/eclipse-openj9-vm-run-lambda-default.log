@@ -1,0 +1,9 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowLambdaException at 10:47:52, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 11:07:52
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 4246919
+  Ops/sec = 3539.098904228
+  Stack trace elements = 4387067327

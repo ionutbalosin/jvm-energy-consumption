@@ -1,0 +1,8 @@
+Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 10:00:34, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 10:20:43
+---------------------------------
+Summary statistics:
+  Elapsed = 1208.352 sec
+  Ops = 99
+  Ops/sec = 0.081929741
