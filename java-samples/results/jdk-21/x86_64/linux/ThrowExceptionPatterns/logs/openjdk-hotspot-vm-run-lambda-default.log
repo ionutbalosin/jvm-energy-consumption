@@ -1,0 +1,9 @@
+OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowLambdaException at 02:28:17, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 02:48:17
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 7739897
+  Ops/sec = 6449.913256122
+  Stack trace elements = 7925654528

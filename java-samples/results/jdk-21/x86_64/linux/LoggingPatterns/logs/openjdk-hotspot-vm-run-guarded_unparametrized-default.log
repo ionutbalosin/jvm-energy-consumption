@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedUnparametrizedLogger at 21:46:24, expected duration = 1200 sec, log level = INFO
+Successfully finished at 22:06:24
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 92170707
+  Ops/sec = 76808.919379126

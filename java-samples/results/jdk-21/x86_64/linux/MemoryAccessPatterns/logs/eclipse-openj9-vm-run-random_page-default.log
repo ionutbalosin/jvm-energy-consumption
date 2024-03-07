@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 07:26:33, expected duration = 1200 sec
+Successfully finished at 07:46:34
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.919 sec
+  Ops = 932
+  Ops/sec = 0.776072208

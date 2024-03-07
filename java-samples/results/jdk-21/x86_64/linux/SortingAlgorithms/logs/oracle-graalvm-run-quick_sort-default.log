@@ -1,0 +1,8 @@
+Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 15:53:34, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 16:13:34
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.349 sec
+  Ops = 2217
+  Ops/sec = 1.846962371

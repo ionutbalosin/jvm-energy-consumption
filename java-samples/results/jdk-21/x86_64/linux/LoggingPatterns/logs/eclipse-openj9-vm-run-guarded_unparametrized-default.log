@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedUnparametrizedLogger at 06:05:55, expected duration = 1200 sec, log level = INFO
+Successfully finished at 06:25:55
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 140207216
+  Ops/sec = 116839.346167178

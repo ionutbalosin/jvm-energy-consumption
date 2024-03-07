@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 08:26:59, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 08:47:11
+---------------------------------
+Summary statistics:
+  Elapsed = 1211.629 sec
+  Ops = 50
+  Ops/sec = 0.041266742

@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting monomorphic at 11:28:00, expected duration = 1200 sec, number of virtual calls = 9600
+Successfully finished at 11:48:00
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 136633151
+  Ops/sec = 113860.958435964

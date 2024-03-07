@@ -1,0 +1,9 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewExceptionOverrideFillInStackTrace at 02:24:23, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 02:44:23
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 614669183
+  Ops/sec = 512224.318689444
+  Stack trace elements = 0

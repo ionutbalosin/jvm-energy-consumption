@@ -1,0 +1,52 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting virtual at 13:08:23, expected duration = 1200 sec, number of tasks = 2400000
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:26:32 - please wait.
+JVMDUMP032I JVM requested System dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/core.20240304.132632.20912.0001.dmp' in response to an event
+JVMPORT030W /proc/sys/kernel/core_pattern setting "|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" specifies that the core dump is to be piped to an external program.  Attempting to rename either core or core.20996.  Review the manual for the external program to find where the core dump is written and ensure the program does not truncate it.
+
+JVMPORT049I The core file created by child process with pid = 20996 was not found. Review the documentation for the /proc/sys/kernel/core_pattern program "|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -- %E" to find where the core file is written and ensure that program does not truncate it.
+
+JVMDUMP012E Error in System dump: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/core.20240304.132632.20912.0001.dmp
+JVMDUMP032I JVM requested Heap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132632.20912.0002.phd' in response to an event
+JVMDUMP010I Heap dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132632.20912.0002.phd
+JVMDUMP032I JVM requested Java dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132632.20912.0003.txt' in response to an event
+JVMDUMP010I Java dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132632.20912.0003.txt
+JVMDUMP032I JVM requested Snap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/Snap.20240304.132632.20912.0004.trc' in response to an event
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP055I Processing dump event "systhrow", detail "java/lang/OutOfMemoryError", exception "native memory exhausted" at 2024/03/04 13:28:25 - please wait.
+JVMDUMP010I Snap dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/Snap.20240304.132632.20912.0004.trc
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Snap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/Snap.20240304.132825.20912.0010.trc' in response to an event
+JVMDUMP012E Error in Snap dump: {snap already in progress}
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Heap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0005.phd' in response to an event
+JVMDUMP010I Heap dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0005.phd
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Java dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0007.txt' in response to an event
+JVMDUMP010I Java dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0007.txt
+JVMDUMP032I JVM requested Snap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/Snap.20240304.132825.20912.0011.trc' in response to an event
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP010I Snap dump written to {nothing to snap}
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Java dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0008.txt' in response to an event
+JVMDUMP010I Java dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0008.txt
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Heap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0006.phd' in response to an event
+JVMDUMP010I Heap dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0006.phd
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Java dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0009.txt' in response to an event
+JVMDUMP010I Java dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/javacore.20240304.132825.20912.0009.txt
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Snap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/Snap.20240304.132825.20912.0012.trc' in response to an event
+JVMDUMP010I Snap dump written to {nothing to snap}
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".
+JVMDUMP032I JVM requested Heap dump using '/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0013.phd' in response to an event
+JVMDUMP010I Heap dump written to /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/heapdump.20240304.132825.20912.0013.phd
+JVMDUMP013I Processed dump event "systhrow", detail "java/lang/OutOfMemoryError".

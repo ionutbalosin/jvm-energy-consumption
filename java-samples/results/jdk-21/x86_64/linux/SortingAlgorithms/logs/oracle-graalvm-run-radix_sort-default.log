@@ -1,0 +1,8 @@
+Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 16:33:42, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 16:53:48
+---------------------------------
+Summary statistics:
+  Elapsed = 1205.541 sec
+  Ops = 66
+  Ops/sec = 0.054747210

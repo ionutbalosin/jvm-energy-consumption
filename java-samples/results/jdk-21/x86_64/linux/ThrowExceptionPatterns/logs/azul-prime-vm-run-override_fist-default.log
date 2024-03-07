@@ -1,0 +1,9 @@
+Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewExceptionOverrideFillInStackTrace at 12:01:27, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 12:21:27
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 62900130
+  Ops/sec = 52416.774735907
+  Stack trace elements = 0

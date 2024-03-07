@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 23:27:16, expected duration = 1200 sec
+Successfully finished at 23:47:20
+---------------------------------
+Summary statistics:
+  Elapsed = 1203.516 sec
+  Ops = 179
+  Ops/sec = 0.148730877

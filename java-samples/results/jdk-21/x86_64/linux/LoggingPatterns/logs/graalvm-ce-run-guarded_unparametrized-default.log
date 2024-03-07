@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedUnparametrizedLogger at 05:49:35, expected duration = 1200 sec, log level = INFO
+Successfully finished at 06:09:35
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 96035132
+  Ops/sec = 80029.273336182
