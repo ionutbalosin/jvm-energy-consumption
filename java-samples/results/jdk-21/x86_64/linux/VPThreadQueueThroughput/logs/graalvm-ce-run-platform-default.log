@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting platform at 12:31:37, expected duration = 1200 sec, number of tasks = 2400000
+Successfully finished at 12:51:37
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.049 sec
+  Ops = 481
+  Ops/sec = 0.400816868

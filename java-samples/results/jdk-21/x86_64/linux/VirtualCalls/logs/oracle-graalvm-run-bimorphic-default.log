@@ -1,0 +1,8 @@
+Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
+Starting bimorphic at 19:34:19, expected duration = 1200 sec, number of virtual calls = 9600
+Successfully finished at 19:54:19
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 206512142
+  Ops/sec = 172093.445942122

@@ -1,0 +1,10 @@
+Note: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java uses preview features of Java SE 21.
+Note: Recompile with -Xlint:preview for details.
+Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
+Starting com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns$PlusOperatorConcat at 10:41:08, expected duration = 1200 sec
+Successfully finished at 11:01:08
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 8664074252
+  Ops/sec = 7220061.861233785

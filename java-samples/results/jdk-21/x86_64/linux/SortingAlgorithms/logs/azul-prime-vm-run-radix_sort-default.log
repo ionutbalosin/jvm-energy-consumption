@@ -1,0 +1,3347 @@
+Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 10:20:48, expected duration = 1200 sec, number of elements to sort = 268435456
+2024-02-28T10:20:54.841+0100: 5.203: Detected TTSP issue, wait: 2459.224 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 7.662 last_cpu: 15 cpu_time: 7641
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0ee7e interpreter
+  5 0x0000000030c0f2f6 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c135f7 interpreter
+  9 0x0000000030c12b74 interpreter
+
+signal_sent: 6.204 signal_responded: 6.204 state: R wchan: 0 last_cpu: 15 cpu_time: 6183
+  0 0x0000000030046806 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:01.664+0100: 12.668: Detected TTSP issue, wait: 1817.371 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 14.485 last_cpu: 5 cpu_time: 14464
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0ee7e interpreter
+  5 0x0000000030c0f2f6 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c135f7 interpreter
+  9 0x0000000030c12b74 interpreter
+
+signal_sent: 13.668 signal_responded: 13.668 state: R wchan: 0 last_cpu: 5 cpu_time: 13647
+  0 0x0000000030052fce com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:08.478+0100: 19.487: Detected TTSP issue, wait: 1812.049 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 21.299 last_cpu: 5 cpu_time: 21275
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0ee7e interpreter
+  5 0x0000000030c0f2f6 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c135f7 interpreter
+  9 0x0000000030c12b74 interpreter
+
+signal_sent: 20.488 signal_responded: 20.488 state: R wchan: 0 last_cpu: 5 cpu_time: 20464
+  0 0x0000000030044448 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:17.328+0100: 26.301: Detected TTSP issue, wait: 3848.232 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 30.149 last_cpu: 5 cpu_time: 30124
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 27.302 signal_responded: 27.302 state: R wchan: 0 last_cpu: 5 cpu_time: 27278
+  0 0x0000000030054223 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:30.198+0100: 35.275: Detected TTSP issue, wait: 7743.611 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 43.018 last_cpu: 5 cpu_time: 42991
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 41.276 signal_responded: 41.276 state: R wchan: 0 last_cpu: 5 cpu_time: 41249
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 36.276 signal_responded: 36.276 state: R wchan: 0 last_cpu: 5 cpu_time: 36249
+  0 0x00000000300390a8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:44.126+0100: 48.145: Detected TTSP issue, wait: 8802.140 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 56.947 last_cpu: 5 cpu_time: 56918
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 54.146 signal_responded: 54.146 state: R wchan: 0 last_cpu: 5 cpu_time: 54117
+  0 0x0000000030039183 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 49.145 signal_responded: 49.145 state: R wchan: 0 last_cpu: 5 cpu_time: 49116
+  0 0x0000000030039130 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:21:57.885+0100: 62.073: Detected TTSP issue, wait: 8633.428 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 70.706 last_cpu: 5 cpu_time: 70673
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 68.074 signal_responded: 68.074 state: R wchan: 0 last_cpu: 5 cpu_time: 68041
+  0 0x0000000030039199 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 63.073 signal_responded: 63.074 state: R wchan: 0 last_cpu: 5 cpu_time: 63040
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:22:11.347+0100: 73.598: Detected TTSP issue, wait: 10570.225 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6797 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 84.168 last_cpu: 3 cpu_time: 84131
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 79.599 signal_responded: 79.599 state: R wchan: 0 last_cpu: 3 cpu_time: 79562
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 74.598 signal_responded: 74.598 state: R wchan: 0 last_cpu: 3 cpu_time: 74561
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:22:25.162+0100: 89.297: Detected TTSP issue, wait: 8686.522 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 97.983 last_cpu: 6 cpu_time: 97943
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 95.297 signal_responded: 95.297 state: R wchan: 0 last_cpu: 6 cpu_time: 95258
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 90.297 signal_responded: 90.297 state: R wchan: 0 last_cpu: 6 cpu_time: 90258
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:22:38.123+0100: 103.109: Detected TTSP issue, wait: 7834.659 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 110.944 last_cpu: 7 cpu_time: 110901
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 109.110 signal_responded: 109.110 state: R wchan: 0 last_cpu: 7 cpu_time: 109068
+  0 0x00000000300391ce com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 104.110 signal_responded: 104.110 state: R wchan: 0 last_cpu: 7 cpu_time: 104067
+  0 0x00000000300390bf com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:22:52.242+0100: 116.071: Detected TTSP issue, wait: 8992.293 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 125.062 last_cpu: 7 cpu_time: 125016
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 122.072 signal_responded: 122.072 state: R wchan: 0 last_cpu: 7 cpu_time: 122026
+  0 0x00000000300391d8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 117.072 signal_responded: 117.072 state: R wchan: 0 last_cpu: 7 cpu_time: 117026
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:23:06.826+0100: 128.134: Detected TTSP issue, wait: 11512.595 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6797 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 139.646 last_cpu: 3 cpu_time: 139595
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 139.135 signal_responded: 139.135 state: R wchan: 0 last_cpu: 3 cpu_time: 139084
+  0 0x00000000300392ca com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 134.135 signal_responded: 134.135 state: R wchan: 0 last_cpu: 3 cpu_time: 134084
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 129.135 signal_responded: 129.135 state: R wchan: 0 last_cpu: 3 cpu_time: 129084
+  0 0x0000000030038fc4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:23:19.112+0100: 144.776: Detected TTSP issue, wait: 7156.796 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 151.932 last_cpu: 7 cpu_time: 151878
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 150.776 signal_responded: 150.777 state: R wchan: 0 last_cpu: 7 cpu_time: 150723
+  0 0x00000000300391d8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 145.776 signal_responded: 145.776 state: R wchan: 0 last_cpu: 7 cpu_time: 145723
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:23:34.212+0100: 157.060: Detected TTSP issue, wait: 9973.818 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 167.033 last_cpu: 7 cpu_time: 166975
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 163.061 signal_responded: 163.061 state: R wchan: 0 last_cpu: 7 cpu_time: 163003
+  0 0x00000000300391e4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 158.060 signal_responded: 158.060 state: R wchan: 0 last_cpu: 7 cpu_time: 158003
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:23:47.822+0100: 172.160: Detected TTSP issue, wait: 8483.058 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 180.642 last_cpu: 7 cpu_time: 180582
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 178.160 signal_responded: 178.161 state: R wchan: 0 last_cpu: 7 cpu_time: 178101
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 173.160 signal_responded: 173.160 state: R wchan: 0 last_cpu: 7 cpu_time: 173100
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:24:02.467+0100: 185.770: Detected TTSP issue, wait: 9518.501 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 195.288 last_cpu: 7 cpu_time: 195227
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 191.771 signal_responded: 191.771 state: R wchan: 0 last_cpu: 7 cpu_time: 191710
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 186.770 signal_responded: 186.770 state: R wchan: 0 last_cpu: 7 cpu_time: 186709
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:24:21.113+0100: 200.416: Detected TTSP issue, wait: 13519.020 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 213.934 last_cpu: 8 cpu_time: 213871
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 211.416 signal_responded: 211.417 state: R wchan: 0 last_cpu: 8 cpu_time: 211353
+  0 0x00000000300391b6 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 206.416 signal_responded: 206.416 state: R wchan: 0 last_cpu: 8 cpu_time: 206353
+  0 0x00000000300391d8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 201.416 signal_responded: 201.416 state: R wchan: 0 last_cpu: 8 cpu_time: 201353
+  0 0x0000000030039048 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:24:39.169+0100: 219.193: Detected TTSP issue, wait: 12797.442 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 231.989 last_cpu: 9 cpu_time: 231924
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 230.194 signal_responded: 230.195 state: R wchan: 0 last_cpu: 9 cpu_time: 230129
+  0 0x00000000300392ca com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 225.194 signal_responded: 225.194 state: R wchan: 0 last_cpu: 9 cpu_time: 225129
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 220.193 signal_responded: 220.193 state: R wchan: 0 last_cpu: 9 cpu_time: 220128
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:24:52.649+0100: 237.117: Detected TTSP issue, wait: 8352.815 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 245.469 last_cpu: 7 cpu_time: 245402
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 243.118 signal_responded: 243.118 state: R wchan: 0 last_cpu: 7 cpu_time: 243051
+  0 0x00000000300391fb com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 238.117 signal_responded: 238.117 state: R wchan: 0 last_cpu: 7 cpu_time: 238050
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:25:07.778+0100: 250.598: Detected TTSP issue, wait: 10000.747 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 260.598 last_cpu: 4 cpu_time: 260529
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 256.600 signal_responded: 256.600 state: R wchan: 0 last_cpu: 4 cpu_time: 256530
+  0 0x00000000300391fb com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 251.599 signal_responded: 251.599 state: R wchan: 0 last_cpu: 4 cpu_time: 251529
+  0 0x00000000300390ad com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:25:21.226+0100: 265.725: Detected TTSP issue, wait: 8322.014 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 274.046 last_cpu: 4 cpu_time: 273976
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 271.726 signal_responded: 271.726 state: R wchan: 0 last_cpu: 4 cpu_time: 271655
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 266.725 signal_responded: 266.726 state: R wchan: 0 last_cpu: 4 cpu_time: 266655
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:25:36.447+0100: 279.173: Detected TTSP issue, wait: 10095.216 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 289.268 last_cpu: 4 cpu_time: 289195
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 285.174 signal_responded: 285.175 state: R wchan: 0 last_cpu: 4 cpu_time: 285102
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 280.174 signal_responded: 280.174 state: R wchan: 0 last_cpu: 4 cpu_time: 280102
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:25:49.082+0100: 294.394: Detected TTSP issue, wait: 7509.139 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 301.903 last_cpu: 4 cpu_time: 301829
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 300.395 signal_responded: 300.395 state: R wchan: 0 last_cpu: 4 cpu_time: 300322
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 295.395 signal_responded: 295.395 state: R wchan: 0 last_cpu: 4 cpu_time: 295322
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:26:03.674+0100: 307.030: Detected TTSP issue, wait: 9465.863 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 316.495 last_cpu: 4 cpu_time: 316421
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 313.031 signal_responded: 313.031 state: R wchan: 0 last_cpu: 4 cpu_time: 312957
+  0 0x00000000300391e1 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 308.030 signal_responded: 308.031 state: R wchan: 0 last_cpu: 4 cpu_time: 307956
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:26:17.304+0100: 321.622: Detected TTSP issue, wait: 8503.804 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 330.125 last_cpu: 4 cpu_time: 330050
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 327.623 signal_responded: 327.623 state: R wchan: 0 last_cpu: 4 cpu_time: 327548
+  0 0x00000000300391e4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 322.623 signal_responded: 322.623 state: R wchan: 0 last_cpu: 4 cpu_time: 322548
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:26:31.092+0100: 335.252: Detected TTSP issue, wait: 8660.635 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 343.913 last_cpu: 4 cpu_time: 343836
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 341.253 signal_responded: 341.253 state: R wchan: 0 last_cpu: 4 cpu_time: 341176
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 336.252 signal_responded: 336.253 state: R wchan: 0 last_cpu: 4 cpu_time: 336176
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:26:45.516+0100: 349.039: Detected TTSP issue, wait: 9298.348 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 358.337 last_cpu: 5 cpu_time: 358258
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 355.040 signal_responded: 355.040 state: R wchan: 0 last_cpu: 5 cpu_time: 354961
+  0 0x0000000030039171 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 350.040 signal_responded: 350.040 state: R wchan: 0 last_cpu: 5 cpu_time: 349961
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:26:59.349+0100: 363.464: Detected TTSP issue, wait: 8706.981 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 372.170 last_cpu: 5 cpu_time: 372088
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 369.464 signal_responded: 369.464 state: R wchan: 0 last_cpu: 5 cpu_time: 369382
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 364.464 signal_responded: 364.464 state: R wchan: 0 last_cpu: 5 cpu_time: 364382
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:27:13.746+0100: 373.549: Detected TTSP issue, wait: 13018.497 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6797 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 386.567 last_cpu: 5 cpu_time: 386483
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 384.551 signal_responded: 384.551 state: R wchan: 0 last_cpu: 5 cpu_time: 384467
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 379.550 signal_responded: 379.550 state: R wchan: 0 last_cpu: 5 cpu_time: 379466
+  0 0x0000000030039102 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 374.550 signal_responded: 374.550 state: R wchan: 0 last_cpu: 5 cpu_time: 374466
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:27:27.823+0100: 391.695: Detected TTSP issue, wait: 8948.431 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 400.644 last_cpu: 5 cpu_time: 400557
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 397.696 signal_responded: 397.696 state: R wchan: 0 last_cpu: 5 cpu_time: 397609
+  0 0x00000000300391ce com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 392.696 signal_responded: 392.696 state: R wchan: 0 last_cpu: 5 cpu_time: 392609
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:27:42.693+0100: 405.770: Detected TTSP issue, wait: 9744.626 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 415.513 last_cpu: 5 cpu_time: 415424
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 411.771 signal_responded: 411.771 state: R wchan: 0 last_cpu: 5 cpu_time: 411682
+  0 0x000000003003917e com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 406.770 signal_responded: 406.771 state: R wchan: 0 last_cpu: 5 cpu_time: 406681
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:27:56.319+0100: 420.641: Detected TTSP issue, wait: 8499.243 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 429.140 last_cpu: 5 cpu_time: 429048
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 426.642 signal_responded: 426.643 state: R wchan: 0 last_cpu: 5 cpu_time: 426551
+  0 0x00000000300391fb com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 421.641 signal_responded: 421.641 state: R wchan: 0 last_cpu: 5 cpu_time: 421550
+  0 0x0000000030039130 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:28:11.610+0100: 434.266: Detected TTSP issue, wait: 10164.901 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 444.431 last_cpu: 5 cpu_time: 444336
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 440.268 signal_responded: 440.268 state: R wchan: 0 last_cpu: 5 cpu_time: 440173
+  0 0x00000000300391d8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 435.268 signal_responded: 435.268 state: R wchan: 0 last_cpu: 5 cpu_time: 435173
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:28:25.656+0100: 449.557: Detected TTSP issue, wait: 8919.702 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 458.476 last_cpu: 5 cpu_time: 458381
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 455.558 signal_responded: 455.559 state: R wchan: 0 last_cpu: 5 cpu_time: 455463
+  0 0x000000003003917e com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 450.558 signal_responded: 450.558 state: R wchan: 0 last_cpu: 5 cpu_time: 450463
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:28:41.005+0100: 463.603: Detected TTSP issue, wait: 10223.244 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 473.826 last_cpu: 5 cpu_time: 473726
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 469.604 signal_responded: 469.604 state: R wchan: 0 last_cpu: 5 cpu_time: 469505
+  0 0x00000000300391c1 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 464.603 signal_responded: 464.603 state: R wchan: 0 last_cpu: 5 cpu_time: 464504
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:28:59.417+0100: 479.086: Detected TTSP issue, wait: 13152.373 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 492.238 last_cpu: 15 cpu_time: 492138
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 490.087 signal_responded: 490.087 state: R wchan: 0 last_cpu: 15 cpu_time: 489987
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 485.087 signal_responded: 485.087 state: R wchan: 0 last_cpu: 15 cpu_time: 484987
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 480.087 signal_responded: 480.087 state: R wchan: 0 last_cpu: 15 cpu_time: 479987
+  0 0x0000000030039026 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:29:19.914+0100: 497.494: Detected TTSP issue, wait: 15241.564 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 512.735 last_cpu: 13 cpu_time: 512630
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 508.495 signal_responded: 508.495 state: R wchan: 0 last_cpu: 13 cpu_time: 508390
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 503.494 signal_responded: 503.495 state: R wchan: 0 last_cpu: 16 cpu_time: 503391
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 498.494 signal_responded: 498.495 state: R wchan: 0 last_cpu: 16 cpu_time: 498391
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:29:39.591+0100: 518.003: Detected TTSP issue, wait: 14408.677 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 532.411 last_cpu: 19 cpu_time: 532306
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 529.005 signal_responded: 529.005 state: R wchan: 0 last_cpu: 19 cpu_time: 528900
+  0 0x00000000300391d8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 524.004 signal_responded: 524.005 state: R wchan: 0 last_cpu: 19 cpu_time: 523899
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 519.004 signal_responded: 519.004 state: R wchan: 0 last_cpu: 19 cpu_time: 518898
+  0 0x0000000030039048 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:29:57.921+0100: 537.539: Detected TTSP issue, wait: 13203.044 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 550.742 last_cpu: 21 cpu_time: 550631
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 548.540 signal_responded: 548.540 state: R wchan: 0 last_cpu: 21 cpu_time: 548430
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 543.539 signal_responded: 543.540 state: R wchan: 0 last_cpu: 21 cpu_time: 543430
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 538.539 signal_responded: 538.539 state: R wchan: 0 last_cpu: 21 cpu_time: 538430
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:30:17.403+0100: 556.002: Detected TTSP issue, wait: 14222.075 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 570.223 last_cpu: 13 cpu_time: 570109
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 567.005 signal_responded: 567.005 state: R wchan: 0 last_cpu: 13 cpu_time: 566891
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 562.004 signal_responded: 562.004 state: R wchan: 0 last_cpu: 16 cpu_time: 561891
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 557.003 signal_responded: 557.003 state: R wchan: 0 last_cpu: 16 cpu_time: 556891
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:30:39.001+0100: 575.493: Detected TTSP issue, wait: 16329.349 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 591.821 last_cpu: 17 cpu_time: 591705
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 591.495 signal_responded: 591.495 state: R wchan: 0 last_cpu: 17 cpu_time: 591379
+  0 0x00000000300392f4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 586.494 signal_responded: 586.495 state: R wchan: 0 last_cpu: 17 cpu_time: 586378
+  0 0x0000000030039183 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 581.494 signal_responded: 581.494 state: R wchan: 0 last_cpu: 17 cpu_time: 581378
+  0 0x0000000030039130 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 576.493 signal_responded: 576.493 state: R wchan: 0 last_cpu: 17 cpu_time: 576377
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:30:58.773+0100: 597.090: Detected TTSP issue, wait: 14504.088 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 611.594 last_cpu: 17 cpu_time: 611476
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 608.091 signal_responded: 608.091 state: R wchan: 0 last_cpu: 17 cpu_time: 607974
+  0 0x0000000030039183 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 603.091 signal_responded: 603.091 state: R wchan: 0 last_cpu: 17 cpu_time: 602974
+  0 0x0000000030039130 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 598.091 signal_responded: 598.091 state: R wchan: 0 last_cpu: 17 cpu_time: 597974
+  0 0x0000000030038fff com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:31:20.276+0100: 616.862: Detected TTSP issue, wait: 16235.557 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 633.097 last_cpu: 20 cpu_time: 632977
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 632.864 signal_responded: 632.864 state: R wchan: 0 last_cpu: 20 cpu_time: 632744
+  0 0x00000000300392ca com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 627.864 signal_responded: 627.864 state: R wchan: 0 last_cpu: 20 cpu_time: 627743
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 622.863 signal_responded: 622.863 state: R wchan: 0 last_cpu: 20 cpu_time: 622743
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 617.863 signal_responded: 617.863 state: R wchan: 0 last_cpu: 20 cpu_time: 617743
+  0 0x0000000030039043 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:31:39.971+0100: 638.362: Detected TTSP issue, wait: 14430.109 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 652.791 last_cpu: 21 cpu_time: 652668
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 649.364 signal_responded: 649.364 state: R wchan: 0 last_cpu: 21 cpu_time: 649241
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 644.363 signal_responded: 644.363 state: R wchan: 0 last_cpu: 21 cpu_time: 644241
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 639.363 signal_responded: 639.363 state: R wchan: 0 last_cpu: 21 cpu_time: 639241
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:31:59.607+0100: 655.950: Detected TTSP issue, wait: 16478.296 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6797 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 672.427 last_cpu: 21 cpu_time: 672301
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 671.951 signal_responded: 671.951 state: R wchan: 0 last_cpu: 21 cpu_time: 671825
+  0 0x00000000300392f4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 666.951 signal_responded: 666.951 state: R wchan: 0 last_cpu: 21 cpu_time: 666825
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 661.951 signal_responded: 661.951 state: R wchan: 0 last_cpu: 21 cpu_time: 661825
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 656.950 signal_responded: 656.950 state: R wchan: 0 last_cpu: 21 cpu_time: 656825
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:32:19.462+0100: 677.696: Detected TTSP issue, wait: 14586.686 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 692.282 last_cpu: 21 cpu_time: 692150
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 688.698 signal_responded: 688.698 state: R wchan: 0 last_cpu: 21 cpu_time: 688567
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 683.697 signal_responded: 683.697 state: R wchan: 0 last_cpu: 21 cpu_time: 683566
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 678.696 signal_responded: 678.696 state: R wchan: 0 last_cpu: 21 cpu_time: 678566
+  0 0x0000000030038fff com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:32:40.901+0100: 697.551: Detected TTSP issue, wait: 16171.239 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 713.721 last_cpu: 21 cpu_time: 713586
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 713.553 signal_responded: 713.553 state: R wchan: 0 last_cpu: 21 cpu_time: 713418
+  0 0x00000000300392f8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 708.552 signal_responded: 708.553 state: R wchan: 0 last_cpu: 21 cpu_time: 708418
+  0 0x00000000300391d3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 703.552 signal_responded: 703.552 state: R wchan: 0 last_cpu: 21 cpu_time: 703418
+  0 0x0000000030039130 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 698.552 signal_responded: 698.552 state: R wchan: 0 last_cpu: 21 cpu_time: 698418
+  0 0x0000000030039043 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:32:55.936+0100: 718.989: Detected TTSP issue, wait: 9768.079 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 728.757 last_cpu: 7 cpu_time: 728617
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 724.990 signal_responded: 724.990 state: R wchan: 0 last_cpu: 7 cpu_time: 724850
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 719.990 signal_responded: 719.990 state: R wchan: 0 last_cpu: 7 cpu_time: 719850
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:33:10.166+0100: 733.884: Detected TTSP issue, wait: 9104.074 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 742.987 last_cpu: 7 cpu_time: 742846
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 739.885 signal_responded: 739.885 state: R wchan: 0 last_cpu: 7 cpu_time: 739744
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 734.884 signal_responded: 734.884 state: R wchan: 0 last_cpu: 7 cpu_time: 734743
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:33:25.880+0100: 748.115: Detected TTSP issue, wait: 10586.106 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 758.700 last_cpu: 1 cpu_time: 758555
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 754.115 signal_responded: 754.115 state: R wchan: 0 last_cpu: 1 cpu_time: 753970
+  0 0x00000000300391c1 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 749.115 signal_responded: 749.115 state: R wchan: 0 last_cpu: 1 cpu_time: 748970
+  0 0x0000000030038fc4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:33:40.999+0100: 763.828: Detected TTSP issue, wait: 9992.291 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 773.821 last_cpu: 1 cpu_time: 773674
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 769.830 signal_responded: 769.830 state: R wchan: 0 last_cpu: 1 cpu_time: 769683
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 764.829 signal_responded: 764.829 state: R wchan: 0 last_cpu: 1 cpu_time: 764682
+  0 0x0000000030039102 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:33:56.398+0100: 778.948: Detected TTSP issue, wait: 10270.990 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 789.218 last_cpu: 2 cpu_time: 789067
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 784.949 signal_responded: 784.949 state: R wchan: 0 last_cpu: 2 cpu_time: 784799
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 779.948 signal_responded: 779.948 state: R wchan: 0 last_cpu: 2 cpu_time: 779799
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:34:11.096+0100: 794.345: Detected TTSP issue, wait: 9572.712 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 803.917 last_cpu: 2 cpu_time: 803764
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 800.346 signal_responded: 800.346 state: R wchan: 0 last_cpu: 2 cpu_time: 800194
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 795.346 signal_responded: 795.346 state: R wchan: 0 last_cpu: 2 cpu_time: 795194
+  0 0x00000000300390e3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:34:26.939+0100: 809.043: Detected TTSP issue, wait: 10716.887 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 819.759 last_cpu: 2 cpu_time: 819601
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 815.044 signal_responded: 815.044 state: R wchan: 0 last_cpu: 2 cpu_time: 814887
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 810.044 signal_responded: 810.044 state: R wchan: 0 last_cpu: 2 cpu_time: 809886
+  0 0x0000000030038fc4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:34:46.949+0100: 825.028: Detected TTSP issue, wait: 14742.925 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 839.770 last_cpu: 23 cpu_time: 839611
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 836.029 signal_responded: 836.029 state: R wchan: 0 last_cpu: 23 cpu_time: 835870
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 831.029 signal_responded: 831.029 state: R wchan: 0 last_cpu: 23 cpu_time: 830869
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 826.028 signal_responded: 826.028 state: R wchan: 0 last_cpu: 23 cpu_time: 825868
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:35:08.482+0100: 845.039: Detected TTSP issue, wait: 16264.655 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 861.303 last_cpu: 22 cpu_time: 861140
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 861.041 signal_responded: 861.041 state: R wchan: 0 last_cpu: 22 cpu_time: 860877
+  0 0x00000000300392c6 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 856.040 signal_responded: 856.040 state: R wchan: 0 last_cpu: 22 cpu_time: 855877
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 851.040 signal_responded: 851.040 state: R wchan: 0 last_cpu: 22 cpu_time: 850877
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 846.040 signal_responded: 846.040 state: R wchan: 0 last_cpu: 22 cpu_time: 845877
+  0 0x0000000030039043 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:35:28.454+0100: 866.571: Detected TTSP issue, wait: 14703.873 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 881.275 last_cpu: 22 cpu_time: 881109
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 877.573 signal_responded: 877.573 state: R wchan: 0 last_cpu: 22 cpu_time: 877407
+  0 0x00000000300391fb com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 872.572 signal_responded: 872.572 state: R wchan: 0 last_cpu: 22 cpu_time: 872406
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 867.572 signal_responded: 867.572 state: R wchan: 0 last_cpu: 22 cpu_time: 867406
+  0 0x0000000030039048 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:35:49.686+0100: 886.543: Detected TTSP issue, wait: 15963.683 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 902.507 last_cpu: 22 cpu_time: 902339
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 897.545 signal_responded: 897.545 state: R wchan: 0 last_cpu: 22 cpu_time: 897378
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 892.544 signal_responded: 892.544 state: R wchan: 0 last_cpu: 22 cpu_time: 892377
+  0 0x00000000300390cc com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 887.544 signal_responded: 887.544 state: R wchan: 0 last_cpu: 22 cpu_time: 887377
+  0 0x0000000030038fff com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:36:09.681+0100: 907.774: Detected TTSP issue, wait: 14727.558 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 922.502 last_cpu: 22 cpu_time: 922333
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 918.776 signal_responded: 918.776 state: R wchan: 0 last_cpu: 22 cpu_time: 918608
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 913.776 signal_responded: 913.776 state: R wchan: 0 last_cpu: 22 cpu_time: 913608
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 908.775 signal_responded: 908.775 state: R wchan: 0 last_cpu: 22 cpu_time: 908607
+  0 0x0000000030039048 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:36:24.635+0100: 927.770: Detected TTSP issue, wait: 9686.101 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 937.455 last_cpu: 7 cpu_time: 937284
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 933.771 signal_responded: 933.771 state: R wchan: 0 last_cpu: 7 cpu_time: 933599
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 928.771 signal_responded: 928.771 state: R wchan: 0 last_cpu: 7 cpu_time: 928599
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:36:38.938+0100: 942.582: Detected TTSP issue, wait: 9176.943 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 951.759 last_cpu: 7 cpu_time: 951587
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 948.584 signal_responded: 948.584 state: R wchan: 0 last_cpu: 7 cpu_time: 948411
+  0 0x00000000300391e4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 943.583 signal_responded: 943.583 state: R wchan: 0 last_cpu: 7 cpu_time: 943411
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:36:54.108+0100: 956.887: Detected TTSP issue, wait: 10042.233 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 966.929 last_cpu: 7 cpu_time: 966755
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 962.888 signal_responded: 962.888 state: R wchan: 0 last_cpu: 7 cpu_time: 962714
+  0 0x0000000030039171 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 957.887 signal_responded: 957.887 state: R wchan: 0 last_cpu: 7 cpu_time: 957714
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:37:08.340+0100: 972.057: Detected TTSP issue, wait: 9104.553 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 981.161 last_cpu: 5 cpu_time: 980986
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 978.058 signal_responded: 978.058 state: R wchan: 0 last_cpu: 5 cpu_time: 977883
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 973.058 signal_responded: 973.058 state: R wchan: 0 last_cpu: 5 cpu_time: 972883
+  0 0x0000000030039107 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:37:23.851+0100: 986.288: Detected TTSP issue, wait: 10384.866 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 996.671 last_cpu: 5 cpu_time: 996493
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 992.289 signal_responded: 992.289 state: R wchan: 0 last_cpu: 5 cpu_time: 992111
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 987.288 signal_responded: 987.288 state: R wchan: 0 last_cpu: 5 cpu_time: 987110
+  0 0x000000003003901c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:37:38.152+0100: 1001.942: Detected TTSP issue, wait: 9031.736 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1010.973 last_cpu: 5 cpu_time: 1010793
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1007.943 signal_responded: 1007.943 state: R wchan: 0 last_cpu: 5 cpu_time: 1007763
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1002.942 signal_responded: 1002.942 state: R wchan: 0 last_cpu: 5 cpu_time: 1002762
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:37:53.491+0100: 1016.100: Detected TTSP issue, wait: 10212.583 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1026.312 last_cpu: 5 cpu_time: 1026130
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1022.101 signal_responded: 1022.101 state: R wchan: 0 last_cpu: 5 cpu_time: 1021919
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1017.100 signal_responded: 1017.101 state: R wchan: 0 last_cpu: 5 cpu_time: 1016919
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:38:07.646+0100: 1031.438: Detected TTSP issue, wait: 9028.492 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1040.466 last_cpu: 5 cpu_time: 1040283
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1037.440 signal_responded: 1037.440 state: R wchan: 0 last_cpu: 5 cpu_time: 1037257
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1032.439 signal_responded: 1032.439 state: R wchan: 0 last_cpu: 5 cpu_time: 1032257
+  0 0x0000000030039107 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:38:22.993+0100: 1045.737: Detected TTSP issue, wait: 10076.801 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1055.813 last_cpu: 5 cpu_time: 1055628
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1051.739 signal_responded: 1051.739 state: R wchan: 0 last_cpu: 5 cpu_time: 1051554
+  0 0x0000000030039194 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1046.738 signal_responded: 1046.738 state: R wchan: 0 last_cpu: 5 cpu_time: 1046553
+  0 0x000000003003911d com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:38:42.815+0100: 1061.085: Detected TTSP issue, wait: 14551.652 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1075.636 last_cpu: 21 cpu_time: 1075448
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1072.086 signal_responded: 1072.086 state: R wchan: 0 last_cpu: 21 cpu_time: 1071899
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1067.086 signal_responded: 1067.086 state: R wchan: 0 last_cpu: 21 cpu_time: 1066898
+  0 0x00000000300390e8 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1062.086 signal_responded: 1062.086 state: R wchan: 0 last_cpu: 21 cpu_time: 1061899
+  0 0x0000000030039026 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:39:03.764+0100: 1080.903: Detected TTSP issue, wait: 15681.686 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1096.584 last_cpu: 21 cpu_time: 1096394
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1091.906 signal_responded: 1091.906 state: R wchan: 0 last_cpu: 21 cpu_time: 1091716
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1086.905 signal_responded: 1086.905 state: R wchan: 0 last_cpu: 21 cpu_time: 1086716
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1081.905 signal_responded: 1081.905 state: R wchan: 0 last_cpu: 21 cpu_time: 1081716
+  0 0x0000000030039004 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:39:23.632+0100: 1101.852: Detected TTSP issue, wait: 14601.187 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1116.453 last_cpu: 21 cpu_time: 1116260
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1112.854 signal_responded: 1112.855 state: R wchan: 0 last_cpu: 21 cpu_time: 1112662
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1107.854 signal_responded: 1107.854 state: R wchan: 0 last_cpu: 21 cpu_time: 1107661
+  0 0x00000000300390bf com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1102.853 signal_responded: 1102.853 state: R wchan: 0 last_cpu: 21 cpu_time: 1102661
+  0 0x0000000030039048 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:39:44.713+0100: 1121.719: Detected TTSP issue, wait: 15814.455 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1137.533 last_cpu: 21 cpu_time: 1137335
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1132.721 signal_responded: 1132.722 state: R wchan: 0 last_cpu: 21 cpu_time: 1132525
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1127.720 signal_responded: 1127.720 state: R wchan: 0 last_cpu: 21 cpu_time: 1127524
+  0 0x00000000300390c4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1122.720 signal_responded: 1122.720 state: R wchan: 0 last_cpu: 21 cpu_time: 1122524
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:40:03.710+0100: 1142.800: Detected TTSP issue, wait: 13731.008 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1156.530 last_cpu: 23 cpu_time: 1156330
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1153.803 signal_responded: 1153.803 state: R wchan: 0 last_cpu: 23 cpu_time: 1153602
+  0 0x0000000030039188 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1148.802 signal_responded: 1148.802 state: R wchan: 0 last_cpu: 23 cpu_time: 1148602
+  0 0x00000000300391d3 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1143.801 signal_responded: 1143.801 state: R wchan: 0 last_cpu: 1 cpu_time: 1143602
+  0 0x0000000030038fc4 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:40:17.846+0100: 1157.904: Detected TTSP issue, wait: 12762.832 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6797 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1170.667 last_cpu: 3 cpu_time: 1170464
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1168.906 signal_responded: 1168.906 state: R wchan: 0 last_cpu: 3 cpu_time: 1168703
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1163.906 signal_responded: 1163.906 state: R wchan: 0 last_cpu: 3 cpu_time: 1163703
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1158.905 signal_responded: 1158.905 state: R wchan: 0 last_cpu: 3 cpu_time: 1158702
+  0 0x0000000030038fe2 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:40:32.708+0100: 1175.795: Detected TTSP issue, wait: 9734.476 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1185.529 last_cpu: 3 cpu_time: 1185322
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1181.795 signal_responded: 1181.796 state: R wchan: 0 last_cpu: 3 cpu_time: 1181589
+  0 0x00000000300391b0 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1176.795 signal_responded: 1176.795 state: R wchan: 0 last_cpu: 3 cpu_time: 1176588
+  0 0x000000003003910c com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:40:48.558+0100: 1190.655: Detected TTSP issue, wait: 10723.738 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1201.379 last_cpu: 3 cpu_time: 1201170
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1196.657 signal_responded: 1196.657 state: R wchan: 0 last_cpu: 3 cpu_time: 1196449
+  0 0x0000000030039200 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1191.656 signal_responded: 1191.656 state: R wchan: 0 last_cpu: 3 cpu_time: 1191448
+  0 0x0000000030038fff com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+2024-02-28T10:41:03.188+0100: 1206.505: Detected TTSP issue, wait: 9504.775 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6801 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 1216.009 last_cpu: 3 cpu_time: 1215800
+  0 0x00007fdee28b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007fdee255bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0ee7e interpreter
+  4 0x0000000030c0f2f6 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c135f7 interpreter
+  8 0x0000000030c12b74 interpreter
+  9 0x0000000030c0f5e2 interpreter
+
+signal_sent: 1212.507 signal_responded: 1212.507 state: R wchan: 0 last_cpu: 3 cpu_time: 1212297
+  0 0x00000000300391ab com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 1207.506 signal_responded: 1207.506 state: R wchan: 0 last_cpu: 3 cpu_time: 1207297
+  0 0x00000000300390a5 com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter.sort([I)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0ee7e interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+Successfully finished at 10:41:03
+---------------------------------
+Summary statistics:
+  Elapsed = 1214.408 sec
+  Ops = 75
+  Ops/sec = 0.061758483

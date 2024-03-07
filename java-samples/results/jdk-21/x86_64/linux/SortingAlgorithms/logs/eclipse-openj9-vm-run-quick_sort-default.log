@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 08:06:55, expected duration = 1200 sec, number of elements to sort = 268435456
+Successfully finished at 08:26:56
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.769 sec
+  Ops = 760
+  Ops/sec = 0.632927503

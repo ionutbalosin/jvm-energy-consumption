@@ -1,0 +1,8 @@
+Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 05:25:48, expected duration = 1200 sec, log level = INFO
+Successfully finished at 05:45:48
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 139578553
+  Ops/sec = 116315.448467063

@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 22:46:46, expected duration = 1200 sec
+Successfully finished at 23:06:46
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.080 sec
+  Ops = 3358
+  Ops/sec = 2.798147425

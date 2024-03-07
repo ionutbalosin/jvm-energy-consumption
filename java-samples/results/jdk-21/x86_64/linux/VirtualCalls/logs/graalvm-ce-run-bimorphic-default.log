@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting bimorphic at 11:31:27, expected duration = 1200 sec, number of virtual calls = 9600
+Successfully finished at 11:51:27
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 125516877
+  Ops/sec = 104597.394597858

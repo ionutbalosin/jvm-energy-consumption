@@ -128,8 +128,8 @@ configure_samples() {
     "VirtualCalls megamorphic_3"
     "VirtualCalls megamorphic_8"
 
-    "VPThreadQueueThroughput virtual"
     "VPThreadQueueThroughput platform"
+    "VPThreadQueueThroughput virtual"
   )
 
   echo "Java samples: ${SAMPLE_APPS[@]}"

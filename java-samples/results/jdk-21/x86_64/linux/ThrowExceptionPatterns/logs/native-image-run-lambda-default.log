@@ -1,0 +1,9 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowLambdaException at 02:44:26, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 03:04:26
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 23894567
+  Ops/sec = 19912.138473442
+  Stack trace elements = 24468036608

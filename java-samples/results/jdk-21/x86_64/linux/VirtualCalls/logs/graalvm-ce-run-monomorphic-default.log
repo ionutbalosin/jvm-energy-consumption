@@ -1,0 +1,8 @@
+OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
+Starting monomorphic at 11:11:23, expected duration = 1200 sec, number of virtual calls = 9600
+Successfully finished at 11:31:23
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 224455017
+  Ops/sec = 187045.840964151

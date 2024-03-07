@@ -1,0 +1,47 @@
+2024-02-28T08:39:35.057+0100: 5.204: Detected TTSP issue, wait: 8564.400 ms
+Dumping stack for thread 0x0000620000000000
+"main" id: 6215 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 13.768 last_cpu: 8 cpu_time: 13753
+Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at   0 0x00007f43126b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x00007f431235bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+  2 0x0000000030c023c0 interpreter
+  3 0x0000000030c0f2f6 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c135f7 interpreter
+  7 0x0000000030c12b74 interpreter
+  8 0x0000000030c0f5e2 interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 11.206 signal_responded: 11.206 state: R wchan: 0 last_cpu: 8 cpu_time: 11191
+  0 0x000000003002a18b com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0f2f6 interpreter
+  3 0x0000000030c135f7 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c12b74 interpreter
+  7 0x0000000030c0f5e2 interpreter
+  8 0x0000000030c0ee7e interpreter
+  9 0x0000000030c0ee7e interpreter
+
+signal_sent: 6.205 signal_responded: 6.205 state: R wchan: 0 last_cpu: 8 cpu_time: 6190
+  0 0x000000003002a191 com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
+  1 0x0000000030c0ee7e interpreter
+  2 0x0000000030c0f2f6 interpreter
+  3 0x0000000030c135f7 interpreter
+  4 0x0000000030c135f7 interpreter
+  5 0x0000000030c135f7 interpreter
+  6 0x0000000030c12b74 interpreter
+  7 0x0000000030c0f5e2 interpreter
+  8 0x0000000030c0ee7e interpreter
+  9 0x0000000030c0ee7e interpreter
+
+08:39:35, expected duration = 1200 sec
+Successfully finished at 08:59:35
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.304 sec
+  Ops = 2008
+  Ops/sec = 1.672909435

@@ -32,7 +32,7 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER="default"
   APP_BASE_URL="localhost:8080"
   WRK_RUNNING_TIME="7080"
-  WRK_THREADS="$(nproc)"
+  WRK_THREADS="$(sysctl -n hw.logicalcpu)"
   WRK_SESSIONS="900"
 
   if [[ $# -lt 1 || $# -gt 6 ]]; then
@@ -124,7 +124,7 @@ start_wrk() {
   echo ""
 
   output_file="$CURR_DIR/$OUTPUT_FOLDER/wrk/$APP_JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-  wrk_command="wrk -t${WRK_THREADS} -c${WRK_SESSIONS} -d${WRK_RUNNING_TIME}s -s test-plan.lua http://$APP_BASE_URL | tee $output_file"
+  wrk_command="wrk -t${WRK_THREADS} -c${WRK_SESSIONS} -d${WRK_RUNNING_TIME}s -s test-plan.lua http://$APP_BASE_URL >  $output_file"
 
   echo "$wrk_command"
   eval "$wrk_command"
