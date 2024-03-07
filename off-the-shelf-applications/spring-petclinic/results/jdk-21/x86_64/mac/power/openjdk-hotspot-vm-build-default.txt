@@ -61994,4 +61994,542 @@ in:  93.86 packets/s, 6288.69 bytes/s
 read: 9.78 ops/s 56.07 KBytes/s
 write: 15.64 ops/s 92.11 KBytes/s
 Intel energy model derived package power (CPUs+GT+SA): 4.61W
-Current pressur
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:37:57 2024 +0100) (1023.91ms elapsed) ***
+out: 93.76 packets/s, 6281.83 bytes/s
+in:  94.74 packets/s, 6336.52 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 33.21 ops/s 160.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.78W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:37:58 2024 +0100) (1023.82ms elapsed) ***
+out: 93.77 packets/s, 6282.32 bytes/s
+in:  95.72 packets/s, 7468.07 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 6.84 ops/s 28.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 7.13W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:37:59 2024 +0100) (1022.33ms elapsed) ***
+out: 93.90 packets/s, 6291.52 bytes/s
+in:  104.66 packets/s, 10095.59 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 50.86 ops/s 252.41 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 15.36W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:00 2024 +0100) (1022.97ms elapsed) ***
+out: 93.84 packets/s, 6287.56 bytes/s
+in:  94.82 packets/s, 6356.97 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.66 ops/s 80.08 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 14.42W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:01 2024 +0100) (1023.46ms elapsed) ***
+out: 93.80 packets/s, 6284.57 bytes/s
+in:  93.80 packets/s, 6284.57 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.10W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:02 2024 +0100) (1023.91ms elapsed) ***
+out: 105.48 packets/s, 12690.53 bytes/s
+in:  100.59 packets/s, 12205.14 bytes/s
+read: 3.91 ops/s 20.00 KBytes/s
+write: 6.84 ops/s 132.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.34W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:03 2024 +0100) (1024.10ms elapsed) ***
+out: 93.74 packets/s, 6293.32 bytes/s
+in:  94.72 packets/s, 6357.77 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 45.89 ops/s 211.98 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.56W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:04 2024 +0100) (1023.74ms elapsed) ***
+out: 111.36 packets/s, 7640.63 bytes/s
+in:  111.36 packets/s, 7640.63 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.00W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:05 2024 +0100) (1022.12ms elapsed) ***
+out: 93.92 packets/s, 6292.82 bytes/s
+in:  93.92 packets/s, 6292.82 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.98 ops/s 4.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.99W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:06 2024 +0100) (1023.92ms elapsed) ***
+out: 93.76 packets/s, 6281.76 bytes/s
+in:  93.76 packets/s, 6281.76 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 23.44 ops/s 120.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.82W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:07 2024 +0100) (1023.47ms elapsed) ***
+out: 101.62 packets/s, 6808.24 bytes/s
+in:  101.62 packets/s, 6808.24 bytes/s
+read: 25.40 ops/s 416.22 KBytes/s
+write: 14.66 ops/s 84.04 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.95W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:08 2024 +0100) (1023.06ms elapsed) ***
+out: 93.84 packets/s, 6287.04 bytes/s
+in:  94.81 packets/s, 6367.19 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 25.41 ops/s 436.40 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 5.85W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:09 2024 +0100) (1023.28ms elapsed) ***
+out: 93.82 packets/s, 6285.68 bytes/s
+in:  93.82 packets/s, 6285.68 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 40.07 ops/s 192.14 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.47W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:10 2024 +0100) (1023.08ms elapsed) ***
+out: 93.83 packets/s, 6286.93 bytes/s
+in:  93.83 packets/s, 6286.93 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 17.59 ops/s 88.08 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 5.94W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:11 2024 +0100) (1022.57ms elapsed) ***
+out: 93.88 packets/s, 6290.04 bytes/s
+in:  94.86 packets/s, 6344.80 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 23.47 ops/s 120.17 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.54W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:12 2024 +0100) (1023.18ms elapsed) ***
+out: 94.80 packets/s, 6350.77 bytes/s
+in:  98.71 packets/s, 7794.30 bytes/s
+read: 2.93 ops/s 12.01 KBytes/s
+write: 58.64 ops/s 296.24 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.57W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:13 2024 +0100) (1024.11ms elapsed) ***
+out: 116.20 packets/s, 7907.38 bytes/s
+in:  119.13 packets/s, 9249.04 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 320.28 ops/s 12930.66 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.97W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:14 2024 +0100) (1023.96ms elapsed) ***
+out: 88.87 packets/s, 5951.39 bytes/s
+in:  92.78 packets/s, 8533.52 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.64W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:15 2024 +0100) (1022.53ms elapsed) ***
+out: 94.86 packets/s, 6354.82 bytes/s
+in:  96.82 packets/s, 7628.13 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.81W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:16 2024 +0100) (1023.36ms elapsed) ***
+out: 93.81 packets/s, 6285.18 bytes/s
+in:  93.81 packets/s, 6285.18 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.66 ops/s 108.07 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.72W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:17 2024 +0100) (1022.66ms elapsed) ***
+out: 112.45 packets/s, 12177.02 bytes/s
+in:  113.43 packets/s, 15149.65 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 13.69 ops/s 84.11 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.03W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:18 2024 +0100) (1023.07ms elapsed) ***
+out: 93.83 packets/s, 6286.94 bytes/s
+in:  93.83 packets/s, 6286.94 bytes/s
+read: 146.62 ops/s 604.55 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.34W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:19 2024 +0100) (1023.71ms elapsed) ***
+out: 93.78 packets/s, 6283.03 bytes/s
+in:  93.78 packets/s, 6283.03 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 15.63 ops/s 92.03 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.83W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:20 2024 +0100) (1023.75ms elapsed) ***
+out: 93.77 packets/s, 6282.76 bytes/s
+in:  93.77 packets/s, 6282.76 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.65 ops/s 84.02 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.73W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:21 2024 +0100) (1022.10ms elapsed) ***
+out: 115.45 packets/s, 7858.34 bytes/s
+in:  115.45 packets/s, 7858.34 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.68 ops/s 100.19 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.00W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:22 2024 +0100) (1023.36ms elapsed) ***
+out: 93.81 packets/s, 6285.16 bytes/s
+in:  94.79 packets/s, 6377.01 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 13.68 ops/s 84.05 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.40W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:24 2024 +0100) (1023.69ms elapsed) ***
+out: 93.78 packets/s, 6283.16 bytes/s
+in:  93.78 packets/s, 6283.16 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.65 ops/s 84.03 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.69W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:25 2024 +0100) (1023.55ms elapsed) ***
+out: 93.79 packets/s, 6284.00 bytes/s
+in:  93.79 packets/s, 6284.00 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.62W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:26 2024 +0100) (1023.17ms elapsed) ***
+out: 86.01 packets/s, 5762.50 bytes/s
+in:  86.98 packets/s, 5817.23 bytes/s
+read: 55.71 ops/s 2790.27 KBytes/s
+write: 35.18 ops/s 168.14 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.73W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:27 2024 +0100) (1023.33ms elapsed) ***
+out: 93.81 packets/s, 6285.34 bytes/s
+in:  95.77 packets/s, 6437.78 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.66 ops/s 76.05 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.61W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:28 2024 +0100) (1022.94ms elapsed) ***
+out: 93.85 packets/s, 6287.76 bytes/s
+in:  93.85 packets/s, 6287.76 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.25W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:29 2024 +0100) (1022.11ms elapsed) ***
+out: 93.92 packets/s, 6292.88 bytes/s
+in:  93.92 packets/s, 6292.88 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.10W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:30 2024 +0100) (1023.42ms elapsed) ***
+out: 93.80 packets/s, 6284.80 bytes/s
+in:  93.80 packets/s, 6284.80 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.66 ops/s 84.05 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.60W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:31 2024 +0100) (1023.65ms elapsed) ***
+out: 125.04 packets/s, 8412.99 bytes/s
+in:  125.04 packets/s, 8412.99 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 13.68 ops/s 76.03 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.31W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:32 2024 +0100) (1022.58ms elapsed) ***
+out: 95.84 packets/s, 6419.07 bytes/s
+in:  94.86 packets/s, 6354.53 bytes/s
+read: 8.80 ops/s 60.08 KBytes/s
+write: 50.85 ops/s 276.38 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 9.88W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:33 2024 +0100) (1023.52ms elapsed) ***
+out: 92.82 packets/s, 10763.85 bytes/s
+in:  91.84 packets/s, 36203.55 bytes/s
+read: 7.82 ops/s 44.02 KBytes/s
+write: 137.76 ops/s 744.35 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 8.49W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:34 2024 +0100) (1023.35ms elapsed) ***
+out: 0.00 packets/s, 0.00 bytes/s
+in:  0.00 packets/s, 0.00 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.96W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:35 2024 +0100) (1022.33ms elapsed) ***
+out: 0.00 packets/s, 0.00 bytes/s
+in:  0.00 packets/s, 0.00 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.94W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:36 2024 +0100) (1023.71ms elapsed) ***
+out: 4.88 packets/s, 429.81 bytes/s
+in:  3.91 packets/s, 752.16 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.42W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:37 2024 +0100) (1024.06ms elapsed) ***
+out: 0.98 packets/s, 76.17 bytes/s
+in:  0.98 packets/s, 80.07 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.89W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:38 2024 +0100) (1022.40ms elapsed) ***
+out: 0.98 packets/s, 76.29 bytes/s
+in:  0.00 packets/s, 0.00 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.77W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:39 2024 +0100) (1022.95ms elapsed) ***
+out: 0.98 packets/s, 76.25 bytes/s
+in:  1.96 packets/s, 109.49 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.98 ops/s 4.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 4.78W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:40 2024 +0100) (1023.69ms elapsed) ***
+out: 3.91 packets/s, 211.00 bytes/s
+in:  1.95 packets/s, 123.08 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.55W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:41 2024 +0100) (1022.58ms elapsed) ***
+out: 0.98 packets/s, 76.28 bytes/s
+in:  26.40 packets/s, 8808.12 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.50W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:42 2024 +0100) (1021.96ms elapsed) ***
+out: 0.00 packets/s, 0.00 bytes/s
+in:  0.98 packets/s, 69.47 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.20W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:43 2024 +0100) (1024.02ms elapsed) ***
+out: 34.18 packets/s, 2480.42 bytes/s
+in:  33.20 packets/s, 2404.25 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 155.27 ops/s 3683.93 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.06W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:44 2024 +0100) (1024.02ms elapsed) ***
+out: 0.00 packets/s, 0.00 bytes/s
+in:  1.95 packets/s, 109.37 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.73W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:45 2024 +0100) (1023.29ms elapsed) ***
+out: 14.66 packets/s, 1994.56 bytes/s
+in:  17.59 packets/s, 9015.08 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.84W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:46 2024 +0100) (1023.86ms elapsed) ***
+out: 0.98 packets/s, 76.18 bytes/s
+in:  0.98 packets/s, 69.35 bytes/s
+read: 1.95 ops/s 8.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.71W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:47 2024 +0100) (1022.93ms elapsed) ***
+out: 63.54 packets/s, 4297.46 bytes/s
+in:  63.54 packets/s, 4313.10 bytes/s
+read: 61.59 ops/s 300.31 KBytes/s
+write: 54.74 ops/s 288.30 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 5.74W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:48 2024 +0100) (1023.33ms elapsed) ***
+out: 107.49 packets/s, 11828.98 bytes/s
+in:  113.35 packets/s, 14021.81 bytes/s
+read: 9.77 ops/s 40.03 KBytes/s
+write: 122.15 ops/s 1200.78 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 17.44W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:49 2024 +0100) (1022.12ms elapsed) ***
+out: 101.75 packets/s, 7088.22 bytes/s
+in:  102.73 packets/s, 7143.01 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 50.87 ops/s 272.50 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 22.72W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:50 2024 +0100) (1023.94ms elapsed) ***
+out: 115.24 packets/s, 8621.58 bytes/s
+in:  114.26 packets/s, 15160.04 bytes/s
+read: 30.28 ops/s 196.01 KBytes/s
+write: 52.74 ops/s 252.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 22.47W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:51 2024 +0100) (1023.15ms elapsed) ***
+out: 158.33 packets/s, 18653.13 bytes/s
+in:  159.31 packets/s, 38162.44 bytes/s
+read: 504.32 ops/s 2578.13 KBytes/s
+write: 126.08 ops/s 684.57 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 29.81W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:52 2024 +0100) (1024.12ms elapsed) ***
+out: 202.12 packets/s, 18996.77 bytes/s
+in:  216.77 packets/s, 127866.66 bytes/s
+read: 140.61 ops/s 579.93 KBytes/s
+write: 113.27 ops/s 719.91 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 23.47W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:53 2024 +0100) (1022.89ms elapsed) ***
+out: 101.67 packets/s, 6927.43 bytes/s
+in:  99.72 packets/s, 6665.42 bytes/s
+read: 7.82 ops/s 48.05 KBytes/s
+write: 139.80 ops/s 2598.82 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 14.96W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:54 2024 +0100) (1023.15ms elapsed) ***
+out: 113.38 packets/s, 9297.77 bytes/s
+in:  110.44 packets/s, 9750.29 bytes/s
+read: 3.91 ops/s 96.08 KBytes/s
+write: 27.37 ops/s 144.12 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 14.17W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:55 2024 +0100) (1021.65ms elapsed) ***
+out: 93.97 packets/s, 6295.72 bytes/s
+in:  94.94 packets/s, 6375.99 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 37.19 ops/s 176.41 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 16.31W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:56 2024 +0100) (1023.93ms elapsed) ***
+out: 93.76 packets/s, 6281.67 bytes/s
+in:  94.73 packets/s, 6340.27 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 15.63 ops/s 108.01 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 7.99W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:57 2024 +0100) (1023.02ms elapsed) ***
+out: 98.73 packets/s, 6684.10 bytes/s
+in:  99.70 packets/s, 7867.85 bytes/s
+read: 1.95 ops/s 8.01 KBytes/s
+write: 43.99 ops/s 236.23 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 12.61W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:58 2024 +0100) (1023.35ms elapsed) ***
+out: 96.74 packets/s, 6478.70 bytes/s
+in:  99.67 packets/s, 8960.74 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 66.45 ops/s 372.24 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 5.92W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:38:59 2024 +0100) (1023.20ms elapsed) ***
+out: 98.71 packets/s, 6682.94 bytes/s
+in:  100.66 packets/s, 7956.39 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 17.59 ops/s 92.07 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 6.64W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:00 2024 +0100) (1023.54ms elapsed) ***
+out: 120.17 packets/s, 8835.99 bytes/s
+in:  128.96 packets/s, 11363.48 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 14.65 ops/s 92.04 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 6.93W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:01 2024 +0100) (1022.60ms elapsed) ***
+out: 97.79 packets/s, 6622.32 bytes/s
+in:  113.44 packets/s, 9803.42 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 13.69 ops/s 84.11 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 8.66W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:02 2024 +0100) (1023.05ms elapsed) ***
+out: 98.72 packets/s, 7232.33 bytes/s
+in:  104.59 packets/s, 9140.36 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 11.18W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:03 2024 +0100) (1022.87ms elapsed) ***
+out: 101.67 packets/s, 6812.18 bytes/s
+in:  105.58 packets/s, 8202.38 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 18.58 ops/s 104.11 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 12.81W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:04 2024 +0100) (1023.90ms elapsed) ***
+out: 93.76 packets/s, 6281.86 bytes/s
+in:  96.69 packets/s, 6735.03 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 10.36W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:05 2024 +0100) (1022.78ms elapsed) ***
+out: 101.68 packets/s, 7083.65 bytes/s
+in:  103.64 packets/s, 7592.07 bytes/s
+read: 1.96 ops/s 8.01 KBytes/s
+write: 28.35 ops/s 140.17 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 19.72W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:06 2024 +0100) (1024.10ms elapsed) ***
+out: 93.74 packets/s, 6280.66 bytes/s
+in:  93.74 packets/s, 6280.66 bytes/s
+read: 1.95 ops/s 8.00 KBytes/s
+write: 21.48 ops/s 135.99 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 21.68W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:08 2024 +0100) (1022.81ms elapsed) ***
+out: 93.86 packets/s, 6288.59 bytes/s
+in:  102.66 packets/s, 8740.67 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 47.91 ops/s 224.26 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 13.51W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:09 2024 +0100) (1022.80ms elapsed) ***
+out: 93.86 packets/s, 6288.64 bytes/s
+in:  113.41 packets/s, 9933.54 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 0.00 ops/s 0.00 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 12.33W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:10 2024 +0100) (1023.66ms elapsed) ***
+out: 119.18 packets/s, 8770.46 bytes/s
+in:  124.06 packets/s, 9712.18 bytes/s
+read: 1.95 ops/s 8.00 KBytes/s
+write: 18.56 ops/s 100.03 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 10.67W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:11 2024 +0100) (1023.78ms elapsed) ***
+out: 102.56 packets/s, 6882.31 bytes/s
+in:  108.42 packets/s, 8366.99 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 25.40 ops/s 120.03 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 7.34W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:12 2024 +0100) (1022.75ms elapsed) ***
+out: 93.86 packets/s, 6288.92 bytes/s
+in:  95.82 packets/s, 6459.05 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 31.29 ops/s 192.23 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.88W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:13 2024 +0100) (1023.18ms elapsed) ***
+out: 93.83 packets/s, 6286.29 bytes/s
+in:  95.78 packets/s, 6376.21 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 30.30 ops/s 152.12 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 2.81W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:14 2024 +0100) (1023.62ms elapsed) ***
+out: 93.79 packets/s, 6283.61 bytes/s
+in:  94.76 packets/s, 6352.97 bytes/s
+read: 3.91 ops/s 16.01 KBytes/s
+write: 405.43 ops/s 16022.02 KBytes/s
+Intel energy model derived package power (CPUs+GT+SA): 3.26W
+Current pressure level: Nominal
+*** Sampled system activity (Thu Mar  7 22:39:15 2024 +0100) (1023.35ms elapsed) ***
+out: 123.12 packets/s, 12635.90 bytes/s
+in:  127.03 packets/s, 22442.87 bytes/s
+read: 0.00 ops/s 0.00 KBytes/s
+write: 43.00 ops/s 248.16 KBytes/s
+Intel energy model derived package
