@@ -20,6 +20,7 @@ This repository contains different Java Virtual Machine (JVM) benchmarks to meas
   - [powermetrics on macOS](#powermetrics-on-macos)
 - [Setup](#setup)
 - [Measurements](#measurements)
+  - [General Recommendations](#general-recommendations)
   - [Baseline Idle OS](#baseline-idle-os)
   - [Java Samples](#java-samples)
   - [Spring PetClinic Application](#spring-petclinic-application)
@@ -172,6 +173,16 @@ QUARKUS_HIBERNATE_ORM_PANACHE_QUICKSTART_HOME="<path_to_quarkus_quickstart>"
  ```
 
 ## Measurements
+
+### General Recommendations
+
+During power consumption measurements, it is recommended to follow these guidelines:
+
+- Ensure the machine (or laptop) is fully charged and connected to a stable power source.
+- Disable all potential sources of instability, such as scheduled updates, scans, and (Wi-Fi) networking, etc.
+- Prevent the machine from entering sleep mode during measurements.
+- Avoid running any other user intensive applications simultaneously.
+- It is usually recommended not to use the machine for any other tasks while conducting measurements.
 
 ### Baseline Idle OS
 

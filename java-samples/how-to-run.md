@@ -25,6 +25,11 @@ $ ./run-samples.sh --jvm-identifier=oracle-graalvm --skip-os-tuning
 $ ./run-samples.sh --jvm-identifier=native-image --skip-os-tuning
 ```
 
+# Test with Native Image and PGO/G1GC
+```bash
+$ ./run-samples.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --enable-pgo-g1gc --skip-os-tuning
+```
+
 # Test with Azul Prime VM
 ```bash
 $ ./run-samples.sh --jvm-identifier=azul-prime-vm --skip-os-tuning
