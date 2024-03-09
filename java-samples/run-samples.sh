@@ -199,7 +199,9 @@ build_sample() {
     BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -Djar.finalName=$sample_app-$sample_app_run_type"
   else
     native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
-    BUILD_CMD="$CURR_DIR/../mvnw clean package -Pnative -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -DbuildArgs=\"$PREVIEW_FEATURES,$PGO_G1GC_BUILD_ARGS\""
+    # avoid adding a trailing comma to the build args when PGO_G1GC_BUILD_ARGS is empty
+    build_args="${PREVIEW_FEATURES}${PGO_G1GC_BUILD_ARGS:+,}${PGO_G1GC_BUILD_ARGS}"
+    BUILD_CMD="$CURR_DIR/../mvnw clean package -Pnative -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -DbuildArgs=\"$build_args\""
   fi
 
   sample_build_command="$BUILD_CMD > $build_output_file 2>&1"
