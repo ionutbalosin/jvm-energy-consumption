@@ -17,7 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spotless.maven.plugin.version>2.42.0</spotless.maven.plugin.version>
         <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
-        <mainClass>com.ionutbalosin.jvm.energy.consumption.TBD</mainClass>
+        <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+        <!-- These properties will be overridden by command line parameters -DmainClass="..." -DimageName="..." -Djar.finalName="..."-->
+        <mainClass>TBD</mainClass>
+        <imageName>TBD</imageName>
+        <jar.finalName>TBD</jar.finalName>
     </properties>
 
     <modules>
@@ -43,11 +47,14 @@
             </resource>
         </resources>
 
+        <finalName>${jar.finalName}</finalName>
+
         <plugins>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -66,6 +73,7 @@
                             <mainClass>${mainClass}</mainClass>
                         </manifest>
                     </archive>
+                    <forceCreation>true</forceCreation>
                 </configuration>
             </plugin>
 

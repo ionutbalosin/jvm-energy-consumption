@@ -99,7 +99,8 @@ check_command_line_options() {
 
 configure_samples() {
   CURR_DIR=$(pwd)
-  JAVA_OPS="--enable-preview --source 21 -Xms1m -Xmx8g"
+  PREVIEW_FEATURES="--enable-preview"
+  JAVA_OPS="-Xms1m -Xmx8g $PREVIEW_FEATURES"
   # Defines the list of all Java sample apps
   SAMPLE_APPS=(
     "LoggingPatterns"
@@ -162,7 +163,7 @@ create_output_resources() {
   done
 }
 
-# The logic for building with PGO enabled is as follows:
+# The logic for building and running with PGO enabled is as follows:
 # 1) If the PGO profile does not exist, it means it was not previously generated. Therefore:
 #  - Run the build with '--pgo-instrument'
 #  - Run the native executable with '-XX:ProfilesDumpFile=profile.iprof' and get 'profile.iprof' at the end of the run
@@ -172,6 +173,8 @@ create_output_resources() {
 native_image_enable_pgo_g1gc() {
   sample_app="$1"
   sample_app_run_type="$2"
+  PGO_G1GC_BUILD_ARGS=""
+  PGO_G1GC_RUN_ARGS=""
 
   # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
@@ -179,10 +182,10 @@ native_image_enable_pgo_g1gc() {
     # Enable PGO
     pgo_output_file="$CURR_DIR/pgo/native-image/$sample_app-$sample_app_run_type.iprof"
     if ! test -e "$pgo_output_file"; then
-      PGO_G1GC_BUILD_ARGS="-DbuildArgs=--pgo-instrument"
+      PGO_G1GC_BUILD_ARGS="--pgo-instrument"
       PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
     else
-      PGO_G1GC_BUILD_ARGS="-DbuildArgs=--pgo=\"$pgo_output_file\""
+      PGO_G1GC_BUILD_ARGS="--pgo=\"$pgo_output_file\""
     fi
 
     # Enable G1 GC option only if the OS is Linux
@@ -199,13 +202,13 @@ build_sample() {
   build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$sample_app_run_type-$RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
+    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -Djar.finalName=$sample_app-$sample_app_run_type"
   else
-    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -Pnative package"
     native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
+    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true package -Pnative -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -DbuildArgs=\"$PREVIEW_FEATURES,$PGO_G1GC_BUILD_ARGS\""
   fi
 
-  sample_build_command="$BUILD_CMD $PGO_G1GC_BUILD_ARGS > $build_output_file 2>&1"
+  sample_build_command="$BUILD_CMD > $build_output_file 2>&1"
   echo "Building $sample_app at: $(date) ... "
   echo "$sample_build_command"
 
@@ -238,8 +241,9 @@ start_sample() {
   run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_run_type-$RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_run_type"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME -jar $CURR_DIR/target/$sample_app-$sample_app_run_type.jar $sample_app_run_type"
   else
+    native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
     RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_G1GC_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
   fi
 
