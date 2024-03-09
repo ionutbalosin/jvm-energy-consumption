@@ -19,9 +19,9 @@
         <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
         <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
         <!-- These properties will be overridden by command line parameters -DmainClass="..." -DimageName="..." -Djar.finalName="..."-->
-        <mainClass>TBD</mainClass>
-        <imageName>TBD</imageName>
-        <jar.finalName>TBD</jar.finalName>
+        <mainClass>undefined</mainClass>
+        <imageName>undefined</imageName>
+        <jar.finalName>undefined</jar.finalName>
     </properties>
 
     <modules>
