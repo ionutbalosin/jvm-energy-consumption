@@ -49,7 +49,7 @@ check_command_line_options() {
     echo "Examples:"
     echo "  $ ./run-application.sh"
     echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-application.sh --run-identifier=default --jvm-identifier=openjdk-hotspot-vm --duration=60"
     echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning"
     echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
     echo ""

@@ -33,9 +33,10 @@ check_command_line_options() {
   APP_ENABLE_PGO_G1GC=""
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
+  APP_SKIP_RUN=""
 
   if [[ $# -gt 5 ]]; then
-    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]"
+    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build] [--skip-run]"
     echo ""
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
@@ -45,14 +46,16 @@ check_command_line_options() {
     echo "  --enable-pgo-g1gc                  An optional parameter to enable PGO and G1 GC for the native image."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
+    echo "  --skip-run                         An optional parameter to skip the run."
     echo ""
     echo "Examples:"
     echo "  $ ./run-samples.sh"
-    echo "  $ ./run-samples.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
+    echo "  $ ./run-samples.sh --jvm-identifier=openjdk-hotspot-vm"
+    echo "  $ ./run-samples.sh --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-samples.sh --run-identifier=default --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
+    echo "  $ ./run-samples.sh --run-identifier=pgo_g1gc --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning"
+    echo "  $ ./run-samples.sh --run-identifier=pgo_g1gc --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=pgo_g1gc --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-run"
     echo ""
     return 1
   fi
@@ -76,6 +79,9 @@ check_command_line_options() {
         ;;
       --skip-build)
         APP_SKIP_BUILD="--skip-build"
+        ;;
+      --skip-run)
+        APP_SKIP_RUN="--skip-run"
         ;;
       *)
         echo "ERROR: Unknown parameter $1"
@@ -326,7 +332,11 @@ for app_run_identifier in "${APP_RUN_IDENTIFIERS[@]}"; do
   echo "+===================================+"
   echo "| [7/7][$app_run_counter/$app_run_limit] Start the Java samples |"
   echo "+===================================+"
-  start_samples || exit 1
+  if [ "$APP_SKIP_RUN" == "--skip-run" ]; then
+    echo "WARNING: Skipping the run."
+  else
+    start_samples || exit 1
+  fi
 
   ((app_run_counter++))
 done
