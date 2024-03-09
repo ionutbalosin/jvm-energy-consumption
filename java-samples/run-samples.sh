@@ -209,7 +209,7 @@ build_sample() {
   fi
 
   sample_build_command="$BUILD_CMD > $build_output_file 2>&1"
-  echo "Building $sample_app at: $(date) ... "
+  echo "Building $sample_app ($sample_app_run_type) at: $(date) ... "
   echo "$sample_build_command"
 
   eval "$sample_build_command"
