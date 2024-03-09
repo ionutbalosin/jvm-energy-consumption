@@ -30,17 +30,19 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER="default"
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="1200"
+  APP_ENABLE_PGO_G1GC=""
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
 
   if [[ $# -gt 5 ]]; then
-    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--skip-os-tuning] [--skip-build]"
+    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]"
     echo ""
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
     echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run(s). It can be a number or any other string identifier, a single value or a comma-separated list for multiple runs. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
+    echo "  --enable-pgo-g1gc                  An optional parameter to enable PGO and G1 GC for the native image."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
     echo ""
@@ -49,7 +51,8 @@ check_command_line_options() {
     echo "  $ ./run-samples.sh --run-identifier=1 --jvm-identifier=openjdk-hotspot-vm"
     echo "  $ ./run-samples.sh --run-identifier=1,2 --jvm-identifier=openjdk-hotspot-vm --duration=60"
     echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning"
-    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=60 --skip-os-tuning --skip-build"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3 --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning"
+    echo "  $ ./run-samples.sh --run-identifier=1,2,3,4 --jvm-identifier=openjdk-hotspot-vm --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
@@ -64,6 +67,9 @@ check_command_line_options() {
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --enable-pgo-g1gc)
+        APP_ENABLE_PGO_G1GC="--enable-pgo-g1gc"
         ;;
       --skip-os-tuning)
         APP_SKIP_OS_TUNING="--skip-os-tuning"
@@ -129,6 +135,7 @@ configure_samples() {
     "VirtualCalls megamorphic_8"
 
     "VPThreadQueueThroughput platform"
+    # Note: This benchmark does not run on eclipse-openj9-vm
     "VPThreadQueueThroughput virtual"
   )
 
@@ -149,17 +156,50 @@ create_output_resources() {
   done
 }
 
+# The logic for building with PGO enabled is as follows:
+# 1) If the PGO profile does not exist, it means it was not previously generated. Therefore:
+#  - Run the build with '--pgo-instrument'
+#  - Run the native executable with '-XX:ProfilesDumpFile=profile.iprof' and get 'profile.iprof' at the end of the run
+# 2) If the PGO profile exists, it means it was previously generated, and we have to instrument the build to use it:
+#  - Build with '--pgo=profile.iprof'
+#  - Run the native executable to benefit from the PGO profile
+native_image_enable_pgo_g1gc() {
+  sample_app="$1"
+  sample_app_run_type="$2"
+
+  # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
+  # Note: G1GC is currently only supported on Linux AMD64 and AArch64
+  if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO_G1GC" = "--enable-pgo-g1gc" ]; then
+    # Enable PGO
+    pgo_output_file="$CURR_DIR/pgo/native-image/$sample_app-$sample_app_run_type.iprof"
+    if ! test -e "$pgo_output_file"; then
+      PGO_G1GC_BUILD_ARGS="-DbuildArgs=--pgo-instrument"
+      PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
+    else
+      PGO_G1GC_BUILD_ARGS="-DbuildArgs=--pgo=\"$pgo_output_file\""
+    fi
+
+    # Enable G1 GC option only if the OS is Linux
+    if [ "$OS" = "linux" ]; then
+      PGO_G1GC_BUILD_ARGS="$PGO_G1GC_BUILD_ARGS,--gc=G1"
+    fi
+  fi
+}
+
 build_sample() {
   sample_app="$1"
-  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.log"
+  sample_app_run_type="$2"
+
+  build_output_file="$CURR_DIR/$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-build-$sample_app_run_type-$RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\""
   else
-    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app\" -Pnative package"
+    BUILD_CMD="$CURR_DIR/../mvnw -D.maven.clean.skip=true -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -Pnative package"
+    native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
   fi
 
-  sample_build_command="$BUILD_CMD > $build_output_file 2>&1"
+  sample_build_command="$BUILD_CMD $PGO_G1GC_BUILD_ARGS > $build_output_file 2>&1"
   echo "Building $sample_app at: $(date) ... "
   echo "$sample_build_command"
 
@@ -171,11 +211,14 @@ build_sample() {
 }
 
 build_samples() {
-  for sample_app in "${SAMPLE_APPS[@]}"; do
-    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$RUN_IDENTIFIER.txt"
+  for sample_app_with_run_type in "${SAMPLE_APPS_WITH_RUN_TYPES[@]}"; do
+    read -r -a sample_app_with_run_type_array <<< "$sample_app_with_run_type"
+    sample_app="${sample_app_with_run_type_array[0]}"
+    sample_app_run_type="${sample_app_with_run_type_array[1]}"
+    power_output_file="$OUTPUT_FOLDER/$sample_app/power/$JVM_IDENTIFIER-build-$sample_app_run_type-$RUN_IDENTIFIER.txt"
 
     start_system_power_consumption --background --output-file="$power_output_file" || exit 1
-    build_sample $sample_app || exit 1
+    build_sample $sample_app $sample_app_run_type || exit 1
     stop_system_power_consumption
 
     echo ""
@@ -191,7 +234,7 @@ start_sample() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME $CURR_DIR/src/main/java/com/ionutbalosin/jvm/energy/consumption/$sample_app.java $sample_app_run_type"
   else
-    RUN_CMD="$CURR_DIR/target/$sample_app $sample_app_run_type $JAVA_OPS -Dduration=$APP_RUNNING_TIME"
+    RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_G1GC_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
   fi
 
   sample_run_command="$RUN_CMD > $run_output_file 2>&1"
