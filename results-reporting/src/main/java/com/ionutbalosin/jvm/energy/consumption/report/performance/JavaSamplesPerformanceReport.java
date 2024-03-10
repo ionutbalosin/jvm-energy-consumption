@@ -29,13 +29,6 @@ import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
-import static java.nio.file.Files.newBufferedWriter;
-import static java.util.Optional.ofNullable;
-
-import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Paths;
 
 public class JavaSamplesPerformanceReport extends AbstractPerformanceReport {
 
@@ -44,38 +37,5 @@ public class JavaSamplesPerformanceReport extends AbstractPerformanceReport {
         String.format(
             "%s/%s/results/jdk-%s/%s/%s/%s/logs",
             BASE_PATH, module, JDK_VERSION, ARCH, OS, category);
-  }
-
-  @Override
-  public void reportRawPerformanceStats(String outputFilePath) throws IOException {
-    if (performanceStats.isEmpty()) {
-      return;
-    }
-
-    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf(
-          "%18s;%26s;%16s;%22s\n", "Category", "Type", "Run Identifier", "Throughput (Ops/sec)");
-
-      for (PerformanceStats performanceStat : performanceStats) {
-        writer.printf(
-            "%18s;%26s;%16s;%22.3f\n",
-            performanceStat.descriptor.category,
-            ofNullable(performanceStat.descriptor.type).orElse("N/A"),
-            performanceStat.descriptor.runIdentifier,
-            performanceStat.value);
-      }
-    }
-
-    System.out.printf("Raw performance stats report %s was successfully created\n", outputFilePath);
-  }
-
-  @Override
-  public void reportPerformanceStats(String outputFilePath) throws IOException {
-    // Note: this report does not print anything
-  }
-
-  @Override
-  public void createReportStats() {
-    // Note: this report does not create anything
   }
 }

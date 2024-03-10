@@ -25,9 +25,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
-import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ENERGY_REPORT_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OUTPUT_FOLDER;
-import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_POWER_STATS_OUTPUT_FILE;
 
 import com.ionutbalosin.jvm.energy.consumption.report.power.AbstractPowerReport;
 import com.ionutbalosin.jvm.energy.consumption.report.power.BaselinePowerReport;
@@ -94,8 +92,8 @@ public class PowerReportCalculator {
     Map<ExecutionType, List<PowerStats>> result = new HashMap();
 
     for (ExecutionType executionType : getExecutionTypes()) {
-      calculateEnergy(report, outputPath, executionType);
-      result.put(executionType, report.powerStats);
+      report.processReport(outputPath, executionType);
+      result.put(executionType, report.rawStats);
     }
 
     return result;
@@ -108,29 +106,13 @@ public class PowerReportCalculator {
     Files.createDirectories(Paths.get(outputPath));
 
     for (ExecutionType executionType : getExecutionTypes()) {
-      report.powerStats = allPowerStats.get(executionType);
-      calculateEnergy(report, outputPath, executionType);
+      report.rawStats = allPowerStats.get(executionType);
+      report.processReport(outputPath, executionType);
     }
-  }
-
-  private static void calculateEnergy(
-      AbstractPowerReport report, String outputPath, ExecutionType executionType)
-      throws IOException {
-    String rawStatsOutputFile = getPath(outputPath, executionType, RAW_POWER_STATS_OUTPUT_FILE);
-    report.parseRawPowerStats(executionType);
-    report.reportRawPowerStats(rawStatsOutputFile);
-
-    String reportStatsOutputFile = getPath(outputPath, executionType, ENERGY_REPORT_OUTPUT_FILE);
-    report.createReportStats();
-    report.reportPowerStats(reportStatsOutputFile);
   }
 
   private static String getPath(String outputPath, String outputFile) {
     return outputPath + "/" + outputFile;
-  }
-
-  private static String getPath(String outputPath, ExecutionType executionType, String outputFile) {
-    return outputPath + "/" + String.format(outputFile, executionType.getType());
   }
 
   private static List<ExecutionType> getExecutionTypes() {

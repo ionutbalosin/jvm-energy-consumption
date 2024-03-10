@@ -26,8 +26,6 @@
 package com.ionutbalosin.jvm.energy.consumption;
 
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OUTPUT_FOLDER;
-import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.PERFORMANCE_REPORT_OUTPUT_FILE;
-import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_PERFORMANCE_STATS_OUTPUT_FILE;
 
 import com.ionutbalosin.jvm.energy.consumption.report.performance.AbstractPerformanceReport;
 import com.ionutbalosin.jvm.energy.consumption.report.performance.JavaSamplesPerformanceReport;
@@ -64,30 +62,12 @@ public class PerformanceReportCalculator {
     Files.createDirectories(Paths.get(outputPath));
 
     for (ExecutionType executionType : getExecutionTypes()) {
-      calculatePerformance(report, outputPath, executionType);
+      report.processReport(outputPath, executionType);
     }
-  }
-
-  private static void calculatePerformance(
-      AbstractPerformanceReport report, String outputPath, ExecutionType executionType)
-      throws IOException {
-    String rawStatsOutputFile =
-        getPath(outputPath, executionType, RAW_PERFORMANCE_STATS_OUTPUT_FILE);
-    report.parseRawPerformanceStats(executionType);
-    report.reportRawPerformanceStats(rawStatsOutputFile);
-
-    String reportStatsOutputFile =
-        getPath(outputPath, executionType, PERFORMANCE_REPORT_OUTPUT_FILE);
-    report.createReportStats();
-    report.reportPerformanceStats(reportStatsOutputFile);
   }
 
   private static String getPath(String outputPath, String outputFile) {
     return outputPath + "/../" + outputFile;
-  }
-
-  private static String getPath(String outputPath, ExecutionType executionType, String outputFile) {
-    return outputPath + "/" + String.format(outputFile, executionType.getType());
   }
 
   private static List<ExecutionType> getExecutionTypes() {

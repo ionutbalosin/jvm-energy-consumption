@@ -53,18 +53,18 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void reportRawPowerStats(String outputFilePath) {
+  public void reportRawStats(String outputFilePath) {
     // Note: this report does not print anything
   }
 
   @Override
-  public void createReportStats() {
-    resetReportPowerStats();
+  public void processRawStats() {
+    resetProcessedStats();
 
-    for (PowerStats powerStat : powerStats) {
+    for (PowerStats powerStat : rawStats) {
       powerStat.energy = powerFormulas.getEnergy(powerStat, baselinePower);
 
-      reportPowerStats.add(
+      processedStats.add(
           new ReportPowerStats(
               powerStat.descriptor.category,
               powerStat.descriptor.runIdentifier,
@@ -74,8 +74,8 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void reportPowerStats(String outputFilePath) throws IOException {
-    if (reportPowerStats.isEmpty()) {
+  public void reportProcessedStats(String outputFilePath) throws IOException {
+    if (processedStats.isEmpty()) {
       return;
     }
 
@@ -84,7 +84,7 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
           "%18s;%16s;%16s;%29s\n",
           "Category", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
 
-      for (ReportPowerStats report : reportPowerStats) {
+      for (ReportPowerStats report : processedStats) {
         writer.printf(
             "%18s;%16s;%16d;%29.3f\n",
             report.descriptor.category,

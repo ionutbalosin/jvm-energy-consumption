@@ -56,14 +56,14 @@ public class SummaryPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void parseRawPowerStats(ExecutionType perfType) {
+  public void parseRawStats(ExecutionType perfType) {
     // intentionally left blank
     // Note: this report does not parse anything, it just receives all other power stats reports
   }
 
   @Override
-  public void reportRawPowerStats(String outputFilePath) throws IOException {
-    if (powerStats.isEmpty()) {
+  public void reportRawStats(String outputFilePath) throws IOException {
+    if (rawStats.isEmpty()) {
       return;
     }
 
@@ -72,7 +72,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
           "%18s;%26s;%16s;%29s;%15s\n",
           "Category", "Type", "Run Identifier", "Total Energy (Watt⋅sec)", "Elapsed (sec)");
 
-      for (PowerStats powerStat : powerStats) {
+      for (PowerStats powerStat : rawStats) {
         writer.printf(
             "%18s;%26s;%16s;%29.3f;%15.3f\n",
             powerStat.descriptor.category,
@@ -87,25 +87,25 @@ public class SummaryPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void createReportStats() {
-    resetReportPowerStats();
+  public void processRawStats() {
+    resetProcessedStats();
 
-    if (powerStats.isEmpty()) {
+    if (rawStats.isEmpty()) {
       return;
     }
 
-    final Set<String> categories = getCategories(powerStats);
-    final Set<String> runIdentifiers = getRunIdentifiers(powerStats);
+    final Set<String> categories = getCategories(rawStats);
+    final Set<String> runIdentifiers = getRunIdentifiers(rawStats);
     for (String category : categories) {
       for (String runIdentifier : runIdentifiers) {
-        List<PowerStats> categoryPerfStats = getPerfStats(powerStats, category, runIdentifier);
+        List<PowerStats> categoryPerfStats = getPerfStats(rawStats, category, runIdentifier);
         if (categoryPerfStats.isEmpty()) {
           continue;
         }
 
         final double totalEnergy = energyFormulas.getEnergy(categoryPerfStats);
         final double carbonDioxide = energyFormulas.getCarbonDioxide(totalEnergy);
-        reportPowerStats.add(
+        processedStats.add(
             new ReportPowerStats(
                 category, runIdentifier, categoryPerfStats.size(), totalEnergy, carbonDioxide));
       }
@@ -113,8 +113,8 @@ public class SummaryPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void reportPowerStats(String outputFilePath) throws IOException {
-    if (reportPowerStats.isEmpty()) {
+  public void reportProcessedStats(String outputFilePath) throws IOException {
+    if (processedStats.isEmpty()) {
       return;
     }
 
@@ -127,7 +127,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
           "Total Energy (Watt⋅sec)",
           "CO₂ Emissions (gCO₂)");
 
-      for (ReportPowerStats report : reportPowerStats) {
+      for (ReportPowerStats report : processedStats) {
         writer.printf(
             "%18s;%16s;%18d;%25.3f;%22.3f\n",
             report.descriptor.category,

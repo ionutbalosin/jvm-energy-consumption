@@ -30,8 +30,6 @@ import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
 
-import java.io.IOException;
-
 public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanceReport {
 
   public OffTheShelfApplicationsPerformanceReport(String module) {
@@ -39,15 +37,5 @@ public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanc
         String.format(
             "%s/off-the-shelf-applications/%s/results/jdk-%s/%s/%s/wrk",
             BASE_PATH, module, JDK_VERSION, ARCH, OS);
-  }
-
-  @Override
-  public void reportPerformanceStats(String outputFilePath) throws IOException {
-    // Note: this report does not print anything
-  }
-
-  @Override
-  public void createReportStats() {
-    // Note: this report does not create anything
   }
 }

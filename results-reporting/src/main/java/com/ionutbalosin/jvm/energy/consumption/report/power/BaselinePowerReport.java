@@ -48,36 +48,36 @@ public class BaselinePowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void reportRawPowerStats(String outputFilePath) {
+  public void reportRawStats(String outputFilePath) {
     // Note: this report does not print anything
   }
 
   @Override
-  public void createReportStats() {
-    resetReportPowerStats();
+  public void processRawStats() {
+    resetProcessedStats();
 
-    if (powerStats.isEmpty()) {
+    if (rawStats.isEmpty()) {
       return;
     }
 
-    for (PowerStats powerStat : powerStats) {
+    for (PowerStats powerStat : rawStats) {
       baselinePower = powerFormulas.getGeometricMean(powerStat);
-      reportPowerStats.add(
+      processedStats.add(
           new ReportPowerStats(
               powerStat.descriptor.category, powerStat.samples.size(), baselinePower));
     }
   }
 
   @Override
-  public void reportPowerStats(String outputFilePath) throws IOException {
-    if (reportPowerStats.isEmpty()) {
+  public void reportProcessedStats(String outputFilePath) throws IOException {
+    if (processedStats.isEmpty()) {
       return;
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf("%18s;%15s;%29s\n", "Category", "Power Samples", "Power Geometric Mean (Watt)");
 
-      for (ReportPowerStats report : reportPowerStats) {
+      for (ReportPowerStats report : processedStats) {
         writer.printf(
             "%18s;%15d;%29.3f\n", report.descriptor.category, report.samples, report.geoMeanEnergy);
       }

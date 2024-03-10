@@ -26,8 +26,11 @@
 package com.ionutbalosin.jvm.energy.consumption.report.power;
 
 import static com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStatsParser.parsePowerStats;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ENERGY_REPORT_OUTPUT_FILE;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_POWER_STATS_OUTPUT_FILE;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.report.Report;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
@@ -39,27 +42,32 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractPowerReport {
+public abstract class AbstractPowerReport implements Report {
 
   public String basePath;
-  public List<PowerStats> powerStats;
-  public List<ReportPowerStats> reportPowerStats = new ArrayList<>();
+  public List<PowerStats> rawStats;
+  public List<ReportPowerStats> processedStats = new ArrayList<>();
 
-  public void parseRawPowerStats(ExecutionType executionType) throws IOException {
-    this.powerStats = parseRawPowerStats(basePath + "/power", executionType);
+  @Override
+  public void parseRawStats(ExecutionType executionType) throws IOException {
+    this.rawStats = parseRawStats(basePath + "/power", executionType);
   }
 
-  public abstract void reportRawPowerStats(String outputFilePath) throws IOException;
-
-  public void resetReportPowerStats() {
-    this.reportPowerStats.clear();
+  @Override
+  public String getRawStatsOutputFile() {
+    return RAW_POWER_STATS_OUTPUT_FILE;
   }
 
-  public abstract void reportPowerStats(String outputFilePath) throws IOException;
+  public void resetProcessedStats() {
+    this.processedStats.clear();
+  }
 
-  public abstract void createReportStats();
+  @Override
+  public String getProcessedStatsOutputFile() {
+    return ENERGY_REPORT_OUTPUT_FILE;
+  }
 
-  private List<PowerStats> parseRawPowerStats(String parentFolder, ExecutionType executionType)
+  private List<PowerStats> parseRawStats(String parentFolder, ExecutionType executionType)
       throws IOException {
     PathMatcher filenameMatcher = getPathMatcher(executionType);
     return Files.walk(Paths.get(parentFolder))

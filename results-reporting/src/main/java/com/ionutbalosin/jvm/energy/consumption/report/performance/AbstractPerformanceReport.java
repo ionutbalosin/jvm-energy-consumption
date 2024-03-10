@@ -26,36 +26,36 @@
 package com.ionutbalosin.jvm.energy.consumption.report.performance;
 
 import static com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStatsParser.parsePerformanceStats;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.PERFORMANCE_REPORT_OUTPUT_FILE;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_PERFORMANCE_STATS_OUTPUT_FILE;
 import static java.nio.file.Files.newBufferedWriter;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 
+import com.ionutbalosin.jvm.energy.consumption.report.Report;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.performance.ReportPerformanceStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public abstract class AbstractPerformanceReport {
+public abstract class AbstractPerformanceReport implements Report {
 
   public String basePath;
-  public List<PerformanceStats> performanceStats;
-  public List<ReportPerformanceStats> reportPerformanceStats = new ArrayList<>();
+  public List<PerformanceStats> rawStats;
 
-  public void parseRawPerformanceStats(ExecutionType executionType) throws IOException {
-    this.performanceStats = parseRawPerformanceStats(basePath, executionType);
+  public void parseRawStats(ExecutionType executionType) throws IOException {
+    this.rawStats = parseRawStats(basePath, executionType);
   }
 
-  public void reportRawPerformanceStats(String outputFilePath) throws IOException {
-    if (performanceStats.isEmpty()) {
+  public void reportRawStats(String outputFilePath) throws IOException {
+    if (rawStats.isEmpty()) {
       return;
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractPerformanceReport {
       writer.printf(
           "%18s;%26s;%16s;%22s\n", "Category", "Type", "Run Identifier", "Throughput (Ops/sec)");
 
-      for (PerformanceStats performanceStat : performanceStats) {
+      for (PerformanceStats performanceStat : rawStats) {
         writer.printf(
             "%18s;%26s;%16s;%22.3f\n",
             performanceStat.descriptor.category,
@@ -76,16 +76,27 @@ public abstract class AbstractPerformanceReport {
     System.out.printf("Raw performance stats report %s was successfully created\n", outputFilePath);
   }
 
-  public abstract void reportPerformanceStats(String outputFilePath) throws IOException;
-
-  public void resetReportPerformanceStats() {
-    this.reportPerformanceStats.clear();
+  @Override
+  public String getRawStatsOutputFile() {
+    return RAW_PERFORMANCE_STATS_OUTPUT_FILE;
   }
 
-  public abstract void createReportStats();
+  @Override
+  public void resetProcessedStats() {}
 
-  private List<PerformanceStats> parseRawPerformanceStats(
-      String parentFolder, ExecutionType executionType) throws IOException {
+  @Override
+  public void processRawStats() {}
+
+  @Override
+  public void reportProcessedStats(String outputFilePath) {}
+
+  @Override
+  public String getProcessedStatsOutputFile() {
+    return PERFORMANCE_REPORT_OUTPUT_FILE;
+  }
+
+  private List<PerformanceStats> parseRawStats(String parentFolder, ExecutionType executionType)
+      throws IOException {
     PathMatcher filenameMatcher = getPathMatcher(executionType);
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
