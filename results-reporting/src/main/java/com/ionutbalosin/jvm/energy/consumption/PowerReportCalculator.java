@@ -25,11 +25,11 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
-import com.ionutbalosin.jvm.energy.consumption.report.AbstractReport;
-import com.ionutbalosin.jvm.energy.consumption.report.BaselineReport;
-import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesReport;
-import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsReport;
-import com.ionutbalosin.jvm.energy.consumption.report.SummaryReport;
+import com.ionutbalosin.jvm.energy.consumption.report.AbstractPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.BaselinePowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.SummaryPowerReport;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
 import java.io.File;
@@ -42,21 +42,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class EnergyReportCalculator {
+public class PowerReportCalculator {
 
-  static Function<Double, List<AbstractReport>> REPORTS =
+  static Function<Double, List<AbstractPowerReport>> REPORTS =
       (baselinePower) ->
           List.of(
-              new OffTheShelfApplicationsReport("spring-petclinic", baselinePower),
-              new OffTheShelfApplicationsReport(
+              new OffTheShelfApplicationsPowerReport("spring-petclinic", baselinePower),
+              new OffTheShelfApplicationsPowerReport(
                   "quarkus-hibernate-orm-panache-quickstart", baselinePower),
-              new JavaSamplesReport("java-samples", "LoggingPatterns", baselinePower),
-              new JavaSamplesReport("java-samples", "MemoryAccessPatterns", baselinePower),
-              new JavaSamplesReport("java-samples", "SortingAlgorithms", baselinePower),
-              new JavaSamplesReport("java-samples", "StringConcatenationPatterns", baselinePower),
-              new JavaSamplesReport("java-samples", "ThrowExceptionPatterns", baselinePower),
-              new JavaSamplesReport("java-samples", "VirtualCalls", baselinePower),
-              new JavaSamplesReport("java-samples", "VPThreadQueueThroughput", baselinePower));
+              new JavaSamplesPowerReport("java-samples", "LoggingPatterns", baselinePower),
+              new JavaSamplesPowerReport("java-samples", "MemoryAccessPatterns", baselinePower),
+              new JavaSamplesPowerReport("java-samples", "SortingAlgorithms", baselinePower),
+              new JavaSamplesPowerReport(
+                  "java-samples", "StringConcatenationPatterns", baselinePower),
+              new JavaSamplesPowerReport("java-samples", "ThrowExceptionPatterns", baselinePower),
+              new JavaSamplesPowerReport("java-samples", "VirtualCalls", baselinePower),
+              new JavaSamplesPowerReport("java-samples", "VPThreadQueueThroughput", baselinePower));
 
   public static String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
   public static String OUTPUT_FOLDER = "energy";
@@ -68,12 +69,12 @@ public class EnergyReportCalculator {
 
   public static void main(String[] args) throws IOException {
     // 1. calculate the baseline mean power from the baseline measurements
-    BaselineReport baseline = new BaselineReport("baseline-idle-os");
+    BaselinePowerReport baseline = new BaselinePowerReport("baseline-idle-os");
     calculateEnergy(baseline);
 
     // 2. for any other report pass the baseline mean power and collect raw power stats
     Map<ExecutionType, List<PowerStats>> allPerfStats = new HashMap();
-    for (AbstractReport report : REPORTS.apply(baseline.baselinePower)) {
+    for (AbstractPowerReport report : REPORTS.apply(baseline.baselinePower)) {
       Map<ExecutionType, List<PowerStats>> result = calculateEnergy(report);
 
       // collect individual raw power stats for each execution type (e.g., RUN, BUILD)
@@ -85,12 +86,13 @@ public class EnergyReportCalculator {
     }
 
     // 3. for the summary report pass the baseline mean power and the raw power stats
-    SummaryReport summary = new SummaryReport("results-reporting", baseline.baselinePower);
+    SummaryPowerReport summary =
+        new SummaryPowerReport("results-reporting", baseline.baselinePower);
     calculateEnergy(summary, allPerfStats);
   }
 
-  private static Map<ExecutionType, List<PowerStats>> calculateEnergy(AbstractReport energyReport)
-      throws IOException {
+  private static Map<ExecutionType, List<PowerStats>> calculateEnergy(
+      AbstractPowerReport energyReport) throws IOException {
     String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
     Map<ExecutionType, List<PowerStats>> result = new HashMap();
@@ -104,7 +106,7 @@ public class EnergyReportCalculator {
   }
 
   private static void calculateEnergy(
-      AbstractReport energyReport, Map<ExecutionType, List<PowerStats>> allPerfStats)
+      AbstractPowerReport energyReport, Map<ExecutionType, List<PowerStats>> allPerfStats)
       throws IOException {
     String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
@@ -116,7 +118,7 @@ public class EnergyReportCalculator {
   }
 
   private static void calculateEnergy(
-      AbstractReport energyReport, String outputPath, ExecutionType executionType)
+      AbstractPowerReport energyReport, String outputPath, ExecutionType executionType)
       throws IOException {
     String rawPerfStatsOutputFile = getPath(outputPath, executionType, RAW_POWER_STATS_OUTPUT_FILE);
     energyReport.parseRawPowerStats(executionType);

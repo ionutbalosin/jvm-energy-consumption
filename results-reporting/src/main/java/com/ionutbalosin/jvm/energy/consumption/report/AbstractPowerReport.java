@@ -30,7 +30,7 @@ import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportPowerStats;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -39,12 +39,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractReport {
+public abstract class AbstractPowerReport {
 
-  public String module;
   public String basePath;
   public List<PowerStats> powerStats;
-  public List<ReportStats> reportStats = new ArrayList<>();
+  public List<ReportPowerStats> reportPowerStats = new ArrayList<>();
 
   public void parseRawPowerStats(ExecutionType perfType) throws IOException {
     this.powerStats = parseRawPowerStats(basePath + "/power", perfType);
@@ -52,8 +51,8 @@ public abstract class AbstractReport {
 
   public abstract void reportRawPowerStats(String outputFilePath) throws IOException;
 
-  public void resetReportStats() {
-    this.reportStats.clear();
+  public void resetReportPowerStats() {
+    this.reportPowerStats.clear();
   }
 
   public abstract void createReportStats();
@@ -66,7 +65,7 @@ public abstract class AbstractReport {
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(filenameMatcher::matches)
-        .map(filePath -> parsePowerStats(filePath, executionType, module))
+        .map(filePath -> parsePowerStats(filePath, executionType))
         .collect(toList());
   }
 

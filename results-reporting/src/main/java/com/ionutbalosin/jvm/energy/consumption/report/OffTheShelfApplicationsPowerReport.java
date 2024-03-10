@@ -25,33 +25,31 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report;
 
-import static com.ionutbalosin.jvm.energy.consumption.EnergyReportCalculator.ARCH;
-import static com.ionutbalosin.jvm.energy.consumption.EnergyReportCalculator.BASE_PATH;
-import static com.ionutbalosin.jvm.energy.consumption.EnergyReportCalculator.JDK_VERSION;
-import static com.ionutbalosin.jvm.energy.consumption.EnergyReportCalculator.OS;
+import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.ARCH;
+import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.BASE_PATH;
+import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.JDK_VERSION;
+import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.OS;
 import static java.nio.file.Files.newBufferedWriter;
-import static java.util.Optional.ofNullable;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.ReportPowerStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 
-public class JavaSamplesReport extends AbstractReport {
+public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
 
   PowerFormulas powerFormulas;
   double baselinePower;
 
-  public JavaSamplesReport(String module, String category, double baselinePower) {
-    this.module = module;
+  public OffTheShelfApplicationsPowerReport(String module, double baselinePower) {
     this.baselinePower = baselinePower;
     this.powerFormulas = new PowerFormulas();
     this.basePath =
         String.format(
-            "%s/%s/results/jdk-%s/%s/%s/%s",
-            BASE_PATH, this.module, JDK_VERSION, ARCH, OS, category);
+            "%s/off-the-shelf-applications/%s/results/jdk-%s/%s/%s",
+            BASE_PATH, module, JDK_VERSION, ARCH, OS);
   }
 
   @Override
@@ -61,16 +59,15 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void createReportStats() {
-    resetReportStats();
+    resetReportPowerStats();
 
     for (PowerStats powerStat : powerStats) {
       powerStat.energy = powerFormulas.getEnergy(powerStat, baselinePower);
 
-      reportStats.add(
-          new ReportStats(
-              powerStat.category,
-              powerStat.type,
-              powerStat.runIdentifier,
+      reportPowerStats.add(
+          new ReportPowerStats(
+              powerStat.descriptor.category,
+              powerStat.descriptor.runIdentifier,
               powerStat.samples.size(),
               powerStat.energy));
     }
@@ -78,26 +75,25 @@ public class JavaSamplesReport extends AbstractReport {
 
   @Override
   public void printReportStats(String outputFilePath) throws IOException {
-    if (reportStats.isEmpty()) {
+    if (reportPowerStats.isEmpty()) {
       return;
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%16s;%16s;%24s\n",
-          "Category", "Type", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
+          "%18s;%16s;%16s;%29s\n",
+          "Category", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
 
-      for (ReportStats reportStat : reportStats) {
+      for (ReportPowerStats report : reportPowerStats) {
         writer.printf(
-            "%18s;%26s;%16s;%16d;%24.3f\n",
-            reportStat.category,
-            ofNullable(reportStat.type).orElse("N/A"),
-            reportStat.runIdentifier,
-            reportStat.samples,
-            reportStat.energy);
+            "%18s;%16s;%16d;%29.3f\n",
+            report.descriptor.category,
+            report.descriptor.runIdentifier,
+            report.samples,
+            report.energy);
       }
       writer.printf(
-          "\n# Note: The reference baseline has already been excluded from the energy scores");
+          "\n# Note: The reference baseline has already been excluded from the total energy");
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);

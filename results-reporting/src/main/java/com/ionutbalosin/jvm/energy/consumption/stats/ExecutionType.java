@@ -27,7 +27,7 @@ package com.ionutbalosin.jvm.energy.consumption.stats;
 
 public enum ExecutionType {
   RUNTIME("run"),
-  BUILDTIME("build");
+  BUILD_TIME("build");
 
   String type;
 

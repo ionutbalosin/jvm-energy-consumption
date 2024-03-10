@@ -25,26 +25,44 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.stats;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class PowerStats {
+public class ReportPowerStats {
 
   // Power stats identifier (running JVM, benchmark name, and run identifier)
   public TestDescriptor descriptor = new TestDescriptor();
 
-  // Total consumed energy (Watt⋅sec)
+  public int samples;
   public double energy;
+  public double geoMeanEnergy;
+  public double carbonDioxide;
 
-  // Total elapsed time (in seconds)
-  public double elapsed;
+  public ReportPowerStats(String category, int samples, double geoMeanEnergy) {
+    this.descriptor.category = category;
+    this.samples = samples;
+    this.geoMeanEnergy = geoMeanEnergy;
+  }
 
-  // Total power samples recorded during the measurement
-  public List<PowerSample> samples = new ArrayList<>();
+  public ReportPowerStats(
+      String category, String type, String runIdentifier, int samples, double energy) {
+    this.descriptor.category = category;
+    this.descriptor.type = type;
+    this.descriptor.runIdentifier = runIdentifier;
+    this.samples = samples;
+    this.energy = energy;
+  }
 
-  public static class PowerSample {
-    public String date;
-    public double watts;
-    public double tcpu;
+  public ReportPowerStats(String category, String runIdentifier, int samples, double energy) {
+    this.descriptor.category = category;
+    this.descriptor.runIdentifier = runIdentifier;
+    this.samples = samples;
+    this.energy = energy;
+  }
+
+  public ReportPowerStats(
+      String category, String runIdentifier, int samples, double energy, double carbonDioxide) {
+    this.descriptor.category = category;
+    this.descriptor.runIdentifier = runIdentifier;
+    this.samples = samples;
+    this.energy = energy;
+    this.carbonDioxide = carbonDioxide;
   }
 }

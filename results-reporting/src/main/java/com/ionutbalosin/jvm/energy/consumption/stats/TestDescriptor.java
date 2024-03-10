@@ -25,45 +25,14 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.stats;
 
-public class ReportStats {
+public class TestDescriptor {
 
+  // The category of the running JVM (e.g., openjdk-hotspot-vm)
   public String category;
+
+  // The type of running or the benchmark method (e.g., unguarded_parametrized, radix_sort)
   public String type;
+
+  // The identifier of the running or the test case (e.g., default, pgo_g1gc)
   public String runIdentifier;
-
-  public int samples;
-  public double energy;
-  public double geoMeanEnergy;
-  public double carbonDioxide;
-
-  public ReportStats(String category, int samples, double geoMeanEnergy) {
-    this.category = category;
-    this.samples = samples;
-    this.geoMeanEnergy = geoMeanEnergy;
-  }
-
-  public ReportStats(
-      String category, String type, String runIdentifier, int samples, double energy) {
-    this.category = category;
-    this.type = type;
-    this.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-  }
-
-  public ReportStats(String category, String runIdentifier, int samples, double energy) {
-    this.category = category;
-    this.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-  }
-
-  public ReportStats(
-      String category, String runIdentifier, int samples, double energy, double carbonDioxide) {
-    this.category = category;
-    this.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-    this.carbonDioxide = carbonDioxide;
-  }
 }

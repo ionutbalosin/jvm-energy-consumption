@@ -42,13 +42,14 @@ import java.util.stream.Collectors;
 
 public class PowerStatsParser {
 
-  public static PowerStats parsePowerStats(
-      Path filePath, ExecutionType executionType, String module) {
-    PowerStats powerStats = parsePowerStatsFileName(filePath, executionType);
-    List<PowerStats.PowerSample> powerSamples = parseReportPowerStats(filePath);
-    powerStats.samples = powerSamples;
-    powerStats.module = module;
-    powerStats.elapsed = powerSamples.size(); // assume every stat is printed at every 1 second
+  public static PowerStats parsePowerStats(Path filePath, ExecutionType executionType) {
+    TestDescriptor descriptor = parsePowerStatsFileName(filePath, executionType);
+    List<PowerStats.PowerSample> samples = parseReportPowerStats(filePath);
+    PowerStats powerStats = new PowerStats();
+    powerStats.descriptor = descriptor;
+    powerStats.samples = samples;
+    // assume every stat is printed at every 1 second
+    powerStats.elapsed = samples.size();
     return powerStats;
   }
 
@@ -117,22 +118,23 @@ public class PowerStatsParser {
   //  - execution type: "run"
   //  - type: "guarded_parametrized"
   //  - run identifier: "default"
-  private static PowerStats parsePowerStatsFileName(Path filePath, ExecutionType executionType) {
+  private static TestDescriptor parsePowerStatsFileName(
+      Path filePath, ExecutionType executionType) {
     String fileName = filePath.getFileName().toString();
     int executionIndex = fileName.indexOf("-" + executionType.getType() + "-");
     int extensionIndex = fileName.indexOf(".txt");
     int lastDashIndex = fileName.lastIndexOf("-");
     int beforeLastDashIndex = fileName.lastIndexOf("-", lastDashIndex - 1);
 
-    PowerStats powerStats = new PowerStats();
-    powerStats.category = fileName.substring(0, executionIndex);
+    TestDescriptor descriptor = new TestDescriptor();
+    descriptor.category = fileName.substring(0, executionIndex);
     // add test type only if they exist in the file name format
     if (executionIndex != beforeLastDashIndex) {
-      powerStats.type = fileName.substring(beforeLastDashIndex + 1, lastDashIndex);
+      descriptor.type = fileName.substring(beforeLastDashIndex + 1, lastDashIndex);
     }
-    powerStats.runIdentifier = fileName.substring(lastDashIndex + 1, extensionIndex);
+    descriptor.runIdentifier = fileName.substring(lastDashIndex + 1, extensionIndex);
 
-    return powerStats;
+    return descriptor;
   }
 
   private static double stringToDouble(String value) {
