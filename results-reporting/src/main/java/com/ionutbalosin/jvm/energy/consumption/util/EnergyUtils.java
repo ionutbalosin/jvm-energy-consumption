@@ -41,13 +41,13 @@ public class EnergyUtils {
   public static String ARCH = "x86_64";
   public static String JDK_VERSION = "21";
 
-  public static String OUTPUT_FOLDER = "energy";
+  public static String OUTPUT_FOLDER = "summary-reports";
 
   public static String PERFORMANCE_REPORT_OUTPUT_FILE = "performance-report-%s.csv";
   public static String RAW_PERFORMANCE_STATS_OUTPUT_FILE = "raw-performance-report-%s.csv";
 
-  public static String ENERGY_REPORT_OUTPUT_FILE = "%s-report.csv";
-  public static String RAW_POWER_STATS_OUTPUT_FILE = "%s-raw-power.csv";
+  public static String ENERGY_REPORT_OUTPUT_FILE = "energy-report-%s.csv";
+  public static String RAW_POWER_STATS_OUTPUT_FILE = "raw-power-%s.csv";
 
   // Extract the test category, test type and test run identifier from the output file name
   // Note: this entire logic relies on a very specific file name convention:
