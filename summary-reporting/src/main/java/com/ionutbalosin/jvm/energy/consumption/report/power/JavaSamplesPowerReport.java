@@ -100,6 +100,6 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
               + " scores");
     }
 
-    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 }

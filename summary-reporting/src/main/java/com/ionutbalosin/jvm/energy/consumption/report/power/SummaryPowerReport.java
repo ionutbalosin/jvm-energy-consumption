@@ -83,7 +83,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
       }
     }
 
-    System.out.printf("Raw power stats report %s was successfully created\n", outputFilePath);
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 
   @Override
@@ -144,7 +144,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
           "\n# Note2: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
     }
 
-    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 
   private List<PowerStats> getPerfStats(

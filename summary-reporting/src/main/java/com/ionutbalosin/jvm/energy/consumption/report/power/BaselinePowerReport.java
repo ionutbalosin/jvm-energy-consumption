@@ -83,6 +83,6 @@ public class BaselinePowerReport extends AbstractPowerReport {
       }
     }
 
-    System.out.printf("Report stats %s was successfully created\n", outputFilePath);
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 }

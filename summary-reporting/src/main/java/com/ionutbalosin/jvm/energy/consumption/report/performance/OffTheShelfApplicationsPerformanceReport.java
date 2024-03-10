@@ -62,6 +62,6 @@ public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanc
       }
     }
 
-    System.out.printf("Raw performance stats report %s was successfully created\n", outputFilePath);
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 }
