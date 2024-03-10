@@ -28,15 +28,12 @@ package com.ionutbalosin.jvm.energy.consumption.report.performance;
 import static com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStatsParser.parsePerformanceStats;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.PERFORMANCE_REPORT_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_PERFORMANCE_STATS_OUTPUT_FILE;
-import static java.nio.file.Files.newBufferedWriter;
-import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.report.Report;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.PathMatcher;
@@ -52,28 +49,6 @@ public abstract class AbstractPerformanceReport implements Report {
 
   public void parseRawStats(ExecutionType executionType) throws IOException {
     this.rawStats = parseRawStats(basePath, executionType);
-  }
-
-  public void reportRawStats(String outputFilePath) throws IOException {
-    if (rawStats.isEmpty()) {
-      return;
-    }
-
-    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf(
-          "%18s;%26s;%16s;%22s\n", "Category", "Type", "Run Identifier", "Throughput (Ops/sec)");
-
-      for (PerformanceStats performanceStat : rawStats) {
-        writer.printf(
-            "%18s;%26s;%16s;%22.3f\n",
-            performanceStat.descriptor.category,
-            ofNullable(performanceStat.descriptor.type).orElse("N/A"),
-            performanceStat.descriptor.runIdentifier,
-            performanceStat.value);
-      }
-    }
-
-    System.out.printf("Raw performance stats report %s was successfully created\n", outputFilePath);
   }
 
   @Override

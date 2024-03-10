@@ -10,8 +10,8 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <name>JVM Energy Consumption Results Reporting</name>
-    <artifactId>results-reporting</artifactId>
+    <name>JVM Energy Consumption Summary Reporting</name>
+    <artifactId>summary-reporting</artifactId>
 
     <dependencies>
         <dependency>

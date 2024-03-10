@@ -26,7 +26,7 @@
 
     <modules>
         <module>java-samples</module>
-        <module>results-reporting</module>
+        <module>summary-reporting</module>
     </modules>
 
     <scm>

@@ -29,6 +29,12 @@ import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
+import static java.nio.file.Files.newBufferedWriter;
+
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Paths;
 
 public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanceReport {
 
@@ -37,5 +43,25 @@ public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanc
         String.format(
             "%s/off-the-shelf-applications/%s/results/jdk-%s/%s/%s/wrk",
             BASE_PATH, module, JDK_VERSION, ARCH, OS);
+  }
+
+  public void reportRawStats(String outputFilePath) throws IOException {
+    if (rawStats.isEmpty()) {
+      return;
+    }
+
+    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
+      writer.printf("%18s;%16s;%22s\n", "Category", "Run Identifier", "Throughput (Ops/sec)");
+
+      for (PerformanceStats performanceStat : rawStats) {
+        writer.printf(
+            "%18s;%16s;%22.3f\n",
+            performanceStat.descriptor.category,
+            performanceStat.descriptor.runIdentifier,
+            performanceStat.value);
+      }
+    }
+
+    System.out.printf("Raw performance stats report %s was successfully created\n", outputFilePath);
   }
 }
