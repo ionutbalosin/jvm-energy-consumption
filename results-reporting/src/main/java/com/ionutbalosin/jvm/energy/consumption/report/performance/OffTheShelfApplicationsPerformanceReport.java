@@ -23,28 +23,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.stats;
+package com.ionutbalosin.jvm.energy.consumption.report.performance;
 
-import java.util.ArrayList;
-import java.util.List;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
 
-public class PowerStats {
+import java.io.IOException;
 
-  // Power stats identifier (running JVM, benchmark name, and run identifier)
-  public TestDescriptor descriptor = new TestDescriptor();
+public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanceReport {
 
-  // Total consumed energy (Watt⋅sec)
-  public double energy;
+  public OffTheShelfApplicationsPerformanceReport(String module) {
+    this.basePath =
+        String.format(
+            "%s/off-the-shelf-applications/%s/results/jdk-%s/%s/%s/wrk",
+            BASE_PATH, module, JDK_VERSION, ARCH, OS);
+  }
 
-  // Total elapsed time (in seconds)
-  public double elapsed;
+  @Override
+  public void reportPerformanceStats(String outputFilePath) throws IOException {
+    // Note: this report does not print anything
+  }
 
-  // Total power samples recorded during the measurement
-  public List<PowerSample> samples = new ArrayList<>();
-
-  public static class PowerSample {
-    public String date;
-    public double watts;
-    public double tcpu;
+  @Override
+  public void createReportStats() {
+    // Note: this report does not create anything
   }
 }

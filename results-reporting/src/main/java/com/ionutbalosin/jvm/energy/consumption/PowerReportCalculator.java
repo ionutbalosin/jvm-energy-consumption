@@ -25,13 +25,17 @@
  */
 package com.ionutbalosin.jvm.energy.consumption;
 
-import com.ionutbalosin.jvm.energy.consumption.report.AbstractPowerReport;
-import com.ionutbalosin.jvm.energy.consumption.report.BaselinePowerReport;
-import com.ionutbalosin.jvm.energy.consumption.report.JavaSamplesPowerReport;
-import com.ionutbalosin.jvm.energy.consumption.report.OffTheShelfApplicationsPowerReport;
-import com.ionutbalosin.jvm.energy.consumption.report.SummaryPowerReport;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ENERGY_REPORT_OUTPUT_FILE;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OUTPUT_FOLDER;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_POWER_STATS_OUTPUT_FILE;
+
+import com.ionutbalosin.jvm.energy.consumption.report.power.AbstractPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.power.BaselinePowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.power.JavaSamplesPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.power.OffTheShelfApplicationsPowerReport;
+import com.ionutbalosin.jvm.energy.consumption.report.power.SummaryPowerReport;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
-import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -59,14 +63,6 @@ public class PowerReportCalculator {
               new JavaSamplesPowerReport("java-samples", "VirtualCalls", baselinePower),
               new JavaSamplesPowerReport("java-samples", "VPThreadQueueThroughput", baselinePower));
 
-  public static String BASE_PATH = Paths.get(".").toAbsolutePath().normalize().toString();
-  public static String OUTPUT_FOLDER = "energy";
-  public static String ENERGY_REPORT_OUTPUT_FILE = "%s-report.csv";
-  public static String RAW_POWER_STATS_OUTPUT_FILE = "%s-raw-power.csv";
-  public static String OS = "linux";
-  public static String ARCH = "x86_64";
-  public static String JDK_VERSION = "21";
-
   public static void main(String[] args) throws IOException {
     // 1. calculate the baseline mean power from the baseline measurements
     BaselinePowerReport baseline = new BaselinePowerReport("baseline-idle-os");
@@ -77,8 +73,8 @@ public class PowerReportCalculator {
     for (AbstractPowerReport report : REPORTS.apply(baseline.baselinePower)) {
       Map<ExecutionType, List<PowerStats>> result = calculateEnergy(report);
 
-      // collect individual raw power stats for each execution type (e.g., RUN, BUILD)
-      for (ExecutionType executionType : ExecutionType.values()) {
+      // collect individual raw power stats for each execution type
+      for (ExecutionType executionType : getExecutionTypes()) {
         List<PowerStats> powerStats = allPerfStats.getOrDefault(executionType, new ArrayList<>());
         powerStats.addAll(result.get(executionType));
         allPerfStats.put(executionType, powerStats);
@@ -91,42 +87,42 @@ public class PowerReportCalculator {
     calculateEnergy(summary, allPerfStats);
   }
 
-  private static Map<ExecutionType, List<PowerStats>> calculateEnergy(
-      AbstractPowerReport energyReport) throws IOException {
-    String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
+  private static Map<ExecutionType, List<PowerStats>> calculateEnergy(AbstractPowerReport report)
+      throws IOException {
+    String outputPath = new File(getPath(report.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
     Map<ExecutionType, List<PowerStats>> result = new HashMap();
 
-    for (ExecutionType executionType : ExecutionType.values()) {
-      calculateEnergy(energyReport, outputPath, executionType);
-      result.put(executionType, energyReport.powerStats);
+    for (ExecutionType executionType : getExecutionTypes()) {
+      calculateEnergy(report, outputPath, executionType);
+      result.put(executionType, report.powerStats);
     }
 
     return result;
   }
 
   private static void calculateEnergy(
-      AbstractPowerReport energyReport, Map<ExecutionType, List<PowerStats>> allPerfStats)
+      AbstractPowerReport report, Map<ExecutionType, List<PowerStats>> allPowerStats)
       throws IOException {
-    String outputPath = new File(getPath(energyReport.basePath, OUTPUT_FOLDER)).getCanonicalPath();
+    String outputPath = new File(getPath(report.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
-    for (ExecutionType executionType : ExecutionType.values()) {
-      energyReport.powerStats = allPerfStats.get(executionType);
-      calculateEnergy(energyReport, outputPath, executionType);
+    for (ExecutionType executionType : getExecutionTypes()) {
+      report.powerStats = allPowerStats.get(executionType);
+      calculateEnergy(report, outputPath, executionType);
     }
   }
 
   private static void calculateEnergy(
-      AbstractPowerReport energyReport, String outputPath, ExecutionType executionType)
+      AbstractPowerReport report, String outputPath, ExecutionType executionType)
       throws IOException {
-    String rawPerfStatsOutputFile = getPath(outputPath, executionType, RAW_POWER_STATS_OUTPUT_FILE);
-    energyReport.parseRawPowerStats(executionType);
-    energyReport.reportRawPowerStats(rawPerfStatsOutputFile);
+    String rawStatsOutputFile = getPath(outputPath, executionType, RAW_POWER_STATS_OUTPUT_FILE);
+    report.parseRawPowerStats(executionType);
+    report.reportRawPowerStats(rawStatsOutputFile);
 
     String reportStatsOutputFile = getPath(outputPath, executionType, ENERGY_REPORT_OUTPUT_FILE);
-    energyReport.createReportStats();
-    energyReport.printReportStats(reportStatsOutputFile);
+    report.createReportStats();
+    report.reportPowerStats(reportStatsOutputFile);
   }
 
   private static String getPath(String outputPath, String outputFile) {
@@ -135,5 +131,9 @@ public class PowerReportCalculator {
 
   private static String getPath(String outputPath, ExecutionType executionType, String outputFile) {
     return outputPath + "/" + String.format(outputFile, executionType.getType());
+  }
+
+  private static List<ExecutionType> getExecutionTypes() {
+    return List.of(ExecutionType.values());
   }
 }

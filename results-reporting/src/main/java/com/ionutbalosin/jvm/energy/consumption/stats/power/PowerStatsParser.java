@@ -23,19 +23,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.stats;
+package com.ionutbalosin.jvm.energy.consumption.stats.power;
 
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.parseTestFileName;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.stringToDouble;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.function.Predicate.not;
 
+import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
+import com.ionutbalosin.jvm.energy.consumption.stats.TestDescriptor;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -43,7 +44,7 @@ import java.util.stream.Collectors;
 public class PowerStatsParser {
 
   public static PowerStats parsePowerStats(Path filePath, ExecutionType executionType) {
-    TestDescriptor descriptor = parsePowerStatsFileName(filePath, executionType);
+    TestDescriptor descriptor = parseTestFileName(filePath, executionType);
     List<PowerStats.PowerSample> samples = parseReportPowerStats(filePath);
     PowerStats powerStats = new PowerStats();
     powerStats.descriptor = descriptor;
@@ -104,46 +105,6 @@ public class PowerStatsParser {
                 return powerSample;
               })
           .collect(Collectors.toList());
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  // extract the test category, test type and test run identifier from the output file name
-  // Note: this entire logic relies on a very specific file name convention:
-  // "<test_category>-<execution_type>-<test_type>-<test_run_identifier>.stats"
-  // Example:
-  //  - filename: "openjdk-hotspot-vm-run-guarded_parametrized-default.txt"
-  //  - category: "openjdk-hotspot-vm"
-  //  - execution type: "run"
-  //  - type: "guarded_parametrized"
-  //  - run identifier: "default"
-  private static TestDescriptor parsePowerStatsFileName(
-      Path filePath, ExecutionType executionType) {
-    String fileName = filePath.getFileName().toString();
-    int executionIndex = fileName.indexOf("-" + executionType.getType() + "-");
-    int extensionIndex = fileName.indexOf(".txt");
-    int lastDashIndex = fileName.lastIndexOf("-");
-    int beforeLastDashIndex = fileName.lastIndexOf("-", lastDashIndex - 1);
-
-    TestDescriptor descriptor = new TestDescriptor();
-    descriptor.category = fileName.substring(0, executionIndex);
-    // add test type only if they exist in the file name format
-    if (executionIndex != beforeLastDashIndex) {
-      descriptor.type = fileName.substring(beforeLastDashIndex + 1, lastDashIndex);
-    }
-    descriptor.runIdentifier = fileName.substring(lastDashIndex + 1, extensionIndex);
-
-    return descriptor;
-  }
-
-  private static double stringToDouble(String value) {
-    try {
-      DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.getDefault());
-      symbols.setDecimalSeparator('.');
-      symbols.setGroupingSeparator(',');
-      DecimalFormat format = new DecimalFormat("#,###.##", symbols);
-      return format.parse(value).doubleValue();
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

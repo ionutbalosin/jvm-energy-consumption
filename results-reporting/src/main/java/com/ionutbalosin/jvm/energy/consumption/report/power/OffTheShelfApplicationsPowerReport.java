@@ -23,33 +23,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report;
+package com.ionutbalosin.jvm.energy.consumption.report.power;
 
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.ARCH;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.BASE_PATH;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.JDK_VERSION;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.OS;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
 import static java.nio.file.Files.newBufferedWriter;
-import static java.util.Optional.ofNullable;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
-import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportPowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
 
-public class JavaSamplesPowerReport extends AbstractPowerReport {
+public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
 
   PowerFormulas powerFormulas;
   double baselinePower;
 
-  public JavaSamplesPowerReport(String module, String category, double baselinePower) {
+  public OffTheShelfApplicationsPowerReport(String module, double baselinePower) {
     this.baselinePower = baselinePower;
     this.powerFormulas = new PowerFormulas();
     this.basePath =
         String.format(
-            "%s/%s/results/jdk-%s/%s/%s/%s", BASE_PATH, module, JDK_VERSION, ARCH, OS, category);
+            "%s/off-the-shelf-applications/%s/results/jdk-%s/%s/%s",
+            BASE_PATH, module, JDK_VERSION, ARCH, OS);
   }
 
   @Override
@@ -67,7 +67,6 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
       reportPowerStats.add(
           new ReportPowerStats(
               powerStat.descriptor.category,
-              powerStat.descriptor.type,
               powerStat.descriptor.runIdentifier,
               powerStat.samples.size(),
               powerStat.energy));
@@ -75,27 +74,26 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void printReportStats(String outputFilePath) throws IOException {
+  public void reportPowerStats(String outputFilePath) throws IOException {
     if (reportPowerStats.isEmpty()) {
       return;
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%16s;%16s;%24s\n",
-          "Category", "Type", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
+          "%18s;%16s;%16s;%29s\n",
+          "Category", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
 
       for (ReportPowerStats report : reportPowerStats) {
         writer.printf(
-            "%18s;%26s;%16s;%16d;%24.3f\n",
+            "%18s;%16s;%16d;%29.3f\n",
             report.descriptor.category,
-            ofNullable(report.descriptor.type).orElse("N/A"),
             report.descriptor.runIdentifier,
             report.samples,
             report.energy);
       }
       writer.printf(
-          "\n# Note: The reference baseline has already been excluded from the energy scores");
+          "\n# Note: The reference baseline has already been excluded from the total energy");
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);

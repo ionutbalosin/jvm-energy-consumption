@@ -23,20 +23,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report;
+package com.ionutbalosin.jvm.energy.consumption.report.power;
 
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.ARCH;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.BASE_PATH;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.JDK_VERSION;
-import static com.ionutbalosin.jvm.energy.consumption.PowerReportCalculator.OS;
 import static com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas.CARBON_DIOXIDE_EMISSION_FACTOR;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
 import static java.nio.file.Files.newBufferedWriter;
 import static java.util.Optional.ofNullable;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
-import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportPowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -113,7 +113,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void printReportStats(String outputFilePath) throws IOException {
+  public void reportPowerStats(String outputFilePath) throws IOException {
     if (reportPowerStats.isEmpty()) {
       return;
     }

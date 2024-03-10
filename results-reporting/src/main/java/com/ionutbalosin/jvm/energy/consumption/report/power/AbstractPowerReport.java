@@ -23,14 +23,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report;
+package com.ionutbalosin.jvm.energy.consumption.report.power;
 
-import static com.ionutbalosin.jvm.energy.consumption.stats.PowerStatsParser.parsePowerStats;
+import static com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStatsParser.parsePowerStats;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
-import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.ReportPowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -45,8 +45,8 @@ public abstract class AbstractPowerReport {
   public List<PowerStats> powerStats;
   public List<ReportPowerStats> reportPowerStats = new ArrayList<>();
 
-  public void parseRawPowerStats(ExecutionType perfType) throws IOException {
-    this.powerStats = parseRawPowerStats(basePath + "/power", perfType);
+  public void parseRawPowerStats(ExecutionType executionType) throws IOException {
+    this.powerStats = parseRawPowerStats(basePath + "/power", executionType);
   }
 
   public abstract void reportRawPowerStats(String outputFilePath) throws IOException;
@@ -55,9 +55,9 @@ public abstract class AbstractPowerReport {
     this.reportPowerStats.clear();
   }
 
-  public abstract void createReportStats();
+  public abstract void reportPowerStats(String outputFilePath) throws IOException;
 
-  public abstract void printReportStats(String outputFilePath) throws IOException;
+  public abstract void createReportStats();
 
   private List<PowerStats> parseRawPowerStats(String parentFolder, ExecutionType executionType)
       throws IOException {

@@ -23,46 +23,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.stats;
+package com.ionutbalosin.jvm.energy.consumption.stats.performance;
 
-public class ReportPowerStats {
+import com.ionutbalosin.jvm.energy.consumption.stats.TestDescriptor;
+
+public class PerformanceStats {
 
   // Power stats identifier (running JVM, benchmark name, and run identifier)
   public TestDescriptor descriptor = new TestDescriptor();
 
-  public int samples;
-  public double energy;
-  public double geoMeanEnergy;
-  public double carbonDioxide;
-
-  public ReportPowerStats(String category, int samples, double geoMeanEnergy) {
-    this.descriptor.category = category;
-    this.samples = samples;
-    this.geoMeanEnergy = geoMeanEnergy;
-  }
-
-  public ReportPowerStats(
-      String category, String type, String runIdentifier, int samples, double energy) {
-    this.descriptor.category = category;
-    this.descriptor.type = type;
-    this.descriptor.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-  }
-
-  public ReportPowerStats(String category, String runIdentifier, int samples, double energy) {
-    this.descriptor.category = category;
-    this.descriptor.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-  }
-
-  public ReportPowerStats(
-      String category, String runIdentifier, int samples, double energy, double carbonDioxide) {
-    this.descriptor.category = category;
-    this.descriptor.runIdentifier = runIdentifier;
-    this.samples = samples;
-    this.energy = energy;
-    this.carbonDioxide = carbonDioxide;
-  }
+  // Value (response time or throughput)
+  public double value;
 }

@@ -25,7 +25,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
-import com.ionutbalosin.jvm.energy.consumption.stats.PowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
 import java.util.List;
 
 public class PowerFormulas {
