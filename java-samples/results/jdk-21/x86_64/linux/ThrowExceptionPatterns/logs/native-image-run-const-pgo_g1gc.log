@@ -1,0 +1,9 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 21:25:14, expected duration = 1200 sec, stack depth = 1024
+Successfully finished at 21:45:14
+---------------------------------
+Summary statistics:
+  Elapsed = 1200.000 sec
+  Ops = 51901861
+  Ops/sec = 43251.550804535
+  Stack trace elements = 155705583

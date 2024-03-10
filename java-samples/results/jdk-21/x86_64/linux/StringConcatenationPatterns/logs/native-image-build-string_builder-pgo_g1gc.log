@@ -1,0 +1,121 @@
+[INFO] Scanning for projects...
+[INFO] Found GraalVM installation from JAVA_HOME variable.
+[INFO] 
+[INFO] ----------------< jvm.energy.consumption:java-samples >-----------------
+[INFO] Building JVM Energy Consumption Java Samples 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ java-samples ---
+[INFO] Deleting /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.1:compile (default-compile) @ java-samples ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 7 source files with javac [debug target 21] to target/classes
+[INFO] /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java uses preview features of Java SE 21.
+[INFO] /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java: Recompile with -Xlint:preview for details.
+[INFO] 
+[INFO] --- spotless-maven-plugin:2.42.0:apply (default) @ java-samples ---
+[INFO] Index file does not exist. Fallback to an empty index
+[INFO] Spotless.Java is keeping 7 files clean - 0 were changed to be clean, 7 were already clean, 0 were skipped because caching determined they were already clean
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.1:testCompile (default-testCompile) @ java-samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ java-samples ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:merge-agent-files (test-native) @ java-samples ---
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:test (test-native) @ java-samples ---
+[INFO] Skipped native-image tests since there are no test classes.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ java-samples ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/undefined.jar
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:merge-agent-files (build-native) @ java-samples ---
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:build (build-native) @ java-samples ---
+[WARNING] 'native:build' goal is deprecated. Use 'native:compile-no-fork' instead.
+[INFO] Downloaded GraalVM reachability metadata repository from file:/home/ionutbalosin/.m2/repository/org/graalvm/buildtools/graalvm-reachability-metadata/0.10.1/graalvm-reachability-metadata-0.10.1-repository.zip
+[INFO] Executing: /usr/lib/jvm/graalvm-jdk-21.0.1+12.1/bin/native-image -cp /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/undefined.jar --no-fallback -o /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/StringConcatenationPatterns-string_builder --enable-preview --pgo=/home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/pgo/native-image/StringConcatenationPatterns-string_builder.iprof --gc=G1 com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns
+========================================================================================================================
+GraalVM Native Image: Generating 'StringConcatenationPatterns-string_builder' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                    (3.0s @ 0.18GB)
+ Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+ Graal compiler: optimization level: 3, target machine: x86-64-v3, PGO: user-provided
+ C compiler: gcc (linux, x86_64, 13.2.0)
+ Garbage collector: G1 GC (max heap size: 25.0% of RAM)
+ 1 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 26.49GB of memory (42.4% of 62.50GB system memory, determined at start)
+ - 24 thread(s) (100.0% of 24 available processor(s), determined at start)
+Info: The percentage of matched entries from profile file(s): 81.69%.
+[2/8] Performing analysis...  [*****]                                                                    (5.7s @ 0.34GB)
+    3,301 reachable types   (72.1% of    4,581 total)
+    3,886 reachable fields  (49.8% of    7,806 total)
+   16,625 reachable methods (46.2% of   35,951 total)
+    1,061 types,   112 fields, and   674 methods registered for reflection
+       57 types,    55 fields, and    52 methods registered for JNI access
+       0 foreign downcalls registered
+        9 native libraries: dl, g1gc-cr, m, pthread, rt, stdc++, z
+[3/8] Building universe...                                                                               (1.2s @ 0.43GB)
+[4/8] Parsing methods...      [*]                                                                        (1.4s @ 0.41GB)
+[5/8] Inlining methods...     [***]                                                                      (0.4s @ 0.45GB)
+[6/8] Compiling methods...    [***]                                                                     (10.0s @ 0.43GB)
+[7/8] Layouting methods...    [*]                                                                        (1.3s @ 0.46GB)
+[8/8] Creating image...       [*]                                                                        (1.7s @ 0.50GB)
+   5.36MB (36.90%) for code area:     9,904 compilation units
+   6.92MB (47.63%) for image heap:  106,091 objects and 47 resources
+   2.25MB (15.47%) for other data
+  14.53MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+   3.56MB java.base                                            1.33MB byte[] for code metadata
+   1.41MB svm.jar (Native Image)                               1.31MB byte[] for java.lang.String
+ 121.13kB com.oracle.svm.svm_enterprise                      949.33kB heap alignment
+ 102.36kB java.logging                                       775.17kB java.lang.String
+  22.80kB org.graalvm.collections                            559.09kB java.lang.Class
+  18.71kB org.graalvm.nativeimage.base                       275.45kB byte[] for general heap data
+  18.69kB jdk.internal.vm.ci                                 180.21kB java.util.HashMap$Node
+  15.81kB jdk.proxy1                                         166.32kB byte[] for reflection metadata
+  15.04kB jdk.proxy3                                         154.73kB com.oracle.svm.core.hub.DynamicHubCompanion
+   9.00kB jdk.internal.vm.compiler                           154.34kB byte[] for embedded resources
+   9.61kB for 5 more packages                                  1.15MB for 903 more object types
+                              Use '-H:+BuildReport' to create a report with more details.
+------------------------------------------------------------------------------------------------------------------------
+Security report:
+ - Binary includes Java deserialization.
+ - Use '--enable-sbom' to embed a Software Bill of Materials (SBOM) in the binary.
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ INIT: Adopt '--strict-image-heap' to prepare for the next GraalVM release.
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+ QBM:  Use the quick build mode ('-Ob') to speed up builds during development.
+------------------------------------------------------------------------------------------------------------------------
+                       1.4s (5.6% of total time) in 196 GCs | Peak RSS: 1.17GB | CPU load: 13.95
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/StringConcatenationPatterns-string_builder (executable)
+========================================================================================================================
+Finished generating 'StringConcatenationPatterns-string_builder' in 25.1s.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.872 s
+[INFO] Finished at: 2024-03-09T20:44:02+01:00
+[INFO] ------------------------------------------------------------------------
