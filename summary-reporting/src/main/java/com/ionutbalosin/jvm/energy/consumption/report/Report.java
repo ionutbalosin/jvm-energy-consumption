@@ -44,13 +44,13 @@ public interface Report {
 
   String getProcessedStatsOutputFile();
 
-  default void processReport(String outputPath, ExecutionType executionType) throws IOException {
-    // 1. Extract from initial source, aggregate, and report raw stats
+  default void process(String outputPath, ExecutionType executionType) throws IOException {
+    // 1. Extract the raw stats from initial sources, aggregate, and report them
     String rawStatsOutputFile = getPath(outputPath, executionType, getRawStatsOutputFile());
     parseRawStats(executionType);
     reportRawStats(rawStatsOutputFile);
 
-    // 2. Process raw stats and report them
+    // 2. Process the raw stats and report them
     String processedStatsOutputFile =
         getPath(outputPath, executionType, getProcessedStatsOutputFile());
     processRawStats();

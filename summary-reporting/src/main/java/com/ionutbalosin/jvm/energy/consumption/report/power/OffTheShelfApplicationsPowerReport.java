@@ -53,23 +53,39 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
   }
 
   @Override
-  public void reportRawStats(String outputFilePath) {
-    // Note: this report does not print anything
+  public void reportRawStats(String outputFilePath) throws IOException {
+    if (rawStats.isEmpty()) {
+      return;
+    }
+
+    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
+      writer.printf("%18s;%16s;%14s\n", "Category", "Run Identifier", "Power (Watt)");
+
+      for (PowerStats powerStats : rawStats) {
+        for (PowerStats.PowerSample sample : powerStats.samples) {
+          writer.printf(
+              "%18s;%16s;%14.3f\n",
+              powerStats.descriptor.category, powerStats.descriptor.runIdentifier, sample.watts);
+        }
+      }
+    }
+
+    System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 
   @Override
   public void processRawStats() {
     resetProcessedStats();
 
-    for (PowerStats powerStat : rawStats) {
-      powerStat.energy = powerFormulas.getEnergy(powerStat, baselinePower);
+    for (PowerStats powerStats : rawStats) {
+      powerStats.energy = powerFormulas.getEnergy(powerStats, baselinePower);
 
       processedStats.add(
           new ReportPowerStats(
-              powerStat.descriptor.category,
-              powerStat.descriptor.runIdentifier,
-              powerStat.samples.size(),
-              powerStat.energy));
+              powerStats.descriptor.category,
+              powerStats.descriptor.runIdentifier,
+              powerStats.samples.size(),
+              powerStats.energy));
     }
   }
 

@@ -92,7 +92,7 @@ public class EnergyReportGenerator {
     Map<ExecutionType, List<PowerStats>> result = new HashMap();
 
     for (ExecutionType executionType : getExecutionTypes()) {
-      report.processReport(outputPath, executionType);
+      report.process(outputPath, executionType);
       result.put(executionType, report.rawStats);
     }
 
@@ -107,7 +107,7 @@ public class EnergyReportGenerator {
 
     for (ExecutionType executionType : getExecutionTypes()) {
       report.rawStats = allPowerStats.get(executionType);
-      report.processReport(outputPath, executionType);
+      report.process(outputPath, executionType);
     }
   }
 

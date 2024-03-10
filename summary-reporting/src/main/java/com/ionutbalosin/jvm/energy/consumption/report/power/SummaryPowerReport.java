@@ -72,14 +72,14 @@ public class SummaryPowerReport extends AbstractPowerReport {
           "%18s;%26s;%16s;%29s;%15s\n",
           "Category", "Type", "Run Identifier", "Total Energy (Watt⋅sec)", "Elapsed (sec)");
 
-      for (PowerStats powerStat : rawStats) {
+      for (PowerStats powerStats : rawStats) {
         writer.printf(
             "%18s;%26s;%16s;%29.3f;%15.3f\n",
-            powerStat.descriptor.category,
-            ofNullable(powerStat.descriptor.type).orElse("N/A"),
-            powerStat.descriptor.runIdentifier,
-            powerStat.energy * powerStat.elapsed,
-            powerStat.elapsed);
+            powerStats.descriptor.category,
+            ofNullable(powerStats.descriptor.type).orElse("N/A"),
+            powerStats.descriptor.runIdentifier,
+            powerStats.energy,
+            powerStats.elapsed);
       }
     }
 

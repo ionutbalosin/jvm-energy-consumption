@@ -62,7 +62,7 @@ public class PerformanceReportGenerator {
     Files.createDirectories(Paths.get(outputPath));
 
     for (ExecutionType executionType : getExecutionTypes()) {
-      report.processReport(outputPath, executionType);
+      report.process(outputPath, executionType);
     }
   }
 

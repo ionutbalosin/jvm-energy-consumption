@@ -55,13 +55,13 @@ public class JavaSamplesPerformanceReport extends AbstractPerformanceReport {
       writer.printf(
           "%18s;%26s;%16s;%22s\n", "Category", "Type", "Run Identifier", "Throughput (Ops/sec)");
 
-      for (PerformanceStats performanceStat : rawStats) {
+      for (PerformanceStats performanceStats : rawStats) {
         writer.printf(
             "%18s;%26s;%16s;%22.3f\n",
-            performanceStat.descriptor.category,
-            ofNullable(performanceStat.descriptor.type).orElse("N/A"),
-            performanceStat.descriptor.runIdentifier,
-            performanceStat.value);
+            performanceStats.descriptor.category,
+            ofNullable(performanceStats.descriptor.type).orElse("N/A"),
+            performanceStats.descriptor.runIdentifier,
+            performanceStats.value);
       }
     }
 

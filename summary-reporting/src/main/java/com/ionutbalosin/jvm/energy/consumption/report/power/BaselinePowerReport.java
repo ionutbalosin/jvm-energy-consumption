@@ -60,11 +60,11 @@ public class BaselinePowerReport extends AbstractPowerReport {
       return;
     }
 
-    for (PowerStats powerStat : rawStats) {
-      baselinePower = powerFormulas.getGeometricMean(powerStat);
+    for (PowerStats powerStats : rawStats) {
+      baselinePower = powerFormulas.getGeometricMean(powerStats);
       processedStats.add(
           new ReportPowerStats(
-              powerStat.descriptor.category, powerStat.samples.size(), baselinePower));
+              powerStats.descriptor.category, powerStats.samples.size(), baselinePower));
     }
   }
 
