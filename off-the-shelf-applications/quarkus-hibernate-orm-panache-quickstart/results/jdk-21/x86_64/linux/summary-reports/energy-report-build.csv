@@ -7,4 +7,4 @@ openjdk-hotspot-vm;         default;              14;                      622.2
  eclipse-openj9-vm;         default;              16;                      577.439
       native-image;         default;             194;                    11170.436
 
-# Note: The reference baseline has already been excluded from the total energy
+# Note: The power reference baseline has already been excluded from the total energy

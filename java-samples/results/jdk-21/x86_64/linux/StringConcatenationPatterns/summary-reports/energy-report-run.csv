@@ -21,4 +21,4 @@ openjdk-hotspot-vm;           string_template;         default;            1203;
       native-image;            string_builder;         default;            1203;               62984.107
  eclipse-openj9-vm;           string_template;         default;            1204;               42942.045
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

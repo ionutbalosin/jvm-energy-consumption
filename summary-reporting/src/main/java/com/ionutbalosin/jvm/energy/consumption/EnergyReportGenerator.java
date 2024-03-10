@@ -44,7 +44,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class PowerReportCalculator {
+public class EnergyReportGenerator {
 
   static Function<Double, List<AbstractPowerReport>> REPORTS =
       (baselinePower) ->

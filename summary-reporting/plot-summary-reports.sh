@@ -27,7 +27,7 @@
 
 check_command_line_options() {
   if [ $# -eq 0 ]; then
-    echo "Usage: ./plot-results <jdk-version> [<os>] [<arch>]"
+    echo "Usage: ./plot-summary-reports <jdk-version> [<os>] [<arch>]"
     echo ""
     echo "Options:"
     echo "  jdk-version   java version identifier for the generated results. The supported values are {21}"
@@ -35,8 +35,8 @@ check_command_line_options() {
     echo "  arch          target architecture. The supported values are {x86_64, arm64}. The default value is detected based on the current target architecture."
     echo ""
     echo "Examples:"
-    echo "  ./plot-results 21"
-    echo "  ./plot-results 21 linux x86_64"
+    echo "  ./plot-summary-reports 21"
+    echo "  ./plot-summary-reports 21 linux x86_64"
     echo ""
     return 1
   fi

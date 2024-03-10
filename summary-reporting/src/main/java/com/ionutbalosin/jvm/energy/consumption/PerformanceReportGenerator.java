@@ -37,7 +37,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class PerformanceReportCalculator {
+public class PerformanceReportGenerator {
 
   static List<AbstractPerformanceReport> REPORTS =
       List.of(

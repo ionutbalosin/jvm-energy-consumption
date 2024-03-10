@@ -7,4 +7,4 @@ openjdk-hotspot-vm;         default;            7209;                   300982.1
     oracle-graalvm;         default;            7209;                   297051.366
       native-image;        pgo_g1gc;            7209;                   264697.856
 
-# Note: The reference baseline has already been excluded from the total energy
+# Note: The power reference baseline has already been excluded from the total energy

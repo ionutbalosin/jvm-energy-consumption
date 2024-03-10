@@ -120,16 +120,16 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%18s;%25s;%22s\n",
+          "%18s;%16s;%14s;%25s;%22s\n",
           "Category",
           "Run Identifier",
-          "Category Samples",
+          "Test Samples",
           "Total Energy (Watt⋅sec)",
           "CO₂ Emissions (gCO₂)");
 
       for (ReportPowerStats report : processedStats) {
         writer.printf(
-            "%18s;%16s;%18d;%25.3f;%22.3f\n",
+            "%18s;%16s;%14d;%25.3f;%22.3f\n",
             report.descriptor.category,
             report.descriptor.runIdentifier,
             report.samples,
@@ -137,7 +137,9 @@ public class SummaryPowerReport extends AbstractPowerReport {
             report.carbonDioxide);
       }
       writer.printf(
-          "\n# Note1: The reference baseline has already been excluded from the energy scores");
+          "\n"
+              + "# Note1: The power reference baseline has already been excluded from the energy"
+              + " scores");
       writer.printf(
           "\n# Note2: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
     }

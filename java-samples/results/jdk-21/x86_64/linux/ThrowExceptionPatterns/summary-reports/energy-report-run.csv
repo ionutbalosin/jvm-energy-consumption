@@ -28,4 +28,4 @@ openjdk-hotspot-vm;                    lambda;         default;            1203;
 openjdk-hotspot-vm;                     const;         default;            1203;               63774.707
       native-image;             override_fist;         default;            1203;               60758.157
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

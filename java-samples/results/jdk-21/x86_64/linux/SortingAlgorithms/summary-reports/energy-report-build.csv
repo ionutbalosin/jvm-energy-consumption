@@ -21,4 +21,4 @@ openjdk-hotspot-vm;                merge_sort;         default;               5;
  eclipse-openj9-vm;                quick_sort;         default;               6;                 218.115
 openjdk-hotspot-vm;                radix_sort;         default;               4;                 155.410
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

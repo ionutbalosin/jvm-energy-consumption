@@ -14,4 +14,4 @@ openjdk-hotspot-vm;                  platform;         default;            1205;
      azul-prime-vm;                   virtual;         default;               0;                   0.000
 openjdk-hotspot-vm;                   virtual;         default;            1206;              116455.590
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

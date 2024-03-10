@@ -14,4 +14,4 @@ openjdk-hotspot-vm;                  platform;         default;               5;
       native-image;                   virtual;        pgo_g1gc;              34;                2893.983
 openjdk-hotspot-vm;                   virtual;         default;               5;                 256.307
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

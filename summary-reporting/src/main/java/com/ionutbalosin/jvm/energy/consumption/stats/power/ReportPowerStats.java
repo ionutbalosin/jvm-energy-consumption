@@ -32,9 +32,16 @@ public class ReportPowerStats {
   // Power stats identifier (running JVM, benchmark name, and run identifier)
   public TestDescriptor descriptor = new TestDescriptor();
 
+  // // Number of test samples
   public int samples;
+
+  // Total energy consumed
   public double energy;
+
+  // Geometric mean of energy consumption
   public double geoMeanEnergy;
+
+  // Carbon dioxide emitted to consume the energy
   public double carbonDioxide;
 
   public ReportPowerStats(String category, int samples, double geoMeanEnergy) {

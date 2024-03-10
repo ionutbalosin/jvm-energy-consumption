@@ -21,4 +21,4 @@ openjdk-hotspot-vm;                radix_sort;         default;            1218;
         graalvm-ce;                merge_sort;         default;            1208;               51849.234
      azul-prime-vm;                quick_sort;         default;            1205;               44990.122
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

@@ -28,4 +28,4 @@ openjdk-hotspot-vm;             override_fist;         default;               5;
 openjdk-hotspot-vm;                       new;         default;               5;                 204.157
 openjdk-hotspot-vm;                    lambda;         default;               5;                 203.727
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

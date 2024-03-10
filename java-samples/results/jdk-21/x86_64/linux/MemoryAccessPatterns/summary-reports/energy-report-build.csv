@@ -21,4 +21,4 @@ openjdk-hotspot-vm;               random_page;         default;               5;
       native-image;               random_page;        pgo_g1gc;              31;                2673.431
         graalvm-ce;                    linear;         default;               4;                 150.150
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

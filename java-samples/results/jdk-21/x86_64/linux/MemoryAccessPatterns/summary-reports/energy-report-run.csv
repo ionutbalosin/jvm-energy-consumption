@@ -21,4 +21,4 @@ openjdk-hotspot-vm;               random_heap;         default;            1218;
      azul-prime-vm;               random_heap;         default;            1223;               32550.196
       native-image;               random_heap;        pgo_g1gc;            1215;               33463.187
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

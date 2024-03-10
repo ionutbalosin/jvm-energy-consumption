@@ -35,4 +35,4 @@ openjdk-hotspot-vm;                    lambda;         default;               5;
      azul-prime-vm;    unguarded_parametrized;         default;               9;                 663.617
       native-image;  unguarded_unparametrized;        pgo_g1gc;              32;                2744.679
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

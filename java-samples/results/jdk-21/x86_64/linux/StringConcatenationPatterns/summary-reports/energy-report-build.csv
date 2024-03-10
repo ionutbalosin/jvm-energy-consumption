@@ -21,4 +21,4 @@ openjdk-hotspot-vm;             plus_operator;         default;               5;
     oracle-graalvm;           string_template;         default;               5;                 198.547
 openjdk-hotspot-vm;            string_builder;         default;               4;                 153.580
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

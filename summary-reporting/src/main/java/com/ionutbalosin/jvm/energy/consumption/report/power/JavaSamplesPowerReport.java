@@ -95,7 +95,9 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
             report.energy);
       }
       writer.printf(
-          "\n# Note: The reference baseline has already been excluded from the energy scores");
+          "\n"
+              + "# Note: The power reference baseline has already been excluded from the energy"
+              + " scores");
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);

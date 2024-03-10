@@ -93,7 +93,7 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
             report.energy);
       }
       writer.printf(
-          "\n# Note: The reference baseline has already been excluded from the total energy");
+          "\n# Note: The power reference baseline has already been excluded from the total energy");
     }
 
     System.out.printf("Report stats %s was successfully created\n", outputFilePath);

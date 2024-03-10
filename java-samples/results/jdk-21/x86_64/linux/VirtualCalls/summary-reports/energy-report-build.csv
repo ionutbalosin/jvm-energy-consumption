@@ -28,4 +28,4 @@ openjdk-hotspot-vm;                 bimorphic;         default;               5;
       native-image;             megamorphic_3;        pgo_g1gc;              29;                2556.216
      azul-prime-vm;               monomorphic;         default;               9;                 669.787
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores

@@ -28,4 +28,4 @@ openjdk-hotspot-vm;                 bimorphic;         default;            1203;
     oracle-graalvm;                 bimorphic;         default;            1203;               61503.307
 openjdk-hotspot-vm;               monomorphic;         default;            1203;               42988.167
 
-# Note: The reference baseline has already been excluded from the energy scores
+# Note: The power reference baseline has already been excluded from the energy scores
