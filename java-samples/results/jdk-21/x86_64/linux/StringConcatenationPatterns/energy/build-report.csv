@@ -1,0 +1,24 @@
+          Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
+     azul-prime-vm;             plus_operator;         default;              10;                 745.675
+      native-image;           string_template;        pgo_g1gc;              31;                2676.561
+ eclipse-openj9-vm;             plus_operator;         default;               6;                 218.445
+    oracle-graalvm;            string_builder;         default;               5;                 211.897
+      native-image;           string_template;         default;              37;                3329.076
+     azul-prime-vm;           string_template;         default;               7;                 468.952
+     azul-prime-vm;            string_builder;         default;               8;                 539.370
+    oracle-graalvm;             plus_operator;         default;               5;                 211.257
+      native-image;             plus_operator;        pgo_g1gc;              31;                2630.781
+      native-image;            string_builder;        pgo_g1gc;              31;                2751.411
+        graalvm-ce;             plus_operator;         default;               5;                 216.267
+        graalvm-ce;            string_builder;         default;               5;                 187.667
+openjdk-hotspot-vm;           string_template;         default;               4;                 152.690
+ eclipse-openj9-vm;            string_builder;         default;               6;                 233.195
+        graalvm-ce;           string_template;         default;               5;                 203.377
+ eclipse-openj9-vm;           string_template;         default;               6;                 227.635
+      native-image;            string_builder;         default;              37;                3311.036
+openjdk-hotspot-vm;             plus_operator;         default;               5;                 248.607
+      native-image;             plus_operator;         default;              37;                3339.496
+    oracle-graalvm;           string_template;         default;               5;                 198.547
+openjdk-hotspot-vm;            string_builder;         default;               4;                 153.580
+
+# Note: The reference baseline has already been excluded from the energy scores

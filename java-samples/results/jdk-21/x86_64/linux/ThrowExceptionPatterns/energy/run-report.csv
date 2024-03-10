@@ -1,0 +1,31 @@
+          Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
+      native-image;                     const;         default;            1203;               56351.117
+    oracle-graalvm;                    lambda;         default;            1203;               60967.227
+openjdk-hotspot-vm;             override_fist;         default;            1203;               63019.137
+    oracle-graalvm;                     const;         default;            1203;               60687.037
+     azul-prime-vm;                    lambda;         default;            1204;               43860.425
+      native-image;             override_fist;        pgo_g1gc;            1203;               43494.117
+    oracle-graalvm;             override_fist;         default;            1203;               62164.977
+      native-image;                       new;         default;            1203;               58196.857
+      native-image;                    lambda;         default;            1203;               63376.007
+      native-image;                    lambda;        pgo_g1gc;            1203;               45146.497
+ eclipse-openj9-vm;                       new;         default;            1204;               43021.095
+     azul-prime-vm;                       new;         default;            1204;               42879.005
+ eclipse-openj9-vm;             override_fist;         default;            1204;               42109.685
+      native-image;                     const;        pgo_g1gc;            1203;               41135.427
+openjdk-hotspot-vm;                       new;         default;            1203;               42910.557
+ eclipse-openj9-vm;                     const;         default;            1204;               42870.095
+ eclipse-openj9-vm;                    lambda;         default;            1204;               42984.705
+    oracle-graalvm;                       new;         default;            1203;               60811.527
+     azul-prime-vm;                     const;         default;            1204;               40218.255
+        graalvm-ce;                       new;         default;            1203;               46903.957
+openjdk-hotspot-vm;                    lambda;         default;            1203;               61018.617
+        graalvm-ce;             override_fist;         default;            1203;               60714.037
+      native-image;                       new;        pgo_g1gc;            1203;               45526.487
+        graalvm-ce;                    lambda;         default;            1203;               43942.197
+        graalvm-ce;                     const;         default;            1203;               60762.187
+     azul-prime-vm;             override_fist;         default;            1204;               39971.205
+openjdk-hotspot-vm;                     const;         default;            1203;               63774.707
+      native-image;             override_fist;         default;            1203;               60758.157
+
+# Note: The reference baseline has already been excluded from the energy scores

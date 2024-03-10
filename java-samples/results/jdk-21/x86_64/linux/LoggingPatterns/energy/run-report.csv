@@ -1,0 +1,38 @@
+          Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
+    oracle-graalvm;                    lambda;         default;            1203;               66228.207
+      native-image;    unguarded_parametrized;         default;            1203;               62731.517
+     azul-prime-vm;                    lambda;         default;            1204;               69070.375
+    oracle-graalvm;  unguarded_unparametrized;         default;            1203;               62660.837
+      native-image;  unguarded_unparametrized;        pgo_g1gc;            1203;               45946.127
+      native-image;                    lambda;         default;            1202;               62230.360
+     azul-prime-vm;  unguarded_unparametrized;         default;            1204;               44453.175
+      native-image;                    lambda;        pgo_g1gc;            1203;               47532.297
+     azul-prime-vm;    guarded_unparametrized;         default;            1204;               44510.725
+openjdk-hotspot-vm;      guarded_parametrized;         default;            1203;               63747.487
+ eclipse-openj9-vm;      guarded_parametrized;         default;            1203;               48185.527
+openjdk-hotspot-vm;    unguarded_parametrized;         default;            1203;               46836.737
+    oracle-graalvm;    guarded_unparametrized;         default;            1203;               42981.067
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;            1203;               64513.217
+        graalvm-ce;    guarded_unparametrized;         default;            1203;               42931.257
+ eclipse-openj9-vm;    guarded_unparametrized;         default;            1203;               61897.667
+      native-image;    guarded_unparametrized;        pgo_g1gc;            1203;               45905.697
+     azul-prime-vm;    unguarded_parametrized;         default;            1204;               69169.135
+      native-image;    unguarded_parametrized;        pgo_g1gc;            1203;               45771.517
+     azul-prime-vm;      guarded_parametrized;         default;            1204;               68924.225
+openjdk-hotspot-vm;    guarded_unparametrized;         default;            1203;               44313.917
+    oracle-graalvm;    unguarded_parametrized;         default;            1203;               43555.087
+ eclipse-openj9-vm;    unguarded_parametrized;         default;            1203;               50719.957
+ eclipse-openj9-vm;                    lambda;         default;            1203;               61693.657
+        graalvm-ce;    unguarded_parametrized;         default;            1203;               43338.387
+      native-image;    guarded_unparametrized;         default;            1203;               61427.537
+openjdk-hotspot-vm;                    lambda;         default;            1203;               64456.667
+    oracle-graalvm;      guarded_parametrized;         default;            1203;               43624.737
+      native-image;      guarded_parametrized;         default;            1203;               62963.687
+        graalvm-ce;  unguarded_unparametrized;         default;            1203;               65727.067
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;            1203;               61614.257
+        graalvm-ce;                    lambda;         default;            1203;               44408.597
+      native-image;  unguarded_unparametrized;         default;            1203;               62005.357
+        graalvm-ce;      guarded_parametrized;         default;            1203;               44986.777
+      native-image;      guarded_parametrized;        pgo_g1gc;            1203;               45932.487
+
+# Note: The reference baseline has already been excluded from the energy scores
