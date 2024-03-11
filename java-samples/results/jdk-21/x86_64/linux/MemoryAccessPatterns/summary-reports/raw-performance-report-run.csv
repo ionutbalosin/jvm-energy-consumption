@@ -1,0 +1,22 @@
+          Category;                      Type;  Run Identifier;  Throughput (Ops/sec)
+      native-image;                    linear;        pgo_g1gc;                 1.290
+    oracle-graalvm;               random_heap;         default;                 0.131
+    oracle-graalvm;                    linear;         default;                 2.776
+      native-image;                    linear;         default;                 1.917
+     azul-prime-vm;                    linear;         default;                 1.673
+openjdk-hotspot-vm;               random_heap;         default;                 0.149
+      native-image;               random_page;        pgo_g1gc;                 0.337
+        graalvm-ce;               random_page;         default;                 1.081
+ eclipse-openj9-vm;               random_page;         default;                 0.776
+     azul-prime-vm;               random_heap;         default;                 0.124
+      native-image;               random_heap;        pgo_g1gc;                 0.101
+      native-image;               random_heap;         default;                 0.156
+ eclipse-openj9-vm;               random_heap;         default;                 0.251
+        graalvm-ce;               random_heap;         default;                 0.156
+     azul-prime-vm;               random_page;         default;                 0.831
+      native-image;               random_page;         default;                 0.913
+ eclipse-openj9-vm;                    linear;         default;                 2.873
+        graalvm-ce;                    linear;         default;                 2.662
+openjdk-hotspot-vm;               random_page;         default;                 1.164
+openjdk-hotspot-vm;                    linear;         default;                 2.798
+    oracle-graalvm;               random_page;         default;                 1.083

@@ -1,0 +1,24 @@
+          Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
+ eclipse-openj9-vm;               random_heap;         default;               6;                 225.465
+      native-image;                    linear;        pgo_g1gc;              31;                2635.641
+openjdk-hotspot-vm;               random_heap;         default;               4;                 153.640
+      native-image;               random_page;         default;              36;                3473.428
+     azul-prime-vm;                    linear;         default;               9;                 672.267
+     azul-prime-vm;               random_page;         default;               9;                 644.637
+      native-image;                    linear;         default;              38;                3547.623
+openjdk-hotspot-vm;                    linear;         default;               5;                 247.537
+        graalvm-ce;               random_page;         default;               5;                 192.047
+    oracle-graalvm;               random_heap;         default;               5;                 203.957
+    oracle-graalvm;               random_page;         default;               5;                 220.057
+        graalvm-ce;               random_heap;         default;               5;                 225.577
+      native-image;               random_heap;         default;              37;                3499.636
+openjdk-hotspot-vm;               random_page;         default;               5;                 275.677
+     azul-prime-vm;               random_heap;         default;               8;                 562.440
+      native-image;               random_heap;        pgo_g1gc;              29;                2496.186
+ eclipse-openj9-vm;               random_page;         default;               6;                 234.995
+ eclipse-openj9-vm;                    linear;         default;               6;                 234.305
+    oracle-graalvm;                    linear;         default;               5;                 211.747
+      native-image;               random_page;        pgo_g1gc;              31;                2673.431
+        graalvm-ce;                    linear;         default;               4;                 150.150
+
+# Note: The power reference baseline has already been excluded from the energy scores
