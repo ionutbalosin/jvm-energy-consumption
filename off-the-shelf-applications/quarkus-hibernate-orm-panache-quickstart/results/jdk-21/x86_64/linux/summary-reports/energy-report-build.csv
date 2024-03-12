@@ -1,10 +1,10 @@
-          Category;  Run Identifier;  Energy Samples;      Total Energy (Watt⋅sec)
-    oracle-graalvm;         default;              11;                      449.702
-      native-image;         default;             194;                    11170.436
-     azul-prime-vm;         default;              21;                     1273.757
- eclipse-openj9-vm;         default;              16;                      577.439
-      native-image;        pgo_g1gc;             184;                     9885.432
-        graalvm-ce;         default;              13;                      497.787
-openjdk-hotspot-vm;         default;              14;                      622.294
+          Category;  Run Identifier;  Energy Samples;         Score;       Score Metric
+    oracle-graalvm;         default;              11;         0.125; Energy (Watt⋅hour)
+      native-image;         default;             194;         3.103; Energy (Watt⋅hour)
+     azul-prime-vm;         default;              21;         0.354; Energy (Watt⋅hour)
+ eclipse-openj9-vm;         default;              16;         0.160; Energy (Watt⋅hour)
+      native-image;        pgo_g1gc;             184;         2.746; Energy (Watt⋅hour)
+        graalvm-ce;         default;              13;         0.138; Energy (Watt⋅hour)
+openjdk-hotspot-vm;         default;              14;         0.173; Energy (Watt⋅hour)
 
 # Note: The power reference baseline has already been excluded from the total energy

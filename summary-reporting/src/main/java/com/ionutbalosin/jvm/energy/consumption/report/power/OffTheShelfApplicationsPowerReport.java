@@ -59,13 +59,16 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf("%18s;%16s;%14s\n", "Category", "Run Identifier", "Power (Watt)");
+      writer.printf("%18s;%16s;%14s;%14s\n", "Category", "Run Identifier", "Score", "Score Metric");
 
       for (PowerStats powerStats : rawStats) {
         for (PowerStats.PowerSample sample : powerStats.samples) {
           writer.printf(
-              "%18s;%16s;%14.3f\n",
-              powerStats.descriptor.category, powerStats.descriptor.runIdentifier, sample.watts);
+              "%18s;%16s;%14.3f;%14s\n",
+              powerStats.descriptor.category,
+              powerStats.descriptor.runIdentifier,
+              sample.watts,
+              "Power (Watt)");
         }
       }
     }
@@ -97,16 +100,17 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%16s;%29s\n",
-          "Category", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
+          "%18s;%16s;%16s;%14s;%19s\n",
+          "Category", "Run Identifier", "Energy Samples", "Score", "Score Metric");
 
       for (ReportPowerStats report : processedStats) {
         writer.printf(
-            "%18s;%16s;%16d;%29.3f\n",
+            "%18s;%16s;%16d;%14.3f;%19s\n",
             report.descriptor.category,
             report.descriptor.runIdentifier,
             report.samples,
-            report.energy);
+            report.energy / 3600,
+            "Energy (Watt⋅hour)");
       }
       writer.printf(
           "\n# Note: The power reference baseline has already been excluded from the total energy");

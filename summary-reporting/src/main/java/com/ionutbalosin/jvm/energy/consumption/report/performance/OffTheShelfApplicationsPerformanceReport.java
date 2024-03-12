@@ -51,14 +51,15 @@ public class OffTheShelfApplicationsPerformanceReport extends AbstractPerformanc
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf("%18s;%16s;%22s\n", "Category", "Run Identifier", "Throughput (Ops/sec)");
+      writer.printf("%18s;%16s;%14s;%22s\n", "Category", "Run Identifier", "Score", "Score Metric");
 
       for (PerformanceStats performanceStats : rawStats) {
         writer.printf(
-            "%18s;%16s;%22.3f\n",
+            "%18s;%16s;%14.3f;%22s\n",
             performanceStats.descriptor.category,
             performanceStats.descriptor.runIdentifier,
-            performanceStats.value);
+            performanceStats.value,
+            "Throughput (ops/sec)");
       }
     }
 

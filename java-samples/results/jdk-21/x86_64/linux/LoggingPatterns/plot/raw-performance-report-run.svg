@@ -121,7 +121,7 @@
 <polyline points='589.78,1979.35 589.78,1976.61 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='895.56,1979.35 895.56,1976.61 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='1201.35,1979.35 1201.35,1976.61 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<text x='827.72' y='1994.95' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='184.84px' lengthAdjust='spacingAndGlyphs'>Throughput (Ops/sec)</text>
+<text x='827.72' y='1994.95' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='181.67px' lengthAdjust='spacingAndGlyphs'>Throughput (ops/sec)</text>
 <rect x='465.59' y='2010.22' width='724.26' height='54.02' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='471.07' y='2043.66' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='63.01px' lengthAdjust='spacingAndGlyphs'>Legend</text>
 <rect x='543.04' y='2015.70' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />

@@ -1,8 +1,8 @@
-          Category;  Run Identifier;  Throughput (Ops/sec)
-     azul-prime-vm;         default;              5293.380
- eclipse-openj9-vm;         default;              7863.560
-      native-image;        pgo_g1gc;              8755.150
-        graalvm-ce;         default;              7820.300
-      native-image;         default;              4435.820
-openjdk-hotspot-vm;         default;              7799.480
-    oracle-graalvm;         default;              7839.210
+          Category;  Run Identifier;         Score;          Score Metric
+     azul-prime-vm;         default;      5293.380;  Throughput (ops/sec)
+ eclipse-openj9-vm;         default;      7863.560;  Throughput (ops/sec)
+      native-image;        pgo_g1gc;      8755.150;  Throughput (ops/sec)
+        graalvm-ce;         default;      7820.300;  Throughput (ops/sec)
+      native-image;         default;      4435.820;  Throughput (ops/sec)
+openjdk-hotspot-vm;         default;      7799.480;  Throughput (ops/sec)
+    oracle-graalvm;         default;      7839.210;  Throughput (ops/sec)

@@ -1,29 +1,29 @@
-          Category;                      Type;  Run Identifier;  Throughput (Ops/sec)
-    oracle-graalvm;             megamorphic_3;         default;            187625.366
- eclipse-openj9-vm;             megamorphic_3;         default;             32718.720
-      native-image;                 bimorphic;         default;            117052.674
-    oracle-graalvm;             megamorphic_8;         default;             73631.073
-      native-image;             megamorphic_8;         default;             70759.595
-        graalvm-ce;             megamorphic_3;         default;             97844.964
-        graalvm-ce;             megamorphic_8;         default;             67651.256
-      native-image;             megamorphic_8;        pgo_g1gc;             34044.968
- eclipse-openj9-vm;               monomorphic;         default;            113860.958
-     azul-prime-vm;             megamorphic_3;         default;            136798.860
- eclipse-openj9-vm;                 bimorphic;         default;             39057.219
-      native-image;               monomorphic;         default;            106056.305
-openjdk-hotspot-vm;             megamorphic_8;         default;             39518.824
-     azul-prime-vm;             megamorphic_8;         default;             63044.304
-    oracle-graalvm;               monomorphic;         default;            225018.734
-    oracle-graalvm;                 bimorphic;         default;            172093.446
-     azul-prime-vm;               monomorphic;         default;            217087.945
-     azul-prime-vm;                 bimorphic;         default;            137117.628
-openjdk-hotspot-vm;                 bimorphic;         default;            105527.494
-openjdk-hotspot-vm;             megamorphic_3;         default;             39751.650
-      native-image;                 bimorphic;        pgo_g1gc;             85396.263
-openjdk-hotspot-vm;               monomorphic;         default;            128011.059
-      native-image;             megamorphic_3;         default;            114901.020
-      native-image;               monomorphic;        pgo_g1gc;             94599.024
-        graalvm-ce;               monomorphic;         default;            187045.841
-        graalvm-ce;                 bimorphic;         default;            104597.395
-      native-image;             megamorphic_3;        pgo_g1gc;             43485.321
- eclipse-openj9-vm;             megamorphic_8;         default;             35498.400
+          Category;                      Type;  Run Identifier;         Score;          Score Metric
+    oracle-graalvm;             megamorphic_3;         default;    187625.366;  Throughput (ops/sec)
+ eclipse-openj9-vm;             megamorphic_3;         default;     32718.720;  Throughput (ops/sec)
+      native-image;                 bimorphic;         default;    117052.674;  Throughput (ops/sec)
+    oracle-graalvm;             megamorphic_8;         default;     73631.073;  Throughput (ops/sec)
+      native-image;             megamorphic_8;         default;     70759.595;  Throughput (ops/sec)
+        graalvm-ce;             megamorphic_3;         default;     97844.964;  Throughput (ops/sec)
+        graalvm-ce;             megamorphic_8;         default;     67651.256;  Throughput (ops/sec)
+      native-image;             megamorphic_8;        pgo_g1gc;     34044.968;  Throughput (ops/sec)
+ eclipse-openj9-vm;               monomorphic;         default;    113860.958;  Throughput (ops/sec)
+     azul-prime-vm;             megamorphic_3;         default;    136798.860;  Throughput (ops/sec)
+ eclipse-openj9-vm;                 bimorphic;         default;     39057.219;  Throughput (ops/sec)
+      native-image;               monomorphic;         default;    106056.305;  Throughput (ops/sec)
+openjdk-hotspot-vm;             megamorphic_8;         default;     39518.824;  Throughput (ops/sec)
+     azul-prime-vm;             megamorphic_8;         default;     63044.304;  Throughput (ops/sec)
+    oracle-graalvm;               monomorphic;         default;    225018.734;  Throughput (ops/sec)
+    oracle-graalvm;                 bimorphic;         default;    172093.446;  Throughput (ops/sec)
+     azul-prime-vm;               monomorphic;         default;    217087.945;  Throughput (ops/sec)
+     azul-prime-vm;                 bimorphic;         default;    137117.628;  Throughput (ops/sec)
+openjdk-hotspot-vm;                 bimorphic;         default;    105527.494;  Throughput (ops/sec)
+openjdk-hotspot-vm;             megamorphic_3;         default;     39751.650;  Throughput (ops/sec)
+      native-image;                 bimorphic;        pgo_g1gc;     85396.263;  Throughput (ops/sec)
+openjdk-hotspot-vm;               monomorphic;         default;    128011.059;  Throughput (ops/sec)
+      native-image;             megamorphic_3;         default;    114901.020;  Throughput (ops/sec)
+      native-image;               monomorphic;        pgo_g1gc;     94599.024;  Throughput (ops/sec)
+        graalvm-ce;               monomorphic;         default;    187045.841;  Throughput (ops/sec)
+        graalvm-ce;                 bimorphic;         default;    104597.395;  Throughput (ops/sec)
+      native-image;             megamorphic_3;        pgo_g1gc;     43485.321;  Throughput (ops/sec)
+ eclipse-openj9-vm;             megamorphic_8;         default;     35498.400;  Throughput (ops/sec)

@@ -59,16 +59,19 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf("%18s;%26s;%16s;%14s\n", "Category", "Type", "Run Identifier", "Power (Watt)");
+      writer.printf(
+          "%18s;%26s;%16s;%14s;%14s\n",
+          "Category", "Type", "Run Identifier", "Score", "Score Metric");
 
       for (PowerStats powerStats : rawStats) {
         for (PowerStats.PowerSample sample : powerStats.samples) {
           writer.printf(
-              "%18s;%26s;%16s;%14.3f\n",
+              "%18s;%26s;%16s;%14.3f;%14s\n",
               powerStats.descriptor.category,
               powerStats.descriptor.type,
               powerStats.descriptor.runIdentifier,
-              sample.watts);
+              sample.watts,
+              "Power (Watt)");
         }
       }
     }
@@ -101,17 +104,18 @@ public class JavaSamplesPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%16s;%16s;%24s\n",
-          "Category", "Type", "Run Identifier", "Energy Samples", "Total Energy (Watt⋅sec)");
+          "%18s;%26s;%16s;%16s;%14s;%19s\n",
+          "Category", "Type", "Run Identifier", "Energy Samples", "Score", "Score Metric");
 
       for (ReportPowerStats report : processedStats) {
         writer.printf(
-            "%18s;%26s;%16s;%16d;%24.3f\n",
+            "%18s;%26s;%16s;%16d;%14.3f;%19s\n",
             report.descriptor.category,
             ofNullable(report.descriptor.type).orElse("N/A"),
             report.descriptor.runIdentifier,
             report.samples,
-            report.energy);
+            report.energy,
+            "Energy (Watt⋅sec)");
       }
       writer.printf(
           "\n"

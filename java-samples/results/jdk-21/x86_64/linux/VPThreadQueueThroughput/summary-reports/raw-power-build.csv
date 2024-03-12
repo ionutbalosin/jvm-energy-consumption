@@ -1,201 +1,201 @@
-          Category;                      Type;  Run Identifier;  Power (Watt)
-openjdk-hotspot-vm;                  platform;         default;        15.220
-openjdk-hotspot-vm;                  platform;         default;        14.870
-openjdk-hotspot-vm;                  platform;         default;        16.400
-openjdk-hotspot-vm;                  platform;         default;        72.420
-openjdk-hotspot-vm;                  platform;         default;        84.880
-      native-image;                  platform;         default;         8.630
-      native-image;                  platform;         default;         7.780
-      native-image;                  platform;         default;         7.800
-      native-image;                  platform;         default;        77.270
-      native-image;                  platform;         default;        87.710
-      native-image;                  platform;         default;        93.500
-      native-image;                  platform;         default;       107.600
-      native-image;                  platform;         default;        92.860
-      native-image;                  platform;         default;       109.840
-      native-image;                  platform;         default;       105.340
-      native-image;                  platform;         default;       102.610
-      native-image;                  platform;         default;       103.150
-      native-image;                  platform;         default;       102.740
-      native-image;                  platform;         default;        94.910
-      native-image;                  platform;         default;       110.280
-      native-image;                  platform;         default;       105.930
-      native-image;                  platform;         default;       103.850
-      native-image;                  platform;         default;       103.360
-      native-image;                  platform;         default;       101.770
-      native-image;                  platform;         default;       101.920
-      native-image;                  platform;         default;       102.900
-      native-image;                  platform;         default;       103.280
-      native-image;                  platform;         default;       101.820
-      native-image;                  platform;         default;       104.240
-      native-image;                  platform;         default;       104.340
-      native-image;                  platform;         default;       105.000
-      native-image;                  platform;         default;       104.690
-      native-image;                  platform;         default;       104.910
-      native-image;                  platform;         default;       103.630
-      native-image;                  platform;         default;       101.890
-      native-image;                  platform;         default;        98.060
-      native-image;                  platform;         default;       102.520
-      native-image;                  platform;         default;       103.770
-      native-image;                  platform;         default;        97.230
-      native-image;                  platform;         default;        68.300
-      native-image;                  platform;         default;        69.540
-      native-image;                  platform;         default;        60.200
-    oracle-graalvm;                   virtual;         default;        15.110
-    oracle-graalvm;                   virtual;         default;        13.680
-    oracle-graalvm;                   virtual;         default;        15.600
-    oracle-graalvm;                   virtual;         default;        83.220
-    oracle-graalvm;                   virtual;         default;        90.600
-        graalvm-ce;                  platform;         default;        14.870
-        graalvm-ce;                  platform;         default;        13.690
-        graalvm-ce;                  platform;         default;        13.880
-        graalvm-ce;                  platform;         default;        77.180
-        graalvm-ce;                  platform;         default;        82.410
- eclipse-openj9-vm;                  platform;         default;        14.420
- eclipse-openj9-vm;                  platform;         default;        15.960
- eclipse-openj9-vm;                  platform;         default;        13.850
- eclipse-openj9-vm;                  platform;         default;        52.200
- eclipse-openj9-vm;                  platform;         default;        59.610
- eclipse-openj9-vm;                  platform;         default;        64.690
-      native-image;                  platform;        pgo_g1gc;         4.150
-      native-image;                  platform;        pgo_g1gc;         4.000
-      native-image;                  platform;        pgo_g1gc;         3.860
-      native-image;                  platform;        pgo_g1gc;        90.460
-      native-image;                  platform;        pgo_g1gc;        93.540
-      native-image;                  platform;        pgo_g1gc;        70.780
-      native-image;                  platform;        pgo_g1gc;        77.000
-      native-image;                  platform;        pgo_g1gc;        67.640
-      native-image;                  platform;        pgo_g1gc;        77.300
-      native-image;                  platform;        pgo_g1gc;       119.110
-      native-image;                  platform;        pgo_g1gc;       104.990
-      native-image;                  platform;        pgo_g1gc;       101.050
-      native-image;                  platform;        pgo_g1gc;       104.580
-      native-image;                  platform;        pgo_g1gc;       103.550
-      native-image;                  platform;        pgo_g1gc;        94.870
-      native-image;                  platform;        pgo_g1gc;       101.470
-      native-image;                  platform;        pgo_g1gc;       109.120
-      native-image;                  platform;        pgo_g1gc;       102.410
-      native-image;                  platform;        pgo_g1gc;        83.610
-      native-image;                  platform;        pgo_g1gc;       114.400
-      native-image;                  platform;        pgo_g1gc;       102.380
-      native-image;                  platform;        pgo_g1gc;       101.300
-      native-image;                  platform;        pgo_g1gc;       102.060
-      native-image;                  platform;        pgo_g1gc;       101.820
-      native-image;                  platform;        pgo_g1gc;       102.050
-      native-image;                  platform;        pgo_g1gc;       101.710
-      native-image;                  platform;        pgo_g1gc;       101.960
-      native-image;                  platform;        pgo_g1gc;       101.090
-      native-image;                  platform;        pgo_g1gc;        85.120
-      native-image;                  platform;        pgo_g1gc;        78.240
-      native-image;                  platform;        pgo_g1gc;        59.790
- eclipse-openj9-vm;                   virtual;         default;        14.920
- eclipse-openj9-vm;                   virtual;         default;        15.910
- eclipse-openj9-vm;                   virtual;         default;        13.680
- eclipse-openj9-vm;                   virtual;         default;        57.810
- eclipse-openj9-vm;                   virtual;         default;        70.280
- eclipse-openj9-vm;                   virtual;         default;        71.970
-      native-image;                   virtual;         default;        11.130
-      native-image;                   virtual;         default;         9.720
-      native-image;                   virtual;         default;         7.350
-      native-image;                   virtual;         default;        75.140
-      native-image;                   virtual;         default;        84.100
-      native-image;                   virtual;         default;        93.090
-      native-image;                   virtual;         default;        67.820
-      native-image;                   virtual;         default;       107.320
-      native-image;                   virtual;         default;        88.150
-      native-image;                   virtual;         default;       123.470
-      native-image;                   virtual;         default;       101.420
-      native-image;                   virtual;         default;       103.630
-      native-image;                   virtual;         default;       103.790
-      native-image;                   virtual;         default;       102.540
-      native-image;                   virtual;         default;       100.450
-      native-image;                   virtual;         default;       103.820
-      native-image;                   virtual;         default;       101.770
-      native-image;                   virtual;         default;       101.840
-      native-image;                   virtual;         default;       101.620
-      native-image;                   virtual;         default;       104.330
-      native-image;                   virtual;         default;       104.180
-      native-image;                   virtual;         default;       102.090
-      native-image;                   virtual;         default;       101.990
-      native-image;                   virtual;         default;       102.370
-      native-image;                   virtual;         default;       103.720
-      native-image;                   virtual;         default;       101.730
-      native-image;                   virtual;         default;       101.940
-      native-image;                   virtual;         default;       102.680
-      native-image;                   virtual;         default;       103.240
-      native-image;                   virtual;         default;       104.210
-      native-image;                   virtual;         default;       103.610
-      native-image;                   virtual;         default;        98.960
-      native-image;                   virtual;         default;       100.530
-      native-image;                   virtual;         default;       101.490
-      native-image;                   virtual;         default;        96.500
-      native-image;                   virtual;         default;        97.790
-      native-image;                   virtual;         default;        77.420
-      native-image;                   virtual;         default;        49.080
-      native-image;                   virtual;        pgo_g1gc;         5.940
-      native-image;                   virtual;        pgo_g1gc;         5.420
-      native-image;                   virtual;        pgo_g1gc;         3.890
-      native-image;                   virtual;        pgo_g1gc;        67.460
-      native-image;                   virtual;        pgo_g1gc;        75.000
-      native-image;                   virtual;        pgo_g1gc;        77.150
-      native-image;                   virtual;        pgo_g1gc;        93.050
-      native-image;                   virtual;        pgo_g1gc;        88.990
-      native-image;                   virtual;        pgo_g1gc;        96.350
-      native-image;                   virtual;        pgo_g1gc;       111.510
-      native-image;                   virtual;        pgo_g1gc;       107.940
-      native-image;                   virtual;        pgo_g1gc;       102.830
-      native-image;                   virtual;        pgo_g1gc;       102.920
-      native-image;                   virtual;        pgo_g1gc;        94.760
-      native-image;                   virtual;        pgo_g1gc;        99.690
-      native-image;                   virtual;        pgo_g1gc;        91.560
-      native-image;                   virtual;        pgo_g1gc;       102.240
-      native-image;                   virtual;        pgo_g1gc;        99.530
-      native-image;                   virtual;        pgo_g1gc;       100.750
-      native-image;                   virtual;        pgo_g1gc;       103.000
-      native-image;                   virtual;        pgo_g1gc;       106.370
-      native-image;                   virtual;        pgo_g1gc;       105.970
-      native-image;                   virtual;        pgo_g1gc;       103.840
-      native-image;                   virtual;        pgo_g1gc;       104.410
-      native-image;                   virtual;        pgo_g1gc;       102.980
-      native-image;                   virtual;        pgo_g1gc;       102.670
-      native-image;                   virtual;        pgo_g1gc;       103.030
-      native-image;                   virtual;        pgo_g1gc;       102.230
-      native-image;                   virtual;        pgo_g1gc;       102.430
-      native-image;                   virtual;        pgo_g1gc;       101.710
-      native-image;                   virtual;        pgo_g1gc;        81.460
-      native-image;                   virtual;        pgo_g1gc;        69.830
-      native-image;                   virtual;        pgo_g1gc;        63.140
-      native-image;                   virtual;        pgo_g1gc;        48.020
-     azul-prime-vm;                   virtual;         default;        17.870
-     azul-prime-vm;                   virtual;         default;        15.310
-     azul-prime-vm;                   virtual;         default;        13.800
-     azul-prime-vm;                   virtual;         default;       106.270
-     azul-prime-vm;                   virtual;         default;       108.290
-     azul-prime-vm;                   virtual;         default;       105.310
-     azul-prime-vm;                   virtual;         default;       108.170
-     azul-prime-vm;                   virtual;         default;       104.860
-     azul-prime-vm;                   virtual;         default;       106.860
-    oracle-graalvm;                  platform;         default;        14.940
-    oracle-graalvm;                  platform;         default;        13.940
-    oracle-graalvm;                  platform;         default;        13.880
-    oracle-graalvm;                  platform;         default;        76.240
-    oracle-graalvm;                  platform;         default;        82.110
-openjdk-hotspot-vm;                   virtual;         default;        15.200
-openjdk-hotspot-vm;                   virtual;         default;        13.450
-openjdk-hotspot-vm;                   virtual;         default;        14.540
-openjdk-hotspot-vm;                   virtual;         default;       113.230
-openjdk-hotspot-vm;                   virtual;         default;       104.900
-     azul-prime-vm;                  platform;         default;        14.800
-     azul-prime-vm;                  platform;         default;        13.120
-     azul-prime-vm;                  platform;         default;        13.930
-     azul-prime-vm;                  platform;         default;       109.880
-     azul-prime-vm;                  platform;         default;       108.600
-     azul-prime-vm;                  platform;         default;       104.930
-     azul-prime-vm;                  platform;         default;       106.950
-     azul-prime-vm;                  platform;         default;       106.050
-     azul-prime-vm;                  platform;         default;       102.730
-        graalvm-ce;                   virtual;         default;        14.980
-        graalvm-ce;                   virtual;         default;        17.420
-        graalvm-ce;                   virtual;         default;        13.790
-        graalvm-ce;                   virtual;         default;        77.060
-        graalvm-ce;                   virtual;         default;        80.840
+          Category;                      Type;  Run Identifier;         Score;  Score Metric
+openjdk-hotspot-vm;                  platform;         default;        15.220;  Power (Watt)
+openjdk-hotspot-vm;                  platform;         default;        14.870;  Power (Watt)
+openjdk-hotspot-vm;                  platform;         default;        16.400;  Power (Watt)
+openjdk-hotspot-vm;                  platform;         default;        72.420;  Power (Watt)
+openjdk-hotspot-vm;                  platform;         default;        84.880;  Power (Watt)
+      native-image;                  platform;         default;         8.630;  Power (Watt)
+      native-image;                  platform;         default;         7.780;  Power (Watt)
+      native-image;                  platform;         default;         7.800;  Power (Watt)
+      native-image;                  platform;         default;        77.270;  Power (Watt)
+      native-image;                  platform;         default;        87.710;  Power (Watt)
+      native-image;                  platform;         default;        93.500;  Power (Watt)
+      native-image;                  platform;         default;       107.600;  Power (Watt)
+      native-image;                  platform;         default;        92.860;  Power (Watt)
+      native-image;                  platform;         default;       109.840;  Power (Watt)
+      native-image;                  platform;         default;       105.340;  Power (Watt)
+      native-image;                  platform;         default;       102.610;  Power (Watt)
+      native-image;                  platform;         default;       103.150;  Power (Watt)
+      native-image;                  platform;         default;       102.740;  Power (Watt)
+      native-image;                  platform;         default;        94.910;  Power (Watt)
+      native-image;                  platform;         default;       110.280;  Power (Watt)
+      native-image;                  platform;         default;       105.930;  Power (Watt)
+      native-image;                  platform;         default;       103.850;  Power (Watt)
+      native-image;                  platform;         default;       103.360;  Power (Watt)
+      native-image;                  platform;         default;       101.770;  Power (Watt)
+      native-image;                  platform;         default;       101.920;  Power (Watt)
+      native-image;                  platform;         default;       102.900;  Power (Watt)
+      native-image;                  platform;         default;       103.280;  Power (Watt)
+      native-image;                  platform;         default;       101.820;  Power (Watt)
+      native-image;                  platform;         default;       104.240;  Power (Watt)
+      native-image;                  platform;         default;       104.340;  Power (Watt)
+      native-image;                  platform;         default;       105.000;  Power (Watt)
+      native-image;                  platform;         default;       104.690;  Power (Watt)
+      native-image;                  platform;         default;       104.910;  Power (Watt)
+      native-image;                  platform;         default;       103.630;  Power (Watt)
+      native-image;                  platform;         default;       101.890;  Power (Watt)
+      native-image;                  platform;         default;        98.060;  Power (Watt)
+      native-image;                  platform;         default;       102.520;  Power (Watt)
+      native-image;                  platform;         default;       103.770;  Power (Watt)
+      native-image;                  platform;         default;        97.230;  Power (Watt)
+      native-image;                  platform;         default;        68.300;  Power (Watt)
+      native-image;                  platform;         default;        69.540;  Power (Watt)
+      native-image;                  platform;         default;        60.200;  Power (Watt)
+    oracle-graalvm;                   virtual;         default;        15.110;  Power (Watt)
+    oracle-graalvm;                   virtual;         default;        13.680;  Power (Watt)
+    oracle-graalvm;                   virtual;         default;        15.600;  Power (Watt)
+    oracle-graalvm;                   virtual;         default;        83.220;  Power (Watt)
+    oracle-graalvm;                   virtual;         default;        90.600;  Power (Watt)
+        graalvm-ce;                  platform;         default;        14.870;  Power (Watt)
+        graalvm-ce;                  platform;         default;        13.690;  Power (Watt)
+        graalvm-ce;                  platform;         default;        13.880;  Power (Watt)
+        graalvm-ce;                  platform;         default;        77.180;  Power (Watt)
+        graalvm-ce;                  platform;         default;        82.410;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        14.420;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        15.960;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        13.850;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        52.200;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        59.610;  Power (Watt)
+ eclipse-openj9-vm;                  platform;         default;        64.690;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;         4.150;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;         4.000;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;         3.860;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        90.460;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        93.540;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        70.780;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        77.000;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        67.640;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        77.300;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       119.110;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       104.990;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.050;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       104.580;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       103.550;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        94.870;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.470;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       109.120;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       102.410;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        83.610;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       114.400;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       102.380;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.300;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       102.060;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.820;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       102.050;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.710;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.960;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;       101.090;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        85.120;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        78.240;  Power (Watt)
+      native-image;                  platform;        pgo_g1gc;        59.790;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        14.920;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        15.910;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        13.680;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        57.810;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        70.280;  Power (Watt)
+ eclipse-openj9-vm;                   virtual;         default;        71.970;  Power (Watt)
+      native-image;                   virtual;         default;        11.130;  Power (Watt)
+      native-image;                   virtual;         default;         9.720;  Power (Watt)
+      native-image;                   virtual;         default;         7.350;  Power (Watt)
+      native-image;                   virtual;         default;        75.140;  Power (Watt)
+      native-image;                   virtual;         default;        84.100;  Power (Watt)
+      native-image;                   virtual;         default;        93.090;  Power (Watt)
+      native-image;                   virtual;         default;        67.820;  Power (Watt)
+      native-image;                   virtual;         default;       107.320;  Power (Watt)
+      native-image;                   virtual;         default;        88.150;  Power (Watt)
+      native-image;                   virtual;         default;       123.470;  Power (Watt)
+      native-image;                   virtual;         default;       101.420;  Power (Watt)
+      native-image;                   virtual;         default;       103.630;  Power (Watt)
+      native-image;                   virtual;         default;       103.790;  Power (Watt)
+      native-image;                   virtual;         default;       102.540;  Power (Watt)
+      native-image;                   virtual;         default;       100.450;  Power (Watt)
+      native-image;                   virtual;         default;       103.820;  Power (Watt)
+      native-image;                   virtual;         default;       101.770;  Power (Watt)
+      native-image;                   virtual;         default;       101.840;  Power (Watt)
+      native-image;                   virtual;         default;       101.620;  Power (Watt)
+      native-image;                   virtual;         default;       104.330;  Power (Watt)
+      native-image;                   virtual;         default;       104.180;  Power (Watt)
+      native-image;                   virtual;         default;       102.090;  Power (Watt)
+      native-image;                   virtual;         default;       101.990;  Power (Watt)
+      native-image;                   virtual;         default;       102.370;  Power (Watt)
+      native-image;                   virtual;         default;       103.720;  Power (Watt)
+      native-image;                   virtual;         default;       101.730;  Power (Watt)
+      native-image;                   virtual;         default;       101.940;  Power (Watt)
+      native-image;                   virtual;         default;       102.680;  Power (Watt)
+      native-image;                   virtual;         default;       103.240;  Power (Watt)
+      native-image;                   virtual;         default;       104.210;  Power (Watt)
+      native-image;                   virtual;         default;       103.610;  Power (Watt)
+      native-image;                   virtual;         default;        98.960;  Power (Watt)
+      native-image;                   virtual;         default;       100.530;  Power (Watt)
+      native-image;                   virtual;         default;       101.490;  Power (Watt)
+      native-image;                   virtual;         default;        96.500;  Power (Watt)
+      native-image;                   virtual;         default;        97.790;  Power (Watt)
+      native-image;                   virtual;         default;        77.420;  Power (Watt)
+      native-image;                   virtual;         default;        49.080;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;         5.940;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;         5.420;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;         3.890;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        67.460;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        75.000;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        77.150;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        93.050;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        88.990;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        96.350;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       111.510;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       107.940;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.830;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.920;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        94.760;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        99.690;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        91.560;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.240;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        99.530;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       100.750;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       103.000;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       106.370;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       105.970;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       103.840;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       104.410;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.980;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.670;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       103.030;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.230;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       102.430;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;       101.710;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        81.460;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        69.830;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        63.140;  Power (Watt)
+      native-image;                   virtual;        pgo_g1gc;        48.020;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;        17.870;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;        15.310;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;        13.800;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       106.270;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       108.290;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       105.310;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       108.170;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       104.860;  Power (Watt)
+     azul-prime-vm;                   virtual;         default;       106.860;  Power (Watt)
+    oracle-graalvm;                  platform;         default;        14.940;  Power (Watt)
+    oracle-graalvm;                  platform;         default;        13.940;  Power (Watt)
+    oracle-graalvm;                  platform;         default;        13.880;  Power (Watt)
+    oracle-graalvm;                  platform;         default;        76.240;  Power (Watt)
+    oracle-graalvm;                  platform;         default;        82.110;  Power (Watt)
+openjdk-hotspot-vm;                   virtual;         default;        15.200;  Power (Watt)
+openjdk-hotspot-vm;                   virtual;         default;        13.450;  Power (Watt)
+openjdk-hotspot-vm;                   virtual;         default;        14.540;  Power (Watt)
+openjdk-hotspot-vm;                   virtual;         default;       113.230;  Power (Watt)
+openjdk-hotspot-vm;                   virtual;         default;       104.900;  Power (Watt)
+     azul-prime-vm;                  platform;         default;        14.800;  Power (Watt)
+     azul-prime-vm;                  platform;         default;        13.120;  Power (Watt)
+     azul-prime-vm;                  platform;         default;        13.930;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       109.880;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       108.600;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       104.930;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       106.950;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       106.050;  Power (Watt)
+     azul-prime-vm;                  platform;         default;       102.730;  Power (Watt)
+        graalvm-ce;                   virtual;         default;        14.980;  Power (Watt)
+        graalvm-ce;                   virtual;         default;        17.420;  Power (Watt)
+        graalvm-ce;                   virtual;         default;        13.790;  Power (Watt)
+        graalvm-ce;                   virtual;         default;        77.060;  Power (Watt)
+        graalvm-ce;                   virtual;         default;        80.840;  Power (Watt)

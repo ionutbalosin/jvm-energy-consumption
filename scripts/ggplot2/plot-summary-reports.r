@@ -48,20 +48,11 @@ jvm_color_palettes_map["Native Image (pgo_g1gc)"] <- "#FF007F"
 
 # Apply column data changes on the initial data frame
 processCsvColumns <- function(data) {
-  # delete all spaces from all column values
-  data <- as.data.frame(apply(data, 2, function(x) gsub("\\s+", "", x)))
+  # trim all spaces from all column values
+  data <- as.data.frame(apply(data, 2, function(x) trimws(x)))
 
-  # rename "Total Energy (Watt⋅sec)" and "Throughput (Ops/sec)" columns
-  if ("Total.Energy..Watt.sec." %in% colnames(data)) {
-    colnames(data)[colnames(data) == "Total.Energy..Watt.sec."] <- "Score"
-    data$ScoreUnit <- "Watt⋅sec"
-  }
-  if ("Throughput..Ops.sec." %in% colnames(data)) {
-    colnames(data)[colnames(data) == "Throughput..Ops.sec."] <- "Score"
-    data$ScoreUnit <- "Ops/sec"
-  }
-
-  # rename Run Identifier column
+  # rename some columns
+  colnames(data)[colnames(data) == "Score.Metric"] <- "ScoreMetric"
   colnames(data)[colnames(data) == "Run.Identifier"] <- "RunIdentifier"
 
   # if needed, convert from string to numeric the Score and Error columns. In addition, convert commas to dots
@@ -104,7 +95,7 @@ plotBarAndScatter <- function(data, output_folder, report_basename, report_type,
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
 }
 
-plotEnergyReports <- function(output_folder, report_basename, plot_y_label_prefix, plot_title) {
+plotEnergyReports <- function(output_folder, report_basename, plot_title) {
   # Define the report types that might be generated
   report_types <- c("run", "build")
 
@@ -115,8 +106,7 @@ plotEnergyReports <- function(output_folder, report_basename, plot_y_label_prefi
 
     if (!empty(data)) {
       data <- processCsvColumns(data)
-      plot_y_label <- paste(plot_y_label_prefix, " (", data$ScoreUnit[1], ")", sep = "")
-      plotBarAndScatter(data, output_folder, report_basename, report_type, plot_y_label, plot_title)
+      plotBarAndScatter(data, output_folder, report_basename, report_type, data$ScoreMetric[1], plot_title)
     } else {
       cat("Skipping", file_basename, "Found empty content ...\n")
     }
@@ -130,8 +120,8 @@ off_the_shelf_applications <- list(
 )
 for (application_name in names(off_the_shelf_applications)) {
   full_path <- file.path(base_path, "off-the-shelf-applications", off_the_shelf_applications[[application_name]], output_folder, sep = "/")
-  plotEnergyReports(full_path, "energy-report", "Energy", application_name)
-  plotEnergyReports(full_path, "raw-performance-report", "Throughput", application_name)
+  plotEnergyReports(full_path, "energy-report", application_name)
+  plotEnergyReports(full_path, "raw-performance-report", application_name)
 }
 
 # Generate plots for java samples
@@ -144,6 +134,6 @@ java_samples <- list(
 )
 for (sample_name in names(java_samples)) {
   full_path <- paste(base_path, "java-samples", output_folder, java_samples[[sample_name]], sep = "/")
-  plotEnergyReports(full_path, "energy-report", "Energy", sample_name)
-  plotEnergyReports(full_path, "raw-performance-report", "Throughput", sample_name)
+  plotEnergyReports(full_path, "energy-report", sample_name)
+  plotEnergyReports(full_path, "raw-performance-report", sample_name)
 }
