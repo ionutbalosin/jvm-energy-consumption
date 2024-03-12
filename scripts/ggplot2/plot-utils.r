@@ -24,15 +24,14 @@
 # SOFTWARE.
 #
 
-source("./ggplot2/utils.r")
+source("../scripts/ggplot2/utils.r")
 
-# Generate the plot (i.e., bar chart plot) with error bars
-generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
-  plot <- ggplot(data, aes(x = Type, y = EnergyScore, fill = data[, fill], ymin = EnergyScore - EnergyError, ymax = EnergyScore + EnergyError))
+# Generate the plot (i.e., bar chart plot) without error bars
+generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
+  plot <- ggplot(data, aes(x = Benchmark, y = Score, fill = data[, fill]))
   plot <- plot + geom_bar(stat = "identity", color = NA, position = "dodge", width = .7)
-  plot <- plot + geom_text(aes(label = paste(EnergyScore, EnergyUnit, sep = " ")), color = "black", hjust = -0.05, vjust = -.75, position = position_dodge(.7), size = 4)
-  plot <- plot + geom_errorbar(width = .175, linewidth = .6, alpha = .7, position = position_dodge(.7))
-  plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title)
+  plot <- plot + geom_text(aes(label = Score), color = "black", hjust = -0.05, vjust = .50, position = position_dodge(.7), size = 4)
+  plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title, caption = caption)
   plot <- plot + geom_hline(yintercept = 0)
   plot <- plot + coord_flip(clip = "off")
   plot <- plot + theme(
@@ -48,7 +47,7 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_
     plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
     axis.text.x = element_blank(),
   )
-  plot <- plot + guides(fill = guide_legend(byrow = TRUE))
+  plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
   plot <- plot + scale_fill_manual(fillLabel, values = color_palette)
 
   plot
