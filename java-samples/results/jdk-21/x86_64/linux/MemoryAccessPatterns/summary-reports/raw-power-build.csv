@@ -1,45 +1,4 @@
           Category;                      Type;  Run Identifier;  Power (Watt)
- eclipse-openj9-vm;               random_heap;         default;        14.380
- eclipse-openj9-vm;               random_heap;         default;        13.880
- eclipse-openj9-vm;               random_heap;         default;        13.740
- eclipse-openj9-vm;               random_heap;         default;        58.080
- eclipse-openj9-vm;               random_heap;         default;        66.080
- eclipse-openj9-vm;               random_heap;         default;        65.320
-      native-image;                    linear;        pgo_g1gc;         6.960
-      native-image;                    linear;        pgo_g1gc;         4.910
-      native-image;                    linear;        pgo_g1gc;         7.890
-      native-image;                    linear;        pgo_g1gc;        65.830
-      native-image;                    linear;        pgo_g1gc;        73.690
-      native-image;                    linear;        pgo_g1gc;        76.220
-      native-image;                    linear;        pgo_g1gc;        72.470
-      native-image;                    linear;        pgo_g1gc;        90.410
-      native-image;                    linear;        pgo_g1gc;        76.450
-      native-image;                    linear;        pgo_g1gc;        99.290
-      native-image;                    linear;        pgo_g1gc;       118.550
-      native-image;                    linear;        pgo_g1gc;       109.410
-      native-image;                    linear;        pgo_g1gc;       102.840
-      native-image;                    linear;        pgo_g1gc;       102.720
-      native-image;                    linear;        pgo_g1gc;        99.310
-      native-image;                    linear;        pgo_g1gc;       105.020
-      native-image;                    linear;        pgo_g1gc;       104.460
-      native-image;                    linear;        pgo_g1gc;       101.950
-      native-image;                    linear;        pgo_g1gc;       102.020
-      native-image;                    linear;        pgo_g1gc;        98.640
-      native-image;                    linear;        pgo_g1gc;       107.880
-      native-image;                    linear;        pgo_g1gc;       101.050
-      native-image;                    linear;        pgo_g1gc;       102.080
-      native-image;                    linear;        pgo_g1gc;       101.830
-      native-image;                    linear;        pgo_g1gc;       101.880
-      native-image;                    linear;        pgo_g1gc;       101.920
-      native-image;                    linear;        pgo_g1gc;       101.940
-      native-image;                    linear;        pgo_g1gc;        96.630
-      native-image;                    linear;        pgo_g1gc;        82.930
-      native-image;                    linear;        pgo_g1gc;        69.770
-      native-image;                    linear;        pgo_g1gc;        79.770
-openjdk-hotspot-vm;               random_heap;         default;        16.840
-openjdk-hotspot-vm;               random_heap;         default;        14.310
-openjdk-hotspot-vm;               random_heap;         default;        15.350
-openjdk-hotspot-vm;               random_heap;         default;       111.150
       native-image;               random_page;         default;        18.620
       native-image;               random_page;         default;        20.900
       native-image;               random_page;         default;        18.940
@@ -76,24 +35,54 @@ openjdk-hotspot-vm;               random_heap;         default;       111.150
       native-image;               random_page;         default;        93.790
       native-image;               random_page;         default;       100.000
       native-image;               random_page;         default;        97.690
-     azul-prime-vm;                    linear;         default;        14.590
-     azul-prime-vm;                    linear;         default;        13.190
-     azul-prime-vm;                    linear;         default;        15.860
-     azul-prime-vm;                    linear;         default;       107.920
-     azul-prime-vm;                    linear;         default;       109.750
-     azul-prime-vm;                    linear;         default;       103.760
-     azul-prime-vm;                    linear;         default;       108.800
-     azul-prime-vm;                    linear;         default;       104.950
-     azul-prime-vm;                    linear;         default;       102.470
-     azul-prime-vm;               random_page;         default;        15.930
-     azul-prime-vm;               random_page;         default;        13.400
-     azul-prime-vm;               random_page;         default;        13.880
-     azul-prime-vm;               random_page;         default;       108.730
-     azul-prime-vm;               random_page;         default;       108.230
-     azul-prime-vm;               random_page;         default;       104.380
-     azul-prime-vm;               random_page;         default;       107.880
-     azul-prime-vm;               random_page;         default;       106.160
-     azul-prime-vm;               random_page;         default;        75.070
+ eclipse-openj9-vm;               random_page;         default;        14.520
+ eclipse-openj9-vm;               random_page;         default;        16.110
+ eclipse-openj9-vm;               random_page;         default;        16.800
+ eclipse-openj9-vm;               random_page;         default;        58.830
+ eclipse-openj9-vm;               random_page;         default;        65.250
+ eclipse-openj9-vm;               random_page;         default;        69.500
+      native-image;               random_heap;         default;        18.200
+      native-image;               random_heap;         default;        17.200
+      native-image;               random_heap;         default;        17.670
+      native-image;               random_heap;         default;        78.890
+      native-image;               random_heap;         default;        88.170
+      native-image;               random_heap;         default;        98.090
+      native-image;               random_heap;         default;        83.670
+      native-image;               random_heap;         default;        91.130
+      native-image;               random_heap;         default;        77.670
+      native-image;               random_heap;         default;       104.530
+      native-image;               random_heap;         default;       123.240
+      native-image;               random_heap;         default;       106.720
+      native-image;               random_heap;         default;       105.140
+      native-image;               random_heap;         default;       105.880
+      native-image;               random_heap;         default;       100.110
+      native-image;               random_heap;         default;        97.960
+      native-image;               random_heap;         default;       101.480
+      native-image;               random_heap;         default;       112.460
+      native-image;               random_heap;         default;       105.800
+      native-image;               random_heap;         default;       105.030
+      native-image;               random_heap;         default;       103.120
+      native-image;               random_heap;         default;       109.600
+      native-image;               random_heap;         default;       104.930
+      native-image;               random_heap;         default;       105.370
+      native-image;               random_heap;         default;       104.700
+      native-image;               random_heap;         default;       107.480
+      native-image;               random_heap;         default;       104.730
+      native-image;               random_heap;         default;       105.950
+      native-image;               random_heap;         default;       107.300
+      native-image;               random_heap;         default;       108.650
+      native-image;               random_heap;         default;       109.110
+      native-image;               random_heap;         default;       109.960
+      native-image;               random_heap;         default;        95.390
+      native-image;               random_heap;         default;       106.920
+      native-image;               random_heap;         default;        99.380
+      native-image;               random_heap;         default;       107.900
+      native-image;               random_heap;         default;       107.200
+        graalvm-ce;               random_heap;         default;        17.940
+        graalvm-ce;               random_heap;         default;        13.370
+        graalvm-ce;               random_heap;         default;        13.620
+        graalvm-ce;               random_heap;         default;        74.060
+        graalvm-ce;               random_heap;         default;       111.600
       native-image;                    linear;         default;        18.040
       native-image;                    linear;         default;        17.210
       native-image;                    linear;         default;        17.380
@@ -132,16 +121,15 @@ openjdk-hotspot-vm;               random_heap;         default;       111.150
       native-image;                    linear;         default;        92.120
       native-image;                    linear;         default;        82.810
       native-image;                    linear;         default;        69.440
-openjdk-hotspot-vm;                    linear;         default;        16.560
-openjdk-hotspot-vm;                    linear;         default;        15.120
-openjdk-hotspot-vm;                    linear;         default;        16.880
-openjdk-hotspot-vm;                    linear;         default;        89.200
-openjdk-hotspot-vm;                    linear;         default;       114.790
-        graalvm-ce;               random_page;         default;        15.130
-        graalvm-ce;               random_page;         default;        12.700
-        graalvm-ce;               random_page;         default;        13.540
-        graalvm-ce;               random_page;         default;        74.390
-        graalvm-ce;               random_page;         default;        81.300
+     azul-prime-vm;               random_page;         default;        15.930
+     azul-prime-vm;               random_page;         default;        13.400
+     azul-prime-vm;               random_page;         default;        13.880
+     azul-prime-vm;               random_page;         default;       108.730
+     azul-prime-vm;               random_page;         default;       108.230
+     azul-prime-vm;               random_page;         default;       104.380
+     azul-prime-vm;               random_page;         default;       107.880
+     azul-prime-vm;               random_page;         default;       106.160
+     azul-prime-vm;               random_page;         default;        75.070
     oracle-graalvm;               random_heap;         default;        15.020
     oracle-graalvm;               random_heap;         default;        13.160
     oracle-graalvm;               random_heap;         default;        13.730
@@ -152,53 +140,6 @@ openjdk-hotspot-vm;                    linear;         default;       114.790
     oracle-graalvm;               random_page;         default;        15.890
     oracle-graalvm;               random_page;         default;        76.810
     oracle-graalvm;               random_page;         default;       104.460
-        graalvm-ce;               random_heap;         default;        17.940
-        graalvm-ce;               random_heap;         default;        13.370
-        graalvm-ce;               random_heap;         default;        13.620
-        graalvm-ce;               random_heap;         default;        74.060
-        graalvm-ce;               random_heap;         default;       111.600
-      native-image;               random_heap;         default;        18.200
-      native-image;               random_heap;         default;        17.200
-      native-image;               random_heap;         default;        17.670
-      native-image;               random_heap;         default;        78.890
-      native-image;               random_heap;         default;        88.170
-      native-image;               random_heap;         default;        98.090
-      native-image;               random_heap;         default;        83.670
-      native-image;               random_heap;         default;        91.130
-      native-image;               random_heap;         default;        77.670
-      native-image;               random_heap;         default;       104.530
-      native-image;               random_heap;         default;       123.240
-      native-image;               random_heap;         default;       106.720
-      native-image;               random_heap;         default;       105.140
-      native-image;               random_heap;         default;       105.880
-      native-image;               random_heap;         default;       100.110
-      native-image;               random_heap;         default;        97.960
-      native-image;               random_heap;         default;       101.480
-      native-image;               random_heap;         default;       112.460
-      native-image;               random_heap;         default;       105.800
-      native-image;               random_heap;         default;       105.030
-      native-image;               random_heap;         default;       103.120
-      native-image;               random_heap;         default;       109.600
-      native-image;               random_heap;         default;       104.930
-      native-image;               random_heap;         default;       105.370
-      native-image;               random_heap;         default;       104.700
-      native-image;               random_heap;         default;       107.480
-      native-image;               random_heap;         default;       104.730
-      native-image;               random_heap;         default;       105.950
-      native-image;               random_heap;         default;       107.300
-      native-image;               random_heap;         default;       108.650
-      native-image;               random_heap;         default;       109.110
-      native-image;               random_heap;         default;       109.960
-      native-image;               random_heap;         default;        95.390
-      native-image;               random_heap;         default;       106.920
-      native-image;               random_heap;         default;        99.380
-      native-image;               random_heap;         default;       107.900
-      native-image;               random_heap;         default;       107.200
-openjdk-hotspot-vm;               random_page;         default;        16.170
-openjdk-hotspot-vm;               random_page;         default;        14.330
-openjdk-hotspot-vm;               random_page;         default;        26.530
-openjdk-hotspot-vm;               random_page;         default;       115.800
-openjdk-hotspot-vm;               random_page;         default;       107.860
      azul-prime-vm;               random_heap;         default;        15.840
      azul-prime-vm;               random_heap;         default;        16.930
      azul-prime-vm;               random_heap;         default;        13.560
@@ -207,6 +148,48 @@ openjdk-hotspot-vm;               random_page;         default;       107.860
      azul-prime-vm;               random_heap;         default;       105.060
      azul-prime-vm;               random_heap;         default;       108.550
      azul-prime-vm;               random_heap;         default;        92.780
+      native-image;                    linear;        pgo_g1gc;         6.960
+      native-image;                    linear;        pgo_g1gc;         4.910
+      native-image;                    linear;        pgo_g1gc;         7.890
+      native-image;                    linear;        pgo_g1gc;        65.830
+      native-image;                    linear;        pgo_g1gc;        73.690
+      native-image;                    linear;        pgo_g1gc;        76.220
+      native-image;                    linear;        pgo_g1gc;        72.470
+      native-image;                    linear;        pgo_g1gc;        90.410
+      native-image;                    linear;        pgo_g1gc;        76.450
+      native-image;                    linear;        pgo_g1gc;        99.290
+      native-image;                    linear;        pgo_g1gc;       118.550
+      native-image;                    linear;        pgo_g1gc;       109.410
+      native-image;                    linear;        pgo_g1gc;       102.840
+      native-image;                    linear;        pgo_g1gc;       102.720
+      native-image;                    linear;        pgo_g1gc;        99.310
+      native-image;                    linear;        pgo_g1gc;       105.020
+      native-image;                    linear;        pgo_g1gc;       104.460
+      native-image;                    linear;        pgo_g1gc;       101.950
+      native-image;                    linear;        pgo_g1gc;       102.020
+      native-image;                    linear;        pgo_g1gc;        98.640
+      native-image;                    linear;        pgo_g1gc;       107.880
+      native-image;                    linear;        pgo_g1gc;       101.050
+      native-image;                    linear;        pgo_g1gc;       102.080
+      native-image;                    linear;        pgo_g1gc;       101.830
+      native-image;                    linear;        pgo_g1gc;       101.880
+      native-image;                    linear;        pgo_g1gc;       101.920
+      native-image;                    linear;        pgo_g1gc;       101.940
+      native-image;                    linear;        pgo_g1gc;        96.630
+      native-image;                    linear;        pgo_g1gc;        82.930
+      native-image;                    linear;        pgo_g1gc;        69.770
+      native-image;                    linear;        pgo_g1gc;        79.770
+openjdk-hotspot-vm;               random_page;         default;        16.170
+openjdk-hotspot-vm;               random_page;         default;        14.330
+openjdk-hotspot-vm;               random_page;         default;        26.530
+openjdk-hotspot-vm;               random_page;         default;       115.800
+openjdk-hotspot-vm;               random_page;         default;       107.860
+ eclipse-openj9-vm;                    linear;         default;        14.340
+ eclipse-openj9-vm;                    linear;         default;        13.600
+ eclipse-openj9-vm;                    linear;         default;        16.200
+ eclipse-openj9-vm;                    linear;         default;        58.950
+ eclipse-openj9-vm;                    linear;         default;        66.820
+ eclipse-openj9-vm;                    linear;         default;        70.410
       native-image;               random_heap;        pgo_g1gc;         7.030
       native-image;               random_heap;        pgo_g1gc;         5.190
       native-image;               random_heap;        pgo_g1gc;         5.370
@@ -236,23 +219,35 @@ openjdk-hotspot-vm;               random_page;         default;       107.860
       native-image;               random_heap;        pgo_g1gc;       103.460
       native-image;               random_heap;        pgo_g1gc;        96.920
       native-image;               random_heap;        pgo_g1gc;        98.010
- eclipse-openj9-vm;               random_page;         default;        14.520
- eclipse-openj9-vm;               random_page;         default;        16.110
- eclipse-openj9-vm;               random_page;         default;        16.800
- eclipse-openj9-vm;               random_page;         default;        58.830
- eclipse-openj9-vm;               random_page;         default;        65.250
- eclipse-openj9-vm;               random_page;         default;        69.500
- eclipse-openj9-vm;                    linear;         default;        14.340
- eclipse-openj9-vm;                    linear;         default;        13.600
- eclipse-openj9-vm;                    linear;         default;        16.200
- eclipse-openj9-vm;                    linear;         default;        58.950
- eclipse-openj9-vm;                    linear;         default;        66.820
- eclipse-openj9-vm;                    linear;         default;        70.410
+openjdk-hotspot-vm;                    linear;         default;        16.560
+openjdk-hotspot-vm;                    linear;         default;        15.120
+openjdk-hotspot-vm;                    linear;         default;        16.880
+openjdk-hotspot-vm;                    linear;         default;        89.200
+openjdk-hotspot-vm;                    linear;         default;       114.790
+        graalvm-ce;                    linear;         default;        15.160
+        graalvm-ce;                    linear;         default;        13.280
+        graalvm-ce;                    linear;         default;        15.660
+        graalvm-ce;                    linear;         default;       110.060
+openjdk-hotspot-vm;               random_heap;         default;        16.840
+openjdk-hotspot-vm;               random_heap;         default;        14.310
+openjdk-hotspot-vm;               random_heap;         default;        15.350
+openjdk-hotspot-vm;               random_heap;         default;       111.150
     oracle-graalvm;                    linear;         default;        15.070
     oracle-graalvm;                    linear;         default;        14.960
     oracle-graalvm;                    linear;         default;        17.970
     oracle-graalvm;                    linear;         default;        78.300
     oracle-graalvm;                    linear;         default;        90.460
+ eclipse-openj9-vm;               random_heap;         default;        14.380
+ eclipse-openj9-vm;               random_heap;         default;        13.880
+ eclipse-openj9-vm;               random_heap;         default;        13.740
+ eclipse-openj9-vm;               random_heap;         default;        58.080
+ eclipse-openj9-vm;               random_heap;         default;        66.080
+ eclipse-openj9-vm;               random_heap;         default;        65.320
+        graalvm-ce;               random_page;         default;        15.130
+        graalvm-ce;               random_page;         default;        12.700
+        graalvm-ce;               random_page;         default;        13.540
+        graalvm-ce;               random_page;         default;        74.390
+        graalvm-ce;               random_page;         default;        81.300
       native-image;               random_page;        pgo_g1gc;         6.250
       native-image;               random_page;        pgo_g1gc;         5.230
       native-image;               random_page;        pgo_g1gc;         7.630
@@ -284,7 +279,12 @@ openjdk-hotspot-vm;               random_page;         default;       107.860
       native-image;               random_page;        pgo_g1gc;       102.340
       native-image;               random_page;        pgo_g1gc;        80.810
       native-image;               random_page;        pgo_g1gc;        51.990
-        graalvm-ce;                    linear;         default;        15.160
-        graalvm-ce;                    linear;         default;        13.280
-        graalvm-ce;                    linear;         default;        15.660
-        graalvm-ce;                    linear;         default;       110.060
+     azul-prime-vm;                    linear;         default;        14.590
+     azul-prime-vm;                    linear;         default;        13.190
+     azul-prime-vm;                    linear;         default;        15.860
+     azul-prime-vm;                    linear;         default;       107.920
+     azul-prime-vm;                    linear;         default;       109.750
+     azul-prime-vm;                    linear;         default;       103.760
+     azul-prime-vm;                    linear;         default;       108.800
+     azul-prime-vm;                    linear;         default;       104.950
+     azul-prime-vm;                    linear;         default;       102.470

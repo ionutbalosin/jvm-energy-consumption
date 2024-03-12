@@ -1,14 +1,188 @@
           Category;                      Type;  Run Identifier;  Power (Watt)
-openjdk-hotspot-vm;    guarded_unparametrized;         default;        34.300
-openjdk-hotspot-vm;    guarded_unparametrized;         default;        47.160
-openjdk-hotspot-vm;    guarded_unparametrized;         default;        38.860
-openjdk-hotspot-vm;    guarded_unparametrized;         default;       113.800
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        16.680
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        13.320
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        13.660
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        52.390
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        64.030
- eclipse-openj9-vm;  unguarded_unparametrized;         default;        70.120
+        graalvm-ce;    unguarded_parametrized;         default;        15.120
+        graalvm-ce;    unguarded_parametrized;         default;        13.270
+        graalvm-ce;    unguarded_parametrized;         default;        15.630
+        graalvm-ce;    unguarded_parametrized;         default;        67.040
+        graalvm-ce;    unguarded_parametrized;         default;        75.550
+      native-image;    unguarded_parametrized;         default;        17.530
+      native-image;    unguarded_parametrized;         default;        20.080
+      native-image;    unguarded_parametrized;         default;        17.490
+      native-image;    unguarded_parametrized;         default;        72.350
+      native-image;    unguarded_parametrized;         default;        87.030
+      native-image;    unguarded_parametrized;         default;        84.720
+      native-image;    unguarded_parametrized;         default;       106.390
+      native-image;    unguarded_parametrized;         default;        97.310
+      native-image;    unguarded_parametrized;         default;       110.060
+      native-image;    unguarded_parametrized;         default;       106.810
+      native-image;    unguarded_parametrized;         default;       109.670
+      native-image;    unguarded_parametrized;         default;       106.150
+      native-image;    unguarded_parametrized;         default;       104.550
+      native-image;    unguarded_parametrized;         default;       103.920
+      native-image;    unguarded_parametrized;         default;        99.100
+      native-image;    unguarded_parametrized;         default;       117.350
+      native-image;    unguarded_parametrized;         default;       107.320
+      native-image;    unguarded_parametrized;         default;       107.430
+      native-image;    unguarded_parametrized;         default;       102.910
+      native-image;    unguarded_parametrized;         default;       106.100
+      native-image;    unguarded_parametrized;         default;       105.430
+      native-image;    unguarded_parametrized;         default;       102.570
+      native-image;    unguarded_parametrized;         default;       106.870
+      native-image;    unguarded_parametrized;         default;       106.060
+      native-image;    unguarded_parametrized;         default;       105.070
+      native-image;    unguarded_parametrized;         default;       105.470
+      native-image;    unguarded_parametrized;         default;       106.970
+      native-image;    unguarded_parametrized;         default;       106.150
+      native-image;    unguarded_parametrized;         default;       107.900
+      native-image;    unguarded_parametrized;         default;       106.920
+      native-image;    unguarded_parametrized;         default;       105.320
+      native-image;    unguarded_parametrized;         default;       102.030
+      native-image;    unguarded_parametrized;         default;       103.540
+      native-image;    unguarded_parametrized;         default;        98.630
+      native-image;    unguarded_parametrized;         default;       104.670
+      native-image;    unguarded_parametrized;         default;        91.200
+      native-image;    unguarded_parametrized;         default;        76.260
+ eclipse-openj9-vm;                    lambda;         default;        18.220
+ eclipse-openj9-vm;                    lambda;         default;        15.890
+ eclipse-openj9-vm;                    lambda;         default;        17.650
+ eclipse-openj9-vm;                    lambda;         default;        57.200
+ eclipse-openj9-vm;                    lambda;         default;        64.420
+ eclipse-openj9-vm;                    lambda;         default;        66.920
+openjdk-hotspot-vm;    unguarded_parametrized;         default;        16.890
+openjdk-hotspot-vm;    unguarded_parametrized;         default;        14.840
+openjdk-hotspot-vm;    unguarded_parametrized;         default;        17.280
+openjdk-hotspot-vm;    unguarded_parametrized;         default;       111.780
+        graalvm-ce;                    lambda;         default;        17.680
+        graalvm-ce;                    lambda;         default;        18.490
+        graalvm-ce;                    lambda;         default;        13.790
+        graalvm-ce;                    lambda;         default;        75.680
+        graalvm-ce;                    lambda;         default;        88.020
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;        17.450
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;        14.740
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;        15.090
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;        86.040
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;        92.330
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        16.750
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        13.860
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        13.490
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        59.420
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        71.210
+ eclipse-openj9-vm;    guarded_unparametrized;         default;        73.700
+      native-image;                    lambda;        pgo_g1gc;        19.530
+      native-image;                    lambda;        pgo_g1gc;        19.130
+      native-image;                    lambda;        pgo_g1gc;        46.220
+      native-image;                    lambda;        pgo_g1gc;       116.960
+      native-image;                    lambda;        pgo_g1gc;       106.710
+      native-image;                    lambda;        pgo_g1gc;       114.470
+      native-image;                    lambda;        pgo_g1gc;        77.580
+      native-image;                    lambda;        pgo_g1gc;       104.890
+      native-image;                    lambda;        pgo_g1gc;        88.580
+      native-image;                    lambda;        pgo_g1gc;        91.460
+      native-image;                    lambda;        pgo_g1gc;       126.100
+      native-image;                    lambda;        pgo_g1gc;       109.140
+      native-image;                    lambda;        pgo_g1gc;       107.540
+      native-image;                    lambda;        pgo_g1gc;       107.590
+      native-image;                    lambda;        pgo_g1gc;       106.050
+      native-image;                    lambda;        pgo_g1gc;       107.610
+      native-image;                    lambda;        pgo_g1gc;       112.080
+      native-image;                    lambda;        pgo_g1gc;       106.580
+      native-image;                    lambda;        pgo_g1gc;       102.590
+      native-image;                    lambda;        pgo_g1gc;       101.330
+      native-image;                    lambda;        pgo_g1gc;        85.110
+      native-image;                    lambda;        pgo_g1gc;       112.110
+      native-image;                    lambda;        pgo_g1gc;       113.340
+      native-image;                    lambda;        pgo_g1gc;       105.350
+      native-image;                    lambda;        pgo_g1gc;       105.310
+      native-image;                    lambda;        pgo_g1gc;       106.730
+      native-image;                    lambda;        pgo_g1gc;       106.480
+      native-image;                    lambda;        pgo_g1gc;       106.690
+      native-image;                    lambda;        pgo_g1gc;       105.680
+      native-image;                    lambda;        pgo_g1gc;       107.770
+      native-image;                    lambda;        pgo_g1gc;       104.430
+      native-image;                    lambda;        pgo_g1gc;       100.890
+      native-image;                    lambda;        pgo_g1gc;        79.660
+      native-image;    guarded_unparametrized;        pgo_g1gc;         6.790
+      native-image;    guarded_unparametrized;        pgo_g1gc;         5.280
+      native-image;    guarded_unparametrized;        pgo_g1gc;         6.970
+      native-image;    guarded_unparametrized;        pgo_g1gc;        75.760
+      native-image;    guarded_unparametrized;        pgo_g1gc;        83.940
+      native-image;    guarded_unparametrized;        pgo_g1gc;        93.400
+      native-image;    guarded_unparametrized;        pgo_g1gc;        72.900
+      native-image;    guarded_unparametrized;        pgo_g1gc;        91.160
+      native-image;    guarded_unparametrized;        pgo_g1gc;        77.090
+      native-image;    guarded_unparametrized;        pgo_g1gc;       109.720
+      native-image;    guarded_unparametrized;        pgo_g1gc;       111.480
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.820
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.690
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.110
+      native-image;    guarded_unparametrized;        pgo_g1gc;        92.330
+      native-image;    guarded_unparametrized;        pgo_g1gc;        95.920
+      native-image;    guarded_unparametrized;        pgo_g1gc;        88.280
+      native-image;    guarded_unparametrized;        pgo_g1gc;       103.680
+      native-image;    guarded_unparametrized;        pgo_g1gc;        97.820
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.040
+      native-image;    guarded_unparametrized;        pgo_g1gc;       105.160
+      native-image;    guarded_unparametrized;        pgo_g1gc;       107.430
+      native-image;    guarded_unparametrized;        pgo_g1gc;       101.310
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.380
+      native-image;    guarded_unparametrized;        pgo_g1gc;       101.920
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.180
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.650
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.140
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.150
+      native-image;    guarded_unparametrized;        pgo_g1gc;       102.240
+      native-image;    guarded_unparametrized;        pgo_g1gc;        90.120
+      native-image;    guarded_unparametrized;        pgo_g1gc;        78.420
+      native-image;    guarded_unparametrized;        pgo_g1gc;        59.590
+     azul-prime-vm;                    lambda;         default;        17.490
+     azul-prime-vm;                    lambda;         default;        14.600
+     azul-prime-vm;                    lambda;         default;        14.480
+     azul-prime-vm;                    lambda;         default;       114.020
+     azul-prime-vm;                    lambda;         default;       110.370
+     azul-prime-vm;                    lambda;         default;       108.930
+     azul-prime-vm;                    lambda;         default;       107.850
+     azul-prime-vm;                    lambda;         default;        93.490
+    oracle-graalvm;                    lambda;         default;        18.080
+    oracle-graalvm;                    lambda;         default;        16.120
+    oracle-graalvm;                    lambda;         default;        14.850
+    oracle-graalvm;                    lambda;         default;        83.890
+    oracle-graalvm;                    lambda;         default;        92.540
+      native-image;  unguarded_unparametrized;        pgo_g1gc;         7.260
+      native-image;  unguarded_unparametrized;        pgo_g1gc;         4.960
+      native-image;  unguarded_unparametrized;        pgo_g1gc;         7.780
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        64.630
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        71.670
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        75.630
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        71.100
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        88.070
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        67.480
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        89.310
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       120.240
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.000
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.030
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.270
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        99.430
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        82.340
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        98.850
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       105.620
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       105.470
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        95.150
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       111.310
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       104.050
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       104.200
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.300
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.730
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.610
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.980
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.300
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.820
+      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.350
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        97.690
+      native-image;  unguarded_unparametrized;        pgo_g1gc;        87.130
+    oracle-graalvm;    unguarded_parametrized;         default;        14.430
+    oracle-graalvm;    unguarded_parametrized;         default;        13.080
+    oracle-graalvm;    unguarded_parametrized;         default;        16.960
+    oracle-graalvm;    unguarded_parametrized;         default;        86.000
+    oracle-graalvm;    unguarded_parametrized;         default;       113.160
       native-image;      guarded_parametrized;        pgo_g1gc;         6.900
       native-image;      guarded_parametrized;        pgo_g1gc;         4.720
       native-image;      guarded_parametrized;        pgo_g1gc;         7.310
@@ -51,6 +225,11 @@ openjdk-hotspot-vm;    guarded_unparametrized;         default;       113.800
      azul-prime-vm;    guarded_unparametrized;         default;       107.360
      azul-prime-vm;    guarded_unparametrized;         default;       105.770
      azul-prime-vm;    guarded_unparametrized;         default;        84.110
+        graalvm-ce;  unguarded_unparametrized;         default;        14.700
+        graalvm-ce;  unguarded_unparametrized;         default;        13.230
+        graalvm-ce;  unguarded_unparametrized;         default;        15.570
+        graalvm-ce;  unguarded_unparametrized;         default;        64.830
+        graalvm-ce;  unguarded_unparametrized;         default;        71.990
      azul-prime-vm;  unguarded_unparametrized;         default;        14.930
      azul-prime-vm;  unguarded_unparametrized;         default;        12.930
      azul-prime-vm;  unguarded_unparametrized;         default;        13.620
@@ -61,95 +240,73 @@ openjdk-hotspot-vm;    guarded_unparametrized;         default;       113.800
      azul-prime-vm;  unguarded_unparametrized;         default;       105.350
      azul-prime-vm;  unguarded_unparametrized;         default;       106.290
      azul-prime-vm;  unguarded_unparametrized;         default;        88.860
-openjdk-hotspot-vm;      guarded_parametrized;         default;        16.890
-openjdk-hotspot-vm;      guarded_parametrized;         default;        17.020
-openjdk-hotspot-vm;      guarded_parametrized;         default;        17.520
-openjdk-hotspot-vm;      guarded_parametrized;         default;       111.020
- eclipse-openj9-vm;                    lambda;         default;        18.220
- eclipse-openj9-vm;                    lambda;         default;        15.890
- eclipse-openj9-vm;                    lambda;         default;        17.650
- eclipse-openj9-vm;                    lambda;         default;        57.200
- eclipse-openj9-vm;                    lambda;         default;        64.420
- eclipse-openj9-vm;                    lambda;         default;        66.920
     oracle-graalvm;    guarded_unparametrized;         default;        14.550
     oracle-graalvm;    guarded_unparametrized;         default;        13.460
     oracle-graalvm;    guarded_unparametrized;         default;        13.940
     oracle-graalvm;    guarded_unparametrized;         default;        71.100
     oracle-graalvm;    guarded_unparametrized;         default;        77.140
-      native-image;    unguarded_parametrized;         default;        17.530
-      native-image;    unguarded_parametrized;         default;        20.080
-      native-image;    unguarded_parametrized;         default;        17.490
-      native-image;    unguarded_parametrized;         default;        72.350
-      native-image;    unguarded_parametrized;         default;        87.030
-      native-image;    unguarded_parametrized;         default;        84.720
-      native-image;    unguarded_parametrized;         default;       106.390
-      native-image;    unguarded_parametrized;         default;        97.310
-      native-image;    unguarded_parametrized;         default;       110.060
-      native-image;    unguarded_parametrized;         default;       106.810
-      native-image;    unguarded_parametrized;         default;       109.670
-      native-image;    unguarded_parametrized;         default;       106.150
-      native-image;    unguarded_parametrized;         default;       104.550
-      native-image;    unguarded_parametrized;         default;       103.920
-      native-image;    unguarded_parametrized;         default;        99.100
-      native-image;    unguarded_parametrized;         default;       117.350
-      native-image;    unguarded_parametrized;         default;       107.320
-      native-image;    unguarded_parametrized;         default;       107.430
-      native-image;    unguarded_parametrized;         default;       102.910
-      native-image;    unguarded_parametrized;         default;       106.100
-      native-image;    unguarded_parametrized;         default;       105.430
-      native-image;    unguarded_parametrized;         default;       102.570
-      native-image;    unguarded_parametrized;         default;       106.870
-      native-image;    unguarded_parametrized;         default;       106.060
-      native-image;    unguarded_parametrized;         default;       105.070
-      native-image;    unguarded_parametrized;         default;       105.470
-      native-image;    unguarded_parametrized;         default;       106.970
-      native-image;    unguarded_parametrized;         default;       106.150
-      native-image;    unguarded_parametrized;         default;       107.900
-      native-image;    unguarded_parametrized;         default;       106.920
-      native-image;    unguarded_parametrized;         default;       105.320
-      native-image;    unguarded_parametrized;         default;       102.030
-      native-image;    unguarded_parametrized;         default;       103.540
-      native-image;    unguarded_parametrized;         default;        98.630
-      native-image;    unguarded_parametrized;         default;       104.670
-      native-image;    unguarded_parametrized;         default;        91.200
-      native-image;    unguarded_parametrized;         default;        76.260
-      native-image;  unguarded_unparametrized;         default;        17.880
-      native-image;  unguarded_unparametrized;         default;        18.620
-      native-image;  unguarded_unparametrized;         default;        16.870
-      native-image;  unguarded_unparametrized;         default;        89.070
-      native-image;  unguarded_unparametrized;         default;       111.190
-      native-image;  unguarded_unparametrized;         default;        70.220
-      native-image;  unguarded_unparametrized;         default;       100.060
-      native-image;  unguarded_unparametrized;         default;       100.770
-      native-image;  unguarded_unparametrized;         default;       115.640
-      native-image;  unguarded_unparametrized;         default;       105.030
-      native-image;  unguarded_unparametrized;         default;       104.630
-      native-image;  unguarded_unparametrized;         default;       106.870
-      native-image;  unguarded_unparametrized;         default;       101.850
-      native-image;  unguarded_unparametrized;         default;        95.280
-      native-image;  unguarded_unparametrized;         default;       102.720
-      native-image;  unguarded_unparametrized;         default;       107.660
-      native-image;  unguarded_unparametrized;         default;       115.610
-      native-image;  unguarded_unparametrized;         default;       108.360
-      native-image;  unguarded_unparametrized;         default;       102.500
-      native-image;  unguarded_unparametrized;         default;       103.690
-      native-image;  unguarded_unparametrized;         default;       107.580
-      native-image;  unguarded_unparametrized;         default;       105.620
-      native-image;  unguarded_unparametrized;         default;       104.490
-      native-image;  unguarded_unparametrized;         default;       106.880
-      native-image;  unguarded_unparametrized;         default;       105.360
-      native-image;  unguarded_unparametrized;         default;       107.180
-      native-image;  unguarded_unparametrized;         default;       106.890
-      native-image;  unguarded_unparametrized;         default;       105.690
-      native-image;  unguarded_unparametrized;         default;       107.000
-      native-image;  unguarded_unparametrized;         default;       107.620
-      native-image;  unguarded_unparametrized;         default;       110.290
-      native-image;  unguarded_unparametrized;         default;       109.160
-      native-image;  unguarded_unparametrized;         default;       102.610
-      native-image;  unguarded_unparametrized;         default;        92.440
-      native-image;  unguarded_unparametrized;         default;        89.240
-      native-image;  unguarded_unparametrized;         default;        86.060
-      native-image;  unguarded_unparametrized;         default;        68.770
+    oracle-graalvm;      guarded_parametrized;         default;        15.150
+    oracle-graalvm;      guarded_parametrized;         default;        13.440
+    oracle-graalvm;      guarded_parametrized;         default;        16.410
+    oracle-graalvm;      guarded_parametrized;         default;        82.640
+        graalvm-ce;    guarded_unparametrized;         default;        14.880
+        graalvm-ce;    guarded_unparametrized;         default;        15.550
+        graalvm-ce;    guarded_unparametrized;         default;        15.720
+        graalvm-ce;    guarded_unparametrized;         default;        67.640
+        graalvm-ce;    guarded_unparametrized;         default;        77.070
+openjdk-hotspot-vm;                    lambda;         default;        19.190
+openjdk-hotspot-vm;                    lambda;         default;        17.540
+openjdk-hotspot-vm;                    lambda;         default;        18.380
+openjdk-hotspot-vm;                    lambda;         default;        98.260
+openjdk-hotspot-vm;                    lambda;         default;       114.450
+ eclipse-openj9-vm;      guarded_parametrized;         default;        14.610
+ eclipse-openj9-vm;      guarded_parametrized;         default;        15.690
+ eclipse-openj9-vm;      guarded_parametrized;         default;        14.490
+ eclipse-openj9-vm;      guarded_parametrized;         default;        59.000
+ eclipse-openj9-vm;      guarded_parametrized;         default;        66.320
+ eclipse-openj9-vm;      guarded_parametrized;         default;        71.050
+      native-image;    unguarded_parametrized;        pgo_g1gc;         6.250
+      native-image;    unguarded_parametrized;        pgo_g1gc;         4.570
+      native-image;    unguarded_parametrized;        pgo_g1gc;         8.200
+      native-image;    unguarded_parametrized;        pgo_g1gc;        62.490
+      native-image;    unguarded_parametrized;        pgo_g1gc;        78.670
+      native-image;    unguarded_parametrized;        pgo_g1gc;        88.510
+      native-image;    unguarded_parametrized;        pgo_g1gc;        64.880
+      native-image;    unguarded_parametrized;        pgo_g1gc;        94.270
+      native-image;    unguarded_parametrized;        pgo_g1gc;        79.130
+      native-image;    unguarded_parametrized;        pgo_g1gc;       118.320
+      native-image;    unguarded_parametrized;        pgo_g1gc;       102.520
+      native-image;    unguarded_parametrized;        pgo_g1gc;       104.020
+      native-image;    unguarded_parametrized;        pgo_g1gc;       102.850
+      native-image;    unguarded_parametrized;        pgo_g1gc;       100.950
+      native-image;    unguarded_parametrized;        pgo_g1gc;        99.250
+      native-image;    unguarded_parametrized;        pgo_g1gc;        83.260
+      native-image;    unguarded_parametrized;        pgo_g1gc;        98.740
+      native-image;    unguarded_parametrized;        pgo_g1gc;       103.910
+      native-image;    unguarded_parametrized;        pgo_g1gc;        97.980
+      native-image;    unguarded_parametrized;        pgo_g1gc;       102.880
+      native-image;    unguarded_parametrized;        pgo_g1gc;       105.650
+      native-image;    unguarded_parametrized;        pgo_g1gc;       106.290
+      native-image;    unguarded_parametrized;        pgo_g1gc;       107.530
+      native-image;    unguarded_parametrized;        pgo_g1gc;       102.190
+      native-image;    unguarded_parametrized;        pgo_g1gc;       102.090
+      native-image;    unguarded_parametrized;        pgo_g1gc;       101.750
+      native-image;    unguarded_parametrized;        pgo_g1gc;       101.710
+      native-image;    unguarded_parametrized;        pgo_g1gc;       101.760
+      native-image;    unguarded_parametrized;        pgo_g1gc;       101.900
+      native-image;    unguarded_parametrized;        pgo_g1gc;        97.900
+      native-image;    unguarded_parametrized;        pgo_g1gc;       100.840
+      native-image;    unguarded_parametrized;        pgo_g1gc;        78.410
+openjdk-hotspot-vm;      guarded_parametrized;         default;        16.890
+openjdk-hotspot-vm;      guarded_parametrized;         default;        17.020
+openjdk-hotspot-vm;      guarded_parametrized;         default;        17.520
+openjdk-hotspot-vm;      guarded_parametrized;         default;       111.020
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        14.800
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        15.680
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        14.250
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        58.430
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        67.200
+ eclipse-openj9-vm;    unguarded_parametrized;         default;        67.890
       native-image;      guarded_parametrized;         default;        21.120
       native-image;      guarded_parametrized;         default;        17.740
       native-image;      guarded_parametrized;         default;        19.440
@@ -186,37 +343,16 @@ openjdk-hotspot-vm;      guarded_parametrized;         default;       111.020
       native-image;      guarded_parametrized;         default;        99.470
       native-image;      guarded_parametrized;         default;        98.760
       native-image;      guarded_parametrized;         default;        92.120
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;        17.450
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;        14.740
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;        15.090
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;        86.040
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;        92.330
-        graalvm-ce;  unguarded_unparametrized;         default;        14.700
-        graalvm-ce;  unguarded_unparametrized;         default;        13.230
-        graalvm-ce;  unguarded_unparametrized;         default;        15.570
-        graalvm-ce;  unguarded_unparametrized;         default;        64.830
-        graalvm-ce;  unguarded_unparametrized;         default;        71.990
-        graalvm-ce;                    lambda;         default;        17.680
-        graalvm-ce;                    lambda;         default;        18.490
-        graalvm-ce;                    lambda;         default;        13.790
-        graalvm-ce;                    lambda;         default;        75.680
-        graalvm-ce;                    lambda;         default;        88.020
- eclipse-openj9-vm;    unguarded_parametrized;         default;        14.800
- eclipse-openj9-vm;    unguarded_parametrized;         default;        15.680
- eclipse-openj9-vm;    unguarded_parametrized;         default;        14.250
- eclipse-openj9-vm;    unguarded_parametrized;         default;        58.430
- eclipse-openj9-vm;    unguarded_parametrized;         default;        67.200
- eclipse-openj9-vm;    unguarded_parametrized;         default;        67.890
-        graalvm-ce;    unguarded_parametrized;         default;        15.120
-        graalvm-ce;    unguarded_parametrized;         default;        13.270
-        graalvm-ce;    unguarded_parametrized;         default;        15.630
-        graalvm-ce;    unguarded_parametrized;         default;        67.040
-        graalvm-ce;    unguarded_parametrized;         default;        75.550
-    oracle-graalvm;                    lambda;         default;        18.080
-    oracle-graalvm;                    lambda;         default;        16.120
-    oracle-graalvm;                    lambda;         default;        14.850
-    oracle-graalvm;                    lambda;         default;        83.890
-    oracle-graalvm;                    lambda;         default;        92.540
+openjdk-hotspot-vm;    guarded_unparametrized;         default;        34.300
+openjdk-hotspot-vm;    guarded_unparametrized;         default;        47.160
+openjdk-hotspot-vm;    guarded_unparametrized;         default;        38.860
+openjdk-hotspot-vm;    guarded_unparametrized;         default;       113.800
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        16.680
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        13.320
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        13.660
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        52.390
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        64.030
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;        70.120
       native-image;    guarded_unparametrized;         default;        19.580
       native-image;    guarded_unparametrized;         default;        19.520
       native-image;    guarded_unparametrized;         default;        20.820
@@ -254,63 +390,58 @@ openjdk-hotspot-vm;  unguarded_unparametrized;         default;        92.330
       native-image;    guarded_unparametrized;         default;       103.750
       native-image;    guarded_unparametrized;         default;        83.420
       native-image;    guarded_unparametrized;         default;        77.280
-    oracle-graalvm;    unguarded_parametrized;         default;        14.430
-    oracle-graalvm;    unguarded_parametrized;         default;        13.080
-    oracle-graalvm;    unguarded_parametrized;         default;        16.960
-    oracle-graalvm;    unguarded_parametrized;         default;        86.000
-    oracle-graalvm;    unguarded_parametrized;         default;       113.160
+      native-image;  unguarded_unparametrized;         default;        17.880
+      native-image;  unguarded_unparametrized;         default;        18.620
+      native-image;  unguarded_unparametrized;         default;        16.870
+      native-image;  unguarded_unparametrized;         default;        89.070
+      native-image;  unguarded_unparametrized;         default;       111.190
+      native-image;  unguarded_unparametrized;         default;        70.220
+      native-image;  unguarded_unparametrized;         default;       100.060
+      native-image;  unguarded_unparametrized;         default;       100.770
+      native-image;  unguarded_unparametrized;         default;       115.640
+      native-image;  unguarded_unparametrized;         default;       105.030
+      native-image;  unguarded_unparametrized;         default;       104.630
+      native-image;  unguarded_unparametrized;         default;       106.870
+      native-image;  unguarded_unparametrized;         default;       101.850
+      native-image;  unguarded_unparametrized;         default;        95.280
+      native-image;  unguarded_unparametrized;         default;       102.720
+      native-image;  unguarded_unparametrized;         default;       107.660
+      native-image;  unguarded_unparametrized;         default;       115.610
+      native-image;  unguarded_unparametrized;         default;       108.360
+      native-image;  unguarded_unparametrized;         default;       102.500
+      native-image;  unguarded_unparametrized;         default;       103.690
+      native-image;  unguarded_unparametrized;         default;       107.580
+      native-image;  unguarded_unparametrized;         default;       105.620
+      native-image;  unguarded_unparametrized;         default;       104.490
+      native-image;  unguarded_unparametrized;         default;       106.880
+      native-image;  unguarded_unparametrized;         default;       105.360
+      native-image;  unguarded_unparametrized;         default;       107.180
+      native-image;  unguarded_unparametrized;         default;       106.890
+      native-image;  unguarded_unparametrized;         default;       105.690
+      native-image;  unguarded_unparametrized;         default;       107.000
+      native-image;  unguarded_unparametrized;         default;       107.620
+      native-image;  unguarded_unparametrized;         default;       110.290
+      native-image;  unguarded_unparametrized;         default;       109.160
+      native-image;  unguarded_unparametrized;         default;       102.610
+      native-image;  unguarded_unparametrized;         default;        92.440
+      native-image;  unguarded_unparametrized;         default;        89.240
+      native-image;  unguarded_unparametrized;         default;        86.060
+      native-image;  unguarded_unparametrized;         default;        68.770
+     azul-prime-vm;      guarded_parametrized;         default;        14.470
+     azul-prime-vm;      guarded_parametrized;         default;        14.990
+     azul-prime-vm;      guarded_parametrized;         default;        15.450
+     azul-prime-vm;      guarded_parametrized;         default;       108.620
+     azul-prime-vm;      guarded_parametrized;         default;       110.050
+     azul-prime-vm;      guarded_parametrized;         default;       103.540
+     azul-prime-vm;      guarded_parametrized;         default;       109.330
+     azul-prime-vm;      guarded_parametrized;         default;       104.570
+     azul-prime-vm;      guarded_parametrized;         default;       107.470
+     azul-prime-vm;      guarded_parametrized;         default;       102.570
     oracle-graalvm;  unguarded_unparametrized;         default;        14.780
     oracle-graalvm;  unguarded_unparametrized;         default;        13.460
     oracle-graalvm;  unguarded_unparametrized;         default;        13.980
     oracle-graalvm;  unguarded_unparametrized;         default;        79.200
     oracle-graalvm;  unguarded_unparametrized;         default;        87.120
-        graalvm-ce;    guarded_unparametrized;         default;        14.880
-        graalvm-ce;    guarded_unparametrized;         default;        15.550
-        graalvm-ce;    guarded_unparametrized;         default;        15.720
-        graalvm-ce;    guarded_unparametrized;         default;        67.640
-        graalvm-ce;    guarded_unparametrized;         default;        77.070
- eclipse-openj9-vm;    guarded_unparametrized;         default;        16.750
- eclipse-openj9-vm;    guarded_unparametrized;         default;        13.860
- eclipse-openj9-vm;    guarded_unparametrized;         default;        13.490
- eclipse-openj9-vm;    guarded_unparametrized;         default;        59.420
- eclipse-openj9-vm;    guarded_unparametrized;         default;        71.210
- eclipse-openj9-vm;    guarded_unparametrized;         default;        73.700
-      native-image;    unguarded_parametrized;        pgo_g1gc;         6.250
-      native-image;    unguarded_parametrized;        pgo_g1gc;         4.570
-      native-image;    unguarded_parametrized;        pgo_g1gc;         8.200
-      native-image;    unguarded_parametrized;        pgo_g1gc;        62.490
-      native-image;    unguarded_parametrized;        pgo_g1gc;        78.670
-      native-image;    unguarded_parametrized;        pgo_g1gc;        88.510
-      native-image;    unguarded_parametrized;        pgo_g1gc;        64.880
-      native-image;    unguarded_parametrized;        pgo_g1gc;        94.270
-      native-image;    unguarded_parametrized;        pgo_g1gc;        79.130
-      native-image;    unguarded_parametrized;        pgo_g1gc;       118.320
-      native-image;    unguarded_parametrized;        pgo_g1gc;       102.520
-      native-image;    unguarded_parametrized;        pgo_g1gc;       104.020
-      native-image;    unguarded_parametrized;        pgo_g1gc;       102.850
-      native-image;    unguarded_parametrized;        pgo_g1gc;       100.950
-      native-image;    unguarded_parametrized;        pgo_g1gc;        99.250
-      native-image;    unguarded_parametrized;        pgo_g1gc;        83.260
-      native-image;    unguarded_parametrized;        pgo_g1gc;        98.740
-      native-image;    unguarded_parametrized;        pgo_g1gc;       103.910
-      native-image;    unguarded_parametrized;        pgo_g1gc;        97.980
-      native-image;    unguarded_parametrized;        pgo_g1gc;       102.880
-      native-image;    unguarded_parametrized;        pgo_g1gc;       105.650
-      native-image;    unguarded_parametrized;        pgo_g1gc;       106.290
-      native-image;    unguarded_parametrized;        pgo_g1gc;       107.530
-      native-image;    unguarded_parametrized;        pgo_g1gc;       102.190
-      native-image;    unguarded_parametrized;        pgo_g1gc;       102.090
-      native-image;    unguarded_parametrized;        pgo_g1gc;       101.750
-      native-image;    unguarded_parametrized;        pgo_g1gc;       101.710
-      native-image;    unguarded_parametrized;        pgo_g1gc;       101.760
-      native-image;    unguarded_parametrized;        pgo_g1gc;       101.900
-      native-image;    unguarded_parametrized;        pgo_g1gc;        97.900
-      native-image;    unguarded_parametrized;        pgo_g1gc;       100.840
-      native-image;    unguarded_parametrized;        pgo_g1gc;        78.410
-openjdk-hotspot-vm;    unguarded_parametrized;         default;        16.890
-openjdk-hotspot-vm;    unguarded_parametrized;         default;        14.840
-openjdk-hotspot-vm;    unguarded_parametrized;         default;        17.280
-openjdk-hotspot-vm;    unguarded_parametrized;         default;       111.780
       native-image;                    lambda;         default;        22.880
       native-image;                    lambda;         default;        27.300
       native-image;                    lambda;         default;        21.380
@@ -349,110 +480,6 @@ openjdk-hotspot-vm;    unguarded_parametrized;         default;       111.780
       native-image;                    lambda;         default;        96.950
       native-image;                    lambda;         default;        94.910
       native-image;                    lambda;         default;        60.960
-     azul-prime-vm;                    lambda;         default;        17.490
-     azul-prime-vm;                    lambda;         default;        14.600
-     azul-prime-vm;                    lambda;         default;        14.480
-     azul-prime-vm;                    lambda;         default;       114.020
-     azul-prime-vm;                    lambda;         default;       110.370
-     azul-prime-vm;                    lambda;         default;       108.930
-     azul-prime-vm;                    lambda;         default;       107.850
-     azul-prime-vm;                    lambda;         default;        93.490
-     azul-prime-vm;      guarded_parametrized;         default;        14.470
-     azul-prime-vm;      guarded_parametrized;         default;        14.990
-     azul-prime-vm;      guarded_parametrized;         default;        15.450
-     azul-prime-vm;      guarded_parametrized;         default;       108.620
-     azul-prime-vm;      guarded_parametrized;         default;       110.050
-     azul-prime-vm;      guarded_parametrized;         default;       103.540
-     azul-prime-vm;      guarded_parametrized;         default;       109.330
-     azul-prime-vm;      guarded_parametrized;         default;       104.570
-     azul-prime-vm;      guarded_parametrized;         default;       107.470
-     azul-prime-vm;      guarded_parametrized;         default;       102.570
-      native-image;    guarded_unparametrized;        pgo_g1gc;         6.790
-      native-image;    guarded_unparametrized;        pgo_g1gc;         5.280
-      native-image;    guarded_unparametrized;        pgo_g1gc;         6.970
-      native-image;    guarded_unparametrized;        pgo_g1gc;        75.760
-      native-image;    guarded_unparametrized;        pgo_g1gc;        83.940
-      native-image;    guarded_unparametrized;        pgo_g1gc;        93.400
-      native-image;    guarded_unparametrized;        pgo_g1gc;        72.900
-      native-image;    guarded_unparametrized;        pgo_g1gc;        91.160
-      native-image;    guarded_unparametrized;        pgo_g1gc;        77.090
-      native-image;    guarded_unparametrized;        pgo_g1gc;       109.720
-      native-image;    guarded_unparametrized;        pgo_g1gc;       111.480
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.820
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.690
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.110
-      native-image;    guarded_unparametrized;        pgo_g1gc;        92.330
-      native-image;    guarded_unparametrized;        pgo_g1gc;        95.920
-      native-image;    guarded_unparametrized;        pgo_g1gc;        88.280
-      native-image;    guarded_unparametrized;        pgo_g1gc;       103.680
-      native-image;    guarded_unparametrized;        pgo_g1gc;        97.820
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.040
-      native-image;    guarded_unparametrized;        pgo_g1gc;       105.160
-      native-image;    guarded_unparametrized;        pgo_g1gc;       107.430
-      native-image;    guarded_unparametrized;        pgo_g1gc;       101.310
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.380
-      native-image;    guarded_unparametrized;        pgo_g1gc;       101.920
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.180
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.650
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.140
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.150
-      native-image;    guarded_unparametrized;        pgo_g1gc;       102.240
-      native-image;    guarded_unparametrized;        pgo_g1gc;        90.120
-      native-image;    guarded_unparametrized;        pgo_g1gc;        78.420
-      native-image;    guarded_unparametrized;        pgo_g1gc;        59.590
-    oracle-graalvm;      guarded_parametrized;         default;        15.150
-    oracle-graalvm;      guarded_parametrized;         default;        13.440
-    oracle-graalvm;      guarded_parametrized;         default;        16.410
-    oracle-graalvm;      guarded_parametrized;         default;        82.640
-        graalvm-ce;      guarded_parametrized;         default;        16.840
-        graalvm-ce;      guarded_parametrized;         default;        14.550
-        graalvm-ce;      guarded_parametrized;         default;        14.020
-        graalvm-ce;      guarded_parametrized;         default;        70.490
-        graalvm-ce;      guarded_parametrized;         default;       107.860
-      native-image;                    lambda;        pgo_g1gc;        19.530
-      native-image;                    lambda;        pgo_g1gc;        19.130
-      native-image;                    lambda;        pgo_g1gc;        46.220
-      native-image;                    lambda;        pgo_g1gc;       116.960
-      native-image;                    lambda;        pgo_g1gc;       106.710
-      native-image;                    lambda;        pgo_g1gc;       114.470
-      native-image;                    lambda;        pgo_g1gc;        77.580
-      native-image;                    lambda;        pgo_g1gc;       104.890
-      native-image;                    lambda;        pgo_g1gc;        88.580
-      native-image;                    lambda;        pgo_g1gc;        91.460
-      native-image;                    lambda;        pgo_g1gc;       126.100
-      native-image;                    lambda;        pgo_g1gc;       109.140
-      native-image;                    lambda;        pgo_g1gc;       107.540
-      native-image;                    lambda;        pgo_g1gc;       107.590
-      native-image;                    lambda;        pgo_g1gc;       106.050
-      native-image;                    lambda;        pgo_g1gc;       107.610
-      native-image;                    lambda;        pgo_g1gc;       112.080
-      native-image;                    lambda;        pgo_g1gc;       106.580
-      native-image;                    lambda;        pgo_g1gc;       102.590
-      native-image;                    lambda;        pgo_g1gc;       101.330
-      native-image;                    lambda;        pgo_g1gc;        85.110
-      native-image;                    lambda;        pgo_g1gc;       112.110
-      native-image;                    lambda;        pgo_g1gc;       113.340
-      native-image;                    lambda;        pgo_g1gc;       105.350
-      native-image;                    lambda;        pgo_g1gc;       105.310
-      native-image;                    lambda;        pgo_g1gc;       106.730
-      native-image;                    lambda;        pgo_g1gc;       106.480
-      native-image;                    lambda;        pgo_g1gc;       106.690
-      native-image;                    lambda;        pgo_g1gc;       105.680
-      native-image;                    lambda;        pgo_g1gc;       107.770
-      native-image;                    lambda;        pgo_g1gc;       104.430
-      native-image;                    lambda;        pgo_g1gc;       100.890
-      native-image;                    lambda;        pgo_g1gc;        79.660
- eclipse-openj9-vm;      guarded_parametrized;         default;        14.610
- eclipse-openj9-vm;      guarded_parametrized;         default;        15.690
- eclipse-openj9-vm;      guarded_parametrized;         default;        14.490
- eclipse-openj9-vm;      guarded_parametrized;         default;        59.000
- eclipse-openj9-vm;      guarded_parametrized;         default;        66.320
- eclipse-openj9-vm;      guarded_parametrized;         default;        71.050
-openjdk-hotspot-vm;                    lambda;         default;        19.190
-openjdk-hotspot-vm;                    lambda;         default;        17.540
-openjdk-hotspot-vm;                    lambda;         default;        18.380
-openjdk-hotspot-vm;                    lambda;         default;        98.260
-openjdk-hotspot-vm;                    lambda;         default;       114.450
      azul-prime-vm;    unguarded_parametrized;         default;        16.960
      azul-prime-vm;    unguarded_parametrized;         default;        13.150
      azul-prime-vm;    unguarded_parametrized;         default;        13.930
@@ -462,35 +489,8 @@ openjdk-hotspot-vm;                    lambda;         default;       114.450
      azul-prime-vm;    unguarded_parametrized;         default;       107.310
      azul-prime-vm;    unguarded_parametrized;         default;       104.940
      azul-prime-vm;    unguarded_parametrized;         default;        94.290
-      native-image;  unguarded_unparametrized;        pgo_g1gc;         7.260
-      native-image;  unguarded_unparametrized;        pgo_g1gc;         4.960
-      native-image;  unguarded_unparametrized;        pgo_g1gc;         7.780
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        64.630
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        71.670
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        75.630
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        71.100
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        88.070
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        67.480
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        89.310
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       120.240
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.000
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.030
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       102.270
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        99.430
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        82.340
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        98.850
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       105.620
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       105.470
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        95.150
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       111.310
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       104.050
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       104.200
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.300
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.730
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.610
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.980
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.300
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.820
-      native-image;  unguarded_unparametrized;        pgo_g1gc;       101.350
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        97.690
-      native-image;  unguarded_unparametrized;        pgo_g1gc;        87.130
+        graalvm-ce;      guarded_parametrized;         default;        16.840
+        graalvm-ce;      guarded_parametrized;         default;        14.550
+        graalvm-ce;      guarded_parametrized;         default;        14.020
+        graalvm-ce;      guarded_parametrized;         default;        70.490
+        graalvm-ce;      guarded_parametrized;         default;       107.860

@@ -1,31 +1,31 @@
           Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
-openjdk-hotspot-vm;               monomorphic;         default;               5;                 188.067
-     azul-prime-vm;             megamorphic_3;         default;               8;                 572.260
-    oracle-graalvm;               monomorphic;         default;               5;                 222.927
- eclipse-openj9-vm;             megamorphic_3;         default;               6;                 231.835
-      native-image;             megamorphic_8;         default;              35;                3205.581
-        graalvm-ce;                 bimorphic;         default;               5;                 195.877
-openjdk-hotspot-vm;             megamorphic_8;         default;               5;                 233.517
- eclipse-openj9-vm;                 bimorphic;         default;               6;                 218.295
-        graalvm-ce;             megamorphic_3;         default;               5;                 211.537
- eclipse-openj9-vm;               monomorphic;         default;               6;                 226.365
-    oracle-graalvm;             megamorphic_3;         default;               5;                 211.567
         graalvm-ce;             megamorphic_8;         default;               5;                 215.267
-openjdk-hotspot-vm;             megamorphic_3;         default;               5;                 193.367
-      native-image;               monomorphic;        pgo_g1gc;              30;                2603.994
-    oracle-graalvm;             megamorphic_8;         default;               5;                 212.987
-      native-image;             megamorphic_8;        pgo_g1gc;              30;                2553.194
-     azul-prime-vm;                 bimorphic;         default;               8;                 545.570
-      native-image;                 bimorphic;         default;              36;                3195.188
-        graalvm-ce;               monomorphic;         default;               5;                 212.157
-    oracle-graalvm;                 bimorphic;         default;               5;                 223.047
+openjdk-hotspot-vm;                 bimorphic;         default;               5;                 196.957
+        graalvm-ce;             megamorphic_3;         default;               5;                 211.537
  eclipse-openj9-vm;             megamorphic_8;         default;               6;                 223.385
-      native-image;             megamorphic_3;         default;              38;                3344.453
-      native-image;                 bimorphic;        pgo_g1gc;              30;                2647.454
+    oracle-graalvm;                 bimorphic;         default;               5;                 223.047
       native-image;               monomorphic;         default;              37;                3319.256
      azul-prime-vm;             megamorphic_8;         default;               9;                 673.277
-openjdk-hotspot-vm;                 bimorphic;         default;               5;                 196.957
+        graalvm-ce;               monomorphic;         default;               5;                 212.157
+openjdk-hotspot-vm;             megamorphic_3;         default;               5;                 193.367
+openjdk-hotspot-vm;             megamorphic_8;         default;               5;                 233.517
+    oracle-graalvm;               monomorphic;         default;               5;                 222.927
+     azul-prime-vm;                 bimorphic;         default;               8;                 545.570
+      native-image;             megamorphic_8;        pgo_g1gc;              30;                2553.194
+      native-image;             megamorphic_8;         default;              35;                3205.581
+      native-image;             megamorphic_3;         default;              38;                3344.453
+     azul-prime-vm;             megamorphic_3;         default;               8;                 572.260
+ eclipse-openj9-vm;                 bimorphic;         default;               6;                 218.295
+ eclipse-openj9-vm;             megamorphic_3;         default;               6;                 231.835
+        graalvm-ce;                 bimorphic;         default;               5;                 195.877
       native-image;             megamorphic_3;        pgo_g1gc;              29;                2556.216
      azul-prime-vm;               monomorphic;         default;               9;                 669.787
+      native-image;                 bimorphic;        pgo_g1gc;              30;                2647.454
+      native-image;                 bimorphic;         default;              36;                3195.188
+openjdk-hotspot-vm;               monomorphic;         default;               5;                 188.067
+ eclipse-openj9-vm;               monomorphic;         default;               6;                 226.365
+    oracle-graalvm;             megamorphic_8;         default;               5;                 212.987
+      native-image;               monomorphic;        pgo_g1gc;              30;                2603.994
+    oracle-graalvm;             megamorphic_3;         default;               5;                 211.567
 
 # Note: The power reference baseline has already been excluded from the energy scores

@@ -1,36 +1,36 @@
           Category;                      Type;  Run Identifier;  Throughput (Ops/sec)
-      native-image;    guarded_unparametrized;        pgo_g1gc;            168852.847
-     azul-prime-vm;    unguarded_parametrized;         default;            135033.156
-      native-image;    unguarded_parametrized;        pgo_g1gc;             75808.744
- eclipse-openj9-vm;    unguarded_parametrized;         default;             52734.746
- eclipse-openj9-vm;                    lambda;         default;            116315.448
-        graalvm-ce;    unguarded_parametrized;         default;             55394.896
-     azul-prime-vm;      guarded_parametrized;         default;            133630.126
-openjdk-hotspot-vm;    guarded_unparametrized;         default;             76808.919
-    oracle-graalvm;    unguarded_parametrized;         default;             63513.581
-      native-image;    guarded_unparametrized;         default;            175746.335
-openjdk-hotspot-vm;                    lambda;         default;            132630.968
-      native-image;      guarded_parametrized;         default;             90224.736
-        graalvm-ce;  unguarded_unparametrized;         default;            160682.307
-        graalvm-ce;                    lambda;         default;             83978.959
- eclipse-openj9-vm;  unguarded_unparametrized;         default;            115719.545
-    oracle-graalvm;      guarded_parametrized;         default;             62386.910
-      native-image;  unguarded_unparametrized;         default;            176781.972
-        graalvm-ce;      guarded_parametrized;         default;             57333.820
-      native-image;      guarded_parametrized;        pgo_g1gc;             77177.134
-    oracle-graalvm;                    lambda;         default;            172741.844
-      native-image;    unguarded_parametrized;         default;             90461.846
-    oracle-graalvm;  unguarded_unparametrized;         default;            158896.901
-      native-image;  unguarded_unparametrized;        pgo_g1gc;            173170.755
-     azul-prime-vm;                    lambda;         default;            173666.212
-      native-image;                    lambda;         default;            177813.688
-     azul-prime-vm;  unguarded_unparametrized;         default;             91604.609
-     azul-prime-vm;    guarded_unparametrized;         default;             91527.666
-      native-image;                    lambda;        pgo_g1gc;            171940.676
-openjdk-hotspot-vm;      guarded_parametrized;         default;             84617.276
- eclipse-openj9-vm;      guarded_parametrized;         default;             51102.966
-openjdk-hotspot-vm;  unguarded_unparametrized;         default;            135082.297
-        graalvm-ce;    guarded_unparametrized;         default;             80029.273
- eclipse-openj9-vm;    guarded_unparametrized;         default;            116839.346
 openjdk-hotspot-vm;    unguarded_parametrized;         default;             54561.977
+     azul-prime-vm;    unguarded_parametrized;         default;            135033.156
+openjdk-hotspot-vm;                    lambda;         default;            132630.968
+    oracle-graalvm;  unguarded_unparametrized;         default;            158896.901
+     azul-prime-vm;      guarded_parametrized;         default;            133630.126
+    oracle-graalvm;    unguarded_parametrized;         default;             63513.581
+     azul-prime-vm;    guarded_unparametrized;         default;             91527.666
+      native-image;  unguarded_unparametrized;        pgo_g1gc;            173170.755
+      native-image;      guarded_parametrized;        pgo_g1gc;             77177.134
+    oracle-graalvm;      guarded_parametrized;         default;             62386.910
+        graalvm-ce;      guarded_parametrized;         default;             57333.820
+      native-image;      guarded_parametrized;         default;             90224.736
+     azul-prime-vm;                    lambda;         default;            173666.212
+ eclipse-openj9-vm;                    lambda;         default;            116315.448
+        graalvm-ce;                    lambda;         default;             83978.959
+      native-image;                    lambda;        pgo_g1gc;            171940.676
+     azul-prime-vm;  unguarded_unparametrized;         default;             91604.609
+ eclipse-openj9-vm;      guarded_parametrized;         default;             51102.966
+    oracle-graalvm;                    lambda;         default;            172741.844
+        graalvm-ce;  unguarded_unparametrized;         default;            160682.307
+      native-image;    unguarded_parametrized;         default;             90461.846
+openjdk-hotspot-vm;      guarded_parametrized;         default;             84617.276
+ eclipse-openj9-vm;    unguarded_parametrized;         default;             52734.746
+      native-image;    guarded_unparametrized;         default;            175746.335
+      native-image;    guarded_unparametrized;        pgo_g1gc;            168852.847
+      native-image;  unguarded_unparametrized;         default;            176781.972
+      native-image;                    lambda;         default;            177813.688
+openjdk-hotspot-vm;    guarded_unparametrized;         default;             76808.919
+      native-image;    unguarded_parametrized;        pgo_g1gc;             75808.744
+        graalvm-ce;    guarded_unparametrized;         default;             80029.273
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;            135082.297
     oracle-graalvm;    guarded_unparametrized;         default;             83307.683
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;            115719.545
+        graalvm-ce;    unguarded_parametrized;         default;             55394.896
+ eclipse-openj9-vm;    guarded_unparametrized;         default;            116839.346

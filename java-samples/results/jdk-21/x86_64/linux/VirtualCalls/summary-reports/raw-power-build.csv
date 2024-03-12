@@ -1,298 +1,30 @@
           Category;                      Type;  Run Identifier;  Power (Watt)
-openjdk-hotspot-vm;               monomorphic;         default;        16.950
-openjdk-hotspot-vm;               monomorphic;         default;        13.260
-openjdk-hotspot-vm;               monomorphic;         default;        14.100
-openjdk-hotspot-vm;               monomorphic;         default;        69.690
-openjdk-hotspot-vm;               monomorphic;         default;        79.080
-     azul-prime-vm;             megamorphic_3;         default;        14.670
-     azul-prime-vm;             megamorphic_3;         default;        13.040
-     azul-prime-vm;             megamorphic_3;         default;        16.220
-     azul-prime-vm;             megamorphic_3;         default;       108.470
-     azul-prime-vm;             megamorphic_3;         default;       108.480
-     azul-prime-vm;             megamorphic_3;         default;       107.800
-     azul-prime-vm;             megamorphic_3;         default;       106.020
-     azul-prime-vm;             megamorphic_3;         default;       105.580
-    oracle-graalvm;               monomorphic;         default;        16.870
-    oracle-graalvm;               monomorphic;         default;        14.080
-    oracle-graalvm;               monomorphic;         default;        14.040
-    oracle-graalvm;               monomorphic;         default;        88.490
-    oracle-graalvm;               monomorphic;         default;        94.460
- eclipse-openj9-vm;             megamorphic_3;         default;        14.890
- eclipse-openj9-vm;             megamorphic_3;         default;        13.570
- eclipse-openj9-vm;             megamorphic_3;         default;        13.990
- eclipse-openj9-vm;             megamorphic_3;         default;        57.730
- eclipse-openj9-vm;             megamorphic_3;         default;        66.330
- eclipse-openj9-vm;             megamorphic_3;         default;        71.340
-      native-image;             megamorphic_8;         default;         8.150
-      native-image;             megamorphic_8;         default;         7.100
-      native-image;             megamorphic_8;         default;        13.420
-      native-image;             megamorphic_8;         default;        94.560
-      native-image;             megamorphic_8;         default;        90.330
-      native-image;             megamorphic_8;         default;        95.790
-      native-image;             megamorphic_8;         default;        81.730
-      native-image;             megamorphic_8;         default;        81.640
-      native-image;             megamorphic_8;         default;        78.250
-      native-image;             megamorphic_8;         default;       117.260
-      native-image;             megamorphic_8;         default;       105.990
-      native-image;             megamorphic_8;         default;       102.800
-      native-image;             megamorphic_8;         default;       102.410
-      native-image;             megamorphic_8;         default;       103.020
-      native-image;             megamorphic_8;         default;       108.010
-      native-image;             megamorphic_8;         default;       103.270
-      native-image;             megamorphic_8;         default;       102.180
-      native-image;             megamorphic_8;         default;       105.550
-      native-image;             megamorphic_8;         default;       107.670
-      native-image;             megamorphic_8;         default;        96.450
-      native-image;             megamorphic_8;         default;       103.110
-      native-image;             megamorphic_8;         default;       102.520
-      native-image;             megamorphic_8;         default;       101.770
-      native-image;             megamorphic_8;         default;       101.440
-      native-image;             megamorphic_8;         default;       102.330
-      native-image;             megamorphic_8;         default;       101.630
-      native-image;             megamorphic_8;         default;       101.880
-      native-image;             megamorphic_8;         default;       102.060
-      native-image;             megamorphic_8;         default;       105.070
-      native-image;             megamorphic_8;         default;       101.820
-      native-image;             megamorphic_8;         default;       103.690
-      native-image;             megamorphic_8;         default;       103.440
-      native-image;             megamorphic_8;         default;       104.640
-      native-image;             megamorphic_8;         default;        94.880
-      native-image;             megamorphic_8;         default;       104.810
-        graalvm-ce;                 bimorphic;         default;        15.860
-        graalvm-ce;                 bimorphic;         default;        12.990
-        graalvm-ce;                 bimorphic;         default;        14.130
-        graalvm-ce;                 bimorphic;         default;        76.030
-        graalvm-ce;                 bimorphic;         default;        81.880
-openjdk-hotspot-vm;             megamorphic_8;         default;        17.200
-openjdk-hotspot-vm;             megamorphic_8;         default;        13.600
-openjdk-hotspot-vm;             megamorphic_8;         default;        16.030
-openjdk-hotspot-vm;             megamorphic_8;         default;        95.920
-openjdk-hotspot-vm;             megamorphic_8;         default;        95.780
- eclipse-openj9-vm;                 bimorphic;         default;        15.110
- eclipse-openj9-vm;                 bimorphic;         default;        13.140
- eclipse-openj9-vm;                 bimorphic;         default;        14.170
- eclipse-openj9-vm;                 bimorphic;         default;        52.760
- eclipse-openj9-vm;                 bimorphic;         default;        63.310
- eclipse-openj9-vm;                 bimorphic;         default;        65.820
-        graalvm-ce;             megamorphic_3;         default;        15.000
-        graalvm-ce;             megamorphic_3;         default;        13.800
-        graalvm-ce;             megamorphic_3;         default;        15.420
-        graalvm-ce;             megamorphic_3;         default;        82.680
-        graalvm-ce;             megamorphic_3;         default;        89.650
- eclipse-openj9-vm;               monomorphic;         default;        16.960
- eclipse-openj9-vm;               monomorphic;         default;        13.180
- eclipse-openj9-vm;               monomorphic;         default;        16.660
- eclipse-openj9-vm;               monomorphic;         default;        56.790
- eclipse-openj9-vm;               monomorphic;         default;        61.750
- eclipse-openj9-vm;               monomorphic;         default;        67.040
-    oracle-graalvm;             megamorphic_3;         default;        16.980
-    oracle-graalvm;             megamorphic_3;         default;        15.270
-    oracle-graalvm;             megamorphic_3;         default;        14.370
-    oracle-graalvm;             megamorphic_3;         default;        82.030
-    oracle-graalvm;             megamorphic_3;         default;        87.930
         graalvm-ce;             megamorphic_8;         default;        17.260
         graalvm-ce;             megamorphic_8;         default;        13.340
         graalvm-ce;             megamorphic_8;         default;        16.020
         graalvm-ce;             megamorphic_8;         default;        71.390
         graalvm-ce;             megamorphic_8;         default;       102.270
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.200
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.580
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.470
-openjdk-hotspot-vm;             megamorphic_3;         default;        72.120
-openjdk-hotspot-vm;             megamorphic_3;         default;        80.010
-      native-image;               monomorphic;        pgo_g1gc;         4.710
-      native-image;               monomorphic;        pgo_g1gc;         2.250
-      native-image;               monomorphic;        pgo_g1gc;         5.340
-      native-image;               monomorphic;        pgo_g1gc;        94.030
-      native-image;               monomorphic;        pgo_g1gc;        96.310
-      native-image;               monomorphic;        pgo_g1gc;        78.410
-      native-image;               monomorphic;        pgo_g1gc;        84.670
-      native-image;               monomorphic;        pgo_g1gc;        80.560
-      native-image;               monomorphic;        pgo_g1gc;       108.700
-      native-image;               monomorphic;        pgo_g1gc;       114.110
-      native-image;               monomorphic;        pgo_g1gc;       104.000
-      native-image;               monomorphic;        pgo_g1gc;       101.330
-      native-image;               monomorphic;        pgo_g1gc;       102.420
-      native-image;               monomorphic;        pgo_g1gc;       100.430
-      native-image;               monomorphic;        pgo_g1gc;       105.750
-      native-image;               monomorphic;        pgo_g1gc;       107.670
-      native-image;               monomorphic;        pgo_g1gc;       102.210
-      native-image;               monomorphic;        pgo_g1gc;        99.820
-      native-image;               monomorphic;        pgo_g1gc;       107.860
-      native-image;               monomorphic;        pgo_g1gc;       101.920
-      native-image;               monomorphic;        pgo_g1gc;       101.800
-      native-image;               monomorphic;        pgo_g1gc;       101.930
-      native-image;               monomorphic;        pgo_g1gc;       102.280
-      native-image;               monomorphic;        pgo_g1gc;       102.420
-      native-image;               monomorphic;        pgo_g1gc;       101.760
-      native-image;               monomorphic;        pgo_g1gc;       101.710
-      native-image;               monomorphic;        pgo_g1gc;        95.160
-      native-image;               monomorphic;        pgo_g1gc;        95.880
-      native-image;               monomorphic;        pgo_g1gc;        67.850
-      native-image;               monomorphic;        pgo_g1gc;        60.780
-    oracle-graalvm;             megamorphic_8;         default;        15.440
-    oracle-graalvm;             megamorphic_8;         default;        13.720
-    oracle-graalvm;             megamorphic_8;         default;        15.680
-    oracle-graalvm;             megamorphic_8;         default;        81.260
-    oracle-graalvm;             megamorphic_8;         default;        91.900
-      native-image;             megamorphic_8;        pgo_g1gc;         4.990
-      native-image;             megamorphic_8;        pgo_g1gc;         2.240
-      native-image;             megamorphic_8;        pgo_g1gc;         5.460
-      native-image;             megamorphic_8;        pgo_g1gc;        90.810
-      native-image;             megamorphic_8;        pgo_g1gc;        83.750
-      native-image;             megamorphic_8;        pgo_g1gc;        88.730
-      native-image;             megamorphic_8;        pgo_g1gc;        70.510
-      native-image;             megamorphic_8;        pgo_g1gc;        74.470
-      native-image;             megamorphic_8;        pgo_g1gc;        67.460
-      native-image;             megamorphic_8;        pgo_g1gc;        74.200
-      native-image;             megamorphic_8;        pgo_g1gc;       117.390
-      native-image;             megamorphic_8;        pgo_g1gc;       102.740
-      native-image;             megamorphic_8;        pgo_g1gc;       103.540
-      native-image;             megamorphic_8;        pgo_g1gc;       104.490
-      native-image;             megamorphic_8;        pgo_g1gc;       100.010
-      native-image;             megamorphic_8;        pgo_g1gc;        97.480
-      native-image;             megamorphic_8;        pgo_g1gc;       114.030
-      native-image;             megamorphic_8;        pgo_g1gc;       101.450
-      native-image;             megamorphic_8;        pgo_g1gc;        99.220
-      native-image;             megamorphic_8;        pgo_g1gc;       107.620
-      native-image;             megamorphic_8;        pgo_g1gc;        96.460
-      native-image;             megamorphic_8;        pgo_g1gc;       107.340
-      native-image;             megamorphic_8;        pgo_g1gc;       101.980
-      native-image;             megamorphic_8;        pgo_g1gc;       102.080
-      native-image;             megamorphic_8;        pgo_g1gc;       101.860
-      native-image;             megamorphic_8;        pgo_g1gc;       101.970
-      native-image;             megamorphic_8;        pgo_g1gc;       101.090
-      native-image;             megamorphic_8;        pgo_g1gc;        97.050
-      native-image;             megamorphic_8;        pgo_g1gc;        99.720
-      native-image;             megamorphic_8;        pgo_g1gc;        63.130
-     azul-prime-vm;                 bimorphic;         default;        15.550
-     azul-prime-vm;                 bimorphic;         default;        12.990
-     azul-prime-vm;                 bimorphic;         default;        14.090
-     azul-prime-vm;                 bimorphic;         default;       109.340
-     azul-prime-vm;                 bimorphic;         default;       107.140
-     azul-prime-vm;                 bimorphic;         default;       108.740
-     azul-prime-vm;                 bimorphic;         default;       106.080
-     azul-prime-vm;                 bimorphic;         default;        79.660
-      native-image;                 bimorphic;         default;         9.400
-      native-image;                 bimorphic;         default;        10.110
-      native-image;                 bimorphic;         default;         8.100
-      native-image;                 bimorphic;         default;        67.460
-      native-image;                 bimorphic;         default;        72.490
-      native-image;                 bimorphic;         default;        78.530
-      native-image;                 bimorphic;         default;        61.370
-      native-image;                 bimorphic;         default;        90.950
-      native-image;                 bimorphic;         default;        74.800
-      native-image;                 bimorphic;         default;        83.840
-      native-image;                 bimorphic;         default;       120.400
-      native-image;                 bimorphic;         default;       103.750
-      native-image;                 bimorphic;         default;       102.340
-      native-image;                 bimorphic;         default;       102.190
-      native-image;                 bimorphic;         default;        97.530
-      native-image;                 bimorphic;         default;       101.290
-      native-image;                 bimorphic;         default;       115.350
-      native-image;                 bimorphic;         default;       106.000
-      native-image;                 bimorphic;         default;       107.840
-      native-image;                 bimorphic;         default;        97.750
-      native-image;                 bimorphic;         default;       105.950
-      native-image;                 bimorphic;         default;       101.470
-      native-image;                 bimorphic;         default;       100.780
-      native-image;                 bimorphic;         default;       103.410
-      native-image;                 bimorphic;         default;       102.290
-      native-image;                 bimorphic;         default;       101.910
-      native-image;                 bimorphic;         default;       102.670
-      native-image;                 bimorphic;         default;       102.300
-      native-image;                 bimorphic;         default;       101.990
-      native-image;                 bimorphic;         default;       103.480
-      native-image;                 bimorphic;         default;       104.600
-      native-image;                 bimorphic;         default;       104.040
-      native-image;                 bimorphic;         default;        98.660
-      native-image;                 bimorphic;         default;        95.750
-      native-image;                 bimorphic;         default;       101.870
-      native-image;                 bimorphic;         default;        88.620
-        graalvm-ce;               monomorphic;         default;        15.400
-        graalvm-ce;               monomorphic;         default;        13.530
-        graalvm-ce;               monomorphic;         default;        15.880
-        graalvm-ce;               monomorphic;         default;        71.070
-        graalvm-ce;               monomorphic;         default;       101.290
-    oracle-graalvm;                 bimorphic;         default;        15.230
-    oracle-graalvm;                 bimorphic;         default;        13.610
-    oracle-graalvm;                 bimorphic;         default;        13.910
-    oracle-graalvm;                 bimorphic;         default;        83.530
-    oracle-graalvm;                 bimorphic;         default;       101.780
+openjdk-hotspot-vm;                 bimorphic;         default;        16.210
+openjdk-hotspot-vm;                 bimorphic;         default;        13.710
+openjdk-hotspot-vm;                 bimorphic;         default;        13.700
+openjdk-hotspot-vm;                 bimorphic;         default;        72.330
+openjdk-hotspot-vm;                 bimorphic;         default;        86.020
+        graalvm-ce;             megamorphic_3;         default;        15.000
+        graalvm-ce;             megamorphic_3;         default;        13.800
+        graalvm-ce;             megamorphic_3;         default;        15.420
+        graalvm-ce;             megamorphic_3;         default;        82.680
+        graalvm-ce;             megamorphic_3;         default;        89.650
  eclipse-openj9-vm;             megamorphic_8;         default;        14.450
  eclipse-openj9-vm;             megamorphic_8;         default;        13.380
  eclipse-openj9-vm;             megamorphic_8;         default;        16.180
  eclipse-openj9-vm;             megamorphic_8;         default;        59.590
  eclipse-openj9-vm;             megamorphic_8;         default;        64.810
  eclipse-openj9-vm;             megamorphic_8;         default;        60.990
-      native-image;             megamorphic_3;         default;         9.030
-      native-image;             megamorphic_3;         default;         7.260
-      native-image;             megamorphic_3;         default;         9.150
-      native-image;             megamorphic_3;         default;        66.010
-      native-image;             megamorphic_3;         default;        73.680
-      native-image;             megamorphic_3;         default;        77.310
-      native-image;             megamorphic_3;         default;        79.710
-      native-image;             megamorphic_3;         default;        86.450
-      native-image;             megamorphic_3;         default;        78.450
-      native-image;             megamorphic_3;         default;       111.180
-      native-image;             megamorphic_3;         default;       105.050
-      native-image;             megamorphic_3;         default;       101.810
-      native-image;             megamorphic_3;         default;       103.940
-      native-image;             megamorphic_3;         default;       102.230
-      native-image;             megamorphic_3;         default;        97.820
-      native-image;             megamorphic_3;         default;        99.270
-      native-image;             megamorphic_3;         default;       113.530
-      native-image;             megamorphic_3;         default;       103.430
-      native-image;             megamorphic_3;         default;       102.720
-      native-image;             megamorphic_3;         default;       107.760
-      native-image;             megamorphic_3;         default;       100.000
-      native-image;             megamorphic_3;         default;       102.570
-      native-image;             megamorphic_3;         default;       102.430
-      native-image;             megamorphic_3;         default;       102.550
-      native-image;             megamorphic_3;         default;       101.520
-      native-image;             megamorphic_3;         default;       101.470
-      native-image;             megamorphic_3;         default;       102.390
-      native-image;             megamorphic_3;         default;       102.940
-      native-image;             megamorphic_3;         default;       103.370
-      native-image;             megamorphic_3;         default;       103.960
-      native-image;             megamorphic_3;         default;       102.410
-      native-image;             megamorphic_3;         default;        96.050
-      native-image;             megamorphic_3;         default;       101.670
-      native-image;             megamorphic_3;         default;       103.200
-      native-image;             megamorphic_3;         default;        93.730
-      native-image;             megamorphic_3;         default;       100.600
-      native-image;             megamorphic_3;         default;        77.770
-      native-image;             megamorphic_3;         default;        48.130
-      native-image;                 bimorphic;        pgo_g1gc;         4.150
-      native-image;                 bimorphic;        pgo_g1gc;         1.750
-      native-image;                 bimorphic;        pgo_g1gc;         5.550
-      native-image;                 bimorphic;        pgo_g1gc;        96.690
-      native-image;                 bimorphic;        pgo_g1gc;        94.190
-      native-image;                 bimorphic;        pgo_g1gc;        85.600
-      native-image;                 bimorphic;        pgo_g1gc;       105.890
-      native-image;                 bimorphic;        pgo_g1gc;        80.300
-      native-image;                 bimorphic;        pgo_g1gc;        89.390
-      native-image;                 bimorphic;        pgo_g1gc;       114.200
-      native-image;                 bimorphic;        pgo_g1gc;       105.470
-      native-image;                 bimorphic;        pgo_g1gc;       102.730
-      native-image;                 bimorphic;        pgo_g1gc;       102.150
-      native-image;                 bimorphic;        pgo_g1gc;       102.970
-      native-image;                 bimorphic;        pgo_g1gc;       106.540
-      native-image;                 bimorphic;        pgo_g1gc;        99.480
-      native-image;                 bimorphic;        pgo_g1gc;       110.710
-      native-image;                 bimorphic;        pgo_g1gc;       100.000
-      native-image;                 bimorphic;        pgo_g1gc;        90.970
-      native-image;                 bimorphic;        pgo_g1gc;       115.620
-      native-image;                 bimorphic;        pgo_g1gc;       103.540
-      native-image;                 bimorphic;        pgo_g1gc;       103.660
-      native-image;                 bimorphic;        pgo_g1gc;       103.430
-      native-image;                 bimorphic;        pgo_g1gc;       102.350
-      native-image;                 bimorphic;        pgo_g1gc;       101.860
-      native-image;                 bimorphic;        pgo_g1gc;       102.020
-      native-image;                 bimorphic;        pgo_g1gc;        99.460
-      native-image;                 bimorphic;        pgo_g1gc;        99.930
-      native-image;                 bimorphic;        pgo_g1gc;        78.450
-      native-image;                 bimorphic;        pgo_g1gc;        68.480
+    oracle-graalvm;                 bimorphic;         default;        15.230
+    oracle-graalvm;                 bimorphic;         default;        13.610
+    oracle-graalvm;                 bimorphic;         default;        13.910
+    oracle-graalvm;                 bimorphic;         default;        83.530
+    oracle-graalvm;                 bimorphic;         default;       101.780
       native-image;               monomorphic;         default;         8.400
       native-image;               monomorphic;         default;         6.850
       native-image;               monomorphic;         default;         7.940
@@ -339,11 +71,162 @@ openjdk-hotspot-vm;             megamorphic_3;         default;        80.010
      azul-prime-vm;             megamorphic_8;         default;       108.080
      azul-prime-vm;             megamorphic_8;         default;       105.260
      azul-prime-vm;             megamorphic_8;         default;       106.100
-openjdk-hotspot-vm;                 bimorphic;         default;        16.210
-openjdk-hotspot-vm;                 bimorphic;         default;        13.710
-openjdk-hotspot-vm;                 bimorphic;         default;        13.700
-openjdk-hotspot-vm;                 bimorphic;         default;        72.330
-openjdk-hotspot-vm;                 bimorphic;         default;        86.020
+        graalvm-ce;               monomorphic;         default;        15.400
+        graalvm-ce;               monomorphic;         default;        13.530
+        graalvm-ce;               monomorphic;         default;        15.880
+        graalvm-ce;               monomorphic;         default;        71.070
+        graalvm-ce;               monomorphic;         default;       101.290
+openjdk-hotspot-vm;             megamorphic_3;         default;        15.200
+openjdk-hotspot-vm;             megamorphic_3;         default;        15.580
+openjdk-hotspot-vm;             megamorphic_3;         default;        15.470
+openjdk-hotspot-vm;             megamorphic_3;         default;        72.120
+openjdk-hotspot-vm;             megamorphic_3;         default;        80.010
+openjdk-hotspot-vm;             megamorphic_8;         default;        17.200
+openjdk-hotspot-vm;             megamorphic_8;         default;        13.600
+openjdk-hotspot-vm;             megamorphic_8;         default;        16.030
+openjdk-hotspot-vm;             megamorphic_8;         default;        95.920
+openjdk-hotspot-vm;             megamorphic_8;         default;        95.780
+    oracle-graalvm;               monomorphic;         default;        16.870
+    oracle-graalvm;               monomorphic;         default;        14.080
+    oracle-graalvm;               monomorphic;         default;        14.040
+    oracle-graalvm;               monomorphic;         default;        88.490
+    oracle-graalvm;               monomorphic;         default;        94.460
+     azul-prime-vm;                 bimorphic;         default;        15.550
+     azul-prime-vm;                 bimorphic;         default;        12.990
+     azul-prime-vm;                 bimorphic;         default;        14.090
+     azul-prime-vm;                 bimorphic;         default;       109.340
+     azul-prime-vm;                 bimorphic;         default;       107.140
+     azul-prime-vm;                 bimorphic;         default;       108.740
+     azul-prime-vm;                 bimorphic;         default;       106.080
+     azul-prime-vm;                 bimorphic;         default;        79.660
+      native-image;             megamorphic_8;        pgo_g1gc;         4.990
+      native-image;             megamorphic_8;        pgo_g1gc;         2.240
+      native-image;             megamorphic_8;        pgo_g1gc;         5.460
+      native-image;             megamorphic_8;        pgo_g1gc;        90.810
+      native-image;             megamorphic_8;        pgo_g1gc;        83.750
+      native-image;             megamorphic_8;        pgo_g1gc;        88.730
+      native-image;             megamorphic_8;        pgo_g1gc;        70.510
+      native-image;             megamorphic_8;        pgo_g1gc;        74.470
+      native-image;             megamorphic_8;        pgo_g1gc;        67.460
+      native-image;             megamorphic_8;        pgo_g1gc;        74.200
+      native-image;             megamorphic_8;        pgo_g1gc;       117.390
+      native-image;             megamorphic_8;        pgo_g1gc;       102.740
+      native-image;             megamorphic_8;        pgo_g1gc;       103.540
+      native-image;             megamorphic_8;        pgo_g1gc;       104.490
+      native-image;             megamorphic_8;        pgo_g1gc;       100.010
+      native-image;             megamorphic_8;        pgo_g1gc;        97.480
+      native-image;             megamorphic_8;        pgo_g1gc;       114.030
+      native-image;             megamorphic_8;        pgo_g1gc;       101.450
+      native-image;             megamorphic_8;        pgo_g1gc;        99.220
+      native-image;             megamorphic_8;        pgo_g1gc;       107.620
+      native-image;             megamorphic_8;        pgo_g1gc;        96.460
+      native-image;             megamorphic_8;        pgo_g1gc;       107.340
+      native-image;             megamorphic_8;        pgo_g1gc;       101.980
+      native-image;             megamorphic_8;        pgo_g1gc;       102.080
+      native-image;             megamorphic_8;        pgo_g1gc;       101.860
+      native-image;             megamorphic_8;        pgo_g1gc;       101.970
+      native-image;             megamorphic_8;        pgo_g1gc;       101.090
+      native-image;             megamorphic_8;        pgo_g1gc;        97.050
+      native-image;             megamorphic_8;        pgo_g1gc;        99.720
+      native-image;             megamorphic_8;        pgo_g1gc;        63.130
+      native-image;             megamorphic_8;         default;         8.150
+      native-image;             megamorphic_8;         default;         7.100
+      native-image;             megamorphic_8;         default;        13.420
+      native-image;             megamorphic_8;         default;        94.560
+      native-image;             megamorphic_8;         default;        90.330
+      native-image;             megamorphic_8;         default;        95.790
+      native-image;             megamorphic_8;         default;        81.730
+      native-image;             megamorphic_8;         default;        81.640
+      native-image;             megamorphic_8;         default;        78.250
+      native-image;             megamorphic_8;         default;       117.260
+      native-image;             megamorphic_8;         default;       105.990
+      native-image;             megamorphic_8;         default;       102.800
+      native-image;             megamorphic_8;         default;       102.410
+      native-image;             megamorphic_8;         default;       103.020
+      native-image;             megamorphic_8;         default;       108.010
+      native-image;             megamorphic_8;         default;       103.270
+      native-image;             megamorphic_8;         default;       102.180
+      native-image;             megamorphic_8;         default;       105.550
+      native-image;             megamorphic_8;         default;       107.670
+      native-image;             megamorphic_8;         default;        96.450
+      native-image;             megamorphic_8;         default;       103.110
+      native-image;             megamorphic_8;         default;       102.520
+      native-image;             megamorphic_8;         default;       101.770
+      native-image;             megamorphic_8;         default;       101.440
+      native-image;             megamorphic_8;         default;       102.330
+      native-image;             megamorphic_8;         default;       101.630
+      native-image;             megamorphic_8;         default;       101.880
+      native-image;             megamorphic_8;         default;       102.060
+      native-image;             megamorphic_8;         default;       105.070
+      native-image;             megamorphic_8;         default;       101.820
+      native-image;             megamorphic_8;         default;       103.690
+      native-image;             megamorphic_8;         default;       103.440
+      native-image;             megamorphic_8;         default;       104.640
+      native-image;             megamorphic_8;         default;        94.880
+      native-image;             megamorphic_8;         default;       104.810
+      native-image;             megamorphic_3;         default;         9.030
+      native-image;             megamorphic_3;         default;         7.260
+      native-image;             megamorphic_3;         default;         9.150
+      native-image;             megamorphic_3;         default;        66.010
+      native-image;             megamorphic_3;         default;        73.680
+      native-image;             megamorphic_3;         default;        77.310
+      native-image;             megamorphic_3;         default;        79.710
+      native-image;             megamorphic_3;         default;        86.450
+      native-image;             megamorphic_3;         default;        78.450
+      native-image;             megamorphic_3;         default;       111.180
+      native-image;             megamorphic_3;         default;       105.050
+      native-image;             megamorphic_3;         default;       101.810
+      native-image;             megamorphic_3;         default;       103.940
+      native-image;             megamorphic_3;         default;       102.230
+      native-image;             megamorphic_3;         default;        97.820
+      native-image;             megamorphic_3;         default;        99.270
+      native-image;             megamorphic_3;         default;       113.530
+      native-image;             megamorphic_3;         default;       103.430
+      native-image;             megamorphic_3;         default;       102.720
+      native-image;             megamorphic_3;         default;       107.760
+      native-image;             megamorphic_3;         default;       100.000
+      native-image;             megamorphic_3;         default;       102.570
+      native-image;             megamorphic_3;         default;       102.430
+      native-image;             megamorphic_3;         default;       102.550
+      native-image;             megamorphic_3;         default;       101.520
+      native-image;             megamorphic_3;         default;       101.470
+      native-image;             megamorphic_3;         default;       102.390
+      native-image;             megamorphic_3;         default;       102.940
+      native-image;             megamorphic_3;         default;       103.370
+      native-image;             megamorphic_3;         default;       103.960
+      native-image;             megamorphic_3;         default;       102.410
+      native-image;             megamorphic_3;         default;        96.050
+      native-image;             megamorphic_3;         default;       101.670
+      native-image;             megamorphic_3;         default;       103.200
+      native-image;             megamorphic_3;         default;        93.730
+      native-image;             megamorphic_3;         default;       100.600
+      native-image;             megamorphic_3;         default;        77.770
+      native-image;             megamorphic_3;         default;        48.130
+     azul-prime-vm;             megamorphic_3;         default;        14.670
+     azul-prime-vm;             megamorphic_3;         default;        13.040
+     azul-prime-vm;             megamorphic_3;         default;        16.220
+     azul-prime-vm;             megamorphic_3;         default;       108.470
+     azul-prime-vm;             megamorphic_3;         default;       108.480
+     azul-prime-vm;             megamorphic_3;         default;       107.800
+     azul-prime-vm;             megamorphic_3;         default;       106.020
+     azul-prime-vm;             megamorphic_3;         default;       105.580
+ eclipse-openj9-vm;                 bimorphic;         default;        15.110
+ eclipse-openj9-vm;                 bimorphic;         default;        13.140
+ eclipse-openj9-vm;                 bimorphic;         default;        14.170
+ eclipse-openj9-vm;                 bimorphic;         default;        52.760
+ eclipse-openj9-vm;                 bimorphic;         default;        63.310
+ eclipse-openj9-vm;                 bimorphic;         default;        65.820
+ eclipse-openj9-vm;             megamorphic_3;         default;        14.890
+ eclipse-openj9-vm;             megamorphic_3;         default;        13.570
+ eclipse-openj9-vm;             megamorphic_3;         default;        13.990
+ eclipse-openj9-vm;             megamorphic_3;         default;        57.730
+ eclipse-openj9-vm;             megamorphic_3;         default;        66.330
+ eclipse-openj9-vm;             megamorphic_3;         default;        71.340
+        graalvm-ce;                 bimorphic;         default;        15.860
+        graalvm-ce;                 bimorphic;         default;        12.990
+        graalvm-ce;                 bimorphic;         default;        14.130
+        graalvm-ce;                 bimorphic;         default;        76.030
+        graalvm-ce;                 bimorphic;         default;        81.880
       native-image;             megamorphic_3;        pgo_g1gc;         4.630
       native-image;             megamorphic_3;        pgo_g1gc;         2.030
       native-image;             megamorphic_3;        pgo_g1gc;         5.630
@@ -382,3 +265,120 @@ openjdk-hotspot-vm;                 bimorphic;         default;        86.020
      azul-prime-vm;               monomorphic;         default;       108.030
      azul-prime-vm;               monomorphic;         default;       105.450
      azul-prime-vm;               monomorphic;         default;       100.910
+      native-image;                 bimorphic;        pgo_g1gc;         4.150
+      native-image;                 bimorphic;        pgo_g1gc;         1.750
+      native-image;                 bimorphic;        pgo_g1gc;         5.550
+      native-image;                 bimorphic;        pgo_g1gc;        96.690
+      native-image;                 bimorphic;        pgo_g1gc;        94.190
+      native-image;                 bimorphic;        pgo_g1gc;        85.600
+      native-image;                 bimorphic;        pgo_g1gc;       105.890
+      native-image;                 bimorphic;        pgo_g1gc;        80.300
+      native-image;                 bimorphic;        pgo_g1gc;        89.390
+      native-image;                 bimorphic;        pgo_g1gc;       114.200
+      native-image;                 bimorphic;        pgo_g1gc;       105.470
+      native-image;                 bimorphic;        pgo_g1gc;       102.730
+      native-image;                 bimorphic;        pgo_g1gc;       102.150
+      native-image;                 bimorphic;        pgo_g1gc;       102.970
+      native-image;                 bimorphic;        pgo_g1gc;       106.540
+      native-image;                 bimorphic;        pgo_g1gc;        99.480
+      native-image;                 bimorphic;        pgo_g1gc;       110.710
+      native-image;                 bimorphic;        pgo_g1gc;       100.000
+      native-image;                 bimorphic;        pgo_g1gc;        90.970
+      native-image;                 bimorphic;        pgo_g1gc;       115.620
+      native-image;                 bimorphic;        pgo_g1gc;       103.540
+      native-image;                 bimorphic;        pgo_g1gc;       103.660
+      native-image;                 bimorphic;        pgo_g1gc;       103.430
+      native-image;                 bimorphic;        pgo_g1gc;       102.350
+      native-image;                 bimorphic;        pgo_g1gc;       101.860
+      native-image;                 bimorphic;        pgo_g1gc;       102.020
+      native-image;                 bimorphic;        pgo_g1gc;        99.460
+      native-image;                 bimorphic;        pgo_g1gc;        99.930
+      native-image;                 bimorphic;        pgo_g1gc;        78.450
+      native-image;                 bimorphic;        pgo_g1gc;        68.480
+      native-image;                 bimorphic;         default;         9.400
+      native-image;                 bimorphic;         default;        10.110
+      native-image;                 bimorphic;         default;         8.100
+      native-image;                 bimorphic;         default;        67.460
+      native-image;                 bimorphic;         default;        72.490
+      native-image;                 bimorphic;         default;        78.530
+      native-image;                 bimorphic;         default;        61.370
+      native-image;                 bimorphic;         default;        90.950
+      native-image;                 bimorphic;         default;        74.800
+      native-image;                 bimorphic;         default;        83.840
+      native-image;                 bimorphic;         default;       120.400
+      native-image;                 bimorphic;         default;       103.750
+      native-image;                 bimorphic;         default;       102.340
+      native-image;                 bimorphic;         default;       102.190
+      native-image;                 bimorphic;         default;        97.530
+      native-image;                 bimorphic;         default;       101.290
+      native-image;                 bimorphic;         default;       115.350
+      native-image;                 bimorphic;         default;       106.000
+      native-image;                 bimorphic;         default;       107.840
+      native-image;                 bimorphic;         default;        97.750
+      native-image;                 bimorphic;         default;       105.950
+      native-image;                 bimorphic;         default;       101.470
+      native-image;                 bimorphic;         default;       100.780
+      native-image;                 bimorphic;         default;       103.410
+      native-image;                 bimorphic;         default;       102.290
+      native-image;                 bimorphic;         default;       101.910
+      native-image;                 bimorphic;         default;       102.670
+      native-image;                 bimorphic;         default;       102.300
+      native-image;                 bimorphic;         default;       101.990
+      native-image;                 bimorphic;         default;       103.480
+      native-image;                 bimorphic;         default;       104.600
+      native-image;                 bimorphic;         default;       104.040
+      native-image;                 bimorphic;         default;        98.660
+      native-image;                 bimorphic;         default;        95.750
+      native-image;                 bimorphic;         default;       101.870
+      native-image;                 bimorphic;         default;        88.620
+openjdk-hotspot-vm;               monomorphic;         default;        16.950
+openjdk-hotspot-vm;               monomorphic;         default;        13.260
+openjdk-hotspot-vm;               monomorphic;         default;        14.100
+openjdk-hotspot-vm;               monomorphic;         default;        69.690
+openjdk-hotspot-vm;               monomorphic;         default;        79.080
+ eclipse-openj9-vm;               monomorphic;         default;        16.960
+ eclipse-openj9-vm;               monomorphic;         default;        13.180
+ eclipse-openj9-vm;               monomorphic;         default;        16.660
+ eclipse-openj9-vm;               monomorphic;         default;        56.790
+ eclipse-openj9-vm;               monomorphic;         default;        61.750
+ eclipse-openj9-vm;               monomorphic;         default;        67.040
+    oracle-graalvm;             megamorphic_8;         default;        15.440
+    oracle-graalvm;             megamorphic_8;         default;        13.720
+    oracle-graalvm;             megamorphic_8;         default;        15.680
+    oracle-graalvm;             megamorphic_8;         default;        81.260
+    oracle-graalvm;             megamorphic_8;         default;        91.900
+      native-image;               monomorphic;        pgo_g1gc;         4.710
+      native-image;               monomorphic;        pgo_g1gc;         2.250
+      native-image;               monomorphic;        pgo_g1gc;         5.340
+      native-image;               monomorphic;        pgo_g1gc;        94.030
+      native-image;               monomorphic;        pgo_g1gc;        96.310
+      native-image;               monomorphic;        pgo_g1gc;        78.410
+      native-image;               monomorphic;        pgo_g1gc;        84.670
+      native-image;               monomorphic;        pgo_g1gc;        80.560
+      native-image;               monomorphic;        pgo_g1gc;       108.700
+      native-image;               monomorphic;        pgo_g1gc;       114.110
+      native-image;               monomorphic;        pgo_g1gc;       104.000
+      native-image;               monomorphic;        pgo_g1gc;       101.330
+      native-image;               monomorphic;        pgo_g1gc;       102.420
+      native-image;               monomorphic;        pgo_g1gc;       100.430
+      native-image;               monomorphic;        pgo_g1gc;       105.750
+      native-image;               monomorphic;        pgo_g1gc;       107.670
+      native-image;               monomorphic;        pgo_g1gc;       102.210
+      native-image;               monomorphic;        pgo_g1gc;        99.820
+      native-image;               monomorphic;        pgo_g1gc;       107.860
+      native-image;               monomorphic;        pgo_g1gc;       101.920
+      native-image;               monomorphic;        pgo_g1gc;       101.800
+      native-image;               monomorphic;        pgo_g1gc;       101.930
+      native-image;               monomorphic;        pgo_g1gc;       102.280
+      native-image;               monomorphic;        pgo_g1gc;       102.420
+      native-image;               monomorphic;        pgo_g1gc;       101.760
+      native-image;               monomorphic;        pgo_g1gc;       101.710
+      native-image;               monomorphic;        pgo_g1gc;        95.160
+      native-image;               monomorphic;        pgo_g1gc;        95.880
+      native-image;               monomorphic;        pgo_g1gc;        67.850
+      native-image;               monomorphic;        pgo_g1gc;        60.780
+    oracle-graalvm;             megamorphic_3;         default;        16.980
+    oracle-graalvm;             megamorphic_3;         default;        15.270
+    oracle-graalvm;             megamorphic_3;         default;        14.370
+    oracle-graalvm;             megamorphic_3;         default;        82.030
+    oracle-graalvm;             megamorphic_3;         default;        87.930

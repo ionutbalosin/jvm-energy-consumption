@@ -1,9 +1,99 @@
           Category;                      Type;  Run Identifier;  Power (Watt)
-    oracle-graalvm;                  platform;         default;        14.940
-    oracle-graalvm;                  platform;         default;        13.940
-    oracle-graalvm;                  platform;         default;        13.880
-    oracle-graalvm;                  platform;         default;        76.240
-    oracle-graalvm;                  platform;         default;        82.110
+openjdk-hotspot-vm;                  platform;         default;        15.220
+openjdk-hotspot-vm;                  platform;         default;        14.870
+openjdk-hotspot-vm;                  platform;         default;        16.400
+openjdk-hotspot-vm;                  platform;         default;        72.420
+openjdk-hotspot-vm;                  platform;         default;        84.880
+      native-image;                  platform;         default;         8.630
+      native-image;                  platform;         default;         7.780
+      native-image;                  platform;         default;         7.800
+      native-image;                  platform;         default;        77.270
+      native-image;                  platform;         default;        87.710
+      native-image;                  platform;         default;        93.500
+      native-image;                  platform;         default;       107.600
+      native-image;                  platform;         default;        92.860
+      native-image;                  platform;         default;       109.840
+      native-image;                  platform;         default;       105.340
+      native-image;                  platform;         default;       102.610
+      native-image;                  platform;         default;       103.150
+      native-image;                  platform;         default;       102.740
+      native-image;                  platform;         default;        94.910
+      native-image;                  platform;         default;       110.280
+      native-image;                  platform;         default;       105.930
+      native-image;                  platform;         default;       103.850
+      native-image;                  platform;         default;       103.360
+      native-image;                  platform;         default;       101.770
+      native-image;                  platform;         default;       101.920
+      native-image;                  platform;         default;       102.900
+      native-image;                  platform;         default;       103.280
+      native-image;                  platform;         default;       101.820
+      native-image;                  platform;         default;       104.240
+      native-image;                  platform;         default;       104.340
+      native-image;                  platform;         default;       105.000
+      native-image;                  platform;         default;       104.690
+      native-image;                  platform;         default;       104.910
+      native-image;                  platform;         default;       103.630
+      native-image;                  platform;         default;       101.890
+      native-image;                  platform;         default;        98.060
+      native-image;                  platform;         default;       102.520
+      native-image;                  platform;         default;       103.770
+      native-image;                  platform;         default;        97.230
+      native-image;                  platform;         default;        68.300
+      native-image;                  platform;         default;        69.540
+      native-image;                  platform;         default;        60.200
+    oracle-graalvm;                   virtual;         default;        15.110
+    oracle-graalvm;                   virtual;         default;        13.680
+    oracle-graalvm;                   virtual;         default;        15.600
+    oracle-graalvm;                   virtual;         default;        83.220
+    oracle-graalvm;                   virtual;         default;        90.600
+        graalvm-ce;                  platform;         default;        14.870
+        graalvm-ce;                  platform;         default;        13.690
+        graalvm-ce;                  platform;         default;        13.880
+        graalvm-ce;                  platform;         default;        77.180
+        graalvm-ce;                  platform;         default;        82.410
+ eclipse-openj9-vm;                  platform;         default;        14.420
+ eclipse-openj9-vm;                  platform;         default;        15.960
+ eclipse-openj9-vm;                  platform;         default;        13.850
+ eclipse-openj9-vm;                  platform;         default;        52.200
+ eclipse-openj9-vm;                  platform;         default;        59.610
+ eclipse-openj9-vm;                  platform;         default;        64.690
+      native-image;                  platform;        pgo_g1gc;         4.150
+      native-image;                  platform;        pgo_g1gc;         4.000
+      native-image;                  platform;        pgo_g1gc;         3.860
+      native-image;                  platform;        pgo_g1gc;        90.460
+      native-image;                  platform;        pgo_g1gc;        93.540
+      native-image;                  platform;        pgo_g1gc;        70.780
+      native-image;                  platform;        pgo_g1gc;        77.000
+      native-image;                  platform;        pgo_g1gc;        67.640
+      native-image;                  platform;        pgo_g1gc;        77.300
+      native-image;                  platform;        pgo_g1gc;       119.110
+      native-image;                  platform;        pgo_g1gc;       104.990
+      native-image;                  platform;        pgo_g1gc;       101.050
+      native-image;                  platform;        pgo_g1gc;       104.580
+      native-image;                  platform;        pgo_g1gc;       103.550
+      native-image;                  platform;        pgo_g1gc;        94.870
+      native-image;                  platform;        pgo_g1gc;       101.470
+      native-image;                  platform;        pgo_g1gc;       109.120
+      native-image;                  platform;        pgo_g1gc;       102.410
+      native-image;                  platform;        pgo_g1gc;        83.610
+      native-image;                  platform;        pgo_g1gc;       114.400
+      native-image;                  platform;        pgo_g1gc;       102.380
+      native-image;                  platform;        pgo_g1gc;       101.300
+      native-image;                  platform;        pgo_g1gc;       102.060
+      native-image;                  platform;        pgo_g1gc;       101.820
+      native-image;                  platform;        pgo_g1gc;       102.050
+      native-image;                  platform;        pgo_g1gc;       101.710
+      native-image;                  platform;        pgo_g1gc;       101.960
+      native-image;                  platform;        pgo_g1gc;       101.090
+      native-image;                  platform;        pgo_g1gc;        85.120
+      native-image;                  platform;        pgo_g1gc;        78.240
+      native-image;                  platform;        pgo_g1gc;        59.790
+ eclipse-openj9-vm;                   virtual;         default;        14.920
+ eclipse-openj9-vm;                   virtual;         default;        15.910
+ eclipse-openj9-vm;                   virtual;         default;        13.680
+ eclipse-openj9-vm;                   virtual;         default;        57.810
+ eclipse-openj9-vm;                   virtual;         default;        70.280
+ eclipse-openj9-vm;                   virtual;         default;        71.970
       native-image;                   virtual;         default;        11.130
       native-image;                   virtual;         default;         9.720
       native-image;                   virtual;         default;         7.350
@@ -42,124 +132,6 @@
       native-image;                   virtual;         default;        97.790
       native-image;                   virtual;         default;        77.420
       native-image;                   virtual;         default;        49.080
-      native-image;                  platform;         default;         8.630
-      native-image;                  platform;         default;         7.780
-      native-image;                  platform;         default;         7.800
-      native-image;                  platform;         default;        77.270
-      native-image;                  platform;         default;        87.710
-      native-image;                  platform;         default;        93.500
-      native-image;                  platform;         default;       107.600
-      native-image;                  platform;         default;        92.860
-      native-image;                  platform;         default;       109.840
-      native-image;                  platform;         default;       105.340
-      native-image;                  platform;         default;       102.610
-      native-image;                  platform;         default;       103.150
-      native-image;                  platform;         default;       102.740
-      native-image;                  platform;         default;        94.910
-      native-image;                  platform;         default;       110.280
-      native-image;                  platform;         default;       105.930
-      native-image;                  platform;         default;       103.850
-      native-image;                  platform;         default;       103.360
-      native-image;                  platform;         default;       101.770
-      native-image;                  platform;         default;       101.920
-      native-image;                  platform;         default;       102.900
-      native-image;                  platform;         default;       103.280
-      native-image;                  platform;         default;       101.820
-      native-image;                  platform;         default;       104.240
-      native-image;                  platform;         default;       104.340
-      native-image;                  platform;         default;       105.000
-      native-image;                  platform;         default;       104.690
-      native-image;                  platform;         default;       104.910
-      native-image;                  platform;         default;       103.630
-      native-image;                  platform;         default;       101.890
-      native-image;                  platform;         default;        98.060
-      native-image;                  platform;         default;       102.520
-      native-image;                  platform;         default;       103.770
-      native-image;                  platform;         default;        97.230
-      native-image;                  platform;         default;        68.300
-      native-image;                  platform;         default;        69.540
-      native-image;                  platform;         default;        60.200
- eclipse-openj9-vm;                   virtual;         default;        14.920
- eclipse-openj9-vm;                   virtual;         default;        15.910
- eclipse-openj9-vm;                   virtual;         default;        13.680
- eclipse-openj9-vm;                   virtual;         default;        57.810
- eclipse-openj9-vm;                   virtual;         default;        70.280
- eclipse-openj9-vm;                   virtual;         default;        71.970
-     azul-prime-vm;                   virtual;         default;        17.870
-     azul-prime-vm;                   virtual;         default;        15.310
-     azul-prime-vm;                   virtual;         default;        13.800
-     azul-prime-vm;                   virtual;         default;       106.270
-     azul-prime-vm;                   virtual;         default;       108.290
-     azul-prime-vm;                   virtual;         default;       105.310
-     azul-prime-vm;                   virtual;         default;       108.170
-     azul-prime-vm;                   virtual;         default;       104.860
-     azul-prime-vm;                   virtual;         default;       106.860
-        graalvm-ce;                  platform;         default;        14.870
-        graalvm-ce;                  platform;         default;        13.690
-        graalvm-ce;                  platform;         default;        13.880
-        graalvm-ce;                  platform;         default;        77.180
-        graalvm-ce;                  platform;         default;        82.410
-     azul-prime-vm;                  platform;         default;        14.800
-     azul-prime-vm;                  platform;         default;        13.120
-     azul-prime-vm;                  platform;         default;        13.930
-     azul-prime-vm;                  platform;         default;       109.880
-     azul-prime-vm;                  platform;         default;       108.600
-     azul-prime-vm;                  platform;         default;       104.930
-     azul-prime-vm;                  platform;         default;       106.950
-     azul-prime-vm;                  platform;         default;       106.050
-     azul-prime-vm;                  platform;         default;       102.730
-        graalvm-ce;                   virtual;         default;        14.980
-        graalvm-ce;                   virtual;         default;        17.420
-        graalvm-ce;                   virtual;         default;        13.790
-        graalvm-ce;                   virtual;         default;        77.060
-        graalvm-ce;                   virtual;         default;        80.840
- eclipse-openj9-vm;                  platform;         default;        14.420
- eclipse-openj9-vm;                  platform;         default;        15.960
- eclipse-openj9-vm;                  platform;         default;        13.850
- eclipse-openj9-vm;                  platform;         default;        52.200
- eclipse-openj9-vm;                  platform;         default;        59.610
- eclipse-openj9-vm;                  platform;         default;        64.690
-    oracle-graalvm;                   virtual;         default;        15.110
-    oracle-graalvm;                   virtual;         default;        13.680
-    oracle-graalvm;                   virtual;         default;        15.600
-    oracle-graalvm;                   virtual;         default;        83.220
-    oracle-graalvm;                   virtual;         default;        90.600
-openjdk-hotspot-vm;                  platform;         default;        15.220
-openjdk-hotspot-vm;                  platform;         default;        14.870
-openjdk-hotspot-vm;                  platform;         default;        16.400
-openjdk-hotspot-vm;                  platform;         default;        72.420
-openjdk-hotspot-vm;                  platform;         default;        84.880
-      native-image;                  platform;        pgo_g1gc;         4.150
-      native-image;                  platform;        pgo_g1gc;         4.000
-      native-image;                  platform;        pgo_g1gc;         3.860
-      native-image;                  platform;        pgo_g1gc;        90.460
-      native-image;                  platform;        pgo_g1gc;        93.540
-      native-image;                  platform;        pgo_g1gc;        70.780
-      native-image;                  platform;        pgo_g1gc;        77.000
-      native-image;                  platform;        pgo_g1gc;        67.640
-      native-image;                  platform;        pgo_g1gc;        77.300
-      native-image;                  platform;        pgo_g1gc;       119.110
-      native-image;                  platform;        pgo_g1gc;       104.990
-      native-image;                  platform;        pgo_g1gc;       101.050
-      native-image;                  platform;        pgo_g1gc;       104.580
-      native-image;                  platform;        pgo_g1gc;       103.550
-      native-image;                  platform;        pgo_g1gc;        94.870
-      native-image;                  platform;        pgo_g1gc;       101.470
-      native-image;                  platform;        pgo_g1gc;       109.120
-      native-image;                  platform;        pgo_g1gc;       102.410
-      native-image;                  platform;        pgo_g1gc;        83.610
-      native-image;                  platform;        pgo_g1gc;       114.400
-      native-image;                  platform;        pgo_g1gc;       102.380
-      native-image;                  platform;        pgo_g1gc;       101.300
-      native-image;                  platform;        pgo_g1gc;       102.060
-      native-image;                  platform;        pgo_g1gc;       101.820
-      native-image;                  platform;        pgo_g1gc;       102.050
-      native-image;                  platform;        pgo_g1gc;       101.710
-      native-image;                  platform;        pgo_g1gc;       101.960
-      native-image;                  platform;        pgo_g1gc;       101.090
-      native-image;                  platform;        pgo_g1gc;        85.120
-      native-image;                  platform;        pgo_g1gc;        78.240
-      native-image;                  platform;        pgo_g1gc;        59.790
       native-image;                   virtual;        pgo_g1gc;         5.940
       native-image;                   virtual;        pgo_g1gc;         5.420
       native-image;                   virtual;        pgo_g1gc;         3.890
@@ -194,8 +166,36 @@ openjdk-hotspot-vm;                  platform;         default;        84.880
       native-image;                   virtual;        pgo_g1gc;        69.830
       native-image;                   virtual;        pgo_g1gc;        63.140
       native-image;                   virtual;        pgo_g1gc;        48.020
+     azul-prime-vm;                   virtual;         default;        17.870
+     azul-prime-vm;                   virtual;         default;        15.310
+     azul-prime-vm;                   virtual;         default;        13.800
+     azul-prime-vm;                   virtual;         default;       106.270
+     azul-prime-vm;                   virtual;         default;       108.290
+     azul-prime-vm;                   virtual;         default;       105.310
+     azul-prime-vm;                   virtual;         default;       108.170
+     azul-prime-vm;                   virtual;         default;       104.860
+     azul-prime-vm;                   virtual;         default;       106.860
+    oracle-graalvm;                  platform;         default;        14.940
+    oracle-graalvm;                  platform;         default;        13.940
+    oracle-graalvm;                  platform;         default;        13.880
+    oracle-graalvm;                  platform;         default;        76.240
+    oracle-graalvm;                  platform;         default;        82.110
 openjdk-hotspot-vm;                   virtual;         default;        15.200
 openjdk-hotspot-vm;                   virtual;         default;        13.450
 openjdk-hotspot-vm;                   virtual;         default;        14.540
 openjdk-hotspot-vm;                   virtual;         default;       113.230
 openjdk-hotspot-vm;                   virtual;         default;       104.900
+     azul-prime-vm;                  platform;         default;        14.800
+     azul-prime-vm;                  platform;         default;        13.120
+     azul-prime-vm;                  platform;         default;        13.930
+     azul-prime-vm;                  platform;         default;       109.880
+     azul-prime-vm;                  platform;         default;       108.600
+     azul-prime-vm;                  platform;         default;       104.930
+     azul-prime-vm;                  platform;         default;       106.950
+     azul-prime-vm;                  platform;         default;       106.050
+     azul-prime-vm;                  platform;         default;       102.730
+        graalvm-ce;                   virtual;         default;        14.980
+        graalvm-ce;                   virtual;         default;        17.420
+        graalvm-ce;                   virtual;         default;        13.790
+        graalvm-ce;                   virtual;         default;        77.060
+        graalvm-ce;                   virtual;         default;        80.840

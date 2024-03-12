@@ -40,20 +40,20 @@
 <polyline points='744.65,389.21 744.65,36.82 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
 <polyline points='986.65,389.21 986.65,36.82 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
 <polyline points='1228.65,389.21 1228.65,36.82 ' style='stroke-width: 1.07; stroke: #F2F2F2; stroke-linecap: butt;' />
-<rect x='260.65' y='244.83' width='20.27' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
-<rect x='260.65' y='146.95' width='867.43' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF007F;' />
 <rect x='260.65' y='49.06' width='20.30' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FE6100;' />
-<rect x='260.65' y='98.00' width='25.52' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
+<rect x='260.65' y='195.89' width='1109.69' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
 <rect x='260.65' y='342.72' width='45.83' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #785EF0;' />
 <rect x='260.65' y='293.77' width='23.40' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #009E73;' />
-<rect x='260.65' y='195.89' width='1109.69' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
-<text x='283.03' y='266.03' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>418.869</text>
-<text x='1130.83' y='168.14' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='55.12px' lengthAdjust='spacingAndGlyphs'>17921.933</text>
+<rect x='260.65' y='146.95' width='867.43' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FF007F;' />
+<rect x='260.65' y='244.83' width='20.27' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
+<rect x='260.65' y='98.00' width='25.52' height='34.26' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
 <text x='283.06' y='70.25' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>419.459</text>
-<text x='288.28' y='119.20' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>527.369</text>
+<text x='1373.10' y='217.08' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='55.12px' lengthAdjust='spacingAndGlyphs'>22927.419</text>
 <text x='308.58' y='363.91' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>946.892</text>
 <text x='286.15' y='314.97' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>483.417</text>
-<text x='1373.10' y='217.08' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='55.12px' lengthAdjust='spacingAndGlyphs'>22927.419</text>
+<text x='1130.83' y='168.14' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='55.12px' lengthAdjust='spacingAndGlyphs'>17921.933</text>
+<text x='283.03' y='266.03' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>418.869</text>
+<text x='288.28' y='119.20' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='42.10px' lengthAdjust='spacingAndGlyphs'>527.369</text>
 <line x1='260.65' y1='389.21' x2='260.65' y2='36.82' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <text x='200.23' y='364.99' text-anchor='end' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='97.55px' lengthAdjust='spacingAndGlyphs'>azul-prime-vm</text>
 <text x='200.23' y='316.05' text-anchor='end' style='font-size: 14.40px;fill: #4D4D4D; font-family: "Liberation Sans";' textLength='122.85px' lengthAdjust='spacingAndGlyphs'>eclipse-openj9-vm</text>

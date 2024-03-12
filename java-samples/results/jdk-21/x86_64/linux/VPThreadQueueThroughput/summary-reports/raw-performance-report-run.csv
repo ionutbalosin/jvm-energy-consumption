@@ -1,13 +1,13 @@
           Category;                      Type;  Run Identifier;  Throughput (Ops/sec)
-      native-image;                   virtual;         default;                 0.139
-      native-image;                   virtual;        pgo_g1gc;                 0.320
-        graalvm-ce;                  platform;         default;                 0.401
-    oracle-graalvm;                  platform;         default;                 0.405
-    oracle-graalvm;                   virtual;         default;                 0.332
- eclipse-openj9-vm;                  platform;         default;                 0.303
 openjdk-hotspot-vm;                   virtual;         default;                 0.279
-        graalvm-ce;                   virtual;         default;                 0.296
-openjdk-hotspot-vm;                  platform;         default;                 0.262
+    oracle-graalvm;                   virtual;         default;                 0.332
+        graalvm-ce;                  platform;         default;                 0.401
+      native-image;                   virtual;         default;                 0.139
       native-image;                  platform;        pgo_g1gc;                 0.380
+ eclipse-openj9-vm;                  platform;         default;                 0.303
      azul-prime-vm;                  platform;         default;                 0.422
+openjdk-hotspot-vm;                  platform;         default;                 0.262
+        graalvm-ce;                   virtual;         default;                 0.296
+    oracle-graalvm;                  platform;         default;                 0.405
+      native-image;                   virtual;        pgo_g1gc;                 0.320
       native-image;                  platform;         default;                 0.377

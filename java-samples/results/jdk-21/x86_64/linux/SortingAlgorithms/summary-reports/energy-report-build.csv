@@ -1,24 +1,24 @@
           Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
-      native-image;                radix_sort;        pgo_g1gc;              30;                2531.394
-      native-image;                radix_sort;         default;              35;                3180.431
-     azul-prime-vm;                radix_sort;         default;               9;                 674.317
-      native-image;                merge_sort;        pgo_g1gc;              31;                2709.511
- eclipse-openj9-vm;                radix_sort;         default;               6;                 224.355
 openjdk-hotspot-vm;                quick_sort;         default;               4;                 157.940
-    oracle-graalvm;                radix_sort;         default;               5;                 189.487
-openjdk-hotspot-vm;                merge_sort;         default;               5;                 239.827
-        graalvm-ce;                radix_sort;         default;               5;                 201.817
-      native-image;                quick_sort;         default;              39;                3691.291
-      native-image;                quick_sort;        pgo_g1gc;              29;                2584.036
+      native-image;                merge_sort;        pgo_g1gc;              31;                2709.511
       native-image;                merge_sort;         default;              36;                3306.628
- eclipse-openj9-vm;                merge_sort;         default;               6;                 231.595
+openjdk-hotspot-vm;                radix_sort;         default;               4;                 155.410
+ eclipse-openj9-vm;                quick_sort;         default;               6;                 218.115
+     azul-prime-vm;                quick_sort;         default;               7;                 466.222
+     azul-prime-vm;                radix_sort;         default;               9;                 674.317
         graalvm-ce;                quick_sort;         default;               5;                 197.317
      azul-prime-vm;                merge_sort;         default;               9;                 671.757
+ eclipse-openj9-vm;                radix_sort;         default;               6;                 224.355
     oracle-graalvm;                merge_sort;         default;               5;                 207.007
-    oracle-graalvm;                quick_sort;         default;               5;                 196.937
+openjdk-hotspot-vm;                merge_sort;         default;               5;                 239.827
+      native-image;                radix_sort;         default;              35;                3180.431
+        graalvm-ce;                radix_sort;         default;               5;                 201.817
+      native-image;                quick_sort;         default;              39;                3691.291
         graalvm-ce;                merge_sort;         default;               5;                 196.327
-     azul-prime-vm;                quick_sort;         default;               7;                 466.222
- eclipse-openj9-vm;                quick_sort;         default;               6;                 218.115
-openjdk-hotspot-vm;                radix_sort;         default;               4;                 155.410
+    oracle-graalvm;                quick_sort;         default;               5;                 196.937
+    oracle-graalvm;                radix_sort;         default;               5;                 189.487
+ eclipse-openj9-vm;                merge_sort;         default;               6;                 231.595
+      native-image;                quick_sort;        pgo_g1gc;              29;                2584.036
+      native-image;                radix_sort;        pgo_g1gc;              30;                2531.394
 
 # Note: The power reference baseline has already been excluded from the energy scores

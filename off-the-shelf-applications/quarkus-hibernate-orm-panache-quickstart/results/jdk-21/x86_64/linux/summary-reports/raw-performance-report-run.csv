@@ -1,8 +1,8 @@
           Category;  Run Identifier;  Throughput (Ops/sec)
-openjdk-hotspot-vm;         default;             19014.330
-        graalvm-ce;         default;             18721.960
      azul-prime-vm;         default;             13562.010
  eclipse-openj9-vm;         default;             12228.140
-      native-image;         default;              9631.740
-    oracle-graalvm;         default;             19495.420
       native-image;        pgo_g1gc;             15703.720
+        graalvm-ce;         default;             18721.960
+      native-image;         default;              9631.740
+openjdk-hotspot-vm;         default;             19014.330
+    oracle-graalvm;         default;             19495.420

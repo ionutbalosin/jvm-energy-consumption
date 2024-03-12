@@ -1,24 +1,24 @@
           Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
- eclipse-openj9-vm;               random_heap;         default;            1216;               39306.654
-        graalvm-ce;               random_heap;         default;            1220;               39824.974
-      native-image;               random_page;         default;            1205;               45177.542
-     azul-prime-vm;               random_page;         default;            1223;               32697.906
- eclipse-openj9-vm;                    linear;         default;            1214;               56018.699
-        graalvm-ce;                    linear;         default;            1215;               56426.507
-openjdk-hotspot-vm;               random_page;         default;            1215;               48680.717
-openjdk-hotspot-vm;                    linear;         default;            1215;               58684.567
-    oracle-graalvm;               random_page;         default;            1215;               42902.607
-    oracle-graalvm;                    linear;         default;            1215;               58823.567
-      native-image;                    linear;        pgo_g1gc;            1207;               49448.997
     oracle-graalvm;               random_heap;         default;            1216;               32452.584
-      native-image;                    linear;         default;            1205;               57611.652
-openjdk-hotspot-vm;               random_heap;         default;            1218;               41513.459
-     azul-prime-vm;                    linear;         default;            1218;               33969.729
-      native-image;               random_page;        pgo_g1gc;            1207;               31281.087
-        graalvm-ce;               random_page;         default;            1215;               45513.327
+ eclipse-openj9-vm;                    linear;         default;            1214;               56018.699
+      native-image;                    linear;        pgo_g1gc;            1207;               49448.997
+    oracle-graalvm;               random_page;         default;            1215;               42902.607
  eclipse-openj9-vm;               random_page;         default;            1215;               32724.187
-      native-image;               random_heap;         default;            1207;               37322.257
+     azul-prime-vm;               random_page;         default;            1223;               32697.906
+ eclipse-openj9-vm;               random_heap;         default;            1216;               39306.654
      azul-prime-vm;               random_heap;         default;            1223;               32550.196
+     azul-prime-vm;                    linear;         default;            1218;               33969.729
+        graalvm-ce;               random_page;         default;            1215;               45513.327
+        graalvm-ce;                    linear;         default;            1215;               56426.507
+    oracle-graalvm;                    linear;         default;            1215;               58823.567
       native-image;               random_heap;        pgo_g1gc;            1215;               33463.187
+      native-image;                    linear;         default;            1205;               57611.652
+        graalvm-ce;               random_heap;         default;            1220;               39824.974
+      native-image;               random_heap;         default;            1207;               37322.257
+openjdk-hotspot-vm;               random_heap;         default;            1218;               41513.459
+      native-image;               random_page;         default;            1205;               45177.542
+      native-image;               random_page;        pgo_g1gc;            1207;               31281.087
+openjdk-hotspot-vm;                    linear;         default;            1215;               58684.567
+openjdk-hotspot-vm;               random_page;         default;            1215;               48680.717
 
 # Note: The power reference baseline has already been excluded from the energy scores

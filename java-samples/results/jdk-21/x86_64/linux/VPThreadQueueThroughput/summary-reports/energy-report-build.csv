@@ -1,17 +1,17 @@
           Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
-    oracle-graalvm;                  platform;         default;               5;                 196.097
-      native-image;                   virtual;         default;              38;                3407.933
+openjdk-hotspot-vm;                  platform;         default;               5;                 198.777
       native-image;                  platform;         default;              37;                3328.076
- eclipse-openj9-vm;                   virtual;         default;               6;                 238.555
-     azul-prime-vm;                   virtual;         default;               9;                 677.717
+    oracle-graalvm;                   virtual;         default;               5;                 213.197
         graalvm-ce;                  platform;         default;               5;                 197.017
+ eclipse-openj9-vm;                  platform;         default;               6;                 214.715
+      native-image;                  platform;        pgo_g1gc;              31;                2634.331
+ eclipse-openj9-vm;                   virtual;         default;               6;                 238.555
+      native-image;                   virtual;         default;              38;                3407.933
+      native-image;                   virtual;        pgo_g1gc;              34;                2893.983
+     azul-prime-vm;                   virtual;         default;               9;                 677.717
+    oracle-graalvm;                  platform;         default;               5;                 196.097
+openjdk-hotspot-vm;                   virtual;         default;               5;                 256.307
      azul-prime-vm;                  platform;         default;               9;                 671.967
         graalvm-ce;                   virtual;         default;               5;                 199.077
- eclipse-openj9-vm;                  platform;         default;               6;                 214.715
-    oracle-graalvm;                   virtual;         default;               5;                 213.197
-openjdk-hotspot-vm;                  platform;         default;               5;                 198.777
-      native-image;                  platform;        pgo_g1gc;              31;                2634.331
-      native-image;                   virtual;        pgo_g1gc;              34;                2893.983
-openjdk-hotspot-vm;                   virtual;         default;               5;                 256.307
 
 # Note: The power reference baseline has already been excluded from the energy scores

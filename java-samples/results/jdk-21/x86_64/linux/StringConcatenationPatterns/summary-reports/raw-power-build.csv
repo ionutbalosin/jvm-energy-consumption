@@ -1,144 +1,4 @@
           Category;                      Type;  Run Identifier;  Power (Watt)
-     azul-prime-vm;             plus_operator;         default;        14.770
-     azul-prime-vm;             plus_operator;         default;        13.370
-     azul-prime-vm;             plus_operator;         default;        13.760
-     azul-prime-vm;             plus_operator;         default;       107.030
-     azul-prime-vm;             plus_operator;         default;       109.100
-     azul-prime-vm;             plus_operator;         default;       107.070
-     azul-prime-vm;             plus_operator;         default;       105.270
-     azul-prime-vm;             plus_operator;         default;       105.390
-     azul-prime-vm;             plus_operator;         default;       106.570
-     azul-prime-vm;             plus_operator;         default;        73.370
-      native-image;           string_template;        pgo_g1gc;         5.020
-      native-image;           string_template;        pgo_g1gc;         2.640
-      native-image;           string_template;        pgo_g1gc;         4.620
-      native-image;           string_template;        pgo_g1gc;        65.200
-      native-image;           string_template;        pgo_g1gc;        91.130
-      native-image;           string_template;        pgo_g1gc;        80.430
-      native-image;           string_template;        pgo_g1gc;        95.560
-      native-image;           string_template;        pgo_g1gc;        84.250
-      native-image;           string_template;        pgo_g1gc;        92.220
-      native-image;           string_template;        pgo_g1gc;       118.290
-      native-image;           string_template;        pgo_g1gc;       107.360
-      native-image;           string_template;        pgo_g1gc;       103.190
-      native-image;           string_template;        pgo_g1gc;       102.310
-      native-image;           string_template;        pgo_g1gc;        98.600
-      native-image;           string_template;        pgo_g1gc;       103.150
-      native-image;           string_template;        pgo_g1gc;       108.710
-      native-image;           string_template;        pgo_g1gc;       102.880
-      native-image;           string_template;        pgo_g1gc;       102.990
-      native-image;           string_template;        pgo_g1gc;       102.230
-      native-image;           string_template;        pgo_g1gc;       110.560
-      native-image;           string_template;        pgo_g1gc;       103.090
-      native-image;           string_template;        pgo_g1gc;       103.860
-      native-image;           string_template;        pgo_g1gc;       103.090
-      native-image;           string_template;        pgo_g1gc;       103.160
-      native-image;           string_template;        pgo_g1gc;       102.990
-      native-image;           string_template;        pgo_g1gc;       102.790
-      native-image;           string_template;        pgo_g1gc;       103.140
-      native-image;           string_template;        pgo_g1gc;        97.640
-      native-image;           string_template;        pgo_g1gc;        83.840
-      native-image;           string_template;        pgo_g1gc;        65.820
-      native-image;           string_template;        pgo_g1gc;        56.880
- eclipse-openj9-vm;             plus_operator;         default;        15.030
- eclipse-openj9-vm;             plus_operator;         default;        13.190
- eclipse-openj9-vm;             plus_operator;         default;        13.900
- eclipse-openj9-vm;             plus_operator;         default;        57.400
- eclipse-openj9-vm;             plus_operator;         default;        62.430
- eclipse-openj9-vm;             plus_operator;         default;        62.510
-    oracle-graalvm;            string_builder;         default;        14.750
-    oracle-graalvm;            string_builder;         default;        13.600
-    oracle-graalvm;            string_builder;         default;        14.090
-    oracle-graalvm;            string_builder;         default;        83.160
-    oracle-graalvm;            string_builder;         default;        91.310
-      native-image;           string_template;         default;         8.570
-      native-image;           string_template;         default;         7.430
-      native-image;           string_template;         default;        10.270
-      native-image;           string_template;         default;        72.340
-      native-image;           string_template;         default;        89.890
-      native-image;           string_template;         default;        92.380
-      native-image;           string_template;         default;       102.370
-      native-image;           string_template;         default;        80.990
-      native-image;           string_template;         default;        80.100
-      native-image;           string_template;         default;       119.270
-      native-image;           string_template;         default;       103.170
-      native-image;           string_template;         default;        99.960
-      native-image;           string_template;         default;       106.370
-      native-image;           string_template;         default;       103.620
-      native-image;           string_template;         default;       102.150
-      native-image;           string_template;         default;       103.380
-      native-image;           string_template;         default;       105.240
-      native-image;           string_template;         default;       102.900
-      native-image;           string_template;         default;       102.660
-      native-image;           string_template;         default;        95.140
-      native-image;           string_template;         default;       108.480
-      native-image;           string_template;         default;       102.520
-      native-image;           string_template;         default;       100.400
-      native-image;           string_template;         default;       104.110
-      native-image;           string_template;         default;       101.530
-      native-image;           string_template;         default;       101.540
-      native-image;           string_template;         default;       102.450
-      native-image;           string_template;         default;       102.630
-      native-image;           string_template;         default;       104.540
-      native-image;           string_template;         default;       103.610
-      native-image;           string_template;         default;       105.720
-      native-image;           string_template;         default;       100.990
-      native-image;           string_template;         default;       100.070
-      native-image;           string_template;         default;       101.780
-      native-image;           string_template;         default;        83.450
-      native-image;           string_template;         default;        85.600
-      native-image;           string_template;         default;        68.550
-     azul-prime-vm;           string_template;         default;        14.620
-     azul-prime-vm;           string_template;         default;        15.510
-     azul-prime-vm;           string_template;         default;        14.980
-     azul-prime-vm;           string_template;         default;       111.340
-     azul-prime-vm;           string_template;         default;       107.740
-     azul-prime-vm;           string_template;         default;       105.350
-     azul-prime-vm;           string_template;         default;       106.430
-     azul-prime-vm;            string_builder;         default;        14.670
-     azul-prime-vm;            string_builder;         default;        13.560
-     azul-prime-vm;            string_builder;         default;        14.090
-     azul-prime-vm;            string_builder;         default;       111.120
-     azul-prime-vm;            string_builder;         default;       108.050
-     azul-prime-vm;            string_builder;         default;       106.770
-     azul-prime-vm;            string_builder;         default;       105.620
-     azul-prime-vm;            string_builder;         default;        73.510
-    oracle-graalvm;             plus_operator;         default;        16.750
-    oracle-graalvm;             plus_operator;         default;        14.140
-    oracle-graalvm;             plus_operator;         default;        15.180
-    oracle-graalvm;             plus_operator;         default;        80.990
-    oracle-graalvm;             plus_operator;         default;        89.210
-      native-image;             plus_operator;        pgo_g1gc;         7.050
-      native-image;             plus_operator;        pgo_g1gc;         5.460
-      native-image;             plus_operator;        pgo_g1gc;         5.060
-      native-image;             plus_operator;        pgo_g1gc;        70.360
-      native-image;             plus_operator;        pgo_g1gc;       104.960
-      native-image;             plus_operator;        pgo_g1gc;        79.700
-      native-image;             plus_operator;        pgo_g1gc;        99.620
-      native-image;             plus_operator;        pgo_g1gc;        80.020
-      native-image;             plus_operator;        pgo_g1gc;       114.580
-      native-image;             plus_operator;        pgo_g1gc;       104.330
-      native-image;             plus_operator;        pgo_g1gc;       104.200
-      native-image;             plus_operator;        pgo_g1gc;       102.160
-      native-image;             plus_operator;        pgo_g1gc;       101.810
-      native-image;             plus_operator;        pgo_g1gc;       103.830
-      native-image;             plus_operator;        pgo_g1gc;        92.240
-      native-image;             plus_operator;        pgo_g1gc;        97.400
-      native-image;             plus_operator;        pgo_g1gc;       111.760
-      native-image;             plus_operator;        pgo_g1gc;        97.220
-      native-image;             plus_operator;        pgo_g1gc;        93.620
-      native-image;             plus_operator;        pgo_g1gc;       113.490
-      native-image;             plus_operator;        pgo_g1gc;       101.610
-      native-image;             plus_operator;        pgo_g1gc;       102.240
-      native-image;             plus_operator;        pgo_g1gc;       102.620
-      native-image;             plus_operator;        pgo_g1gc;       102.580
-      native-image;             plus_operator;        pgo_g1gc;       102.560
-      native-image;             plus_operator;        pgo_g1gc;       104.310
-      native-image;             plus_operator;        pgo_g1gc;       103.410
-      native-image;             plus_operator;        pgo_g1gc;        85.120
-      native-image;             plus_operator;        pgo_g1gc;        71.010
-      native-image;             plus_operator;        pgo_g1gc;        57.650
-      native-image;             plus_operator;        pgo_g1gc;        39.880
       native-image;            string_builder;        pgo_g1gc;         4.670
       native-image;            string_builder;        pgo_g1gc;         2.220
       native-image;            string_builder;        pgo_g1gc;         5.680
@@ -170,79 +30,6 @@
       native-image;            string_builder;        pgo_g1gc;        86.290
       native-image;            string_builder;        pgo_g1gc;        72.200
       native-image;            string_builder;        pgo_g1gc;        68.200
-        graalvm-ce;             plus_operator;         default;        16.880
-        graalvm-ce;             plus_operator;         default;        13.610
-        graalvm-ce;             plus_operator;         default;        13.640
-        graalvm-ce;             plus_operator;         default;        86.670
-        graalvm-ce;             plus_operator;         default;        90.480
-        graalvm-ce;            string_builder;         default;        15.280
-        graalvm-ce;            string_builder;         default;        13.280
-        graalvm-ce;            string_builder;         default;        13.600
-        graalvm-ce;            string_builder;         default;        72.470
-        graalvm-ce;            string_builder;         default;        78.050
-openjdk-hotspot-vm;           string_template;         default;        16.790
-openjdk-hotspot-vm;           string_template;         default;        13.840
-openjdk-hotspot-vm;           string_template;         default;        14.660
-openjdk-hotspot-vm;           string_template;         default;       111.410
- eclipse-openj9-vm;            string_builder;         default;        14.600
- eclipse-openj9-vm;            string_builder;         default;        16.080
- eclipse-openj9-vm;            string_builder;         default;        16.030
- eclipse-openj9-vm;            string_builder;         default;        58.300
- eclipse-openj9-vm;            string_builder;         default;        65.140
- eclipse-openj9-vm;            string_builder;         default;        69.060
-        graalvm-ce;           string_template;         default;        14.920
-        graalvm-ce;           string_template;         default;        15.870
-        graalvm-ce;           string_template;         default;        13.930
-        graalvm-ce;           string_template;         default;        79.780
-        graalvm-ce;           string_template;         default;        83.890
- eclipse-openj9-vm;           string_template;         default;        16.450
- eclipse-openj9-vm;           string_template;         default;        14.420
- eclipse-openj9-vm;           string_template;         default;        14.670
- eclipse-openj9-vm;           string_template;         default;        58.160
- eclipse-openj9-vm;           string_template;         default;        66.170
- eclipse-openj9-vm;           string_template;         default;        63.780
-      native-image;            string_builder;         default;        11.370
-      native-image;            string_builder;         default;         7.640
-      native-image;            string_builder;         default;        10.530
-      native-image;            string_builder;         default;        68.760
-      native-image;            string_builder;         default;        85.550
-      native-image;            string_builder;         default;        94.280
-      native-image;            string_builder;         default;       101.530
-      native-image;            string_builder;         default;        92.360
-      native-image;            string_builder;         default;       110.250
-      native-image;            string_builder;         default;       104.540
-      native-image;            string_builder;         default;       105.190
-      native-image;            string_builder;         default;       102.020
-      native-image;            string_builder;         default;       103.130
-      native-image;            string_builder;         default;        96.100
-      native-image;            string_builder;         default;       108.400
-      native-image;            string_builder;         default;       105.960
-      native-image;            string_builder;         default;       107.640
-      native-image;            string_builder;         default;       104.930
-      native-image;            string_builder;         default;        99.990
-      native-image;            string_builder;         default;       105.420
-      native-image;            string_builder;         default;       103.040
-      native-image;            string_builder;         default;       100.860
-      native-image;            string_builder;         default;       103.090
-      native-image;            string_builder;         default;       102.500
-      native-image;            string_builder;         default;       101.990
-      native-image;            string_builder;         default;       102.370
-      native-image;            string_builder;         default;       104.180
-      native-image;            string_builder;         default;       102.970
-      native-image;            string_builder;         default;       103.880
-      native-image;            string_builder;         default;       103.630
-      native-image;            string_builder;         default;       101.440
-      native-image;            string_builder;         default;        98.570
-      native-image;            string_builder;         default;       100.400
-      native-image;            string_builder;         default;        84.930
-      native-image;            string_builder;         default;        85.680
-      native-image;            string_builder;         default;        74.480
-      native-image;            string_builder;         default;        48.530
-openjdk-hotspot-vm;             plus_operator;         default;        16.400
-openjdk-hotspot-vm;             plus_operator;         default;        14.270
-openjdk-hotspot-vm;             plus_operator;         default;        17.260
-openjdk-hotspot-vm;             plus_operator;         default;        94.890
-openjdk-hotspot-vm;             plus_operator;         default;       110.800
       native-image;             plus_operator;         default;         8.400
       native-image;             plus_operator;         default;         7.120
       native-image;             plus_operator;         default;         9.430
@@ -280,12 +67,225 @@ openjdk-hotspot-vm;             plus_operator;         default;       110.800
       native-image;             plus_operator;         default;        86.690
       native-image;             plus_operator;         default;        82.270
       native-image;             plus_operator;         default;        68.590
+ eclipse-openj9-vm;            string_builder;         default;        14.600
+ eclipse-openj9-vm;            string_builder;         default;        16.080
+ eclipse-openj9-vm;            string_builder;         default;        16.030
+ eclipse-openj9-vm;            string_builder;         default;        58.300
+ eclipse-openj9-vm;            string_builder;         default;        65.140
+ eclipse-openj9-vm;            string_builder;         default;        69.060
+ eclipse-openj9-vm;             plus_operator;         default;        15.030
+ eclipse-openj9-vm;             plus_operator;         default;        13.190
+ eclipse-openj9-vm;             plus_operator;         default;        13.900
+ eclipse-openj9-vm;             plus_operator;         default;        57.400
+ eclipse-openj9-vm;             plus_operator;         default;        62.430
+ eclipse-openj9-vm;             plus_operator;         default;        62.510
+     azul-prime-vm;            string_builder;         default;        14.670
+     azul-prime-vm;            string_builder;         default;        13.560
+     azul-prime-vm;            string_builder;         default;        14.090
+     azul-prime-vm;            string_builder;         default;       111.120
+     azul-prime-vm;            string_builder;         default;       108.050
+     azul-prime-vm;            string_builder;         default;       106.770
+     azul-prime-vm;            string_builder;         default;       105.620
+     azul-prime-vm;            string_builder;         default;        73.510
+     azul-prime-vm;           string_template;         default;        14.620
+     azul-prime-vm;           string_template;         default;        15.510
+     azul-prime-vm;           string_template;         default;        14.980
+     azul-prime-vm;           string_template;         default;       111.340
+     azul-prime-vm;           string_template;         default;       107.740
+     azul-prime-vm;           string_template;         default;       105.350
+     azul-prime-vm;           string_template;         default;       106.430
+     azul-prime-vm;             plus_operator;         default;        14.770
+     azul-prime-vm;             plus_operator;         default;        13.370
+     azul-prime-vm;             plus_operator;         default;        13.760
+     azul-prime-vm;             plus_operator;         default;       107.030
+     azul-prime-vm;             plus_operator;         default;       109.100
+     azul-prime-vm;             plus_operator;         default;       107.070
+     azul-prime-vm;             plus_operator;         default;       105.270
+     azul-prime-vm;             plus_operator;         default;       105.390
+     azul-prime-vm;             plus_operator;         default;       106.570
+     azul-prime-vm;             plus_operator;         default;        73.370
+      native-image;           string_template;         default;         8.570
+      native-image;           string_template;         default;         7.430
+      native-image;           string_template;         default;        10.270
+      native-image;           string_template;         default;        72.340
+      native-image;           string_template;         default;        89.890
+      native-image;           string_template;         default;        92.380
+      native-image;           string_template;         default;       102.370
+      native-image;           string_template;         default;        80.990
+      native-image;           string_template;         default;        80.100
+      native-image;           string_template;         default;       119.270
+      native-image;           string_template;         default;       103.170
+      native-image;           string_template;         default;        99.960
+      native-image;           string_template;         default;       106.370
+      native-image;           string_template;         default;       103.620
+      native-image;           string_template;         default;       102.150
+      native-image;           string_template;         default;       103.380
+      native-image;           string_template;         default;       105.240
+      native-image;           string_template;         default;       102.900
+      native-image;           string_template;         default;       102.660
+      native-image;           string_template;         default;        95.140
+      native-image;           string_template;         default;       108.480
+      native-image;           string_template;         default;       102.520
+      native-image;           string_template;         default;       100.400
+      native-image;           string_template;         default;       104.110
+      native-image;           string_template;         default;       101.530
+      native-image;           string_template;         default;       101.540
+      native-image;           string_template;         default;       102.450
+      native-image;           string_template;         default;       102.630
+      native-image;           string_template;         default;       104.540
+      native-image;           string_template;         default;       103.610
+      native-image;           string_template;         default;       105.720
+      native-image;           string_template;         default;       100.990
+      native-image;           string_template;         default;       100.070
+      native-image;           string_template;         default;       101.780
+      native-image;           string_template;         default;        83.450
+      native-image;           string_template;         default;        85.600
+      native-image;           string_template;         default;        68.550
+    oracle-graalvm;             plus_operator;         default;        16.750
+    oracle-graalvm;             plus_operator;         default;        14.140
+    oracle-graalvm;             plus_operator;         default;        15.180
+    oracle-graalvm;             plus_operator;         default;        80.990
+    oracle-graalvm;             plus_operator;         default;        89.210
+ eclipse-openj9-vm;           string_template;         default;        16.450
+ eclipse-openj9-vm;           string_template;         default;        14.420
+ eclipse-openj9-vm;           string_template;         default;        14.670
+ eclipse-openj9-vm;           string_template;         default;        58.160
+ eclipse-openj9-vm;           string_template;         default;        66.170
+ eclipse-openj9-vm;           string_template;         default;        63.780
+        graalvm-ce;            string_builder;         default;        15.280
+        graalvm-ce;            string_builder;         default;        13.280
+        graalvm-ce;            string_builder;         default;        13.600
+        graalvm-ce;            string_builder;         default;        72.470
+        graalvm-ce;            string_builder;         default;        78.050
+openjdk-hotspot-vm;             plus_operator;         default;        16.400
+openjdk-hotspot-vm;             plus_operator;         default;        14.270
+openjdk-hotspot-vm;             plus_operator;         default;        17.260
+openjdk-hotspot-vm;             plus_operator;         default;        94.890
+openjdk-hotspot-vm;             plus_operator;         default;       110.800
+      native-image;             plus_operator;        pgo_g1gc;         7.050
+      native-image;             plus_operator;        pgo_g1gc;         5.460
+      native-image;             plus_operator;        pgo_g1gc;         5.060
+      native-image;             plus_operator;        pgo_g1gc;        70.360
+      native-image;             plus_operator;        pgo_g1gc;       104.960
+      native-image;             plus_operator;        pgo_g1gc;        79.700
+      native-image;             plus_operator;        pgo_g1gc;        99.620
+      native-image;             plus_operator;        pgo_g1gc;        80.020
+      native-image;             plus_operator;        pgo_g1gc;       114.580
+      native-image;             plus_operator;        pgo_g1gc;       104.330
+      native-image;             plus_operator;        pgo_g1gc;       104.200
+      native-image;             plus_operator;        pgo_g1gc;       102.160
+      native-image;             plus_operator;        pgo_g1gc;       101.810
+      native-image;             plus_operator;        pgo_g1gc;       103.830
+      native-image;             plus_operator;        pgo_g1gc;        92.240
+      native-image;             plus_operator;        pgo_g1gc;        97.400
+      native-image;             plus_operator;        pgo_g1gc;       111.760
+      native-image;             plus_operator;        pgo_g1gc;        97.220
+      native-image;             plus_operator;        pgo_g1gc;        93.620
+      native-image;             plus_operator;        pgo_g1gc;       113.490
+      native-image;             plus_operator;        pgo_g1gc;       101.610
+      native-image;             plus_operator;        pgo_g1gc;       102.240
+      native-image;             plus_operator;        pgo_g1gc;       102.620
+      native-image;             plus_operator;        pgo_g1gc;       102.580
+      native-image;             plus_operator;        pgo_g1gc;       102.560
+      native-image;             plus_operator;        pgo_g1gc;       104.310
+      native-image;             plus_operator;        pgo_g1gc;       103.410
+      native-image;             plus_operator;        pgo_g1gc;        85.120
+      native-image;             plus_operator;        pgo_g1gc;        71.010
+      native-image;             plus_operator;        pgo_g1gc;        57.650
+      native-image;             plus_operator;        pgo_g1gc;        39.880
+        graalvm-ce;             plus_operator;         default;        16.880
+        graalvm-ce;             plus_operator;         default;        13.610
+        graalvm-ce;             plus_operator;         default;        13.640
+        graalvm-ce;             plus_operator;         default;        86.670
+        graalvm-ce;             plus_operator;         default;        90.480
+        graalvm-ce;           string_template;         default;        14.920
+        graalvm-ce;           string_template;         default;        15.870
+        graalvm-ce;           string_template;         default;        13.930
+        graalvm-ce;           string_template;         default;        79.780
+        graalvm-ce;           string_template;         default;        83.890
+      native-image;            string_builder;         default;        11.370
+      native-image;            string_builder;         default;         7.640
+      native-image;            string_builder;         default;        10.530
+      native-image;            string_builder;         default;        68.760
+      native-image;            string_builder;         default;        85.550
+      native-image;            string_builder;         default;        94.280
+      native-image;            string_builder;         default;       101.530
+      native-image;            string_builder;         default;        92.360
+      native-image;            string_builder;         default;       110.250
+      native-image;            string_builder;         default;       104.540
+      native-image;            string_builder;         default;       105.190
+      native-image;            string_builder;         default;       102.020
+      native-image;            string_builder;         default;       103.130
+      native-image;            string_builder;         default;        96.100
+      native-image;            string_builder;         default;       108.400
+      native-image;            string_builder;         default;       105.960
+      native-image;            string_builder;         default;       107.640
+      native-image;            string_builder;         default;       104.930
+      native-image;            string_builder;         default;        99.990
+      native-image;            string_builder;         default;       105.420
+      native-image;            string_builder;         default;       103.040
+      native-image;            string_builder;         default;       100.860
+      native-image;            string_builder;         default;       103.090
+      native-image;            string_builder;         default;       102.500
+      native-image;            string_builder;         default;       101.990
+      native-image;            string_builder;         default;       102.370
+      native-image;            string_builder;         default;       104.180
+      native-image;            string_builder;         default;       102.970
+      native-image;            string_builder;         default;       103.880
+      native-image;            string_builder;         default;       103.630
+      native-image;            string_builder;         default;       101.440
+      native-image;            string_builder;         default;        98.570
+      native-image;            string_builder;         default;       100.400
+      native-image;            string_builder;         default;        84.930
+      native-image;            string_builder;         default;        85.680
+      native-image;            string_builder;         default;        74.480
+      native-image;            string_builder;         default;        48.530
+openjdk-hotspot-vm;            string_builder;         default;        16.350
+openjdk-hotspot-vm;            string_builder;         default;        14.230
+openjdk-hotspot-vm;            string_builder;         default;        14.680
+openjdk-hotspot-vm;            string_builder;         default;       112.330
+      native-image;           string_template;        pgo_g1gc;         5.020
+      native-image;           string_template;        pgo_g1gc;         2.640
+      native-image;           string_template;        pgo_g1gc;         4.620
+      native-image;           string_template;        pgo_g1gc;        65.200
+      native-image;           string_template;        pgo_g1gc;        91.130
+      native-image;           string_template;        pgo_g1gc;        80.430
+      native-image;           string_template;        pgo_g1gc;        95.560
+      native-image;           string_template;        pgo_g1gc;        84.250
+      native-image;           string_template;        pgo_g1gc;        92.220
+      native-image;           string_template;        pgo_g1gc;       118.290
+      native-image;           string_template;        pgo_g1gc;       107.360
+      native-image;           string_template;        pgo_g1gc;       103.190
+      native-image;           string_template;        pgo_g1gc;       102.310
+      native-image;           string_template;        pgo_g1gc;        98.600
+      native-image;           string_template;        pgo_g1gc;       103.150
+      native-image;           string_template;        pgo_g1gc;       108.710
+      native-image;           string_template;        pgo_g1gc;       102.880
+      native-image;           string_template;        pgo_g1gc;       102.990
+      native-image;           string_template;        pgo_g1gc;       102.230
+      native-image;           string_template;        pgo_g1gc;       110.560
+      native-image;           string_template;        pgo_g1gc;       103.090
+      native-image;           string_template;        pgo_g1gc;       103.860
+      native-image;           string_template;        pgo_g1gc;       103.090
+      native-image;           string_template;        pgo_g1gc;       103.160
+      native-image;           string_template;        pgo_g1gc;       102.990
+      native-image;           string_template;        pgo_g1gc;       102.790
+      native-image;           string_template;        pgo_g1gc;       103.140
+      native-image;           string_template;        pgo_g1gc;        97.640
+      native-image;           string_template;        pgo_g1gc;        83.840
+      native-image;           string_template;        pgo_g1gc;        65.820
+      native-image;           string_template;        pgo_g1gc;        56.880
+openjdk-hotspot-vm;           string_template;         default;        16.790
+openjdk-hotspot-vm;           string_template;         default;        13.840
+openjdk-hotspot-vm;           string_template;         default;        14.660
+openjdk-hotspot-vm;           string_template;         default;       111.410
+    oracle-graalvm;            string_builder;         default;        14.750
+    oracle-graalvm;            string_builder;         default;        13.600
+    oracle-graalvm;            string_builder;         default;        14.090
+    oracle-graalvm;            string_builder;         default;        83.160
+    oracle-graalvm;            string_builder;         default;        91.310
     oracle-graalvm;           string_template;         default;        15.070
     oracle-graalvm;           string_template;         default;        13.340
     oracle-graalvm;           string_template;         default;        14.060
     oracle-graalvm;           string_template;         default;        79.060
     oracle-graalvm;           string_template;         default;        82.030
-openjdk-hotspot-vm;            string_builder;         default;        16.350
-openjdk-hotspot-vm;            string_builder;         default;        14.230
-openjdk-hotspot-vm;            string_builder;         default;        14.680
-openjdk-hotspot-vm;            string_builder;         default;       112.330
