@@ -94,6 +94,8 @@ processCsvColumns <- function(data) {
 
 plotBar <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
   print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  # Sort the data frame by 'JvmIdentifier column to appear chronologically
+  data <- data[order(data$JvmIdentifier), ]
   plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
 }

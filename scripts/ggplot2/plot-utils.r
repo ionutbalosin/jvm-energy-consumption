@@ -48,7 +48,7 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, captio
     axis.text.x = element_blank()
   )
   plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
-  plot <- plot + scale_fill_manual(fillLabel, values = color_palette)
+  plot <- plot + scale_fill_manual(fillLabel, values = color_palette, breaks = unique(data[[fill]]))
 
   plot
 }
@@ -76,7 +76,7 @@ generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, ca
     )
     plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
     plot <- plot + guides(color = guide_legend(override.aes = list(size = 5)))
-    plot <- plot + scale_colour_manual(fillLabel, values = color_palette)
+    plot <- plot + scale_colour_manual(fillLabel, values = color_palette, breaks = rev(unique(data$JvmIdentifier)))
 
     plot
 }
