@@ -26,7 +26,7 @@
 
 source("../scripts/ggplot2/utils.r")
 
-# Generate the plot (i.e., bar chart plot) without error bars
+# Generate the bar plot
 generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
   plot <- ggplot(data, aes(x = Benchmark, y = Score, fill = data[, fill]))
   plot <- plot + geom_bar(stat = "identity", color = NA, position = "dodge", width = .7)
@@ -45,7 +45,7 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, captio
     plot.caption.position = "plot",
     plot.caption = element_text(hjust = 1),
     plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
-    axis.text.x = element_blank(),
+    axis.text.x = element_blank()
   )
   plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
   plot <- plot + scale_fill_manual(fillLabel, values = color_palette)
@@ -53,29 +53,32 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, captio
   plot
 }
 
-# Plot scatter plot with error bars
-generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, color_palette) {
-  plot <- ggplot(data, aes(x = EnergyScore, y = TimeScore, color = JvmIdentifier))
-  plot <- plot + geom_point(size = 3)
-  plot <- plot + geom_errorbarh(aes(xmin = EnergyScore - EnergyError, xmax = EnergyScore + EnergyError), height = .7)
-  plot <- plot + geom_errorbar(aes(ymin = TimeScore - TimeError, ymax = TimeScore + TimeError), width = .7)
-  plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title)
-  plot <- plot + theme(
-    text = element_text(size = 18),
-    panel.background = element_rect(fill = NA, colour = NA, linewidth = 0.5, linetype = "solid"),
-    panel.grid.major = element_line(linewidth = 0.5, linetype = "solid", colour = "grey95"),
-    panel.grid.minor = element_line(linewidth = 0.25, linetype = "solid", colour = "grey95"),
-    legend.spacing.y = unit(0.3, "cm"),
-    legend.position = "bottom",
-    plot.title = element_text(size = 18),
-    plot.caption.position = "plot",
-    plot.caption = element_text(hjust = 1),
-    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm")
-  )
-  plot <- plot + guides(fill = guide_legend(byrow = TRUE))
-  plot <- plot + scale_color_manual(fillLabel, values = color_palette)
+# Generate the plot scatter
+generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
+    plot <- ggplot(data, aes(x = SampleIdentifier, y = Score, group = JvmIdentifier, color = JvmIdentifier))
+    plot <- plot + geom_point(size = 0.6)
+    #plot <- plot + geom_line(linewidth = 0.5)
+    plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title, caption = caption)
+    plot <- plot + theme(
+     text = element_text(size = 18),
+     panel.background = element_rect(fill = NA, colour = NA, linewidth = 0.5, linetype = "solid"),
+     panel.grid.major = element_line(linewidth = 0.5, linetype = "solid", colour = "grey95"),
+     panel.grid.minor = element_line(linewidth = 0.25, linetype = "solid", colour = "grey95"),
+     legend.spacing.y = unit(0.3, "cm"),
+     legend.position = "bottom",
+     plot.title = element_text(size = 18),
+     plot.caption.position = "plot",
+     plot.caption = element_text(hjust = 1),
+     plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+     axis.text.x = element_blank(), # Remove x-axis labels (i.e., too many, it becomes cluttered)
+     axis.line.x = element_line(color = "grey95"),
+     axis.ticks.x = element_blank() # Remove x-axis (i.e., too many, it becomes cluttered)
+    )
+    plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
+    plot <- plot + guides(color = guide_legend(override.aes = list(size = 5)))
+    plot <- plot + scale_colour_manual(fillLabel, values = color_palette)
 
-  plot
+    plot
 }
 
 # Generate and save the plot to a SVG output file
@@ -117,7 +120,7 @@ saveScatterPlot <- function(data, plot, path, file_basename) {
       file = paste(path, paste(file_basename, "svg", sep = "."), sep = "/"),
       plot = plot,
       height = 15.24, # 590 pixels
-      width = 27.093333333, # 1024 pixels
+      width = 50.8, # 1920 pixels
       dpi = 320,
       units = "cm",
       limitsize = FALSE,

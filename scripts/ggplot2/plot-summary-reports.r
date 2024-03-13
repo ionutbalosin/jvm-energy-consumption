@@ -34,17 +34,18 @@ jdk_version <- args[3]
 arch <- args[4]
 jvm_identifiers <- args[5:10]
 jvm_names <- args[11:16]
-jvm_color_palettes <- args[17:22]
+jvm_color_palette <- args[17:22]
 
+# Merge the JDK version with the arch
 jdk_arch <- paste("JDK-", jdk_version, " / ", arch, sep = "")
 
 # Creates jvm color palette map
-jvm_names_map <- setNames(as.list(jvm_names), jvm_identifiers)
-jvm_color_palettes_map <- setNames(as.list(jvm_color_palettes), jvm_names)
-
+jvm_color_palette_map <- setNames(jvm_color_palette, jvm_names)
 # Special case: since there is a new test category for the "native-image" with "pgo_g1gc",
 # add an additional category color palette to properly render the graphs."
-jvm_color_palettes_map["Native Image (pgo_g1gc)"] <- "#FF007F"
+jvm_color_palette_map <- c(jvm_color_palette_map, "Native Image (pgo_g1gc)" = "#882255")
+
+print(jvm_color_palette_map)
 
 # Apply column data changes on the initial data frame
 processCsvColumns <- function(data) {
@@ -54,9 +55,13 @@ processCsvColumns <- function(data) {
   # rename some columns
   colnames(data)[colnames(data) == "Score.Metric"] <- "ScoreMetric"
   colnames(data)[colnames(data) == "Run.Identifier"] <- "RunIdentifier"
+  colnames(data)[colnames(data) == "Sample.Identifier"] <- "SampleIdentifier"
 
-  # if needed, convert from string to numeric the Score and Error columns. In addition, convert commas to dots
+  # convert from string to numeric the Score and SampleIdentifier columns. In addition, convert commas to dots
   data$Score <- as.numeric(gsub(",", ".", data$Score))
+  if (!is.null(data$SampleIdentifier)) {
+    data$SampleIdentifier <- as.numeric(gsub(",", ".", data$SampleIdentifier))
+  }
 
   # add a new JVM identifier column based on Category
   data$JvmIdentifier <- data$Category
@@ -87,15 +92,21 @@ processCsvColumns <- function(data) {
   data
 }
 
-plotBarAndScatter <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
-  # 1. generate the bar plots (i.e., energy/performance plots)
-  print(paste("Plotting bar of type", report_type, "for", plot_title, "...", sep = " "))
-
-  plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", plot_y_label, plot_title, jdk_arch, jvm_color_palettes_map)
+plotBar <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
+  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
   saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
 }
 
-plotEnergyReports <- function(output_folder, report_basename, plot_title) {
+plotScatter <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
+  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  # Sort the data frame by 'JvmIdentifier' and then by 'SampleIdentifier' columns to appear chronologically
+  data <- data[order(data$JvmIdentifier, data$SampleIdentifier), ]
+  plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Time", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
+  saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
+}
+
+plotEnergyReports <- function(output_folder, report_basename, plot_type, plot_title) {
   # Define the report types that might be generated
   report_types <- c("run", "build")
 
@@ -106,22 +117,30 @@ plotEnergyReports <- function(output_folder, report_basename, plot_title) {
 
     if (!empty(data)) {
       data <- processCsvColumns(data)
-      plotBarAndScatter(data, output_folder, report_basename, report_type, data$ScoreMetric[1], plot_title)
+      if (plot_type == "bar-plot") {
+        plotBar(data, output_folder, report_basename, report_type, data$ScoreMetric[1], plot_title)
+      } else
+      if (plot_type == "scatter-plot") {
+        plotScatter(data, output_folder, report_basename, report_type, data$ScoreMetric[1], plot_title)
+      } else {
+        cat("Unknown plot type ", plot_type, "\n")
+      }
     } else {
       cat("Skipping", file_basename, "Found empty content ...\n")
     }
   }
 }
 
-# Generate plots for off the shelf applications
+# Generate plots for off-the-shelf applications
 off_the_shelf_applications <- list(
   "Spring PetClinic" = "spring-petclinic",
   "Quarkus Hibernate ORM Panache Quickstart" = "quarkus-hibernate-orm-panache-quickstart"
 )
-for (application_name in names(off_the_shelf_applications)) {
-  full_path <- file.path(base_path, "off-the-shelf-applications", off_the_shelf_applications[[application_name]], output_folder, sep = "/")
-  plotEnergyReports(full_path, "energy-report", application_name)
-  plotEnergyReports(full_path, "raw-performance-report", application_name)
+for (off_the_shelf_application in names(off_the_shelf_applications)) {
+  application_full_path <- file.path(base_path, "off-the-shelf-applications", off_the_shelf_applications[[off_the_shelf_application]], output_folder, sep = "/")
+  plotEnergyReports(application_full_path, "energy-report", "bar-plot", off_the_shelf_application)
+  plotEnergyReports(application_full_path, "performance-report", "bar-plot", off_the_shelf_application)
+  plotEnergyReports(application_full_path, "raw-power", "scatter-plot", off_the_shelf_application)
 }
 
 # Generate plots for java samples
@@ -132,8 +151,9 @@ java_samples <- list(
   "Sorting Algorithms" = "SortingAlgorithms",
   "Virtual Calls" = "VirtualCalls"
 )
-for (sample_name in names(java_samples)) {
-  full_path <- paste(base_path, "java-samples", output_folder, java_samples[[sample_name]], sep = "/")
-  plotEnergyReports(full_path, "energy-report", sample_name)
-  plotEnergyReports(full_path, "raw-performance-report", sample_name)
+for (java_sample in names(java_samples)) {
+  sample_full_path <- paste(base_path, "java-samples", output_folder, java_samples[[java_sample]], sep = "/")
+  plotEnergyReports(sample_full_path, "energy-report", "bar-plot", java_sample)
+  plotEnergyReports(sample_full_path, "performance-report", "bar-plot", java_sample)
+  # Note: Skip plotting the scatter for Java samples since it involves splitting them into individual plots (per category:type).
 }

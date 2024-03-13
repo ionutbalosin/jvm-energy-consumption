@@ -59,14 +59,18 @@ public class OffTheShelfApplicationsPowerReport extends AbstractPowerReport {
     }
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf("%18s;%16s;%14s;%14s\n", "Category", "Run Identifier", "Score", "Score Metric");
+      writer.printf(
+          "%18s;%16s;%19s;%14s;%14s\n",
+          "Category", "Run Identifier", "Sample Identifier", "Score", "Score Metric");
 
       for (PowerStats powerStats : rawStats) {
-        for (PowerStats.PowerSample sample : powerStats.samples) {
+        for (int i = 0; i < powerStats.samples.size(); i++) {
+          PowerStats.PowerSample sample = powerStats.samples.get(i);
           writer.printf(
-              "%18s;%16s;%14.3f;%14s\n",
+              "%18s;%16s;%19d;%14.3f;%14s\n",
               powerStats.descriptor.category,
               powerStats.descriptor.runIdentifier,
+              i + 1,
               sample.watts,
               "Power (Watt)");
         }

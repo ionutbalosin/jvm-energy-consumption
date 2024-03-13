@@ -26,7 +26,6 @@
 package com.ionutbalosin.jvm.energy.consumption.report.performance;
 
 import static com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStatsParser.parsePerformanceStats;
-import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.PERFORMANCE_REPORT_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_PERFORMANCE_STATS_OUTPUT_FILE;
 import static java.util.stream.Collectors.toList;
 
@@ -63,11 +62,12 @@ public abstract class AbstractPerformanceReport implements Report {
   public void processRawStats() {}
 
   @Override
-  public void reportProcessedStats(String outputFilePath) {}
+  public void reportProcessedStats(String outputFilePath) {
+  }
 
   @Override
   public String getProcessedStatsOutputFile() {
-    return PERFORMANCE_REPORT_OUTPUT_FILE;
+    return "n/a";
   }
 
   private List<PerformanceStats> parseRawStats(String parentFolder, ExecutionType executionType)
