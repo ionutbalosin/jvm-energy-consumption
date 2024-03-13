@@ -120,15 +120,20 @@ end
 
 function request()
     local request_index = wrk.thread:get("request_index")
-    local request = requests[request_index]()
-    if not request then
-        return nil -- no further requests to execute
+    local request = requests[1]()
+
+    if request then
+       if request_index == 5 then
+            request_index = 1
+            wrk.thread:set("request_index", request_index)
+            return request
+       end
+       request_index = request_index + 1
+       wrk.thread:set("request_index", request_index)
+       return request
     end
+     return nil -- no further requests to execute
 
-    request_index = (request_index % #requests) + 1
-    wrk.thread:set("request_index", request_index)
-
-    return request
 end
 
 function response(status, headers, body)
