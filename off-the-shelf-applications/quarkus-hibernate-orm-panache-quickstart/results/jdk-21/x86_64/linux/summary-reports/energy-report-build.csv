@@ -1,0 +1,10 @@
+          Category;  Run Identifier;  Energy Samples;      Total Energy (Watt⋅sec)
+        graalvm-ce;         default;              13;                      497.787
+      native-image;        pgo_g1gc;             184;                     9885.432
+    oracle-graalvm;         default;              11;                      449.702
+openjdk-hotspot-vm;         default;              14;                      622.294
+     azul-prime-vm;         default;              21;                     1273.757
+ eclipse-openj9-vm;         default;              16;                      577.439
+      native-image;         default;             194;                    11170.436
+
+# Note: The power reference baseline has already been excluded from the total energy
