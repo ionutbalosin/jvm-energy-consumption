@@ -27,6 +27,10 @@ $ ./run-samples.sh --jvm-identifier=native-image --skip-os-tuning
 
 # Test with Native Image and PGO/G1GC
 ```bash
+# Trick: Since the PGO profiles have already been generated, this step only triggers the build phase for the "--pgo-instrument" option and saves the output files (e.g., power consumption files).
+# The PGO output is redirected to a temporary folder that is not saved since the run is skipped.
+$ ./run-samples.sh --run-identifier=pgo_instrument --jvm-identifier=native-image --enable-pgo-g1gc --pgo-dir=tmp --skip-os-tuning --skip-run
+
 $ ./run-samples.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --enable-pgo-g1gc --skip-os-tuning
 ```
 
