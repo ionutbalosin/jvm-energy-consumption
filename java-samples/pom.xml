@@ -16,9 +16,6 @@
     <properties>
         <native.maven.plugin.version>0.10.1</native.maven.plugin.version>
         <exec.maven.plugin.version>3.1.1</exec.maven.plugin.version>
-        <!-- These two properties could be overridden by command line parameters -DmainClass="..." -DimageName="..."-->
-        <mainClass>com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms</mainClass>
-        <imageName>SortingAlgorithms</imageName>
     </properties>
 
     <profiles>
@@ -50,7 +47,7 @@
                         <configuration>
                             <fallback>false</fallback>
                             <buildArgs>
-                                <arg>-H:DashboardDump=fortune -H:+DashboardAll --enable-preview</arg>
+                                <arg>--enable-preview</arg>
                             </buildArgs>
                             <agent>
                                 <enabled>true</enabled>

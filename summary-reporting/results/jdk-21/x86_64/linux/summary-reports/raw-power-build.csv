@@ -1,0 +1,183 @@
+          Category;                      Type;  Run Identifier;      Total Energy (Watt⋅sec);  Elapsed (sec)
+    oracle-graalvm;                       N/A;         default;                      419.459;         12.000
+      native-image;                       N/A;         default;                    22927.419;        358.000
+     azul-prime-vm;                       N/A;         default;                      946.892;         15.000
+ eclipse-openj9-vm;                       N/A;         default;                      483.417;         13.000
+      native-image;                       N/A;        pgo_g1gc;                    17921.933;        321.000
+        graalvm-ce;                       N/A;         default;                      418.869;         12.000
+openjdk-hotspot-vm;                       N/A;         default;                      527.369;         12.000
+    oracle-graalvm;                       N/A;         default;                      449.702;         11.000
+      native-image;                       N/A;         default;                    11170.436;        194.000
+     azul-prime-vm;                       N/A;         default;                     1273.757;         21.000
+ eclipse-openj9-vm;                       N/A;         default;                      577.439;         16.000
+      native-image;                       N/A;        pgo_g1gc;                     9885.432;        184.000
+        graalvm-ce;                       N/A;         default;                      497.787;         13.000
+openjdk-hotspot-vm;                       N/A;         default;                      622.294;         14.000
+        graalvm-ce;    unguarded_parametrized;         default;                      181.597;          5.000
+      native-image;    unguarded_parametrized;         default;                     3488.236;         37.000
+ eclipse-openj9-vm;                    lambda;         default;                      234.285;          6.000
+openjdk-hotspot-vm;    unguarded_parametrized;         default;                      156.780;          4.000
+        graalvm-ce;                    lambda;         default;                      208.647;          5.000
+openjdk-hotspot-vm;  unguarded_unparametrized;         default;                      220.637;          5.000
+ eclipse-openj9-vm;    guarded_unparametrized;         default;                      242.415;          6.000
+      native-image;                    lambda;        pgo_g1gc;                     3178.606;         33.000
+      native-image;    guarded_unparametrized;        pgo_g1gc;                     2846.786;         33.000
+     azul-prime-vm;                    lambda;         default;                      573.210;          8.000
+    oracle-graalvm;                    lambda;         default;                      220.467;          5.000
+      native-image;  unguarded_unparametrized;        pgo_g1gc;                     2744.679;         32.000
+    oracle-graalvm;    unguarded_parametrized;         default;                      238.617;          5.000
+      native-image;      guarded_parametrized;        pgo_g1gc;                     2754.626;         33.000
+     azul-prime-vm;    guarded_unparametrized;         default;                      655.407;          9.000
+        graalvm-ce;  unguarded_unparametrized;         default;                      175.307;          5.000
+     azul-prime-vm;  unguarded_unparametrized;         default;                      763.095;         10.000
+    oracle-graalvm;    guarded_unparametrized;         default;                      185.177;          5.000
+    oracle-graalvm;      guarded_parametrized;         default;                      123.630;          4.000
+        graalvm-ce;    guarded_unparametrized;         default;                      185.847;          5.000
+openjdk-hotspot-vm;                    lambda;         default;                      262.807;          5.000
+ eclipse-openj9-vm;      guarded_parametrized;         default;                      235.145;          6.000
+      native-image;    unguarded_parametrized;        pgo_g1gc;                     2777.589;         32.000
+openjdk-hotspot-vm;      guarded_parametrized;         default;                      158.440;          4.000
+ eclipse-openj9-vm;    unguarded_parametrized;         default;                      232.235;          6.000
+      native-image;      guarded_parametrized;         default;                     3410.558;         36.000
+openjdk-hotspot-vm;    guarded_unparametrized;         default;                      230.110;          4.000
+ eclipse-openj9-vm;  unguarded_unparametrized;         default;                      224.185;          6.000
+      native-image;    guarded_unparametrized;         default;                     3494.136;         37.000
+      native-image;  unguarded_unparametrized;         default;                     3480.306;         37.000
+     azul-prime-vm;      guarded_parametrized;         default;                      781.035;         10.000
+    oracle-graalvm;  unguarded_unparametrized;         default;                      203.527;          5.000
+      native-image;                    lambda;         default;                     3606.593;         38.000
+     azul-prime-vm;    unguarded_parametrized;         default;                      663.617;          9.000
+        graalvm-ce;      guarded_parametrized;         default;                      218.747;          5.000
+      native-image;               random_page;         default;                     3473.428;         36.000
+ eclipse-openj9-vm;               random_page;         default;                      234.995;          6.000
+      native-image;               random_heap;         default;                     3499.636;         37.000
+        graalvm-ce;               random_heap;         default;                      225.577;          5.000
+      native-image;                    linear;         default;                     3547.623;         38.000
+     azul-prime-vm;               random_page;         default;                      644.637;          9.000
+    oracle-graalvm;               random_heap;         default;                      203.957;          5.000
+    oracle-graalvm;               random_page;         default;                      220.057;          5.000
+     azul-prime-vm;               random_heap;         default;                      562.440;          8.000
+      native-image;                    linear;        pgo_g1gc;                     2635.641;         31.000
+openjdk-hotspot-vm;               random_page;         default;                      275.677;          5.000
+ eclipse-openj9-vm;                    linear;         default;                      234.305;          6.000
+      native-image;               random_heap;        pgo_g1gc;                     2496.186;         29.000
+openjdk-hotspot-vm;                    linear;         default;                      247.537;          5.000
+        graalvm-ce;                    linear;         default;                      150.150;          4.000
+openjdk-hotspot-vm;               random_heap;         default;                      153.640;          4.000
+    oracle-graalvm;                    linear;         default;                      211.747;          5.000
+ eclipse-openj9-vm;               random_heap;         default;                      225.465;          6.000
+        graalvm-ce;               random_page;         default;                      192.047;          5.000
+      native-image;               random_page;        pgo_g1gc;                     2673.431;         31.000
+     azul-prime-vm;                    linear;         default;                      672.267;          9.000
+openjdk-hotspot-vm;                quick_sort;         default;                      157.940;          4.000
+      native-image;                merge_sort;        pgo_g1gc;                     2709.511;         31.000
+      native-image;                merge_sort;         default;                     3306.628;         36.000
+openjdk-hotspot-vm;                radix_sort;         default;                      155.410;          4.000
+ eclipse-openj9-vm;                quick_sort;         default;                      218.115;          6.000
+     azul-prime-vm;                quick_sort;         default;                      466.222;          7.000
+     azul-prime-vm;                radix_sort;         default;                      674.317;          9.000
+        graalvm-ce;                quick_sort;         default;                      197.317;          5.000
+     azul-prime-vm;                merge_sort;         default;                      671.757;          9.000
+ eclipse-openj9-vm;                radix_sort;         default;                      224.355;          6.000
+    oracle-graalvm;                merge_sort;         default;                      207.007;          5.000
+openjdk-hotspot-vm;                merge_sort;         default;                      239.827;          5.000
+      native-image;                radix_sort;         default;                     3180.431;         35.000
+        graalvm-ce;                radix_sort;         default;                      201.817;          5.000
+      native-image;                quick_sort;         default;                     3691.291;         39.000
+        graalvm-ce;                merge_sort;         default;                      196.327;          5.000
+    oracle-graalvm;                quick_sort;         default;                      196.937;          5.000
+    oracle-graalvm;                radix_sort;         default;                      189.487;          5.000
+ eclipse-openj9-vm;                merge_sort;         default;                      231.595;          6.000
+      native-image;                quick_sort;        pgo_g1gc;                     2584.036;         29.000
+      native-image;                radix_sort;        pgo_g1gc;                     2531.394;         30.000
+      native-image;            string_builder;        pgo_g1gc;                     2751.411;         31.000
+      native-image;             plus_operator;         default;                     3339.496;         37.000
+ eclipse-openj9-vm;            string_builder;         default;                      233.195;          6.000
+ eclipse-openj9-vm;             plus_operator;         default;                      218.445;          6.000
+     azul-prime-vm;            string_builder;         default;                      539.370;          8.000
+     azul-prime-vm;           string_template;         default;                      468.952;          7.000
+     azul-prime-vm;             plus_operator;         default;                      745.675;         10.000
+      native-image;           string_template;         default;                     3329.076;         37.000
+    oracle-graalvm;             plus_operator;         default;                      211.257;          5.000
+ eclipse-openj9-vm;           string_template;         default;                      227.635;          6.000
+        graalvm-ce;            string_builder;         default;                      187.667;          5.000
+openjdk-hotspot-vm;             plus_operator;         default;                      248.607;          5.000
+      native-image;             plus_operator;        pgo_g1gc;                     2630.781;         31.000
+        graalvm-ce;             plus_operator;         default;                      216.267;          5.000
+        graalvm-ce;           string_template;         default;                      203.377;          5.000
+      native-image;            string_builder;         default;                     3311.036;         37.000
+openjdk-hotspot-vm;            string_builder;         default;                      153.580;          4.000
+      native-image;           string_template;        pgo_g1gc;                     2676.561;         31.000
+openjdk-hotspot-vm;           string_template;         default;                      152.690;          4.000
+    oracle-graalvm;            string_builder;         default;                      211.897;          5.000
+    oracle-graalvm;           string_template;         default;                      198.547;          5.000
+openjdk-hotspot-vm;             override_fist;         default;                      204.497;          5.000
+ eclipse-openj9-vm;                    lambda;         default;                      199.647;          5.000
+     azul-prime-vm;             override_fist;         default;                      669.297;          9.000
+      native-image;                     const;         default;                     3333.196;         37.000
+        graalvm-ce;             override_fist;         default;                      237.177;          5.000
+      native-image;             override_fist;        pgo_g1gc;                     2529.586;         29.000
+        graalvm-ce;                     const;         default;                      202.237;          5.000
+        graalvm-ce;                    lambda;         default;                      196.007;          5.000
+    oracle-graalvm;                       new;         default;                      208.827;          5.000
+     azul-prime-vm;                       new;         default;                      677.857;          9.000
+      native-image;                       new;        pgo_g1gc;                     2625.514;         30.000
+      native-image;                    lambda;        pgo_g1gc;                     2604.891;         31.000
+     azul-prime-vm;                    lambda;         default;                      645.087;          9.000
+    oracle-graalvm;                    lambda;         default;                      199.317;          5.000
+      native-image;                     const;        pgo_g1gc;                     2716.951;         31.000
+      native-image;             override_fist;         default;                     3337.796;         37.000
+openjdk-hotspot-vm;                     const;         default;                      200.467;          5.000
+openjdk-hotspot-vm;                       new;         default;                      204.157;          5.000
+     azul-prime-vm;                     const;         default;                      674.267;          9.000
+ eclipse-openj9-vm;                       new;         default;                      229.935;          6.000
+    oracle-graalvm;                     const;         default;                      210.407;          5.000
+openjdk-hotspot-vm;                    lambda;         default;                      203.727;          5.000
+    oracle-graalvm;             override_fist;         default;                      212.167;          5.000
+        graalvm-ce;                       new;         default;                      183.277;          5.000
+ eclipse-openj9-vm;                     const;         default;                      237.895;          6.000
+ eclipse-openj9-vm;             override_fist;         default;                      231.705;          6.000
+      native-image;                    lambda;         default;                     3259.236;         37.000
+      native-image;                       new;         default;                     3309.173;         38.000
+        graalvm-ce;             megamorphic_8;         default;                      215.267;          5.000
+openjdk-hotspot-vm;                 bimorphic;         default;                      196.957;          5.000
+        graalvm-ce;             megamorphic_3;         default;                      211.537;          5.000
+ eclipse-openj9-vm;             megamorphic_8;         default;                      223.385;          6.000
+    oracle-graalvm;                 bimorphic;         default;                      223.047;          5.000
+      native-image;               monomorphic;         default;                     3319.256;         37.000
+     azul-prime-vm;             megamorphic_8;         default;                      673.277;          9.000
+        graalvm-ce;               monomorphic;         default;                      212.157;          5.000
+openjdk-hotspot-vm;             megamorphic_3;         default;                      193.367;          5.000
+openjdk-hotspot-vm;             megamorphic_8;         default;                      233.517;          5.000
+    oracle-graalvm;               monomorphic;         default;                      222.927;          5.000
+     azul-prime-vm;                 bimorphic;         default;                      545.570;          8.000
+      native-image;             megamorphic_8;        pgo_g1gc;                     2553.194;         30.000
+      native-image;             megamorphic_8;         default;                     3205.581;         35.000
+      native-image;             megamorphic_3;         default;                     3344.453;         38.000
+     azul-prime-vm;             megamorphic_3;         default;                      572.260;          8.000
+ eclipse-openj9-vm;                 bimorphic;         default;                      218.295;          6.000
+ eclipse-openj9-vm;             megamorphic_3;         default;                      231.835;          6.000
+        graalvm-ce;                 bimorphic;         default;                      195.877;          5.000
+      native-image;             megamorphic_3;        pgo_g1gc;                     2556.216;         29.000
+     azul-prime-vm;               monomorphic;         default;                      669.787;          9.000
+      native-image;                 bimorphic;        pgo_g1gc;                     2647.454;         30.000
+      native-image;                 bimorphic;         default;                     3195.188;         36.000
+openjdk-hotspot-vm;               monomorphic;         default;                      188.067;          5.000
+ eclipse-openj9-vm;               monomorphic;         default;                      226.365;          6.000
+    oracle-graalvm;             megamorphic_8;         default;                      212.987;          5.000
+      native-image;               monomorphic;        pgo_g1gc;                     2603.994;         30.000
+    oracle-graalvm;             megamorphic_3;         default;                      211.567;          5.000
+openjdk-hotspot-vm;                  platform;         default;                      198.777;          5.000
+      native-image;                  platform;         default;                     3328.076;         37.000
+    oracle-graalvm;                   virtual;         default;                      213.197;          5.000
+        graalvm-ce;                  platform;         default;                      197.017;          5.000
+ eclipse-openj9-vm;                  platform;         default;                      214.715;          6.000
+      native-image;                  platform;        pgo_g1gc;                     2634.331;         31.000
+ eclipse-openj9-vm;                   virtual;         default;                      238.555;          6.000
+      native-image;                   virtual;         default;                     3407.933;         38.000
+      native-image;                   virtual;        pgo_g1gc;                     2893.983;         34.000
+     azul-prime-vm;                   virtual;         default;                      677.717;          9.000
+    oracle-graalvm;                  platform;         default;                      196.097;          5.000
+openjdk-hotspot-vm;                   virtual;         default;                      256.307;          5.000
+     azul-prime-vm;                  platform;         default;                      671.967;          9.000
+        graalvm-ce;                   virtual;         default;                      199.077;          5.000

@@ -37,7 +37,7 @@ loadLibrary("svglite")
 loadLibrary("styler")
 loadLibrary("plyr")
 loadLibrary("psych")
-loadLibrary("tools")
+#loadLibrary("tools")
 
 # apply styles to all R and/or Rmd files in the directory
 style_dir()
@@ -46,11 +46,12 @@ style_dir()
 options(scipen = 999)
 
 # Read the CSV results from file
-readCsvResults <- function(file_path) {
+readCsvResultsFromFile <- function(file_path) {
   result <- data.frame()
 
   tryCatch(
     {
+      csv_file <- file(file_path, "r")
       result <- read.csv(file_path, sep = ";", comment = "#", header = TRUE)
     },
     warning = function(w) {
@@ -58,8 +59,13 @@ readCsvResults <- function(file_path) {
     },
     error = function(e) {
       print(paste("Cannot read from", file_path, "File skipped.", sep = " "))
+    },
+    finally = {
+      if (exists("csv_file")) {
+        close(csv_file)
+      }
     }
   )
 
-  result
+  return(result)
 }

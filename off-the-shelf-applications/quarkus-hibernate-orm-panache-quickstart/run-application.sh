@@ -49,7 +49,7 @@ check_command_line_options() {
     echo "Examples:"
     echo "  $ ./run-application.sh"
     echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm"
-    echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm --duration=60"
+    echo "  $ ./run-application.sh --run-identifier=default --jvm-identifier=openjdk-hotspot-vm --duration=60"
     echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning"
     echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
     echo ""
@@ -111,16 +111,27 @@ create_output_resources() {
   mkdir -p "$OUTPUT_FOLDER/jfr"
 }
 
+# The logic for building with PGO enabled is as follows:
+# 1) If the PGO profile does not exist, it means it was not previously generated. Therefore:
+#  - Run the build with '--pgo-instrument'
+#  - Run the native executable with '-XX:ProfilesDumpFile=profile.iprof' and get 'profile.iprof' at the end of the run
+# 2) If the PGO profile exists, it means it was previously generated, and we have to instrument the build to use it:
+#  - Build with '--pgo=profile.iprof'
+#  - Run the native executable to benefit from the PGO profile
 native_image_enable_pgo_g1gc() {
+  PGO_G1GC_BUILD_ARGS=""
+  PGO_G1GC_RUN_ARGS=""
+
   # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
   if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO_G1GC" = "--enable-pgo-g1gc" ]; then
     # Enable PGO
-    pgo_output_file="$CURR_DIR/default.iprof"
+    pgo_output_file="$CURR_DIR/pgo/native-image/default.iprof"
     if ! test -e "$pgo_output_file"; then
-      PGO_G1GC_BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo-instrument"
+      PGO_G1GC_BUILD_ARGS="--pgo-instrument"
+      PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
     else
-      PGO_G1GC_BUILD_ARGS="-Dquarkus.native.additional-build-args=--pgo=\"$pgo_output_file\""
+      PGO_G1GC_BUILD_ARGS="--pgo=\"$pgo_output_file\""
     fi
 
     # Enable G1 GC option only if the OS is Linux
@@ -136,11 +147,11 @@ build_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dnative"
     native_image_enable_pgo_g1gc
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -Dquarkus.native.additional-build-args=\"$PGO_G1GC_BUILD_ARGS\" -Dnative"
   fi
 
-  app_build_command="$BUILD_CMD $PGO_G1GC_BUILD_ARGS > $build_output_file 2>&1"
+  app_build_command="$BUILD_CMD > $build_output_file 2>&1"
   echo "Building application at: $(date) ... "
   echo "$app_build_command"
 
@@ -164,7 +175,8 @@ start_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $POSTGRESQL_DATASOURCE -jar $APP_HOME/target/quarkus-app/*.jar"
   else
-    RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $POSTGRESQL_DATASOURCE"
+    native_image_enable_pgo_g1gc
+    RUN_CMD="$APP_HOME/target/hibernate-orm-panache-quickstart-1.0.0-SNAPSHOT-runner $JAVA_OPS $PGO_G1GC_RUN_ARGS $POSTGRESQL_DATASOURCE"
   fi
 
   app_run_command="$RUN_CMD > $run_output_file 2>&1 &"

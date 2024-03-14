@@ -1,0 +1,122 @@
+[INFO] Scanning for projects...
+[INFO] Found GraalVM installation from JAVA_HOME variable.
+[INFO] 
+[INFO] ----------------< jvm.energy.consumption:java-samples >-----------------
+[INFO] Building JVM Energy Consumption Java Samples 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ java-samples ---
+[INFO] Deleting /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.1:compile (default-compile) @ java-samples ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 7 source files with javac [debug target 21] to target/classes
+[INFO] /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java uses preview features of Java SE 21.
+[INFO] /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java: Recompile with -Xlint:preview for details.
+[INFO] 
+[INFO] --- spotless-maven-plugin:2.42.0:apply (default) @ java-samples ---
+[INFO] Index file does not exist. Fallback to an empty index
+[INFO] Spotless.Java is keeping 7 files clean - 0 were changed to be clean, 7 were already clean, 0 were skipped because caching determined they were already clean
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ java-samples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.12.1:testCompile (default-testCompile) @ java-samples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ java-samples ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:merge-agent-files (test-native) @ java-samples ---
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:test (test-native) @ java-samples ---
+[INFO] Skipped native-image tests since there are no test classes.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.3.0:jar (default-jar) @ java-samples ---
+[INFO] Building jar: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/undefined.jar
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:merge-agent-files (build-native) @ java-samples ---
+[INFO] 
+[INFO] --- native-maven-plugin:0.10.1:build (build-native) @ java-samples ---
+[WARNING] 'native:build' goal is deprecated. Use 'native:compile-no-fork' instead.
+[INFO] Downloaded GraalVM reachability metadata repository from file:/home/ionutbalosin/.m2/repository/org/graalvm/buildtools/graalvm-reachability-metadata/0.10.1/graalvm-reachability-metadata-0.10.1-repository.zip
+[INFO] Executing: /usr/lib/jvm/graalvm-jdk-21.0.1+12.1/bin/native-image -cp /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/undefined.jar --no-fallback -o /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/VirtualCalls-megamorphic_3 --enable-preview com.ionutbalosin.jvm.energy.consumption.VirtualCalls
+========================================================================================================================
+GraalVM Native Image: Generating 'VirtualCalls-megamorphic_3' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                    (2.8s @ 0.16GB)
+ Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+ Graal compiler: optimization level: 2, target machine: x86-64-v3, PGO: ML-inferred
+ C compiler: gcc (linux, x86_64, 13.2.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 1 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 26.49GB of memory (42.4% of 62.50GB system memory, determined at start)
+ - 24 thread(s) (100.0% of 24 available processor(s), determined at start)
+Found pending operations, continuing analysis.
+[2/8] Performing analysis...  [******]                                                                   (5.6s @ 0.32GB)
+    3,323 reachable types   (71.8% of    4,626 total)
+    3,931 reachable fields  (50.0% of    7,868 total)
+   17,070 reachable methods (47.0% of   36,356 total)
+    1,053 types,   112 fields, and   674 methods registered for reflection
+       57 types,    55 fields, and    52 methods registered for JNI access
+       0 foreign downcalls registered
+        4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                               (1.2s @ 0.40GB)
+[4/8] Parsing methods...      [**]                                                                       (3.1s @ 0.29GB)
+[5/8] Inlining methods...     [***]                                                                      (0.5s @ 0.35GB)
+[6/8] Compiling methods...    [****]                                                                    (13.8s @ 0.47GB)
+[7/8] Layouting methods...    [*]                                                                        (1.6s @ 0.52GB)
+[8/8] Creating image...       [*]                                                                        (1.7s @ 0.59GB)
+   6.83MB (48.37%) for code area:     8,754 compilation units
+   6.61MB (46.86%) for image heap:  106,665 objects and 47 resources
+ 688.95kB ( 4.77%) for other data
+  14.11MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+   4.84MB java.base                                            1.78MB byte[] for code metadata
+   1.46MB svm.jar (Native Image)                               1.31MB byte[] for java.lang.String
+ 143.78kB java.logging                                       783.14kB java.lang.String
+ 128.03kB com.oracle.svm.svm_enterprise                      562.80kB java.lang.Class
+  42.09kB jdk.proxy1                                         277.90kB byte[] for general heap data
+  41.55kB jdk.proxy3                                         240.47kB java.util.HashMap$Node
+  29.58kB org.graalvm.nativeimage.base                       170.61kB byte[] for reflection metadata
+  28.88kB org.graalvm.collections                            155.77kB com.oracle.svm.core.hub.DynamicHubCompanion
+  21.54kB jdk.internal.vm.ci                                 154.34kB byte[] for embedded resources
+  17.09kB jdk.internal.vm.compiler                           145.88kB char[]
+  28.04kB for 5 more packages                                  1.09MB for 912 more object types
+                              Use '-H:+BuildReport' to create a report with more details.
+------------------------------------------------------------------------------------------------------------------------
+Security report:
+ - Binary includes Java deserialization.
+ - Use '--enable-sbom' to embed a Software Bill of Materials (SBOM) in the binary.
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ G1GC: Use the G1 GC ('--gc=G1') for improved latency and throughput.
+ PGO:  Use Profile-Guided Optimizations ('--pgo') for improved throughput.
+ INIT: Adopt '--strict-image-heap' to prepare for the next GraalVM release.
+ HEAP: Set max heap for improved and more predictable memory usage.
+ CPU:  Enable more CPU features with '-march=native' for improved performance.
+------------------------------------------------------------------------------------------------------------------------
+                       1.9s (6.2% of total time) in 345 GCs | Peak RSS: 1.23GB | CPU load: 16.41
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/VirtualCalls-megamorphic_3 (executable)
+========================================================================================================================
+Finished generating 'VirtualCalls-megamorphic_3' in 30.8s.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  34.311 s
+[INFO] Finished at: 2024-03-09T16:21:20+01:00
+[INFO] ------------------------------------------------------------------------
