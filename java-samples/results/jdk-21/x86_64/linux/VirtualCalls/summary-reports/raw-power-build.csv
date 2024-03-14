@@ -1,384 +1,384 @@
-          Category;                      Type;  Run Identifier;  Power (Watt)
-openjdk-hotspot-vm;               monomorphic;         default;        16.950
-openjdk-hotspot-vm;               monomorphic;         default;        13.260
-openjdk-hotspot-vm;               monomorphic;         default;        14.100
-openjdk-hotspot-vm;               monomorphic;         default;        69.690
-openjdk-hotspot-vm;               monomorphic;         default;        79.080
-     azul-prime-vm;             megamorphic_3;         default;        14.670
-     azul-prime-vm;             megamorphic_3;         default;        13.040
-     azul-prime-vm;             megamorphic_3;         default;        16.220
-     azul-prime-vm;             megamorphic_3;         default;       108.470
-     azul-prime-vm;             megamorphic_3;         default;       108.480
-     azul-prime-vm;             megamorphic_3;         default;       107.800
-     azul-prime-vm;             megamorphic_3;         default;       106.020
-     azul-prime-vm;             megamorphic_3;         default;       105.580
-    oracle-graalvm;               monomorphic;         default;        16.870
-    oracle-graalvm;               monomorphic;         default;        14.080
-    oracle-graalvm;               monomorphic;         default;        14.040
-    oracle-graalvm;               monomorphic;         default;        88.490
-    oracle-graalvm;               monomorphic;         default;        94.460
- eclipse-openj9-vm;             megamorphic_3;         default;        14.890
- eclipse-openj9-vm;             megamorphic_3;         default;        13.570
- eclipse-openj9-vm;             megamorphic_3;         default;        13.990
- eclipse-openj9-vm;             megamorphic_3;         default;        57.730
- eclipse-openj9-vm;             megamorphic_3;         default;        66.330
- eclipse-openj9-vm;             megamorphic_3;         default;        71.340
-      native-image;             megamorphic_8;         default;         8.150
-      native-image;             megamorphic_8;         default;         7.100
-      native-image;             megamorphic_8;         default;        13.420
-      native-image;             megamorphic_8;         default;        94.560
-      native-image;             megamorphic_8;         default;        90.330
-      native-image;             megamorphic_8;         default;        95.790
-      native-image;             megamorphic_8;         default;        81.730
-      native-image;             megamorphic_8;         default;        81.640
-      native-image;             megamorphic_8;         default;        78.250
-      native-image;             megamorphic_8;         default;       117.260
-      native-image;             megamorphic_8;         default;       105.990
-      native-image;             megamorphic_8;         default;       102.800
-      native-image;             megamorphic_8;         default;       102.410
-      native-image;             megamorphic_8;         default;       103.020
-      native-image;             megamorphic_8;         default;       108.010
-      native-image;             megamorphic_8;         default;       103.270
-      native-image;             megamorphic_8;         default;       102.180
-      native-image;             megamorphic_8;         default;       105.550
-      native-image;             megamorphic_8;         default;       107.670
-      native-image;             megamorphic_8;         default;        96.450
-      native-image;             megamorphic_8;         default;       103.110
-      native-image;             megamorphic_8;         default;       102.520
-      native-image;             megamorphic_8;         default;       101.770
-      native-image;             megamorphic_8;         default;       101.440
-      native-image;             megamorphic_8;         default;       102.330
-      native-image;             megamorphic_8;         default;       101.630
-      native-image;             megamorphic_8;         default;       101.880
-      native-image;             megamorphic_8;         default;       102.060
-      native-image;             megamorphic_8;         default;       105.070
-      native-image;             megamorphic_8;         default;       101.820
-      native-image;             megamorphic_8;         default;       103.690
-      native-image;             megamorphic_8;         default;       103.440
-      native-image;             megamorphic_8;         default;       104.640
-      native-image;             megamorphic_8;         default;        94.880
-      native-image;             megamorphic_8;         default;       104.810
-        graalvm-ce;                 bimorphic;         default;        15.860
-        graalvm-ce;                 bimorphic;         default;        12.990
-        graalvm-ce;                 bimorphic;         default;        14.130
-        graalvm-ce;                 bimorphic;         default;        76.030
-        graalvm-ce;                 bimorphic;         default;        81.880
-openjdk-hotspot-vm;             megamorphic_8;         default;        17.200
-openjdk-hotspot-vm;             megamorphic_8;         default;        13.600
-openjdk-hotspot-vm;             megamorphic_8;         default;        16.030
-openjdk-hotspot-vm;             megamorphic_8;         default;        95.920
-openjdk-hotspot-vm;             megamorphic_8;         default;        95.780
- eclipse-openj9-vm;                 bimorphic;         default;        15.110
- eclipse-openj9-vm;                 bimorphic;         default;        13.140
- eclipse-openj9-vm;                 bimorphic;         default;        14.170
- eclipse-openj9-vm;                 bimorphic;         default;        52.760
- eclipse-openj9-vm;                 bimorphic;         default;        63.310
- eclipse-openj9-vm;                 bimorphic;         default;        65.820
-        graalvm-ce;             megamorphic_3;         default;        15.000
-        graalvm-ce;             megamorphic_3;         default;        13.800
-        graalvm-ce;             megamorphic_3;         default;        15.420
-        graalvm-ce;             megamorphic_3;         default;        82.680
-        graalvm-ce;             megamorphic_3;         default;        89.650
- eclipse-openj9-vm;               monomorphic;         default;        16.960
- eclipse-openj9-vm;               monomorphic;         default;        13.180
- eclipse-openj9-vm;               monomorphic;         default;        16.660
- eclipse-openj9-vm;               monomorphic;         default;        56.790
- eclipse-openj9-vm;               monomorphic;         default;        61.750
- eclipse-openj9-vm;               monomorphic;         default;        67.040
-    oracle-graalvm;             megamorphic_3;         default;        16.980
-    oracle-graalvm;             megamorphic_3;         default;        15.270
-    oracle-graalvm;             megamorphic_3;         default;        14.370
-    oracle-graalvm;             megamorphic_3;         default;        82.030
-    oracle-graalvm;             megamorphic_3;         default;        87.930
-        graalvm-ce;             megamorphic_8;         default;        17.260
-        graalvm-ce;             megamorphic_8;         default;        13.340
-        graalvm-ce;             megamorphic_8;         default;        16.020
-        graalvm-ce;             megamorphic_8;         default;        71.390
-        graalvm-ce;             megamorphic_8;         default;       102.270
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.200
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.580
-openjdk-hotspot-vm;             megamorphic_3;         default;        15.470
-openjdk-hotspot-vm;             megamorphic_3;         default;        72.120
-openjdk-hotspot-vm;             megamorphic_3;         default;        80.010
-      native-image;               monomorphic;        pgo_g1gc;         4.710
-      native-image;               monomorphic;        pgo_g1gc;         2.250
-      native-image;               monomorphic;        pgo_g1gc;         5.340
-      native-image;               monomorphic;        pgo_g1gc;        94.030
-      native-image;               monomorphic;        pgo_g1gc;        96.310
-      native-image;               monomorphic;        pgo_g1gc;        78.410
-      native-image;               monomorphic;        pgo_g1gc;        84.670
-      native-image;               monomorphic;        pgo_g1gc;        80.560
-      native-image;               monomorphic;        pgo_g1gc;       108.700
-      native-image;               monomorphic;        pgo_g1gc;       114.110
-      native-image;               monomorphic;        pgo_g1gc;       104.000
-      native-image;               monomorphic;        pgo_g1gc;       101.330
-      native-image;               monomorphic;        pgo_g1gc;       102.420
-      native-image;               monomorphic;        pgo_g1gc;       100.430
-      native-image;               monomorphic;        pgo_g1gc;       105.750
-      native-image;               monomorphic;        pgo_g1gc;       107.670
-      native-image;               monomorphic;        pgo_g1gc;       102.210
-      native-image;               monomorphic;        pgo_g1gc;        99.820
-      native-image;               monomorphic;        pgo_g1gc;       107.860
-      native-image;               monomorphic;        pgo_g1gc;       101.920
-      native-image;               monomorphic;        pgo_g1gc;       101.800
-      native-image;               monomorphic;        pgo_g1gc;       101.930
-      native-image;               monomorphic;        pgo_g1gc;       102.280
-      native-image;               monomorphic;        pgo_g1gc;       102.420
-      native-image;               monomorphic;        pgo_g1gc;       101.760
-      native-image;               monomorphic;        pgo_g1gc;       101.710
-      native-image;               monomorphic;        pgo_g1gc;        95.160
-      native-image;               monomorphic;        pgo_g1gc;        95.880
-      native-image;               monomorphic;        pgo_g1gc;        67.850
-      native-image;               monomorphic;        pgo_g1gc;        60.780
-    oracle-graalvm;             megamorphic_8;         default;        15.440
-    oracle-graalvm;             megamorphic_8;         default;        13.720
-    oracle-graalvm;             megamorphic_8;         default;        15.680
-    oracle-graalvm;             megamorphic_8;         default;        81.260
-    oracle-graalvm;             megamorphic_8;         default;        91.900
-      native-image;             megamorphic_8;        pgo_g1gc;         4.990
-      native-image;             megamorphic_8;        pgo_g1gc;         2.240
-      native-image;             megamorphic_8;        pgo_g1gc;         5.460
-      native-image;             megamorphic_8;        pgo_g1gc;        90.810
-      native-image;             megamorphic_8;        pgo_g1gc;        83.750
-      native-image;             megamorphic_8;        pgo_g1gc;        88.730
-      native-image;             megamorphic_8;        pgo_g1gc;        70.510
-      native-image;             megamorphic_8;        pgo_g1gc;        74.470
-      native-image;             megamorphic_8;        pgo_g1gc;        67.460
-      native-image;             megamorphic_8;        pgo_g1gc;        74.200
-      native-image;             megamorphic_8;        pgo_g1gc;       117.390
-      native-image;             megamorphic_8;        pgo_g1gc;       102.740
-      native-image;             megamorphic_8;        pgo_g1gc;       103.540
-      native-image;             megamorphic_8;        pgo_g1gc;       104.490
-      native-image;             megamorphic_8;        pgo_g1gc;       100.010
-      native-image;             megamorphic_8;        pgo_g1gc;        97.480
-      native-image;             megamorphic_8;        pgo_g1gc;       114.030
-      native-image;             megamorphic_8;        pgo_g1gc;       101.450
-      native-image;             megamorphic_8;        pgo_g1gc;        99.220
-      native-image;             megamorphic_8;        pgo_g1gc;       107.620
-      native-image;             megamorphic_8;        pgo_g1gc;        96.460
-      native-image;             megamorphic_8;        pgo_g1gc;       107.340
-      native-image;             megamorphic_8;        pgo_g1gc;       101.980
-      native-image;             megamorphic_8;        pgo_g1gc;       102.080
-      native-image;             megamorphic_8;        pgo_g1gc;       101.860
-      native-image;             megamorphic_8;        pgo_g1gc;       101.970
-      native-image;             megamorphic_8;        pgo_g1gc;       101.090
-      native-image;             megamorphic_8;        pgo_g1gc;        97.050
-      native-image;             megamorphic_8;        pgo_g1gc;        99.720
-      native-image;             megamorphic_8;        pgo_g1gc;        63.130
-     azul-prime-vm;                 bimorphic;         default;        15.550
-     azul-prime-vm;                 bimorphic;         default;        12.990
-     azul-prime-vm;                 bimorphic;         default;        14.090
-     azul-prime-vm;                 bimorphic;         default;       109.340
-     azul-prime-vm;                 bimorphic;         default;       107.140
-     azul-prime-vm;                 bimorphic;         default;       108.740
-     azul-prime-vm;                 bimorphic;         default;       106.080
-     azul-prime-vm;                 bimorphic;         default;        79.660
-      native-image;                 bimorphic;         default;         9.400
-      native-image;                 bimorphic;         default;        10.110
-      native-image;                 bimorphic;         default;         8.100
-      native-image;                 bimorphic;         default;        67.460
-      native-image;                 bimorphic;         default;        72.490
-      native-image;                 bimorphic;         default;        78.530
-      native-image;                 bimorphic;         default;        61.370
-      native-image;                 bimorphic;         default;        90.950
-      native-image;                 bimorphic;         default;        74.800
-      native-image;                 bimorphic;         default;        83.840
-      native-image;                 bimorphic;         default;       120.400
-      native-image;                 bimorphic;         default;       103.750
-      native-image;                 bimorphic;         default;       102.340
-      native-image;                 bimorphic;         default;       102.190
-      native-image;                 bimorphic;         default;        97.530
-      native-image;                 bimorphic;         default;       101.290
-      native-image;                 bimorphic;         default;       115.350
-      native-image;                 bimorphic;         default;       106.000
-      native-image;                 bimorphic;         default;       107.840
-      native-image;                 bimorphic;         default;        97.750
-      native-image;                 bimorphic;         default;       105.950
-      native-image;                 bimorphic;         default;       101.470
-      native-image;                 bimorphic;         default;       100.780
-      native-image;                 bimorphic;         default;       103.410
-      native-image;                 bimorphic;         default;       102.290
-      native-image;                 bimorphic;         default;       101.910
-      native-image;                 bimorphic;         default;       102.670
-      native-image;                 bimorphic;         default;       102.300
-      native-image;                 bimorphic;         default;       101.990
-      native-image;                 bimorphic;         default;       103.480
-      native-image;                 bimorphic;         default;       104.600
-      native-image;                 bimorphic;         default;       104.040
-      native-image;                 bimorphic;         default;        98.660
-      native-image;                 bimorphic;         default;        95.750
-      native-image;                 bimorphic;         default;       101.870
-      native-image;                 bimorphic;         default;        88.620
-        graalvm-ce;               monomorphic;         default;        15.400
-        graalvm-ce;               monomorphic;         default;        13.530
-        graalvm-ce;               monomorphic;         default;        15.880
-        graalvm-ce;               monomorphic;         default;        71.070
-        graalvm-ce;               monomorphic;         default;       101.290
-    oracle-graalvm;                 bimorphic;         default;        15.230
-    oracle-graalvm;                 bimorphic;         default;        13.610
-    oracle-graalvm;                 bimorphic;         default;        13.910
-    oracle-graalvm;                 bimorphic;         default;        83.530
-    oracle-graalvm;                 bimorphic;         default;       101.780
- eclipse-openj9-vm;             megamorphic_8;         default;        14.450
- eclipse-openj9-vm;             megamorphic_8;         default;        13.380
- eclipse-openj9-vm;             megamorphic_8;         default;        16.180
- eclipse-openj9-vm;             megamorphic_8;         default;        59.590
- eclipse-openj9-vm;             megamorphic_8;         default;        64.810
- eclipse-openj9-vm;             megamorphic_8;         default;        60.990
-      native-image;             megamorphic_3;         default;         9.030
-      native-image;             megamorphic_3;         default;         7.260
-      native-image;             megamorphic_3;         default;         9.150
-      native-image;             megamorphic_3;         default;        66.010
-      native-image;             megamorphic_3;         default;        73.680
-      native-image;             megamorphic_3;         default;        77.310
-      native-image;             megamorphic_3;         default;        79.710
-      native-image;             megamorphic_3;         default;        86.450
-      native-image;             megamorphic_3;         default;        78.450
-      native-image;             megamorphic_3;         default;       111.180
-      native-image;             megamorphic_3;         default;       105.050
-      native-image;             megamorphic_3;         default;       101.810
-      native-image;             megamorphic_3;         default;       103.940
-      native-image;             megamorphic_3;         default;       102.230
-      native-image;             megamorphic_3;         default;        97.820
-      native-image;             megamorphic_3;         default;        99.270
-      native-image;             megamorphic_3;         default;       113.530
-      native-image;             megamorphic_3;         default;       103.430
-      native-image;             megamorphic_3;         default;       102.720
-      native-image;             megamorphic_3;         default;       107.760
-      native-image;             megamorphic_3;         default;       100.000
-      native-image;             megamorphic_3;         default;       102.570
-      native-image;             megamorphic_3;         default;       102.430
-      native-image;             megamorphic_3;         default;       102.550
-      native-image;             megamorphic_3;         default;       101.520
-      native-image;             megamorphic_3;         default;       101.470
-      native-image;             megamorphic_3;         default;       102.390
-      native-image;             megamorphic_3;         default;       102.940
-      native-image;             megamorphic_3;         default;       103.370
-      native-image;             megamorphic_3;         default;       103.960
-      native-image;             megamorphic_3;         default;       102.410
-      native-image;             megamorphic_3;         default;        96.050
-      native-image;             megamorphic_3;         default;       101.670
-      native-image;             megamorphic_3;         default;       103.200
-      native-image;             megamorphic_3;         default;        93.730
-      native-image;             megamorphic_3;         default;       100.600
-      native-image;             megamorphic_3;         default;        77.770
-      native-image;             megamorphic_3;         default;        48.130
-      native-image;                 bimorphic;        pgo_g1gc;         4.150
-      native-image;                 bimorphic;        pgo_g1gc;         1.750
-      native-image;                 bimorphic;        pgo_g1gc;         5.550
-      native-image;                 bimorphic;        pgo_g1gc;        96.690
-      native-image;                 bimorphic;        pgo_g1gc;        94.190
-      native-image;                 bimorphic;        pgo_g1gc;        85.600
-      native-image;                 bimorphic;        pgo_g1gc;       105.890
-      native-image;                 bimorphic;        pgo_g1gc;        80.300
-      native-image;                 bimorphic;        pgo_g1gc;        89.390
-      native-image;                 bimorphic;        pgo_g1gc;       114.200
-      native-image;                 bimorphic;        pgo_g1gc;       105.470
-      native-image;                 bimorphic;        pgo_g1gc;       102.730
-      native-image;                 bimorphic;        pgo_g1gc;       102.150
-      native-image;                 bimorphic;        pgo_g1gc;       102.970
-      native-image;                 bimorphic;        pgo_g1gc;       106.540
-      native-image;                 bimorphic;        pgo_g1gc;        99.480
-      native-image;                 bimorphic;        pgo_g1gc;       110.710
-      native-image;                 bimorphic;        pgo_g1gc;       100.000
-      native-image;                 bimorphic;        pgo_g1gc;        90.970
-      native-image;                 bimorphic;        pgo_g1gc;       115.620
-      native-image;                 bimorphic;        pgo_g1gc;       103.540
-      native-image;                 bimorphic;        pgo_g1gc;       103.660
-      native-image;                 bimorphic;        pgo_g1gc;       103.430
-      native-image;                 bimorphic;        pgo_g1gc;       102.350
-      native-image;                 bimorphic;        pgo_g1gc;       101.860
-      native-image;                 bimorphic;        pgo_g1gc;       102.020
-      native-image;                 bimorphic;        pgo_g1gc;        99.460
-      native-image;                 bimorphic;        pgo_g1gc;        99.930
-      native-image;                 bimorphic;        pgo_g1gc;        78.450
-      native-image;                 bimorphic;        pgo_g1gc;        68.480
-      native-image;               monomorphic;         default;         8.400
-      native-image;               monomorphic;         default;         6.850
-      native-image;               monomorphic;         default;         7.940
-      native-image;               monomorphic;         default;        73.080
-      native-image;               monomorphic;         default;        82.130
-      native-image;               monomorphic;         default;        91.660
-      native-image;               monomorphic;         default;        74.710
-      native-image;               monomorphic;         default;        96.630
-      native-image;               monomorphic;         default;        79.880
-      native-image;               monomorphic;         default;       105.910
-      native-image;               monomorphic;         default;       121.870
-      native-image;               monomorphic;         default;       102.750
-      native-image;               monomorphic;         default;       104.340
-      native-image;               monomorphic;         default;       104.340
-      native-image;               monomorphic;         default;       103.820
-      native-image;               monomorphic;         default;       107.190
-      native-image;               monomorphic;         default;       105.230
-      native-image;               monomorphic;         default;       103.390
-      native-image;               monomorphic;         default;       102.690
-      native-image;               monomorphic;         default;       102.790
-      native-image;               monomorphic;         default;       105.720
-      native-image;               monomorphic;         default;       103.600
-      native-image;               monomorphic;         default;       103.150
-      native-image;               monomorphic;         default;       105.250
-      native-image;               monomorphic;         default;       102.970
-      native-image;               monomorphic;         default;       102.870
-      native-image;               monomorphic;         default;       102.200
-      native-image;               monomorphic;         default;       103.060
-      native-image;               monomorphic;         default;       102.640
-      native-image;               monomorphic;         default;       103.130
-      native-image;               monomorphic;         default;       103.440
-      native-image;               monomorphic;         default;        98.880
-      native-image;               monomorphic;         default;       100.010
-      native-image;               monomorphic;         default;        96.700
-      native-image;               monomorphic;         default;        86.750
-      native-image;               monomorphic;         default;        83.190
-      native-image;               monomorphic;         default;        67.190
-     azul-prime-vm;             megamorphic_8;         default;        14.350
-     azul-prime-vm;             megamorphic_8;         default;        13.390
-     azul-prime-vm;             megamorphic_8;         default;        13.950
-     azul-prime-vm;             megamorphic_8;         default;       106.690
-     azul-prime-vm;             megamorphic_8;         default;       110.100
-     azul-prime-vm;             megamorphic_8;         default;       104.380
-     azul-prime-vm;             megamorphic_8;         default;       108.080
-     azul-prime-vm;             megamorphic_8;         default;       105.260
-     azul-prime-vm;             megamorphic_8;         default;       106.100
-openjdk-hotspot-vm;                 bimorphic;         default;        16.210
-openjdk-hotspot-vm;                 bimorphic;         default;        13.710
-openjdk-hotspot-vm;                 bimorphic;         default;        13.700
-openjdk-hotspot-vm;                 bimorphic;         default;        72.330
-openjdk-hotspot-vm;                 bimorphic;         default;        86.020
-      native-image;             megamorphic_3;        pgo_g1gc;         4.630
-      native-image;             megamorphic_3;        pgo_g1gc;         2.030
-      native-image;             megamorphic_3;        pgo_g1gc;         5.630
-      native-image;             megamorphic_3;        pgo_g1gc;        97.600
-      native-image;             megamorphic_3;        pgo_g1gc;       105.230
-      native-image;             megamorphic_3;        pgo_g1gc;        67.300
-      native-image;             megamorphic_3;        pgo_g1gc;        85.960
-      native-image;             megamorphic_3;        pgo_g1gc;        67.600
-      native-image;             megamorphic_3;        pgo_g1gc;        84.470
-      native-image;             megamorphic_3;        pgo_g1gc;       116.890
-      native-image;             megamorphic_3;        pgo_g1gc;       105.310
-      native-image;             megamorphic_3;        pgo_g1gc;       101.200
-      native-image;             megamorphic_3;        pgo_g1gc;       102.450
-      native-image;             megamorphic_3;        pgo_g1gc;        97.290
-      native-image;             megamorphic_3;        pgo_g1gc;       106.400
-      native-image;             megamorphic_3;        pgo_g1gc;       102.420
-      native-image;             megamorphic_3;        pgo_g1gc;       103.660
-      native-image;             megamorphic_3;        pgo_g1gc;       102.530
-      native-image;             megamorphic_3;        pgo_g1gc;        98.920
-      native-image;             megamorphic_3;        pgo_g1gc;       107.920
-      native-image;             megamorphic_3;        pgo_g1gc;       100.060
-      native-image;             megamorphic_3;        pgo_g1gc;       106.630
-      native-image;             megamorphic_3;        pgo_g1gc;       103.880
-      native-image;             megamorphic_3;        pgo_g1gc;       102.330
-      native-image;             megamorphic_3;        pgo_g1gc;       102.400
-      native-image;             megamorphic_3;        pgo_g1gc;       102.190
-      native-image;             megamorphic_3;        pgo_g1gc;       101.050
-      native-image;             megamorphic_3;        pgo_g1gc;        97.620
-      native-image;             megamorphic_3;        pgo_g1gc;       103.690
-     azul-prime-vm;               monomorphic;         default;        17.660
-     azul-prime-vm;               monomorphic;         default;        13.360
-     azul-prime-vm;               monomorphic;         default;        13.940
-     azul-prime-vm;               monomorphic;         default;       106.060
-     azul-prime-vm;               monomorphic;         default;       108.800
-     azul-prime-vm;               monomorphic;         default;       104.600
-     azul-prime-vm;               monomorphic;         default;       108.030
-     azul-prime-vm;               monomorphic;         default;       105.450
-     azul-prime-vm;               monomorphic;         default;       100.910
+          Category;                      Type;  Run Identifier;  Sample Identifier;         Score;  Score Metric
+        graalvm-ce;             megamorphic_8;         default;                  1;        17.260;  Power (Watt)
+        graalvm-ce;             megamorphic_8;         default;                  2;        13.340;  Power (Watt)
+        graalvm-ce;             megamorphic_8;         default;                  3;        16.020;  Power (Watt)
+        graalvm-ce;             megamorphic_8;         default;                  4;        71.390;  Power (Watt)
+        graalvm-ce;             megamorphic_8;         default;                  5;       102.270;  Power (Watt)
+openjdk-hotspot-vm;                 bimorphic;         default;                  1;        16.210;  Power (Watt)
+openjdk-hotspot-vm;                 bimorphic;         default;                  2;        13.710;  Power (Watt)
+openjdk-hotspot-vm;                 bimorphic;         default;                  3;        13.700;  Power (Watt)
+openjdk-hotspot-vm;                 bimorphic;         default;                  4;        72.330;  Power (Watt)
+openjdk-hotspot-vm;                 bimorphic;         default;                  5;        86.020;  Power (Watt)
+        graalvm-ce;             megamorphic_3;         default;                  1;        15.000;  Power (Watt)
+        graalvm-ce;             megamorphic_3;         default;                  2;        13.800;  Power (Watt)
+        graalvm-ce;             megamorphic_3;         default;                  3;        15.420;  Power (Watt)
+        graalvm-ce;             megamorphic_3;         default;                  4;        82.680;  Power (Watt)
+        graalvm-ce;             megamorphic_3;         default;                  5;        89.650;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  1;        14.450;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  2;        13.380;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  3;        16.180;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  4;        59.590;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  5;        64.810;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_8;         default;                  6;        60.990;  Power (Watt)
+    oracle-graalvm;                 bimorphic;         default;                  1;        15.230;  Power (Watt)
+    oracle-graalvm;                 bimorphic;         default;                  2;        13.610;  Power (Watt)
+    oracle-graalvm;                 bimorphic;         default;                  3;        13.910;  Power (Watt)
+    oracle-graalvm;                 bimorphic;         default;                  4;        83.530;  Power (Watt)
+    oracle-graalvm;                 bimorphic;         default;                  5;       101.780;  Power (Watt)
+      native-image;               monomorphic;         default;                  1;         8.400;  Power (Watt)
+      native-image;               monomorphic;         default;                  2;         6.850;  Power (Watt)
+      native-image;               monomorphic;         default;                  3;         7.940;  Power (Watt)
+      native-image;               monomorphic;         default;                  4;        73.080;  Power (Watt)
+      native-image;               monomorphic;         default;                  5;        82.130;  Power (Watt)
+      native-image;               monomorphic;         default;                  6;        91.660;  Power (Watt)
+      native-image;               monomorphic;         default;                  7;        74.710;  Power (Watt)
+      native-image;               monomorphic;         default;                  8;        96.630;  Power (Watt)
+      native-image;               monomorphic;         default;                  9;        79.880;  Power (Watt)
+      native-image;               monomorphic;         default;                 10;       105.910;  Power (Watt)
+      native-image;               monomorphic;         default;                 11;       121.870;  Power (Watt)
+      native-image;               monomorphic;         default;                 12;       102.750;  Power (Watt)
+      native-image;               monomorphic;         default;                 13;       104.340;  Power (Watt)
+      native-image;               monomorphic;         default;                 14;       104.340;  Power (Watt)
+      native-image;               monomorphic;         default;                 15;       103.820;  Power (Watt)
+      native-image;               monomorphic;         default;                 16;       107.190;  Power (Watt)
+      native-image;               monomorphic;         default;                 17;       105.230;  Power (Watt)
+      native-image;               monomorphic;         default;                 18;       103.390;  Power (Watt)
+      native-image;               monomorphic;         default;                 19;       102.690;  Power (Watt)
+      native-image;               monomorphic;         default;                 20;       102.790;  Power (Watt)
+      native-image;               monomorphic;         default;                 21;       105.720;  Power (Watt)
+      native-image;               monomorphic;         default;                 22;       103.600;  Power (Watt)
+      native-image;               monomorphic;         default;                 23;       103.150;  Power (Watt)
+      native-image;               monomorphic;         default;                 24;       105.250;  Power (Watt)
+      native-image;               monomorphic;         default;                 25;       102.970;  Power (Watt)
+      native-image;               monomorphic;         default;                 26;       102.870;  Power (Watt)
+      native-image;               monomorphic;         default;                 27;       102.200;  Power (Watt)
+      native-image;               monomorphic;         default;                 28;       103.060;  Power (Watt)
+      native-image;               monomorphic;         default;                 29;       102.640;  Power (Watt)
+      native-image;               monomorphic;         default;                 30;       103.130;  Power (Watt)
+      native-image;               monomorphic;         default;                 31;       103.440;  Power (Watt)
+      native-image;               monomorphic;         default;                 32;        98.880;  Power (Watt)
+      native-image;               monomorphic;         default;                 33;       100.010;  Power (Watt)
+      native-image;               monomorphic;         default;                 34;        96.700;  Power (Watt)
+      native-image;               monomorphic;         default;                 35;        86.750;  Power (Watt)
+      native-image;               monomorphic;         default;                 36;        83.190;  Power (Watt)
+      native-image;               monomorphic;         default;                 37;        67.190;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  1;        14.350;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  2;        13.390;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  3;        13.950;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  4;       106.690;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  5;       110.100;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  6;       104.380;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  7;       108.080;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  8;       105.260;  Power (Watt)
+     azul-prime-vm;             megamorphic_8;         default;                  9;       106.100;  Power (Watt)
+        graalvm-ce;               monomorphic;         default;                  1;        15.400;  Power (Watt)
+        graalvm-ce;               monomorphic;         default;                  2;        13.530;  Power (Watt)
+        graalvm-ce;               monomorphic;         default;                  3;        15.880;  Power (Watt)
+        graalvm-ce;               monomorphic;         default;                  4;        71.070;  Power (Watt)
+        graalvm-ce;               monomorphic;         default;                  5;       101.290;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_3;         default;                  1;        15.200;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_3;         default;                  2;        15.580;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_3;         default;                  3;        15.470;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_3;         default;                  4;        72.120;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_3;         default;                  5;        80.010;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_8;         default;                  1;        17.200;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_8;         default;                  2;        13.600;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_8;         default;                  3;        16.030;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_8;         default;                  4;        95.920;  Power (Watt)
+openjdk-hotspot-vm;             megamorphic_8;         default;                  5;        95.780;  Power (Watt)
+    oracle-graalvm;               monomorphic;         default;                  1;        16.870;  Power (Watt)
+    oracle-graalvm;               monomorphic;         default;                  2;        14.080;  Power (Watt)
+    oracle-graalvm;               monomorphic;         default;                  3;        14.040;  Power (Watt)
+    oracle-graalvm;               monomorphic;         default;                  4;        88.490;  Power (Watt)
+    oracle-graalvm;               monomorphic;         default;                  5;        94.460;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  1;        15.550;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  2;        12.990;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  3;        14.090;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  4;       109.340;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  5;       107.140;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  6;       108.740;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  7;       106.080;  Power (Watt)
+     azul-prime-vm;                 bimorphic;         default;                  8;        79.660;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  1;         4.990;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  2;         2.240;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  3;         5.460;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  4;        90.810;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  5;        83.750;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  6;        88.730;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  7;        70.510;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  8;        74.470;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                  9;        67.460;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 10;        74.200;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 11;       117.390;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 12;       102.740;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 13;       103.540;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 14;       104.490;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 15;       100.010;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 16;        97.480;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 17;       114.030;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 18;       101.450;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 19;        99.220;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 20;       107.620;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 21;        96.460;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 22;       107.340;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 23;       101.980;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 24;       102.080;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 25;       101.860;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 26;       101.970;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 27;       101.090;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 28;        97.050;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 29;        99.720;  Power (Watt)
+      native-image;             megamorphic_8;        pgo_g1gc;                 30;        63.130;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  1;         8.150;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  2;         7.100;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  3;        13.420;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  4;        94.560;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  5;        90.330;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  6;        95.790;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  7;        81.730;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  8;        81.640;  Power (Watt)
+      native-image;             megamorphic_8;         default;                  9;        78.250;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 10;       117.260;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 11;       105.990;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 12;       102.800;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 13;       102.410;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 14;       103.020;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 15;       108.010;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 16;       103.270;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 17;       102.180;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 18;       105.550;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 19;       107.670;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 20;        96.450;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 21;       103.110;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 22;       102.520;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 23;       101.770;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 24;       101.440;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 25;       102.330;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 26;       101.630;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 27;       101.880;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 28;       102.060;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 29;       105.070;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 30;       101.820;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 31;       103.690;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 32;       103.440;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 33;       104.640;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 34;        94.880;  Power (Watt)
+      native-image;             megamorphic_8;         default;                 35;       104.810;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  1;         9.030;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  2;         7.260;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  3;         9.150;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  4;        66.010;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  5;        73.680;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  6;        77.310;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  7;        79.710;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  8;        86.450;  Power (Watt)
+      native-image;             megamorphic_3;         default;                  9;        78.450;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 10;       111.180;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 11;       105.050;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 12;       101.810;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 13;       103.940;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 14;       102.230;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 15;        97.820;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 16;        99.270;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 17;       113.530;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 18;       103.430;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 19;       102.720;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 20;       107.760;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 21;       100.000;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 22;       102.570;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 23;       102.430;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 24;       102.550;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 25;       101.520;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 26;       101.470;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 27;       102.390;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 28;       102.940;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 29;       103.370;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 30;       103.960;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 31;       102.410;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 32;        96.050;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 33;       101.670;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 34;       103.200;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 35;        93.730;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 36;       100.600;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 37;        77.770;  Power (Watt)
+      native-image;             megamorphic_3;         default;                 38;        48.130;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  1;        14.670;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  2;        13.040;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  3;        16.220;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  4;       108.470;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  5;       108.480;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  6;       107.800;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  7;       106.020;  Power (Watt)
+     azul-prime-vm;             megamorphic_3;         default;                  8;       105.580;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  1;        15.110;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  2;        13.140;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  3;        14.170;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  4;        52.760;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  5;        63.310;  Power (Watt)
+ eclipse-openj9-vm;                 bimorphic;         default;                  6;        65.820;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  1;        14.890;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  2;        13.570;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  3;        13.990;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  4;        57.730;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  5;        66.330;  Power (Watt)
+ eclipse-openj9-vm;             megamorphic_3;         default;                  6;        71.340;  Power (Watt)
+        graalvm-ce;                 bimorphic;         default;                  1;        15.860;  Power (Watt)
+        graalvm-ce;                 bimorphic;         default;                  2;        12.990;  Power (Watt)
+        graalvm-ce;                 bimorphic;         default;                  3;        14.130;  Power (Watt)
+        graalvm-ce;                 bimorphic;         default;                  4;        76.030;  Power (Watt)
+        graalvm-ce;                 bimorphic;         default;                  5;        81.880;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  1;         4.630;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  2;         2.030;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  3;         5.630;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  4;        97.600;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  5;       105.230;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  6;        67.300;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  7;        85.960;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  8;        67.600;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                  9;        84.470;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 10;       116.890;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 11;       105.310;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 12;       101.200;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 13;       102.450;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 14;        97.290;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 15;       106.400;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 16;       102.420;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 17;       103.660;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 18;       102.530;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 19;        98.920;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 20;       107.920;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 21;       100.060;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 22;       106.630;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 23;       103.880;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 24;       102.330;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 25;       102.400;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 26;       102.190;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 27;       101.050;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 28;        97.620;  Power (Watt)
+      native-image;             megamorphic_3;        pgo_g1gc;                 29;       103.690;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  1;        17.660;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  2;        13.360;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  3;        13.940;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  4;       106.060;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  5;       108.800;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  6;       104.600;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  7;       108.030;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  8;       105.450;  Power (Watt)
+     azul-prime-vm;               monomorphic;         default;                  9;       100.910;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  1;         4.150;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  2;         1.750;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  3;         5.550;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  4;        96.690;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  5;        94.190;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  6;        85.600;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  7;       105.890;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  8;        80.300;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                  9;        89.390;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 10;       114.200;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 11;       105.470;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 12;       102.730;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 13;       102.150;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 14;       102.970;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 15;       106.540;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 16;        99.480;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 17;       110.710;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 18;       100.000;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 19;        90.970;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 20;       115.620;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 21;       103.540;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 22;       103.660;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 23;       103.430;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 24;       102.350;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 25;       101.860;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 26;       102.020;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 27;        99.460;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 28;        99.930;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 29;        78.450;  Power (Watt)
+      native-image;                 bimorphic;        pgo_g1gc;                 30;        68.480;  Power (Watt)
+      native-image;                 bimorphic;         default;                  1;         9.400;  Power (Watt)
+      native-image;                 bimorphic;         default;                  2;        10.110;  Power (Watt)
+      native-image;                 bimorphic;         default;                  3;         8.100;  Power (Watt)
+      native-image;                 bimorphic;         default;                  4;        67.460;  Power (Watt)
+      native-image;                 bimorphic;         default;                  5;        72.490;  Power (Watt)
+      native-image;                 bimorphic;         default;                  6;        78.530;  Power (Watt)
+      native-image;                 bimorphic;         default;                  7;        61.370;  Power (Watt)
+      native-image;                 bimorphic;         default;                  8;        90.950;  Power (Watt)
+      native-image;                 bimorphic;         default;                  9;        74.800;  Power (Watt)
+      native-image;                 bimorphic;         default;                 10;        83.840;  Power (Watt)
+      native-image;                 bimorphic;         default;                 11;       120.400;  Power (Watt)
+      native-image;                 bimorphic;         default;                 12;       103.750;  Power (Watt)
+      native-image;                 bimorphic;         default;                 13;       102.340;  Power (Watt)
+      native-image;                 bimorphic;         default;                 14;       102.190;  Power (Watt)
+      native-image;                 bimorphic;         default;                 15;        97.530;  Power (Watt)
+      native-image;                 bimorphic;         default;                 16;       101.290;  Power (Watt)
+      native-image;                 bimorphic;         default;                 17;       115.350;  Power (Watt)
+      native-image;                 bimorphic;         default;                 18;       106.000;  Power (Watt)
+      native-image;                 bimorphic;         default;                 19;       107.840;  Power (Watt)
+      native-image;                 bimorphic;         default;                 20;        97.750;  Power (Watt)
+      native-image;                 bimorphic;         default;                 21;       105.950;  Power (Watt)
+      native-image;                 bimorphic;         default;                 22;       101.470;  Power (Watt)
+      native-image;                 bimorphic;         default;                 23;       100.780;  Power (Watt)
+      native-image;                 bimorphic;         default;                 24;       103.410;  Power (Watt)
+      native-image;                 bimorphic;         default;                 25;       102.290;  Power (Watt)
+      native-image;                 bimorphic;         default;                 26;       101.910;  Power (Watt)
+      native-image;                 bimorphic;         default;                 27;       102.670;  Power (Watt)
+      native-image;                 bimorphic;         default;                 28;       102.300;  Power (Watt)
+      native-image;                 bimorphic;         default;                 29;       101.990;  Power (Watt)
+      native-image;                 bimorphic;         default;                 30;       103.480;  Power (Watt)
+      native-image;                 bimorphic;         default;                 31;       104.600;  Power (Watt)
+      native-image;                 bimorphic;         default;                 32;       104.040;  Power (Watt)
+      native-image;                 bimorphic;         default;                 33;        98.660;  Power (Watt)
+      native-image;                 bimorphic;         default;                 34;        95.750;  Power (Watt)
+      native-image;                 bimorphic;         default;                 35;       101.870;  Power (Watt)
+      native-image;                 bimorphic;         default;                 36;        88.620;  Power (Watt)
+openjdk-hotspot-vm;               monomorphic;         default;                  1;        16.950;  Power (Watt)
+openjdk-hotspot-vm;               monomorphic;         default;                  2;        13.260;  Power (Watt)
+openjdk-hotspot-vm;               monomorphic;         default;                  3;        14.100;  Power (Watt)
+openjdk-hotspot-vm;               monomorphic;         default;                  4;        69.690;  Power (Watt)
+openjdk-hotspot-vm;               monomorphic;         default;                  5;        79.080;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  1;        16.960;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  2;        13.180;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  3;        16.660;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  4;        56.790;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  5;        61.750;  Power (Watt)
+ eclipse-openj9-vm;               monomorphic;         default;                  6;        67.040;  Power (Watt)
+    oracle-graalvm;             megamorphic_8;         default;                  1;        15.440;  Power (Watt)
+    oracle-graalvm;             megamorphic_8;         default;                  2;        13.720;  Power (Watt)
+    oracle-graalvm;             megamorphic_8;         default;                  3;        15.680;  Power (Watt)
+    oracle-graalvm;             megamorphic_8;         default;                  4;        81.260;  Power (Watt)
+    oracle-graalvm;             megamorphic_8;         default;                  5;        91.900;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  1;         4.710;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  2;         2.250;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  3;         5.340;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  4;        94.030;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  5;        96.310;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  6;        78.410;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  7;        84.670;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  8;        80.560;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                  9;       108.700;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 10;       114.110;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 11;       104.000;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 12;       101.330;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 13;       102.420;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 14;       100.430;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 15;       105.750;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 16;       107.670;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 17;       102.210;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 18;        99.820;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 19;       107.860;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 20;       101.920;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 21;       101.800;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 22;       101.930;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 23;       102.280;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 24;       102.420;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 25;       101.760;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 26;       101.710;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 27;        95.160;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 28;        95.880;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 29;        67.850;  Power (Watt)
+      native-image;               monomorphic;        pgo_g1gc;                 30;        60.780;  Power (Watt)
+    oracle-graalvm;             megamorphic_3;         default;                  1;        16.980;  Power (Watt)
+    oracle-graalvm;             megamorphic_3;         default;                  2;        15.270;  Power (Watt)
+    oracle-graalvm;             megamorphic_3;         default;                  3;        14.370;  Power (Watt)
+    oracle-graalvm;             megamorphic_3;         default;                  4;        82.030;  Power (Watt)
+    oracle-graalvm;             megamorphic_3;         default;                  5;        87.930;  Power (Watt)

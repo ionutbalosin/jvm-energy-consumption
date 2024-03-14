@@ -1,31 +1,31 @@
-          Category;                      Type;  Run Identifier;  Energy Samples; Total Energy (Watt⋅sec)
-        graalvm-ce;             override_fist;         default;               5;                 237.177
-    oracle-graalvm;                       new;         default;               5;                 208.827
-      native-image;                     const;         default;              37;                3333.196
-      native-image;                       new;         default;              38;                3309.173
-    oracle-graalvm;             override_fist;         default;               5;                 212.167
-      native-image;                       new;        pgo_g1gc;              30;                2625.514
- eclipse-openj9-vm;                    lambda;         default;               5;                 199.647
-      native-image;             override_fist;        pgo_g1gc;              29;                2529.586
-        graalvm-ce;                    lambda;         default;               5;                 196.007
-    oracle-graalvm;                     const;         default;               5;                 210.407
- eclipse-openj9-vm;             override_fist;         default;               6;                 231.705
-openjdk-hotspot-vm;                     const;         default;               5;                 200.467
-     azul-prime-vm;                     const;         default;               9;                 674.267
-     azul-prime-vm;             override_fist;         default;               9;                 669.297
-    oracle-graalvm;                    lambda;         default;               5;                 199.317
- eclipse-openj9-vm;                       new;         default;               6;                 229.935
-      native-image;                     const;        pgo_g1gc;              31;                2716.951
-     azul-prime-vm;                       new;         default;               9;                 677.857
- eclipse-openj9-vm;                     const;         default;               6;                 237.895
-      native-image;             override_fist;         default;              37;                3337.796
-        graalvm-ce;                     const;         default;               5;                 202.237
-        graalvm-ce;                       new;         default;               5;                 183.277
-      native-image;                    lambda;         default;              37;                3259.236
-     azul-prime-vm;                    lambda;         default;               9;                 645.087
-openjdk-hotspot-vm;             override_fist;         default;               5;                 204.497
-      native-image;                    lambda;        pgo_g1gc;              31;                2604.891
-openjdk-hotspot-vm;                       new;         default;               5;                 204.157
-openjdk-hotspot-vm;                    lambda;         default;               5;                 203.727
+          Category;                      Type;  Run Identifier;  Energy Samples;         Score;       Score Metric
+openjdk-hotspot-vm;             override_fist;         default;               5;       204.497;  Energy (Watt⋅sec)
+ eclipse-openj9-vm;                    lambda;         default;               5;       199.647;  Energy (Watt⋅sec)
+     azul-prime-vm;             override_fist;         default;               9;       669.297;  Energy (Watt⋅sec)
+      native-image;                     const;         default;              37;      3333.196;  Energy (Watt⋅sec)
+        graalvm-ce;             override_fist;         default;               5;       237.177;  Energy (Watt⋅sec)
+      native-image;             override_fist;        pgo_g1gc;              29;      2529.586;  Energy (Watt⋅sec)
+        graalvm-ce;                     const;         default;               5;       202.237;  Energy (Watt⋅sec)
+        graalvm-ce;                    lambda;         default;               5;       196.007;  Energy (Watt⋅sec)
+    oracle-graalvm;                       new;         default;               5;       208.827;  Energy (Watt⋅sec)
+     azul-prime-vm;                       new;         default;               9;       677.857;  Energy (Watt⋅sec)
+      native-image;                       new;        pgo_g1gc;              30;      2625.514;  Energy (Watt⋅sec)
+      native-image;                    lambda;        pgo_g1gc;              31;      2604.891;  Energy (Watt⋅sec)
+     azul-prime-vm;                    lambda;         default;               9;       645.087;  Energy (Watt⋅sec)
+    oracle-graalvm;                    lambda;         default;               5;       199.317;  Energy (Watt⋅sec)
+      native-image;                     const;        pgo_g1gc;              31;      2716.951;  Energy (Watt⋅sec)
+      native-image;             override_fist;         default;              37;      3337.796;  Energy (Watt⋅sec)
+openjdk-hotspot-vm;                     const;         default;               5;       200.467;  Energy (Watt⋅sec)
+openjdk-hotspot-vm;                       new;         default;               5;       204.157;  Energy (Watt⋅sec)
+     azul-prime-vm;                     const;         default;               9;       674.267;  Energy (Watt⋅sec)
+ eclipse-openj9-vm;                       new;         default;               6;       229.935;  Energy (Watt⋅sec)
+    oracle-graalvm;                     const;         default;               5;       210.407;  Energy (Watt⋅sec)
+openjdk-hotspot-vm;                    lambda;         default;               5;       203.727;  Energy (Watt⋅sec)
+    oracle-graalvm;             override_fist;         default;               5;       212.167;  Energy (Watt⋅sec)
+        graalvm-ce;                       new;         default;               5;       183.277;  Energy (Watt⋅sec)
+ eclipse-openj9-vm;                     const;         default;               6;       237.895;  Energy (Watt⋅sec)
+ eclipse-openj9-vm;             override_fist;         default;               6;       231.705;  Energy (Watt⋅sec)
+      native-image;                    lambda;         default;              37;      3259.236;  Energy (Watt⋅sec)
+      native-image;                       new;         default;              38;      3309.173;  Energy (Watt⋅sec)
 
 # Note: The power reference baseline has already been excluded from the energy scores

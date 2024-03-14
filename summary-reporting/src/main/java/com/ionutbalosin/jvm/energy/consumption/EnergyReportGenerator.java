@@ -81,7 +81,7 @@ public class EnergyReportGenerator {
 
     // 3. for the summary report pass the baseline mean power and the raw power stats
     SummaryPowerReport summary =
-        new SummaryPowerReport("results-reporting", baseline.baselinePower);
+        new SummaryPowerReport("summary-reporting", baseline.baselinePower);
     calculateEnergy(summary, allPerfStats);
   }
 

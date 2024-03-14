@@ -26,41 +26,48 @@
 #
 
 check_command_line_options() {
-  if [ $# -eq 0 ]; then
-    echo "Usage: ./plot-summary-reports <jdk-version> [<os>] [<arch>]"
+  JDK_VERSION="21"
+  OS="linux"
+  ARCH=$(uname -m)
+
+  if [ $# -gt 2 ]; then
+    echo "Usage: ./plot-summary-reports.sh [--os=<os>] [--arch=<arch>]"
     echo ""
     echo "Options:"
-    echo "  jdk-version   java version identifier for the generated results. The supported values are {21}"
-    echo "  os            operating system. The supported values are {linux, windows, mac}. The default value is linux"
-    echo "  arch          target architecture. The supported values are {x86_64, arm64}. The default value is detected based on the current target architecture."
+    echo "  --os=<os>     An optional parameter to specify the operating system. Supported values are {linux, windows, mac}. Default value is $OS."
+    echo "  --arch=<arch> An optional parameter to specify the target architecture. Supported values are {x86_64, arm64}. Default value $ARCH is detected based on the current architecture."
     echo ""
     echo "Examples:"
-    echo "  ./plot-summary-reports 21"
-    echo "  ./plot-summary-reports 21 linux x86_64"
+    echo "  ./plot-summary-reports.sh"
+    echo "  ./plot-summary-reports.sh --os=linux --arch=x86_64"
     echo ""
     return 1
   fi
 
-  if [ "$1" ]; then
-    export JDK_VERSION="$1"
-  fi
-
-  if [ "$2" ]; then
-    export OS="$2"
-  else
-    export OS="linux"
-  fi
-
-  if [ "$3" ]; then
-    export ARCH="$2"
-  else
-    export ARCH=$(uname -m)
-  fi
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --os=*)
+        OS="${1#*=}"
+        ;;
+      --arch=*)
+        ARCH="${1#*=}"
+        ;;
+      *)
+        echo "ERROR: Unknown parameter $1"
+        return 1
+        ;;
+    esac
+    shift
+  done
 }
 
 set_environment_variables() {
-  export OUTPUT_FOLDER=results/jdk-$JDK_VERSION/$ARCH/$OS
+  BASE_DIR="$(pwd)/.."
+  OUTPUT_FOLDER=results/jdk-$JDK_VERSION/$ARCH/$OS
 
+  echo "JDK version: $JDK_VERSION"
+  echo "Operating system: $OS"
+  echo "Hardware Architecture: $ARCH"
   echo "Output folder: $OUTPUT_FOLDER"
 }
 
@@ -74,7 +81,11 @@ check_folder_exists() {
 }
 
 plot_results() {
-  R <./ggplot2/plot-result.r --no-save --args "$(pwd)" "$OUTPUT_FOLDER"
+  R < ../scripts/ggplot2/plot-summary-reports.r --no-save \
+      --args "$BASE_DIR" "$OUTPUT_FOLDER" "$JDK_VERSION" "$ARCH" \
+      "$OPENJDK_HOTSPOT_VM_IDENTIFIER" "$GRAAL_VM_CE_IDENTIFIER" "$ORACLE_GRAAL_VM_IDENTIFIER" "$GRAAL_VM_NATIVE_IMAGE_IDENTIFIER" "$AZUL_PRIME_VM_IDENTIFIER" "$ECLIPSE_OPEN_J9_VM_IDENTIFIER" \
+      "$OPENJDK_HOTSPOT_VM_NAME" "$GRAAL_VM_CE_NAME" "$ORACLE_GRAAL_VM_NAME" "$GRAAL_VM_NATIVE_IMAGE_NAME" "$AZUL_PRIME_VM_NAME" "$ECLIPSE_OPEN_J9_VM_NAME" \
+      "$OPENJDK_HOTSPOT_VM_COLOR_PALETTE" "$GRAAL_VM_CE_COLOR_PALETTE" "$ORACLE_GRAAL_VM_COLOR_PALETTE" "$GRAAL_VM_NATIVE_IMAGE_COLOR_PALETTE" "$AZUL_PRIME_VM_COLOR_PALETTE" "$ECLIPSE_OPEN_J9_COLOR_PALETTE";
   if [ $? -ne 0 ]; then
     echo ""
     echo "ERROR: Error encountered while plotting results, unable to continue!"
@@ -85,23 +96,37 @@ plot_results() {
   echo "Plots successfully generated."
 }
 
-echo ""
-echo "+========================+"
-echo "| Results Plot Generator |"
-echo "+========================+"
 check_command_line_options "$@"
 if [ $? -ne 0 ]; then
   exit 1
 fi
 
 echo ""
-echo "+-----------------------+"
-echo "| Environment variables |"
-echo "+-----------------------+"
+echo "+================================+"
+echo "| [1/7] Configuration Properties |"
+echo "+================================+"
+. ../scripts/shell/configure-properties.sh || exit 1
+
+echo ""
+echo "+=============================+"
+echo "| [2/7] Hardware Architecture |"
+echo "+=============================+"
+. ../scripts/shell/configure-arch.sh
+
+echo ""
+echo "+========================+"
+echo "| [3/7] OS Configuration |"
+echo "+========================+"
+. ../scripts/shell/configure-os.sh || exit 1
+
+echo ""
+echo "+=============================+"
+echo "| [4/7] Environment variables |"
+echo "+=============================+"
 set_environment_variables
 
 echo ""
-echo "+-------------------+"
-echo "| Plot test results |"
-echo "+-------------------+"
+echo "+=========================+"
+echo "| [4/7] Plot test results |"
+echo "+=========================+"
 plot_results
