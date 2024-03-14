@@ -137,7 +137,7 @@ configure_samples() {
     "VirtualCalls megamorphic_8"
 
     "VPThreadQueueThroughput platform"
-    # Note: This benchmark does not run on eclipse-openj9-vm
+    # Note: This benchmark does not run on eclipse-openj9-vm and azul-prime-vm
     "VPThreadQueueThroughput virtual"
   )
 
