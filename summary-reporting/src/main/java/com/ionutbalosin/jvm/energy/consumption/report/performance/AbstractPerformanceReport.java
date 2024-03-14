@@ -71,18 +71,18 @@ public abstract class AbstractPerformanceReport implements Report {
 
   private List<PerformanceStats> parseRawStats(String parentFolder, ExecutionType executionType)
       throws IOException {
-    PathMatcher filenameMatcher = getPathMatcher(executionType);
+    final PathMatcher buildAndRunMatcher = getPathMatcher(executionType.getType());
+
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
-        .filter(filenameMatcher::matches)
+        .filter(buildAndRunMatcher::matches)
         .map(filePath -> parsePerformanceStats(filePath, executionType))
         .filter(Predicate.not(Optional::isEmpty))
         .map(Optional::get)
         .collect(toList());
   }
 
-  private PathMatcher getPathMatcher(ExecutionType executionType) {
-    return FileSystems.getDefault()
-        .getPathMatcher("regex:.*-" + executionType.getType() + "-.*\\.(txt|log)");
+  private PathMatcher getPathMatcher(String pattern) {
+    return FileSystems.getDefault().getPathMatcher("regex:.*-" + pattern + "-.*\\.(txt|log)");
   }
 }
