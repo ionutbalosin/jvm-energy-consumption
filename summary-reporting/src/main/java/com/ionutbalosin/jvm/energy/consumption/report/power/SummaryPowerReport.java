@@ -144,7 +144,9 @@ public class SummaryPowerReport extends AbstractPowerReport {
               + "# Note1: The power reference baseline has already been excluded from the energy"
               + " scores");
       writer.printf(
-          "\n# Note2: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
+          "\n# Note2: The results that contain errors during execution have already been excluded");
+      writer.printf(
+          "\n# Note3: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
     }
 
     System.out.printf("Report %s was successfully created\n", outputFilePath);
