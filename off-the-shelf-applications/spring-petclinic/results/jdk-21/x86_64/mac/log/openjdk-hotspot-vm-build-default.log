@@ -6,7 +6,7 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- clean:3.3.2:clean (default-clean) @ spring-petclinic ---
-[INFO] Deleting /Users/turk/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target
+[INFO] Deleting /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target
 [INFO] 
 [INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
 [INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
@@ -17,12 +17,12 @@
 [INFO] You have 0 Checkstyle violations.
 [INFO] 
 [INFO] --- jacoco:0.8.11:prepare-agent (default) @ spring-petclinic ---
-[INFO] argLine set to -javaagent:/Users/turk/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/Users/turk/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/jacoco.exec
+[INFO] argLine set to -javaagent:/Users/<username>/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/jacoco.exec
 [INFO] 
 [INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
-[INFO] dotGitDirectory '/Users/turk/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
-[INFO] Collected git.build.user.name with value <username>
-[INFO] Collected git.build.user.email with value <email>
+[INFO] dotGitDirectory '/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
+[INFO] Collected git.build.user.name with value KoTurk
+[INFO] Collected git.build.user.email with value ko.<username>@hotmail.com
 [INFO] Collected git.branch with value main
 [INFO] --always = true
 [INFO] --dirty = -dirty
@@ -117,6 +117,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.513 s
-[INFO] Finished at: 2024-03-07T20:07:06+01:00
+[INFO] Total time:  6.900 s
+[INFO] Finished at: 2024-03-13T03:35:17+01:00
 [INFO] ------------------------------------------------------------------------
