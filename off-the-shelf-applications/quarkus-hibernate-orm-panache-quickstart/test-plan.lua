@@ -105,14 +105,19 @@ end
 function request()
     local request_index = wrk.thread:get("request_index")
     local request = requests[request_index]()
-    if not request then
-        return nil -- no further requests to execute
-    end
 
-    request_index = (request_index % #requests) + 1
+    if request_index == 4 then -- 4 is the requests length
+        request_index = 1
+    else
+        request_index = request_index + 1
+    end
     wrk.thread:set("request_index", request_index)
 
-    return request
+    if not request then
+        return nil -- no further requests to execute
+    else
+        return request
+    end
 end
 
 function response(status, headers, body)
