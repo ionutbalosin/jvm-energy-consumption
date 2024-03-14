@@ -138,7 +138,7 @@ start_system_power_consumption() {
 stop_system_power_consumption() {
   if ps -p "$POWER_CONSUMPTION_PID" > /dev/null; then
     echo "Stopping the system power consumption measurements with PID $POWER_CONSUMPTION_PID."
-    sudo kill -s INT "$POWER_CONSUMPTION_PID"
+    sudo kill -s TERM "$POWER_CONSUMPTION_PID"
     echo "System power consumption measurements with PID $POWER_CONSUMPTION_PID successfully stopped at $(date)."
   fi
 }
