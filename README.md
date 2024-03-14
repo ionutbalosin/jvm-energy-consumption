@@ -224,7 +224,7 @@ This set of measurements uses the off-the-shelf Spring PetClinic application.
 
 ```
 $ cd /spring-petclinic
-$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]
+$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo] [--skip-os-tuning] [--skip-build]
 ```
 
 4. After the application has successfully started, launch the `wrk` on the **test client machine**:
@@ -246,7 +246,7 @@ This set of measurements uses the off-the-shelf Quarkus Hibernate ORM Panache qu
 
 ```
 $ cd /quarkus-hibernate-orm-panache-quickstart
-$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]
+$ ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo] [--skip-os-tuning] [--skip-build]
 ```
 
 4. After the application has successfully started, launch the `wrk` on the **test client machine**:
