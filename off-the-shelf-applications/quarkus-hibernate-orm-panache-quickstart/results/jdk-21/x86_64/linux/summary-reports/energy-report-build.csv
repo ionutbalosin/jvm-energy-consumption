@@ -1,5 +1,5 @@
           Category;  Run Identifier;  Energy Samples;         Score;       Score Metric
-      native-image;             pgo;             184;         2.746; Energy (Watt⋅hour)
+      native-image;             pgo;             408;         7.540; Energy (Watt⋅hour)
     oracle-graalvm;         default;              11;         0.125; Energy (Watt⋅hour)
       native-image;         default;             194;         3.103; Energy (Watt⋅hour)
      azul-prime-vm;         default;              21;         0.354; Energy (Watt⋅hour)

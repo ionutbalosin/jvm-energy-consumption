@@ -28,6 +28,7 @@ package com.ionutbalosin.jvm.energy.consumption.report.power;
 import static com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStatsParser.parsePowerStats;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ENERGY_REPORT_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_POWER_STATS_OUTPUT_FILE;
+import static java.nio.file.Files.exists;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.report.Report;
@@ -37,6 +38,7 @@ import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -70,13 +72,39 @@ public abstract class AbstractPowerReport implements Report {
   private List<PowerStats> parseRawStats(String parentFolder, ExecutionType executionType)
       throws IOException {
     final PathMatcher buildAndRunMatcher = getPathMatcher(executionType.getType());
-    // Filter all "pgo_instrument" intermediate files
+    final PathMatcher pgoMatcher = getPathMatcher("pgo");
     final PathMatcher pgoInstrumentMatcher = getPathMatcher("pgo_instrument");
 
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(path -> buildAndRunMatcher.matches(path) && !pgoInstrumentMatcher.matches(path))
-        .map(filePath -> parsePowerStats(filePath, executionType))
+        .map(
+            filePath -> {
+              PowerStats powerStats = parsePowerStats(filePath, executionType);
+
+              // The "pgo" and "pgo_instrument" files are handled together because "pgo_instrument"
+              // is the initial phase of the "pgo", therefore they need to be aggregated in the
+              // final report for the total energy consumption
+              if (pgoMatcher.matches(filePath)) {
+                String pgoFilename = filePath.getFileName().toString();
+                Path directory = filePath.getParent();
+
+                // 1. Create the analogous to "pgo" the "pgo_instrument" file
+                String pgoInstrumentFilename = pgoFilename.replaceAll("pgo", "pgo_instrument");
+                Path pgoInstrumentFilePath = directory.resolve(pgoInstrumentFilename);
+
+                // 2. If the "pgo_instrument" file exists, parse it and add their stats to the "pgo"
+                if (exists(pgoInstrumentFilePath)) {
+                  PowerStats pgoInstrumentPowerStats =
+                      parsePowerStats(pgoInstrumentFilePath, executionType);
+                  powerStats.samples.addAll(pgoInstrumentPowerStats.samples);
+                }
+
+                return powerStats;
+              }
+
+              return powerStats;
+            })
         .collect(toList());
   }
 
