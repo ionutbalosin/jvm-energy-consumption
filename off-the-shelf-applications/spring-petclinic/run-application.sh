@@ -31,11 +31,13 @@ check_command_line_options() {
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="7200"
   APP_ENABLE_PGO_G1GC=""
+  APP_PGO_DIR="/pgo/native-image"
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
+  APP_SKIP_RUN=""
 
-  if [[ $# -gt 6 ]]; then
-    echo "Usage: ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--skip-os-tuning] [--skip-build]"
+  if [[ $# -gt 8 ]]; then
+    echo "Usage: ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--pgo-dir=<pgo-dir>] [--skip-os-tuning] [--skip-build] [--skip-run]"
     echo ""
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
@@ -43,8 +45,10 @@ check_command_line_options() {
     echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. It can be a number or any other string identifier. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
     echo "  --enable-pgo-g1gc                  An optional parameter to enable PGO and G1 GC for the native image."
+    echo "  --pgo-dir                          An optional parameter to specify PGO profile for the native image. If not specified, it is set by default to $APP_PGO_DIR."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
+    echo "  --skip-run                         An optional parameter to skip the run."
     echo ""
     echo "Examples:"
     echo "  $ ./run-application.sh"
@@ -70,11 +74,17 @@ check_command_line_options() {
       --enable-pgo-g1gc)
         APP_ENABLE_PGO_G1GC="--enable-pgo-g1gc"
         ;;
+      --pgo-dir=*)
+        APP_PGO_DIR="${1#*=}"
+        ;;
       --skip-os-tuning)
         APP_SKIP_OS_TUNING="--skip-os-tuning"
         ;;
       --skip-build)
         APP_SKIP_BUILD="--skip-build"
+        ;;
+      --skip-run)
+        APP_SKIP_RUN="--skip-run"
         ;;
       *)
         echo "ERROR: Unknown parameter $1"
@@ -96,8 +106,11 @@ configure_application() {
   echo "Application run identifier: $APP_RUN_IDENTIFIER"
   echo "Application running time: $APP_RUNNING_TIME sec"
   echo "Application skip build: $APP_SKIP_BUILD"
+  echo "Application skip run: $APP_SKIP_RUN"
   echo "Application skip OS tuning: $APP_SKIP_OS_TUNING"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
+  echo "Native Image enable PGO: $APP_ENABLE_PGO_G1GC"
+  echo "Native Image PGO directory: $APP_PGO_DIR"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
   echo "Java opts: $JAVA_OPS"
@@ -126,7 +139,7 @@ native_image_enable_pgo_g1gc() {
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
   if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO_G1GC" = "--enable-pgo-g1gc" ]; then
     # Enable PGO
-    pgo_output_file="$CURR_DIR/pgo/native-image/default.iprof"
+    pgo_output_file="$CURR_DIR/$APP_PGO_DIR/default.iprof"
     if ! test -e "$pgo_output_file"; then
       PGO_G1GC_BUILD_ARGS="--pgo-instrument"
       PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
@@ -285,32 +298,36 @@ echo ""
 echo "+=============================+"
 echo "| [7/8] Start the application |"
 echo "+=============================+"
-check_application_port_availability || exit 1
+if [ "$APP_SKIP_RUN" == "--skip-run" ]; then
+    echo "WARNING: Skipping the run process."
+  else
+    check_application_port_availability || exit 1
 
-# Start system power consumption monitoring
-power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-start_system_power_consumption --background --output-file="$power_output_file" || exit 1
+    # Start system power consumption monitoring
+    power_output_file="$OUTPUT_FOLDER/power/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
+    start_system_power_consumption --background --output-file="$power_output_file" || exit 1
 
-# Start the application
-start_application || { stop_system_power_consumption && exit 1; }
-check_application_initial_request || { stop_system_power_consumption && exit 1; }
+    # Start the application
+    start_application || { stop_system_power_consumption && exit 1; }
+    check_application_initial_request || { stop_system_power_consumption && exit 1; }
 
-# Start process performance monitoring
-performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
-start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_system_power_consumption && stop_application && exit 1; }
+    # Start process performance monitoring
+    performance_monitoring_output_file="$OUTPUT_FOLDER/perf/$JVM_IDENTIFIER-run-$APP_RUN_IDENTIFIER.txt"
+    start_process_performance_monitoring --pid="$APP_PID" --output-file="$performance_monitoring_output_file" --duration="$APP_RUNNING_TIME" || { stop_system_power_consumption && stop_application && exit 1; }
 
-echo "Please enjoy a ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
-sleep "$APP_RUNNING_TIME"
+    echo "Please enjoy a ☕ while the application runs. This may take approximately $APP_RUNNING_TIME seconds ..."
+    sleep "$APP_RUNNING_TIME"
 
-echo ""
-echo "+============================+"
-echo "| [8/8] Stop the application |"
-echo "+============================+"
-stop_process_performance_monitoring
-stop_application
-stop_system_power_consumption
+    echo ""
+    echo "+============================+"
+    echo "| [8/8] Stop the application |"
+    echo "+============================+"
+    stop_process_performance_monitoring
+    stop_application
+    stop_system_power_consumption
 
-# give a bit of time to the process to gracefully shut down
-sleep 5
+    # give a bit of time to the process to gracefully shut down
+    sleep 5
+fi
 
 echo "Everything went well, bye bye! 👋"
