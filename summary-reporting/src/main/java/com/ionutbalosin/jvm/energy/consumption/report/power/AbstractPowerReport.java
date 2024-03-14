@@ -69,16 +69,18 @@ public abstract class AbstractPowerReport implements Report {
 
   private List<PowerStats> parseRawStats(String parentFolder, ExecutionType executionType)
       throws IOException {
-    PathMatcher filenameMatcher = getPathMatcher(executionType);
+    final PathMatcher buildAndRunMatcher = getPathMatcher(executionType.getType());
+    // Filter all "pgo_instrument" intermediate files
+    final PathMatcher pgoInstrumentMatcher = getPathMatcher("pgo_instrument");
+
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
-        .filter(filenameMatcher::matches)
+        .filter(path -> buildAndRunMatcher.matches(path) && !pgoInstrumentMatcher.matches(path))
         .map(filePath -> parsePowerStats(filePath, executionType))
         .collect(toList());
   }
 
-  private PathMatcher getPathMatcher(ExecutionType executionType) {
-    return FileSystems.getDefault()
-        .getPathMatcher("regex:.*-" + executionType.getType() + "-.*.txt");
+  private PathMatcher getPathMatcher(String pattern) {
+    return FileSystems.getDefault().getPathMatcher("regex:.*-" + pattern + ".*\\.txt");
   }
 }

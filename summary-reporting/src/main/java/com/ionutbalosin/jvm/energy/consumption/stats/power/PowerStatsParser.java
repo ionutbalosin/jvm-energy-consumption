@@ -49,7 +49,7 @@ public class PowerStatsParser {
     PowerStats powerStats = new PowerStats();
     powerStats.descriptor = descriptor;
     powerStats.samples = samples;
-    // assume every stat is printed at every 1 second
+    // Note: assume every stat is printed at every 1 second
     powerStats.elapsed = samples.size();
     return powerStats;
   }
