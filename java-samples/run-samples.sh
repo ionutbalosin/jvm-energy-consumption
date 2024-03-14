@@ -30,6 +30,7 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER="default"
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="1200"
+  APP_WARMUP_TIME="300"
   APP_ENABLE_PGO=""
   APP_PGO_DIR="/pgo/native-image"
   APP_SKIP_OS_TUNING=""
@@ -37,13 +38,14 @@ check_command_line_options() {
   APP_SKIP_RUN=""
 
   if [[ $# -gt 8 ]]; then
-    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo] [--pgo-dir=<pgo-dir>] [--skip-os-tuning] [--skip-build] [--skip-run]"
+    echo "Usage: ./run-samples.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--warmup=<warmup>] [--enable-pgo] [--pgo-dir=<pgo-dir>] [--skip-os-tuning] [--skip-build] [--skip-run]"
     echo ""
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
     echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. It can be a number or any other string identifier. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
+    echo "  --warmup=<warmup>                  An optional parameter to specify the warmup in seconds. If not specified, it is set by default to $APP_WARMUP_TIME seconds."
     echo "  --enable-pgo                       An optional parameter to enable PGO and G1 GC for the native image."
     echo "  --pgo-dir                          An optional parameter to specify PGO profile for the native image. If not specified, it is set by default to $APP_PGO_DIR."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
@@ -73,6 +75,9 @@ check_command_line_options() {
         ;;
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
+        ;;
+      --warmup=*)
+        APP_WARMUP_TIME="${1#*=}"
         ;;
       --enable-pgo)
         APP_ENABLE_PGO="--enable-pgo"
@@ -154,7 +159,8 @@ configure_samples() {
   echo "Java samples skip OS tuning: $APP_SKIP_OS_TUNING"
   echo "Native Image enable PGO: $APP_ENABLE_PGO"
   echo "Native Image PGO directory: $APP_PGO_DIR"
-  echo "Java samples time: $APP_RUNNING_TIME sec"
+  echo "Java samples duration: $APP_RUNNING_TIME sec"
+  echo "Java samples warmup: $APP_WARMUP_TIME sec"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
   echo "Java opts: $JAVA_OPS"
 }
@@ -231,10 +237,10 @@ start_sample() {
   run_output_file="$OUTPUT_FOLDER/$sample_app/logs/$JVM_IDENTIFIER-run-$sample_app_run_type-$APP_RUN_IDENTIFIER.log"
 
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
-    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME -jar $CURR_DIR/target/$sample_app-$sample_app_run_type.jar $sample_app_run_type"
+    RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME -Dwarmup=$APP_WARMUP_TIME -jar $CURR_DIR/target/$sample_app-$sample_app_run_type.jar $sample_app_run_type"
   else
     native_image_enable_pgo $sample_app $sample_app_run_type
-    RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
+    RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_RUN_ARGS -Dduration=$APP_RUNNING_TIME -Dwarmup=$APP_WARMUP_TIME"
   fi
 
   sample_run_command="$RUN_CMD > $run_output_file 2>&1"

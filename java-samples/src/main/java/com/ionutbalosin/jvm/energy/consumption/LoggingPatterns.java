@@ -38,10 +38,13 @@ import java.util.logging.StreamHandler;
 
 public class LoggingPatterns {
 
-  // Read the test duration (in seconds) if explicitly set by the "-Dduration=<duration>" property,
-  // otherwise default it to 15 minutes
-  private final long DURATION_SEC = valueOf(System.getProperty("duration", "9000"));
-  private final long DURATION_NS = DURATION_SEC * 1_000_000_000L;
+  // Total duration in sec (if not explicitly set by "-Dduration=<duration>", defaults to 20 min)
+  private static final long DURATION_SEC = valueOf(System.getProperty("duration", "1200"));
+  private static final long DURATION_NS = DURATION_SEC * 1_000_000_000L;
+
+  // Warm-up duration in sec (if not explicitly set by "-Dwarmup=<warmup>", defaults to 5 min)
+  private static final long WARMUP_SEC = valueOf(System.getProperty("warmup", "300"));
+  private static final long WARMUP_NS = WARMUP_SEC * 1_000_000_000L;
 
   private final Logger LOGGER = Logger.getLogger(LoggingPatterns.class.getName());
   private final Level LOG_LEVEL = Level.INFO;
@@ -56,6 +59,7 @@ public class LoggingPatterns {
   private Object anObject;
   private JulLogger julLogger;
   private long iterations;
+  private long runs;
 
   public static void main(String[] args) {
     validateArguments(args);
@@ -69,10 +73,11 @@ public class LoggingPatterns {
         System.getProperty("java.vendor"),
         System.getProperty("java.vm.version"));
     System.out.printf(
-        "Starting %s at %tT, expected duration = %d sec, log level = %s%n",
+        "Starting %s at %tT, expected duration = %d sec, warmup = %d sec, log level = %s%n",
         instance.julLogger.getClass().getName(),
         new Date(),
-        instance.DURATION_SEC,
+        DURATION_SEC,
+        WARMUP_SEC,
         instance.LOG_LEVEL.getName());
 
     long startTime = System.nanoTime();
@@ -84,8 +89,13 @@ public class LoggingPatterns {
     System.out.printf("---------------------------------%n");
     System.out.printf("Summary statistics:%n");
     System.out.printf("  Elapsed = %.3f sec%n", elapsedTime);
-    System.out.printf("  Ops = %d%n", instance.iterations);
-    System.out.printf("  Ops/sec = %.9f%n", instance.iterations / elapsedTime);
+    System.out.printf("  Iterations = %d%n", instance.iterations);
+    System.out.printf("  Iterations/sec = %.9f%n", instance.iterations / elapsedTime);
+    System.out.printf("  Runs = %d%n", instance.runs);
+    System.out.printf("  Runs/sec = %.9f%n", instance.runs / (elapsedTime - WARMUP_SEC));
+    System.out.printf(
+        "%nNote: Iterations include all executions, while runs begin counting after the warm-up"
+            + " phase.%n");
   }
 
   public static void validateArguments(String[] args) {
@@ -173,6 +183,10 @@ public class LoggingPatterns {
       julLogger.log();
       validateResults();
       iterations++;
+      if (System.nanoTime() >= startTime + WARMUP_NS) {
+        // If the warm-up phase has completed, start counting the runs
+        runs++;
+      }
     }
   }
 
