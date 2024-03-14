@@ -33,6 +33,6 @@ public class TestDescriptor {
   // The type of running or the benchmark method (e.g., unguarded_parametrized, radix_sort)
   public String type;
 
-  // The identifier of the running or the test case (e.g., default, pgo_g1gc)
+  // The identifier of the running or the test case (e.g., default, pgo)
   public String runIdentifier;
 }
