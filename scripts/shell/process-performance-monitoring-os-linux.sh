@@ -131,7 +131,7 @@ start_process_performance_monitoring() {
 stop_process_performance_monitoring() {
   if ps -p "$PERFORMANCE_MONITOR_PID" > /dev/null; then
     echo "Stopping the process performance monitoring with PID $PERFORMANCE_MONITOR_PID."
-    kill -s INT "$PERFORMANCE_MONITOR_PID"
+    kill -s TERM "$PERFORMANCE_MONITOR_PID"
     echo "Process performance monitoring with PID $PERFORMANCE_MONITOR_PID successfully stopped at $(date)."
   else
     echo "Process performance monitoring with PID $PERFORMANCE_MONITOR_PID no longer exists (it has likely already finished)."
