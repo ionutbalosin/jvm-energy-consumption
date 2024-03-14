@@ -176,8 +176,8 @@ create_output_resources() {
 native_image_enable_pgo_g1gc() {
   sample_app="$1"
   sample_app_run_type="$2"
-  PGO_G1GC_BUILD_ARGS=""
-  PGO_G1GC_RUN_ARGS=""
+  PGO_BUILD_ARGS=""
+  PGO_RUN_ARGS=""
 
   # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
@@ -185,15 +185,15 @@ native_image_enable_pgo_g1gc() {
     # Enable PGO
     pgo_output_file="$CURR_DIR/$APP_PGO_DIR/$sample_app-$sample_app_run_type.iprof"
     if ! test -e "$pgo_output_file"; then
-      PGO_G1GC_BUILD_ARGS="--pgo-instrument"
-      PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
+      PGO_BUILD_ARGS="--pgo-instrument"
+      PGO_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
     else
-      PGO_G1GC_BUILD_ARGS="--pgo=\"$pgo_output_file\""
+      PGO_BUILD_ARGS="--pgo=\"$pgo_output_file\""
     fi
 
     # Enable G1 GC option only if the OS is Linux
     if [ "$OS" = "linux" ]; then
-      PGO_G1GC_BUILD_ARGS="$PGO_G1GC_BUILD_ARGS,--gc=G1"
+      PGO_BUILD_ARGS="$PGO_BUILD_ARGS,--gc=G1"
     fi
   fi
 }
@@ -208,8 +208,8 @@ build_sample() {
     BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -Djar.finalName=$sample_app-$sample_app_run_type"
   else
     native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
-    # avoid adding a trailing comma to the build args when PGO_G1GC_BUILD_ARGS is empty
-    build_args="${PREVIEW_FEATURES}${PGO_G1GC_BUILD_ARGS:+,}${PGO_G1GC_BUILD_ARGS}"
+    # avoid adding a trailing comma to the build args when PGO_BUILD_ARGS is empty
+    build_args="${PREVIEW_FEATURES}${PGO_BUILD_ARGS:+,}${PGO_BUILD_ARGS}"
     BUILD_CMD="$CURR_DIR/../mvnw clean package -Pnative -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -DbuildArgs=\"$build_args\""
   fi
 
@@ -234,7 +234,7 @@ start_sample() {
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME -jar $CURR_DIR/target/$sample_app-$sample_app_run_type.jar $sample_app_run_type"
   else
     native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
-    RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_G1GC_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
+    RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
   fi
 
   sample_run_command="$RUN_CMD > $run_output_file 2>&1"
