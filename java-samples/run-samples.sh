@@ -173,7 +173,7 @@ create_output_resources() {
 # 2) If the PGO profile exists, it means it was previously generated, and we have to instrument the build to use it:
 #  - Build with '--pgo=profile.iprof'
 #  - Run the native executable to benefit from the PGO profile
-native_image_enable_pgo_g1gc() {
+native_image_enable_pgo() {
   sample_app="$1"
   sample_app_run_type="$2"
   PGO_BUILD_ARGS=""
@@ -207,7 +207,7 @@ build_sample() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$CURR_DIR/../mvnw clean package -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -Djar.finalName=$sample_app-$sample_app_run_type"
   else
-    native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
+    native_image_enable_pgo $sample_app $sample_app_run_type
     # avoid adding a trailing comma to the build args when PGO_BUILD_ARGS is empty
     build_args="${PREVIEW_FEATURES}${PGO_BUILD_ARGS:+,}${PGO_BUILD_ARGS}"
     BUILD_CMD="$CURR_DIR/../mvnw clean package -Pnative -DmainClass=\"com.ionutbalosin.jvm.energy.consumption.$sample_app\" -DimageName=\"$sample_app-$sample_app_run_type\" -DbuildArgs=\"$build_args\""
@@ -233,7 +233,7 @@ start_sample() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS -Dduration=$APP_RUNNING_TIME -jar $CURR_DIR/target/$sample_app-$sample_app_run_type.jar $sample_app_run_type"
   else
-    native_image_enable_pgo_g1gc $sample_app $sample_app_run_type
+    native_image_enable_pgo $sample_app $sample_app_run_type
     RUN_CMD="$CURR_DIR/target/$sample_app-$sample_app_run_type $sample_app_run_type $JAVA_OPS $PGO_RUN_ARGS -Dduration=$APP_RUNNING_TIME"
   fi
 
