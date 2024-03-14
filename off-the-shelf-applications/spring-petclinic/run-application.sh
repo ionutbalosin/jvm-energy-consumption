@@ -131,9 +131,9 @@ create_output_resources() {
 # 2) If the PGO profile exists, it means it was previously generated, and we have to instrument the build to use it:
 #  - Build with '--pgo=profile.iprof'
 #  - Run the native executable to benefit from the PGO profile
-native_image_enable_pgo_g1gc() {
-  PGO_G1GC_BUILD_ARGS=""
-  PGO_G1GC_RUN_ARGS=""
+native_image_enable_pgo() {
+  PGO_BUILD_ARGS=""
+  PGO_RUN_ARGS=""
 
   # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
@@ -141,15 +141,15 @@ native_image_enable_pgo_g1gc() {
     # Enable PGO
     pgo_output_file="$CURR_DIR/$APP_PGO_DIR/default.iprof"
     if ! test -e "$pgo_output_file"; then
-      PGO_G1GC_BUILD_ARGS="--pgo-instrument"
-      PGO_G1GC_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
+      PGO_BUILD_ARGS="--pgo-instrument"
+      PGO_RUN_ARGS="-XX:ProfilesDumpFile=\"$pgo_output_file\""
     else
-      PGO_G1GC_BUILD_ARGS="--pgo=\"$pgo_output_file\""
+      PGO_BUILD_ARGS="--pgo=\"$pgo_output_file\""
     fi
 
     # Enable G1 GC option only if the OS is Linux
     if [ "$OS" = "linux" ]; then
-      PGO_G1GC_BUILD_ARGS="$PGO_G1GC_BUILD_ARGS,--gc=G1"
+      PGO_BUILD_ARGS="$PGO_BUILD_ARGS,--gc=G1"
     fi
   fi
 }
@@ -160,8 +160,8 @@ build_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip"
   else
-    native_image_enable_pgo_g1gc
-    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -DbuildArgs=\"$PGO_G1GC_BUILD_ARGS\" -Pnative native:compile"
+    native_image_enable_pgo
+    BUILD_CMD="$APP_HOME/mvnw -f $APP_HOME/pom.xml clean package -Dmaven.test.skip -DbuildArgs=\"$PGO_BUILD_ARGS\" -Pnative native:compile"
   fi
 
   app_build_command="$BUILD_CMD > $build_output_file 2>&1"
@@ -188,8 +188,8 @@ start_application() {
   if [ "$JVM_IDENTIFIER" != "native-image" ]; then
     RUN_CMD="$JAVA_HOME/bin/java $JAVA_OPS $JFR_OPS -jar $APP_HOME/target/*.jar"
   else
-    native_image_enable_pgo_g1gc
-    RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS $PGO_G1GC_RUN_ARGS"
+    native_image_enable_pgo
+    RUN_CMD="$APP_HOME/target/spring-petclinic $JAVA_OPS $PGO_RUN_ARGS"
   fi
 
   app_run_command="$RUN_CMD > $run_output_file 2>&1 &"
