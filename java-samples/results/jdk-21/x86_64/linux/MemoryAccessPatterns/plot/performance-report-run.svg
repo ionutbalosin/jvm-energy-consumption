@@ -46,8 +46,8 @@
 <rect x='192.00' y='591.96' width='63.81' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
 <rect x='192.00' y='233.81' width='373.42' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
 <rect x='192.00' y='556.15' width='41.31' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
-<rect x='192.00' y='197.99' width='137.84' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
 <rect x='192.00' y='914.30' width='527.62' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
+<rect x='192.00' y='197.99' width='137.84' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
 <rect x='192.00' y='162.18' width='476.08' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
 <rect x='192.00' y='520.33' width='60.94' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
 <rect x='192.00' y='878.48' width='1144.40' height='35.82' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
@@ -67,8 +67,8 @@
 <text x='257.26' y='613.93' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.156</text>
 <text x='566.87' y='255.78' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.913</text>
 <text x='234.76' y='578.12' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.101</text>
-<text x='331.29' y='219.97' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.337</text>
 <text x='720.74' y='936.27' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='22.57px' lengthAdjust='spacingAndGlyphs'>1.29</text>
+<text x='331.29' y='219.97' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.337</text>
 <text x='669.53' y='184.15' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>1.164</text>
 <text x='254.39' y='542.30' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>0.149</text>
 <text x='1337.85' y='900.46' style='font-size: 11.38px; font-family: "Liberation Sans";' textLength='29.08px' lengthAdjust='spacingAndGlyphs'>2.798</text>
@@ -87,29 +87,29 @@
 <polyline points='1010.01,1185.65 1010.01,1182.91 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='1419.02,1185.65 1419.02,1182.91 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <text x='779.53' y='1201.24' text-anchor='middle' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='181.67px' lengthAdjust='spacingAndGlyphs'>Throughput (ops/sec)</text>
-<rect x='417.40' y='1216.52' width='724.26' height='54.02' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='422.88' y='1249.96' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='63.01px' lengthAdjust='spacingAndGlyphs'>Legend</text>
-<rect x='494.86' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='495.57' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FE6100;' />
-<rect x='635.76' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='636.47' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
-<rect x='815.80' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='816.51' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
-<rect x='1019.48' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='1020.19' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
-<rect x='494.86' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='495.57' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
-<rect x='635.76' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='636.47' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #009E73;' />
-<rect x='815.80' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
-<rect x='816.51' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #4B0092;' />
-<text x='521.10' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='105.69px' lengthAdjust='spacingAndGlyphs'>Oracle GraalVM</text>
-<text x='662.01' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='144.83px' lengthAdjust='spacingAndGlyphs'>OpenJDK HotSpot VM</text>
-<text x='842.05' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='168.47px' lengthAdjust='spacingAndGlyphs'>Native Image (pgo_g1gc)</text>
-<text x='1045.72' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='90.46px' lengthAdjust='spacingAndGlyphs'>Native Image</text>
-<text x='521.10' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='78.80px' lengthAdjust='spacingAndGlyphs'>GraalVM CE</text>
-<text x='662.01' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='124.62px' lengthAdjust='spacingAndGlyphs'>Eclipse OpenJ9 VM</text>
-<text x='842.05' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='97.67px' lengthAdjust='spacingAndGlyphs'>Azul Prime VM</text>
+<rect x='437.01' y='1216.52' width='685.04' height='54.02' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='442.49' y='1249.96' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='63.01px' lengthAdjust='spacingAndGlyphs'>Legend</text>
+<rect x='514.47' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='515.18' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FE6100;' />
+<rect x='655.37' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='656.08' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #648FFF;' />
+<rect x='835.41' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='836.12' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #882255;' />
+<rect x='999.87' y='1222.00' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='1000.58' y='1222.71' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #DC267F;' />
+<rect x='514.47' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='515.18' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFB000;' />
+<rect x='655.37' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='656.08' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #009E73;' />
+<rect x='835.41' y='1247.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #F2F2F2;' />
+<rect x='836.12' y='1248.50' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #4B0092;' />
+<text x='540.71' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='105.69px' lengthAdjust='spacingAndGlyphs'>Oracle GraalVM</text>
+<text x='681.61' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='144.83px' lengthAdjust='spacingAndGlyphs'>OpenJDK HotSpot VM</text>
+<text x='861.66' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='129.25px' lengthAdjust='spacingAndGlyphs'>Native Image (pgo)</text>
+<text x='1026.12' y='1235.78' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='90.46px' lengthAdjust='spacingAndGlyphs'>Native Image</text>
+<text x='540.71' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='78.80px' lengthAdjust='spacingAndGlyphs'>GraalVM CE</text>
+<text x='681.61' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='124.62px' lengthAdjust='spacingAndGlyphs'>Eclipse OpenJ9 VM</text>
+<text x='861.66' y='1261.57' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='97.67px' lengthAdjust='spacingAndGlyphs'>Azul Prime VM</text>
 <text x='133.24' y='27.03' style='font-size: 18.00px; font-family: "Liberation Sans";' textLength='207.71px' lengthAdjust='spacingAndGlyphs'>Memory Access Patterns</text>
 <text x='1425.83' y='1286.31' text-anchor='end' style='font-size: 14.40px; font-family: "Liberation Sans";' textLength='104.20px' lengthAdjust='spacingAndGlyphs'>JDK-21 / x86_64</text>
 </g>

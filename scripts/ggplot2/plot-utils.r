@@ -47,24 +47,24 @@ processCsvColumns <- function(data) {
   # add a new JVM identifier column based on Category
   data$JvmIdentifier <- data$Category
 
-  # Special case: update the JVM identifier for the "native-image" with "pgo_g1gc"
-  data$JvmIdentifier[(data$Category == "native-image") & (data$RunIdentifier == "pgo_g1gc")] <- "native-image-pgo_g1gc"
+  # Special case: update the JVM identifier for the "native-image" with "pgo"
+  data$JvmIdentifier[(data$Category == "native-image") & (data$RunIdentifier == "pgo")] <- "native-image-pgo"
 
   # update the JVM identifier values to be properly displayed in legend
   data$JvmIdentifier[data$JvmIdentifier == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
   data$JvmIdentifier[data$JvmIdentifier == "graalvm-ce"] <- "GraalVM CE"
   data$JvmIdentifier[data$JvmIdentifier == "oracle-graalvm"] <- "Oracle GraalVM"
   data$JvmIdentifier[data$JvmIdentifier == "native-image"] <- "Native Image"
-  data$JvmIdentifier[data$JvmIdentifier == "native-image-pgo_g1gc"] <- "Native Image (pgo_g1gc)"
+  data$JvmIdentifier[data$JvmIdentifier == "native-image-pgo"] <- "Native Image (pgo)"
   data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
   data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
 
   # add a new Benchmark column
   if (is.null(data$Type)) {
     # if there are no test types (i.e., variations of the same benchmark application)
-    # Special case: for the "native-image" with "pgo_g1gc", concatenate it, otherwise use the Category
+    # Special case: for the "native-image" with "pgo", concatenate it, otherwise use the Category
     category_run_identifier <- paste(data$Category, " (", data$RunIdentifier, ")", sep = "")
-    data$Benchmark <- ifelse(data$RunIdentifier == "pgo_g1gc", category_run_identifier, data$Category)
+    data$Benchmark <- ifelse(data$RunIdentifier == "pgo", category_run_identifier, data$Category)
   } else {
     # if there are test types, use them as a benchmark name
     data$Benchmark <- data$Type

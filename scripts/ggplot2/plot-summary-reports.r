@@ -41,9 +41,9 @@ jdk_arch <- paste("JDK-", jdk_version, " / ", arch, sep = "")
 
 # Creates jvm color palette map
 jvm_color_palette_map <- setNames(jvm_color_palette, jvm_names)
-# Special case: since there is a new test category for the "native-image" with "pgo_g1gc",
+# Special case: since there is a new test category for the "native-image" with "pgo",
 # add an additional category color palette to properly render the graphs."
-jvm_color_palette_map <- c(jvm_color_palette_map, "Native Image (pgo_g1gc)" = "#882255")
+jvm_color_palette_map <- c(jvm_color_palette_map, "Native Image (pgo)" = "#882255")
 
 plotEnergyReports <- function(output_folder, report_basename, plot_type, plot_title) {
   # Define the report types that might be generated
