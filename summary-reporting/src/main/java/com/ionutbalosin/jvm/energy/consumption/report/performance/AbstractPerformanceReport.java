@@ -62,8 +62,7 @@ public abstract class AbstractPerformanceReport implements Report {
   public void processRawStats() {}
 
   @Override
-  public void reportProcessedStats(String outputFilePath) {
-  }
+  public void reportProcessedStats(String outputFilePath) {}
 
   @Override
   public String getProcessedStatsOutputFile() {
