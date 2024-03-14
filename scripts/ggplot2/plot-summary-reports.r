@@ -45,69 +45,6 @@ jvm_color_palette_map <- setNames(jvm_color_palette, jvm_names)
 # add an additional category color palette to properly render the graphs."
 jvm_color_palette_map <- c(jvm_color_palette_map, "Native Image (pgo_g1gc)" = "#882255")
 
-print(jvm_color_palette_map)
-
-# Apply column data changes on the initial data frame
-processCsvColumns <- function(data) {
-  # trim all spaces from all column values
-  data <- as.data.frame(apply(data, 2, function(x) trimws(x)))
-
-  # rename some columns
-  colnames(data)[colnames(data) == "Score.Metric"] <- "ScoreMetric"
-  colnames(data)[colnames(data) == "Run.Identifier"] <- "RunIdentifier"
-  colnames(data)[colnames(data) == "Sample.Identifier"] <- "SampleIdentifier"
-
-  # convert from string to numeric the Score and SampleIdentifier columns. In addition, convert commas to dots
-  data$Score <- as.numeric(gsub(",", ".", data$Score))
-  if (!is.null(data$SampleIdentifier)) {
-    data$SampleIdentifier <- as.numeric(gsub(",", ".", data$SampleIdentifier))
-  }
-
-  # add a new JVM identifier column based on Category
-  data$JvmIdentifier <- data$Category
-
-  # Special case: update the JVM identifier for the "native-image" with "pgo_g1gc"
-  data$JvmIdentifier[(data$Category == "native-image") & (data$RunIdentifier == "pgo_g1gc")] <- "native-image-pgo_g1gc"
-
-  # update the JVM identifier values to be properly displayed in legend
-  data$JvmIdentifier[data$JvmIdentifier == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
-  data$JvmIdentifier[data$JvmIdentifier == "graalvm-ce"] <- "GraalVM CE"
-  data$JvmIdentifier[data$JvmIdentifier == "oracle-graalvm"] <- "Oracle GraalVM"
-  data$JvmIdentifier[data$JvmIdentifier == "native-image"] <- "Native Image"
-  data$JvmIdentifier[data$JvmIdentifier == "native-image-pgo_g1gc"] <- "Native Image (pgo_g1gc)"
-  data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
-  data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
-
-  # add a new Benchmark column
-  if (is.null(data$Type)) {
-    # if there are no test types (i.e., variations of the same benchmark application)
-    # Special case: for the "native-image" with "pgo_g1gc", concatenate it, otherwise use the Category
-    category_run_identifier <- paste(data$Category, " (", data$RunIdentifier, ")", sep = "")
-    data$Benchmark <- ifelse(data$RunIdentifier == "pgo_g1gc", category_run_identifier, data$Category)
-  } else {
-    # if there are test types, use them as a benchmark name
-    data$Benchmark <- data$Type
-  }
-
-  data
-}
-
-plotBar <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
-  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
-  # Sort the data frame by 'JvmIdentifier column to appear chronologically
-  data <- data[order(data$JvmIdentifier), ]
-  plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
-  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
-}
-
-plotScatter <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
-  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
-  # Sort the data frame by 'JvmIdentifier' and then by 'SampleIdentifier' columns to appear chronologically
-  data <- data[order(data$JvmIdentifier, data$SampleIdentifier), ]
-  plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Time", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
-  saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
-}
-
 plotEnergyReports <- function(output_folder, report_basename, plot_type, plot_title) {
   # Define the report types that might be generated
   report_types <- c("run", "build")
@@ -151,11 +88,14 @@ java_samples <- list(
   "Memory Access Patterns" = "MemoryAccessPatterns",
   "Throw Exception Patterns" = "ThrowExceptionPatterns",
   "Sorting Algorithms" = "SortingAlgorithms",
+  "String Concatenation Patterns" = "StringConcatenationPatterns",
+  "Virtual/Platform Thread Queue Throughput" = "VPThreadQueueThroughput",
+  "Sorting Algorithms" = "SortingAlgorithms",
   "Virtual Calls" = "VirtualCalls"
 )
 for (java_sample in names(java_samples)) {
   sample_full_path <- paste(base_path, "java-samples", output_folder, java_samples[[java_sample]], sep = "/")
   plotEnergyReports(sample_full_path, "energy-report", "bar-plot", java_sample)
   plotEnergyReports(sample_full_path, "performance-report", "bar-plot", java_sample)
-  # Note: Skip plotting the scatter for Java samples since it involves splitting them into individual plots (per category:type).
+  # Note: Skip the scatter plotting for Java samples since it involves splitting them into individual plots (per category:type).
 }

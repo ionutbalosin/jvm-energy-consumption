@@ -26,6 +26,71 @@
 
 source("../scripts/ggplot2/utils.r")
 
+# Apply column data changes on the initial data frame
+processCsvColumns <- function(data) {
+  # trim all spaces from all column values
+  data <- as.data.frame(apply(data, 2, function(x) trimws(x)))
+
+  # rename some columns
+  colnames(data)[colnames(data) == "Score.Metric"] <- "ScoreMetric"
+  colnames(data)[colnames(data) == "Run.Identifier"] <- "RunIdentifier"
+  colnames(data)[colnames(data) == "Sample.Identifier"] <- "SampleIdentifier"
+
+  # convert from string to numeric the Score column. In addition, convert commas to dots.
+  data$Score <- as.numeric(gsub(",", ".", data$Score))
+
+  # if exists, convert from string to numeric the SampleIdentifier column
+  if (!is.null(data$SampleIdentifier)) {
+    data$SampleIdentifier <- as.numeric(gsub(",", ".", data$SampleIdentifier))
+  }
+
+  # add a new JVM identifier column based on Category
+  data$JvmIdentifier <- data$Category
+
+  # Special case: update the JVM identifier for the "native-image" with "pgo_g1gc"
+  data$JvmIdentifier[(data$Category == "native-image") & (data$RunIdentifier == "pgo_g1gc")] <- "native-image-pgo_g1gc"
+
+  # update the JVM identifier values to be properly displayed in legend
+  data$JvmIdentifier[data$JvmIdentifier == "openjdk-hotspot-vm"] <- "OpenJDK HotSpot VM"
+  data$JvmIdentifier[data$JvmIdentifier == "graalvm-ce"] <- "GraalVM CE"
+  data$JvmIdentifier[data$JvmIdentifier == "oracle-graalvm"] <- "Oracle GraalVM"
+  data$JvmIdentifier[data$JvmIdentifier == "native-image"] <- "Native Image"
+  data$JvmIdentifier[data$JvmIdentifier == "native-image-pgo_g1gc"] <- "Native Image (pgo_g1gc)"
+  data$JvmIdentifier[data$JvmIdentifier == "azul-prime-vm"] <- "Azul Prime VM"
+  data$JvmIdentifier[data$JvmIdentifier == "eclipse-openj9-vm"] <- "Eclipse OpenJ9 VM"
+
+  # add a new Benchmark column
+  if (is.null(data$Type)) {
+    # if there are no test types (i.e., variations of the same benchmark application)
+    # Special case: for the "native-image" with "pgo_g1gc", concatenate it, otherwise use the Category
+    category_run_identifier <- paste(data$Category, " (", data$RunIdentifier, ")", sep = "")
+    data$Benchmark <- ifelse(data$RunIdentifier == "pgo_g1gc", category_run_identifier, data$Category)
+  } else {
+    # if there are test types, use them as a benchmark name
+    data$Benchmark <- data$Type
+  }
+
+  data
+}
+
+# Generate and saves the bar plot
+plotBar <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
+  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  # Sort the data frame by 'JvmIdentifier column to appear chronologically
+  data <- data[order(data$JvmIdentifier), ]
+  plot <- generateBarPlot(data, "JvmIdentifier", "Legend", "", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
+  saveBarPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
+}
+
+# Generate and saves the scatter plot
+plotScatter <- function(data, output_folder, report_basename, report_type, plot_y_label, plot_title) {
+  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  # Sort the data frame by 'JvmIdentifier' and then by 'SampleIdentifier' columns to appear chronologically
+  data <- data[order(data$JvmIdentifier, data$SampleIdentifier), ]
+  plot <- generateScatterPlot(data, "JvmIdentifier", "Legend", "Time", plot_y_label, plot_title, jdk_arch, jvm_color_palette_map)
+  saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
+}
+
 # Generate the bar plot
 generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
   plot <- ggplot(data, aes(x = Benchmark, y = Score, fill = data[, fill]))
@@ -53,7 +118,7 @@ generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, captio
   plot
 }
 
-# Generate the plot scatter
+# Generate the scatter plot
 generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
     plot <- ggplot(data, aes(x = SampleIdentifier, y = Score, group = JvmIdentifier, color = JvmIdentifier))
     plot <- plot + geom_point(size = 0.6)
@@ -81,7 +146,7 @@ generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, ca
     plot
 }
 
-# Generate and save the plot to a SVG output file
+# Save the bar plot to a SVG output file
 saveBarPlot <- function(data, plot, path, file_basename) {
   if (!empty(data)) {
     # set the height proportional to the number of rows plus 4 cm (as a minimum)
@@ -107,7 +172,7 @@ saveBarPlot <- function(data, plot, path, file_basename) {
   }
 }
 
-# Generate and save the plot to a SVG output file
+# Save the scatter plot to a SVG output file
 saveScatterPlot <- function(data, plot, path, file_basename) {
   if (!empty(data)) {
     # create the path if does not exist
