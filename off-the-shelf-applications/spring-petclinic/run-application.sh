@@ -30,21 +30,21 @@ check_command_line_options() {
   APP_RUN_IDENTIFIER="default"
   APP_JVM_IDENTIFIER=""
   APP_RUNNING_TIME="7200"
-  APP_ENABLE_PGO_G1GC=""
+  APP_ENABLE_PGO=""
   APP_PGO_DIR="/pgo/native-image"
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
   APP_SKIP_RUN=""
 
   if [[ $# -gt 8 ]]; then
-    echo "Usage: ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo-g1gc] [--pgo-dir=<pgo-dir>] [--skip-os-tuning] [--skip-build] [--skip-run]"
+    echo "Usage: ./run-application.sh [--jvm-identifier=<jvm-identifier>] [--run-identifier=<run-identifier>] [--duration=<duration>] [--enable-pgo] [--pgo-dir=<pgo-dir>] [--skip-os-tuning] [--skip-build] [--skip-run]"
     echo ""
     echo "Options:"
     echo "  --jvm-identifier=<jvm-identifier>  An optional parameter to specify the JVM to run with. If not specified, the user will be prompted to select it at the beginning of the run."
     echo "                                     Accepted options: {${APP_JVM_IDENTIFIERS[*]}}."
     echo "  --run-identifier=<run-identifier>  An optional parameter to identify the current execution run. It can be a number or any other string identifier. If not specified, it defaults to the value '$APP_RUN_IDENTIFIER'."
     echo "  --duration=<duration>              An optional parameter to specify the duration in seconds. If not specified, it is set by default to $APP_RUNNING_TIME seconds."
-    echo "  --enable-pgo-g1gc                  An optional parameter to enable PGO and G1 GC for the native image."
+    echo "  --enable-pgo                       An optional parameter to enable PGO and G1 GC for the native image."
     echo "  --pgo-dir                          An optional parameter to specify PGO profile for the native image. If not specified, it is set by default to $APP_PGO_DIR."
     echo "  --skip-os-tuning                   An optional parameter to skip the OS tuning. Since only Linux has specific OS tunings, they will be skipped. Configurations like disabling address space layout randomization, disabling turbo boost mode, setting the CPU governor to performance, disabling CPU hyper-threading will not be applied."
     echo "  --skip-build                       An optional parameter to skip the build process."
@@ -54,8 +54,8 @@ check_command_line_options() {
     echo "  $ ./run-application.sh"
     echo "  $ ./run-application.sh --jvm-identifier=openjdk-hotspot-vm"
     echo "  $ ./run-application.sh --run-identifier=default --jvm-identifier=openjdk-hotspot-vm --duration=60"
-    echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning"
-    echo "  $ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --duration=60 --enable-pgo-g1gc --skip-os-tuning --skip-build"
+    echo "  $ ./run-application.sh --run-identifier=pgo --jvm-identifier=native-image --duration=60 --enable-pgo --skip-os-tuning"
+    echo "  $ ./run-application.sh --run-identifier=pgo --jvm-identifier=native-image --duration=60 --enable-pgo --skip-os-tuning --skip-build"
     echo ""
     return 1
   fi
@@ -71,8 +71,8 @@ check_command_line_options() {
       --duration=*)
         APP_RUNNING_TIME="${1#*=}"
         ;;
-      --enable-pgo-g1gc)
-        APP_ENABLE_PGO_G1GC="--enable-pgo-g1gc"
+      --enable-pgo)
+        APP_ENABLE_PGO="--enable-pgo"
         ;;
       --pgo-dir=*)
         APP_PGO_DIR="${1#*=}"
@@ -109,7 +109,7 @@ configure_application() {
   echo "Application skip run: $APP_SKIP_RUN"
   echo "Application skip OS tuning: $APP_SKIP_OS_TUNING"
   echo "JVM identifier: $APP_JVM_IDENTIFIER"
-  echo "Native Image enable PGO: $APP_ENABLE_PGO_G1GC"
+  echo "Native Image enable PGO: $APP_ENABLE_PGO"
   echo "Native Image PGO directory: $APP_PGO_DIR"
   echo "Application home: $APP_HOME"
   echo "Application base url: $APP_BASE_URL"
@@ -137,7 +137,7 @@ native_image_enable_pgo_g1gc() {
 
   # Enable PGO and G1 GC for the native image; otherwise, disabled by default.
   # Note: G1GC is currently only supported on Linux AMD64 and AArch64
-  if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO_G1GC" = "--enable-pgo-g1gc" ]; then
+  if [ "$JVM_IDENTIFIER" = "native-image" ] && [ "$APP_ENABLE_PGO" = "--enable-pgo" ]; then
     # Enable PGO
     pgo_output_file="$CURR_DIR/$APP_PGO_DIR/default.iprof"
     if ! test -e "$pgo_output_file"; then

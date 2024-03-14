@@ -38,12 +38,12 @@ $ ./run-wrk.sh --jvm-identifier=native-image --app-base-url=192.168.0.2:8080
 ```bash
 # Trick: Since the PGO profiles have already been generated, this step only triggers the build phase for the "--pgo-instrument" option and saves the output files (e.g., power consumption files).
 # The PGO output is redirected to a temporary folder that is not saved since the run is skipped.
-$ ./run-application.sh --run-identifier=pgo_instrument --jvm-identifier=native-image --enable-pgo-g1gc --pgo-dir=tmp --skip-os-tuning --skip-run
+$ ./run-application.sh --run-identifier=pgo_instrument --jvm-identifier=native-image --enable-pgo --pgo-dir=tmp --skip-os-tuning --skip-run
 
 # The following two commands start the actual testing using the PGO profile
-$ ./run-application.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --enable-pgo-g1gc --skip-os-tuning
+$ ./run-application.sh --run-identifier=pgo --jvm-identifier=native-image --enable-pgo --skip-os-tuning
 
-$ ./run-wrk.sh --run-identifier=pgo_g1gc --jvm-identifier=native-image --app-base-url=192.168.0.2:8080
+$ ./run-wrk.sh --run-identifier=pgo --jvm-identifier=native-image --app-base-url=192.168.0.2:8080
 ```
 
 # Test with Azul Prime VM
