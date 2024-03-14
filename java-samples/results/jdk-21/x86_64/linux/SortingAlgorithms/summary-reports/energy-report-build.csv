@@ -1,10 +1,11 @@
           Category;                      Type;  Run Identifier;  Energy Samples;         Score;       Score Metric
+      native-image;                radix_sort;             pgo;              30;      2531.394;  Energy (Watt⋅sec)
 openjdk-hotspot-vm;                quick_sort;         default;               4;       157.940;  Energy (Watt⋅sec)
-      native-image;                merge_sort;        pgo_g1gc;              31;      2709.511;  Energy (Watt⋅sec)
       native-image;                merge_sort;         default;              36;      3306.628;  Energy (Watt⋅sec)
 openjdk-hotspot-vm;                radix_sort;         default;               4;       155.410;  Energy (Watt⋅sec)
  eclipse-openj9-vm;                quick_sort;         default;               6;       218.115;  Energy (Watt⋅sec)
      azul-prime-vm;                quick_sort;         default;               7;       466.222;  Energy (Watt⋅sec)
+      native-image;                merge_sort;             pgo;              31;      2709.511;  Energy (Watt⋅sec)
      azul-prime-vm;                radix_sort;         default;               9;       674.317;  Energy (Watt⋅sec)
         graalvm-ce;                quick_sort;         default;               5;       197.317;  Energy (Watt⋅sec)
      azul-prime-vm;                merge_sort;         default;               9;       671.757;  Energy (Watt⋅sec)
@@ -15,10 +16,9 @@ openjdk-hotspot-vm;                merge_sort;         default;               5;
         graalvm-ce;                radix_sort;         default;               5;       201.817;  Energy (Watt⋅sec)
       native-image;                quick_sort;         default;              39;      3691.291;  Energy (Watt⋅sec)
         graalvm-ce;                merge_sort;         default;               5;       196.327;  Energy (Watt⋅sec)
+      native-image;                quick_sort;             pgo;              29;      2584.036;  Energy (Watt⋅sec)
     oracle-graalvm;                quick_sort;         default;               5;       196.937;  Energy (Watt⋅sec)
     oracle-graalvm;                radix_sort;         default;               5;       189.487;  Energy (Watt⋅sec)
  eclipse-openj9-vm;                merge_sort;         default;               6;       231.595;  Energy (Watt⋅sec)
-      native-image;                quick_sort;        pgo_g1gc;              29;      2584.036;  Energy (Watt⋅sec)
-      native-image;                radix_sort;        pgo_g1gc;              30;      2531.394;  Energy (Watt⋅sec)
 
 # Note: The power reference baseline has already been excluded from the energy scores

@@ -1,7 +1,7 @@
           Category;  Run Identifier;         Score;          Score Metric
+      native-image;             pgo;      8755.150;  Throughput (ops/sec)
      azul-prime-vm;         default;      5293.380;  Throughput (ops/sec)
  eclipse-openj9-vm;         default;      7863.560;  Throughput (ops/sec)
-      native-image;        pgo_g1gc;      8755.150;  Throughput (ops/sec)
         graalvm-ce;         default;      7820.300;  Throughput (ops/sec)
       native-image;         default;      4435.820;  Throughput (ops/sec)
 openjdk-hotspot-vm;         default;      7799.480;  Throughput (ops/sec)
