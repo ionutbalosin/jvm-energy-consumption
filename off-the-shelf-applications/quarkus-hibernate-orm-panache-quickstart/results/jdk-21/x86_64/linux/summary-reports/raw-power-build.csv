@@ -1,454 +1,454 @@
-          Category;  Run Identifier;  Power (Watt)
-        graalvm-ce;         default;        17.200
-        graalvm-ce;         default;        16.030
-        graalvm-ce;         default;        16.110
-        graalvm-ce;         default;        44.910
-        graalvm-ce;         default;        45.160
-        graalvm-ce;         default;        45.260
-        graalvm-ce;         default;        45.730
-        graalvm-ce;         default;        47.370
-        graalvm-ce;         default;        43.910
-        graalvm-ce;         default;        44.290
-        graalvm-ce;         default;        51.140
-        graalvm-ce;         default;        51.670
-        graalvm-ce;         default;        42.040
-      native-image;        pgo_g1gc;         7.890
-      native-image;        pgo_g1gc;         8.730
-      native-image;        pgo_g1gc;         7.160
-      native-image;        pgo_g1gc;        35.050
-      native-image;        pgo_g1gc;        38.530
-      native-image;        pgo_g1gc;        41.790
-      native-image;        pgo_g1gc;        42.600
-      native-image;        pgo_g1gc;        42.150
-      native-image;        pgo_g1gc;        43.280
-      native-image;        pgo_g1gc;        42.100
-      native-image;        pgo_g1gc;        44.890
-      native-image;        pgo_g1gc;        34.480
-      native-image;        pgo_g1gc;        35.070
-      native-image;        pgo_g1gc;        48.690
-      native-image;        pgo_g1gc;        57.120
-      native-image;        pgo_g1gc;        54.100
-      native-image;        pgo_g1gc;        55.360
-      native-image;        pgo_g1gc;        46.490
-      native-image;        pgo_g1gc;        35.260
-      native-image;        pgo_g1gc;        36.150
-      native-image;        pgo_g1gc;        42.280
-      native-image;        pgo_g1gc;        35.810
-      native-image;        pgo_g1gc;        37.320
-      native-image;        pgo_g1gc;        50.700
-      native-image;        pgo_g1gc;        61.240
-      native-image;        pgo_g1gc;        65.530
-      native-image;        pgo_g1gc;        65.560
-      native-image;        pgo_g1gc;        66.880
-      native-image;        pgo_g1gc;        65.330
-      native-image;        pgo_g1gc;        61.030
-      native-image;        pgo_g1gc;        39.880
-      native-image;        pgo_g1gc;        68.010
-      native-image;        pgo_g1gc;        65.030
-      native-image;        pgo_g1gc;        66.410
-      native-image;        pgo_g1gc;        68.370
-      native-image;        pgo_g1gc;        65.760
-      native-image;        pgo_g1gc;        57.560
-      native-image;        pgo_g1gc;        62.010
-      native-image;        pgo_g1gc;        56.810
-      native-image;        pgo_g1gc;        67.200
-      native-image;        pgo_g1gc;        63.250
-      native-image;        pgo_g1gc;        63.870
-      native-image;        pgo_g1gc;        60.500
-      native-image;        pgo_g1gc;        64.100
-      native-image;        pgo_g1gc;        64.680
-      native-image;        pgo_g1gc;        61.010
-      native-image;        pgo_g1gc;        58.140
-      native-image;        pgo_g1gc;        62.020
-      native-image;        pgo_g1gc;        57.690
-      native-image;        pgo_g1gc;        61.420
-      native-image;        pgo_g1gc;        61.950
-      native-image;        pgo_g1gc;        60.520
-      native-image;        pgo_g1gc;        59.550
-      native-image;        pgo_g1gc;        60.380
-      native-image;        pgo_g1gc;        60.510
-      native-image;        pgo_g1gc;        58.090
-      native-image;        pgo_g1gc;        55.890
-      native-image;        pgo_g1gc;        57.270
-      native-image;        pgo_g1gc;        54.160
-      native-image;        pgo_g1gc;        53.020
-      native-image;        pgo_g1gc;        52.430
-      native-image;        pgo_g1gc;        53.340
-      native-image;        pgo_g1gc;        54.420
-      native-image;        pgo_g1gc;        58.800
-      native-image;        pgo_g1gc;        59.750
-      native-image;        pgo_g1gc;        42.650
-      native-image;        pgo_g1gc;        34.480
-      native-image;        pgo_g1gc;        40.280
-      native-image;        pgo_g1gc;        32.700
-      native-image;        pgo_g1gc;        55.250
-      native-image;        pgo_g1gc;        30.670
-      native-image;        pgo_g1gc;        42.020
-      native-image;        pgo_g1gc;        59.800
-      native-image;        pgo_g1gc;        57.790
-      native-image;        pgo_g1gc;        35.620
-      native-image;        pgo_g1gc;        34.440
-      native-image;        pgo_g1gc;        34.710
-      native-image;        pgo_g1gc;        31.320
-      native-image;        pgo_g1gc;        40.710
-      native-image;        pgo_g1gc;        43.280
-      native-image;        pgo_g1gc;        63.750
-      native-image;        pgo_g1gc;        57.560
-      native-image;        pgo_g1gc;        53.130
-      native-image;        pgo_g1gc;        51.370
-      native-image;        pgo_g1gc;        40.880
-      native-image;        pgo_g1gc;        35.550
-      native-image;        pgo_g1gc;        64.550
-      native-image;        pgo_g1gc;        65.290
-      native-image;        pgo_g1gc;        67.070
-      native-image;        pgo_g1gc;        70.160
-      native-image;        pgo_g1gc;        67.240
-      native-image;        pgo_g1gc;        68.160
-      native-image;        pgo_g1gc;        71.090
-      native-image;        pgo_g1gc;        34.090
-      native-image;        pgo_g1gc;        76.830
-      native-image;        pgo_g1gc;        67.100
-      native-image;        pgo_g1gc;        55.930
-      native-image;        pgo_g1gc;        44.900
-      native-image;        pgo_g1gc;        43.840
-      native-image;        pgo_g1gc;        46.740
-      native-image;        pgo_g1gc;        35.990
-      native-image;        pgo_g1gc;        35.180
-      native-image;        pgo_g1gc;        37.790
-      native-image;        pgo_g1gc;        46.360
-      native-image;        pgo_g1gc;        60.170
-      native-image;        pgo_g1gc;        69.420
-      native-image;        pgo_g1gc;        71.230
-      native-image;        pgo_g1gc;        71.680
-      native-image;        pgo_g1gc;        71.870
-      native-image;        pgo_g1gc;        62.200
-      native-image;        pgo_g1gc;        71.890
-      native-image;        pgo_g1gc;        71.330
-      native-image;        pgo_g1gc;        70.040
-      native-image;        pgo_g1gc;        69.740
-      native-image;        pgo_g1gc;        69.080
-      native-image;        pgo_g1gc;        72.340
-      native-image;        pgo_g1gc;        72.830
-      native-image;        pgo_g1gc;        74.340
-      native-image;        pgo_g1gc;        74.390
-      native-image;        pgo_g1gc;        74.370
-      native-image;        pgo_g1gc;        74.030
-      native-image;        pgo_g1gc;        75.600
-      native-image;        pgo_g1gc;        75.700
-      native-image;        pgo_g1gc;        75.210
-      native-image;        pgo_g1gc;        75.560
-      native-image;        pgo_g1gc;        74.730
-      native-image;        pgo_g1gc;        75.540
-      native-image;        pgo_g1gc;        76.390
-      native-image;        pgo_g1gc;        75.800
-      native-image;        pgo_g1gc;        77.070
-      native-image;        pgo_g1gc;        76.820
-      native-image;        pgo_g1gc;        77.460
-      native-image;        pgo_g1gc;        76.910
-      native-image;        pgo_g1gc;        78.800
-      native-image;        pgo_g1gc;        78.860
-      native-image;        pgo_g1gc;        77.280
-      native-image;        pgo_g1gc;        78.460
-      native-image;        pgo_g1gc;        78.660
-      native-image;        pgo_g1gc;        78.160
-      native-image;        pgo_g1gc;        78.730
-      native-image;        pgo_g1gc;        73.840
-      native-image;        pgo_g1gc;        71.140
-      native-image;        pgo_g1gc;        72.780
-      native-image;        pgo_g1gc;        69.990
-      native-image;        pgo_g1gc;        65.130
-      native-image;        pgo_g1gc;        67.980
-      native-image;        pgo_g1gc;        78.150
-      native-image;        pgo_g1gc;        80.280
-      native-image;        pgo_g1gc;        79.510
-      native-image;        pgo_g1gc;        79.720
-      native-image;        pgo_g1gc;        80.090
-      native-image;        pgo_g1gc;        78.540
-      native-image;        pgo_g1gc;        79.780
-      native-image;        pgo_g1gc;        80.160
-      native-image;        pgo_g1gc;        80.030
-      native-image;        pgo_g1gc;        59.660
-      native-image;        pgo_g1gc;        81.280
-      native-image;        pgo_g1gc;        39.950
-      native-image;        pgo_g1gc;        33.480
-      native-image;        pgo_g1gc;        31.230
-      native-image;        pgo_g1gc;        28.440
-      native-image;        pgo_g1gc;        27.580
-      native-image;        pgo_g1gc;        27.810
-      native-image;        pgo_g1gc;        28.160
-      native-image;        pgo_g1gc;        34.700
-      native-image;        pgo_g1gc;        31.330
-      native-image;        pgo_g1gc;        29.560
-      native-image;        pgo_g1gc;        27.540
-      native-image;        pgo_g1gc;        29.160
-      native-image;        pgo_g1gc;        29.830
-      native-image;        pgo_g1gc;        29.500
-      native-image;        pgo_g1gc;        29.880
-      native-image;        pgo_g1gc;        29.600
-      native-image;        pgo_g1gc;        27.960
-      native-image;        pgo_g1gc;        28.200
-      native-image;        pgo_g1gc;        29.690
-      native-image;        pgo_g1gc;        28.870
-      native-image;        pgo_g1gc;        29.940
-      native-image;        pgo_g1gc;        28.770
-      native-image;        pgo_g1gc;        27.830
-      native-image;        pgo_g1gc;        27.990
-      native-image;        pgo_g1gc;        29.320
-      native-image;        pgo_g1gc;        31.030
-      native-image;        pgo_g1gc;        33.160
-    oracle-graalvm;         default;        18.090
-    oracle-graalvm;         default;        16.030
-    oracle-graalvm;         default;        18.870
-    oracle-graalvm;         default;        47.680
-    oracle-graalvm;         default;        51.580
-    oracle-graalvm;         default;        49.290
-    oracle-graalvm;         default;        50.400
-    oracle-graalvm;         default;        52.030
-    oracle-graalvm;         default;        51.880
-    oracle-graalvm;         default;        58.830
-    oracle-graalvm;         default;        46.050
-openjdk-hotspot-vm;         default;        16.750
-openjdk-hotspot-vm;         default;        15.240
-openjdk-hotspot-vm;         default;        17.120
-openjdk-hotspot-vm;         default;        46.250
-openjdk-hotspot-vm;         default;        49.640
-openjdk-hotspot-vm;         default;        58.250
-openjdk-hotspot-vm;         default;        50.710
-openjdk-hotspot-vm;         default;        52.600
-openjdk-hotspot-vm;         default;        53.460
-openjdk-hotspot-vm;         default;        61.880
-openjdk-hotspot-vm;         default;        49.680
-openjdk-hotspot-vm;         default;        62.330
-openjdk-hotspot-vm;         default;        56.990
-openjdk-hotspot-vm;         default;        45.430
-     azul-prime-vm;         default;        13.130
-     azul-prime-vm;         default;        14.920
-     azul-prime-vm;         default;        13.080
-     azul-prime-vm;         default;        42.840
-     azul-prime-vm;         default;        59.470
-     azul-prime-vm;         default;        50.840
-     azul-prime-vm;         default;        68.600
-     azul-prime-vm;         default;        72.830
-     azul-prime-vm;         default;        74.510
-     azul-prime-vm;         default;        77.560
-     azul-prime-vm;         default;        73.920
-     azul-prime-vm;         default;        74.420
-     azul-prime-vm;         default;        72.270
-     azul-prime-vm;         default;        72.030
-     azul-prime-vm;         default;        73.100
-     azul-prime-vm;         default;        72.150
-     azul-prime-vm;         default;        80.150
-     azul-prime-vm;         default;        73.500
-     azul-prime-vm;         default;        71.410
-     azul-prime-vm;         default;        73.050
-     azul-prime-vm;         default;        71.030
- eclipse-openj9-vm;         default;        11.120
- eclipse-openj9-vm;         default;         7.270
- eclipse-openj9-vm;         default;         6.800
- eclipse-openj9-vm;         default;        38.120
- eclipse-openj9-vm;         default;        42.470
- eclipse-openj9-vm;         default;        44.480
- eclipse-openj9-vm;         default;        42.810
- eclipse-openj9-vm;         default;        37.830
- eclipse-openj9-vm;         default;        39.900
- eclipse-openj9-vm;         default;        40.610
- eclipse-openj9-vm;         default;        39.610
- eclipse-openj9-vm;         default;        40.320
- eclipse-openj9-vm;         default;        51.780
- eclipse-openj9-vm;         default;        52.760
- eclipse-openj9-vm;         default;        54.220
- eclipse-openj9-vm;         default;        43.380
-      native-image;         default;         7.770
-      native-image;         default;         5.910
-      native-image;         default;         8.890
-      native-image;         default;        41.900
-      native-image;         default;        44.060
-      native-image;         default;        42.120
-      native-image;         default;        42.490
-      native-image;         default;        43.680
-      native-image;         default;        39.650
-      native-image;         default;        43.130
-      native-image;         default;        47.140
-      native-image;         default;        46.340
-      native-image;         default;        38.460
-      native-image;         default;        35.670
-      native-image;         default;        41.900
-      native-image;         default;        57.930
-      native-image;         default;        62.960
-      native-image;         default;        56.450
-      native-image;         default;        53.580
-      native-image;         default;        40.920
-      native-image;         default;        44.420
-      native-image;         default;        42.850
-      native-image;         default;        44.520
-      native-image;         default;        45.460
-      native-image;         default;        60.500
-      native-image;         default;        66.140
-      native-image;         default;        66.150
-      native-image;         default;        62.160
-      native-image;         default;        68.950
-      native-image;         default;        69.160
-      native-image;         default;        63.870
-      native-image;         default;        65.490
-      native-image;         default;        56.440
-      native-image;         default;        67.740
-      native-image;         default;        68.340
-      native-image;         default;        66.840
-      native-image;         default;        58.490
-      native-image;         default;        64.880
-      native-image;         default;        61.850
-      native-image;         default;        59.190
-      native-image;         default;        55.940
-      native-image;         default;        56.220
-      native-image;         default;        67.550
-      native-image;         default;        64.080
-      native-image;         default;        58.620
-      native-image;         default;        65.060
-      native-image;         default;        68.460
-      native-image;         default;        64.490
-      native-image;         default;        60.360
-      native-image;         default;        62.860
-      native-image;         default;        60.140
-      native-image;         default;        65.450
-      native-image;         default;        63.010
-      native-image;         default;        54.400
-      native-image;         default;        53.640
-      native-image;         default;        54.400
-      native-image;         default;        55.610
-      native-image;         default;        57.900
-      native-image;         default;        59.020
-      native-image;         default;        53.400
-      native-image;         default;        53.320
-      native-image;         default;        48.900
-      native-image;         default;        51.950
-      native-image;         default;        57.510
-      native-image;         default;        52.040
-      native-image;         default;        56.240
-      native-image;         default;        56.180
-      native-image;         default;        36.970
-      native-image;         default;        27.220
-      native-image;         default;        42.560
-      native-image;         default;        32.790
-      native-image;         default;        27.120
-      native-image;         default;        57.670
-      native-image;         default;        31.550
-      native-image;         default;        36.110
-      native-image;         default;        33.970
-      native-image;         default;        29.180
-      native-image;         default;        29.040
-      native-image;         default;        40.790
-      native-image;         default;        55.090
-      native-image;         default;        63.240
-      native-image;         default;        53.930
-      native-image;         default;        49.050
-      native-image;         default;        48.520
-      native-image;         default;        41.690
-      native-image;         default;        29.880
-      native-image;         default;        59.280
-      native-image;         default;        59.980
-      native-image;         default;        54.490
-      native-image;         default;        64.560
-      native-image;         default;        61.980
-      native-image;         default;        63.100
-      native-image;         default;        61.840
-      native-image;         default;        68.550
-      native-image;         default;        78.320
-      native-image;         default;        78.210
-      native-image;         default;        79.140
-      native-image;         default;        78.880
-      native-image;         default;        80.070
-      native-image;         default;        77.660
-      native-image;         default;        58.920
-      native-image;         default;        58.030
-      native-image;         default;        72.500
-      native-image;         default;        56.080
-      native-image;         default;        67.910
-      native-image;         default;        59.070
-      native-image;         default;        63.270
-      native-image;         default;        68.790
-      native-image;         default;        68.870
-      native-image;         default;        68.530
-      native-image;         default;        68.650
-      native-image;         default;        69.230
-      native-image;         default;        71.220
-      native-image;         default;        65.060
-      native-image;         default;        61.980
-      native-image;         default;        66.550
-      native-image;         default;        66.450
-      native-image;         default;        72.190
-      native-image;         default;        71.670
-      native-image;         default;        71.180
-      native-image;         default;        72.720
-      native-image;         default;        72.600
-      native-image;         default;        72.000
-      native-image;         default;        72.800
-      native-image;         default;        71.720
-      native-image;         default;        66.940
-      native-image;         default;        66.870
-      native-image;         default;        67.410
-      native-image;         default;        67.290
-      native-image;         default;        65.500
-      native-image;         default;        66.490
-      native-image;         default;        74.440
-      native-image;         default;        74.170
-      native-image;         default;        75.210
-      native-image;         default;        75.450
-      native-image;         default;        75.790
-      native-image;         default;        75.840
-      native-image;         default;        76.610
-      native-image;         default;        76.560
-      native-image;         default;        76.410
-      native-image;         default;        76.690
-      native-image;         default;        76.370
-      native-image;         default;        78.680
-      native-image;         default;        77.360
-      native-image;         default;        77.930
-      native-image;         default;        77.280
-      native-image;         default;        78.570
-      native-image;         default;        78.440
-      native-image;         default;        76.720
-      native-image;         default;        76.560
-      native-image;         default;        78.450
-      native-image;         default;        76.730
-      native-image;         default;        76.140
-      native-image;         default;        65.870
-      native-image;         default;        73.460
-      native-image;         default;        77.890
-      native-image;         default;        78.550
-      native-image;         default;        79.000
-      native-image;         default;        77.490
-      native-image;         default;        78.260
-      native-image;         default;        78.200
-      native-image;         default;        78.310
-      native-image;         default;        79.900
-      native-image;         default;        78.180
-      native-image;         default;        78.430
-      native-image;         default;        78.090
-      native-image;         default;        78.290
-      native-image;         default;        79.670
-      native-image;         default;        78.690
-      native-image;         default;        78.620
-      native-image;         default;        79.490
-      native-image;         default;        77.950
-      native-image;         default;        80.560
-      native-image;         default;        51.650
-      native-image;         default;        34.090
-      native-image;         default;        35.780
-      native-image;         default;        32.810
-      native-image;         default;        33.420
-      native-image;         default;        32.110
-      native-image;         default;        31.900
-      native-image;         default;        33.960
-      native-image;         default;        33.180
-      native-image;         default;        30.750
-      native-image;         default;        32.090
-      native-image;         default;        34.940
-      native-image;         default;        33.670
-      native-image;         default;        32.520
-      native-image;         default;        35.840
-      native-image;         default;        35.300
-      native-image;         default;        32.290
-      native-image;         default;        32.540
-      native-image;         default;        34.560
-      native-image;         default;        33.560
-      native-image;         default;        34.610
+          Category;  Run Identifier;  Sample Identifier;         Score;  Score Metric
+    oracle-graalvm;         default;                  1;        18.090;  Power (Watt)
+    oracle-graalvm;         default;                  2;        16.030;  Power (Watt)
+    oracle-graalvm;         default;                  3;        18.870;  Power (Watt)
+    oracle-graalvm;         default;                  4;        47.680;  Power (Watt)
+    oracle-graalvm;         default;                  5;        51.580;  Power (Watt)
+    oracle-graalvm;         default;                  6;        49.290;  Power (Watt)
+    oracle-graalvm;         default;                  7;        50.400;  Power (Watt)
+    oracle-graalvm;         default;                  8;        52.030;  Power (Watt)
+    oracle-graalvm;         default;                  9;        51.880;  Power (Watt)
+    oracle-graalvm;         default;                 10;        58.830;  Power (Watt)
+    oracle-graalvm;         default;                 11;        46.050;  Power (Watt)
+      native-image;         default;                  1;         7.770;  Power (Watt)
+      native-image;         default;                  2;         5.910;  Power (Watt)
+      native-image;         default;                  3;         8.890;  Power (Watt)
+      native-image;         default;                  4;        41.900;  Power (Watt)
+      native-image;         default;                  5;        44.060;  Power (Watt)
+      native-image;         default;                  6;        42.120;  Power (Watt)
+      native-image;         default;                  7;        42.490;  Power (Watt)
+      native-image;         default;                  8;        43.680;  Power (Watt)
+      native-image;         default;                  9;        39.650;  Power (Watt)
+      native-image;         default;                 10;        43.130;  Power (Watt)
+      native-image;         default;                 11;        47.140;  Power (Watt)
+      native-image;         default;                 12;        46.340;  Power (Watt)
+      native-image;         default;                 13;        38.460;  Power (Watt)
+      native-image;         default;                 14;        35.670;  Power (Watt)
+      native-image;         default;                 15;        41.900;  Power (Watt)
+      native-image;         default;                 16;        57.930;  Power (Watt)
+      native-image;         default;                 17;        62.960;  Power (Watt)
+      native-image;         default;                 18;        56.450;  Power (Watt)
+      native-image;         default;                 19;        53.580;  Power (Watt)
+      native-image;         default;                 20;        40.920;  Power (Watt)
+      native-image;         default;                 21;        44.420;  Power (Watt)
+      native-image;         default;                 22;        42.850;  Power (Watt)
+      native-image;         default;                 23;        44.520;  Power (Watt)
+      native-image;         default;                 24;        45.460;  Power (Watt)
+      native-image;         default;                 25;        60.500;  Power (Watt)
+      native-image;         default;                 26;        66.140;  Power (Watt)
+      native-image;         default;                 27;        66.150;  Power (Watt)
+      native-image;         default;                 28;        62.160;  Power (Watt)
+      native-image;         default;                 29;        68.950;  Power (Watt)
+      native-image;         default;                 30;        69.160;  Power (Watt)
+      native-image;         default;                 31;        63.870;  Power (Watt)
+      native-image;         default;                 32;        65.490;  Power (Watt)
+      native-image;         default;                 33;        56.440;  Power (Watt)
+      native-image;         default;                 34;        67.740;  Power (Watt)
+      native-image;         default;                 35;        68.340;  Power (Watt)
+      native-image;         default;                 36;        66.840;  Power (Watt)
+      native-image;         default;                 37;        58.490;  Power (Watt)
+      native-image;         default;                 38;        64.880;  Power (Watt)
+      native-image;         default;                 39;        61.850;  Power (Watt)
+      native-image;         default;                 40;        59.190;  Power (Watt)
+      native-image;         default;                 41;        55.940;  Power (Watt)
+      native-image;         default;                 42;        56.220;  Power (Watt)
+      native-image;         default;                 43;        67.550;  Power (Watt)
+      native-image;         default;                 44;        64.080;  Power (Watt)
+      native-image;         default;                 45;        58.620;  Power (Watt)
+      native-image;         default;                 46;        65.060;  Power (Watt)
+      native-image;         default;                 47;        68.460;  Power (Watt)
+      native-image;         default;                 48;        64.490;  Power (Watt)
+      native-image;         default;                 49;        60.360;  Power (Watt)
+      native-image;         default;                 50;        62.860;  Power (Watt)
+      native-image;         default;                 51;        60.140;  Power (Watt)
+      native-image;         default;                 52;        65.450;  Power (Watt)
+      native-image;         default;                 53;        63.010;  Power (Watt)
+      native-image;         default;                 54;        54.400;  Power (Watt)
+      native-image;         default;                 55;        53.640;  Power (Watt)
+      native-image;         default;                 56;        54.400;  Power (Watt)
+      native-image;         default;                 57;        55.610;  Power (Watt)
+      native-image;         default;                 58;        57.900;  Power (Watt)
+      native-image;         default;                 59;        59.020;  Power (Watt)
+      native-image;         default;                 60;        53.400;  Power (Watt)
+      native-image;         default;                 61;        53.320;  Power (Watt)
+      native-image;         default;                 62;        48.900;  Power (Watt)
+      native-image;         default;                 63;        51.950;  Power (Watt)
+      native-image;         default;                 64;        57.510;  Power (Watt)
+      native-image;         default;                 65;        52.040;  Power (Watt)
+      native-image;         default;                 66;        56.240;  Power (Watt)
+      native-image;         default;                 67;        56.180;  Power (Watt)
+      native-image;         default;                 68;        36.970;  Power (Watt)
+      native-image;         default;                 69;        27.220;  Power (Watt)
+      native-image;         default;                 70;        42.560;  Power (Watt)
+      native-image;         default;                 71;        32.790;  Power (Watt)
+      native-image;         default;                 72;        27.120;  Power (Watt)
+      native-image;         default;                 73;        57.670;  Power (Watt)
+      native-image;         default;                 74;        31.550;  Power (Watt)
+      native-image;         default;                 75;        36.110;  Power (Watt)
+      native-image;         default;                 76;        33.970;  Power (Watt)
+      native-image;         default;                 77;        29.180;  Power (Watt)
+      native-image;         default;                 78;        29.040;  Power (Watt)
+      native-image;         default;                 79;        40.790;  Power (Watt)
+      native-image;         default;                 80;        55.090;  Power (Watt)
+      native-image;         default;                 81;        63.240;  Power (Watt)
+      native-image;         default;                 82;        53.930;  Power (Watt)
+      native-image;         default;                 83;        49.050;  Power (Watt)
+      native-image;         default;                 84;        48.520;  Power (Watt)
+      native-image;         default;                 85;        41.690;  Power (Watt)
+      native-image;         default;                 86;        29.880;  Power (Watt)
+      native-image;         default;                 87;        59.280;  Power (Watt)
+      native-image;         default;                 88;        59.980;  Power (Watt)
+      native-image;         default;                 89;        54.490;  Power (Watt)
+      native-image;         default;                 90;        64.560;  Power (Watt)
+      native-image;         default;                 91;        61.980;  Power (Watt)
+      native-image;         default;                 92;        63.100;  Power (Watt)
+      native-image;         default;                 93;        61.840;  Power (Watt)
+      native-image;         default;                 94;        68.550;  Power (Watt)
+      native-image;         default;                 95;        78.320;  Power (Watt)
+      native-image;         default;                 96;        78.210;  Power (Watt)
+      native-image;         default;                 97;        79.140;  Power (Watt)
+      native-image;         default;                 98;        78.880;  Power (Watt)
+      native-image;         default;                 99;        80.070;  Power (Watt)
+      native-image;         default;                100;        77.660;  Power (Watt)
+      native-image;         default;                101;        58.920;  Power (Watt)
+      native-image;         default;                102;        58.030;  Power (Watt)
+      native-image;         default;                103;        72.500;  Power (Watt)
+      native-image;         default;                104;        56.080;  Power (Watt)
+      native-image;         default;                105;        67.910;  Power (Watt)
+      native-image;         default;                106;        59.070;  Power (Watt)
+      native-image;         default;                107;        63.270;  Power (Watt)
+      native-image;         default;                108;        68.790;  Power (Watt)
+      native-image;         default;                109;        68.870;  Power (Watt)
+      native-image;         default;                110;        68.530;  Power (Watt)
+      native-image;         default;                111;        68.650;  Power (Watt)
+      native-image;         default;                112;        69.230;  Power (Watt)
+      native-image;         default;                113;        71.220;  Power (Watt)
+      native-image;         default;                114;        65.060;  Power (Watt)
+      native-image;         default;                115;        61.980;  Power (Watt)
+      native-image;         default;                116;        66.550;  Power (Watt)
+      native-image;         default;                117;        66.450;  Power (Watt)
+      native-image;         default;                118;        72.190;  Power (Watt)
+      native-image;         default;                119;        71.670;  Power (Watt)
+      native-image;         default;                120;        71.180;  Power (Watt)
+      native-image;         default;                121;        72.720;  Power (Watt)
+      native-image;         default;                122;        72.600;  Power (Watt)
+      native-image;         default;                123;        72.000;  Power (Watt)
+      native-image;         default;                124;        72.800;  Power (Watt)
+      native-image;         default;                125;        71.720;  Power (Watt)
+      native-image;         default;                126;        66.940;  Power (Watt)
+      native-image;         default;                127;        66.870;  Power (Watt)
+      native-image;         default;                128;        67.410;  Power (Watt)
+      native-image;         default;                129;        67.290;  Power (Watt)
+      native-image;         default;                130;        65.500;  Power (Watt)
+      native-image;         default;                131;        66.490;  Power (Watt)
+      native-image;         default;                132;        74.440;  Power (Watt)
+      native-image;         default;                133;        74.170;  Power (Watt)
+      native-image;         default;                134;        75.210;  Power (Watt)
+      native-image;         default;                135;        75.450;  Power (Watt)
+      native-image;         default;                136;        75.790;  Power (Watt)
+      native-image;         default;                137;        75.840;  Power (Watt)
+      native-image;         default;                138;        76.610;  Power (Watt)
+      native-image;         default;                139;        76.560;  Power (Watt)
+      native-image;         default;                140;        76.410;  Power (Watt)
+      native-image;         default;                141;        76.690;  Power (Watt)
+      native-image;         default;                142;        76.370;  Power (Watt)
+      native-image;         default;                143;        78.680;  Power (Watt)
+      native-image;         default;                144;        77.360;  Power (Watt)
+      native-image;         default;                145;        77.930;  Power (Watt)
+      native-image;         default;                146;        77.280;  Power (Watt)
+      native-image;         default;                147;        78.570;  Power (Watt)
+      native-image;         default;                148;        78.440;  Power (Watt)
+      native-image;         default;                149;        76.720;  Power (Watt)
+      native-image;         default;                150;        76.560;  Power (Watt)
+      native-image;         default;                151;        78.450;  Power (Watt)
+      native-image;         default;                152;        76.730;  Power (Watt)
+      native-image;         default;                153;        76.140;  Power (Watt)
+      native-image;         default;                154;        65.870;  Power (Watt)
+      native-image;         default;                155;        73.460;  Power (Watt)
+      native-image;         default;                156;        77.890;  Power (Watt)
+      native-image;         default;                157;        78.550;  Power (Watt)
+      native-image;         default;                158;        79.000;  Power (Watt)
+      native-image;         default;                159;        77.490;  Power (Watt)
+      native-image;         default;                160;        78.260;  Power (Watt)
+      native-image;         default;                161;        78.200;  Power (Watt)
+      native-image;         default;                162;        78.310;  Power (Watt)
+      native-image;         default;                163;        79.900;  Power (Watt)
+      native-image;         default;                164;        78.180;  Power (Watt)
+      native-image;         default;                165;        78.430;  Power (Watt)
+      native-image;         default;                166;        78.090;  Power (Watt)
+      native-image;         default;                167;        78.290;  Power (Watt)
+      native-image;         default;                168;        79.670;  Power (Watt)
+      native-image;         default;                169;        78.690;  Power (Watt)
+      native-image;         default;                170;        78.620;  Power (Watt)
+      native-image;         default;                171;        79.490;  Power (Watt)
+      native-image;         default;                172;        77.950;  Power (Watt)
+      native-image;         default;                173;        80.560;  Power (Watt)
+      native-image;         default;                174;        51.650;  Power (Watt)
+      native-image;         default;                175;        34.090;  Power (Watt)
+      native-image;         default;                176;        35.780;  Power (Watt)
+      native-image;         default;                177;        32.810;  Power (Watt)
+      native-image;         default;                178;        33.420;  Power (Watt)
+      native-image;         default;                179;        32.110;  Power (Watt)
+      native-image;         default;                180;        31.900;  Power (Watt)
+      native-image;         default;                181;        33.960;  Power (Watt)
+      native-image;         default;                182;        33.180;  Power (Watt)
+      native-image;         default;                183;        30.750;  Power (Watt)
+      native-image;         default;                184;        32.090;  Power (Watt)
+      native-image;         default;                185;        34.940;  Power (Watt)
+      native-image;         default;                186;        33.670;  Power (Watt)
+      native-image;         default;                187;        32.520;  Power (Watt)
+      native-image;         default;                188;        35.840;  Power (Watt)
+      native-image;         default;                189;        35.300;  Power (Watt)
+      native-image;         default;                190;        32.290;  Power (Watt)
+      native-image;         default;                191;        32.540;  Power (Watt)
+      native-image;         default;                192;        34.560;  Power (Watt)
+      native-image;         default;                193;        33.560;  Power (Watt)
+      native-image;         default;                194;        34.610;  Power (Watt)
+     azul-prime-vm;         default;                  1;        13.130;  Power (Watt)
+     azul-prime-vm;         default;                  2;        14.920;  Power (Watt)
+     azul-prime-vm;         default;                  3;        13.080;  Power (Watt)
+     azul-prime-vm;         default;                  4;        42.840;  Power (Watt)
+     azul-prime-vm;         default;                  5;        59.470;  Power (Watt)
+     azul-prime-vm;         default;                  6;        50.840;  Power (Watt)
+     azul-prime-vm;         default;                  7;        68.600;  Power (Watt)
+     azul-prime-vm;         default;                  8;        72.830;  Power (Watt)
+     azul-prime-vm;         default;                  9;        74.510;  Power (Watt)
+     azul-prime-vm;         default;                 10;        77.560;  Power (Watt)
+     azul-prime-vm;         default;                 11;        73.920;  Power (Watt)
+     azul-prime-vm;         default;                 12;        74.420;  Power (Watt)
+     azul-prime-vm;         default;                 13;        72.270;  Power (Watt)
+     azul-prime-vm;         default;                 14;        72.030;  Power (Watt)
+     azul-prime-vm;         default;                 15;        73.100;  Power (Watt)
+     azul-prime-vm;         default;                 16;        72.150;  Power (Watt)
+     azul-prime-vm;         default;                 17;        80.150;  Power (Watt)
+     azul-prime-vm;         default;                 18;        73.500;  Power (Watt)
+     azul-prime-vm;         default;                 19;        71.410;  Power (Watt)
+     azul-prime-vm;         default;                 20;        73.050;  Power (Watt)
+     azul-prime-vm;         default;                 21;        71.030;  Power (Watt)
+ eclipse-openj9-vm;         default;                  1;        11.120;  Power (Watt)
+ eclipse-openj9-vm;         default;                  2;         7.270;  Power (Watt)
+ eclipse-openj9-vm;         default;                  3;         6.800;  Power (Watt)
+ eclipse-openj9-vm;         default;                  4;        38.120;  Power (Watt)
+ eclipse-openj9-vm;         default;                  5;        42.470;  Power (Watt)
+ eclipse-openj9-vm;         default;                  6;        44.480;  Power (Watt)
+ eclipse-openj9-vm;         default;                  7;        42.810;  Power (Watt)
+ eclipse-openj9-vm;         default;                  8;        37.830;  Power (Watt)
+ eclipse-openj9-vm;         default;                  9;        39.900;  Power (Watt)
+ eclipse-openj9-vm;         default;                 10;        40.610;  Power (Watt)
+ eclipse-openj9-vm;         default;                 11;        39.610;  Power (Watt)
+ eclipse-openj9-vm;         default;                 12;        40.320;  Power (Watt)
+ eclipse-openj9-vm;         default;                 13;        51.780;  Power (Watt)
+ eclipse-openj9-vm;         default;                 14;        52.760;  Power (Watt)
+ eclipse-openj9-vm;         default;                 15;        54.220;  Power (Watt)
+ eclipse-openj9-vm;         default;                 16;        43.380;  Power (Watt)
+      native-image;        pgo_g1gc;                  1;         7.890;  Power (Watt)
+      native-image;        pgo_g1gc;                  2;         8.730;  Power (Watt)
+      native-image;        pgo_g1gc;                  3;         7.160;  Power (Watt)
+      native-image;        pgo_g1gc;                  4;        35.050;  Power (Watt)
+      native-image;        pgo_g1gc;                  5;        38.530;  Power (Watt)
+      native-image;        pgo_g1gc;                  6;        41.790;  Power (Watt)
+      native-image;        pgo_g1gc;                  7;        42.600;  Power (Watt)
+      native-image;        pgo_g1gc;                  8;        42.150;  Power (Watt)
+      native-image;        pgo_g1gc;                  9;        43.280;  Power (Watt)
+      native-image;        pgo_g1gc;                 10;        42.100;  Power (Watt)
+      native-image;        pgo_g1gc;                 11;        44.890;  Power (Watt)
+      native-image;        pgo_g1gc;                 12;        34.480;  Power (Watt)
+      native-image;        pgo_g1gc;                 13;        35.070;  Power (Watt)
+      native-image;        pgo_g1gc;                 14;        48.690;  Power (Watt)
+      native-image;        pgo_g1gc;                 15;        57.120;  Power (Watt)
+      native-image;        pgo_g1gc;                 16;        54.100;  Power (Watt)
+      native-image;        pgo_g1gc;                 17;        55.360;  Power (Watt)
+      native-image;        pgo_g1gc;                 18;        46.490;  Power (Watt)
+      native-image;        pgo_g1gc;                 19;        35.260;  Power (Watt)
+      native-image;        pgo_g1gc;                 20;        36.150;  Power (Watt)
+      native-image;        pgo_g1gc;                 21;        42.280;  Power (Watt)
+      native-image;        pgo_g1gc;                 22;        35.810;  Power (Watt)
+      native-image;        pgo_g1gc;                 23;        37.320;  Power (Watt)
+      native-image;        pgo_g1gc;                 24;        50.700;  Power (Watt)
+      native-image;        pgo_g1gc;                 25;        61.240;  Power (Watt)
+      native-image;        pgo_g1gc;                 26;        65.530;  Power (Watt)
+      native-image;        pgo_g1gc;                 27;        65.560;  Power (Watt)
+      native-image;        pgo_g1gc;                 28;        66.880;  Power (Watt)
+      native-image;        pgo_g1gc;                 29;        65.330;  Power (Watt)
+      native-image;        pgo_g1gc;                 30;        61.030;  Power (Watt)
+      native-image;        pgo_g1gc;                 31;        39.880;  Power (Watt)
+      native-image;        pgo_g1gc;                 32;        68.010;  Power (Watt)
+      native-image;        pgo_g1gc;                 33;        65.030;  Power (Watt)
+      native-image;        pgo_g1gc;                 34;        66.410;  Power (Watt)
+      native-image;        pgo_g1gc;                 35;        68.370;  Power (Watt)
+      native-image;        pgo_g1gc;                 36;        65.760;  Power (Watt)
+      native-image;        pgo_g1gc;                 37;        57.560;  Power (Watt)
+      native-image;        pgo_g1gc;                 38;        62.010;  Power (Watt)
+      native-image;        pgo_g1gc;                 39;        56.810;  Power (Watt)
+      native-image;        pgo_g1gc;                 40;        67.200;  Power (Watt)
+      native-image;        pgo_g1gc;                 41;        63.250;  Power (Watt)
+      native-image;        pgo_g1gc;                 42;        63.870;  Power (Watt)
+      native-image;        pgo_g1gc;                 43;        60.500;  Power (Watt)
+      native-image;        pgo_g1gc;                 44;        64.100;  Power (Watt)
+      native-image;        pgo_g1gc;                 45;        64.680;  Power (Watt)
+      native-image;        pgo_g1gc;                 46;        61.010;  Power (Watt)
+      native-image;        pgo_g1gc;                 47;        58.140;  Power (Watt)
+      native-image;        pgo_g1gc;                 48;        62.020;  Power (Watt)
+      native-image;        pgo_g1gc;                 49;        57.690;  Power (Watt)
+      native-image;        pgo_g1gc;                 50;        61.420;  Power (Watt)
+      native-image;        pgo_g1gc;                 51;        61.950;  Power (Watt)
+      native-image;        pgo_g1gc;                 52;        60.520;  Power (Watt)
+      native-image;        pgo_g1gc;                 53;        59.550;  Power (Watt)
+      native-image;        pgo_g1gc;                 54;        60.380;  Power (Watt)
+      native-image;        pgo_g1gc;                 55;        60.510;  Power (Watt)
+      native-image;        pgo_g1gc;                 56;        58.090;  Power (Watt)
+      native-image;        pgo_g1gc;                 57;        55.890;  Power (Watt)
+      native-image;        pgo_g1gc;                 58;        57.270;  Power (Watt)
+      native-image;        pgo_g1gc;                 59;        54.160;  Power (Watt)
+      native-image;        pgo_g1gc;                 60;        53.020;  Power (Watt)
+      native-image;        pgo_g1gc;                 61;        52.430;  Power (Watt)
+      native-image;        pgo_g1gc;                 62;        53.340;  Power (Watt)
+      native-image;        pgo_g1gc;                 63;        54.420;  Power (Watt)
+      native-image;        pgo_g1gc;                 64;        58.800;  Power (Watt)
+      native-image;        pgo_g1gc;                 65;        59.750;  Power (Watt)
+      native-image;        pgo_g1gc;                 66;        42.650;  Power (Watt)
+      native-image;        pgo_g1gc;                 67;        34.480;  Power (Watt)
+      native-image;        pgo_g1gc;                 68;        40.280;  Power (Watt)
+      native-image;        pgo_g1gc;                 69;        32.700;  Power (Watt)
+      native-image;        pgo_g1gc;                 70;        55.250;  Power (Watt)
+      native-image;        pgo_g1gc;                 71;        30.670;  Power (Watt)
+      native-image;        pgo_g1gc;                 72;        42.020;  Power (Watt)
+      native-image;        pgo_g1gc;                 73;        59.800;  Power (Watt)
+      native-image;        pgo_g1gc;                 74;        57.790;  Power (Watt)
+      native-image;        pgo_g1gc;                 75;        35.620;  Power (Watt)
+      native-image;        pgo_g1gc;                 76;        34.440;  Power (Watt)
+      native-image;        pgo_g1gc;                 77;        34.710;  Power (Watt)
+      native-image;        pgo_g1gc;                 78;        31.320;  Power (Watt)
+      native-image;        pgo_g1gc;                 79;        40.710;  Power (Watt)
+      native-image;        pgo_g1gc;                 80;        43.280;  Power (Watt)
+      native-image;        pgo_g1gc;                 81;        63.750;  Power (Watt)
+      native-image;        pgo_g1gc;                 82;        57.560;  Power (Watt)
+      native-image;        pgo_g1gc;                 83;        53.130;  Power (Watt)
+      native-image;        pgo_g1gc;                 84;        51.370;  Power (Watt)
+      native-image;        pgo_g1gc;                 85;        40.880;  Power (Watt)
+      native-image;        pgo_g1gc;                 86;        35.550;  Power (Watt)
+      native-image;        pgo_g1gc;                 87;        64.550;  Power (Watt)
+      native-image;        pgo_g1gc;                 88;        65.290;  Power (Watt)
+      native-image;        pgo_g1gc;                 89;        67.070;  Power (Watt)
+      native-image;        pgo_g1gc;                 90;        70.160;  Power (Watt)
+      native-image;        pgo_g1gc;                 91;        67.240;  Power (Watt)
+      native-image;        pgo_g1gc;                 92;        68.160;  Power (Watt)
+      native-image;        pgo_g1gc;                 93;        71.090;  Power (Watt)
+      native-image;        pgo_g1gc;                 94;        34.090;  Power (Watt)
+      native-image;        pgo_g1gc;                 95;        76.830;  Power (Watt)
+      native-image;        pgo_g1gc;                 96;        67.100;  Power (Watt)
+      native-image;        pgo_g1gc;                 97;        55.930;  Power (Watt)
+      native-image;        pgo_g1gc;                 98;        44.900;  Power (Watt)
+      native-image;        pgo_g1gc;                 99;        43.840;  Power (Watt)
+      native-image;        pgo_g1gc;                100;        46.740;  Power (Watt)
+      native-image;        pgo_g1gc;                101;        35.990;  Power (Watt)
+      native-image;        pgo_g1gc;                102;        35.180;  Power (Watt)
+      native-image;        pgo_g1gc;                103;        37.790;  Power (Watt)
+      native-image;        pgo_g1gc;                104;        46.360;  Power (Watt)
+      native-image;        pgo_g1gc;                105;        60.170;  Power (Watt)
+      native-image;        pgo_g1gc;                106;        69.420;  Power (Watt)
+      native-image;        pgo_g1gc;                107;        71.230;  Power (Watt)
+      native-image;        pgo_g1gc;                108;        71.680;  Power (Watt)
+      native-image;        pgo_g1gc;                109;        71.870;  Power (Watt)
+      native-image;        pgo_g1gc;                110;        62.200;  Power (Watt)
+      native-image;        pgo_g1gc;                111;        71.890;  Power (Watt)
+      native-image;        pgo_g1gc;                112;        71.330;  Power (Watt)
+      native-image;        pgo_g1gc;                113;        70.040;  Power (Watt)
+      native-image;        pgo_g1gc;                114;        69.740;  Power (Watt)
+      native-image;        pgo_g1gc;                115;        69.080;  Power (Watt)
+      native-image;        pgo_g1gc;                116;        72.340;  Power (Watt)
+      native-image;        pgo_g1gc;                117;        72.830;  Power (Watt)
+      native-image;        pgo_g1gc;                118;        74.340;  Power (Watt)
+      native-image;        pgo_g1gc;                119;        74.390;  Power (Watt)
+      native-image;        pgo_g1gc;                120;        74.370;  Power (Watt)
+      native-image;        pgo_g1gc;                121;        74.030;  Power (Watt)
+      native-image;        pgo_g1gc;                122;        75.600;  Power (Watt)
+      native-image;        pgo_g1gc;                123;        75.700;  Power (Watt)
+      native-image;        pgo_g1gc;                124;        75.210;  Power (Watt)
+      native-image;        pgo_g1gc;                125;        75.560;  Power (Watt)
+      native-image;        pgo_g1gc;                126;        74.730;  Power (Watt)
+      native-image;        pgo_g1gc;                127;        75.540;  Power (Watt)
+      native-image;        pgo_g1gc;                128;        76.390;  Power (Watt)
+      native-image;        pgo_g1gc;                129;        75.800;  Power (Watt)
+      native-image;        pgo_g1gc;                130;        77.070;  Power (Watt)
+      native-image;        pgo_g1gc;                131;        76.820;  Power (Watt)
+      native-image;        pgo_g1gc;                132;        77.460;  Power (Watt)
+      native-image;        pgo_g1gc;                133;        76.910;  Power (Watt)
+      native-image;        pgo_g1gc;                134;        78.800;  Power (Watt)
+      native-image;        pgo_g1gc;                135;        78.860;  Power (Watt)
+      native-image;        pgo_g1gc;                136;        77.280;  Power (Watt)
+      native-image;        pgo_g1gc;                137;        78.460;  Power (Watt)
+      native-image;        pgo_g1gc;                138;        78.660;  Power (Watt)
+      native-image;        pgo_g1gc;                139;        78.160;  Power (Watt)
+      native-image;        pgo_g1gc;                140;        78.730;  Power (Watt)
+      native-image;        pgo_g1gc;                141;        73.840;  Power (Watt)
+      native-image;        pgo_g1gc;                142;        71.140;  Power (Watt)
+      native-image;        pgo_g1gc;                143;        72.780;  Power (Watt)
+      native-image;        pgo_g1gc;                144;        69.990;  Power (Watt)
+      native-image;        pgo_g1gc;                145;        65.130;  Power (Watt)
+      native-image;        pgo_g1gc;                146;        67.980;  Power (Watt)
+      native-image;        pgo_g1gc;                147;        78.150;  Power (Watt)
+      native-image;        pgo_g1gc;                148;        80.280;  Power (Watt)
+      native-image;        pgo_g1gc;                149;        79.510;  Power (Watt)
+      native-image;        pgo_g1gc;                150;        79.720;  Power (Watt)
+      native-image;        pgo_g1gc;                151;        80.090;  Power (Watt)
+      native-image;        pgo_g1gc;                152;        78.540;  Power (Watt)
+      native-image;        pgo_g1gc;                153;        79.780;  Power (Watt)
+      native-image;        pgo_g1gc;                154;        80.160;  Power (Watt)
+      native-image;        pgo_g1gc;                155;        80.030;  Power (Watt)
+      native-image;        pgo_g1gc;                156;        59.660;  Power (Watt)
+      native-image;        pgo_g1gc;                157;        81.280;  Power (Watt)
+      native-image;        pgo_g1gc;                158;        39.950;  Power (Watt)
+      native-image;        pgo_g1gc;                159;        33.480;  Power (Watt)
+      native-image;        pgo_g1gc;                160;        31.230;  Power (Watt)
+      native-image;        pgo_g1gc;                161;        28.440;  Power (Watt)
+      native-image;        pgo_g1gc;                162;        27.580;  Power (Watt)
+      native-image;        pgo_g1gc;                163;        27.810;  Power (Watt)
+      native-image;        pgo_g1gc;                164;        28.160;  Power (Watt)
+      native-image;        pgo_g1gc;                165;        34.700;  Power (Watt)
+      native-image;        pgo_g1gc;                166;        31.330;  Power (Watt)
+      native-image;        pgo_g1gc;                167;        29.560;  Power (Watt)
+      native-image;        pgo_g1gc;                168;        27.540;  Power (Watt)
+      native-image;        pgo_g1gc;                169;        29.160;  Power (Watt)
+      native-image;        pgo_g1gc;                170;        29.830;  Power (Watt)
+      native-image;        pgo_g1gc;                171;        29.500;  Power (Watt)
+      native-image;        pgo_g1gc;                172;        29.880;  Power (Watt)
+      native-image;        pgo_g1gc;                173;        29.600;  Power (Watt)
+      native-image;        pgo_g1gc;                174;        27.960;  Power (Watt)
+      native-image;        pgo_g1gc;                175;        28.200;  Power (Watt)
+      native-image;        pgo_g1gc;                176;        29.690;  Power (Watt)
+      native-image;        pgo_g1gc;                177;        28.870;  Power (Watt)
+      native-image;        pgo_g1gc;                178;        29.940;  Power (Watt)
+      native-image;        pgo_g1gc;                179;        28.770;  Power (Watt)
+      native-image;        pgo_g1gc;                180;        27.830;  Power (Watt)
+      native-image;        pgo_g1gc;                181;        27.990;  Power (Watt)
+      native-image;        pgo_g1gc;                182;        29.320;  Power (Watt)
+      native-image;        pgo_g1gc;                183;        31.030;  Power (Watt)
+      native-image;        pgo_g1gc;                184;        33.160;  Power (Watt)
+        graalvm-ce;         default;                  1;        17.200;  Power (Watt)
+        graalvm-ce;         default;                  2;        16.030;  Power (Watt)
+        graalvm-ce;         default;                  3;        16.110;  Power (Watt)
+        graalvm-ce;         default;                  4;        44.910;  Power (Watt)
+        graalvm-ce;         default;                  5;        45.160;  Power (Watt)
+        graalvm-ce;         default;                  6;        45.260;  Power (Watt)
+        graalvm-ce;         default;                  7;        45.730;  Power (Watt)
+        graalvm-ce;         default;                  8;        47.370;  Power (Watt)
+        graalvm-ce;         default;                  9;        43.910;  Power (Watt)
+        graalvm-ce;         default;                 10;        44.290;  Power (Watt)
+        graalvm-ce;         default;                 11;        51.140;  Power (Watt)
+        graalvm-ce;         default;                 12;        51.670;  Power (Watt)
+        graalvm-ce;         default;                 13;        42.040;  Power (Watt)
+openjdk-hotspot-vm;         default;                  1;        16.750;  Power (Watt)
+openjdk-hotspot-vm;         default;                  2;        15.240;  Power (Watt)
+openjdk-hotspot-vm;         default;                  3;        17.120;  Power (Watt)
+openjdk-hotspot-vm;         default;                  4;        46.250;  Power (Watt)
+openjdk-hotspot-vm;         default;                  5;        49.640;  Power (Watt)
+openjdk-hotspot-vm;         default;                  6;        58.250;  Power (Watt)
+openjdk-hotspot-vm;         default;                  7;        50.710;  Power (Watt)
+openjdk-hotspot-vm;         default;                  8;        52.600;  Power (Watt)
+openjdk-hotspot-vm;         default;                  9;        53.460;  Power (Watt)
+openjdk-hotspot-vm;         default;                 10;        61.880;  Power (Watt)
+openjdk-hotspot-vm;         default;                 11;        49.680;  Power (Watt)
+openjdk-hotspot-vm;         default;                 12;        62.330;  Power (Watt)
+openjdk-hotspot-vm;         default;                 13;        56.990;  Power (Watt)
+openjdk-hotspot-vm;         default;                 14;        45.430;  Power (Watt)

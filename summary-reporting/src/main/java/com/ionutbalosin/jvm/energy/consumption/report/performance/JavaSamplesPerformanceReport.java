@@ -53,15 +53,17 @@ public class JavaSamplesPerformanceReport extends AbstractPerformanceReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%26s;%16s;%22s\n", "Category", "Type", "Run Identifier", "Throughput (Ops/sec)");
+          "%18s;%26s;%16s;%14s;%22s\n",
+          "Category", "Type", "Run Identifier", "Score", "Score Metric");
 
       for (PerformanceStats performanceStats : rawStats) {
         writer.printf(
-            "%18s;%26s;%16s;%22.3f\n",
+            "%18s;%26s;%16s;%14.3f;%22s\n",
             performanceStats.descriptor.category,
             ofNullable(performanceStats.descriptor.type).orElse("N/A"),
             performanceStats.descriptor.runIdentifier,
-            performanceStats.value);
+            performanceStats.value,
+            "Throughput (ops/sec)");
       }
     }
 

@@ -43,8 +43,7 @@ public class EnergyUtils {
 
   public static String OUTPUT_FOLDER = "summary-reports";
 
-  public static String PERFORMANCE_REPORT_OUTPUT_FILE = "performance-report-%s.csv";
-  public static String RAW_PERFORMANCE_STATS_OUTPUT_FILE = "raw-performance-report-%s.csv";
+  public static String RAW_PERFORMANCE_STATS_OUTPUT_FILE = "performance-report-%s.csv";
 
   public static String ENERGY_REPORT_OUTPUT_FILE = "energy-report-%s.csv";
   public static String RAW_POWER_STATS_OUTPUT_FILE = "raw-power-%s.csv";

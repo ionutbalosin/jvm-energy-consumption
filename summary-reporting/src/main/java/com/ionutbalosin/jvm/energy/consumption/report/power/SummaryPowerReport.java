@@ -96,18 +96,21 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
     final Set<String> categories = getCategories(rawStats);
     final Set<String> runIdentifiers = getRunIdentifiers(rawStats);
+    final Set<String> invalidResultTypes = getInvalidResultTypes(rawStats);
     for (String category : categories) {
       for (String runIdentifier : runIdentifiers) {
-        List<PowerStats> categoryPerfStats = getPerfStats(rawStats, category, runIdentifier);
-        if (categoryPerfStats.isEmpty()) {
+        final List<PowerStats> powerStats = getPerfStats(rawStats, category, runIdentifier);
+        if (powerStats.isEmpty()) {
           continue;
         }
+        final List<PowerStats> filteredPowerStats =
+            filterInvalidPowerStats(powerStats, invalidResultTypes);
 
-        final double totalEnergy = energyFormulas.getEnergy(categoryPerfStats);
+        final double totalEnergy = energyFormulas.getEnergy(filteredPowerStats);
         final double carbonDioxide = energyFormulas.getCarbonDioxide(totalEnergy);
         processedStats.add(
             new ReportPowerStats(
-                category, runIdentifier, categoryPerfStats.size(), totalEnergy, carbonDioxide));
+                category, runIdentifier, filteredPowerStats.size(), totalEnergy, carbonDioxide));
       }
     }
   }
@@ -120,16 +123,16 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%14s;%25s;%22s\n",
+          "%18s;%16s;%13s;%25s;%22s\n",
           "Category",
           "Run Identifier",
-          "Test Samples",
+          "Total Tests",
           "Total Energy (Watt⋅sec)",
           "CO₂ Emissions (gCO₂)");
 
       for (ReportPowerStats report : processedStats) {
         writer.printf(
-            "%18s;%16s;%14d;%25.3f;%22.3f\n",
+            "%18s;%16s;%13d;%25.3f;%22.3f\n",
             report.descriptor.category,
             report.descriptor.runIdentifier,
             report.samples,
@@ -167,5 +170,24 @@ public class SummaryPowerReport extends AbstractPowerReport {
     return powerStats.stream()
         .map(powerStat -> powerStat.descriptor.runIdentifier)
         .collect(Collectors.toSet());
+  }
+
+  // This method retrieves the types of invalid results. Invalid results are those where the energy
+  // consumption is zero, indicating errors during test execution.
+  private static Set<String> getInvalidResultTypes(List<PowerStats> powerStats) {
+    return powerStats.stream()
+        .filter(ps -> ps.energy == 0)
+        .map(ps -> ps.descriptor.type)
+        .collect(Collectors.toSet());
+  }
+
+  // Filter the invalid tests based on their type.
+  // Note: This method assumes that the type is unique across all tests. If there might be
+  // duplications, the module or category should also be included in the comparison.
+  private static List<PowerStats> filterInvalidPowerStats(
+      List<PowerStats> powerStats, Set<String> invalidResultTypes) {
+    return powerStats.stream()
+        .filter(ps -> !invalidResultTypes.contains(ps.descriptor.type))
+        .collect(Collectors.toList());
   }
 }

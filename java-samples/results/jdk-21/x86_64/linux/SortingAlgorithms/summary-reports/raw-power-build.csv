@@ -1,287 +1,287 @@
-          Category;                      Type;  Run Identifier;  Power (Watt)
-      native-image;                radix_sort;        pgo_g1gc;         7.440
-      native-image;                radix_sort;        pgo_g1gc;         4.710
-      native-image;                radix_sort;        pgo_g1gc;         5.500
-      native-image;                radix_sort;        pgo_g1gc;       103.990
-      native-image;                radix_sort;        pgo_g1gc;        99.100
-      native-image;                radix_sort;        pgo_g1gc;        74.800
-      native-image;                radix_sort;        pgo_g1gc;        75.360
-      native-image;                radix_sort;        pgo_g1gc;        69.800
-      native-image;                radix_sort;        pgo_g1gc;        78.860
-      native-image;                radix_sort;        pgo_g1gc;       118.940
-      native-image;                radix_sort;        pgo_g1gc;       102.510
-      native-image;                radix_sort;        pgo_g1gc;       102.760
-      native-image;                radix_sort;        pgo_g1gc;       103.060
-      native-image;                radix_sort;        pgo_g1gc;        99.200
-      native-image;                radix_sort;        pgo_g1gc;        80.910
-      native-image;                radix_sort;        pgo_g1gc;        97.120
-      native-image;                radix_sort;        pgo_g1gc;       114.240
-      native-image;                radix_sort;        pgo_g1gc;       100.400
-      native-image;                radix_sort;        pgo_g1gc;       104.740
-      native-image;                radix_sort;        pgo_g1gc;       104.830
-      native-image;                radix_sort;        pgo_g1gc;       101.560
-      native-image;                radix_sort;        pgo_g1gc;       101.200
-      native-image;                radix_sort;        pgo_g1gc;       101.940
-      native-image;                radix_sort;        pgo_g1gc;       100.900
-      native-image;                radix_sort;        pgo_g1gc;       101.530
-      native-image;                radix_sort;        pgo_g1gc;       102.680
-      native-image;                radix_sort;        pgo_g1gc;       101.040
-      native-image;                radix_sort;        pgo_g1gc;        69.750
-      native-image;                radix_sort;        pgo_g1gc;        79.500
-      native-image;                radix_sort;        pgo_g1gc;        53.100
-      native-image;                radix_sort;         default;         8.300
-      native-image;                radix_sort;         default;         7.140
-      native-image;                radix_sort;         default;        10.010
-      native-image;                radix_sort;         default;        78.340
-      native-image;                radix_sort;         default;        86.160
-      native-image;                radix_sort;         default;        94.690
-      native-image;                radix_sort;         default;        63.770
-      native-image;                radix_sort;         default;       108.560
-      native-image;                radix_sort;         default;        95.920
-      native-image;                radix_sort;         default;       112.370
-      native-image;                radix_sort;         default;       101.690
-      native-image;                radix_sort;         default;       104.470
-      native-image;                radix_sort;         default;       102.780
-      native-image;                radix_sort;         default;        99.390
-      native-image;                radix_sort;         default;       105.610
-      native-image;                radix_sort;         default;       102.530
-      native-image;                radix_sort;         default;       108.450
-      native-image;                radix_sort;         default;       107.890
-      native-image;                radix_sort;         default;        96.830
-      native-image;                radix_sort;         default;       104.500
-      native-image;                radix_sort;         default;       103.570
-      native-image;                radix_sort;         default;       103.630
-      native-image;                radix_sort;         default;       104.330
-      native-image;                radix_sort;         default;       103.350
-      native-image;                radix_sort;         default;       102.410
-      native-image;                radix_sort;         default;       102.500
-      native-image;                radix_sort;         default;       102.670
-      native-image;                radix_sort;         default;       103.210
-      native-image;                radix_sort;         default;       104.370
-      native-image;                radix_sort;         default;       102.790
-      native-image;                radix_sort;         default;       103.150
-      native-image;                radix_sort;         default;        96.660
-      native-image;                radix_sort;         default;        97.380
-      native-image;                radix_sort;         default;        93.100
-      native-image;                radix_sort;         default;        93.000
-     azul-prime-vm;                radix_sort;         default;        14.440
-     azul-prime-vm;                radix_sort;         default;        13.360
-     azul-prime-vm;                radix_sort;         default;        13.520
-     azul-prime-vm;                radix_sort;         default;       109.300
-     azul-prime-vm;                radix_sort;         default;       108.570
-     azul-prime-vm;                radix_sort;         default;       104.310
-     azul-prime-vm;                radix_sort;         default;       107.690
-     azul-prime-vm;                radix_sort;         default;       105.570
-     azul-prime-vm;                radix_sort;         default;       106.580
-      native-image;                merge_sort;        pgo_g1gc;         7.090
-      native-image;                merge_sort;        pgo_g1gc;         7.090
-      native-image;                merge_sort;        pgo_g1gc;         5.470
-      native-image;                merge_sort;        pgo_g1gc;        70.350
-      native-image;                merge_sort;        pgo_g1gc;        80.380
-      native-image;                merge_sort;        pgo_g1gc;        96.740
-      native-image;                merge_sort;        pgo_g1gc;        78.890
-      native-image;                merge_sort;        pgo_g1gc;       110.500
-      native-image;                merge_sort;        pgo_g1gc;        93.130
-      native-image;                merge_sort;        pgo_g1gc;       110.710
-      native-image;                merge_sort;        pgo_g1gc;       101.860
-      native-image;                merge_sort;        pgo_g1gc;       102.020
-      native-image;                merge_sort;        pgo_g1gc;       102.960
-      native-image;                merge_sort;        pgo_g1gc;       102.530
-      native-image;                merge_sort;        pgo_g1gc;        97.700
-      native-image;                merge_sort;        pgo_g1gc;        80.810
-      native-image;                merge_sort;        pgo_g1gc;       103.470
-      native-image;                merge_sort;        pgo_g1gc;       104.590
-      native-image;                merge_sort;        pgo_g1gc;        99.350
-      native-image;                merge_sort;        pgo_g1gc;       101.970
-      native-image;                merge_sort;        pgo_g1gc;       109.080
-      native-image;                merge_sort;        pgo_g1gc;       102.150
-      native-image;                merge_sort;        pgo_g1gc;       103.170
-      native-image;                merge_sort;        pgo_g1gc;       102.250
-      native-image;                merge_sort;        pgo_g1gc;       102.270
-      native-image;                merge_sort;        pgo_g1gc;       102.030
-      native-image;                merge_sort;        pgo_g1gc;       102.360
-      native-image;                merge_sort;        pgo_g1gc;       101.160
-      native-image;                merge_sort;        pgo_g1gc;        97.450
-      native-image;                merge_sort;        pgo_g1gc;        97.450
-      native-image;                merge_sort;        pgo_g1gc;        63.610
- eclipse-openj9-vm;                radix_sort;         default;        14.590
- eclipse-openj9-vm;                radix_sort;         default;        13.530
- eclipse-openj9-vm;                radix_sort;         default;        14.690
- eclipse-openj9-vm;                radix_sort;         default;        52.580
- eclipse-openj9-vm;                radix_sort;         default;        63.950
- eclipse-openj9-vm;                radix_sort;         default;        71.030
-openjdk-hotspot-vm;                quick_sort;         default;        16.110
-openjdk-hotspot-vm;                quick_sort;         default;        14.520
-openjdk-hotspot-vm;                quick_sort;         default;        17.920
-openjdk-hotspot-vm;                quick_sort;         default;       113.400
-    oracle-graalvm;                radix_sort;         default;        15.160
-    oracle-graalvm;                radix_sort;         default;        13.030
-    oracle-graalvm;                radix_sort;         default;        14.600
-    oracle-graalvm;                radix_sort;         default;        74.810
-    oracle-graalvm;                radix_sort;         default;        76.900
-openjdk-hotspot-vm;                merge_sort;         default;        16.740
-openjdk-hotspot-vm;                merge_sort;         default;        14.840
-openjdk-hotspot-vm;                merge_sort;         default;        19.350
-openjdk-hotspot-vm;                merge_sort;         default;        85.850
-openjdk-hotspot-vm;                merge_sort;         default;       108.060
-        graalvm-ce;                radix_sort;         default;        14.790
-        graalvm-ce;                radix_sort;         default;        13.430
-        graalvm-ce;                radix_sort;         default;        15.160
-        graalvm-ce;                radix_sort;         default;        78.720
-        graalvm-ce;                radix_sort;         default;        84.730
-      native-image;                quick_sort;         default;        17.670
-      native-image;                quick_sort;         default;        37.810
-      native-image;                quick_sort;         default;        40.990
-      native-image;                quick_sort;         default;        85.400
-      native-image;                quick_sort;         default;        95.710
-      native-image;                quick_sort;         default;        99.810
-      native-image;                quick_sort;         default;       102.660
-      native-image;                quick_sort;         default;       110.030
-      native-image;                quick_sort;         default;       107.760
-      native-image;                quick_sort;         default;       116.070
-      native-image;                quick_sort;         default;       108.820
-      native-image;                quick_sort;         default;       107.930
-      native-image;                quick_sort;         default;       106.980
-      native-image;                quick_sort;         default;       104.230
-      native-image;                quick_sort;         default;       100.920
-      native-image;                quick_sort;         default;       104.680
-      native-image;                quick_sort;         default;       109.300
-      native-image;                quick_sort;         default;       109.790
-      native-image;                quick_sort;         default;       107.350
-      native-image;                quick_sort;         default;       108.490
-      native-image;                quick_sort;         default;        98.610
-      native-image;                quick_sort;         default;       104.910
-      native-image;                quick_sort;         default;       106.320
-      native-image;                quick_sort;         default;       100.330
-      native-image;                quick_sort;         default;       107.860
-      native-image;                quick_sort;         default;       107.210
-      native-image;                quick_sort;         default;       106.860
-      native-image;                quick_sort;         default;       106.520
-      native-image;                quick_sort;         default;       108.310
-      native-image;                quick_sort;         default;       109.070
-      native-image;                quick_sort;         default;       109.500
-      native-image;                quick_sort;         default;       106.500
-      native-image;                quick_sort;         default;       103.440
-      native-image;                quick_sort;         default;        99.420
-      native-image;                quick_sort;         default;        98.600
-      native-image;                quick_sort;         default;        74.100
-      native-image;                quick_sort;         default;        69.550
-      native-image;                quick_sort;         default;        70.720
-      native-image;                quick_sort;         default;        60.160
-      native-image;                quick_sort;        pgo_g1gc;         7.780
-      native-image;                quick_sort;        pgo_g1gc;         4.650
-      native-image;                quick_sort;        pgo_g1gc;         5.270
-      native-image;                quick_sort;        pgo_g1gc;        99.280
-      native-image;                quick_sort;        pgo_g1gc;       107.720
-      native-image;                quick_sort;        pgo_g1gc;        86.750
-      native-image;                quick_sort;        pgo_g1gc;        84.510
-      native-image;                quick_sort;        pgo_g1gc;        76.080
-      native-image;                quick_sort;        pgo_g1gc;       109.550
-      native-image;                quick_sort;        pgo_g1gc;       115.700
-      native-image;                quick_sort;        pgo_g1gc;       102.090
-      native-image;                quick_sort;        pgo_g1gc;       103.230
-      native-image;                quick_sort;        pgo_g1gc;       101.460
-      native-image;                quick_sort;        pgo_g1gc;        98.310
-      native-image;                quick_sort;        pgo_g1gc;        95.590
-      native-image;                quick_sort;        pgo_g1gc;       102.060
-      native-image;                quick_sort;        pgo_g1gc;       104.940
-      native-image;                quick_sort;        pgo_g1gc;       101.320
-      native-image;                quick_sort;        pgo_g1gc;        98.970
-      native-image;                quick_sort;        pgo_g1gc;       108.380
-      native-image;                quick_sort;        pgo_g1gc;       101.420
-      native-image;                quick_sort;        pgo_g1gc;       102.070
-      native-image;                quick_sort;        pgo_g1gc;       101.590
-      native-image;                quick_sort;        pgo_g1gc;       101.930
-      native-image;                quick_sort;        pgo_g1gc;       102.360
-      native-image;                quick_sort;        pgo_g1gc;       101.970
-      native-image;                quick_sort;        pgo_g1gc;        96.710
-      native-image;                quick_sort;        pgo_g1gc;       102.830
-      native-image;                quick_sort;        pgo_g1gc;        88.590
-      native-image;                merge_sort;         default;        10.290
-      native-image;                merge_sort;         default;         7.770
-      native-image;                merge_sort;         default;         7.780
-      native-image;                merge_sort;         default;        75.240
-      native-image;                merge_sort;         default;        88.110
-      native-image;                merge_sort;         default;       103.010
-      native-image;                merge_sort;         default;       104.030
-      native-image;                merge_sort;         default;        96.390
-      native-image;                merge_sort;         default;       104.540
-      native-image;                merge_sort;         default;       106.230
-      native-image;                merge_sort;         default;       106.830
-      native-image;                merge_sort;         default;       101.010
-      native-image;                merge_sort;         default;       103.230
-      native-image;                merge_sort;         default;        95.990
-      native-image;                merge_sort;         default;       105.730
-      native-image;                merge_sort;         default;       100.610
-      native-image;                merge_sort;         default;       106.210
-      native-image;                merge_sort;         default;       104.990
-      native-image;                merge_sort;         default;        96.750
-      native-image;                merge_sort;         default;       108.170
-      native-image;                merge_sort;         default;       104.220
-      native-image;                merge_sort;         default;       102.940
-      native-image;                merge_sort;         default;       103.480
-      native-image;                merge_sort;         default;       101.640
-      native-image;                merge_sort;         default;       102.440
-      native-image;                merge_sort;         default;       102.180
-      native-image;                merge_sort;         default;       102.490
-      native-image;                merge_sort;         default;       102.280
-      native-image;                merge_sort;         default;       103.950
-      native-image;                merge_sort;         default;       103.860
-      native-image;                merge_sort;         default;       101.340
-      native-image;                merge_sort;         default;       100.650
-      native-image;                merge_sort;         default;       103.540
-      native-image;                merge_sort;         default;        99.350
-      native-image;                merge_sort;         default;       104.710
-      native-image;                merge_sort;         default;        70.740
- eclipse-openj9-vm;                merge_sort;         default;        14.280
- eclipse-openj9-vm;                merge_sort;         default;        15.630
- eclipse-openj9-vm;                merge_sort;         default;        14.060
- eclipse-openj9-vm;                merge_sort;         default;        58.460
- eclipse-openj9-vm;                merge_sort;         default;        65.640
- eclipse-openj9-vm;                merge_sort;         default;        69.540
-        graalvm-ce;                quick_sort;         default;        16.830
-        graalvm-ce;                quick_sort;         default;        15.360
-        graalvm-ce;                quick_sort;         default;        14.770
-        graalvm-ce;                quick_sort;         default;        75.070
-        graalvm-ce;                quick_sort;         default;        80.300
-     azul-prime-vm;                merge_sort;         default;        17.140
-     azul-prime-vm;                merge_sort;         default;        13.800
-     azul-prime-vm;                merge_sort;         default;        16.070
-     azul-prime-vm;                merge_sort;         default;       110.720
-     azul-prime-vm;                merge_sort;         default;       106.410
-     azul-prime-vm;                merge_sort;         default;       103.060
-     azul-prime-vm;                merge_sort;         default;       108.970
-     azul-prime-vm;                merge_sort;         default;       106.270
-     azul-prime-vm;                merge_sort;         default;        98.340
-    oracle-graalvm;                merge_sort;         default;        15.070
-    oracle-graalvm;                merge_sort;         default;        12.980
-    oracle-graalvm;                merge_sort;         default;        16.320
-    oracle-graalvm;                merge_sort;         default;        81.430
-    oracle-graalvm;                merge_sort;         default;        86.220
-    oracle-graalvm;                quick_sort;         default;        16.610
-    oracle-graalvm;                quick_sort;         default;        15.390
-    oracle-graalvm;                quick_sort;         default;        15.660
-    oracle-graalvm;                quick_sort;         default;        75.120
-    oracle-graalvm;                quick_sort;         default;        79.170
-        graalvm-ce;                merge_sort;         default;        14.840
-        graalvm-ce;                merge_sort;         default;        13.820
-        graalvm-ce;                merge_sort;         default;        14.380
-        graalvm-ce;                merge_sort;         default;        76.570
-        graalvm-ce;                merge_sort;         default;        81.730
-     azul-prime-vm;                quick_sort;         default;        15.150
-     azul-prime-vm;                quick_sort;         default;        13.670
-     azul-prime-vm;                quick_sort;         default;        14.020
-     azul-prime-vm;                quick_sort;         default;       110.900
-     azul-prime-vm;                quick_sort;         default;       109.000
-     azul-prime-vm;                quick_sort;         default;       104.880
-     azul-prime-vm;                quick_sort;         default;       105.620
- eclipse-openj9-vm;                quick_sort;         default;        14.990
- eclipse-openj9-vm;                quick_sort;         default;        15.310
- eclipse-openj9-vm;                quick_sort;         default;        13.950
- eclipse-openj9-vm;                quick_sort;         default;        54.140
- eclipse-openj9-vm;                quick_sort;         default;        62.150
- eclipse-openj9-vm;                quick_sort;         default;        63.590
-openjdk-hotspot-vm;                radix_sort;         default;        16.030
-openjdk-hotspot-vm;                radix_sort;         default;        14.170
-openjdk-hotspot-vm;                radix_sort;         default;        17.330
-openjdk-hotspot-vm;                radix_sort;         default;       111.890
+          Category;                      Type;  Run Identifier;  Sample Identifier;         Score;  Score Metric
+openjdk-hotspot-vm;                quick_sort;         default;                  1;        16.110;  Power (Watt)
+openjdk-hotspot-vm;                quick_sort;         default;                  2;        14.520;  Power (Watt)
+openjdk-hotspot-vm;                quick_sort;         default;                  3;        17.920;  Power (Watt)
+openjdk-hotspot-vm;                quick_sort;         default;                  4;       113.400;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  1;         7.090;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  2;         7.090;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  3;         5.470;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  4;        70.350;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  5;        80.380;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  6;        96.740;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  7;        78.890;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  8;       110.500;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                  9;        93.130;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 10;       110.710;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 11;       101.860;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 12;       102.020;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 13;       102.960;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 14;       102.530;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 15;        97.700;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 16;        80.810;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 17;       103.470;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 18;       104.590;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 19;        99.350;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 20;       101.970;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 21;       109.080;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 22;       102.150;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 23;       103.170;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 24;       102.250;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 25;       102.270;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 26;       102.030;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 27;       102.360;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 28;       101.160;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 29;        97.450;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 30;        97.450;  Power (Watt)
+      native-image;                merge_sort;        pgo_g1gc;                 31;        63.610;  Power (Watt)
+      native-image;                merge_sort;         default;                  1;        10.290;  Power (Watt)
+      native-image;                merge_sort;         default;                  2;         7.770;  Power (Watt)
+      native-image;                merge_sort;         default;                  3;         7.780;  Power (Watt)
+      native-image;                merge_sort;         default;                  4;        75.240;  Power (Watt)
+      native-image;                merge_sort;         default;                  5;        88.110;  Power (Watt)
+      native-image;                merge_sort;         default;                  6;       103.010;  Power (Watt)
+      native-image;                merge_sort;         default;                  7;       104.030;  Power (Watt)
+      native-image;                merge_sort;         default;                  8;        96.390;  Power (Watt)
+      native-image;                merge_sort;         default;                  9;       104.540;  Power (Watt)
+      native-image;                merge_sort;         default;                 10;       106.230;  Power (Watt)
+      native-image;                merge_sort;         default;                 11;       106.830;  Power (Watt)
+      native-image;                merge_sort;         default;                 12;       101.010;  Power (Watt)
+      native-image;                merge_sort;         default;                 13;       103.230;  Power (Watt)
+      native-image;                merge_sort;         default;                 14;        95.990;  Power (Watt)
+      native-image;                merge_sort;         default;                 15;       105.730;  Power (Watt)
+      native-image;                merge_sort;         default;                 16;       100.610;  Power (Watt)
+      native-image;                merge_sort;         default;                 17;       106.210;  Power (Watt)
+      native-image;                merge_sort;         default;                 18;       104.990;  Power (Watt)
+      native-image;                merge_sort;         default;                 19;        96.750;  Power (Watt)
+      native-image;                merge_sort;         default;                 20;       108.170;  Power (Watt)
+      native-image;                merge_sort;         default;                 21;       104.220;  Power (Watt)
+      native-image;                merge_sort;         default;                 22;       102.940;  Power (Watt)
+      native-image;                merge_sort;         default;                 23;       103.480;  Power (Watt)
+      native-image;                merge_sort;         default;                 24;       101.640;  Power (Watt)
+      native-image;                merge_sort;         default;                 25;       102.440;  Power (Watt)
+      native-image;                merge_sort;         default;                 26;       102.180;  Power (Watt)
+      native-image;                merge_sort;         default;                 27;       102.490;  Power (Watt)
+      native-image;                merge_sort;         default;                 28;       102.280;  Power (Watt)
+      native-image;                merge_sort;         default;                 29;       103.950;  Power (Watt)
+      native-image;                merge_sort;         default;                 30;       103.860;  Power (Watt)
+      native-image;                merge_sort;         default;                 31;       101.340;  Power (Watt)
+      native-image;                merge_sort;         default;                 32;       100.650;  Power (Watt)
+      native-image;                merge_sort;         default;                 33;       103.540;  Power (Watt)
+      native-image;                merge_sort;         default;                 34;        99.350;  Power (Watt)
+      native-image;                merge_sort;         default;                 35;       104.710;  Power (Watt)
+      native-image;                merge_sort;         default;                 36;        70.740;  Power (Watt)
+openjdk-hotspot-vm;                radix_sort;         default;                  1;        16.030;  Power (Watt)
+openjdk-hotspot-vm;                radix_sort;         default;                  2;        14.170;  Power (Watt)
+openjdk-hotspot-vm;                radix_sort;         default;                  3;        17.330;  Power (Watt)
+openjdk-hotspot-vm;                radix_sort;         default;                  4;       111.890;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  1;        14.990;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  2;        15.310;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  3;        13.950;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  4;        54.140;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  5;        62.150;  Power (Watt)
+ eclipse-openj9-vm;                quick_sort;         default;                  6;        63.590;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  1;        15.150;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  2;        13.670;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  3;        14.020;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  4;       110.900;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  5;       109.000;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  6;       104.880;  Power (Watt)
+     azul-prime-vm;                quick_sort;         default;                  7;       105.620;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  1;        14.440;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  2;        13.360;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  3;        13.520;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  4;       109.300;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  5;       108.570;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  6;       104.310;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  7;       107.690;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  8;       105.570;  Power (Watt)
+     azul-prime-vm;                radix_sort;         default;                  9;       106.580;  Power (Watt)
+        graalvm-ce;                quick_sort;         default;                  1;        16.830;  Power (Watt)
+        graalvm-ce;                quick_sort;         default;                  2;        15.360;  Power (Watt)
+        graalvm-ce;                quick_sort;         default;                  3;        14.770;  Power (Watt)
+        graalvm-ce;                quick_sort;         default;                  4;        75.070;  Power (Watt)
+        graalvm-ce;                quick_sort;         default;                  5;        80.300;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  1;        17.140;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  2;        13.800;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  3;        16.070;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  4;       110.720;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  5;       106.410;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  6;       103.060;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  7;       108.970;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  8;       106.270;  Power (Watt)
+     azul-prime-vm;                merge_sort;         default;                  9;        98.340;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  1;        14.590;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  2;        13.530;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  3;        14.690;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  4;        52.580;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  5;        63.950;  Power (Watt)
+ eclipse-openj9-vm;                radix_sort;         default;                  6;        71.030;  Power (Watt)
+    oracle-graalvm;                merge_sort;         default;                  1;        15.070;  Power (Watt)
+    oracle-graalvm;                merge_sort;         default;                  2;        12.980;  Power (Watt)
+    oracle-graalvm;                merge_sort;         default;                  3;        16.320;  Power (Watt)
+    oracle-graalvm;                merge_sort;         default;                  4;        81.430;  Power (Watt)
+    oracle-graalvm;                merge_sort;         default;                  5;        86.220;  Power (Watt)
+openjdk-hotspot-vm;                merge_sort;         default;                  1;        16.740;  Power (Watt)
+openjdk-hotspot-vm;                merge_sort;         default;                  2;        14.840;  Power (Watt)
+openjdk-hotspot-vm;                merge_sort;         default;                  3;        19.350;  Power (Watt)
+openjdk-hotspot-vm;                merge_sort;         default;                  4;        85.850;  Power (Watt)
+openjdk-hotspot-vm;                merge_sort;         default;                  5;       108.060;  Power (Watt)
+      native-image;                radix_sort;         default;                  1;         8.300;  Power (Watt)
+      native-image;                radix_sort;         default;                  2;         7.140;  Power (Watt)
+      native-image;                radix_sort;         default;                  3;        10.010;  Power (Watt)
+      native-image;                radix_sort;         default;                  4;        78.340;  Power (Watt)
+      native-image;                radix_sort;         default;                  5;        86.160;  Power (Watt)
+      native-image;                radix_sort;         default;                  6;        94.690;  Power (Watt)
+      native-image;                radix_sort;         default;                  7;        63.770;  Power (Watt)
+      native-image;                radix_sort;         default;                  8;       108.560;  Power (Watt)
+      native-image;                radix_sort;         default;                  9;        95.920;  Power (Watt)
+      native-image;                radix_sort;         default;                 10;       112.370;  Power (Watt)
+      native-image;                radix_sort;         default;                 11;       101.690;  Power (Watt)
+      native-image;                radix_sort;         default;                 12;       104.470;  Power (Watt)
+      native-image;                radix_sort;         default;                 13;       102.780;  Power (Watt)
+      native-image;                radix_sort;         default;                 14;        99.390;  Power (Watt)
+      native-image;                radix_sort;         default;                 15;       105.610;  Power (Watt)
+      native-image;                radix_sort;         default;                 16;       102.530;  Power (Watt)
+      native-image;                radix_sort;         default;                 17;       108.450;  Power (Watt)
+      native-image;                radix_sort;         default;                 18;       107.890;  Power (Watt)
+      native-image;                radix_sort;         default;                 19;        96.830;  Power (Watt)
+      native-image;                radix_sort;         default;                 20;       104.500;  Power (Watt)
+      native-image;                radix_sort;         default;                 21;       103.570;  Power (Watt)
+      native-image;                radix_sort;         default;                 22;       103.630;  Power (Watt)
+      native-image;                radix_sort;         default;                 23;       104.330;  Power (Watt)
+      native-image;                radix_sort;         default;                 24;       103.350;  Power (Watt)
+      native-image;                radix_sort;         default;                 25;       102.410;  Power (Watt)
+      native-image;                radix_sort;         default;                 26;       102.500;  Power (Watt)
+      native-image;                radix_sort;         default;                 27;       102.670;  Power (Watt)
+      native-image;                radix_sort;         default;                 28;       103.210;  Power (Watt)
+      native-image;                radix_sort;         default;                 29;       104.370;  Power (Watt)
+      native-image;                radix_sort;         default;                 30;       102.790;  Power (Watt)
+      native-image;                radix_sort;         default;                 31;       103.150;  Power (Watt)
+      native-image;                radix_sort;         default;                 32;        96.660;  Power (Watt)
+      native-image;                radix_sort;         default;                 33;        97.380;  Power (Watt)
+      native-image;                radix_sort;         default;                 34;        93.100;  Power (Watt)
+      native-image;                radix_sort;         default;                 35;        93.000;  Power (Watt)
+        graalvm-ce;                radix_sort;         default;                  1;        14.790;  Power (Watt)
+        graalvm-ce;                radix_sort;         default;                  2;        13.430;  Power (Watt)
+        graalvm-ce;                radix_sort;         default;                  3;        15.160;  Power (Watt)
+        graalvm-ce;                radix_sort;         default;                  4;        78.720;  Power (Watt)
+        graalvm-ce;                radix_sort;         default;                  5;        84.730;  Power (Watt)
+      native-image;                quick_sort;         default;                  1;        17.670;  Power (Watt)
+      native-image;                quick_sort;         default;                  2;        37.810;  Power (Watt)
+      native-image;                quick_sort;         default;                  3;        40.990;  Power (Watt)
+      native-image;                quick_sort;         default;                  4;        85.400;  Power (Watt)
+      native-image;                quick_sort;         default;                  5;        95.710;  Power (Watt)
+      native-image;                quick_sort;         default;                  6;        99.810;  Power (Watt)
+      native-image;                quick_sort;         default;                  7;       102.660;  Power (Watt)
+      native-image;                quick_sort;         default;                  8;       110.030;  Power (Watt)
+      native-image;                quick_sort;         default;                  9;       107.760;  Power (Watt)
+      native-image;                quick_sort;         default;                 10;       116.070;  Power (Watt)
+      native-image;                quick_sort;         default;                 11;       108.820;  Power (Watt)
+      native-image;                quick_sort;         default;                 12;       107.930;  Power (Watt)
+      native-image;                quick_sort;         default;                 13;       106.980;  Power (Watt)
+      native-image;                quick_sort;         default;                 14;       104.230;  Power (Watt)
+      native-image;                quick_sort;         default;                 15;       100.920;  Power (Watt)
+      native-image;                quick_sort;         default;                 16;       104.680;  Power (Watt)
+      native-image;                quick_sort;         default;                 17;       109.300;  Power (Watt)
+      native-image;                quick_sort;         default;                 18;       109.790;  Power (Watt)
+      native-image;                quick_sort;         default;                 19;       107.350;  Power (Watt)
+      native-image;                quick_sort;         default;                 20;       108.490;  Power (Watt)
+      native-image;                quick_sort;         default;                 21;        98.610;  Power (Watt)
+      native-image;                quick_sort;         default;                 22;       104.910;  Power (Watt)
+      native-image;                quick_sort;         default;                 23;       106.320;  Power (Watt)
+      native-image;                quick_sort;         default;                 24;       100.330;  Power (Watt)
+      native-image;                quick_sort;         default;                 25;       107.860;  Power (Watt)
+      native-image;                quick_sort;         default;                 26;       107.210;  Power (Watt)
+      native-image;                quick_sort;         default;                 27;       106.860;  Power (Watt)
+      native-image;                quick_sort;         default;                 28;       106.520;  Power (Watt)
+      native-image;                quick_sort;         default;                 29;       108.310;  Power (Watt)
+      native-image;                quick_sort;         default;                 30;       109.070;  Power (Watt)
+      native-image;                quick_sort;         default;                 31;       109.500;  Power (Watt)
+      native-image;                quick_sort;         default;                 32;       106.500;  Power (Watt)
+      native-image;                quick_sort;         default;                 33;       103.440;  Power (Watt)
+      native-image;                quick_sort;         default;                 34;        99.420;  Power (Watt)
+      native-image;                quick_sort;         default;                 35;        98.600;  Power (Watt)
+      native-image;                quick_sort;         default;                 36;        74.100;  Power (Watt)
+      native-image;                quick_sort;         default;                 37;        69.550;  Power (Watt)
+      native-image;                quick_sort;         default;                 38;        70.720;  Power (Watt)
+      native-image;                quick_sort;         default;                 39;        60.160;  Power (Watt)
+        graalvm-ce;                merge_sort;         default;                  1;        14.840;  Power (Watt)
+        graalvm-ce;                merge_sort;         default;                  2;        13.820;  Power (Watt)
+        graalvm-ce;                merge_sort;         default;                  3;        14.380;  Power (Watt)
+        graalvm-ce;                merge_sort;         default;                  4;        76.570;  Power (Watt)
+        graalvm-ce;                merge_sort;         default;                  5;        81.730;  Power (Watt)
+    oracle-graalvm;                quick_sort;         default;                  1;        16.610;  Power (Watt)
+    oracle-graalvm;                quick_sort;         default;                  2;        15.390;  Power (Watt)
+    oracle-graalvm;                quick_sort;         default;                  3;        15.660;  Power (Watt)
+    oracle-graalvm;                quick_sort;         default;                  4;        75.120;  Power (Watt)
+    oracle-graalvm;                quick_sort;         default;                  5;        79.170;  Power (Watt)
+    oracle-graalvm;                radix_sort;         default;                  1;        15.160;  Power (Watt)
+    oracle-graalvm;                radix_sort;         default;                  2;        13.030;  Power (Watt)
+    oracle-graalvm;                radix_sort;         default;                  3;        14.600;  Power (Watt)
+    oracle-graalvm;                radix_sort;         default;                  4;        74.810;  Power (Watt)
+    oracle-graalvm;                radix_sort;         default;                  5;        76.900;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  1;        14.280;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  2;        15.630;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  3;        14.060;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  4;        58.460;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  5;        65.640;  Power (Watt)
+ eclipse-openj9-vm;                merge_sort;         default;                  6;        69.540;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  1;         7.780;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  2;         4.650;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  3;         5.270;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  4;        99.280;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  5;       107.720;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  6;        86.750;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  7;        84.510;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  8;        76.080;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                  9;       109.550;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 10;       115.700;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 11;       102.090;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 12;       103.230;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 13;       101.460;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 14;        98.310;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 15;        95.590;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 16;       102.060;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 17;       104.940;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 18;       101.320;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 19;        98.970;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 20;       108.380;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 21;       101.420;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 22;       102.070;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 23;       101.590;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 24;       101.930;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 25;       102.360;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 26;       101.970;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 27;        96.710;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 28;       102.830;  Power (Watt)
+      native-image;                quick_sort;        pgo_g1gc;                 29;        88.590;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  1;         7.440;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  2;         4.710;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  3;         5.500;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  4;       103.990;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  5;        99.100;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  6;        74.800;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  7;        75.360;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  8;        69.800;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                  9;        78.860;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 10;       118.940;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 11;       102.510;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 12;       102.760;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 13;       103.060;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 14;        99.200;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 15;        80.910;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 16;        97.120;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 17;       114.240;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 18;       100.400;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 19;       104.740;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 20;       104.830;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 21;       101.560;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 22;       101.200;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 23;       101.940;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 24;       100.900;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 25;       101.530;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 26;       102.680;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 27;       101.040;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 28;        69.750;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 29;        79.500;  Power (Watt)
+      native-image;                radix_sort;        pgo_g1gc;                 30;        53.100;  Power (Watt)
