@@ -22,7 +22,7 @@
 [INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
 [INFO] dotGitDirectory '/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
 [INFO] Collected git.build.user.name with value KoTurk
-[INFO] Collected git.build.user.email with value ko.<username>@hotmail.com
+[INFO] Collected git.build.user.email with value <username>@<email>
 [INFO] Collected git.branch with value main
 [INFO] --always = true
 [INFO] --dirty = -dirty
@@ -117,6 +117,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.900 s
-[INFO] Finished at: 2024-03-13T03:35:17+01:00
+[INFO] Total time:  8.284 s
+[INFO] Finished at: 2024-03-14T22:34:04+01:00
 [INFO] ------------------------------------------------------------------------
