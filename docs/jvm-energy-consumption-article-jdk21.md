@@ -166,7 +166,7 @@ Measuring energy consumption for smaller tasks (i.e., micro-benchmarking), such 
 
 ## Hardware Configuration
 
-All the tests were launched on a system under test machine having below configuration:
+The system under test, where the JVM applications were launched, has the following configuration:
 - CPU: Intel Core i9-13900HX Raptor Lake
 - Memory: 64GB DDR5 5200 MHz
 - OS: Ubuntu 22.04.2 LTS / TODO
@@ -208,10 +208,10 @@ JVM distribution                                                                
 [Azul Prime VM](https://www.azul.com/products/prime)                                    | 21.0.1      |x86_64
 [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                     | 21.0.1      |x86_64
 
-For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., `-Xms1m`), and the maximum heap size, which varies depending on the application category (e.g., `-Xmx1g`, `-Xmx8g`, `-Xmx12g`).
+For each JVM, the specific tuning parameters were the initial heap size, typically set to 1m (e.g., `-Xms1m`), and the maximum heap size, which varies depending on the application category (e.g., `-Xmx1g`, `-Xmx8g`, `-Xmx12g`).
 
-Additionally, in the case of Graal Native Image, additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**). 
-This was primarily to enable a fairer comparison between the native image and other JVMs (AOT vs JIT, serial GC vs other parallel and concurrent garbage collectors) in the case of long-running applications.
+Only in the case of Graal Native Image additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**). 
+This was primarily to enable a fairer comparison between the native image and other JVMs (i.e., AOT vs JIT, serial GC vs other parallel and concurrent garbage collectors) in the case of long-running applications.
 
 # Applications Runtime Execution Results
 
@@ -232,7 +232,7 @@ While this approach may initially appear to favor short-running applications tha
 
 ### Spring PetClinic Application
 
-This experiment assesses the energy consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application based on Spring Boot 3.2.1 setting a maximum heap size of 12GB.
+This experiment assesses the energy consumption of the [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) application based on Spring Boot 3.2.1 setting a maximum heap size of `12GB`.
 
 The load generator (and consequently the maximum throughput reported) is triggered using `wrk`, which hits five different endpoints (creating owners, pets, and clinic visits, and reading the owners, pets, and their visits) in a round-robin manner, using 8 threads at a rate of 900 requests per second for a duration of 2 hours.
 
@@ -264,7 +264,7 @@ Additional resources:
 
 ### Quarkus Hibernate ORM Panache
 
-This experiment assesses the energy consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application based on Quarkus 3.8.2 setting a maximum heap size of 1GB.
+This experiment assesses the energy consumption of the [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart) application based on Quarkus 3.8.2 setting a maximum heap size of `1GB`.
 
 The load generator (and consequently the maximum throughput reported) is triggered using `wrk`, which hits four different endpoints (creating, reading, updating, and deleting fruits) in a round-robin manner, using 8 threads at a rate of 900 requests per second for a duration of 2 hours.
 
@@ -298,7 +298,7 @@ Additional resources:
 
 In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms was developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
 
-For each category of custom-made application, the total running time is set to **20 minutes**.
+For each category of custom-made application, the total running time is set to **20 minutes** and the maximum heap size is `8GB`.
 During this 20-minute runtime, consecutive runs of the same application are triggered until the time limit is reached.
 
 The reported throughput is computed at the end of the application execution runs, excluding a fixed initial warm-up duration of 5 minutes.
@@ -319,7 +319,7 @@ There are three primary memory access patterns:
 - **Spatial**: adjacent memory locations are likely to be accessed in close succession.
 - **Striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
 
-The program creates a large array of longs, occupying approximately 4GB of RAM memory. Then, over a period of 20 minutes, consecutive runs access the array elements based on one of the described patterns. After each iteration, the validity of the results is verified.
+The program creates a large array of longs, occupying approximately `4GB` of RAM memory. Then, over a period of 20 minutes, consecutive runs access the array elements based on one of the described patterns. After each iteration, the validity of the results is verified.
 
 Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
 
@@ -425,7 +425,7 @@ Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/
 
 ### Sorting Algorithms Complexities
 
-This program utilizes various sorting algorithms with different complexities, ranging from logarithmic to linear, to sort an array of integers occupying 1GB of memory. 
+This program utilizes various sorting algorithms with different complexities, ranging from logarithmic to linear, to sort an array of integers occupying `1GB` of memory. 
 It runs multiple iterations over a 20-minute period, and after each iteration, the validity of the results is verified. 
 Prior to each iteration, the array is initialized in reverse order, thereby creating a worst-case scenario for the sorting algorithms.
 
