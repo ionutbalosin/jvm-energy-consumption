@@ -22,11 +22,13 @@
     - [Memory Access patterns](#memory-access-patterns)
     - [Logging Patterns](#logging-patterns)
     - [Throwing Exception Patterns](#throwing-exception-patterns)
+    - [String Concatenation Patterns](#string-concatenation-patterns)
     - [Sorting Algorithms Complexities](#sorting-algorithms-complexities)
     - [Virtual Calls](#virtual-calls)
-  - [Runtime Geometric Mean](#runtime-geometric-mean)
+    - [Virtual/Platform Threads](#virtualplatform-threads)
+  - [Runtime Normalized Energy](#runtime-normalized-energy)
 - [Applications Build Time Execution Results](#applications-build-time-execution-results)
-  - [Build Time Geometric Mean](#build-time-geometric-mean)
+  - [Build Time Normalized Energy](#build-time-normalized-energy)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
 - [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
@@ -61,20 +63,20 @@ Below is a list of several objectives I considered for my experiments:
 - **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall energy consumption. 
 - **Performance-Optimized Power Efficiency**: Investigate how energy consumption correlates with system performance.
 
-**Observation**: Please note that this report is **not focused on JVM performance comparison**. The intention is to understand the energy consumption of a JVM under specific loading factors, rather than determining the *fastest JVM*.
+> Please note that this analysis **does not primarily focus on JVM performance comparison**. The intention is to understand the energy consumption of a JVM under specific loading factors, rather than determining the fastest JVM. Therefore, please refrain from viewing it from a performance standpoint. All throughput-related plots are included to provide complementary insights into the system's load.
 
 # Methodology
 
 ## Measurement Tools
 
-The tools I used for measuring energy consumption, as well as additional tools utilized to either generate a proper load or monitor some basic system hardware counters (e.g., CPU, memory), vary based on the architecture, as follows:
+The command line tools I used for measuring energy consumption, as well as additional tools utilized to either generate a proper load or monitor some basic system hardware counters (e.g., CPU, memory), vary based on the architecture, as follows:
 
- OS        | Arcitecture   | Power Command Line Tools | Auxiliar Line Tools         
------------|---------------|--------------------------|----------------------------
- GNU/Linux | x86_64        | `powerstat`              | `wrk`, `ps`
- macOS     | arm64         | `powermetrics`           | `wrk`, `ps`
+ OS        | Arcitecture   | Power Consumption Tools | Auxiliar Tools         
+-----------|---------------|-------------------------|----------------
+ GNU/Linux | x86_64        | `powerstat`             | `wrk`, `ps`
+ macOS     | arm64         | `powermetrics`          | `wrk`, `ps`
 
-To achieve a more comprehensive measurement, I supplemented these measurements with the use of a **wall power meter**. This combination allowed for a thorough assessment of energy usage.
+To achieve a more comprehensive measurement, I supplemented these measurements with the use of a **wall power meter**.
 
 ### Powerstat
 
@@ -92,7 +94,7 @@ RAPL offers power-limiting capabilities and precise energy readings for multiple
 
 #### RAPL Domains Coverage
 
-It is worth mentioning that RAPL reports only the energy consumption of a few domains (e.g., CPU, GPU, DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
+It is worth mentioning that RAPL reports only the energy consumption of a few domains (e.g., CPU, GPU, probably DRAM), but the system overall consumes much more energy for other components that are not included, as follows:
 - any networking interface as Ethernet, Wi-Fi (Wireless Fidelity), Bluetooth, etc.
 - any attached storage device (as hard disk drives, solid-state drives, and optical drives) relying on SATA (Serial AT Attachment), NVMe (Non-Volatile Memory Express), USB (Universal Serial Bus), Thunderbolt, SCSI (Small Computer System Interface), FireWire (IEEE 1394), Fibre Channel, etc.
 - any display interface using HDMI (High-Definition Multimedia Interface), VGA (Video Graphics Array), DVI (Digital Visual Interface), Thunderbolt, DisplayPort, etc.
@@ -103,9 +105,7 @@ In other words, for a typical JVM application, this means that any I/O operation
 
 ### Powermetrics
 
-`Powermetrics` is a utility tool available on macOS systems, designed to provide detailed insights into energy consumption and system performance. It offers a comprehensive set of metrics and measurements to analyze how applications and processes impact energy usage, CPU activity, disk activity, memory usage, and other system resources.
-
-`Powermetrics` can monitor various aspects of system behavior in real-time or capture data for later analysis. This includes tracking CPU utilization, thermal levels, power usage, energy efficiency metrics, and identifying energy-intensive processes or applications.
+`Powermetrics` is a utility tool available on macOS systems, designed to provide detailed insights into energy consumption and system performance. It can monitor various aspects of system behavior in real-time, including CPU utilization, thermal levels, power usage, energy efficiency metrics, and identify energy-intensive processes or applications.
 
 Similar to RAPL interface, for a typical JVM application, any I/O operation involving reading from or writing to a storage device, as well as any networking operation using I/O to send or receive data over a network, is not captured.
 
@@ -131,9 +131,11 @@ For latency-sensitive measurements, `wrk` might be complemented with [wrk2](http
 
 When conducting power measurements, it's important to consider the following key points:
 
+[![jvm-energy-consumption-article-jdk21.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/high-level-target-system-architecture.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/high-level-target-system-architecture.svg?raw=true)
+
 ### Have Baseline Measurements
 
-The command line tools (e.g., `powerstat`, `powermetrics`) encompass all components and applications running on the same host machine. However, they do not provide a breakdown of power consumption per individual JVM process or component.
+The command line tools (e.g., `powerstat`, `powermetrics`) measures all components and applications running on the same JVM host machine. However, they do not provide a breakdown of power consumption per individual JVM process or component.
 
 Therefore, it's very important to establish a **baseline measurement** of the system's power consumption during idle or minimal background processes, which must then be subtracted from the actual measurements.
 
@@ -163,7 +165,12 @@ Measuring energy consumption for smaller tasks (i.e., micro-benchmarking), such 
 All the tests were launched on a target machine having below configuration:
 - CPU: Intel Core i9-13900HX Raptor Lake
 - Memory: 64GB DDR5 5200 MHz
-- OS: Ubuntu 22.04.2 LTS / 5.19.0-46-generic
+- OS: Ubuntu 22.04.2 LTS / TODO
+
+The test client machine where wrk was launched has the following configuration:
+- CPU: Intel i7-8550U Kaby Lake R
+- Memory: 32GB DDR4 2400 MHz
+- OS: Ubuntu 22.04.2 LTS / TODO
 
 The specific model of the wall power meter used is the [Ketotek KTEM02-1](https://www.amazon.de/-/en/dp/B0B2953JM5).
 
@@ -382,6 +389,26 @@ If constant exceptions do not meet the requirements, another option is to overri
 If none of these alternatives are viable, at the very least, aim to minimize the number of exceptions in the application's source code.
 It is important to consider that the cost increases with the actual stack depth at which the exception is created.
 
+### String Concatenation Patterns
+
+This program assesses the energy consumption of various concatenation methods using different data types (e.g., String, int, float, char, long, double, boolean, Object), employing common techniques such as StringBuilder, plus operator, and String Template. The input String and char contain characters encoded in UTF-16.
+
+**Note:** This benchmark may involve different allocations, potentially impacting the overall results.
+
+Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java)
+
+#### Total End-to-End Energy Consumption
+
+[![StringConcatenationPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-run.svg?raw=true)
+
+*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+
+#### Throughput
+
+[![StringConcatenationPatternsThroughput.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/performance-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/performance-report-run.svg?raw=true)
+
+*This plot represents the computed throughput at the end of the load test execution after excluding a fixed initial warmup duration of 5 minutes.*
+
 ### Sorting Algorithms Complexities
 
 This program utilizes various sorting algorithms with different complexities, ranging from quadratic to linear, to sort an array of integers that occupies 1 GB. 
@@ -443,20 +470,36 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them or caring too much about them.
 
-## Runtime Geometric Mean
+### Virtual/Platform Threads
 
-This section describes the normalized energy geometric mean for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
+This program measures the throughput of producing and consuming elements between producer and consumer threads (both virtual and platform) using a BlockingQueue. The level of parallelism for both platform and virtual threads is set to the same value to facilitate an evaluation of their performance under comparable conditions.
 
-The Renaissance benchmark suite has been excluded from this report because it was not (explicitly) launched on the Native Image, which would result in an unfair comparison.
+Source code: [VPThreadQueueThroughput.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VPThreadQueueThroughput.java)
 
-No. | JVM  distribution                                   | Architecture | Normalized Energy Geometric Mean | Phase 
-----|-----------------------------------------------------|--------------|----------------------------------|--------
-1   | Graal Native Image (shipped with Oracle GraalVM 23) | x86_64       | 0.373                            | runtime
-2   | OpenJDK HotSpot VM                                  | x86_64       | 1.000                            | runtime
-3   | Oracle GraalVM 23                                   | x86_64       | 1.026                            | runtime
-4   | GraalVM CE 23                                       | x86_64       | 1.038                            | runtime
-5   | Azul Prime VM                                       | x86_64       | 1.643                            | runtime
-6   | Eclipse OpenJ9 VM                                   | x86_64       | 1.795                            | runtime
+#### Total End-to-End Energy Consumption
+
+[![VPThreadQueueThroughputEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-run.svg?raw=true)
+
+*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+
+#### Throughput
+
+[![VPThreadQueueThroughputThroughput.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/performance-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/performance-report-run.svg?raw=true)
+
+*This plot represents the computed throughput at the end of the load test execution after excluding a fixed initial warmup duration of 5 minutes.*
+
+## Runtime Normalized Energy
+
+This section describes the normalized energy for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
+
+No. | JVM  distribution                                   | Architecture | Normalized Energy | Phase 
+----|-----------------------------------------------------|--------------|-------------------|--------
+1   | Graal Native Image (shipped with Oracle GraalVM 21) | x86_64       | TODO              | runtime
+2   | OpenJDK HotSpot VM                                  | x86_64       | TODO              | runtime
+3   | Oracle GraalVM 21                                   | x86_64       | TODO              | runtime
+4   | GraalVM CE 21                                       | x86_64       | TODO              | runtime
+5   | Azul Prime VM                                       | x86_64       | TODO              | runtime
+6   | Eclipse OpenJ9 VM                                   | x86_64       | TODO              | runtime
 
 Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -468,35 +511,36 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 *Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., idle system power consumption), including the 90% confidence level error.*
 
-[![SpringPetClinic.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/spring-petclinic/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+[![SpringPetClinicEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)
 
-[![QuarkusHibernateORMPanache.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/quarkus-hibernate-orm-panache-quickstart/results/linux/x86_64/jdk-17/plot/build-energy.svg?raw=true)
+[![QuarkusHibernateORMPanacheEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)
 
-[![MemoryAccessPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/MemoryAccessPatterns/plot/build-energy.svg?raw=true)
+[![MemoryAccessPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)
+
+[![LoggingPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-build.svg?raw=true)
 
 **Note:** Once the build with native image is done, the resulting binary can be executed multiple times without the need to recompile it (i.e., the compilation cost is paid once), as long as it runs on the specific machine and architecture for which the compilation was performed.
 
 Additional resources:
 
-- [LoggingPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/build-energy.svg?raw=true) build time energy
-- [ThrowExceptionPatterns.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/ThrowExceptionPatterns/plot/build-energy.svg?raw=true) build time energy
-- [SortingAlgorithms.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/SortingAlgorithms/plot/build-energy.svg?raw=true) build time energy
-- [VirtualCalls.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/VirtualCalls/plot/build-energy.svg?raw=true) build time energy
+- [ThrowExceptionPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-build.svg?raw=true) build time energy
+- [StringConcatenationPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-build.svg?raw=true) build time energy
+- [SortingAlgorithmsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-build.svg?raw=true) build time energy
+- [VirtualCallsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VirtualCalls/plot/energy-report-build.svg?raw=true) build time energy
+- [VPThreadQueueThroughputEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-build.svg?raw=true) build time energy
 
-## Build Time Geometric Mean
+## Build Time Normalized Energy
 
 This section describes the normalized energy geometric mean for all application categories during build time. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-The Renaissance benchmark suite has been excluded from this report since it is provided as pre-compiled JAR.
-
-No. | JVM distribution                                    | Architecture | Normalized Energy Geometric Mean   | Phase
-----|-----------------------------------------------------|--------------|------------------------------------|-------
-1   | Oracle GraalVM 23                                   | x86_64       | 0.814                              | build time
-2   | GraalVM CE 23                                       | x86_64       | 0.829                              | build time
-3   | OpenJDK HotSpot VM                                  | x86_64       | 1.000                              | build time
-4   | Azul Prime VM                                       | x86_64       | 1.523                              | build time
-5   | Eclipse OpenJ9 VM                                   | x86_64       | 2.192                              | build time
-6   | Graal Native Image (shipped with Oracle GraalVM 23) | x86_64       | 26.910                             | build time
+No. | JVM distribution                                    | Architecture | Normalized Energy | Phase
+----|-----------------------------------------------------|--------------|-------------------|-------
+1   | Oracle GraalVM 21                                   | x86_64       | TODO              | build time
+2   | GraalVM CE 21                                       | x86_64       | TODO              | build time
+3   | OpenJDK HotSpot VM                                  | x86_64       | TODO              | build time
+4   | Azul Prime VM                                       | x86_64       | TODO              | build time
+5   | Eclipse OpenJ9 VM                                   | x86_64       | TODO              | build time
+6   | Graal Native Image (shipped with Oracle GraalVM 21) | x86_64       | TODO              | build time
 
 Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -504,25 +548,7 @@ Based on the central tendency of the data, the first in the row can be considere
 
 There is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
-In regard to these  empirical studies, I can provide two examples that support my statement.
-
-In the **first example**, higher energy consumption was observed alongside shorter response times, indicating a trade-off between being less eco-friendly but more performant.
-
-*Note: All subsequent plots from this category represent the mean elapsed time versus the mean energy consumption based on the RAPL stats subtracting the baseline measurements (i.e., idle system power consumption), with error bars in two dimensions, including the 90% confidence level.*
-
-[![LoggingPatterns-lambda_local.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/java-samples/results/linux/x86_64/jdk-17/LoggingPatterns/plot/run-energy-vs-time-lambda_local.svg?raw=true)
-
-Based on this plot, it is noticeable that:
-- Oracle GraalVM consumes more energy compared to OpenJDK HotSpot VM but completes tasks in less time.
-- Azul Prime VM consumes more energy compared to GraalVM CE but also achieves faster task completion.
-
-In the **second example**, lower energy consumption was observed, but it resulted in higher response times, indicating a trade-off between being more eco-friendly but less performant.
-
-[![RenaissanceFunctional_energy-vs-time.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/renaissance/results/linux/x86_64/jdk-17/functional/plot/run-energy-vs-time.svg?raw=true)
-
-Based on this plot, it can be observed that Oracle GraalVM consumes slightly less energy than Azul Prime VM, but it takes more time to complete the task. However, it is important to note that Azul Prime VM stands out as the fastest option in this plot.
-
-Let's consider now an analogy from the car industry: Is the most powerful car the most eco-friendly one? Of course not. On the contrary, a very powerful car with a larger engine tends to consume more fuel, potentially leading to more pollution. While the software realm may not directly mirror the dynamics of the car industry, this analogy serves to emphasize the difference between performance and energy consumption.
+TODO 
 
 # From energy consumption to carbon emissions
 
@@ -530,16 +556,14 @@ Energy consumption and carbon emissions are closely correlated. To convert energ
 
 Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains during applications runtime execution time. 
 
-The Renaissance benchmark suite has been excluded from this report because it was not (explicitly) launched on the Native Image, which would result in an unfair comparison.
-
 No. | JVM distribution                                    | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|-----------------------------------------------------|-------------------------|----------------------------------|-----------------------
-1   | OpenJDK HotSpot VM                                  | 17,090.269              | 137                              |  0.650                      
-2   | Graal Native Image (shipped with Oracle GraalVM 23) | 18,176.977              | 137                              |  0.692                     
-3   | Oracle GraalVM 23                                   | 21,521.325              | 137                              |  0.819                  
-4   | GraalVM CE 23                                       | 22,081.674              | 137                              |  0.840                     
-5   | Azul Prime VM                                       | 27,163.172              | 137                              |  1.034                       
-6   | Eclipse OpenJ9 VM                                   | 40,975.966              | 137                              |  1.559
+1   | OpenJDK HotSpot VM                                  | TODO                    | TODO                             |  TODO                      
+2   | Graal Native Image (shipped with Oracle GraalVM 21) | TODO                    | TODO                             |  TODO                     
+3   | Oracle GraalVM 21                                   | TODO                    | TODO                             |  TODO                  
+4   | GraalVM CE 21                                       | TODO                    | TODO                             |  TODO                     
+5   | Azul Prime VM                                       | TODOv                   | TODO                             |  TODO                       
+6   | Eclipse OpenJ9 VM                                   | TODO                    | TODO                             |  TODO
 
 Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 
@@ -547,7 +571,7 @@ Based on the total energy consumption, the JVM in the first row consumes less en
 - `CO₂` - carbon dioxide.
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
 - `gCO₂` - grams of carbon dioxide.
-- `137` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of July 17, 2023, 1:00 PM, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
+- `TODO` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of TODO, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 We can observe that when comparing the normalized geometric mean to the total energy consumption, the order of JVMs differs slightly (e.g., OpenJDK HotSpot VM consumes less energy overall compared to Graal Native Image). This discrepancy arises because the sum and geometric mean employ different mathematical operations, emphasizing distinct aspects of the data:
 - The geometric mean is less affected by extreme values and offers a balanced representation of the central tendency of the data.
@@ -559,7 +583,7 @@ This article presents an empirical investigation into the variations in energy c
 
 The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often displaying significant differences.
 
-At the cost of increased compilation expenses and excluding the Renaissance benchmark suite (due to its lack of support for Ahead-of-Time compilation), GraalVM Native Image showcased the highest energy efficiency overall for the runtime execution.
+At the cost of increased compilation expenses, GraalVM Native Image showcased the highest energy efficiency overall for the runtime execution.
 
 OpenJDK HotSpot VM, Oracle GraalVM, and GraalVM CE exhibited similar efficiency in the majority of tests, with marginal differences.
 
@@ -587,7 +611,7 @@ Your contributions are welcome and appreciated.
 
 # Acknowledgements
 
-I am very thankful to [Gerrit Grunwald](https://twitter.com/hansolo_) and [Jiří Holuša](https://linkedin.com/in/jiří-holuša-16987874) from [Azul Systems](https://www.azul.com/), to [GraalVM](https://www.graalvm.org) team members and others for their reviews, and helpful suggestions.
+TODO
 
 # References
 
