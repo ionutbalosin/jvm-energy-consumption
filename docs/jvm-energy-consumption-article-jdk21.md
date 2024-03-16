@@ -127,11 +127,15 @@ For latency-sensitive measurements, `wrk` might be complemented with [wrk2](http
 
 `ps` was utilized throughout the measurement duration to monitor the JVM process, capturing basic hardware counters primarily related to the memory and CPU utilization (e.g., CPU, MEM, Resident Set Size (RSS), Virtual Memory Size (VSZ), Proportional Set Size (PSS)). Its role was to ensure that the system maintained an appropriate load level - not underloaded nor overloaded - while energy consumption was being measured.
 
+## High-Level Architecture
+
+The high-level target system architecture, including all components, looks as follows.
+
+[![jvm-energy-consumption-article-jdk21.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/load-test-system-target-architecture.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/load-test-system-target-architecture.svg?raw=true)
+
 ## Key Measurement Considerations
 
 When conducting power measurements, it's important to consider the following key points:
-
-[![jvm-energy-consumption-article-jdk21.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/high-level-target-system-architecture.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/high-level-target-system-architecture.svg?raw=true)
 
 ### Have Baseline Measurements
 
@@ -162,12 +166,12 @@ Measuring energy consumption for smaller tasks (i.e., micro-benchmarking), such 
 
 ## Hardware Configuration
 
-All the tests were launched on a target machine having below configuration:
+All the tests were launched on a system under test machine having below configuration:
 - CPU: Intel Core i9-13900HX Raptor Lake
 - Memory: 64GB DDR5 5200 MHz
 - OS: Ubuntu 22.04.2 LTS / TODO
 
-The test client machine where wrk was launched has the following configuration:
+The test client machine where `wrk` was launched has the following configuration:
 - CPU: Intel i7-8550U Kaby Lake R
 - Memory: 32GB DDR4 2400 MHz
 - OS: Ubuntu 22.04.2 LTS / TODO
@@ -178,11 +182,11 @@ The specific model of the wall power meter used is the [Ketotek KTEM02-1](https:
 
 Multiple application categories were included in these measurements.
 
-Off-the-shelf applications, such as:
+**Off-the-shelf applications**, such as:
   - [Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
   - [Quarkus Hibernate ORM Panache](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart)
 
-Custom-made Java applications relying on specific (but generaly common) code patterns, such as:
+**Custom-made Java applications** relying on specific (but generaly common) code patterns, such as:
   - Logging patterns
   - Memory access patterns
   - Throwing exception patterns
@@ -204,17 +208,16 @@ JVM distribution                                                                
 [Azul Prime VM](https://www.azul.com/products/prime)                                    | 21.0.1      |x86_64
 [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                     | 21.0.1      |x86_64
 
-For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., `-Xms1m`), and the maximum heap size, which varies depending on the application category (e.g., `-Xmx1g`, `-Xmx8g`, `-Xmx12g`). However, within the same category of tests, the heap tuning flags remained the same.
+For each JVM, the only specific tuning parameters were the initial heap size, typically set to 1m (e.g., `-Xms1m`), and the maximum heap size, which varies depending on the application category (e.g., `-Xmx1g`, `-Xmx8g`, `-Xmx12g`).
 
-In the case of Graal Native Image, besides the basic compilation, additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**).
+Additionally, in the case of Graal Native Image, additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**). 
+This was primarily to enable a fairer comparison between the native image and other JVMs (AOT vs JIT, serial GC vs other parallel and concurrent garbage collectors) in the case of long-running applications.
 
 # Applications Runtime Execution Results
 
 This section presents the measurement results obtained during the execution of each application category.
 
 ## Off-the-Shelf Applications
-
-In the case of off-the-shelf web-based applications such as Spring and Quarkus, specific configurations were primarily implemented to optimize database connections and enhance the application server's thread pools to handle increased loads.
 
 For each category of off-the-shelf application, the total running time is set to **2 hours**. Within this 2-hour runtime, various metrics are captured:
 
@@ -239,13 +242,13 @@ An important note to make is that during the benchmarking time, all requests con
 
 [![SpringPetClinicEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (2 hours), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 2 hours) of the JVM, including all phases.*
 
 #### Intermediate Power Consumption
 
 [![SpringPetClinicPowerConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/raw-power-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/raw-power-run.svg?raw=true)
 
-*This plot represents the evolution of power consumption (sampled every second) during the entire duration of the JVM (2 hours).*
+*This plot represents the evolution of power consumption (sampled every second) throughout the entire duration (e.g., 2 hours) of the JVM.*
 
 During the final part of this plot, the power consumption decreases for all JVMs. This is because the load test generator finishes slightly ahead of the JVM, relieving the pressure on JVM threads.
 
@@ -271,13 +274,13 @@ An important note to make is that during the benchmarking time, all requests con
 
 [![QuarkusHibernateORMPanacheEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (2 hours), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 2 hours) of the JVM, including all phases.*
 
 #### Intermediate Power Consumption
 
 [![QuarkusHibernateORMPanachePowerConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/raw-power-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/plot/raw-power-run.svg?raw=true)
 
-*This plot represents the evolution of power consumption (sampled every second) during the entire duration of the JVM (2 hours).*
+*This plot represents the evolution of power consumption (sampled every second) throughout the entire duration (e.g., 2 hours) of the JVM.*
 
 During the final part of this plot, the power consumption decreases for all JVMs. This is because the load test generator finishes slightly ahead of the JVM, relieving the pressure on JVM threads.
 
@@ -295,9 +298,14 @@ Additional resources:
 
 In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms was developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
 
-For each category of custom-made application, the total running time is set to **20 minutes**. During this 20-minute runtime, **intermediate power consumption** metrics (including thermal zone sensors, package temperature, etc.) are collected at a sampling interval of one second.
+For each category of custom-made application, the total running time is set to **20 minutes**.
+During this 20-minute runtime, consecutive runs of the same application are triggered until the time limit is reached.
 
-The **total end-to-end energy** consumption is then calculated based on the intermediate power consumption over the 2-hour sampling interval.
+The reported throughput is computed at the end of the application execution runs, excluding a fixed initial warm-up duration of 5 minutes.
+
+During each application execution, **intermediate power consumption metrics**, such as thermal zone sensors and package temperature, are collected at a sampling interval of one second.
+
+The **total end-to-end energy consumption** is then calculated based on the intermediate power consumption recorded over the 20-minute sampling interval.
 
 This approach considers the energy consumed from the moment an application starts until it stops, taking into account factors such as JVM initialization and application warmup periods.
 The rationale behind this approach is to reflect the total energy consumption (i.e., the total bill), encompassing all phases, rather than just the ideal state of each JVM.
@@ -311,7 +319,7 @@ There are three primary memory access patterns:
 - **Spatial**: adjacent memory locations are likely to be accessed in close succession.
 - **Striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
 
-The program creates a large array of longs, occupying approximately 4 GB of RAM memory. Then, over a period of 20 minutes, consecutive iterations access the array elements based on one of the described patterns. After each iteration, the validity of the tests is checked.
+The program creates a large array of longs, occupying approximately 4GB of RAM memory. Then, over a period of 20 minutes, consecutive runs access the array elements based on one of the described patterns. After each iteration, the validity of the results is verified.
 
 Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/MemoryAccessPatterns.java)
 
@@ -319,7 +327,7 @@ Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-ene
 
 [![MemoryAccessPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -338,7 +346,9 @@ In addition to arrays, we can utilize hash tables with open addressing and linea
 
 When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher energy consumption, which is reflected in our monthly bills.
 
-The program measures various logging patterns using human-readable strings, which is often the most common use case in business applications. It runs in multiple iterations over a period of 20 minutes, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked to log a line. It is crucial to note that none of these logs are physically written to disk; instead, they are written to the Null OutputStream. This approach is advantageous since the RAPL stats cannot capture any I/O-related power activity.
+The program measures various logging patterns using UTF-16 characters, which is often the most common use case in business applications. It runs in multiple iterations over a period of 20 minutes, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked. After each iteration, the validity of the results is verified.
+
+It is crucial to note that none of these logs are physically written to disk; instead, they are written to the `Null OutputStream`. This approach is preferable since the power consumption tools cannot capture any I/O-related power activity.
 
 Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/LoggingPatterns.java)
 
@@ -346,7 +356,7 @@ Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-c
 
 [![LoggingPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -364,7 +374,9 @@ Reducing the number of logs to only essential ones, particularly those related t
 
 Similar to logging, the creation, throwing, and handling of exceptions introduce additional runtime overhead, impacting both the performance and energy consumption of software applications.
 
-This program measures different exception throwing patterns. It runs in multiple iterations over a period of 20 minutes, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, 1024). It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated `first`) dominates the associated costs.
+This program measures different exception throwing patterns. It runs in multiple iterations over a period of 20 minutes, and in each iteration, a different type of exception is thrown when the execution stack reaches a specific depth (in this case, `1024`). After each iteration, the validity of the results is verified.
+
+It is worth noting that the depth of the call stack can also impact performance, and the time spent on filling in the stack trace (abbreviated `first`) dominates the associated costs.
 
 Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/ThrowExceptionPatterns.java)
 
@@ -372,7 +384,7 @@ Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-e
 
 [![ThrowExceptionPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -384,14 +396,16 @@ Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-e
 
 Creating constant exceptions and throwing them only when necessary is a good approach to mitigate the negative impact  on energy consumption. 
 
-If constant exceptions do not meet the requirements, another option is to override the 'fillInStackTrace' method each time a new exception is thrown. 
+If constant exceptions do not meet the requirements, another option is to override the `fillInStackTrace` method each time a new exception is thrown. 
 
 If none of these alternatives are viable, at the very least, aim to minimize the number of exceptions in the application's source code.
 It is important to consider that the cost increases with the actual stack depth at which the exception is created.
 
 ### String Concatenation Patterns
 
-This program assesses the energy consumption of various concatenation methods using different data types (e.g., String, int, float, char, long, double, boolean, Object), employing common techniques such as StringBuilder, plus operator, and String Template. The input String and char contain characters encoded in UTF-16.
+This program assesses the energy consumption of various concatenation methods using different data types (e.g., `String`, `int`, `float`, `char`, `long`, `double`, `boolean`, `Object`), employing common techniques such as `StringBuilder`, `plus` operator, and `String Template`.
+It runs in multiple iterations over a period of 20 minutes, and, after each iteration, the validity of the results is verified.
+The input characters are UTF-16 encoded.
 
 **Note:** This benchmark may involve different allocations, potentially impacting the overall results.
 
@@ -401,7 +415,7 @@ Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/
 
 [![StringConcatenationPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -411,14 +425,15 @@ Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/
 
 ### Sorting Algorithms Complexities
 
-This program utilizes various sorting algorithms with different complexities, ranging from quadratic to linear, to sort an array of integers that occupies 1 GB. 
-The initial array is deliberately sorted in reverse order, creating a worst-case scenario for the sorting algorithms.
+This program utilizes various sorting algorithms with different complexities, ranging from logarithmic to linear, to sort an array of integers occupying 1GB of memory. 
+It runs multiple iterations over a 20-minute period, and after each iteration, the validity of the results is verified. 
+Prior to each iteration, the array is initialized in reverse order, thereby creating a worst-case scenario for the sorting algorithms.
 
 Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/SortingAlgorithms.java)
 
 #### Total End-to-End Energy Consumption
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 [![SortingAlgorithmsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-run.svg?raw=true)
 
@@ -442,15 +457,14 @@ This is the reason why different algorithms with different time complexities cou
 
 ### Virtual Calls
 
-The program evaluates the energy consumption of virtual calls using two different scenarios:
-- one with 1 target implementation (also known as monomorphic).
-- one with 2 target implementations (also known as bimorphic).
-- one with 3 target implementations (also known as megamorphic).
-- and another with 8 different target implementations (also known as megamorphic) . 
+The program evaluates the energy consumption of virtual calls using various scenarios:
+
+- A virtual call with one target implementation (also known as monomorphic).
+- A virtual call with two target implementations (also known as bimorphic).
+- A virtual call with three target implementations (also known as megamorphic).
+- A virtual call with eight different target implementations (also known as megamorphic).
 
 **Note:** Monomorphic and bimorphic call sites are more commonly encountered, while having 8 target implementations for the same call site is less usual.
-
-An array of 9,600 elements of a base abstract class is initialized. Over a period of 20 minutes, the program iteratively traverses the array and invokes the method on the base abstract object class for each array element.
 
 Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VirtualCalls.java)
 
@@ -458,7 +472,7 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 [![VirtualCallsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VirtualCalls/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VirtualCalls/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -472,15 +486,18 @@ In the context of modern hardware, for most business applications, virtual calls
 
 ### Virtual/Platform Threads
 
-This program measures the throughput of producing and consuming elements between producer and consumer threads (both virtual and platform) using a BlockingQueue. The level of parallelism for both platform and virtual threads is set to the same value to facilitate an evaluation of their performance under comparable conditions.
+This program measures the throughput of producing and consuming elements between producer and consumer threads (both virtual and platform) using a `BlockingQueue`. 
+The level of parallelism for both platform and virtual threads is set to the same value to facilitate an evaluation of their performance under comparable conditions.
 
 Source code: [VPThreadQueueThroughput.java](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/VPThreadQueueThroughput.java)
+
+**Note:** It is worth mentioning that the virtual threads use case failed on Azul Prime VM and Eclipse OpenJ9 VM, therefore they were excluded from the energy consumption calculation.
 
 #### Total End-to-End Energy Consumption
 
 [![VPThreadQueueThroughputEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-run.svg?raw=true)
 
-*This plot represents the total energy consumption during the entire duration of the JVM (20 minutes), including all phases.*
+*This plot represents the total energy consumption during the entire duration (e.g., 20 minutes) of the JVM , including all phases.*
 
 #### Throughput
 
@@ -507,9 +524,7 @@ Based on the central tendency of the data, the first in the row can be considere
 
 This section presents the measurement results obtained during the execution of the build process for each application category, using both Just-in-Time and Ahead-of-Time compilation.
 
-Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only three of them in this section, representing each distinct application category.
-
-*Note: All subsequent plots from this category represent the mean energy consumption based on the RAPL stats after subtracting the baseline measurements (i.e., idle system power consumption), including the 90% confidence level error.*
+Since they all exhibit a consistent trend in terms of energy consumption across every JVM, I have included only a few of them in this section, representing each distinct application category.
 
 [![SpringPetClinicEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/plot/energy-report-build.svg?raw=true)
 
@@ -523,11 +538,11 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 Additional resources:
 
-- [ThrowExceptionPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-build.svg?raw=true) build time energy
-- [StringConcatenationPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-build.svg?raw=true) build time energy
-- [SortingAlgorithmsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-build.svg?raw=true) build time energy
-- [VirtualCallsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VirtualCalls/plot/energy-report-build.svg?raw=true) build time energy
-- [VPThreadQueueThroughputEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-build.svg?raw=true) build time energy
+- [Throw Exception Patterns](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
+- [String Concatenation Patterns](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
+- [Sorting Algorithms](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
+- [Virtual Calls](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VirtualCalls/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
+- [Virtual/Platform Threads](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/VPThreadQueueThroughput/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
 
 ## Build Time Normalized Energy
 
@@ -554,7 +569,7 @@ TODO
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption reported by RAPL for the package and DRAM domains during applications runtime execution time. 
+Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption during applications runtime execution time. 
 
 No. | JVM distribution                                    | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|-----------------------------------------------------|-------------------------|----------------------------------|-----------------------
@@ -572,10 +587,6 @@ Based on the total energy consumption, the JVM in the first row consumes less en
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
 - `gCO₂` - grams of carbon dioxide.
 - `TODO` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of TODO, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
-
-We can observe that when comparing the normalized geometric mean to the total energy consumption, the order of JVMs differs slightly (e.g., OpenJDK HotSpot VM consumes less energy overall compared to Graal Native Image). This discrepancy arises because the sum and geometric mean employ different mathematical operations, emphasizing distinct aspects of the data:
-- The geometric mean is less affected by extreme values and offers a balanced representation of the central tendency of the data.
-- In contrast, total energy consumption represents the accumulation of all measurements and directly correlates to our monthly bills.
 
 # Conclusions
 
@@ -599,13 +610,9 @@ Therefore, the report should not be considered as the final determination of the
 
 # Future Work
 
-An extension of this study would involve incorporating other architectures, such as arm64, and optionally exploring additional off-the-shelf applications or other code patterns.
-
-It might also be interesting to assess the energy consumption across multiple web-based frameworks like Quarkus, Spring, Micronaut, etc. However, at the current stage, I have not found a proper way to compare them.
-
 If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption). 
 
-Your contributions are welcome and appreciated.
+Your contributions are welcome and appreciated. 
 
 **Looking forward to contributing to a more eco-friendly world!**
 
