@@ -36,7 +36,7 @@ local requests = {}
 local petTypes = { "bird", "cat", "dog", "hamster", "lizard", "snake" }
 local dates = { "2001-01-01", "2002-02-02", "2003-03-03", "2004-04-04", "2005-05-05", "2006-06-06", "2007-07-07", "2008-08-08", "2009-09-09", "2010-10-10", "2010-11-11", "2010-12-12" }
 local headers = {["Content-Type"] = "application/x-www-form-urlencoded"}
-local ownerUrlPattern = '/owners/(%d+)$'
+local ownerUrlPattern = '/owners/(\d+)'
 local addPetVisitUrlPattern = '<td><a href="([^"]+/pets/%d+/visits/new)">Add Visit</a></td>'
 
 function setup(thread)
