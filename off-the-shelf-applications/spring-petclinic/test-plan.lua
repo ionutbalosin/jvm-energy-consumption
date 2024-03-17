@@ -70,7 +70,6 @@ function requestGetOwner()
     if not path then
         return nil -- no further requests to execute
     end
-
    return wrk.format("GET", path, headers, nil)
 end
 
@@ -79,7 +78,6 @@ function requestCreatePet()
     if not owner_url then
         return nil -- no further requests to execute
     end
-
     local path = owner_url .. "/pets/new"
     local randomNumber = getRandomNumber()
     local randomDate = dates[math.random(1, #dates)]
@@ -87,7 +85,6 @@ function requestCreatePet()
     local pet = "name=Pet-" .. randomNumber ..
         "&birthDate=" .. randomDate ..
         "&type=" .. randomPetType
-
    return wrk.format("POST", path, headers, pet)
 end
 
@@ -148,9 +145,12 @@ function response(status, headers, body)
     -- in general, the redirection is back to the '/owners/{ownerId}' home page.
     if status >= 300 and status < 400 then
         local redirect_url = headers["Location"]
-        local isOwnersUrl = string.match(redirect_url, ownerUrlPattern)
-        if isOwnersUrl then
-            wrk.thread:set("owner_url", redirect_url)
+        local isOwnersUrlWithSessionId = string.match(redirect_url, ownerUrlPattern)
+        local context_root = redirect_url:match("(https?://[^/]+)/([^/]+)")
+        local ownerId = isOwnersUrlWithSessionId:gsub("(.*);.*", "%1")
+        local ownerPath = context_root .. "/owners/" .. ownerId
+        if ownerPath then
+            wrk.thread:set("owner_url", ownerPath)
         end
     end
 end
