@@ -1,0 +1,12 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 15:21:09, expected duration = 240 sec, warmup = 120 sec, number of elements to sort = 268435456
+Successfully finished at 15:25:10
+---------------------------------
+Summary statistics:
+  Elapsed = 241.290 sec
+  Iterations = 14
+  Iterations/sec = 0.058021383
+  Runs = 8
+  Runs/sec = 0.065957430
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

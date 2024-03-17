@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting megamorphic_3 at 03:48:31, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 04:08:31
+Starting megamorphic_3 at 03:26:28, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 03:46:28
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 47701982
-  Ops/sec = 39751.649802844
+  Iterations = 91829050
+  Iterations/sec = 76524.206278531
+  Runs = 68854387
+  Runs/sec = 76504.871705400
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

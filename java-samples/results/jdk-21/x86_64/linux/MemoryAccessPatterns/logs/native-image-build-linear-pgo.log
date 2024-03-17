@@ -10,7 +10,7 @@
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 0 resource
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.12.1:compile (default-compile) @ java-samples ---
 [INFO] Recompiling the module because of changed source code.
@@ -52,7 +52,7 @@ GraalVM Native Image: Generating 'MemoryAccessPatterns-linear' (executable)...
 For detailed information and explanations on the build output, visit:
 https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
 ------------------------------------------------------------------------------------------------------------------------
-[1/8] Initializing...                                                                                    (3.0s @ 0.18GB)
+[1/8] Initializing...                                                                                    (3.1s @ 0.17GB)
  Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
  Graal compiler: optimization level: 3, target machine: x86-64-v3, PGO: user-provided
  C compiler: gcc (linux, x86_64, 13.2.0)
@@ -63,35 +63,35 @@ https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/B
 Build resources:
  - 26.49GB of memory (42.4% of 62.50GB system memory, determined at start)
  - 24 thread(s) (100.0% of 24 available processor(s), determined at start)
-Info: The percentage of matched entries from profile file(s): 82.03%.
-[2/8] Performing analysis...  [*****]                                                                    (6.0s @ 0.34GB)
-    3,301 reachable types   (72.0% of    4,582 total)
-    3,876 reachable fields  (49.7% of    7,804 total)
-   16,634 reachable methods (46.3% of   35,903 total)
-    1,061 types,   112 fields, and   674 methods registered for reflection
+Info: The percentage of matched entries from profile file(s): 81.92%.
+[2/8] Performing analysis...  [*****]                                                                    (6.0s @ 0.29GB)
+    3,301 reachable types   (72.1% of    4,581 total)
+    3,879 reachable fields  (49.7% of    7,807 total)
+   16,636 reachable methods (46.3% of   35,956 total)
+    1,061 types,   112 fields, and   675 methods registered for reflection
        57 types,    55 fields, and    52 methods registered for JNI access
        0 foreign downcalls registered
         9 native libraries: dl, g1gc-cr, m, pthread, rt, stdc++, z
-[3/8] Building universe...                                                                               (1.2s @ 0.42GB)
-[4/8] Parsing methods...      [*]                                                                        (1.4s @ 0.51GB)
-[5/8] Inlining methods...     [***]                                                                      (0.3s @ 0.54GB)
-[6/8] Compiling methods...    [***]                                                                      (8.8s @ 0.56GB)
-[7/8] Layouting methods...    [*]                                                                        (1.2s @ 0.58GB)
-[8/8] Creating image...       [*]                                                                        (1.9s @ 0.41GB)
-   5.27MB (36.50%) for code area:     9,905 compilation units
-   6.92MB (47.91%) for image heap:  106,097 objects and 47 resources
-   2.25MB (15.59%) for other data
+[3/8] Building universe...                                                                               (1.0s @ 0.37GB)
+[4/8] Parsing methods...      [*]                                                                        (1.4s @ 0.47GB)
+[5/8] Inlining methods...     [***]                                                                      (0.6s @ 0.34GB)
+[6/8] Compiling methods...    [***]                                                                      (8.8s @ 0.43GB)
+[7/8] Layouting methods...    [*]                                                                        (1.2s @ 0.44GB)
+[8/8] Creating image...       [*]                                                                        (1.8s @ 0.50GB)
+   5.28MB (36.56%) for code area:     9,909 compilation units
+   6.92MB (47.88%) for image heap:  106,109 objects and 47 resources
+   2.25MB (15.56%) for other data
   14.45MB in total
 ------------------------------------------------------------------------------------------------------------------------
 Top 10 origins of code area:                                Top 10 object types in image heap:
-   3.52MB java.base                                            1.31MB byte[] for code metadata
-   1.35MB svm.jar (Native Image)                               1.31MB byte[] for java.lang.String
- 105.47kB com.oracle.svm.svm_enterprise                      961.13kB heap alignment
- 102.37kB java.logging                                       775.17kB java.lang.String
-  26.33kB undefined.jar                                      559.12kB java.lang.Class
-  22.95kB org.graalvm.collections                            275.95kB byte[] for general heap data
+   3.52MB java.base                                            1.32MB byte[] for code metadata
+   1.36MB svm.jar (Native Image)                               1.31MB byte[] for java.lang.String
+ 105.48kB com.oracle.svm.svm_enterprise                      957.51kB heap alignment
+ 102.36kB java.logging                                       775.27kB java.lang.String
+  27.20kB undefined.jar                                      559.12kB java.lang.Class
+  25.47kB org.graalvm.collections                            275.48kB byte[] for general heap data
   18.71kB org.graalvm.nativeimage.base                       180.21kB java.util.HashMap$Node
-  18.69kB jdk.internal.vm.ci                                 166.09kB byte[] for reflection metadata
+  18.69kB jdk.internal.vm.ci                                 166.18kB byte[] for reflection metadata
   15.81kB jdk.proxy1                                         154.73kB com.oracle.svm.core.hub.DynamicHubCompanion
   15.04kB jdk.proxy3                                         154.34kB byte[] for embedded resources
   13.61kB for 5 more packages                                  1.15MB for 903 more object types
@@ -107,15 +107,15 @@ Recommendations:
  CPU:  Enable more CPU features with '-march=native' for improved performance.
  QBM:  Use the quick build mode ('-Ob') to speed up builds during development.
 ------------------------------------------------------------------------------------------------------------------------
-                       1.4s (5.8% of total time) in 183 GCs | Peak RSS: 1.24GB | CPU load: 14.19
+                       1.5s (5.8% of total time) in 182 GCs | Peak RSS: 1.15GB | CPU load: 14.00
 ------------------------------------------------------------------------------------------------------------------------
 Produced artifacts:
  /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/MemoryAccessPatterns-linear (executable)
 ========================================================================================================================
-Finished generating 'MemoryAccessPatterns-linear' in 24.2s.
+Finished generating 'MemoryAccessPatterns-linear' in 24.3s.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  27.720 s
-[INFO] Finished at: 2024-03-09T18:19:11+01:00
+[INFO] Total time:  27.948 s
+[INFO] Finished at: 2024-03-16T18:47:48+01:00
 [INFO] ------------------------------------------------------------------------

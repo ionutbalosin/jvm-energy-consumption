@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedParametrizedLogger at 07:19:03, expected duration = 1200 sec, log level = INFO
-Successfully finished at 07:39:03
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedParametrizedLogger at 05:32:05, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 05:52:05
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 160356152
-  Ops/sec = 133630.126464997
+  Iterations = 166640495
+  Iterations/sec = 138867.078621498
+  Runs = 132037446
+  Runs/sec = 146708.272565397
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

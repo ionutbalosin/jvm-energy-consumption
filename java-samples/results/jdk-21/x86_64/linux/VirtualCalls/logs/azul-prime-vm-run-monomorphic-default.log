@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting monomorphic at 13:01:41, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 13:21:41
+Starting monomorphic at 11:16:39, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 11:36:39
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 260505535
-  Ops/sec = 217087.944926268
+  Iterations = 165473645
+  Iterations/sec = 137894.703496613
+  Runs = 124058857
+  Runs/sec = 137843.173551374
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 06:58:53, expected duration = 1200 sec, log level = INFO
-Successfully finished at 07:18:53
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 05:11:52, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 05:31:52
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 208399456
-  Ops/sec = 173666.212433598
+  Iterations = 122249525
+  Iterations/sec = 101874.603385119
+  Runs = 91650597
+  Runs/sec = 101833.995625018
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

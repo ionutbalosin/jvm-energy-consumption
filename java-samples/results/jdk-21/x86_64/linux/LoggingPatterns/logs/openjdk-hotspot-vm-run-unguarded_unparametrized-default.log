@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 22:26:31, expected duration = 1200 sec, log level = INFO
-Successfully finished at 22:46:31
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 22:03:19, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 22:23:19
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 162098760
-  Ops/sec = 135082.296870031
+  Iterations = 112248375
+  Iterations/sec = 93540.308443391
+  Runs = 86349346
+  Runs/sec = 95943.712229993
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

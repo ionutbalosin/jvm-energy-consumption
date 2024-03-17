@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting virtual at 12:51:41, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 13:11:43
+Starting virtual at 12:31:08, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 12:51:11
 ---------------------------------
 Summary statistics:
-  Elapsed = 1202.065 sec
-  Ops = 356
-  Ops/sec = 0.296157079
+  Elapsed = 1202.525 sec
+  Iterations = 354
+  Iterations/sec = 0.294380553
+  Runs = 266
+  Runs/sec = 0.294728650
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

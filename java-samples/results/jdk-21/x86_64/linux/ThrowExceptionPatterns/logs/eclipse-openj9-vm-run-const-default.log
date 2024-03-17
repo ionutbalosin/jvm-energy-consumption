@@ -1,9 +1,13 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 10:07:43, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 10:27:43
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 08:00:04, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 08:20:04
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 152494826
-  Ops/sec = 127079.020983935
-  Stack trace elements = 1067463782
+  Iterations = 158371665
+  Iterations/sec = 131976.386667889
+  Runs = 118840774
+  Runs/sec = 132045.303334384
+  Stack trace elements = 316743330
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

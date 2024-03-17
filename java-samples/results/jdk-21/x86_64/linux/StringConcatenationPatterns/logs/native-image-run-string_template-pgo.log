@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns$StringTemplateConcat at 21:04:39, expected duration = 1200 sec
-Successfully finished at 21:24:39
+Starting com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns$StringTemplateConcat at 21:33:10, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 21:53:10
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 7209274854
-  Ops/sec = 6007729.042852237
+  Iterations = 5449387968
+  Iterations/sec = 4541156.638739830
+  Runs = 3905949672
+  Runs/sec = 4339944.078394221
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 06:46:03, expected duration = 1200 sec, log level = INFO
-Successfully finished at 07:06:03
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 02:39:42, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 02:59:43
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 138863455
-  Ops/sec = 115719.545338150
+  Iterations = 74398034
+  Iterations/sec = 61998.360896647
+  Runs = 55821445
+  Runs/sec = 62023.826750663
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

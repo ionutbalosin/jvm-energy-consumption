@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 19:21:16, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 19:41:16
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 19:49:55, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 20:09:55
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.058 sec
-  Ops = 3779
-  Ops/sec = 3.149014331
+  Elapsed = 1200.309 sec
+  Iterations = 3782
+  Iterations/sec = 3.150854899
+  Runs = 2837
+  Runs/sec = 3.151139767
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

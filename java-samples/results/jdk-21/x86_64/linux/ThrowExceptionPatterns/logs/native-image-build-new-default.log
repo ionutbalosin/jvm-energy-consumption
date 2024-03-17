@@ -10,7 +10,7 @@
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 0 resource
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.12.1:compile (default-compile) @ java-samples ---
 [INFO] Recompiling the module because of changed source code.
@@ -52,7 +52,7 @@ GraalVM Native Image: Generating 'ThrowExceptionPatterns-new' (executable)...
 For detailed information and explanations on the build output, visit:
 https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
 ------------------------------------------------------------------------------------------------------------------------
-[1/8] Initializing...                                                                                    (2.9s @ 0.16GB)
+[1/8] Initializing...                                                                                    (2.1s @ 0.17GB)
  Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
  Graal compiler: optimization level: 2, target machine: x86-64-v3, PGO: ML-inferred
  C compiler: gcc (linux, x86_64, 13.2.0)
@@ -63,37 +63,38 @@ https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/B
 Build resources:
  - 26.49GB of memory (42.4% of 62.50GB system memory, determined at start)
  - 24 thread(s) (100.0% of 24 available processor(s), determined at start)
-[2/8] Performing analysis...  [*****]                                                                    (5.6s @ 0.32GB)
+Found pending operations, continuing analysis.
+[2/8] Performing analysis...  [******]                                                                   (5.9s @ 0.42GB)
     3,320 reachable types   (71.8% of    4,623 total)
-    3,929 reachable fields  (49.9% of    7,867 total)
-   17,065 reachable methods (46.9% of   36,353 total)
-    1,053 types,   112 fields, and   675 methods registered for reflection
+    3,932 reachable fields  (50.0% of    7,870 total)
+   17,066 reachable methods (46.9% of   36,355 total)
+    1,053 types,   112 fields, and   676 methods registered for reflection
        57 types,    55 fields, and    52 methods registered for JNI access
        0 foreign downcalls registered
         4 native libraries: dl, pthread, rt, z
-[3/8] Building universe...                                                                               (1.0s @ 0.41GB)
-[4/8] Parsing methods...      [**]                                                                       (2.4s @ 0.49GB)
-[5/8] Inlining methods...     [***]                                                                      (0.5s @ 0.45GB)
-[6/8] Compiling methods...    [****]                                                                    (14.1s @ 0.67GB)
-[7/8] Layouting methods...    [*]                                                                        (1.9s @ 0.36GB)
-[8/8] Creating image...       [*]                                                                        (1.8s @ 0.41GB)
-   6.83MB (48.38%) for code area:     8,758 compilation units
-   6.62MB (46.88%) for image heap:  106,644 objects and 47 resources
- 685.59kB ( 4.74%) for other data
+[3/8] Building universe...                                                                               (1.0s @ 0.35GB)
+[4/8] Parsing methods...      [**]                                                                       (2.8s @ 0.45GB)
+[5/8] Inlining methods...     [***]                                                                      (0.6s @ 0.35GB)
+[6/8] Compiling methods...    [****]                                                                    (13.2s @ 0.34GB)
+[7/8] Layouting methods...    [*]                                                                        (1.0s @ 0.42GB)
+[8/8] Creating image...       [*]                                                                        (0.9s @ 0.48GB)
+   6.83MB (48.39%) for code area:     8,759 compilation units
+   6.62MB (46.86%) for image heap:  106,685 objects and 47 resources
+ 686.00kB ( 4.74%) for other data
   14.12MB in total
 ------------------------------------------------------------------------------------------------------------------------
 Top 10 origins of code area:                                Top 10 object types in image heap:
    4.84MB java.base                                            1.78MB byte[] for code metadata
    1.46MB svm.jar (Native Image)                               1.31MB byte[] for java.lang.String
- 143.78kB java.logging                                       783.07kB java.lang.String
+ 143.78kB java.logging                                       783.30kB java.lang.String
  128.03kB com.oracle.svm.svm_enterprise                      562.33kB java.lang.Class
-  42.09kB jdk.proxy1                                         277.91kB byte[] for general heap data
+  42.09kB jdk.proxy1                                         277.95kB byte[] for general heap data
   41.55kB jdk.proxy3                                         240.47kB java.util.HashMap$Node
-  29.58kB org.graalvm.nativeimage.base                       170.63kB byte[] for reflection metadata
+  29.58kB org.graalvm.nativeimage.base                       170.70kB byte[] for reflection metadata
   28.88kB org.graalvm.collections                            155.63kB com.oracle.svm.core.hub.DynamicHubCompanion
   21.54kB jdk.internal.vm.ci                                 154.34kB byte[] for embedded resources
-  17.09kB jdk.internal.vm.compiler                           145.88kB char[]
-  27.34kB for 5 more packages                                  1.09MB for 913 more object types
+  17.92kB undefined.jar                                      145.88kB char[]
+  31.17kB for 5 more packages                                  1.09MB for 913 more object types
                               Use '-H:+BuildReport' to create a report with more details.
 ------------------------------------------------------------------------------------------------------------------------
 Security report:
@@ -107,15 +108,15 @@ Recommendations:
  HEAP: Set max heap for improved and more predictable memory usage.
  CPU:  Enable more CPU features with '-march=native' for improved performance.
 ------------------------------------------------------------------------------------------------------------------------
-                       1.9s (6.0% of total time) in 328 GCs | Peak RSS: 1.30GB | CPU load: 16.43
+                       1.8s (6.5% of total time) in 334 GCs | Peak RSS: 1.36GB | CPU load: 17.72
 ------------------------------------------------------------------------------------------------------------------------
 Produced artifacts:
  /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/target/ThrowExceptionPatterns-new (executable)
 ========================================================================================================================
-Finished generating 'ThrowExceptionPatterns-new' in 30.7s.
+Finished generating 'ThrowExceptionPatterns-new' in 28.1s.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  34.383 s
-[INFO] Finished at: 2024-03-09T16:19:27+01:00
+[INFO] Total time:  31.266 s
+[INFO] Finished at: 2024-03-16T02:47:36+01:00
 [INFO] ------------------------------------------------------------------------

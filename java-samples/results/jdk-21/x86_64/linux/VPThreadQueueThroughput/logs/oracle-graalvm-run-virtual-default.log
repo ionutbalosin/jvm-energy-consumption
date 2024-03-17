@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting virtual at 20:54:35, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 21:14:35
+Starting virtual at 20:35:30, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 20:55:32
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.348 sec
-  Ops = 398
-  Ops/sec = 0.331570440
+  Elapsed = 1202.713 sec
+  Iterations = 397
+  Iterations/sec = 0.330086966
+  Runs = 302
+  Runs/sec = 0.334546953
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

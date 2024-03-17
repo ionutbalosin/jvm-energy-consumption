@@ -1,41 +1,24 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting virtual at 14:42:12, expected duration = 1200 sec, number of tasks = 2400000
+Starting virtual at 12:57:46, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
 Signum: [11] - Exiting due to unhandled SIGSEGV exception.
-0: rip=0x00007f59fb983a5b @rip=[0xffffffffffffffff] (os::print_hotspot_os_backtrace()+27) [gcc frame, calls gcc]
-1: rip=0x00007f59fb10d41d @rip=[0x00007f586e1f2dd8] (jvm_unexpected_exception_handler+157) [gcc frame, calls gcc]
-2: rip=0x00007f59fb10d4c5 @rip=[0x00007f586e1f2e88] (jvm_unexpected_exception_helper+69) [gcc frame, calls gcc]
-3: rip=0x00007f59fd4410f7 @rip=[0x00007f586e1f2e98] (jvm_unexpected_exception_handler_wrapper()+615) [gcc frame, calls gcc]
-4: rip=0x00007f59fb1764d6 @rip=[0x00007f586e1f2ef8] (ciTypeFlow::flow_types()+470) [gcc frame, calls gcc]
-5: rip=0x00007f59fb176a11 @rip=[0x00007f586e1f2f88] (ciTypeFlow::do_flow()+17) [gcc frame, calls gcc]
-6: rip=0x00007f59fb146718 @rip=[0x00007f586e1f2fa8] (ciMethod::get_osr_flow_analysis(int)+88) [gcc frame, calls gcc]
-7: rip=0x00007f59fb32e397 @rip=[0x00007f586e1f2fd8] (_ZN13DolphinParserC2EP8ciMethodP14DolphinContextP18DolphinCompileInfoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE14Co+791) [gcc frame, calls gcc]
-8: rip=0x00007f59fb2ce364 @rip=[0x00007f586e1f3028] (DolphinCompilerInstance::generate_llvm_ir(DolphinContext*, ciMethod*, char const*, bool, CodeProfileRef)+164) [gcc frame, calls gcc]
-9: rip=0x00007f59fb2d9ec8 @rip=[0x00007f586e1f3378] (_ZN23DolphinCompilerInstance18initialize_compileEP5ciEnvP8ciMethodP12outputStreamN4llvm9StringRefE14CodeProfileRefRKN4azul4orca+264) [gcc frame, calls gcc]
-10: rip=0x00007f59fb2daca4 @rip=[0x00007f586e1f3418] (_ZN23DolphinCompilerInstance20compile_method_in_vmEP5ciEnvP8ciMethodP12outputStreamN4llvm9StringRefE14CodeProfileRefRKN4azul4or+228) [gcc frame, calls gcc]
-11: rip=0x00007f59fb2db4e4 @rip=[0x00007f586e1f34f8] (DolphinCompilerInstance::compile_method(ciEnv*, ciMethod*)+932) [gcc frame, calls gcc]
-12: rip=0x00007f59fb2bcdd6 @rip=[0x00007f586e1f3838] (DolphinCompiler::compile_method(ciEnv*, ciMethod*, bool)+150) [gcc frame, calls gcc]
-13: rip=0x00007f59fb243ea8 @rip=[0x00007f586e1f3888] (CompileBroker::try_compilation(CompileTask*)+1064) [gcc frame, calls gcc]
-14: rip=0x00007f59fb6ee56c @rip=[0x00007f586e1f3c38] (CompilerThread::main_loop()+1196) [gcc frame, calls gcc]
-15: rip=0x00007f59fb6ee7e8 @rip=[0x00007f586e1f3d08] (DolphinCompilerThread::main_loop()+40) [gcc frame, calls gcc]
-16: rip=0x00007f59fb6e0975 @rip=[0x00007f586e1f3d68] (compiler_thread_entry(JavaThread*, Thread*)+117) [gcc frame, calls gcc]
-17: rip=0x00007f59fb6f64b7 @rip=[0x00007f586e1f3da8] (JavaThread::thread_main_inner()+183) [gcc frame, calls gcc]
-18: rip=0x00007f59fb6f65f1 @rip=[0x00007f586e1f3e18] (JavaThread::run()+241) [gcc frame, calls gcc]
-19: rip=0x00007f59fb106ed0 @rip=[0x00007f586e1f3e88] (_start_thread+208) [gcc frame, calls gcc]
-20: rip=0x00007f59fd441e83 @rip=[0x00007f586e1f3eb8] (preRun+35) [gcc frame, calls gcc]
+0: rip=0x00007f8435783a5b @rip=[0xffffffffffffffff] (os::print_hotspot_os_backtrace()+27) [gcc frame, calls gcc]
+1: rip=0x00007f8434f0d41d @rip=[0x00007f8276973f88] (jvm_unexpected_exception_handler+157) [gcc frame, calls gcc]
+2: rip=0x00007f8434f0d4c5 @rip=[0x00007f8276974038] (jvm_unexpected_exception_helper+69) [gcc frame, calls gcc]
+3: rip=0x00007f84372ef0f7 @rip=[0x00007f8276974048] (jvm_unexpected_exception_handler_wrapper()+615) [gcc frame, calls gcc]
 #
 # An unexpected error has been detected by Java Runtime Environment:
 #
-#  Segmentation fault (0xb) at pc=0x7f59fb1764d6, pid=9143, tid=9202
+#  Segmentation fault (0xb) at pc=0x3000f81b, pid=32785, tid=32873
 #
 # Java VM: Zing 64-Bit Tiered VM Zing23.10.0.0+3 (21.0.1-zing_23.10.0.0-b3-product-linux-X86_64, mixed mode)
 # Problematic frame:
-# V  [libjvm.so+0x7764d6]  ciTypeFlow::flow_types()+0x1d6
+# v        ~StubRoutines::full_subtype_check
 #
 # An error report file with more information is saved as:
-# /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/hs_err_pid9143.log
+# /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/hs_err_pid32785.log
+Signum: [11] - Exiting due to unhandled SIGSEGV exception.
+[thread 32793 also had an error]
 #
 # If you would like to submit a bug report, please visit:
 #   http://www.azul.com/support/
-# The crash happened outside the Java Virtual Machine in native code.
-# See problematic frame for where to report the bug.
 #

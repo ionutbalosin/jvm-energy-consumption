@@ -1,9 +1,13 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewExceptionOverrideFillInStackTrace at 10:27:48, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 10:47:48
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewExceptionOverrideFillInStackTrace at 08:20:14, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 08:40:14
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 95818586
-  Ops/sec = 79848.821515619
+  Iterations = 98796700
+  Iterations/sec = 82330.583198243
+  Runs = 74133206
+  Runs/sec = 82370.228708681
   Stack trace elements = 0
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

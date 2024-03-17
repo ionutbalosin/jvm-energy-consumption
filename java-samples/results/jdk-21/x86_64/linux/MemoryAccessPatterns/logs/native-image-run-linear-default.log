@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 23:03:36, expected duration = 1200 sec
-Successfully finished at 23:23:37
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 22:39:31, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 22:59:31
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.036 sec
-  Ops = 2300
-  Ops/sec = 1.916608623
+  Elapsed = 1200.251 sec
+  Iterations = 2964
+  Iterations/sec = 2.469483265
+  Runs = 2224
+  Runs/sec = 2.470421869
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.
