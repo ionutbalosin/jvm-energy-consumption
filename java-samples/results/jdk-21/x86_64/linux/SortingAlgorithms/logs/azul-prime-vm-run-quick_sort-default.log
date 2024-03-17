@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 09:40:29, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 10:00:29
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 07:54:19, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 08:14:19
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.170 sec
-  Ops = 2288
-  Ops/sec = 1.906396198
+  Elapsed = 1200.086 sec
+  Iterations = 2200
+  Iterations/sec = 1.833201561
+  Runs = 1652
+  Runs/sec = 1.835379650
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

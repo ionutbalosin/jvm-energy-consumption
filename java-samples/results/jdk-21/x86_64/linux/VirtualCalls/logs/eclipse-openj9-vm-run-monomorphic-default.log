@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting monomorphic at 11:28:00, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 11:48:00
+Starting monomorphic at 09:20:44, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 09:40:44
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 136633151
-  Ops/sec = 113860.958435964
+  Iterations = 132029339
+  Iterations/sec = 110024.448779564
+  Runs = 98976254
+  Runs/sec = 109973.615039657
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

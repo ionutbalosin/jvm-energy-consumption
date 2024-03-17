@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 08:47:15, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 09:07:27
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 06:39:13, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 06:59:24
 ---------------------------------
 Summary statistics:
-  Elapsed = 1211.927 sec
-  Ops = 55
-  Ops/sec = 0.045382276
+  Elapsed = 1210.744 sec
+  Iterations = 51
+  Iterations/sec = 0.042122868
+  Runs = 39
+  Runs/sec = 0.042822143
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

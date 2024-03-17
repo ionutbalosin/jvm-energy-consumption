@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 08:10:40, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 08:30:45
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 07:48:58, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 08:09:04
 ---------------------------------
 Summary statistics:
-  Elapsed = 1204.808 sec
-  Ops = 83
-  Ops/sec = 0.068890633
+  Elapsed = 1206.652 sec
+  Iterations = 71
+  Iterations/sec = 0.058840512
+  Runs = 51
+  Runs/sec = 0.056250933
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

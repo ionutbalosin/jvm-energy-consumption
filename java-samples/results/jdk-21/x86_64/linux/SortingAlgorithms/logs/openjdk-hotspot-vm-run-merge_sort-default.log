@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 00:07:28, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 00:27:37
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 23:44:38, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 00:04:47
 ---------------------------------
 Summary statistics:
-  Elapsed = 1209.153 sec
-  Ops = 69
-  Ops/sec = 0.057064756
+  Elapsed = 1209.770 sec
+  Iterations = 68
+  Iterations/sec = 0.056209031
+  Runs = 51
+  Runs/sec = 0.056058124
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

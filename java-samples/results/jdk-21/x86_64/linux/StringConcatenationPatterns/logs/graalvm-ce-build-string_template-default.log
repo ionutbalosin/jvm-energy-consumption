@@ -9,7 +9,7 @@
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ java-samples ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 0 resource
+[INFO] skip non existing resourceDirectory /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.12.1:compile (default-compile) @ java-samples ---
 [INFO] Recompiling the module because of changed source code.
@@ -36,6 +36,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.036 s
-[INFO] Finished at: 2024-03-09T15:43:46+01:00
+[INFO] Total time:  1.332 s
+[INFO] Finished at: 2024-03-15T09:09:40+01:00
 [INFO] ------------------------------------------------------------------------

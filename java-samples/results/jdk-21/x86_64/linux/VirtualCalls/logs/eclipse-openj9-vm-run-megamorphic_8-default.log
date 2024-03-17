@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting megamorphic_8 at 12:28:12, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 12:48:12
+Starting megamorphic_8 at 10:21:14, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 10:41:15
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 42598081
-  Ops/sec = 35498.400349046
+  Iterations = 43160932
+  Iterations/sec = 35967.443133204
+  Runs = 32368781
+  Runs/sec = 35965.311955400
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

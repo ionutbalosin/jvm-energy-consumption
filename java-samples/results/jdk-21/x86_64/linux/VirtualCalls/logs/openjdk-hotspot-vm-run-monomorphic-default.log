@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting monomorphic at 03:08:24, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 03:28:24
+Starting monomorphic at 02:46:11, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 03:06:12
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 153613275
-  Ops/sec = 128011.058758343
+  Iterations = 277055667
+  Iterations/sec = 230879.718690869
+  Runs = 207817456
+  Runs/sec = 230908.279364975
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

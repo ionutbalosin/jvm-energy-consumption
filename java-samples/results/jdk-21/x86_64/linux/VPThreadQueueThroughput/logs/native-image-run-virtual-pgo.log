@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting virtual at 00:30:24, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 00:50:26
+Starting virtual at 00:58:51, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 01:18:52
 ---------------------------------
 Summary statistics:
-  Elapsed = 1202.417 sec
-  Ops = 385
-  Ops/sec = 0.320188348
+  Elapsed = 1201.595 sec
+  Iterations = 483
+  Iterations/sec = 0.401965789
+  Runs = 361
+  Runs/sec = 0.400401601
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

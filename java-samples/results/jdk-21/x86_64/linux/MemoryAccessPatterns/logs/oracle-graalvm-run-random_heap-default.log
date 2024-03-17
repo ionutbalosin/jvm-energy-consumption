@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 15:33:28, expected duration = 1200 sec
-Successfully finished at 15:53:30
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 15:12:56, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 15:32:56
 ---------------------------------
 Summary statistics:
-  Elapsed = 1201.689 sec
-  Ops = 157
-  Ops/sec = 0.130649483
+  Elapsed = 1200.196 sec
+  Iterations = 187
+  Iterations/sec = 0.155807931
+  Runs = 141
+  Runs/sec = 0.156632617
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

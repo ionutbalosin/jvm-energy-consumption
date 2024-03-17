@@ -1,0 +1,12 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting monomorphic at 16:00:44, expected duration = 240 sec, warmup = 120 sec, number of virtual calls = 9600
+Successfully finished at 16:04:44
+---------------------------------
+Summary statistics:
+  Elapsed = 240.000 sec
+  Iterations = 11365752
+  Iterations/sec = 47357.297466779
+  Runs = 5682749
+  Runs/sec = 47356.236600339
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

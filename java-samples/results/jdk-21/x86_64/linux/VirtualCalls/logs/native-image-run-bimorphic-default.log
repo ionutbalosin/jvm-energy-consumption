@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting bimorphic at 03:44:35, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 04:04:35
+Starting bimorphic at 03:28:56, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 03:48:56
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 140463210
-  Ops/sec = 117052.674263934
+  Iterations = 76940678
+  Iterations/sec = 64117.231382627
+  Runs = 57712475
+  Runs/sec = 64124.971843457
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

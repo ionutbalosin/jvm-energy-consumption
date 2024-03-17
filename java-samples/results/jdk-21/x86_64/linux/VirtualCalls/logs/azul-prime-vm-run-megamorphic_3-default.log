@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting megamorphic_3 at 13:41:51, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 14:01:51
+Starting megamorphic_3 at 11:57:06, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 12:17:06
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 164158633
-  Ops/sec = 136798.860150707
+  Iterations = 108182283
+  Iterations/sec = 90151.902213392
+  Runs = 81140349
+  Runs/sec = 90155.942951172
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

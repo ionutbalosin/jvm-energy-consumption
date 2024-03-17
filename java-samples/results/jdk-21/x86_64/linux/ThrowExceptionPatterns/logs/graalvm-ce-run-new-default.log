@@ -1,9 +1,13 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 10:51:20, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 11:11:20
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 10:30:17, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 10:50:17
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 6444156
-  Ops/sec = 5370.129520246
-  Stack trace elements = 6598815744
+  Iterations = 8596729
+  Iterations/sec = 7163.939954157
+  Runs = 6455888
+  Runs/sec = 7173.207715137
+  Stack trace elements = 8803050496
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

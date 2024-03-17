@@ -1,0 +1,12 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting megamorphic_3 at 16:10:36, expected duration = 240 sec, warmup = 120 sec, number of virtual calls = 9600
+Successfully finished at 16:14:36
+---------------------------------
+Summary statistics:
+  Elapsed = 240.000 sec
+  Iterations = 4657206
+  Iterations/sec = 19405.024212884
+  Runs = 2329074
+  Runs/sec = 19408.948425449
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

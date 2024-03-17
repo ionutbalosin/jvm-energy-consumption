@@ -1,0 +1,12 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 15:05:37, expected duration = 240 sec, warmup = 120 sec
+Successfully finished at 15:09:46
+---------------------------------
+Summary statistics:
+  Elapsed = 249.095 sec
+  Iterations = 16
+  Iterations/sec = 0.064232591
+  Runs = 9
+  Runs/sec = 0.069716246
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -1,9 +1,13 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 01:48:10, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 02:08:10
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 01:25:38, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 01:45:38
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 54365513
-  Ops/sec = 45304.592958582
-  Stack trace elements = 380558591
+  Iterations = 54288633
+  Iterations/sec = 45240.526088835
+  Runs = 40708571
+  Runs/sec = 45231.743674367
+  Stack trace elements = 108577266
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

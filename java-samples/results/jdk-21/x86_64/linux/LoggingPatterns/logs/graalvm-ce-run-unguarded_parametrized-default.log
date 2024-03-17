@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedParametrizedLogger at 06:09:38, expected duration = 1200 sec, log level = INFO
-Successfully finished at 06:29:38
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedParametrizedLogger at 05:47:31, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 06:07:31
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 66473878
-  Ops/sec = 55394.895747130
+  Iterations = 70426840
+  Iterations/sec = 58689.030952417
+  Runs = 52815720
+  Runs/sec = 58684.130159044
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

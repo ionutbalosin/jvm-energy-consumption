@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 17:58:40, expected duration = 1200 sec, log level = INFO
-Successfully finished at 18:18:40
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$UnguardedUnparametrizedLogger at 18:27:16, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 18:47:16
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 207804906
-  Ops/sec = 173170.754802874
+  Iterations = 203545495
+  Iterations/sec = 169621.245058447
+  Runs = 152566444
+  Runs/sec = 169518.270078557
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

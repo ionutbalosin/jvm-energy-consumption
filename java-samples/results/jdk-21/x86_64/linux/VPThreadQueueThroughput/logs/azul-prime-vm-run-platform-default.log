@@ -1,8 +1,12 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting platform at 14:22:05, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 14:42:07
+Starting platform at 12:37:31, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 12:57:32
 ---------------------------------
 Summary statistics:
-  Elapsed = 1201.298 sec
-  Ops = 507
-  Ops/sec = 0.422043454
+  Elapsed = 1201.120 sec
+  Iterations = 493
+  Iterations/sec = 0.410450237
+  Runs = 370
+  Runs/sec = 0.410600129
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

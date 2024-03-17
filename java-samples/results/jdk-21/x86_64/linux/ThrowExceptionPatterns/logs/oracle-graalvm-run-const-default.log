@@ -1,9 +1,13 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 17:54:02, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 18:14:02
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowConstantException at 17:34:12, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 17:54:12
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 19146756
-  Ops/sec = 15955.628701704
-  Stack trace elements = 134027292
+  Iterations = 14077967
+  Iterations/sec = 11731.638368915
+  Runs = 10558635
+  Runs/sec = 11731.815602982
+  Stack trace elements = 28155934
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

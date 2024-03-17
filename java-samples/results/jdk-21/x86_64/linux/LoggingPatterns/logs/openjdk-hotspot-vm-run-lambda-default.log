@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 21:06:17, expected duration = 1200 sec, log level = INFO
-Successfully finished at 21:26:17
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 20:42:46, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 21:02:46
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 159157165
-  Ops/sec = 132630.967738279
+  Iterations = 161781410
+  Iterations/sec = 134817.838562149
+  Runs = 129968752
+  Runs/sec = 144409.720010585
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 23:07:01, expected duration = 1200 sec
-Successfully finished at 23:27:01
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 22:43:58, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 23:03:59
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.667 sec
-  Ops = 1397
-  Ops/sec = 1.163519685
+  Elapsed = 1200.214 sec
+  Iterations = 1394
+  Iterations/sec = 1.161459929
+  Runs = 1047
+  Runs/sec = 1.163057304
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

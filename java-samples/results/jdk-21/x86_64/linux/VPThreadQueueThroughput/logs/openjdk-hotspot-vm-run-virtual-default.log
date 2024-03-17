@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting virtual at 04:48:44, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 05:08:47
+Starting virtual at 04:26:53, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 04:46:55
 ---------------------------------
 Summary statistics:
-  Elapsed = 1202.656 sec
-  Ops = 335
-  Ops/sec = 0.278550067
+  Elapsed = 1202.201 sec
+  Iterations = 346
+  Iterations/sec = 0.287805436
+  Runs = 259
+  Runs/sec = 0.287075700
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

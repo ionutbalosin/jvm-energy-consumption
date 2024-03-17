@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting platform at 12:48:16, expected duration = 1200 sec, number of tasks = 2400000
-Successfully finished at 13:08:19
+Starting platform at 10:41:24, expected duration = 1200 sec, warmup = 300 sec, number of tasks = 2400000
+Successfully finished at 11:01:25
 ---------------------------------
 Summary statistics:
-  Elapsed = 1202.450 sec
-  Ops = 364
-  Ops/sec = 0.302715224
+  Elapsed = 1200.424 sec
+  Iterations = 446
+  Iterations/sec = 0.371535442
+  Runs = 331
+  Runs/sec = 0.367604663
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -32,7 +32,7 @@ check_command_line_options() {
   APP_RUNNING_TIME="1200"
   APP_WARMUP_TIME="300"
   APP_ENABLE_PGO=""
-  APP_PGO_DIR="/pgo/native-image"
+  APP_PGO_DIR="pgo/native-image"
   APP_SKIP_OS_TUNING=""
   APP_SKIP_BUILD=""
   APP_SKIP_RUN=""

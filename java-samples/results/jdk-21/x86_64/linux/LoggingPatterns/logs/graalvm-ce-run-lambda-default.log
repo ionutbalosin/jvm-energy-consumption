@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 05:09:28, expected duration = 1200 sec, log level = INFO
-Successfully finished at 05:29:28
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 04:47:04, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 05:07:04
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 100774755
-  Ops/sec = 83978.959179052
+  Iterations = 164638391
+  Iterations/sec = 137198.655364778
+  Runs = 137141681
+  Runs/sec = 152379.639925466
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.
