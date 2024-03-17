@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedParametrizedLogger at 13:32:32, expected duration = 1200 sec, log level = INFO
-Successfully finished at 13:52:32
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$GuardedParametrizedLogger at 13:11:29, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 13:31:29
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 74864296
-  Ops/sec = 62386.910186330
+  Iterations = 85464838
+  Iterations/sec = 71220.695097184
+  Runs = 63537621
+  Runs/sec = 70597.352389565
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

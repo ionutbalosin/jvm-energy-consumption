@@ -1,10 +1,12 @@
-Note: /home/ionutbalosin/Workspace/jvm-energy-consumption/java-samples/src/main/java/com/ionutbalosin/jvm/energy/consumption/StringConcatenationPatterns.java uses preview features of Java SE 21.
-Note: Recompile with -Xlint:preview for details.
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns$PlusOperatorConcat at 00:47:59, expected duration = 1200 sec
-Successfully finished at 01:07:59
+Starting com.ionutbalosin.jvm.energy.consumption.StringConcatenationPatterns$PlusOperatorConcat at 00:25:13, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 00:45:13
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 5733734323
-  Ops/sec = 4778111.834079459
+  Iterations = 5341796046
+  Iterations/sec = 4451496.544045013
+  Runs = 3877636683
+  Runs/sec = 4308484.995621271
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

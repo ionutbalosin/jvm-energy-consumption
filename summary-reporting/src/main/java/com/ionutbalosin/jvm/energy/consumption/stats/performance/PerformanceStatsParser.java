@@ -61,7 +61,7 @@ public class PerformanceStatsParser {
           .lines()
           .map(String::trim)
           .filter(not(String::isBlank))
-          .filter(line -> line.contains("Ops/sec") || line.contains("Requests/sec"))
+          .filter(line -> line.contains("Runs/sec") || line.contains("Requests/sec"))
           .map(
               line -> {
                 Matcher matcher = PATTERN.matcher(line);

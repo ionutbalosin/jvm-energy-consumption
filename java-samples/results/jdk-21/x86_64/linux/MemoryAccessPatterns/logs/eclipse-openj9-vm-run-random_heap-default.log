@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 07:46:48, expected duration = 1200 sec
-Successfully finished at 08:06:51
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 13:13:28, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 13:33:31
 ---------------------------------
 Summary statistics:
-  Elapsed = 1202.144 sec
-  Ops = 302
-  Ops/sec = 0.251217864
+  Elapsed = 1203.255 sec
+  Iterations = 314
+  Iterations/sec = 0.260958871
+  Runs = 237
+  Runs/sec = 0.262384450
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

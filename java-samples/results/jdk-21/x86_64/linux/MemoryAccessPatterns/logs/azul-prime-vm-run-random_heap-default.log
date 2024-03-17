@@ -1,47 +1,31 @@
-2024-02-28T09:20:17.747+0100: 5.204: Detected TTSP issue, wait: 8765.745 ms
+2024-03-16T07:34:01.404+0100: 5.167: Detected TTSP issue, wait: 7602.139 ms
 Dumping stack for thread 0x0000620000000000
-"main" id: 6442 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
-lock_release: 13.970 last_cpu: 17 cpu_time: 13941
-  0 0x00007fc5510b2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
-  1 0x00007fc550d5bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
+"main" id: 28954 prio: 5 os_prio: 0 sched: SCHED_OTHER allowed_cpus: 000000000ffffff
+lock_release: 12.768 last_cpu: 22 cpu_time: 12761
+  0 0x000074cf23eb2b70 SafepointProfilerBuf::record_sync_stack(JavaThread*)
+  1 0x000074cf23b5bbc8 InterpreterRuntime::at_safepoint(JavaThread*)
   2 0x0000000030c023c0 interpreter
-  3 0x0000000030c0f2f6 interpreter
-  4 0x0000000030c135f7 interpreter
-  5 0x0000000030c135f7 interpreter
-  6 0x0000000030c135f7 interpreter
-  7 0x0000000030c12b74 interpreter
-  8 0x0000000030c0f5e2 interpreter
-  9 0x0000000030c0ee7e interpreter
+  3 0x000000003000c8cb StubRoutines::call_stub
 
-signal_sent: 11.206 signal_responded: 11.206 state: R wchan: 0 last_cpu: 17 cpu_time: 11179
-  0 0x000000003002e1b2 com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
+signal_sent: 11.168 signal_responded: 11.168 state: R wchan: 0 last_cpu: 22 cpu_time: 11161
+  0 0x0000000030021591 com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
   1 0x0000000030c0ee7e interpreter
-  2 0x0000000030c0f2f6 interpreter
-  3 0x0000000030c135f7 interpreter
-  4 0x0000000030c135f7 interpreter
-  5 0x0000000030c135f7 interpreter
-  6 0x0000000030c12b74 interpreter
-  7 0x0000000030c0f5e2 interpreter
-  8 0x0000000030c0ee7e interpreter
-  9 0x0000000030c0ee7e interpreter
+  2 0x000000003000c8cb StubRoutines::call_stub
 
-signal_sent: 6.205 signal_responded: 6.205 state: R wchan: 0 last_cpu: 17 cpu_time: 6182
-  0 0x000000003002e1bb com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
+signal_sent: 6.167 signal_responded: 6.167 state: R wchan: 0 last_cpu: 22 cpu_time: 6161
+  0 0x0000000030021581 com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns.initialize([Ljava/lang/String;)V
   1 0x0000000030c0ee7e interpreter
-  2 0x0000000030c0f2f6 interpreter
-  3 0x0000000030c135f7 interpreter
-  4 0x0000000030c135f7 interpreter
-  5 0x0000000030c135f7 interpreter
-  6 0x0000000030c12b74 interpreter
-  7 0x0000000030c0f5e2 interpreter
-  8 0x0000000030c0ee7e interpreter
-  9 0x0000000030c0ee7e interpreter
+  2 0x000000003000c8cb StubRoutines::call_stub
 
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 09:20:17, expected duration = 1200 sec
-Successfully finished at 09:40:23
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomHeapWalk at 07:34:01, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 07:54:04
 ---------------------------------
 Summary statistics:
-  Elapsed = 1205.305 sec
-  Ops = 149
-  Ops/sec = 0.123620121
+  Elapsed = 1203.112 sec
+  Iterations = 182
+  Iterations/sec = 0.151274384
+  Runs = 137
+  Runs/sec = 0.151697715
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

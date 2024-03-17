@@ -1,8 +1,12 @@
 Eclipse OpenJ9 VM IBM Corporation openj9-0.43.0 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 07:06:18, expected duration = 1200 sec
-Successfully finished at 07:26:18
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 11:51:35, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 12:11:36
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.005 sec
-  Ops = 3448
-  Ops/sec = 2.873322498
+  Elapsed = 1200.315 sec
+  Iterations = 2116
+  Iterations/sec = 1.762870154
+  Runs = 1589
+  Runs/sec = 1.764937260
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

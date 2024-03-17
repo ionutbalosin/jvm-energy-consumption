@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 00:23:56, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 00:44:01
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 00:02:20, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 00:22:23
 ---------------------------------
 Summary statistics:
-  Elapsed = 1205.669 sec
-  Ops = 71
-  Ops/sec = 0.058888483
+  Elapsed = 1203.324 sec
+  Iterations = 71
+  Iterations/sec = 0.059003203
+  Runs = 54
+  Runs/sec = 0.059779182
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

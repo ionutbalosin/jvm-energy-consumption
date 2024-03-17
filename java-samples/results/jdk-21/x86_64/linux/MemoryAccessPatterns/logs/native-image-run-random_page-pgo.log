@@ -1,8 +1,12 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 18:39:58, expected duration = 1200 sec
-Successfully finished at 18:59:58
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 19:08:32, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 19:28:33
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.472 sec
-  Ops = 405
-  Ops/sec = 0.337367240
+  Elapsed = 1200.746 sec
+  Iterations = 685
+  Iterations/sec = 0.570478553
+  Runs = 514
+  Runs/sec = 0.570637938
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

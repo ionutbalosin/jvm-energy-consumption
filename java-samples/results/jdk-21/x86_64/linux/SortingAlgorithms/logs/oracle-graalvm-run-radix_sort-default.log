@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 16:33:42, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 16:53:48
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 16:13:25, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 16:33:36
 ---------------------------------
 Summary statistics:
-  Elapsed = 1205.541 sec
-  Ops = 66
-  Ops/sec = 0.054747210
+  Elapsed = 1211.012 sec
+  Iterations = 71
+  Iterations/sec = 0.058628671
+  Runs = 54
+  Runs/sec = 0.059274768
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

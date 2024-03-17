@@ -1,0 +1,12 @@
+Substrate VM Oracle Corporation 21.0.1+12 
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 14:30:49, expected duration = 240 sec, warmup = 120 sec, log level = INFO
+Successfully finished at 14:34:49
+---------------------------------
+Summary statistics:
+  Elapsed = 240.000 sec
+  Iterations = 11691782
+  Iterations/sec = 48715.755982392
+  Runs = 5840481
+  Runs/sec = 48670.670302469
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

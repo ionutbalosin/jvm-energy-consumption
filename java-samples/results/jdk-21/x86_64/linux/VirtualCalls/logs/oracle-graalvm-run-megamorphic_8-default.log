@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting megamorphic_8 at 20:14:26, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 20:34:26
+Starting megamorphic_8 at 19:55:12, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 20:15:12
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 88357291
-  Ops/sec = 73631.073216240
+  Iterations = 87972884
+  Iterations/sec = 73310.734840802
+  Runs = 65972487
+  Runs/sec = 73302.760899112
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 00:27:41, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 00:47:55
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$RadixSorter at 00:04:56, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 00:25:05
 ---------------------------------
 Summary statistics:
-  Elapsed = 1214.481 sec
-  Ops = 71
-  Ops/sec = 0.058461197
+  Elapsed = 1208.867 sec
+  Iterations = 71
+  Iterations/sec = 0.058732690
+  Runs = 54
+  Runs/sec = 0.059414646
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

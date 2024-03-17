@@ -1,9 +1,13 @@
 Zing 64-Bit Tiered VM Azul Systems, Inc. 21.0.1-zing_23.10.0.0-b3-product-linux-X86_64 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 12:41:37, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 13:01:37
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 10:56:26, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 11:16:26
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 2895387
-  Ops/sec = 2412.822271538
-  Stack trace elements = 2964876288
+  Iterations = 2916389
+  Iterations/sec = 2430.323454805
+  Runs = 2187936
+  Runs/sec = 2431.039050571
+  Stack trace elements = 2986382336
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

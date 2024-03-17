@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 13:12:28, expected duration = 1200 sec, log level = INFO
-Successfully finished at 13:32:28
+Starting com.ionutbalosin.jvm.energy.consumption.LoggingPatterns$LambdaHeapLogger at 12:51:20, expected duration = 1200 sec, warmup = 300 sec, log level = INFO
+Successfully finished at 13:11:20
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 207290217
-  Ops/sec = 172741.843525354
+  Iterations = 214426110
+  Iterations/sec = 178688.417601108
+  Runs = 152331365
+  Runs/sec = 169257.062877728
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

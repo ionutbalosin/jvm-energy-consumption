@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 07:10:12, expected duration = 1200 sec
-Successfully finished at 07:30:12
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$RandomPageWalk at 06:48:20, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 07:08:20
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.498 sec
-  Ops = 1298
-  Ops/sec = 1.081217960
+  Elapsed = 1200.257 sec
+  Iterations = 1309
+  Iterations/sec = 1.090599420
+  Runs = 982
+  Runs/sec = 1.090799169
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

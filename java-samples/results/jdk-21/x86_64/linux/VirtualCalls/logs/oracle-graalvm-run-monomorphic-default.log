@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting monomorphic at 19:14:16, expected duration = 1200 sec, number of virtual calls = 9600
-Successfully finished at 19:34:16
+Starting monomorphic at 18:54:46, expected duration = 1200 sec, warmup = 300 sec, number of virtual calls = 9600
+Successfully finished at 19:14:46
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 270022488
-  Ops/sec = 225018.734057818
+  Iterations = 268176524
+  Iterations/sec = 223480.431565726
+  Runs = 200710648
+  Runs/sec = 223011.824324118
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

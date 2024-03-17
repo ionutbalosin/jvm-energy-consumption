@@ -1,9 +1,13 @@
 Substrate VM Oracle Corporation 21.0.1+12 
-Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 03:04:29, expected duration = 1200 sec, stack depth = 1024
-Successfully finished at 03:24:29
+Starting com.ionutbalosin.jvm.energy.consumption.ThrowExceptionPatterns$ThrowNewException at 02:47:39, expected duration = 1200 sec, warmup = 300 sec, stack depth = 1024
+Successfully finished at 03:07:39
 ---------------------------------
 Summary statistics:
   Elapsed = 1200.000 sec
-  Ops = 15285286
-  Ops/sec = 12737.737680461
-  Stack trace elements = 15652132864
+  Iterations = 13551400
+  Iterations/sec = 11292.833252938
+  Runs = 10163288
+  Runs/sec = 11292.542115031
+  Stack trace elements = 13876633600
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

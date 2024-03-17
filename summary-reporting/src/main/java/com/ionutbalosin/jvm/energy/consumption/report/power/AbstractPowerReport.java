@@ -77,7 +77,9 @@ public abstract class AbstractPowerReport implements Report {
 
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
-        .filter(path -> buildAndRunMatcher.matches(path) && !pgoInstrumentMatcher.matches(path))
+        .filter(path -> buildAndRunMatcher.matches(path))
+        // Ignore all "pgo_instrument" files, since they are handled separately, together with "pgo"
+        .filter(path -> !pgoInstrumentMatcher.matches(path))
         .map(
             filePath -> {
               PowerStats powerStats = parsePowerStats(filePath, executionType);

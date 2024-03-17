@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM GraalVM Community 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 06:49:57, expected duration = 1200 sec
-Successfully finished at 07:09:57
+Starting com.ionutbalosin.jvm.energy.consumption.MemoryAccessPatterns$LinearWalk at 06:28:00, expected duration = 1200 sec, warmup = 300 sec
+Successfully finished at 06:48:00
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.014 sec
-  Ops = 3195
-  Ops/sec = 2.662469961
+  Elapsed = 1200.243 sec
+  Iterations = 3192
+  Iterations/sec = 2.659461248
+  Runs = 2395
+  Runs/sec = 2.660392524
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

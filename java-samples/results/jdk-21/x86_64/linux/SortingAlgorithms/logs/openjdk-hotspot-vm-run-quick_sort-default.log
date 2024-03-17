@@ -1,8 +1,12 @@
 OpenJDK 64-Bit Server VM Eclipse Adoptium 21.0.1+12-LTS 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 23:47:24, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 00:07:24
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$QuickSorter at 23:24:29, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 23:44:29
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.192 sec
-  Ops = 3480
-  Ops/sec = 2.899536094
+  Elapsed = 1200.317 sec
+  Iterations = 3479
+  Iterations/sec = 2.898401670
+  Runs = 2610
+  Runs/sec = 2.898979801
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.

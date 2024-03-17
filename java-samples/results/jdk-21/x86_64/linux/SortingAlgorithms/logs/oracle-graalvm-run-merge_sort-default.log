@@ -1,8 +1,12 @@
 Java HotSpot(TM) 64-Bit Server VM Oracle Corporation 21.0.1+12-jvmci-23.1-b19 
-Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 16:13:38, expected duration = 1200 sec, number of elements to sort = 268435456
-Successfully finished at 16:33:38
+Starting com.ionutbalosin.jvm.energy.consumption.SortingAlgorithms$MergeSorter at 15:53:14, expected duration = 1200 sec, warmup = 300 sec, number of elements to sort = 268435456
+Successfully finished at 16:13:15
 ---------------------------------
 Summary statistics:
-  Elapsed = 1200.262 sec
-  Ops = 140
-  Ops/sec = 0.116641200
+  Elapsed = 1201.289 sec
+  Iterations = 106
+  Iterations/sec = 0.088238515
+  Runs = 75
+  Runs/sec = 0.083214108
+
+Note: Iterations include all executions, while runs begin counting after the warm-up phase.
