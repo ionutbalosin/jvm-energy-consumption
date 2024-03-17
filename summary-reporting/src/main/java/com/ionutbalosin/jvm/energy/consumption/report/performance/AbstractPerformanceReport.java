@@ -72,10 +72,13 @@ public abstract class AbstractPerformanceReport implements Report {
   private List<PerformanceStats> parseRawStats(String parentFolder, ExecutionType executionType)
       throws IOException {
     final PathMatcher buildAndRunMatcher = getPathMatcher(executionType.getType());
+    final PathMatcher pgoInstrumentMatcher = getPathMatcher("pgo_instrument");
 
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(buildAndRunMatcher::matches)
+        // Ignore all "pgo_instrument" files, since we do not collect performance stats from them
+        .filter(path -> !pgoInstrumentMatcher.matches(path))
         .map(filePath -> parsePerformanceStats(filePath, executionType))
         .filter(Predicate.not(Optional::isEmpty))
         .map(Optional::get)
@@ -83,6 +86,6 @@ public abstract class AbstractPerformanceReport implements Report {
   }
 
   private PathMatcher getPathMatcher(String pattern) {
-    return FileSystems.getDefault().getPathMatcher("regex:.*-" + pattern + "-.*\\.(txt|log)");
+    return FileSystems.getDefault().getPathMatcher("regex:.*-" + pattern + ".*\\.(txt|log)");
   }
 }

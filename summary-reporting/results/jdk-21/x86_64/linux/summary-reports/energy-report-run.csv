@@ -1,11 +1,11 @@
           Category;  Run Identifier;  Total Tests;  Total Energy (Watt⋅sec);  CO₂ Emissions (gCO₂)
- eclipse-openj9-vm;         default;           25;              1959887.240;               106.161
-        graalvm-ce;         default;           25;              2140709.324;               115.955
-    oracle-graalvm;         default;           25;              2170954.892;               117.593
-     azul-prime-vm;         default;           25;              1921467.436;               104.079
-openjdk-hotspot-vm;         default;           25;              2139687.861;               115.900
-      native-image;         default;           25;              2035760.269;               110.270
-      native-image;             pgo;           25;              1989509.145;               107.765
+ eclipse-openj9-vm;         default;           25;              1929280.408;               104.503
+        graalvm-ce;         default;           25;              2136435.392;               115.724
+    oracle-graalvm;         default;           25;              2092295.995;               113.333
+     azul-prime-vm;         default;           25;              1860940.776;               100.801
+openjdk-hotspot-vm;         default;           25;              2217293.347;               120.103
+      native-image;         default;           25;              1819642.816;                98.564
+      native-image;             pgo;           25;              2312071.218;               125.237
 
 # Note1: The power reference baseline has already been excluded from the energy scores
 # Note2: The results that contain errors during execution have already been excluded
