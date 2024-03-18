@@ -30,11 +30,11 @@
 - [Applications Build Time Execution Results](#applications-build-time-execution-results)
   - [Build Time Normalized Energy](#build-time-normalized-energy)
 - [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
+  - [Energy Consumption vs. Throughput](#energy-consumption-vs-throughput)
 - [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
 - [Acknowledgements](#acknowledgements)
-- [References](#references)
 
 # Introduction
 
@@ -63,7 +63,7 @@ Below is a list of several objectives I considered for my experiments:
 - **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall energy consumption. 
 - **Performance-Optimized Power Efficiency**: Investigate how energy consumption correlates with system performance.
 
-> Please note that this analysis **does not primarily focus on JVM performance comparison**. The intention is to understand the energy consumption of a JVM under specific loading factors, rather than determining the fastest JVM. Therefore, please refrain from viewing it from a performance standpoint. All throughput-related plots are included to provide complementary insights into the system's load.
+> Please note that this analysis **does not primarily focus on JVM performance comparison**. The intention is to understand the energy consumption of a JVM under specific loading factors, rather than determining the fastest JVM. Therefore, please refrain from viewing it solely from a performance standpoint. All throughput-related plots are included to provide complementary insights into how a JVM behaves.
 
 # Methodology
 
@@ -581,6 +581,16 @@ In addition, as demonstrated in the experiments, in general the energy consumpti
 
 To summarize, there is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
+### Energy Consumption vs. Throughput
+
+The plot from below summarizes the relationship between the  normalised total energy consumption during runtime versus the normalised throughput across all tests.
+
+[![PerformanceEnergyReport.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)
+
+As observed, despite having the lowest energy footprint, Native Image does not offer the highest throughput. However, the highest throughput is achieved by Native Image (PGO) at the expense of increased energy consumption, albeit still lower than other JVMs such as GraalVM CE or OpenJDK HotSpot VM.
+
+On the lower end of the spectrum is Eclipse OpenJ9 VM, which exhibits a relatively lower throughput but still consumes more energy than, for example, Native Image or Azul Prime VM.
+
 # From energy consumption to carbon emissions
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
@@ -636,20 +646,3 @@ Your contributions are welcome and appreciated.
 # Acknowledgements
 
 TODO
-
-# References
-
-1. Tom Strempel. Master’s Thesis [Measuring the Energy Consumption of Software written in C on x86-64 Processors](https://ul.qucosa.de/api/qucosa%3A77194/attachment/ATT-0)
-
-2. Spencer Desrochers, Chad Paradis, and Vincent M. Weaver. “A validation of DRAM RAPL power measurements”. In: ACM International Conference Proceed- ing Series 03-06-October-2016 (2016). DOI: [10.1145/2989081.2989088.](https://doi.org/10.1145/2989081.2989088)
-
-3. Zhang Huazhe and Hoffman H. _“A quantitative evaluation of the RAPL power control system”_. In: _Feedback Computing_ (2015).
-
-4. Kashif Nizam Khan et al. “RAPL in action: Experiences in using RAPL for power measurements”. In: ACM Transactions on Modeling and Performance Evaluation of Computing Systems 3 (2 2018). ISSN: 23763647. DOI: [10.1145/3177754](https://doi.org/10.1145/3177754).
-
-5. Zakaria Ournani, Mohammed Chakib Belgaid, Romain Rouvoy, Pierre Rust, Joel Penhoat: [Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://inria.hal.science/hal-03275286/document)
-
-6. Ko Turk: [Green Software Engineering: Best Practices](https://www.adesso.nl/en/news/blog/green-software-engineering-best-practices.jsp)
-
-7. Martin Thompson: [Memory Access Patterns Are Important](https://mechanical-sympathy.blogspot.com/2012/08/memory-access-patterns-are-important.html)
-
