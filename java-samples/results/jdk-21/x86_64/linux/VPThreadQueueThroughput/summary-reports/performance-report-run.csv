@@ -1,4 +1,5 @@
           Category;                      Type;  Run Identifier;         Score;          Score Metric
+     azul-prime-vm;                   virtual;         default;         0.000;  Throughput (ops/sec)
 openjdk-hotspot-vm;                   virtual;         default;         0.287;  Throughput (ops/sec)
     oracle-graalvm;                   virtual;         default;         0.335;  Throughput (ops/sec)
         graalvm-ce;                  platform;         default;         0.409;  Throughput (ops/sec)
@@ -9,5 +10,6 @@ openjdk-hotspot-vm;                   virtual;         default;         0.287;  
 openjdk-hotspot-vm;                  platform;         default;         0.400;  Throughput (ops/sec)
         graalvm-ce;                   virtual;         default;         0.295;  Throughput (ops/sec)
     oracle-graalvm;                  platform;         default;         0.399;  Throughput (ops/sec)
+ eclipse-openj9-vm;                   virtual;         default;         0.000;  Throughput (ops/sec)
       native-image;                  platform;         default;         0.372;  Throughput (ops/sec)
       native-image;                   virtual;             pgo;         0.400;  Throughput (ops/sec)

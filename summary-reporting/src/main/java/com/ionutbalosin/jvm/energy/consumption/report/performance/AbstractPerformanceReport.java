@@ -26,25 +26,27 @@
 package com.ionutbalosin.jvm.energy.consumption.report.performance;
 
 import static com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStatsParser.parsePerformanceStats;
+import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.PERFORMANCE_STATS_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_PERFORMANCE_STATS_OUTPUT_FILE;
 import static java.util.stream.Collectors.toList;
 
 import com.ionutbalosin.jvm.energy.consumption.report.Report;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
 import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.ReportPerformanceStats;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
 
 public abstract class AbstractPerformanceReport implements Report {
 
   public String basePath;
   public List<PerformanceStats> rawStats;
+  public List<ReportPerformanceStats> processedStats = new ArrayList<>();
 
   public void parseRawStats(ExecutionType executionType) throws IOException {
     this.rawStats = parseRawStats(basePath, executionType);
@@ -55,18 +57,19 @@ public abstract class AbstractPerformanceReport implements Report {
     return RAW_PERFORMANCE_STATS_OUTPUT_FILE;
   }
 
-  @Override
-  public void resetProcessedStats() {}
+  public void resetProcessedStats() {
+    this.processedStats.clear();
+  }
 
   @Override
   public void processRawStats() {}
 
   @Override
-  public void reportProcessedStats(String outputFilePath) {}
+  public void reportProcessedStats(String outputFilePath) throws IOException {}
 
   @Override
   public String getProcessedStatsOutputFile() {
-    return "n/a";
+    return PERFORMANCE_STATS_OUTPUT_FILE;
   }
 
   private List<PerformanceStats> parseRawStats(String parentFolder, ExecutionType executionType)
@@ -80,8 +83,6 @@ public abstract class AbstractPerformanceReport implements Report {
         // Ignore all "pgo_instrument" files, since we do not collect performance stats from them
         .filter(path -> !pgoInstrumentMatcher.matches(path))
         .map(filePath -> parsePerformanceStats(filePath, executionType))
-        .filter(Predicate.not(Optional::isEmpty))
-        .map(Optional::get)
         .collect(toList());
   }
 

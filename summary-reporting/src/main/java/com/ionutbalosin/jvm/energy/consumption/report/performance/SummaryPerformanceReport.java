@@ -23,20 +23,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.ionutbalosin.jvm.energy.consumption.report.power;
+package com.ionutbalosin.jvm.energy.consumption.report.performance;
 
-import static com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas.CARBON_DIOXIDE_EMISSION_FACTOR;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ARCH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.BASE_PATH;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.JDK_VERSION;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OS;
 import static java.nio.file.Files.newBufferedWriter;
-import static java.util.Optional.ofNullable;
 
 import com.ionutbalosin.jvm.energy.consumption.formulas.PowerFormulas;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
-import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
-import com.ionutbalosin.jvm.energy.consumption.stats.power.ReportPowerStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.ReportPerformanceStats;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
@@ -44,15 +42,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class SummaryPowerReport extends AbstractPowerReport {
+public class SummaryPerformanceReport extends AbstractPerformanceReport {
 
   final String REFERENCE_JVM = "openjdk-hotspot-vm";
 
   PowerFormulas energyFormulas;
-  double baselinePower;
 
-  public SummaryPowerReport(String module, double baselinePower) {
-    this.baselinePower = baselinePower;
+  public SummaryPerformanceReport(String module) {
     this.energyFormulas = new PowerFormulas();
     this.basePath =
         String.format("%s/%s/results/jdk-%s/%s/%s", BASE_PATH, module, JDK_VERSION, ARCH, OS);
@@ -66,27 +62,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
   @Override
   public void reportRawStats(String outputFilePath) throws IOException {
-    if (rawStats.isEmpty()) {
-      return;
-    }
-
-    try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
-      writer.printf(
-          "%18s;%26s;%16s;%29s;%15s\n",
-          "Category", "Type", "Run Identifier", "Total Energy (Watt⋅sec)", "Elapsed (sec)");
-
-      for (PowerStats powerStats : rawStats) {
-        writer.printf(
-            "%18s;%26s;%16s;%29.3f;%15.3f\n",
-            powerStats.descriptor.category,
-            ofNullable(powerStats.descriptor.type).orElse("N/A"),
-            powerStats.descriptor.runIdentifier,
-            powerStats.energy,
-            powerStats.elapsed);
-      }
-    }
-
-    System.out.printf("Report %s was successfully created\n", outputFilePath);
+    // Note: this report does not print anything
   }
 
   @Override
@@ -102,18 +78,18 @@ public class SummaryPowerReport extends AbstractPowerReport {
     final Set<String> invalidResultTypes = getInvalidResultTypes(rawStats);
     for (String category : categories) {
       for (String runIdentifier : runIdentifiers) {
-        final List<PowerStats> powerStats = getPerfStats(rawStats, category, runIdentifier);
-        if (powerStats.isEmpty()) {
+        final List<PerformanceStats> performanceStats =
+            getPerfStats(rawStats, category, runIdentifier);
+        if (performanceStats.isEmpty()) {
           continue;
         }
-        final List<PowerStats> filteredPowerStats =
-            filterInvalidPowerStats(powerStats, invalidResultTypes);
+        final List<PerformanceStats> filteredPerformanceStats =
+            filterInvalidPerformanceStats(performanceStats, invalidResultTypes);
 
-        final double totalEnergy = energyFormulas.getEnergy(filteredPowerStats);
-        final double carbonDioxide = energyFormulas.getCarbonDioxide(totalEnergy);
+        final double perfGeometricMean = energyFormulas.getGeometricMean(filteredPerformanceStats);
         processedStats.add(
-            new ReportPowerStats(
-                category, runIdentifier, filteredPowerStats.size(), totalEnergy, carbonDioxide));
+            new ReportPerformanceStats(
+                category, runIdentifier, filteredPerformanceStats.size(), perfGeometricMean));
       }
     }
   }
@@ -126,42 +102,32 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%13s;%25s;%19s;%22s\n",
+          "%18s;%16s;%13s;%23s;%23s\n",
           "Category",
           "Run Identifier",
           "Total Tests",
-          "Total Energy (Watt⋅sec)",
-          "Normalised Energy",
-          "CO₂ Emissions (gCO₂)");
+          "Throughput (ops/sec)",
+          "Normalised Throughput");
 
-      final double referenceEnergy = getReferenceEnergy(processedStats, REFERENCE_JVM);
-      for (ReportPowerStats report : processedStats) {
+      final double referenceValue = getReferenceValue(processedStats, REFERENCE_JVM);
+      for (ReportPerformanceStats report : processedStats) {
         writer.printf(
-            "%18s;%16s;%13d;%25.3f;%18.3f;%22.3f\n",
+            "%18s;%16s;%13d;%23.3f;%23.3f\n",
             report.descriptor.category,
             report.descriptor.runIdentifier,
             report.samples,
-            report.energy,
-            report.energy / referenceEnergy,
-            report.carbonDioxide);
+            report.value,
+            report.value / referenceValue);
       }
-      writer.printf(
-          "\n"
-              + "# Note1: The power reference baseline has already been excluded from the energy"
-              + " scores");
-      writer.printf(
-          "\n# Note2: The results that contain errors during execution have already been excluded");
-      writer.printf(
-          "\n# Note3: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
-      writer.printf("\n# Note4: The reference value for normalized data is '%s'", REFERENCE_JVM);
+      writer.printf("\n# Note: The reference value for normalized data is '%s'", REFERENCE_JVM);
     }
 
     System.out.printf("Report %s was successfully created\n", outputFilePath);
   }
 
-  private List<PowerStats> getPerfStats(
-      List<PowerStats> powerStats, String category, String runIdentifier) {
-    return powerStats.stream()
+  private List<PerformanceStats> getPerfStats(
+      List<PerformanceStats> performanceStats, String category, String runIdentifier) {
+    return performanceStats.stream()
         .filter(
             perfStat ->
                 category.equals(perfStat.descriptor.category)
@@ -169,23 +135,23 @@ public class SummaryPowerReport extends AbstractPowerReport {
         .collect(Collectors.toList());
   }
 
-  private static Set<String> getCategories(List<PowerStats> powerStats) {
-    return powerStats.stream()
-        .map(powerStat -> powerStat.descriptor.category)
+  private static Set<String> getCategories(List<PerformanceStats> performanceStats) {
+    return performanceStats.stream()
+        .map(performanceStat -> performanceStat.descriptor.category)
         .collect(Collectors.toSet());
   }
 
-  private static Set<String> getRunIdentifiers(List<PowerStats> powerStats) {
-    return powerStats.stream()
-        .map(powerStat -> powerStat.descriptor.runIdentifier)
+  private static Set<String> getRunIdentifiers(List<PerformanceStats> performanceStats) {
+    return performanceStats.stream()
+        .map(performanceStat -> performanceStat.descriptor.runIdentifier)
         .collect(Collectors.toSet());
   }
 
   // This method retrieves the types of invalid results. Invalid results are those where the energy
   // consumption is zero, indicating errors during test execution.
-  private static Set<String> getInvalidResultTypes(List<PowerStats> powerStats) {
-    return powerStats.stream()
-        .filter(ps -> ps.energy == 0)
+  private static Set<String> getInvalidResultTypes(List<PerformanceStats> performanceStats) {
+    return performanceStats.stream()
+        .filter(ps -> ps.value == 0)
         .map(ps -> ps.descriptor.type)
         .collect(Collectors.toSet());
   }
@@ -193,17 +159,20 @@ public class SummaryPowerReport extends AbstractPowerReport {
   // Filter the invalid tests based on their type.
   // Note: This method assumes that the type is unique across all tests. If there might be
   // duplications, the module or category should also be included in the comparison.
-  private static List<PowerStats> filterInvalidPowerStats(
-      List<PowerStats> powerStats, Set<String> invalidResultTypes) {
-    return powerStats.stream()
+  private static List<PerformanceStats> filterInvalidPerformanceStats(
+      List<PerformanceStats> performanceStats, Set<String> invalidResultTypes) {
+    return performanceStats.stream()
         .filter(ps -> !invalidResultTypes.contains(ps.descriptor.type))
         .collect(Collectors.toList());
   }
 
-  private static double getReferenceEnergy(List<ReportPowerStats> processedStats, String category) {
+  private static double getReferenceValue(
+      List<ReportPerformanceStats> processedStats, String category) {
     return processedStats.stream()
-        .filter(reportPowerStat -> category.equalsIgnoreCase((reportPowerStat.descriptor.category)))
-        .map(reportPowerStat -> reportPowerStat.energy)
+        .filter(
+            reportPerformanceStat ->
+                category.equalsIgnoreCase((reportPerformanceStat.descriptor.category)))
+        .map(reportPerformanceStat -> reportPerformanceStat.value)
         .findAny()
         .orElseThrow(() -> new RuntimeException("Unable to find any category for " + category));
   }
