@@ -35,9 +35,10 @@ public class ReportPerformanceStats {
   public int samples;
   public double value;
 
-  public ReportPerformanceStats(String category, String runIdentifier, double value) {
+  public ReportPerformanceStats(String category, String runIdentifier, int samples, double value) {
     this.descriptor.category = category;
     this.descriptor.runIdentifier = runIdentifier;
+    this.samples = samples;
     this.value = value;
   }
 }

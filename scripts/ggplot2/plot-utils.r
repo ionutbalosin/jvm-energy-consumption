@@ -35,9 +35,19 @@ processCsvColumns <- function(data) {
   colnames(data)[colnames(data) == "Score.Metric"] <- "ScoreMetric"
   colnames(data)[colnames(data) == "Run.Identifier"] <- "RunIdentifier"
   colnames(data)[colnames(data) == "Sample.Identifier"] <- "SampleIdentifier"
+  colnames(data)[colnames(data) == "Normalised.Energy"] <- "NormalisedEnergy"
+  colnames(data)[colnames(data) == "Normalised.Throughput"] <- "NormalisedThroughput"
 
   # convert from string to numeric the Score column. In addition, convert commas to dots.
-  data$Score <- as.numeric(gsub(",", ".", data$Score))
+  if (!is.null(data$Score)) {
+    data$Score <- as.numeric(gsub(",", ".", data$Score))
+  }
+  if (!is.null(data$NormalisedEnergy)) {
+    data$NormalisedEnergy <- as.numeric(gsub(",", ".", data$NormalisedEnergy))
+  }
+  if (!is.null(data$NormalisedThroughput)) {
+    data$NormalisedThroughput <- as.numeric(gsub(",", ".", data$NormalisedThroughput))
+  }
 
   # if exists, convert from string to numeric the SampleIdentifier column
   if (!is.null(data$SampleIdentifier)) {
@@ -91,6 +101,15 @@ plotScatter <- function(data, output_folder, report_basename, report_type, plot_
   saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
 }
 
+# Generate and saves the scatter plot
+plotSummaryScatter <- function(data, output_folder, report_basename, report_type, plot_title) {
+  print(paste("Plotting scatter for",  plot_title, "(", report_basename, ",", report_type, ") ...", sep = " "))
+  # Sort the data frame by 'JvmIdentifier' and then by 'SampleIdentifier' columns to appear chronologically
+  data <- data[order(data$JvmIdentifier, data$NormalisedEnergy), ]
+  plot <- generateSummaryScatterPlot(data, "JvmIdentifier", "Legend", "Energy", "Throughput", plot_title, jdk_arch, jvm_color_palette_map)
+  saveScatterPlot(data, plot, paste(output_folder, "plot", sep = "/"), paste(report_basename, report_type , sep = "-"))
+}
+
 # Generate the bar plot
 generateBarPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
   plot <- ggplot(data, aes(x = Benchmark, y = Score, fill = data[, fill]))
@@ -138,6 +157,31 @@ generateScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, ca
      axis.text.x = element_blank(), # Remove x-axis labels (i.e., too many, it becomes cluttered)
      axis.line.x = element_line(color = "grey95"),
      axis.ticks.x = element_blank() # Remove x-axis (i.e., too many, it becomes cluttered)
+    )
+    plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
+    plot <- plot + guides(color = guide_legend(override.aes = list(size = 5)))
+    plot <- plot + scale_colour_manual(fillLabel, values = color_palette, breaks = rev(unique(data$JvmIdentifier)))
+
+    plot
+}
+
+# Generate the scatter plot
+generateSummaryScatterPlot <- function(data, fill, fillLabel, xLabel, yLabel, title, caption, color_palette) {
+    plot <- ggplot(data, aes(x = NormalisedEnergy, y = NormalisedThroughput, group = JvmIdentifier, color = JvmIdentifier))
+    plot <- plot + geom_point(size = 6)
+    plot <- plot + labs(x = xLabel, y = yLabel, fill = fillLabel, title = title, caption = caption)
+    plot <- plot + theme(
+     text = element_text(size = 18),
+     panel.background = element_rect(fill = NA, colour = NA, linewidth = 0.5, linetype = "solid"),
+     panel.grid.major = element_line(linewidth = 0.5, linetype = "solid", colour = "grey95"),
+     panel.grid.minor = element_line(linewidth = 0.25, linetype = "solid", colour = "grey95"),
+     legend.spacing.y = unit(0.3, "cm"),
+     legend.position = "bottom",
+     plot.title = element_text(size = 18),
+     plot.caption.position = "plot",
+     plot.caption = element_text(hjust = 1),
+     plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+     axis.line.x = element_line(color = "grey95"),
     )
     plot <- plot + guides(fill = guide_legend(byrow = TRUE, reverse = TRUE))
     plot <- plot + guides(color = guide_legend(override.aes = list(size = 5)))
