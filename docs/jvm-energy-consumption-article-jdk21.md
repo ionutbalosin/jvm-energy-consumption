@@ -616,19 +616,20 @@ Based on the total energy consumption, the JVM in the first row consumes less en
 
 # Conclusions
 
-This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, algorithms with different time complexities, etc.
+This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, algorithms with different time complexities, string concatenation, virtual calls, etc.
 
-The selected JVM implementations exhibit varying levels of energy efficiency depending on the software and workloads tested, often displaying significant differences.
+One important takeaway is that measuring energy consumption in the case of small applications (and code patterns) does not reveal much about the efficiency of those code patterns. In other words, it is very difficult to quantify small code optimizations in terms of energy consumption unless these code changes have a significant impact on runtime (e.g., Garbage Collector, Compiler, etc.).
+This is very much different when it comes to performance, where the ecosystem has a lot of tools to precisely measure it.
 
-At the cost of increased compilation expenses, GraalVM Native Image showcased the highest energy efficiency overall for the runtime execution.
+Nevertheless, when it comes to energy consumption, the selected JVM implementations exhibit varying levels of energy efficiency depending on the tested use cases, often displaying significant differences.
 
-OpenJDK HotSpot VM, Oracle GraalVM, and GraalVM CE exhibited similar efficiency in the majority of tests, with marginal differences.
+Based on the tests and collected data, the energy consumption during the build time is significantly higher in the case of GraalVM Native Image (even higher when PGO is enabled) compared to the other JVMs. However, this is expected, as the GraalVM Native Image performs the compilation process ahead of time.
 
-Azul Prime VM's energy consumption varied depending on the test case, but generally, it consumed more energy than other HotSpot-based JVMs.
+Energy consumption is one aspect to consider, but we also need to look into the runtime performance (i.e., the overall efficiency)
 
-Eclipse OpenJ9 VM exhibited comparatively lower energy efficiency.
+Therefore, speaking about runtime, the most efficient option was the Native Image with PGO enabled, which achieved a relatively moderate score for normalized energy consumption but the best overall normalized throughput.
 
-When it comes to software development, to write more eco-friendly code (i.e., code with reduced power consumption), programmers can employ various techniques covered in this report (but not only). These techniques include using cache-friendly data structures, avoiding inefficient algorithms, limiting the number of logged lines and thrown exceptions, minimizing object allocations, defining the scope of allocated objects as close as possible to their usage, etc.
+GraalVM Native Image without PGO, Azul Prime VM, Oracle GraalVM, GraalVM CE, and OpenJDK HotSpot VM exhibited similar efficiency in terms of power consumption versus performance, with marginal differences. Eclipse OpenJ9 VM exhibited comparatively lower energy efficiency but also lower performance.
 
 This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size). However, it is important to note that there are specific JVM features available (to improve start-up response times, reducing memory footprint, and thus reducing energy consumption) that might change the picture in a real-world scenario. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://wiki.openjdk.org/display/crac) introduced in the OpenJDK.
 
