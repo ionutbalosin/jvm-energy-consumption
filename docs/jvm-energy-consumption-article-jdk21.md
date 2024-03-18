@@ -5,9 +5,6 @@
 # Content
 
 - [Introduction](#introduction)
-  - [The importance of power consumption in modern computing](#the-importance-of-power-consumption-in-modern-computing)
-  - [Motivation](#motivation)
-  - [Objectives](#objectives)
 - [Methodology](#methodology)
   - [Measurement Tools](#measurement-tools)
   - [Key Measurement Considerations](#key-measurement-considerations)
@@ -29,11 +26,10 @@
   - [Runtime Normalized Energy](#runtime-normalized-energy)
 - [Applications Build Time Execution Results](#applications-build-time-execution-results)
   - [Build Time Normalized Energy](#build-time-normalized-energy)
-- [How energy consumption correlates with performance](#how-energy-consumption-correlates-with-performance)
+- [How Energy Consumption Correlates with Performance](#how-energy-consumption-correlates-with-performance)
   - [Energy Consumption vs. Throughput](#energy-consumption-vs-throughput)
-- [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
+- [From Energy Consumption to Carbon Emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
-- [Future Work](#future-work)
 - [Final Thoughts](#final-thoughts)
 - [Acknowledgements](#acknowledgements)
 
