@@ -25,6 +25,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.formulas;
 
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
 import com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStats;
 import java.util.List;
 
@@ -54,6 +55,19 @@ public class PowerFormulas {
         sum += powerStat.energy;
       }
       return sum;
+    } else {
+      return Double.NaN;
+    }
+  }
+
+  public double getGeometricMean(List<PerformanceStats> perfStats) {
+    int size = perfStats.size();
+    if (size > 0) {
+      double prod = 1;
+      for (PerformanceStats perfStat : perfStats) {
+        prod *= perfStat.value;
+      }
+      return Math.pow(prod, 1.0 / size);
     } else {
       return Double.NaN;
     }

@@ -44,17 +44,14 @@ public class PerformanceStatsParser {
 
   static final Pattern PATTERN = Pattern.compile("\\d+(\\.\\d+)?");
 
-  public static Optional<PerformanceStats> parsePerformanceStats(
-      Path filePath, ExecutionType executionType) {
-    return parseReportPerformanceStats(filePath)
-        .map(
-            performanceStats -> {
-              performanceStats.descriptor = parseTestFileName(filePath, executionType);
-              return performanceStats;
-            });
+  public static PerformanceStats parsePerformanceStats(Path filePath, ExecutionType executionType) {
+    PerformanceStats performanceStats = new PerformanceStats();
+    performanceStats.descriptor = parseTestFileName(filePath, executionType);
+    parseReportPerformanceStats(filePath).map(value -> performanceStats.value = value);
+    return performanceStats;
   }
 
-  private static Optional<PerformanceStats> parseReportPerformanceStats(Path filePath) {
+  private static Optional<Double> parseReportPerformanceStats(Path filePath) {
     try (BufferedReader bufferedReader =
         new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), UTF_8))) {
       return bufferedReader
@@ -67,11 +64,7 @@ public class PerformanceStatsParser {
                 Matcher matcher = PATTERN.matcher(line);
                 if (matcher.find()) {
                   String valueString = matcher.group();
-                  double value = stringToDouble(valueString);
-
-                  PerformanceStats performanceStats = new PerformanceStats();
-                  performanceStats.value = value;
-                  return performanceStats;
+                  return stringToDouble(valueString);
                 } else {
                   return null;
                 }

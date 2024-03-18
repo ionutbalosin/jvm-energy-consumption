@@ -30,12 +30,17 @@ import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.OUTPUT_FO
 import com.ionutbalosin.jvm.energy.consumption.report.performance.AbstractPerformanceReport;
 import com.ionutbalosin.jvm.energy.consumption.report.performance.JavaSamplesPerformanceReport;
 import com.ionutbalosin.jvm.energy.consumption.report.performance.OffTheShelfApplicationsPerformanceReport;
+import com.ionutbalosin.jvm.energy.consumption.report.performance.SummaryPerformanceReport;
 import com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType;
+import com.ionutbalosin.jvm.energy.consumption.stats.performance.PerformanceStats;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PerformanceReportGenerator {
 
@@ -52,22 +57,58 @@ public class PerformanceReportGenerator {
           new JavaSamplesPerformanceReport("java-samples", "VPThreadQueueThroughput"));
 
   public static void main(String[] args) throws IOException {
+    Map<ExecutionType, List<PerformanceStats>> allPerfStats = new HashMap();
+    // 1. collect raw performance stats
     for (AbstractPerformanceReport report : REPORTS) {
-      calculatePerformance(report);
+      Map<ExecutionType, List<PerformanceStats>> result = calculatePerformance(report);
+
+      // collect individual raw performance stats for each execution type
+      for (ExecutionType executionType : getExecutionTypes()) {
+        List<PerformanceStats> performanceStats =
+            allPerfStats.getOrDefault(executionType, new ArrayList<>());
+        performanceStats.addAll(result.get(executionType));
+        allPerfStats.put(executionType, performanceStats);
+      }
     }
+
+    // 2. the summary report
+    SummaryPerformanceReport summary = new SummaryPerformanceReport("summary-reporting");
+    calculatePerformance(summary, allPerfStats);
   }
 
-  private static void calculatePerformance(AbstractPerformanceReport report) throws IOException {
-    String outputPath = new File(getPath(report.basePath, OUTPUT_FOLDER)).getCanonicalPath();
+  private static Map<ExecutionType, List<PerformanceStats>> calculatePerformance(
+      AbstractPerformanceReport report) throws IOException {
+    String outputPath = new File(getPath1(report.basePath, OUTPUT_FOLDER)).getCanonicalPath();
+    Files.createDirectories(Paths.get(outputPath));
+    Map<ExecutionType, List<PerformanceStats>> result = new HashMap();
+
+    for (ExecutionType executionType : getExecutionTypes()) {
+      report.process(outputPath, executionType);
+      result.put(executionType, report.rawStats);
+    }
+
+    return result;
+  }
+
+  private static void calculatePerformance(
+      AbstractPerformanceReport report,
+      Map<ExecutionType, List<PerformanceStats>> allPerformanceStats)
+      throws IOException {
+    String outputPath = new File(getPath2(report.basePath, OUTPUT_FOLDER)).getCanonicalPath();
     Files.createDirectories(Paths.get(outputPath));
 
     for (ExecutionType executionType : getExecutionTypes()) {
+      report.rawStats = allPerformanceStats.get(executionType);
       report.process(outputPath, executionType);
     }
   }
 
-  private static String getPath(String outputPath, String outputFile) {
+  private static String getPath1(String outputPath, String outputFile) {
     return outputPath + "/../" + outputFile;
+  }
+
+  private static String getPath2(String outputPath, String outputFile) {
+    return outputPath + "/" + outputFile;
   }
 
   private static List<ExecutionType> getExecutionTypes() {
