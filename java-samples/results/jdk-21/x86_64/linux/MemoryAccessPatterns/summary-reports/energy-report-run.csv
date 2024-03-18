@@ -1,6 +1,6 @@
           Category;                      Type;  Run Identifier;  Energy Samples;         Score;       Score Metric
-      native-image;               random_page;             pgo;            1454;     49715.718;  Energy (Watt⋅sec)
-      native-image;               random_heap;             pgo;            1473;     38177.480;  Energy (Watt⋅sec)
+      native-image;               random_page;             pgo;            1206;     40383.520;  Energy (Watt⋅sec)
+      native-image;               random_heap;             pgo;            1217;     31654.572;  Energy (Watt⋅sec)
     oracle-graalvm;               random_heap;         default;            1214;     40082.619;  Energy (Watt⋅sec)
  eclipse-openj9-vm;                    linear;         default;            1213;     43537.012;  Energy (Watt⋅sec)
     oracle-graalvm;               random_page;         default;            1215;     43010.947;  Energy (Watt⋅sec)
@@ -11,7 +11,7 @@
      azul-prime-vm;                    linear;         default;            1217;     33016.932;  Energy (Watt⋅sec)
         graalvm-ce;               random_page;         default;            1215;     45572.657;  Energy (Watt⋅sec)
         graalvm-ce;                    linear;         default;            1215;     56073.157;  Energy (Watt⋅sec)
-      native-image;                    linear;             pgo;            1455;     56532.116;  Energy (Watt⋅sec)
+      native-image;                    linear;             pgo;            1207;     47556.587;  Energy (Watt⋅sec)
     oracle-graalvm;                    linear;         default;            1214;     41849.269;  Energy (Watt⋅sec)
       native-image;                    linear;         default;            1205;     58611.632;  Energy (Watt⋅sec)
         graalvm-ce;               random_heap;         default;            1215;     39544.477;  Energy (Watt⋅sec)

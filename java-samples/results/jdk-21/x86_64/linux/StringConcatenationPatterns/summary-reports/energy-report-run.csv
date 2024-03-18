@@ -13,12 +13,12 @@ openjdk-hotspot-vm;           string_template;         default;            1203;
      azul-prime-vm;            string_builder;         default;            1203;     60632.227;  Energy (Watt⋅sec)
 openjdk-hotspot-vm;            string_builder;         default;            1203;     56083.907;  Energy (Watt⋅sec)
     oracle-graalvm;            string_builder;         default;            1203;     57031.197;  Energy (Watt⋅sec)
-      native-image;             plus_operator;             pgo;            1446;     68477.939;  Energy (Watt⋅sec)
+      native-image;             plus_operator;             pgo;            1203;     59360.637;  Energy (Watt⋅sec)
       native-image;           string_template;         default;            1203;     42365.897;  Energy (Watt⋅sec)
       native-image;            string_builder;         default;            1203;     61119.877;  Energy (Watt⋅sec)
      azul-prime-vm;             plus_operator;         default;            1203;     46877.797;  Energy (Watt⋅sec)
         graalvm-ce;           string_template;         default;            1203;     51082.207;  Energy (Watt⋅sec)
-      native-image;           string_template;             pgo;            1446;     57245.139;  Energy (Watt⋅sec)
-      native-image;            string_builder;             pgo;            1446;     63823.379;  Energy (Watt⋅sec)
+      native-image;           string_template;             pgo;            1203;     48188.427;  Energy (Watt⋅sec)
+      native-image;            string_builder;             pgo;            1203;     54666.107;  Energy (Watt⋅sec)
 
 # Note: The power reference baseline has already been excluded from the energy scores
