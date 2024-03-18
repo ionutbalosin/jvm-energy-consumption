@@ -537,14 +537,13 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 [![MemoryAccessPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)
 
-[![LoggingPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-build.svg?raw=true)
-
 As seen, the Native Image (PGO) consumes the most energy because it is built in two phases: one called instrumentation and the second one that uses the previously generated profile to create the final image.
 
 However, once the native image build is complete, the resulting binary can be executed multiple times without the need for recompilation (i.e., the compilation cost is paid only once), as long as it runs on the specific machine and architecture for which the compilation was performed.
 
 **Additional resources:**
 
+- [Logging Patterns](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/LoggingPatterns/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
 - [Throw Exception Patterns](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/ThrowExceptionPatterns/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
 - [String Concatenation Patterns](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/StringConcatenationPatterns/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
 - [Sorting Algorithms](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/SortingAlgorithms/plot/energy-report-build.svg?raw=true) build time energy consumption plot.
@@ -599,13 +598,13 @@ Let's consider our use case. The table below presents a summary of the total `CO
 
 No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|--------------------|--------------|-------------------------|----------------------------------|-----------------------
-1   | Native Image       | x86_64       | 1,819,642.816           | TODO                             |  TODO                     
-2   | Azul Prime VM      | x86_64       | 1,860,940.776           | TODO                             |  TODO                       
-3   | Eclipse OpenJ9 VM  | x86_64       | 1,929,280.408           | TODO                             |  TODO
-4   | Native Image (PGO) | x86_64       | 2,086,482.972           | TODO                             |  TODO                     
-5   | Oracle GraalVM     | x86_64       | 2,092,295.995           | TODO                             |  TODO                  
-6   | GraalVM CE         | x86_64       | 2,136,435.392           | TODO                             |  TODO                     
-7   | OpenJDK HotSpot VM | x86_64       | 2,217,293.347           | TODO                             |  TODO                      
+1   | Native Image       | x86_64       | 1,819,642.816           | 168                             |  84.917                     
+2   | Azul Prime VM      | x86_64       | 1,860,940.776           | 168                             |  86.844                       
+3   | Eclipse OpenJ9 VM  | x86_64       | 1,929,280.408           | 168                             |  90.033
+4   | Native Image (PGO) | x86_64       | 2,086,482.972           | 168                             |  97.369                     
+5   | Oracle GraalVM     | x86_64       | 2,092,295.995           | 168                             |  97.640                  
+6   | GraalVM CE         | x86_64       | 2,136,435.392           | 168                             |  99.700                     
+7   | OpenJDK HotSpot VM | x86_64       | 2,217,293.347           | 168                             |  103.474                      
 
 *The JVM in the first row consumes less energy overall, while the one in the last row emits the highest CO₂.*
 
@@ -613,7 +612,7 @@ No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emis
 - `CO₂` - carbon dioxide.
 - `gCO₂eq/kWh` - grams of carbon dioxide equivalent per kWh.
 - `gCO₂` - grams of carbon dioxide.
-- `TODO` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/v1.0.0/docs/carbon-emission-factor-17_07_2023-austria.png) for Austria as of TODO, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
+- `168` - is the [current carbon emission factor](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/docs/carbon-emission-factor-18_03_2024-austria.png)  for Austria as of today, March 18, 2024, as reported by the [Electricity Maps](https://app.electricitymaps.com/zone/AT) website.
 
 # Conclusions
 

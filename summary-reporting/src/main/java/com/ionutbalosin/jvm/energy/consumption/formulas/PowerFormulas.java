@@ -33,7 +33,7 @@ public class PowerFormulas {
 
   // Source: https://app.electricitymaps.com/zone/AT
   // TODO: this value changes frequently, it should be checked before every run
-  public static double CARBON_DIOXIDE_EMISSION_FACTOR = 195; // Carbon Intensity (gCO₂eq/kWh)
+  public static double CARBON_DIOXIDE_EMISSION_FACTOR = 168; // Carbon Intensity (gCO₂eq/kWh)
 
   // Calculates the total energy consumption (in watt-seconds) after subtracting a baseline from
   // every result. Since each power measurement (in watts) corresponds to a duration of 1 second,
