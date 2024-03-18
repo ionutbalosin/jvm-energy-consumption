@@ -169,12 +169,12 @@ Measuring energy consumption for smaller tasks (i.e., micro-benchmarking), such 
 The system under test, where the JVM applications were launched, has the following configuration:
 - CPU: Intel Core i9-13900HX Raptor Lake
 - Memory: 64GB DDR5 5200 MHz
-- OS: Ubuntu 22.04.2 LTS / TODO
+- OS: Ubuntu 23.10 / 6.5.0-25-generic
 
 The test client machine where `wrk` was launched has the following configuration:
 - CPU: Intel i7-8550U Kaby Lake R
 - Memory: 32GB DDR4 2400 MHz
-- OS: Ubuntu 22.04.2 LTS / TODO
+- OS: Ubuntu 22.04.2 LTS / 6.5.0-25-generic
 
 The specific model of the wall power meter used is the [Ketotek KTEM02-1](https://www.amazon.de/-/en/dp/B0B2953JM5).
 
@@ -296,14 +296,13 @@ Additional resources:
 
 ## Custom-Made Java Applications
 
-In addition to the off-the-shelf applications, a collection of custom-made Java programs employing various coding paradigms was developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
+In addition to the off-the-shelf applications, a collection of custom-made Java (mini) programs employing various coding paradigms was developed. These programs encompass the most common paradigms encountered in the majority of commercial Java applications.
 
 For each category of custom-made application, the total running time is set to **20 minutes** and the maximum heap size is `8GB`.
 During this 20-minute runtime, consecutive runs of the same application are triggered until the time limit is reached.
+The reported throughput is computed at the end of the application execution runs, excluding a fixed initial warm-up duration of 5 minutes, which is considered sufficient for these micro-benchmarks..
 
-The reported throughput is computed at the end of the application execution runs, excluding a fixed initial warm-up duration of 5 minutes.
-
-During each application execution, **intermediate power consumption metrics**, such as thermal zone sensors and package temperature, are collected at a sampling interval of one second.
+During each application execution, **intermediate power consumption metrics**, including the thermal zone sensors and package temperature, are collected at a sampling interval of one second.
 
 The **total end-to-end energy consumption** is then calculated based on the intermediate power consumption recorded over the 20-minute sampling interval.
 
@@ -312,9 +311,7 @@ The rationale behind this approach is to reflect the total energy consumption (i
 
 ### Memory Access Patterns
 
-This program aims to analyze the relationship between memory access patterns and energy consumption under different JVMs (utilizing both Just-in-Time and Ahead-of-Time compilation).
-
-There are three primary memory access patterns:
+This program aims to analyze the relationship between memory access patterns and energy consumption. There are three primary memory access patterns:
 - **Temporal**: memory that has been recently accessed is likely to be accessed again in the near future.
 - **Spatial**: adjacent memory locations are likely to be accessed in close succession.
 - **Striding**: memory access follows a predictable pattern, typically with a fixed interval between accesses.
@@ -337,16 +334,16 @@ Source code: [MemoryAccessPatterns.java](https://github.com/ionutbalosin/jvm-ene
 
 #### Remarks
 
-The pattern of memory accesses and the co-location or non-co-location of memory significantly influence energy consumption. In general, by performing work on co-located data in chunks and following predictable memory access patterns, our algorithms can achieve significant speed improvements and reduce the energy consumption.
+The variation in trends observed in energy consumption does not differ as significantly as the trends observed in throughput.
 
-When we need to perform chunks of work on co-located data, arrays are widely recognized as cache-friendly due to their contiguous memory layout. Accessing array elements sequentially promotes good data locality, minimizing cache misses, enhancing cache utilization, and reducing energy consumption. 
-In addition to arrays, we can utilize hash tables with open addressing and linear probing instead of bucket and chain hash tables. Similarly, we can store an array of multiple items in each node instead of employing linked lists or trees with individual items in each node.
+Based on the hardware I tested (especially for this application), the power consumption differences are smaller and less obvious compared to the differences in throughput across the three categories of memory access patterns.
+The JVM footprint looks to dominate the energy consumption and not specifically memory access pattern itself.
 
 ### Logging Patterns
 
 When it comes to logging, performance is one of the major concerns. The manner in which we log and the volume of logs can significantly impact the performance of our applications. This is due to the associated costs of heap allocations and the additional work performed by the garbage collector to clean up the heap. In addition to allocations, there are also expenses related to I/O operations when writing and flushing data to disk. All of these factors contribute to increased utilization of hardware resources (e.g., CPU and memory), resulting in higher energy consumption, which is reflected in our monthly bills.
 
-The program measures various logging patterns using UTF-16 characters, which is often the most common use case in business applications. It runs in multiple iterations over a period of 20 minutes, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked. After each iteration, the validity of the results is verified.
+The program measures various logging patterns using UTF-16 characters. It runs in multiple iterations over a period of 20 minutes, and within each iteration, the logging framework (e.g., `java.util.logging.Logger`) is invoked. After each iteration, the validity of the results is verified.
 
 It is crucial to note that none of these logs are physically written to disk; instead, they are written to the `Null OutputStream`. This approach is preferable since the power consumption tools cannot capture any I/O-related power activity.
 
@@ -366,9 +363,11 @@ Source code: [LoggingPatterns.java](https://github.com/ionutbalosin/jvm-energy-c
 
 #### Remarks
 
-Certain logging patterns are more efficient than others. Based on these tests, examples of such patterns include `garded_unparameterized`, `lambda`, `ungarded_unparameterized`, etc. It is worth noting that the energy consumption can vary significantly across different JVMs when logging the same data.
+Across all results, one interesting observation is that Eclipse OpenJ9 VM consumes less energy overall but also exhibits the lowest throughput compared to other JVMs.
 
-Reducing the number of logs to only essential ones, particularly those related to unrecoverable or unexpected scenarios, is a common recommendation that applies well to all business applications. Additionally, employing strategies such as using asynchronous appenders, binary logging, and writing to RAMFS or TEMPFS can further enhance efficiency.
+In other cases, there are situations where, for example, Azul Prime VM in the `guarded_parametrized` scenario consumes the most energy but offers the best throughput. 
+
+Additionally, there are cases where one JVM does not necessarily consume the most energy but offers a very good throughput, as seen with Native Image with PGO in the `lambda` and `guarded_unparametrized` scenarios.
 
 ### Throwing Exception Patterns
 
@@ -394,12 +393,10 @@ Source code: [ThrowExceptionPatterns.java](https://github.com/ionutbalosin/jvm-e
 
 #### Remarks
 
-Creating constant exceptions and throwing them only when necessary is a good approach to mitigate the negative impact  on energy consumption. 
+It's very obvious here that the energy consumption trends are more stable and less fluctuating compared to the throughput trends.
+While the throughput trends vary significantly across different exception throwing patterns, the differences in energy consumption across the JVMs are not as pronounced.
 
-If constant exceptions do not meet the requirements, another option is to override the `fillInStackTrace` method each time a new exception is thrown. 
-
-If none of these alternatives are viable, at the very least, aim to minimize the number of exceptions in the application's source code.
-It is important to consider that the cost increases with the actual stack depth at which the exception is created.
+Again, the JVM footprint dominates the energy consumption costs, diminishing the effects of the different exception throwing patterns in this microbenchmark.
 
 ### String Concatenation Patterns
 
@@ -423,6 +420,12 @@ Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/
 
 *This plot represents the computed throughput at the end of the load test execution after excluding a fixed initial warmup duration of 5 minutes.*
 
+#### Remarks
+
+One interesting observation here is that the Eclipse OpenJ9 VM consumes less energy overall but also exhibits the lowest throughput compared to other JVMs.
+
+In other cases, for example, Native Image (with and without PGO), as well as the Azul Prime VM, consume the most energy but offer better throughput as a trade-off.
+
 ### Sorting Algorithms Complexities
 
 This program utilizes various sorting algorithms with different complexities, ranging from logarithmic to linear, to sort an array of integers occupying `1GB` of memory. 
@@ -445,15 +448,16 @@ Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy
 
 #### Remarks
 
-Even though `quick_sort` and `radix_sort` have different complexities, with quick sort having O(n log n) and radix sort having O(nk), they tend to consume similar amounts of energy when executed on the same JVM platform.
+It's also very obvious here that the energy consumption trends are more stable and less fluctuating compared to the throughput trends.
 
-As we have seen, while algorithm complexities can impact energy consumption, the relationship is not always straightforward. 
+In some cases, one JVM consumes less energy compared to others but offers better throughput, as seen with Native Image in the `radix_sort` scenario, or with Oracle GraalVM in the `merge_sort` scenario.
+
+While algorithm complexities can impact energy consumption, the relationship is not always straightforward.
 In theory, algorithms with higher time or space complexities would generally require more computational effort to execute, leading to increased energy consumption. 
 However, when running these algorithms on hardware, there are a few additional factors to consider. 
 - **Memory access patterns**: Algorithms with poor memory access patterns, such as excessive random or cache-unfriendly accesses, can increase energy consumption.
 - **The underlying hardware**: The characteristics and efficiency of the hardware on which the algorithm is executed can also affect energy consumption.
-
-This is the reason why different algorithms with different time complexities could consume the same amount of energy. Even algorithms within the same class of complexity could end up consuming different amounts of energy. This can occur when an algorithm uses data structures that are poorly located in memory and not cache-friendly.
+- **The JVM footprint**
 
 ### Virtual Calls
 
@@ -482,7 +486,9 @@ Source code: [VirtualCalls.java](https://github.com/ionutbalosin/jvm-energy-cons
 
 #### Remarks
 
-In the context of modern hardware, for most business applications, virtual calls are generally not a major concern unless there is a specific need. As observed in the `bimorphic` case (for Native Image and Eclipse Open J9), it is possible that the compiler may have failed to optimize for the best-case scenario. However, in my opinion, the overall overhead of virtual calls is unlikely to be significant enough to justify avoiding them or caring too much about them.
+In the case of the Eclipse OpenJ9 VM `bimorphic` use case, a new interesting pattern emerges where it consumes the highest energy and has one of the lowest throughputs.
+
+In all other cases, Oracle GraalVM tends to consume the most energy but also offers the highest throughput.
 
 ### Virtual/Platform Threads
 
@@ -563,7 +569,15 @@ Based on the central tendency of the data, the first in the row can be considere
 
 There is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
-TODO 
+Based on the evidence gathered from all of these measurements, there were a mixture of cases where:
+- Higher energy consumption correlated with better throughput.
+- Higher energy consumption correlated with lower throughput.
+- Higher energy consumption did not necessarily result in higher throughput.
+- Lower energy consumption did not necessarily result in lower throughput.
+
+Therefore, it is very hard to correlate energy consumption with performance, as each case is unique, and the JVM may incorporate a broader range of optimizations that could improve performance but impact energy consumption on the other side.
+
+In addition, as demonstrated in the experiments, in general the energy consumption trends in the case of any micro application do not correlate (i.e., are not proportional) with performance trends because the JVM footprint has a larger energy footprint overall.
 
 # From energy consumption to carbon emissions
 
