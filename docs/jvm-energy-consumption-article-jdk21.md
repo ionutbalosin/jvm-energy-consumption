@@ -34,6 +34,7 @@
 - [From energy consumption to carbon emissions](#from-energy-consumption-to-carbon-emissions)
 - [Conclusions](#conclusions)
 - [Future Work](#future-work)
+- [Final Thoughts](#final-thoughts)
 - [Acknowledgements](#acknowledgements)
 
 # Introduction
@@ -574,9 +575,9 @@ Based on the evidence gathered from all of these measurements, there were a mixt
 - Higher energy consumption did not necessarily result in higher throughput.
 - Lower energy consumption did not necessarily result in lower throughput.
 
-Therefore, it is very hard to correlate energy consumption with performance, as each case is unique, and the JVM may incorporate a broader range of optimizations that could improve performance but impact (positively or negatively) energy consumption on the other side.
+Therefore, it is very difficult and not intuitive to correlate energy consumption with performance, as each case is unique, and the JVM may incorporate a broader range of optimizations that could improve performance but impact (positively or negatively) energy consumption on the other side.
 
-In addition, as demonstrated in the experiments, in general the energy consumption trends in the case of a micro application do not correlate (i.e., are not proportional) with performance trends because the JVM footprint has a larger energy footprint than the micro benchmark.
+In addition, as demonstrated in the experiments, in general the energy consumption trends in the case of a micro benchmark do not correlate (i.e., are not proportional) with performance trends because the JVM footprint has a larger energy footprint than the code in the micro benchmark.
 
 To summarize, there is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they can support each other, there are cases where they are not aligned.
 
@@ -586,15 +587,15 @@ The plot from below summarizes the relationship between the  normalised total en
 
 [![PerformanceEnergyReport.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)
 
-As observed, despite having the lowest energy footprint, Native Image does not offer the highest throughput. However, the highest throughput is achieved by Native Image (PGO) at the expense of increased energy consumption, albeit still lower than other JVMs such as GraalVM CE or OpenJDK HotSpot VM.
+As observed, despite having the lowest energy footprint, Native Image without PGO does not offer the highest throughput. However, the highest throughput is achieved by Native Image with PGO enabled at the expense of increased energy consumption, although still lower than other JVMs such as GraalVM CE or OpenJDK HotSpot VM.
 
-On the lower end of the spectrum is Eclipse OpenJ9 VM, which exhibits a relatively lower throughput but still consumes more energy than, for example, Native Image or Azul Prime VM.
+On the lower end of the spectrum is Eclipse OpenJ9 VM, which exhibits the lowest throughput but still consumes more energy than, for example, Native Image without PGO or Azul Prime VM.
 
 # From energy consumption to carbon emissions
 
 Energy consumption and carbon emissions are closely correlated. To convert energy consumption from `Watt⋅sec` to `CO₂` emissions, we would first need to know the energy source (e.g., coal, natural gas, renewable energy) and its associated carbon emissions factor. Next, we multiply the energy consumption by the carbon emissions factor specific to our region (or the region of our data center) for the given energy source.
 
-Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption during applications runtime execution time. 
+Let's consider our use case. The table below presents a summary of the total `CO₂` emissions attributed to each JVM, calculated based on the total energy consumption during runtime execution of the applications.
 
 No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
 ----|--------------------|--------------|-------------------------|----------------------------------|-----------------------
@@ -606,7 +607,7 @@ No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emis
 6   | GraalVM CE         | x86_64       | 2,136,435.392           | TODO                             |  TODO                     
 7   | OpenJDK HotSpot VM | x86_64       | 2,217,293.347           | TODO                             |  TODO                      
 
-Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
+*The JVM in the first row consumes less energy overall, while the one in the last row emits the highest CO₂.*
 
 **Legend:** 
 - `CO₂` - carbon dioxide.
@@ -616,30 +617,29 @@ Based on the total energy consumption, the JVM in the first row consumes less en
 
 # Conclusions
 
-This article presents an empirical investigation into the variations in energy consumption among key JVM platforms on the x86_64 Intel chipset. The study explores the differences observed when running off-the-shelf web-based applications as well as common code patterns such as logging, memory accesses, exception throwing, algorithms with different time complexities, string concatenation, virtual calls, etc.
+This article presents an empirical investigation into the variations in energy consumption among key JVM implementations on the `x86_64` Intel chipset. The study includes off-the-shelf web-based applications (Spring Boot and Quarkus-based), as well as custom Java code samples (micro benchmarks) that rely on common code patterns such as logging, memory accesses, exception throwing, algorithms with different time complexities, string concatenation, virtual calls, etc.
 
-One important takeaway is that measuring energy consumption in the case of small applications (and code patterns) does not reveal much about the efficiency of those code patterns. In other words, it is very difficult to quantify small code optimizations in terms of energy consumption unless these code changes have a significant impact on runtime (e.g., Garbage Collector, Compiler, etc.).
-This is very much different when it comes to performance, where the ecosystem has a lot of tools to precisely measure it.
+One important takeaway is that measuring energy consumption in the case of micro benchmarks does not reveal much about the efficiency of those code patterns. In other words, it is very difficult to quantify small code snippets in terms of energy consumption unless these code snippets have a significant impact on runtime (e.g., Garbage Collector and/or Compiler).
+However, this contrasts with performance measuring, where tools can accurately measure even a few instructions down to the nanosecond level.
 
-Nevertheless, when it comes to energy consumption, the selected JVM implementations exhibit varying levels of energy efficiency depending on the tested use cases, often displaying significant differences.
+Nevertheless, when it comes to energy consumption, the selected JVM implementations exhibit varying levels of energy efficiency depending on the use case, often displaying significant differences.
 
-Based on the tests and collected data, the energy consumption during the build time is significantly higher in the case of GraalVM Native Image (even higher when PGO is enabled) compared to the other JVMs. However, this is expected, as the GraalVM Native Image performs the compilation process ahead of time.
+Overall, based on the conducted tests and collected data, it's evident that energy consumption during the build time is significantly higher in the case of GraalVM Native Image, especially when PGO is enabled, compared to other JVMs. However, this is expected, as the GraalVM Native Image performs the compilation process ahead of time. Additionally, Azul Prime VM exhibits slightly higher energy consumption during build time compared to other JVMs such as Eclipse OpenJ9 VM, Oracle GraalVM, OpenJDK HotSpot VM, and GraalVM CE.
 
-Energy consumption is one aspect to consider, but we also need to look into the runtime performance (i.e., the overall efficiency)
+The build energy consumption is one aspect to consider, but we also need to evaluate runtime efficiency, which includes both energy consumption and performance. In terms of runtime efficiency, the Native Image with PGO enabled showed the highest efficiency.
+While its normalized energy consumption score was relatively moderate compared to other JVMs, it delivered the best overall normalized throughput across all tested use cases.
 
-Therefore, speaking about runtime, the most efficient option was the Native Image with PGO enabled, which achieved a relatively moderate score for normalized energy consumption but the best overall normalized throughput.
+GraalVM Native Image without PGO, Azul Prime VM, Oracle GraalVM, GraalVM CE, and OpenJDK HotSpot VM exhibited similar efficiency in terms of power consumption versus performance, with marginal differences. Eclipse OpenJ9 VM, on the other hand, also demonstrated moderate overall energy consumption but exhibited the lowest performance in terms of throughput.
 
-GraalVM Native Image without PGO, Azul Prime VM, Oracle GraalVM, GraalVM CE, and OpenJDK HotSpot VM exhibited similar efficiency in terms of power consumption versus performance, with marginal differences. Eclipse OpenJ9 VM exhibited comparatively lower energy efficiency but also lower performance.
+This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size), except the PGO for the Native-Image. However, it is important to note that there are other specific JVM features available (to improve start-up response times, reducing memory footprint, and eventually reducing energy consumption) that might change the picture in a real-world scenario. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://wiki.openjdk.org/display/crac) introduced in the OpenJDK.
 
-This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size). However, it is important to note that there are specific JVM features available (to improve start-up response times, reducing memory footprint, and thus reducing energy consumption) that might change the picture in a real-world scenario. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://wiki.openjdk.org/display/crac) introduced in the OpenJDK.
+# Final Thoughts
 
-Therefore, the report should not be considered as the final determination of the most energy-efficient JVM distribution. Instead, it serves as an initial exploration, providing an approach to quantify energy consumption in real-world application scenarios.
+This report should not be considered as a final verdict on which JVM is the most energy efficient. My goal is to offer an accurate and transparent analysis based on my knowledge, avoiding bias toward any specific JVM. I do not aim to promote or favor any JVM over another, and I am not responsible for influencing marketing or community adoption.
 
-# Future Work
+Additionally, it covers only a small subset of applications that may not be as representative as your production code. Instead, it serves as a starting point for further investigation and can be used as a reference for future analysis. It may also be useful for software engineers seeking a better understanding of how to measure energy consumption in the JVM world.
 
-If you have any suggestions or are interested in contributing to this project, please feel free to reach out or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption). 
-
-Your contributions are welcome and appreciated. 
+> Join me in making a difference! My free-time, and non-profit project welcomes and values any form of involvement. Contact me directly or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption) to contribute to the Java community.
 
 **Looking forward to contributing to a more eco-friendly world!**
 
