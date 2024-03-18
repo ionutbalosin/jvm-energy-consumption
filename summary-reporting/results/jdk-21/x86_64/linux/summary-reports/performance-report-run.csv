@@ -1,0 +1,10 @@
+          Category;  Run Identifier;  Total Tests;   Throughput (ops/sec);  Normalised Throughput
+ eclipse-openj9-vm;         default;           25;               2093.415;                  0.683
+        graalvm-ce;         default;           25;               3111.770;                  1.015
+    oracle-graalvm;         default;           25;               3218.249;                  1.050
+     azul-prime-vm;         default;           25;               2860.131;                  0.933
+openjdk-hotspot-vm;         default;           25;               3065.751;                  1.000
+      native-image;         default;           25;               2893.824;                  0.944
+      native-image;             pgo;           25;               3765.613;                  1.228
+
+# Note: The reference value for normalized data is 'openjdk-hotspot-vm'

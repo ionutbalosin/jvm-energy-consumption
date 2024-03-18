@@ -1,12 +1,13 @@
-          Category;  Run Identifier;  Total Tests;  Total Energy (Watt⋅sec);  CO₂ Emissions (gCO₂)
- eclipse-openj9-vm;         default;           25;              1929280.408;               104.503
-        graalvm-ce;         default;           25;              2136435.392;               115.724
-    oracle-graalvm;         default;           25;              2092295.995;               113.333
-     azul-prime-vm;         default;           25;              1860940.776;               100.801
-openjdk-hotspot-vm;         default;           25;              2217293.347;               120.103
-      native-image;         default;           25;              1819642.816;                98.564
-      native-image;             pgo;           25;              2086482.972;               113.018
+          Category;  Run Identifier;  Total Tests;  Total Energy (Watt⋅sec);  Normalised Energy;  CO₂ Emissions (gCO₂)
+ eclipse-openj9-vm;         default;           25;              1929280.408;             0.870;               104.503
+        graalvm-ce;         default;           25;              2136435.392;             0.964;               115.724
+    oracle-graalvm;         default;           25;              2092295.995;             0.944;               113.333
+     azul-prime-vm;         default;           25;              1860940.776;             0.839;               100.801
+openjdk-hotspot-vm;         default;           25;              2217293.347;             1.000;               120.103
+      native-image;         default;           25;              1819642.816;             0.821;                98.564
+      native-image;             pgo;           25;              2086482.972;             0.941;               113.018
 
 # Note1: The power reference baseline has already been excluded from the energy scores
 # Note2: The results that contain errors during execution have already been excluded
 # Note3: The carbon emission factor used was '195.0'
+# Note4: The reference value for normalized data is 'openjdk-hotspot-vm'
