@@ -25,6 +25,7 @@
  */
 package com.ionutbalosin.jvm.energy.consumption.report.power;
 
+import static com.ionutbalosin.jvm.energy.consumption.stats.ExecutionType.BUILD_TIME;
 import static com.ionutbalosin.jvm.energy.consumption.stats.power.PowerStatsParser.parsePowerStats;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.ENERGY_REPORT_OUTPUT_FILE;
 import static com.ionutbalosin.jvm.energy.consumption.util.EnergyUtils.RAW_POWER_STATS_OUTPUT_FILE;
@@ -78,16 +79,20 @@ public abstract class AbstractPowerReport implements Report {
     return Files.walk(Paths.get(parentFolder))
         .filter(Files::isRegularFile)
         .filter(path -> buildAndRunMatcher.matches(path))
-        // Ignore all "pgo_instrument" files, since they are handled separately, together with "pgo"
+        // Ignore all 'pgo_instrument' files, since they are handled separately,
+        // together with 'pgo' (for type 'build')
         .filter(path -> !pgoInstrumentMatcher.matches(path))
         .map(
             filePath -> {
               PowerStats powerStats = parsePowerStats(filePath, executionType);
 
-              // The "pgo" and "pgo_instrument" files are handled together because "pgo_instrument"
-              // is the initial phase of the "pgo", therefore they need to be aggregated in the
-              // final report for the total energy consumption
-              if (pgoMatcher.matches(filePath)) {
+              // Only in the case of the 'build' type, the 'pgo' and 'pgo_instrument' files are
+              // handled together because 'pgo_instrument' represents the initial phase of 'pgo'.
+              // Therefore, they need to be aggregated in the final report to calculate the total
+              // build energy consumption. Note: The 'run' type of the 'pgo_instrument' file should
+              // be ignored since it was only used (as a temporary run) to create the final 'pgo'
+              // file.
+              if (executionType == BUILD_TIME && pgoMatcher.matches(filePath)) {
                 String pgoFilename = filePath.getFileName().toString();
                 Path directory = filePath.getParent();
 

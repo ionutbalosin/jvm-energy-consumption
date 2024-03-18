@@ -5,7 +5,7 @@
      azul-prime-vm;         default;           25;              1860940.776;               100.801
 openjdk-hotspot-vm;         default;           25;              2217293.347;               120.103
       native-image;         default;           25;              1819642.816;                98.564
-      native-image;             pgo;           25;              2312071.218;               125.237
+      native-image;             pgo;           25;              2086482.972;               113.018
 
 # Note1: The power reference baseline has already been excluded from the energy scores
 # Note2: The results that contain errors during execution have already been excluded
