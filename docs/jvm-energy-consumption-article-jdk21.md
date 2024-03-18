@@ -567,8 +567,6 @@ Based on the central tendency of the data, the first in the row can be considere
 
 # How energy consumption correlates with performance
 
-There is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
-
 Based on the evidence gathered from all of these measurements, there were a mixture of cases where:
 - Higher energy consumption correlated with better throughput.
 - Higher energy consumption correlated with lower throughput.
@@ -578,6 +576,8 @@ Based on the evidence gathered from all of these measurements, there were a mixt
 Therefore, it is very hard to correlate energy consumption with performance, as each case is unique, and the JVM may incorporate a broader range of optimizations that could improve performance but impact energy consumption on the other side.
 
 In addition, as demonstrated in the experiments, in general the energy consumption trends in the case of any micro application do not correlate (i.e., are not proportional) with performance trends because the JVM footprint has a larger energy footprint overall.
+
+To summarize, there is no direct relationship between energy consumption and performance. In general, energy consumption and performance are trade-offs within a system. While they often support each other, there can be cases where they are not aligned.
 
 # From energy consumption to carbon emissions
 

@@ -45,6 +45,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class SummaryPowerReport extends AbstractPowerReport {
+
+  final String REFERENCE_JVM = "openjdk-hotspot-vm";
+
   PowerFormulas energyFormulas;
   double baselinePower;
 
@@ -123,20 +126,23 @@ public class SummaryPowerReport extends AbstractPowerReport {
 
     try (PrintWriter writer = new PrintWriter(newBufferedWriter(Paths.get(outputFilePath)))) {
       writer.printf(
-          "%18s;%16s;%13s;%25s;%22s\n",
+          "%18s;%16s;%13s;%25s;%19s;%22s\n",
           "Category",
           "Run Identifier",
           "Total Tests",
           "Total Energy (Watt⋅sec)",
+          "Normalised Energy",
           "CO₂ Emissions (gCO₂)");
 
+      final double referenceEnergy = getReferenceEnergy(processedStats, REFERENCE_JVM);
       for (ReportPowerStats report : processedStats) {
         writer.printf(
-            "%18s;%16s;%13d;%25.3f;%22.3f\n",
+            "%18s;%16s;%13d;%25.3f;%18.3f;%22.3f\n",
             report.descriptor.category,
             report.descriptor.runIdentifier,
             report.samples,
             report.energy,
+            report.energy / referenceEnergy,
             report.carbonDioxide);
       }
       writer.printf(
@@ -147,6 +153,7 @@ public class SummaryPowerReport extends AbstractPowerReport {
           "\n# Note2: The results that contain errors during execution have already been excluded");
       writer.printf(
           "\n# Note3: The carbon emission factor used was '%s'", CARBON_DIOXIDE_EMISSION_FACTOR);
+      writer.printf("\n# Note4: The reference energy for normalized data is '%s'", REFERENCE_JVM);
     }
 
     System.out.printf("Report %s was successfully created\n", outputFilePath);
@@ -191,5 +198,13 @@ public class SummaryPowerReport extends AbstractPowerReport {
     return powerStats.stream()
         .filter(ps -> !invalidResultTypes.contains(ps.descriptor.type))
         .collect(Collectors.toList());
+  }
+
+  private static double getReferenceEnergy(List<ReportPowerStats> processedStats, String category) {
+    return processedStats.stream()
+        .filter(reportPowerStat -> category.equalsIgnoreCase((reportPowerStat.descriptor.category)))
+        .map(reportPowerStat -> reportPowerStat.energy)
+        .findAny()
+        .orElseThrow(() -> new RuntimeException("Unable to find any category for " + category));
   }
 }
