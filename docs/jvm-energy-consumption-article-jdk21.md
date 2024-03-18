@@ -196,18 +196,18 @@ Multiple application categories were included in these measurements.
 
 The list of included JMVs is:
 
-JVM distribution                                                                        | JDK version |Architecture
-----------------------------------------------------------------------------------------|-------------|---------------
-[OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)  | 21.0.1      |x86_64
-[GraalVM CE 21](https://www.graalvm.org/downloads)                                      | 21.0.1      |x86_64
-[Oracle GraalVM 21](https://www.graalvm.org/downloads)                                  | 21.0.1      |x86_64
-[Graal Native Image (shipped with Oracle GraalVM 21)](https://www.graalvm.org/downloads)| 21.0.1      |x86_64
-[Azul Prime VM](https://www.azul.com/products/prime)                                    | 21.0.1      |x86_64
-[Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                     | 21.0.1      |x86_64
+JVM distribution                                                                          | JDK version |Architecture
+------------------------------------------------------------------------------------------|-------------|---------------
+[OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)    | 21.0.1      |x86_64
+[GraalVM CE 21](https://www.graalvm.org/downloads)                                        | 21.0.1      |x86_64
+[Oracle GraalVM 21](https://www.graalvm.org/downloads)                                    | 21.0.1      |x86_64
+[GraalVM Native Image (shipped with Oracle GraalVM 21)](https://www.graalvm.org/downloads)| 21.0.1      |x86_64
+[Azul Prime VM](https://www.azul.com/products/prime)                                      | 21.0.1      |x86_64
+[Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                       | 21.0.1      |x86_64
 
 For each JVM, the specific tuning parameters were the initial heap size, typically set to 1m (e.g., `-Xms1m`), and the maximum heap size, which varies depending on the application category (e.g., `-Xmx1g`, `-Xmx8g`, `-Xmx12g`).
 
-Only in the case of Graal Native Image additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**). 
+Only in the case of GraalVM Native Image additional compilation parameters were used (i.e., **Profile-Guided Optimizations**, and **G1 GC**). 
 This was primarily to enable a fairer comparison between the native image and other JVMs (i.e., AOT vs JIT, serial GC vs other parallel and concurrent garbage collectors) in the case of long-running applications.
 
 # Applications Runtime Execution Results
@@ -364,7 +364,7 @@ Across all results, one interesting observation is that Eclipse OpenJ9 VM consum
 
 In other cases, there are situations where, for example, Azul Prime VM in the `guarded_parametrized` scenario consumes the most energy but offers the best throughput. 
 
-Additionally, there are cases where one JVM does not necessarily consume the most energy but offers a very good throughput, as seen with Native Image with PGO in the `lambda` and `guarded_unparametrized` scenarios.
+Additionally, there are cases where one JVM does not necessarily consume the most energy but offers a very good throughput, as seen with GraalVM Native Image with PGO in the `lambda` and `guarded_unparametrized` scenarios.
 
 ### Throwing Exception Patterns
 
@@ -421,7 +421,7 @@ Source code: [StringConcatenationPatterns.java](https://github.com/ionutbalosin/
 
 One interesting observation here is that the Eclipse OpenJ9 VM consumes less energy overall but also exhibits the lowest throughput compared to other JVMs.
 
-In other cases, for example, Native Image (with and without PGO), as well as the Azul Prime VM, consume the most energy but offer better throughput as a trade-off.
+In other cases, for example, GraalVM Native Image (with and without PGO), as well as the Azul Prime VM, consume the most energy but offer better throughput as a trade-off.
 
 ### Sorting Algorithms Complexities
 
@@ -447,7 +447,7 @@ Source code: [SortingAlgorithms.java](https://github.com/ionutbalosin/jvm-energy
 
 It's also very obvious here that the energy consumption trends are more stable and less fluctuating compared to the throughput trends.
 
-In some cases, one JVM consumes less energy compared to others but offers better throughput, as seen with Native Image in the `radix_sort` scenario, or with Oracle GraalVM in the `merge_sort` scenario.
+In some cases, one JVM consumes less energy compared to others but offers better throughput, as seen with GraalVM Native Image in the `radix_sort` scenario, or with Oracle GraalVM in the `merge_sort` scenario.
 
 While algorithm complexities can impact energy consumption, the relationship is not always straightforward.
 In theory, algorithms with higher time or space complexities would generally require more computational effort to execute, leading to increased energy consumption. 
@@ -509,15 +509,15 @@ Source code: [VPThreadQueueThroughput.java](https://github.com/ionutbalosin/jvm-
 
 This section describes the normalized energy for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM  distribution  | Architecture | Normalized Energy | Phase 
-----|--------------------|--------------|-------------------|--------
-1   | Native Image       | x86_64       | 0.821             | runtime
-2   | Azul Prime VM      | x86_64       | 0.839             | runtime
-3   | Eclipse OpenJ9 VM  | x86_64       | 0.870             | runtime
-4   | Native Image (PGO) | x86_64       | 0.941             | runtime
-5   | Oracle GraalVM     | x86_64       | 0.944             | runtime
-6   | GraalVM CE         | x86_64       | 0.964             | runtime
-7   | OpenJDK HotSpot VM | x86_64       | 1.000             | runtime
+No. | JVM  distribution          | Architecture | Normalized Energy | Phase 
+----|----------------------------|--------------|-------------------|--------
+1   | GraalVM Native Image       | x86_64       | 0.821             | runtime
+2   | Azul Prime VM              | x86_64       | 0.839             | runtime
+3   | Eclipse OpenJ9 VM          | x86_64       | 0.870             | runtime
+4   | GraalVM Native Image (PGO) | x86_64       | 0.941             | runtime
+5   | Oracle GraalVM             | x86_64       | 0.944             | runtime
+6   | GraalVM CE                 | x86_64       | 0.964             | runtime
+7   | OpenJDK HotSpot VM         | x86_64       | 1.000             | runtime
 
 *The first JVM in the row is the most eco-friendly, while the last consumes the most energy.*
 
@@ -533,7 +533,7 @@ Since they all exhibit a consistent trend in terms of energy consumption across 
 
 [![MemoryAccessPatternsEnergyConsumption.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/java-samples/results/jdk-21/x86_64/linux/MemoryAccessPatterns/plot/energy-report-build.svg?raw=true)
 
-As seen, the Native Image (PGO) consumes the most energy because it is built in two phases: one called instrumentation and the second one that uses the previously generated profile to create the final image.
+As seen, the GraalVM Native Image (PGO) consumes the most energy because it is built in two phases: one called instrumentation and the second one that uses the previously generated profile to create the final image.
 
 However, once the native image build is complete, the resulting binary can be executed multiple times without the need for recompilation (i.e., the compilation cost is paid only once), as long as it runs on the specific machine and architecture for which the compilation was performed.
 
@@ -550,15 +550,15 @@ However, once the native image build is complete, the resulting binary can be ex
 
 This section describes the normalized energy geometric mean for all application categories during build time. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM distribution   | Architecture | Normalized Energy | Phase
-----|--------------------|--------------|-------------------|-------
-1   | GraalVM CE         | x86_64       | 0.980             | build time
-2   | OpenJDK HotSpot VM | x86_64       | 1.000             | build time
-3   | Oracle GraalVM     | x86_64       | 1.183             | build time
-4   | Eclipse OpenJ9 VM  | x86_64       | 1.246             | build time
-5   | Azul Prime VM      | x86_64       | 3.586             | build time
-6   | Native Image       | x86_64       | 25.187            | build time
-7   | Native Image (PGO) | x86_64       | 55.952            | build time
+No. | JVM distribution           | Architecture | Normalized Energy | Phase
+----|----------------------------|--------------|-------------------|-------
+1   | GraalVM CE                 | x86_64       | 0.980             | build time
+2   | OpenJDK HotSpot VM         | x86_64       | 1.000             | build time
+3   | Oracle GraalVM             | x86_64       | 1.183             | build time
+4   | Eclipse OpenJ9 VM          | x86_64       | 1.246             | build time
+5   | Azul Prime VM              | x86_64       | 3.586             | build time
+6   | GraalVM Native Image       | x86_64       | 25.187            | build time
+7   | GraalVM Native Image (PGO) | x86_64       | 55.952            | build time
 
 *The first JVM in the row is the most eco-friendly, while the last consumes the most energy.*
 
@@ -582,9 +582,9 @@ The plot from below summarizes the relationship between the  normalised total en
 
 [![PerformanceEnergyReport.svg](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/summary-reporting/results/jdk-21/x86_64/linux/plot/performance-energy-report-run.svg?raw=true)
 
-As observed, despite having the lowest energy footprint, Native Image without PGO does not offer the highest throughput. However, the highest throughput is achieved by Native Image with PGO enabled at the expense of increased energy consumption, although still lower than other JVMs such as GraalVM CE or OpenJDK HotSpot VM.
+As observed, despite having the lowest energy footprint, GraalVM Native Image without PGO does not offer the highest throughput. However, the highest throughput is achieved by GraalVM Native Image with PGO enabled at the expense of increased energy consumption, although still lower than other JVMs such as GraalVM CE or OpenJDK HotSpot VM.
 
-On the lower end of the spectrum is Eclipse OpenJ9 VM, which exhibits the lowest throughput but still consumes more energy than, for example, Native Image without PGO or Azul Prime VM.
+On the lower end of the spectrum is Eclipse OpenJ9 VM, which exhibits the lowest throughput but still consumes more energy than, for example, GraalVM Native Image without PGO or Azul Prime VM.
 
 # From energy consumption to carbon emissions
 
@@ -592,15 +592,15 @@ Energy consumption and carbon emissions are closely correlated. To convert energ
 
 Let's consider our use case. The table below presents a summary of the total `CO₂` emissions attributed to each JVM, calculated based on the total energy consumption during runtime execution of the applications.
 
-No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
-----|--------------------|--------------|-------------------------|----------------------------------|-----------------------
-1   | Native Image       | x86_64       | 1,819,642.816           | 168                             |  84.917                     
-2   | Azul Prime VM      | x86_64       | 1,860,940.776           | 168                             |  86.844                       
-3   | Eclipse OpenJ9 VM  | x86_64       | 1,929,280.408           | 168                             |  90.033
-4   | Native Image (PGO) | x86_64       | 2,086,482.972           | 168                             |  97.369                     
-5   | Oracle GraalVM     | x86_64       | 2,092,295.995           | 168                             |  97.640                  
-6   | GraalVM CE         | x86_64       | 2,136,435.392           | 168                             |  99.700                     
-7   | OpenJDK HotSpot VM | x86_64       | 2,217,293.347           | 168                             |  103.474                      
+No. | JVM distribution           | Architecture | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
+----|----------------------------|--------------|-------------------------|----------------------------------|-----------------------
+1   | GraalVM Native Image       | x86_64       | 1,819,642.816           | 168                             |  84.917                     
+2   | Azul Prime VM              | x86_64       | 1,860,940.776           | 168                             |  86.844                       
+3   | Eclipse OpenJ9 VM          | x86_64       | 1,929,280.408           | 168                             |  90.033
+4   | GraalVM Native Image (PGO) | x86_64       | 2,086,482.972           | 168                             |  97.369                     
+5   | Oracle GraalVM             | x86_64       | 2,092,295.995           | 168                             |  97.640                  
+6   | GraalVM CE                 | x86_64       | 2,136,435.392           | 168                             |  99.700                     
+7   | OpenJDK HotSpot VM         | x86_64       | 2,217,293.347           | 168                             |  103.474                      
 
 *The JVM in the first row consumes less energy overall, while the one in the last row emits the highest CO₂.*
 
@@ -621,7 +621,7 @@ Nevertheless, when it comes to energy consumption, the selected JVM implementati
 
 Overall, based on the conducted tests and collected data, it's evident that energy consumption during the build time is significantly higher in the case of GraalVM Native Image, especially when PGO is enabled, compared to other JVMs. However, this is expected, as the GraalVM Native Image performs the compilation process ahead of time. Additionally, Azul Prime VM exhibits slightly higher energy consumption during build time compared to other JVMs such as Eclipse OpenJ9 VM, Oracle GraalVM, OpenJDK HotSpot VM, and GraalVM CE.
 
-The build energy consumption is one aspect to consider, but we also need to evaluate runtime efficiency, which includes both energy consumption and performance. In terms of runtime efficiency, the Native Image with PGO enabled showed the highest efficiency.
+The build energy consumption is one aspect to consider, but we also need to evaluate runtime efficiency, which includes both energy consumption and performance. In terms of runtime efficiency, the GraalVM Native Image with PGO enabled showed the highest efficiency.
 While its normalized energy consumption score was relatively moderate compared to other JVMs, it delivered the best overall normalized throughput across all tested use cases.
 
 GraalVM Native Image without PGO, Azul Prime VM, Oracle GraalVM, GraalVM CE, and OpenJDK HotSpot VM exhibited similar efficiency in terms of power consumption versus performance, with marginal differences. Eclipse OpenJ9 VM, on the other hand, also demonstrated moderate overall energy consumption but exhibited the lowest performance in terms of throughput.
