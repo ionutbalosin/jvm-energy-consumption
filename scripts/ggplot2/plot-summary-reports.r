@@ -45,7 +45,7 @@ jvm_color_palette_map <- setNames(jvm_color_palette, jvm_names)
 # add an additional category color palette to properly render the graphs."
 jvm_color_palette_map <- c(jvm_color_palette_map, "Native Image (pgo)" = "#882255")
 
-plotEnergyReports <- function(output_folder, report_basename, plot_type, plot_title) {
+plotReports <- function(output_folder, report_basename, plot_type, plot_title) {
   # Define the report types that might be generated
   report_types <- c("run", "build")
 
@@ -70,6 +70,24 @@ plotEnergyReports <- function(output_folder, report_basename, plot_type, plot_ti
   }
 }
 
+plotSummaryReports <- function(output_folder, report_basename, plot_title) {
+  # Define the report types that might be generated
+  report_types <- c("run")
+
+  # For each report type generate the corresponding plots
+  for (report_type in report_types) {
+    file_basename <- paste(report_basename, "-", report_type, ".csv", sep = "")
+    data <- readCsvResultsFromFile(paste(output_folder, "summary-reports", file_basename, sep = "/"))
+
+    if (!empty(data)) {
+      data <- processCsvColumns(data)
+      plotSummaryScatter(data, output_folder, report_basename, report_type, plot_title)
+    } else {
+      cat("Skipping", file_basename, "Found empty content ...\n")
+    }
+  }
+}
+
 # Generate plots for off-the-shelf applications
 off_the_shelf_applications <- list(
   "Spring PetClinic" = "spring-petclinic",
@@ -77,9 +95,9 @@ off_the_shelf_applications <- list(
 )
 for (off_the_shelf_application in names(off_the_shelf_applications)) {
   application_full_path <- file.path(base_path, "off-the-shelf-applications", off_the_shelf_applications[[off_the_shelf_application]], output_folder, sep = "/")
-  plotEnergyReports(application_full_path, "energy-report", "bar-plot", off_the_shelf_application)
-  plotEnergyReports(application_full_path, "performance-report", "bar-plot", off_the_shelf_application)
-  plotEnergyReports(application_full_path, "raw-power", "scatter-plot", off_the_shelf_application)
+  plotReports(application_full_path, "energy-report", "bar-plot", off_the_shelf_application)
+  plotReports(application_full_path, "performance-report", "bar-plot", off_the_shelf_application)
+  plotReports(application_full_path, "raw-power", "scatter-plot", off_the_shelf_application)
 }
 
 # Generate plots for java samples
@@ -95,7 +113,11 @@ java_samples <- list(
 )
 for (java_sample in names(java_samples)) {
   sample_full_path <- paste(base_path, "java-samples", output_folder, java_samples[[java_sample]], sep = "/")
-  plotEnergyReports(sample_full_path, "energy-report", "bar-plot", java_sample)
-  plotEnergyReports(sample_full_path, "performance-report", "bar-plot", java_sample)
+  plotReports(sample_full_path, "energy-report", "bar-plot", java_sample)
+  plotReports(sample_full_path, "performance-report", "bar-plot", java_sample)
   # Note: Skip the scatter plotting for Java samples since it involves splitting them into individual plots (per category:type).
 }
+
+# Generate plots for summary results
+application_full_path <- file.path(base_path, "summary-reporting", output_folder, sep = "/")
+plotSummaryReports(application_full_path, "performance-energy-report", "Normalised Throughput vs. Normalised Energy")

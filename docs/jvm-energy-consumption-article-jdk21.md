@@ -515,14 +515,15 @@ Source code: [VPThreadQueueThroughput.java](https://github.com/ionutbalosin/jvm-
 
 This section describes the normalized energy for all application categories during runtime execution. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM  distribution                                   | Architecture | Normalized Energy | Phase 
-----|-----------------------------------------------------|--------------|-------------------|--------
-1   | Graal Native Image (shipped with Oracle GraalVM 21) | x86_64       | TODO              | runtime
-2   | OpenJDK HotSpot VM                                  | x86_64       | TODO              | runtime
-3   | Oracle GraalVM 21                                   | x86_64       | TODO              | runtime
-4   | GraalVM CE 21                                       | x86_64       | TODO              | runtime
-5   | Azul Prime VM                                       | x86_64       | TODO              | runtime
-6   | Eclipse OpenJ9 VM                                   | x86_64       | TODO              | runtime
+No. | JVM  distribution  | Architecture | Normalized Energy | Phase 
+----|--------------------|--------------|-------------------|--------
+1   | Native Image       | x86_64       | 0.821             | runtime
+2   | Azul Prime VM      | x86_64       | 0.839             | runtime
+3   | Eclipse OpenJ9 VM  | x86_64       | 0.870             | runtime
+4   | Native Image (PGO) | x86_64       | 0.941             | runtime
+5   | Oracle GraalVM     | x86_64       | 0.944             | runtime
+6   | GraalVM CE         | x86_64       | 0.964             | runtime
+7   | OpenJDK HotSpot VM | x86_64       | 1.000             | runtime
 
 Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -554,14 +555,15 @@ Additional resources:
 
 This section describes the normalized energy geometric mean for all application categories during build time. It is purely informative and provides a high-level understanding of the overall energy consumption scores across all JVMs.
 
-No. | JVM distribution                                    | Architecture | Normalized Energy | Phase
-----|-----------------------------------------------------|--------------|-------------------|-------
-1   | Oracle GraalVM 21                                   | x86_64       | TODO              | build time
-2   | GraalVM CE 21                                       | x86_64       | TODO              | build time
-3   | OpenJDK HotSpot VM                                  | x86_64       | TODO              | build time
-4   | Azul Prime VM                                       | x86_64       | TODO              | build time
-5   | Eclipse OpenJ9 VM                                   | x86_64       | TODO              | build time
-6   | Graal Native Image (shipped with Oracle GraalVM 21) | x86_64       | TODO              | build time
+No. | JVM distribution   | Architecture | Normalized Energy | Phase
+----|--------------------|--------------|-------------------|-------
+2   | GraalVM CE         | x86_64       | 0.980             | build time
+3   | OpenJDK HotSpot VM | x86_64       | 1.000             | build time
+1   | Oracle GraalVM     | x86_64       | 1.183             | build time
+5   | Eclipse OpenJ9 VM  | x86_64       | 1.246             | build time
+4   | Azul Prime VM      | x86_64       | 3.586             | build time
+6   | Native Image       | x86_64       | 25.187            | build time
+4   | Native Image (PGO) | x86_64       | 55.952            | build time
 
 Based on the central tendency of the data, the first in the row can be considered the most eco-friendly JVM, while the last in the row consumes the most energy.
 
@@ -585,14 +587,15 @@ Energy consumption and carbon emissions are closely correlated. To convert energ
 
 Let's consider our use case. The table below presents a summary of the total CO₂ emissions for each JVM, calculated based on the energy consumption during applications runtime execution time. 
 
-No. | JVM distribution                                    | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
-----|-----------------------------------------------------|-------------------------|----------------------------------|-----------------------
-1   | OpenJDK HotSpot VM                                  | TODO                    | TODO                             |  TODO                      
-2   | Graal Native Image (shipped with Oracle GraalVM 21) | TODO                    | TODO                             |  TODO                     
-3   | Oracle GraalVM 21                                   | TODO                    | TODO                             |  TODO                  
-4   | GraalVM CE 21                                       | TODO                    | TODO                             |  TODO                     
-5   | Azul Prime VM                                       | TODOv                   | TODO                             |  TODO                       
-6   | Eclipse OpenJ9 VM                                   | TODO                    | TODO                             |  TODO
+No. | JVM distribution   | Architecture | Total Energy (Watt⋅sec) | CO₂ Emission Factor (gCO₂eq/kWh) | CO₂ Emissions (gCO₂)
+----|--------------------|--------------|-------------------------|----------------------------------|-----------------------
+1   | Native Image       | x86_64       | 1,819,642.816           | TODO                             |  TODO                     
+2   | Azul Prime VM      | x86_64       | 1,860,940.776           | TODO                             |  TODO                       
+3   | Eclipse OpenJ9 VM  | x86_64       | 1,929,280.408           | TODO                             |  TODO
+4   | Native Image (PGO) | x86_64       | 2,086,482.972           | TODO                             |  TODO                     
+5   | Oracle GraalVM     | x86_64       | 2,092,295.995           | TODO                             |  TODO                  
+6   | GraalVM CE         | x86_64       | 2,136,435.392           | TODO                             |  TODO                     
+7   | OpenJDK HotSpot VM | x86_64       | 2,217,293.347           | TODO                             |  TODO                      
 
 Based on the total energy consumption, the JVM in the first row consumes less energy overall, while the JVM in the last row emits the highest amount of carbon dioxide.
 

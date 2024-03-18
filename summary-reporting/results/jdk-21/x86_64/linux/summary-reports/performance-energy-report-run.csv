@@ -1,0 +1,10 @@
+    Category        ; Run Identifier ; Total Tests ; Total Energy (Watt⋅sec)  ; Normalised Energy ; CO₂ Emissions (gCO₂)  ; Throughput (ops/sec)  ; Normalised Throughput
+eclipse-openj9-vm   ; default        ; 25          ; 1929280.408              ; 0.870             ; 104.503               ; 2093.415              ; 0.683
+graalvm-ce          ; default        ; 25          ; 2136435.392              ; 0.964             ; 115.724               ; 3111.770              ; 1.015
+oracle-graalvm      ; default        ; 25          ; 2092295.995              ; 0.944             ; 113.333               ; 3218.249              ; 1.050
+azul-prime-vm       ; default        ; 25          ; 1860940.776              ; 0.839             ; 100.801               ; 2860.131              ; 0.933
+openjdk-hotspot-vm  ; default        ; 25          ; 2217293.347              ; 1.000             ; 120.103               ; 3065.751              ; 1.000
+native-image        ; default        ; 25          ; 1819642.816              ; 0.821             ; 98.564                ; 2893.824              ; 0.944
+native-image        ; pgo            ; 25          ; 2086482.972              ; 0.941             ; 113.018               ; 3765.613              ; 1.228
+
+# Note: Manually generated with ChatGPT based on 'energy-report-run.csv' and 'performance-report-run.csv'
