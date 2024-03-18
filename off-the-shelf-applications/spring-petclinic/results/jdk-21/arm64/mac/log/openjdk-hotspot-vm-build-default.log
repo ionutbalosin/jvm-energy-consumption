@@ -6,7 +6,7 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- clean:3.3.2:clean (default-clean) @ spring-petclinic ---
-[INFO] Deleting /Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target
+[INFO] Deleting /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target
 [INFO] 
 [INFO] --- enforcer:3.4.1:enforce (enforce-java) @ spring-petclinic ---
 [INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
@@ -17,10 +17,10 @@
 [INFO] You have 0 Checkstyle violations.
 [INFO] 
 [INFO] --- jacoco:0.8.11:prepare-agent (default) @ spring-petclinic ---
-[INFO] argLine set to -javaagent:/Users/<username>k/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/jacoco.exec
+[INFO] argLine set to -javaagent:/Users/<username>/.m2/repository/org/jacoco/org.jacoco.agent/0.8.11/org.jacoco.agent-0.8.11-runtime.jar=destfile=/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/jacoco.exec
 [INFO] 
 [INFO] --- git-commit-id:6.0.0:revision (default) @ spring-petclinic ---
-[INFO] dotGitDirectory '/Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
+[INFO] dotGitDirectory '/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/.git'
 [INFO] Collected git.build.user.name with value <username>
 [INFO] Collected git.build.user.email with value <email>
 [INFO] Collected git.branch with value main
@@ -83,7 +83,7 @@
 [INFO] including property 'git.build.time' in results
 [INFO] including property 'git.commit.message.full' in results
 [INFO] including property 'git.remote.origin.url' in results
-[INFO] Writing properties file [/Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/classes/git.properties] (for project petclinic)...
+[INFO] Writing properties file [/Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/classes/git.properties] (for project petclinic)...
 [INFO] 
 [INFO] --- spring-boot:3.2.1:build-info (default) @ spring-petclinic ---
 [INFO] 
@@ -109,14 +109,14 @@
 [INFO] Skipping JaCoCo execution due to missing execution data file.
 [INFO] 
 [INFO] --- jar:3.3.0:jar (default-jar) @ spring-petclinic ---
-[INFO] Building jar: /Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar
+[INFO] Building jar: /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar
 [INFO] 
 [INFO] --- spring-boot:3.2.1:repackage (repackage) @ spring-petclinic ---
-[INFO] Replacing main artifact /Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
-[INFO] The original artifact has been renamed to /Users/<username>k/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar.original
+[INFO] Replacing main artifact /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /Users/<username>/work/git/jvm-energy-consumption/off-the-shelf-applications/spring-petclinic/spring-petclinic/target/spring-petclinic-3.2.0-SNAPSHOT.jar.original
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.215 s
-[INFO] Finished at: 2024-03-18T07:06:50+01:00
+[INFO] Total time:  7.217 s
+[INFO] Finished at: 2024-03-18T20:17:06+01:00
 [INFO] ------------------------------------------------------------------------
