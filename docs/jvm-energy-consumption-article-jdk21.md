@@ -200,12 +200,12 @@ Multiple application categories were included in these measurements.
 
 The list of included JMVs is:
 
-JVM distribution                                                                                | JDK version |Architecture
-------------------------------------------------------------------------------------------------|-------------|---------------
+JVM distribution                                                                                 | JDK version |Architecture
+-------------------------------------------------------------------------------------------------|-------------|---------------
 [OpenJDK HotSpot VM](https://projects.eclipse.org/projects/adoptium.temurin/downloads)           | 21.0.1      |x86_64
-[GraalVM CE 21](https://www.graalvm.org/downloads)                                               | 21.0.1      |x86_64
-[Oracle GraalVM 21](https://www.graalvm.org/downloads)                                           | 21.0.1      |x86_64
-[Oracle GraalVM Native Image (shipped with Oracle GraalVM 21)](https://www.graalvm.org/downloads)| 21.0.1      |x86_64
+[GraalVM CE](https://www.graalvm.org/downloads)                                                  | 21.0.1      |x86_64
+[Oracle GraalVM](https://www.graalvm.org/downloads)                                              | 21.0.1      |x86_64
+[Oracle GraalVM Native Image (shipped with Oracle GraalVM)](https://www.graalvm.org/downloads)   | 21.0.1      |x86_64
 [Azul Prime VM](https://www.azul.com/products/prime)                                             | 21.0.1      |x86_64
 [Eclipse OpenJ9 VM](https://www.eclipse.org/openj9)                                              | 21.0.1      |x86_64
 
