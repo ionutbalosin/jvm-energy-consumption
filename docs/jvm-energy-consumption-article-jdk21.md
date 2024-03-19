@@ -261,8 +261,9 @@ During the final part of this plot, the power consumption decreases for all JVMs
 *This plot represents the maximum throughput reported by wrk at the end of the load test execution.*
 
 Additional resources:
-- wrk [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/test-plan.lua) plan
-- wrk [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/wrk)
+- [wrk load test plan](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/spring-petclinic/test-plan.lua)
+- [wrk reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/wrk)
+- [performance hardware metrics](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/spring-petclinic/results/jdk-21/x86_64/linux/perf) (e.g., including CPU and memory utilization, RSS, VSZ, PSS)
 
 ### Quarkus Hibernate ORM Panache
 
@@ -293,8 +294,9 @@ During the final part of this plot, the power consumption decreases for all JVMs
 *This plot represents the maximum throughput reported by wrk at the end of the load test execution.*
 
 Additional resources:
-- wrk [load test](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/test-plan.lua) plan
-- wrk [reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/wrk)
+- [wrk load test plan](https://github.com/ionutbalosin/jvm-energy-consumption/blob/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/test-plan.lua)
+- [wrk reports](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/wrk)
+- [performance hardware metrics](https://github.com/ionutbalosin/jvm-energy-consumption/tree/main/off-the-shelf-applications/quarkus-hibernate-orm-panache-quickstart/results/jdk-21/x86_64/linux/perf) (e.g., including CPU and memory utilization, RSS, VSZ, PSS)
 
 ## Custom-Made Java Applications
 
