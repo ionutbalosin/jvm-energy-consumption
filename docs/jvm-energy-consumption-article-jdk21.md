@@ -634,7 +634,7 @@ Additionally, it covers only a small subset of applications that may not be as r
 
 > Join me in making a difference! My free-time, and non-profit project welcomes and values any form of involvement. Contact me directly or open a pull request on [GitHub](https://github.com/ionutbalosin/jvm-energy-consumption) to contribute to the Java community.
 
-**Looking forward to contributing to a more eco-friendly world!**
+**Looking forward to understanding how to make a more eco-friendly world!**
 
 # Acknowledgements
 
