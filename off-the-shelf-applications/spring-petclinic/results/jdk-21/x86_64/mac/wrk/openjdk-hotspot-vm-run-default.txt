@@ -1,124 +1,124 @@
-Running 30s test @ http://169.254.173.197:8080
+Running 118m test @ http://169.254.173.197:8080
   8 threads and 900 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     5.23ms    6.85ms 166.00ms   93.21%
-    Req/Sec     0.92k   651.60     2.86k    61.31%
-  219688 requests in 30.03s, 617.28MB read
-  Socket errors: connect 651, read 0, write 0, timeout 0
-Requests/sec:   7316.32
-Transfer/sec:     20.56MB
+    Latency    78.82ms  277.95ms   2.00s    94.75%
+    Req/Sec     1.59k     0.90k   20.08k    65.64%
+  41965677 requests in 118.00m, 124.59GB read
+  Socket errors: connect 651, read 215, write 0, timeout 273248
+Requests/sec:   5927.41
+Transfer/sec:     18.02MB
 ------------------------------
 Summary statistics:
-  Total requests: 219688
+  Total requests: 41965677
   Total socket connection errors: 651
-  Total socket read errors: 0
+  Total socket read errors: 215
   Total socket write errors: 0
   Total HTTP errors (i.e., status codes > 399): 0
-  Total timeout errors: 0
+  Total timeout errors: 273248
 ------------------------------
 Latency percentiles:
-      1%     0.86ms
-      2%     0.96ms
-      3%     1.03ms
-      4%     1.10ms
-      5%     1.16ms
-      6%     1.21ms
-      7%     1.26ms
-      8%     1.30ms
-      9%     1.35ms
-     10%     1.40ms
-     11%     1.44ms
-     12%     1.48ms
-     13%     1.53ms
-     14%     1.58ms
-     15%     1.62ms
-     16%     1.67ms
-     17%     1.72ms
-     18%     1.76ms
-     19%     1.81ms
-     20%     1.86ms
-     21%     1.91ms
-     22%     1.96ms
-     23%     2.01ms
-     24%     2.06ms
-     25%     2.11ms
-     26%     2.17ms
-     27%     2.23ms
-     28%     2.28ms
-     29%     2.34ms
-     30%     2.39ms
-     31%     2.45ms
-     32%     2.50ms
-     33%     2.56ms
-     34%     2.62ms
-     35%     2.68ms
-     36%     2.73ms
-     37%     2.79ms
-     38%     2.85ms
-     39%     2.90ms
-     40%     2.96ms
-     41%     3.02ms
-     42%     3.07ms
-     43%     3.13ms
-     44%     3.19ms
-     45%     3.25ms
-     46%     3.31ms
-     47%     3.36ms
-     48%     3.42ms
-     49%     3.48ms
-     50%     3.54ms
-     51%     3.61ms
-     52%     3.67ms
-     53%     3.74ms
-     54%     3.80ms
-     55%     3.87ms
-     56%     3.95ms
-     57%     4.02ms
-     58%     4.09ms
-     59%     4.17ms
-     60%     4.25ms
-     61%     4.33ms
-     62%     4.42ms
-     63%     4.51ms
-     64%     4.59ms
-     65%     4.69ms
-     66%     4.79ms
-     67%     4.89ms
-     68%     5.00ms
-     69%     5.11ms
-     70%     5.22ms
-     71%     5.34ms
-     72%     5.47ms
-     73%     5.61ms
-     74%     5.74ms
-     75%     5.89ms
-     76%     6.05ms
-     77%     6.20ms
-     78%     6.37ms
-     79%     6.55ms
-     80%     6.74ms
-     81%     6.95ms
-     82%     7.18ms
-     83%     7.41ms
-     84%     7.70ms
-     85%     7.98ms
-     86%     8.31ms
-     87%     8.66ms
-     88%     9.05ms
-     89%     9.51ms
-     90%    10.00ms
-     91%    10.56ms
-     92%    11.19ms
-     93%    11.92ms
-     94%    12.75ms
-     95%    13.81ms
-     96%    15.27ms
-     97%    17.53ms
-     98%    21.63ms
-     99%    31.80ms
-   99.9%    90.58ms
-  99.99%   134.10ms
- 99.999%   153.06ms
-99.9999%   166.00ms
+      1%     5.25ms
+      2%     7.54ms
+      3%     8.16ms
+      4%     8.56ms
+      5%     8.88ms
+      6%     9.14ms
+      7%     9.37ms
+      8%     9.58ms
+      9%     9.77ms
+     10%     9.95ms
+     11%    10.12ms
+     12%    10.28ms
+     13%    10.43ms
+     14%    10.58ms
+     15%    10.73ms
+     16%    10.87ms
+     17%    11.01ms
+     18%    11.15ms
+     19%    11.29ms
+     20%    11.42ms
+     21%    11.56ms
+     22%    11.70ms
+     23%    11.83ms
+     24%    11.97ms
+     25%    12.11ms
+     26%    12.25ms
+     27%    12.39ms
+     28%    12.53ms
+     29%    12.68ms
+     30%    12.82ms
+     31%    12.97ms
+     32%    13.11ms
+     33%    13.26ms
+     34%    13.41ms
+     35%    13.55ms
+     36%    13.70ms
+     37%    13.85ms
+     38%    13.99ms
+     39%    14.14ms
+     40%    14.28ms
+     41%    14.42ms
+     42%    14.56ms
+     43%    14.71ms
+     44%    14.85ms
+     45%    14.99ms
+     46%    15.13ms
+     47%    15.27ms
+     48%    15.42ms
+     49%    15.56ms
+     50%    15.71ms
+     51%    15.85ms
+     52%    16.00ms
+     53%    16.15ms
+     54%    16.31ms
+     55%    16.46ms
+     56%    16.62ms
+     57%    16.79ms
+     58%    16.95ms
+     59%    17.13ms
+     60%    17.30ms
+     61%    17.49ms
+     62%    17.68ms
+     63%    17.88ms
+     64%    18.08ms
+     65%    18.30ms
+     66%    18.52ms
+     67%    18.76ms
+     68%    19.02ms
+     69%    19.29ms
+     70%    19.59ms
+     71%    19.91ms
+     72%    20.26ms
+     73%    20.65ms
+     74%    21.09ms
+     75%    21.57ms
+     76%    22.09ms
+     77%    22.65ms
+     78%    23.23ms
+     79%    23.81ms
+     80%    24.38ms
+     81%    24.94ms
+     82%    25.49ms
+     83%    26.02ms
+     84%    26.56ms
+     85%    27.12ms
+     86%    27.70ms
+     87%    28.33ms
+     88%    29.03ms
+     89%    29.84ms
+     90%    30.84ms
+     91%    32.20ms
+     92%    34.39ms
+     93%    38.94ms
+     94%   138.24ms
+     95%   435.69ms
+     96%   740.94ms
+     97%  1048.87ms
+     98%  1356.70ms
+     99%  1664.30ms
+   99.9%  1962.21ms
+  99.99%  1996.07ms
+ 99.999%  1999.62ms
+99.9999%  1999.96ms
     100%     0.00ms
   Note: Please take these latency percentiles with caution since wrk suffers from the Coordinated Omission problem. To get accurate latency measurements, use wrk2.
