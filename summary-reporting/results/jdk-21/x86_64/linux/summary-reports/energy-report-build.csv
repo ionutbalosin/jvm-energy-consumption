@@ -1,13 +1,13 @@
           Category;  Run Identifier;  Total Tests;  Total Energy (Watt⋅sec);  Normalised Energy;  CO₂ Emissions (gCO₂)
- eclipse-openj9-vm;         default;           26;                 5429.135;             1.246;                 0.294
-        graalvm-ce;         default;           26;                 4268.414;             0.980;                 0.231
-    oracle-graalvm;         default;           26;                 5155.021;             1.183;                 0.279
-     azul-prime-vm;         default;           26;                15620.636;             3.586;                 0.846
-openjdk-hotspot-vm;         default;           26;                 4356.297;             1.000;                 0.236
-      native-image;         default;           26;               109723.133;            25.187;                 5.943
-      native-image;             pgo;           26;               243742.531;            55.952;                13.203
+ eclipse-openj9-vm;         default;           26;                 5429.135;             1.246;                 0.253
+        graalvm-ce;         default;           26;                 4268.414;             0.980;                 0.199
+    oracle-graalvm;         default;           26;                 5155.021;             1.183;                 0.241
+     azul-prime-vm;         default;           26;                15620.636;             3.586;                 0.729
+openjdk-hotspot-vm;         default;           26;                 4356.297;             1.000;                 0.203
+      native-image;         default;           26;               109723.133;            25.187;                 5.120
+      native-image;             pgo;           26;               243742.531;            55.952;                11.375
 
 # Note1: The power reference baseline has already been excluded from the energy scores
 # Note2: The results that contain errors during execution have already been excluded
-# Note3: The carbon emission factor used was '195.0'
+# Note3: The carbon emission factor used was '168.0'
 # Note4: The reference value for normalized data is 'openjdk-hotspot-vm'
