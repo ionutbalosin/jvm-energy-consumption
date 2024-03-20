@@ -58,7 +58,7 @@ Below is a list of several objectives I considered for my experiments:
 
 - **Comparative Analysis**: Compare the energy consumption of different types of applications (and code patterns) running on different Java Virtual Machines (JVM), to identify variations and determine which JVMs are more energy-efficient.
 - **Power Measurement Techniques**: An approach about how to run applications under different workloads and measure the overall energy consumption. 
-- **Performance-Optimized Power Efficiency**: Investigate how energy consumption correlates with system performance.
+- **Performance-Optimized Power Efficiency**: Investigate how energy consumption correlates with JVM performance.
 
 >  Please note that this analysis **does not primarily focus on JVM performance comparison**. The intention is to understand the energy consumption of a JVM under specific loading factors rather than determining the fastest JVM. Therefore, please refrain from viewing it solely from a performance standpoint. All throughput-related plots are included to provide complementary insights into how a JVM behaves under different loads, enabling relevant power consumption measurements.
 
@@ -568,7 +568,7 @@ Based on the evidence gathered from all of these measurements, there were cases 
 - Higher energy consumption correlated with better throughput.
 - Higher energy consumption correlated with lower throughput. 
 - Lower energy consumption correlated with better throughput.
-- Lower energy consumption correlated with lower throughput."
+- Lower energy consumption correlated with lower throughput.
 
 Therefore, it is challenging to anticipate and correlate energy consumption with performance, as each case is unique. The JVM incorporates a broader range of optimizations that could improve performance but may also affect energy consumption either positively or negatively.
 
@@ -626,7 +626,7 @@ While its normalized energy consumption score was relatively moderate compared t
 
 Oracle GraalVM Native Image without PGO, Azul Prime VM, Oracle GraalVM, GraalVM CE, and OpenJDK HotSpot VM exhibited similar efficiency in terms of power consumption versus performance, with marginal differences. Eclipse OpenJ9 VM, on the other hand, also demonstrated moderate overall energy consumption but exhibited the lowest performance in terms of throughput.
 
-This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size), except the PGO for the Native-Image. However, it is important to note that there are other specific JVM features available (to improve start-up response times, reducing memory footprint, and eventually reducing energy consumption) that might change the picture in a real-world scenario. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://wiki.openjdk.org/display/crac) introduced in the OpenJDK.
+This study was conducted using generally available and common features across the selected JVMs, with little to no tuning (i.e., only adjusting the initial and maximum heap size), except the PGO for the Oracle GraalVM Native Image. However, it is important to note that there are other specific JVM features available (to improve start-up response times, reducing memory footprint, and eventually reducing energy consumption) that might change the picture in a real-world scenario. Examples of such features include Eclipse OpenJ9's [shared class cache (SCC)](https://eclipse.dev/openj9/docs/shrc), Azul Prime VM's [ReadyNow!](https://www.azul.com/products/components/readynow), or the novel technology [CRaC](https://wiki.openjdk.org/display/crac) introduced in the OpenJDK.
 
 # Final Thoughts
 
