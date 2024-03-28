@@ -645,4 +645,8 @@ I am very thankful to [Jiří Holuša](https://linkedin.com/in/jiří-holuša-16
 
 1. Zakaria Ournani, Mohammed Chakib Belgaid, Romain Rouvoy, Pierre Rust, Joel Penhoat: [Evaluating the Impact of Java Virtual Machines on Energy Consumption](https://inria.hal.science/hal-03275286/document)
 
-2. [How NOT to Measure Latency](https://www.youtube.com/watch?v=lJ8ydIuPFeU) by Gil Tene
+2. Gil Tene: [How NOT to Measure Latency](https://www.youtube.com/watch?v=lJ8ydIuPFeU)
+
+3. Ko Turk: [Your frontend is ☠️ ⚠️ Let's measure its impact with CO2.js](https://www.adesso.nl/en/news/blog/your-frontend-is-let-s-measure-its-impact-with-co2-js.jsp)
+
+4. Ko Turk: [Green Software Engineering: Best Practices](https://www.adesso.nl/en/news/blog/green-software-engineering-best-practices.jsp)
