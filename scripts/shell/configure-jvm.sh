@@ -2,9 +2,15 @@
 #
 # JVM Energy Consumption
 #
-# MIT License
+# Copyright (C) 2023-2025 Ionut Balosin
+# Website:      www.ionutbalosin.com
+# Social Media:
+#   LinkedIn:   ionutbalosin
+#   Bluesky:    @ionutbalosin.bsky.social
+#   X:          @ionutbalosin
+#   Mastodon:   ionutbalosin@mastodon.social
 #
-# Copyright (c) 2023-2024 Ionut Balosin, Ko Turk
+# MIT License
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal

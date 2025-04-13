@@ -15,9 +15,10 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spotless.maven.plugin.version>2.42.0</spotless.maven.plugin.version>
+        <spotless.maven.plugin.version>2.44.4</spotless.maven.plugin.version>
         <maven.jar.plugin.version>3.3.0</maven.jar.plugin.version>
-        <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
+        <google.java.format>1.19.2</google.java.format>
         <!-- These properties will be overridden by command line parameters -DmainClass="..." -DimageName="..." -Djar.finalName="..."-->
         <mainClass>undefined</mainClass>
         <imageName>undefined</imageName>
@@ -84,14 +85,14 @@
                 <configuration>
                     <java>
                         <googleJavaFormat>
-                            <version>1.19.2</version>
+                            <version>${google.java.format}</version>
                             <style>GOOGLE</style>
                             <reflowLongStrings>true</reflowLongStrings>
                             <groupArtifact>com.google.googlejavaformat:google-java-format</groupArtifact>
                         </googleJavaFormat>
                         <removeUnusedImports/>
                         <licenseHeader>
-                            <file>${maven.multiModuleProjectDirectory}/LICENSE-HEADER-JAVA</file>
+                            <file>${maven.multiModuleProjectDirectory}/license/LICENSE-HEADER-JAVA</file>
                         </licenseHeader>
                     </java>
                 </configuration>
